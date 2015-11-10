@@ -39,8 +39,9 @@ by using the following keys and providing an string with the reason.
 Open up your AppDelegate.m and add the following to it:
 
 ```objective-c
-#define ORCHEXTRA_API_KEY @"key"
-#define ORCHEXTRA_API_SECRET @"secret"
+#import <Orchextra/Orchextra.h>
+#define ORCHEXTRA_API_KEY @"YOUR_API_KEY"
+#define ORCHEXTRA_API_SECRET @"YOUR_API_SECRET"
   
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[Orchextra sharedInstance] setApiKey:ORCHEXTRA_API_KEY apiSecret:ORCHEXTRA_API_SECRET
@@ -68,6 +69,15 @@ user.gender = ORCGenderFemale;
 In order to get custom schemes within our app AppDelegate must conform the OrchextraCustomActionDelegate protocol, the following method will handle all the custom scheme created in Orchextra.
 
 ```objective-c
+// Conform delegate with Orchextra object
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    //....... Code........//
+    [[Orchextra sharedInstance] setDelegate:self];
+}
+  
+#pragma mark - Orchextra CustomAction Delegate
+// Method to handle custom schemes
 - (void)executeCustomScheme:(NSString *)scheme
 {
     /* Code to handle custom scheme */
