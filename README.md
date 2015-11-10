@@ -112,7 +112,7 @@ To launch the scanner you just need to add the following line to the action.
 ```objective-c
 [[Orchextra sharedInstance] startScanner];
 ```
-#### Image Recognization
+#### Image Recognition
 To launch the image recognition action you just need to add the following line to the action.
 This option is only available if you have a Vuforia account with a cloud database. 
 ```objective-c
