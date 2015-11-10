@@ -1,0 +1,100 @@
+/* 
+  Localizable.strings
+  Orchestra
+
+  Created by Judith Medina on 12/6/15.
+  Copyright (c) 2015 Gigigo. All rights reserved.
+*/
+
+/* Globals */
+"cancel_button" = "Cancelar";
+"Ok" = "Ok";
+
+/* Alert Location */
+"Location_services_are_off" = "La localización está desactivada.";
+"Background_location_is_not_enabled" = "La localización en segundo plano no está activada.";
+"Turn_on_background_location_service" = "Para usar la localización en segundo plano debes seleccionar la opción 'Siempre' en Ajustes Servicios de Localización";
+"Settings" = "Ajustes";
+
+
+/* Default Local Notification*/
+"title_default_local_notification" = "Echa un vistazo!";
+"body_default_local_notification" = "Entra y descubre las novedades.";
+
+
+//------------------------------------------------------------------------------------------------------------------------------//
+//-----------------------------------------------           SCANNER            -------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------------------------//
+
+"scanner" = "Escaner";
+"scanning" = "Escaneando...";
+"match_not_found" = "No hay coincidencias";
+"match_found" = "Coincidencia encontrada";
+
+//------------------------------------------------------------------------------------------------------------------------------//
+//-----------------------------------------------           BROWSER            -------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------------------------//
+
+"Browser" = "Browser";
+
+//------------------------------------------------------------------------------------------------------------------------------//
+//-----------------------------------------------           NETWORK ERROR      -------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------------------------//
+
+"unexpected_error" = "Ha ocurrido un error.";
+
+//------------------------------------------------------------------------------------------------------------------------------//
+//-----------------------------------------------           VUFORIA            -------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------------------------//
+
+"app_description"="Escaner de Imagenes";
+"button_start"="Comenzar";
+"activities_list_title_string"="Escaner de Imagenes";
+"activities_list_empty"="Vacio";
+
+"button_OK"="OK";
+
+"ERROR_MISSING_VUFORIA_CREDENTIALS" = "❌❌ERROR: Las credenciales de vuforia no están añadidas en el proyecto, porfavor añade las credenciales en 'Orchextra Dashboard'->'Proyectos'->'Ajustes'->'Proveedores'";
+"UPDATE_ERROR_AUTHORIZATION_FAILED_TITLE"="Error de autorización";
+"UPDATE_ERROR_PROJECT_SUSPENDED_TITLE"="Error de autorización";
+"UPDATE_ERROR_NO_NETWORK_CONNECTION_TITLE"="Sin conexión";
+"UPDATE_ERROR_SERVICE_NOT_AVAILABLE_TITLE"="Servicio no disponible";
+"UPDATE_ERROR_UPDATE_SDK_TITLE"="Versión no Soportada";
+"UPDATE_ERROR_TIMESTAMP_OUT_OF_RANGE_TITLE"="Error de Sincronía";
+"UPDATE_ERROR_REQUEST_TIMEOUT_TITLE"="Timeout";
+"UPDATE_ERROR_BAD_FRAME_QUALITY_TITLE"="Mala calidad de Imagen";
+"UPDATE_ERROR_UNKNOWN_TITLE"="Servicio no disponible";
+"UPDATE_ERROR_AUTHORIZATION_FAILED_DESC"="Licencia caducada o erronea.";
+"UPDATE_ERROR_PROJECT_SUSPENDED_DESC"="Servicio de reconocimiento de Imagen no disponible.";
+"UPDATE_ERROR_NO_NETWORK_CONNECTION_DESC"="Comprueba tu conexión a internet e intenta nuevamente.";
+"UPDATE_ERROR_SERVICE_NOT_AVAILABLE_DESC"="Servicio no disponible; por favor intenta nuevamente.";
+"UPDATE_ERROR_UPDATE_SDK_DESC"="Versión antigua de Vuforia.";
+"UPDATE_ERROR_TIMESTAMP_OUT_OF_RANGE_DESC"="Por favor comprueba que tu fecha y hora estén correctos.";
+"UPDATE_ERROR_REQUEST_TIMEOUT_DESC"="Timeout; Comprueba tu conexión a internet e intenta nuevamente.";
+"UPDATE_ERROR_BAD_FRAME_QUALITY_DESC"="La camara utilizada no tiene suficiente calidad; por favor intenta nuevamente.";
+"UPDATE_ERROR_UNKNOWN_DESC"="Servicio no disponible; por favor intenta nuevamente.";
+
+"content_desc_camera_button"="Botón de Cámara";
+"overlay_build_target_help"="Mantén la camara en paralelo al objeto";
+"target_quality_error_title"="Mala calidad de Imagen";
+"target_quality_error_desc"="La camara utilizada no tiene suficiente calidad; por favor intenta con otra cámara.";
+
+"menu_back"="Escaner de Imagen";
+"menu_extended_tracking"="tracking de imagen";
+"menu_character_mode"="Modo de texto";
+"menu_flash"="Flash";
+"menu_flash_error_on"="No es posible encender el flash";
+"menu_flash_error_off"="No es posible apagar el flash";
+"menu_contAutofocus"="Autofocus";
+"menu_contAutofocus_error_on"="No es posible activar el enfoque automático continuo";
+"menu_contAutofocus_error_off"="No es posible desactivar el enfoque automático continuo";
+"menu_datasets"="DATASETS";
+"menu_camera"="CAMERA";
+"menu_camera_front"="Frontal";
+"menu_camera_back"="Posterio";
+"menu_button_red"="Rojo";
+"menu_button_blue"="Azul";
+"menu_button_yellow"="Amarillo";
+"menu_button_green"="Verde";
+
+"splash_screen_description"="Escarner de Imagen Splash";

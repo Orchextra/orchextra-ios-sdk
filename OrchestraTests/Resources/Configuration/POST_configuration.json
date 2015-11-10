@@ -1,0 +1,37 @@
+{
+    "status": true,
+    "data": {
+    "geoMarketing": [
+                        {
+                        "id": "Gigigo",
+                        "point": {
+                        "lat": "37.65",
+                        "lng": "-4.9"
+                         },
+                        "radius": 100,
+                        "notifyOnExit": false,
+                        "notifyOnEntry": true
+                        },
+                        {
+                        "id": "Cupertino",
+                        "point": {
+                        "lat": "37.331705",
+                        "lng": "-122.030237"
+                         },
+                        "radius": 100,
+                        "notifyOnExit": false,
+                        "notifyOnEntry": true
+                        }
+                    ],
+    "proximity": [
+                    {
+                    "id": "GigigoBeacon",
+                    "minor": 0,
+                    "major": 1,
+                    "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+                    "notifyOnEntry": true,
+                    "notifyOnExit": false
+                    }
+                ]
+    }
+}
