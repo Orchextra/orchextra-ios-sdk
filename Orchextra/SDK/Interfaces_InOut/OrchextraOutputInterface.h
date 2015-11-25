@@ -1,0 +1,27 @@
+//
+//  OrchextraOutputInterface.h
+//  Orchextra
+//
+//  Created by Judith Medina on 17/11/15.
+//  Copyright © 2015 Gigigo. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@class ORCVuforiaConfig;
+@class ORCThemeSdk;
+
+@protocol OrchextraOutputInterface <NSObject>
+
+// ** CONFIGURATION **
+- (ORCVuforiaConfig *)fetchVuforiaCredentials;
+- (ORCThemeSdk *)fetchThemeSdk;
+
+
+// ** PROXIMITY **
+- (NSArray *)fetchGeofencesRegistered;
+- (NSArray *)fetchBeaconsRegistered;
+
+
+
+@end
