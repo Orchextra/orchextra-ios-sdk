@@ -23,11 +23,14 @@ typedef NS_ENUM(NSUInteger, ORCUserGender)
 @property (strong, nonatomic) NSArray *tags;
 @property (strong, nonatomic) NSString *deviceToken;
 @property (assign, nonatomic) ORCUserGender gender;
+
 @property (strong, nonatomic) ORCConfigurationInteractor *interactor;
 
 + (ORCUser *)currentUser;
 - (void)saveUser;
 
+
+- (instancetype)initWithConfigurationInteractor:(ORCConfigurationInteractor *)interactor;
 - (NSString *)birthdayFormatted;
 - (NSString *)genderUser;
 - (BOOL)isSameUser:(ORCUser *)user;

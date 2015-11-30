@@ -13,6 +13,7 @@
 #import "ORCActionBrowser.h"
 #import "ORCConstants.h"
 #import "ORCActionCommunicator.h"
+#import "ORCGIGJSON.h"
 
 @interface ORCAction ()
 
@@ -26,7 +27,7 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
-    return [self initWithType:json[@"type"] json:json];
+    return [self initWithType:[json stringForKey:@"type"] json:json];
 }
 
 - (instancetype)initWithType:(NSString *)type
@@ -77,8 +78,8 @@
             
             if (![notification isKindOfClass:[NSNull class]])
             {
-                _titleNotification = notification[@"title"];
-                _messageNotification = notification[@"body"];
+                _titleNotification = [notification stringForKey:@"title"];
+                _messageNotification = [notification stringForKey:@"body"];
             }
         }
     }

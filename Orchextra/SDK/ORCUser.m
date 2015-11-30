@@ -24,20 +24,28 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
 
 @implementation ORCUser
 
+#pragma mark - INIT
 
-#pragma mark - NSCODING
-
-- (instancetype)init
+- (instancetype)initWithConfigurationInteractor:(ORCConfigurationInteractor *)interactor
 {
     self = [super init];
     
     if (self)
     {
-        _interactor = [[ORCConfigurationInteractor alloc] init];
+        _interactor = interactor;
+        _gender = ORCGenderMale;
     }
     
     return self;
 }
+
+- (instancetype)init
+{
+    ORCConfigurationInteractor *interactor = [[ORCConfigurationInteractor alloc] init];
+    return [self initWithConfigurationInteractor:interactor];
+}
+
+#pragma mark - NSCODING
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -74,21 +82,6 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
     
     NSString *dateString = [dateFormatter stringFromDate:self.birthday];
     return dateString;
-}
-
-- (void)setGenderUser:(ORCUserGender)gender
-{
-    switch (gender) {
-        case ORCGenderFemale:
-            self.genderString = @"f";
-            break;
-        case ORCGenderMale:
-            self.genderString = @"m";
-            break;
-        default:
-            self.genderString = @"m";
-            break;
-    }
 }
 
 - (NSString *)genderUser
@@ -141,12 +134,6 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
     {
         return user;
     }
-}
-
-+ (ORCUser *)user
-{
-    ORCConfigurationInteractor *interactor = [[ORCConfigurationInteractor alloc] init];
-    return [interactor currentUser];
 }
 
 @end
