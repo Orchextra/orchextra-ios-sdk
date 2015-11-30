@@ -1,4 +1,4 @@
- language: objective-c
-
-  before_script: travis/before_script.sh
-  script: travis/script.sh
+language: objective-c
+osx_image: xcode7.1
+script:
+- xctool -project Orchextra.xcodeproj -scheme Orchextra -sdk iphonesimulator build test
