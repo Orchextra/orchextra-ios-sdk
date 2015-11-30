@@ -1,4 +1,6 @@
  language: objective-c
 
-  before_script: travis/before_script.sh
-  script: travis/script.sh
+brew update
+brew install xctool
+
+xctool -project Orchextra.xcodeproj -scheme Orchextra -sdk iphonesimulator build test
