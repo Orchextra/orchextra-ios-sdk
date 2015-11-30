@@ -1,7 +1,7 @@
 # Orchextra SDK for iOS
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
 ![Version](https://img.shields.io/badge/version-1.1-blue.svg)
-![Build](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=feature%2Ftravis_ci)
+[![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
 
 A library that gives you access to Orchextra platform from your iOS app. 
 
