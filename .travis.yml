@@ -1,6 +1,3 @@
 language: objective-c
-before_script:
-- brew update
-- brew install xctool
 script:
 - xctool -project Orchextra.xcodeproj -scheme Orchextra -sdk iphonesimulator build test
