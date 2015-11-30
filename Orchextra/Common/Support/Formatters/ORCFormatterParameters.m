@@ -130,7 +130,22 @@
 
 - (NSDictionary *)formattedUserData:(ORCUser *)userData
 {
-    return [self formatterUserValues:userData];
+    NSMutableDictionary *values = [[NSMutableDictionary alloc] init];
+    
+    NSDictionary *userValues= [self formatterUserValues:userData];
+    NSDictionary *tokenValues = [self formatterTokenValue:userData];
+    
+    if (userValues)
+    {
+        [values setValue:userValues forKey:@"crm"];
+    }
+    
+    if (tokenValues)
+    {
+        [values setValue:tokenValues forKey:@"notificationPush"];
+    }
+    
+    return values;
 }
 
 #pragma mark - PRIVATE
@@ -234,7 +249,6 @@
 
 - (NSDictionary *)formatterTokenValue:(ORCUser *)user
 {
-    
     if (user.deviceToken)
     {
         return @{@"token" : user.deviceToken};

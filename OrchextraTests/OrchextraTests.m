@@ -23,6 +23,7 @@
 @property (strong, nonatomic) Orchextra *orchextra;
 @property (strong, nonatomic) ORCActionManager *actionManagerMock;
 @property (strong, nonatomic) ORCConfigurationInteractor *interactorMock;
+@property (strong, nonatomic) ORCUser *userMock;
 @property (strong, nonatomic) NSBundle *testBundle;
 
 @end
@@ -38,6 +39,7 @@
     
     self.orchextra = [[Orchextra alloc] initWithActionManager:self.actionManagerMock
                                              configInteractor:self.interactorMock];
+    
 
     self.testBundle = [NSBundle bundleForClass:self.class];
 }
@@ -126,20 +128,6 @@
     
     XCTAssertTrue(capturedAction.type == ORCActionOpenScannerID);
     XCTAssertTrue([capturedAction.urlString isEqualToString:ORCSchemeScanner]);
-}
-
-- (void)test_configure_profile
-{
-    NSDate *dob = [NSDate date];
-    NSArray *tags = @[@"shopping", @"female"];
-    ORCUser *user = [[ORCUser alloc] init];
-    user.birthday = dob;
-    user.tags = tags;
-    user.gender = ORCGenderFemale;
-    [user saveUser];
-    
-    ORCUser *userSaved = [ORCUser currentUser];
-    XCTAssertTrue([userSaved isSameUser:user]);
 }
 
 - (void)test_configuration_response_with_geomarketing

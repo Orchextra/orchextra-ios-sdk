@@ -33,7 +33,7 @@ NSString * const ORCSchemeVuforia = @"orchextra://vuforia";
 
 #pragma mark - SDK
 
-NSString * const ORCSDKVersion = @"1.1.0";
+NSString * const ORCSDKVersion = @"1.1.1";
 
 #pragma mark - Network
 

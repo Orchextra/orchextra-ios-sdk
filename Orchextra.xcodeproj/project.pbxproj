@@ -255,6 +255,7 @@
 		A90FD17E1BF36D6B0042F370 /* scanning-by@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1481BF36D650042F370 /* scanning-by@3x.png */; };
 		A90FD17F1BF36D6B0042F370 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1491BF36D650042F370 /* Simple.fragsh */; };
 		A90FD1801BF36D6B0042F370 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
+		A92607DE1C0C4725005771AF /* ORCUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A92607DD1C0C4725005771AF /* ORCUserTests.m */; };
 		A947738F1BFE1E1300D4908A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A90FCEC11BF362080042F370 /* Localizable.strings */; };
 		A95373521BFDB01600AEFE2E /* ORCVuforiaPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFD11BF362080042F370 /* ORCVuforiaPresenter.h */; };
 		A95373531BFDB01600AEFE2E /* ORCVuforiaPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFD21BF362080042F370 /* ORCVuforiaPresenter.m */; };
@@ -752,6 +753,7 @@
 		A90FD1491BF36D650042F370 /* Simple.fragsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.fragsh; sourceTree = "<group>"; };
 		A90FD14A1BF36D650042F370 /* Simple.vertsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.vertsh; sourceTree = "<group>"; };
 		A915DCE11B2ADDA7001A4587 /* Orchextra.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Orchextra.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A92607DD1C0C4725005771AF /* ORCUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCUserTests.m; sourceTree = "<group>"; };
 		A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCPushManager.h; sourceTree = "<group>"; };
 		A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCPushManager.m; sourceTree = "<group>"; };
 		A98360E31BFB82FF00413CB8 /* OrchextraOutputInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrchextraOutputInterface.h; sourceTree = "<group>"; };
@@ -1698,6 +1700,7 @@
 			isa = PBXGroup;
 			children = (
 				A90FD0FE1BF36CD30042F370 /* ORCStorageTests.m */,
+				A92607DD1C0C4725005771AF /* ORCUserTests.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2429,6 +2432,7 @@
 				A90FD1231BF36CF40042F370 /* ORCScannerPresenterTests.m in Sources */,
 				A90FD1201BF36CEC0042F370 /* ORCFormatterParametersTests.m in Sources */,
 				A90FD1261BF36CF90042F370 /* ORCStorageTests.m in Sources */,
+				A92607DE1C0C4725005771AF /* ORCUserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
