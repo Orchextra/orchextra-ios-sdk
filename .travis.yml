@@ -1,6 +1,4 @@
- language: objective-c
-
-brew update
-brew install xctool
-
-xctool -project Orchextra.xcodeproj -scheme Orchextra -sdk iphonesimulator build test
+language: objective-c
+script:
+  - xctool -project Orchextra.xcodeproj -scheme Orchextra -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -project Orchextra.xcodeproj -scheme OrchextraTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
