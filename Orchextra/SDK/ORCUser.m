@@ -19,7 +19,6 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
 @interface ORCUser ()
 
 @property (strong, nonatomic) NSString *genderString;
-@property (strong, nonatomic) ORCConfigurationInteractor *interactor;
 
 @end
 
@@ -111,10 +110,10 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
 
 - (BOOL)isSameUser:(ORCUser *)user
 {
-    if ([user.crmID isEqualToString:self.crmID] ||
-        [user.birthday isEqualToDate:self.birthday] ||
-        [user.tags isEqualToArray:self.tags] ||
-        [user.deviceToken isEqualToString:self.deviceToken] ||
+    if ([user.crmID isEqualToString:self.crmID] &&
+        [user.birthday isEqualToDate:self.birthday] &&
+        [user.tags isEqualToArray:self.tags] &&
+        [user.deviceToken isEqualToString:self.deviceToken] &&
         [[user genderUser] isEqualToString:[self genderUser]])
     {
         return YES;
@@ -130,15 +129,17 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
 
 + (ORCUser *)currentUser
 {
-    ORCConfigurationInteractor *interactor = [[ORCConfigurationInteractor alloc] init];
+    ORCUser *user = [[self alloc] init];
     
-    if ([interactor currentUser])
+    if ([user.interactor currentUser])
     {
-        return [interactor currentUser];
+        ORCUser *tmpUser = [user.interactor currentUser];
+        tmpUser.interactor = user.interactor;
+        return tmpUser;
     }
     else
     {
-        return [[[self class] alloc] init];
+        return user;
     }
 }
 

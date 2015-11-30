@@ -71,20 +71,22 @@ NSString * const NOTIFICATION_TYPE = @"type";
 
 - (void)registerPushNotification
 {
+    UIApplication *application = [UIApplication sharedApplication];
+    
     if(IOS_8_OR_LATER)
     {
-        if (![[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
+        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
         {
             UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
             UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
             
-            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-            [[UIApplication sharedApplication] registerForRemoteNotifications];
+            [application registerUserNotificationSettings:settings];
+            [application registerForRemoteNotifications];
         }
     }
     else
     {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+        [application registerForRemoteNotificationTypes:
          (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
 }
@@ -114,10 +116,9 @@ NSString * const NOTIFICATION_TYPE = @"type";
 + (void)storeDeviceToken:(NSData *)deviceToken
 {
     NSString *deviceTokenString = [[ORCPushManager sharedPushManager] tokenStringWithData:deviceToken];
-    ORCStorage *storage = [[ORCStorage alloc] init];
-    ORCUser *user = [storage loadCurrentUserData];
+    ORCUser *user = [ORCUser currentUser];
     user.deviceToken = deviceTokenString;
-    [storage storeUserData:user];
+    [user saveUser];
 }
 
 #pragma mark - HANDLE PUSH NOTIFICATION
@@ -134,9 +135,6 @@ NSString * const NOTIFICATION_TYPE = @"type";
         push = [[ORCPushNotification alloc] initWithRemoteNotification:userInfo];
     }
     
-    
-    UIApplication *application = [UIApplication sharedApplication];
-    
     if (push.type) {
         ORCAction *action = [[ORCAction alloc] initWithType:push.type];
         action.urlString = push.url;
@@ -145,6 +143,8 @@ NSString * const NOTIFICATION_TYPE = @"type";
         
         [[ORCActionManager sharedInstance] hasLocalNotification:action handleAPN:YES];
     }
+    
+    UIApplication *application = [UIApplication sharedApplication];
     
     if (push.badge) {
         NSInteger number = [push.badge integerValue];
