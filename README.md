@@ -37,6 +37,7 @@ Click the + button in the bottom left of the 'Link Binary With Libraries' sectio
 * AdSupport.framework
 * AVFoundation.framework
 * CoreLocation.framework
+
 ####Vuforia dependencies
 * SystemConfiguration.framework
 * CoreMotion.framework
