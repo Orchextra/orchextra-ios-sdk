@@ -266,6 +266,9 @@
                 
                 if (changeProximity)
                 {
+                    [ORCGIGLogManager log:@"Change proximity  Old: %ld -> New: %ld   Accuracy: %f -> %@", (long)itemBeacon.currentProximity,
+                     (long)beacon.proximity, beacon.accuracy, itemBeacon.name];
+
                     itemBeacon.currentEvent = ORCtypeEventStay;
                     [self.delegateLocation didBeaconHasBeenFired:itemBeacon];
                 }

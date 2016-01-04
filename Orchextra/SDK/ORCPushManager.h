@@ -11,7 +11,6 @@
 
 @class ORCPushNotification;
 
-typedef void(^NotificationButtonClicked)(NSInteger buttonIndex, UIAlertView *alertView);
 typedef void(^CompletionNotification)(void);
 
 

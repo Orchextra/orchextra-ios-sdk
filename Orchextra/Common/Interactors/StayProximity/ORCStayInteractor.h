@@ -7,14 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef void(^CompletionStayTime)(BOOL success);
-
-@class ORCTriggerRegion;
+#import "ORCTriggerRegion.h"
 
 @interface ORCStayInteractor : NSObject
 
 - (void)performStayRequestWithRegion:(ORCTriggerRegion*)region
-                         completion:(CompletionStayTime)completion;
+                         completion:(ORCCompletionStayTime)completion;
 
 @end

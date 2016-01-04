@@ -7,12 +7,11 @@
 //
 
 #import "ORCStayInteractor.h"
-#import "ORCTriggerRegion.h"
 #import "ORCTriggerBeacon.h"
 
 @interface ORCStayInteractor ()
 
-@property (strong, nonatomic) CompletionStayTime completion;
+@property (strong, nonatomic) ORCCompletionStayTime completion;
 @property (assign, nonatomic) UIBackgroundTaskIdentifier bgTask;
 @property (strong, nonatomic) NSTimer *timerRegion;
 
@@ -21,7 +20,7 @@
 @implementation ORCStayInteractor
 
 
-- (void)performStayRequestWithRegion:(ORCTriggerRegion*)region completion:(CompletionStayTime)completion
+- (void)performStayRequestWithRegion:(ORCTriggerRegion*)region completion:(ORCCompletionStayTime)completion
 {
     
     self.completion = completion;

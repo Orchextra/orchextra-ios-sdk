@@ -13,6 +13,7 @@ NSString *const ORCRegionIdentifier = @"regionIdentifier";
 NSString *const ORCRegionNotifyOnEntry = @"regionNotifyOnEntry";
 NSString *const ORCRegionNotifyOnExit = @"regionNotifyOnExit";
 NSString *const ORCRegionTimer = @"stayTime";
+NSString *const ORCRegionName = @"name";
 
 @implementation ORCTriggerRegion
 
@@ -24,11 +25,12 @@ NSString *const ORCRegionTimer = @"stayTime";
                       notifyOnEntry:[json boolForKey:@"notifyOnEntry"]
                        notifyOnExit:[json boolForKey:@"notifyOnExit"]
                         stayTime:[json intForKey:@"stayTime"]
+                            name:[json stringForKey:@"name"]
             ];
 }
 
 - (instancetype)initWithIdentifier:(NSString *)identifier notifyOnEntry:(BOOL)notifyOnEntry
-                      notifyOnExit:(BOOL)notifyOnExit stayTime:(NSInteger)stayTime
+                      notifyOnExit:(BOOL)notifyOnExit stayTime:(NSInteger)stayTime name:(NSString *)name
 {
     self = [super init];
     
@@ -38,6 +40,7 @@ NSString *const ORCRegionTimer = @"stayTime";
         _notifyOnEntry = notifyOnEntry;
         _notifyOnExit = notifyOnExit;
         _timer = stayTime;
+        _name = name;
     }
     
     return self;
@@ -55,6 +58,7 @@ NSString *const ORCRegionTimer = @"stayTime";
         _notifyOnEntry = [aDecoder decodeBoolForKey:ORCRegionNotifyOnEntry];
         _notifyOnExit = [aDecoder decodeBoolForKey:ORCRegionNotifyOnExit];
         _timer = [aDecoder decodeDoubleForKey:ORCRegionTimer];
+        _name = [aDecoder decodeObjectForKey:ORCRegionName];
     }
     
     return self;
@@ -66,6 +70,7 @@ NSString *const ORCRegionTimer = @"stayTime";
     [aCoder encodeBool:_notifyOnEntry forKey:ORCRegionNotifyOnEntry];
     [aCoder encodeBool:_notifyOnExit forKey:ORCRegionNotifyOnExit];
     [aCoder encodeDouble:_timer forKey:ORCRegionTimer];
+    [aCoder encodeObject:_name forKey:ORCRegionName];
 }
 
 - (void)registerRegionWithLocationManager:(CLLocationManager *)locationManager
@@ -90,7 +95,7 @@ NSString *const ORCRegionTimer = @"stayTime";
     }
 }
 
-- (void)canPerformRequestWithCompletion:(CompletionStayTime)completion
+- (void)canPerformRequestWithCompletion:(ORCCompletionStayTime)completion
 {
     [self canPerformRequestWithCompletion:completion];
 }

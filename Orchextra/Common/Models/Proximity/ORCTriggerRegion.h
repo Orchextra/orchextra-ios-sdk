@@ -19,11 +19,12 @@ typedef NS_ENUM(NSInteger, ORCTypeEvent)
     ORCtypeEventStay
 };
 
-typedef void(^CompletionStayTime)(BOOL success);
+typedef void(^ORCCompletionStayTime)(BOOL success);
 
 @interface ORCTriggerRegion : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString *type;
+@property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *identifier;
 @property (assign, nonatomic) BOOL notifyOnEntry;
 @property (assign, nonatomic) BOOL notifyOnExit;
@@ -35,7 +36,7 @@ typedef void(^CompletionStayTime)(BOOL success);
 - (void)registerRegionWithLocationManager:(CLLocationManager *)locationManager;
 - (void)stopMonitoringRegionWithLocationManager:(CLLocationManager *)locationManager;
 - (CLRegion *)convertToCLRegion;
-- (void)canPerformRequestWithCompletion:(CompletionStayTime)completion;
+- (void)canPerformRequestWithCompletion:(ORCCompletionStayTime)completion;
 
 
 @end
