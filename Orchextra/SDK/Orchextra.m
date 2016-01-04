@@ -118,7 +118,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)object
 {
     NSDictionary *userInfo = [object userInfo];
-
+    NSLog(@"applicationDidFinishLaunching: %@", userInfo);
     if ([userInfo objectForKey:UIApplicationLaunchOptionsLocationKey] != nil)
     {
         self.locationManager = [[CLLocationManager alloc] init];
@@ -140,11 +140,6 @@
 - (void)didExecuteActionWithCustomScheme:(NSString *)customScheme
 {
     [self.delegate executeCustomScheme:customScheme];
-}
-
-- (BOOL)isImageRecognitionAvailable
-{
-    return [self.interactor isImageRecognitionAvailable];
 }
 
 

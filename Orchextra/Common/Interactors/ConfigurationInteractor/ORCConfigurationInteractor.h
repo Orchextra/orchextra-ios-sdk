@@ -26,10 +26,6 @@ typedef void(^CompletionProjectRegions)(NSArray *regions, NSError *error);
 
 - (ORCUser *)currentUser;
 
-// --- CONFIGURATION DETAILS --- //
-
-- (BOOL)isImageRecognitionAvailable;
-
 // --- GEOLOCATION --- //
 
 - (void)storeLastLocation:(CLLocation *)location;
