@@ -38,7 +38,7 @@
     {
         NSMutableDictionary *tmp = (self.headers) ? [self.headers mutableCopy] : [NSMutableDictionary new];
         [tmp addEntriesFromDictionary: @{@"X-app-sdk" : headerPrefix}];
-        [tmp addEntriesFromDictionary:@{@"Accept-Language" : [[[NSBundle mainBundle] preferredLocalizations] firstObject]}];
+        [tmp addEntriesFromDictionary:@{@"Accept-Language" : [[NSLocale currentLocale] localeIdentifier]}];
         return tmp;
     }
     

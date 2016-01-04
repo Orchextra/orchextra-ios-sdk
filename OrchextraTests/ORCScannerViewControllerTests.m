@@ -58,20 +58,6 @@
     [MKTVerify(self.presenterMock) viewIsReady];
 }
 
-//- (void)test_user_did_cancel_scanner
-//{
-//    [self.viewController view];
-//    
-//    [(id<ORCScannerViewControllerInterface>)self.viewController showScanner];
-//    UIBarButtonItem *leftButton = self.viewController.navigationItem.leftBarButtonItem;
-//    
-//    IMP imp = [leftButton.target methodForSelector:leftButton.action];
-//    void (*func)(id, SEL) = (void *)imp;
-//    func(leftButton.target, leftButton.action);
-//    
-//    [MKTVerify(self.presenterMock) userDidTapCancelScanner];
-//}
-
 - (void)test_scan_value_successfully
 {
     NSString *scannedValue = @"12345";

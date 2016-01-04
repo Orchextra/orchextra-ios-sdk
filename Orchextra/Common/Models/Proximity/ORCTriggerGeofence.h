@@ -11,8 +11,6 @@
 
 #import "ORCTriggerRegion.h"
 
-typedef void(^CompletionStayTime)(BOOL success);
-
 @interface ORCTriggerGeofence : ORCTriggerRegion <NSCoding>
 
 @property (strong, nonatomic) NSString *longitude;

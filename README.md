@@ -3,6 +3,7 @@
 ![Version](https://img.shields.io/badge/version-1.1-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
 
+
 A library that gives you access to Orchextra platform from your iOS app. 
 
 ### Getting started
@@ -38,7 +39,6 @@ Click the + button in the bottom left of the 'Link Binary With Libraries' sectio
 * AdSupport.framework
 * AVFoundation.framework
 * CoreLocation.framework
-
 ####Vuforia dependencies
 * SystemConfiguration.framework
 * CoreMotion.framework
@@ -167,7 +167,6 @@ This option is only available if you have a Vuforia account with a cloud databas
 ```objective-c
 [[VuforiaOrchextra sharedInstance] startImageRecognition];
 ```
-
 
 [releases]: https://github.com/Orchextra/orchextra-ios-sdk/releases
 [dashboard]: https://dashboard.orchextra.io/home/
