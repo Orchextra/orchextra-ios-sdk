@@ -1,6 +1,6 @@
 # Orchextra SDK for iOS
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
-![Version](https://img.shields.io/badge/version-1.1-blue.svg)
+![Version](https://img.shields.io/badge/version-1.1.2-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
 
 
