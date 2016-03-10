@@ -1,5 +1,5 @@
 //
-//  ORCConfigurationSdk.h
+//  ORCUser.h
 //  Orchestra
 //
 //  Created by Judith Medina on 7/7/15.
@@ -10,11 +10,10 @@
 
 typedef NS_ENUM(NSUInteger, ORCUserGender)
 {
-    ORCGenderFemale,
-    ORCGenderMale
+    ORCGenderNone = 0,
+    ORCGenderFemale = 1,
+    ORCGenderMale = 2
 };
-
-@class ORCConfigurationInteractor;
 
 @interface ORCUser : NSObject <NSCoding>
 
@@ -24,15 +23,7 @@ typedef NS_ENUM(NSUInteger, ORCUserGender)
 @property (strong, nonatomic) NSString *deviceToken;
 @property (assign, nonatomic) ORCUserGender gender;
 
-@property (strong, nonatomic) ORCConfigurationInteractor *interactor;
-
-+ (ORCUser *)currentUser;
-- (void)saveUser;
-
-
-- (instancetype)initWithConfigurationInteractor:(ORCConfigurationInteractor *)interactor;
-- (NSString *)birthdayFormatted;
-- (NSString *)genderUser;
+- (BOOL)crmHasChanged:(ORCUser *)user;
 - (BOOL)isSameUser:(ORCUser *)user;
 
 @end

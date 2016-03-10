@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ORCTriggerRegion.h"
+#import "ORCRegion.h"
 
 @interface ORCStayInteractor : NSObject
 
-- (void)performStayRequestWithRegion:(ORCTriggerRegion*)region
+- (void)performStayRequestWithRegion:(ORCRegion*)region
                          completion:(ORCCompletionStayTime)completion;
 
 @end

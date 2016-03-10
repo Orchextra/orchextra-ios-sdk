@@ -9,16 +9,15 @@
 #import "ORCScannerPresenter.h"
 #import "ORCScannerViewController.h"
 #import "ORCValidatorActionInterator.h"
-#import "ORCActionInterface.h"
+#import "ORCStatisticsInteractor.h"
 #import "ORCWireframe.h"
 #import "NSBundle+ORCBundle.h"
 #import "ORCConstants.h"
 
 @interface ORCScannerPresenter()
 
-@property (weak, nonatomic) UIViewController<ORCScannerViewControllerInterface> *viewController;
-@property (weak, nonatomic) id<ORCActionInterface> actionInterface;
-@property (strong, nonatomic) ORCValidatorActionInterator *interactor;
+@property (strong, nonatomic) ORCValidatorActionInterator *validator;
+@property (strong, nonatomic) ORCStatisticsInteractor *statistics;
 @property (strong, nonatomic) ORCWireframe *wireframe;
 @property (strong, nonatomic) NSString *scannedValue;
 @property (assign, nonatomic) BOOL waitingResponseScannedValue;
@@ -29,24 +28,23 @@
 
 #pragma mark - INIT
 
-- (instancetype)initWithViewController:(UIViewController<ORCScannerViewControllerInterface> *)viewController
-                       actionInterface:(id<ORCActionInterface>)actionInterface
+- (instancetype)init
 {
-    ORCValidatorActionInterator *interactor = [[ORCValidatorActionInterator alloc] init];
-    return [self initWithViewController:viewController actionInterface:actionInterface interactor:interactor];
+    ORCValidatorActionInterator *validator = [[ORCValidatorActionInterator alloc] init];
+    ORCStatisticsInteractor *statistics = [[ORCStatisticsInteractor alloc] init];
+    
+    return [self initWithValidator:validator statistics:statistics];
 }
 
-- (instancetype)initWithViewController:(UIViewController<ORCScannerViewControllerInterface> *)viewController
-                         actionInterface:(id<ORCActionInterface>)actionInterface
-                            interactor:(ORCValidatorActionInterator *)interactor
+- (instancetype)initWithValidator:(ORCValidatorActionInterator *)validator
+                       statistics:(ORCStatisticsInteractor *)statistics
 {
     self = [super init];
     
     if (self)
     {
-        _viewController = viewController;
-        _actionInterface = actionInterface;
-        _interactor = interactor;
+        _validator = validator;
+        _statistics = statistics;
         _waitingResponseScannedValue = NO;
     }
     
@@ -105,11 +103,13 @@
         //Scanning ...
         [self.viewController showScannedValue:scannedValue statusMessage:@"Scanning..."];
         
+        if (self.actionLaunched.launchedByTriggerCode) [self.statistics trackValue:scannedValue type:typeScanner withAction:self.actionLaunched];
+        
         self.waitingResponseScannedValue = YES;
         self.scannedValue = scannedValue;
         
         __weak typeof(self) this = self;
-        [this.interactor validateScanType:typeScanner scannedValue:scannedValue completion:^(ORCAction *action, NSError *error) {
+        [self.validator validateScanType:typeScanner scannedValue:scannedValue completion:^(ORCAction *action, NSError *error) {
             
             if (action)
             {
@@ -118,11 +118,13 @@
             }
             else
             {
-                NSLog(@"%@", error.localizedDescription);
                 //Not match ...
                 [this performSelector:@selector(notFoundAction) withObject:nil afterDelay:2.0];
+                [ORCLog logError:@"%@", error.localizedDescription];
             }
         }];
+        
+        
     }
 }
 

@@ -1,0 +1,10 @@
+{
+"notification": {
+"body": "Scanner",
+"title": "Open Scanner"
+},
+"schedule": "<null>",
+"trackId": "56 bdc0993570a1893b8b45fe",
+"type": "scan",
+"url": "Orchextra://scanner"
+}

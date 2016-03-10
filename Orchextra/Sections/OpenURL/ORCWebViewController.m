@@ -8,7 +8,7 @@
 
 #import "ORCWebViewController.h"
 #import "ORCBarButtonItem.h"
-#import "ORCStorage.h"
+#import "ORCSettingsPersister.h"
 #import "ORCGIGLayout.h"
 #import "ORCThemeSdk.h"
 #import "NSBundle+ORCBundle.h"
@@ -20,7 +20,7 @@ CGFloat const HEIGHT_TOOLBAR = 44;
 @interface ORCWebViewController()
 <UIWebViewDelegate>
 
-@property (strong, nonatomic) ORCStorage *storage;
+@property (strong, nonatomic) ORCSettingsPersister *storage;
 @property (strong, nonatomic) UIToolbar *toolBar;
 @property (strong, nonatomic) UIWebView *webView;
 @property (strong, nonatomic) NSURL *url;
@@ -39,7 +39,7 @@ CGFloat const HEIGHT_TOOLBAR = 44;
     if (self)
     {
         _url = [NSURL URLWithString:urlString];
-        _storage = [[ORCStorage alloc] init];
+        _storage = [[ORCSettingsPersister alloc] init];
     }
     
     return self;

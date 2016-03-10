@@ -10,11 +10,20 @@
 
 @interface ORCPushNotification : NSObject
 
+@property (strong, nonatomic) NSString *type;
+
+// ACTION
+@property (strong, nonatomic) NSString *trackerId;
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *body;
 @property (strong, nonatomic) NSString *url;
-@property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSNumber *badge;
+@property (strong, nonatomic) NSString *launchedBy;
+
+// TRIGGER
+@property (strong, nonatomic) NSString *code;
+@property (strong, nonatomic) NSString *distance;
+@property (strong, nonatomic) NSString *event;
 
 
 - (instancetype)initWithLocalNotification:(UILocalNotification *)notification;

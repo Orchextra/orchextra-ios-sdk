@@ -7,24 +7,28 @@
 //
 
 #import "ORCProximityManager.h"
-#import "ORCLocationStorage.h"
-#import "ORCAction.h"
 #import "ORCActionManager.h"
-#import "ORCTriggerRegion.h"
-#import "ORCTriggerGeofence.h"
-#import "ORCTriggerBeacon.h"
+#import "ORCPushManager.h"
+
 #import "ORCValidatorActionInterator.h"
+#import "ORCSettingsInteractor.h"
 #import "ORCStayInteractor.h"
-#import "ORCGIGLogManager.h"
+#import "ORCConstants.h"
+
+#import "ORCAction.h"
+#import "ORCRegion.h"
+#import "ORCGeofence.h"
+#import "ORCBeacon.h"
 
 
 @interface ORCProximityManager ()
 
 @property (weak, nonatomic) id<ORCActionInterface> actionInterface;
 @property (strong, nonatomic) ORCValidatorActionInterator *validatorInteractor;
-@property (strong, nonatomic) ORCLocationManager *orcLocation;
+@property (strong, nonatomic) ORCSettingsInteractor *settingsInteractor;
+@property (strong, nonatomic) ORCLocationManagerWrapper *locationManagerWrapper;
 @property (strong, nonatomic) NSArray *regions;
-@property (strong, nonatomic) ORCTriggerBeacon *lastObservedBeacon;
+@property (strong, nonatomic) ORCBeacon *lastObservedBeacon;
 
 @end
 
@@ -33,27 +37,29 @@
 
 #pragma mark - INIT
 
-- (instancetype)initWithActionManager:(id<ORCActionInterface>)actionInterface
+- (instancetype)initWithActionInterface:(id<ORCActionInterface>)actionInterface
 {
-    ORCLocationManager *orcLocation = [[ORCLocationManager alloc] init];
-    orcLocation.delegateLocation = self;
-    ORCValidatorActionInterator *interactor = [[ORCValidatorActionInterator alloc] init];
-    
-    return [self initWithCoreLocationManager:orcLocation actionInterface:actionInterface
-                                  interactor:interactor];
+    ORCLocationManagerWrapper *orcLocationManager = [[ORCLocationManagerWrapper alloc] init];
+    orcLocationManager.delegateLocation = self;
+    ORCValidatorActionInterator *validatorInteractor = [[ORCValidatorActionInterator alloc] init];
+    ORCSettingsInteractor *settingsInteractor = [[ORCSettingsInteractor alloc] init];
+
+    return [self initWithActionInterface:actionInterface coreLocationManager:orcLocationManager interactor:validatorInteractor settingsInteractor:settingsInteractor];
 }
 
-- (instancetype)initWithCoreLocationManager:(ORCLocationManager *)orcLocation
-                              actionInterface:(id<ORCActionInterface>)actionInterface
-                                 interactor:(ORCValidatorActionInterator *)interactor
+- (instancetype)initWithActionInterface:(id<ORCActionInterface>)actionInterface
+                    coreLocationManager:(ORCLocationManagerWrapper *)orcLocation
+                             interactor:(ORCValidatorActionInterator *)interactor
+                     settingsInteractor:(ORCSettingsInteractor *)settingsInteractor
 {
     self = [super init];
     
     if (self)
     {
-        _orcLocation = orcLocation;
+        _locationManagerWrapper = orcLocation;
         _validatorInteractor = interactor;
         _actionInterface = actionInterface;
+        _settingsInteractor = settingsInteractor;
     }
     
     return self;
@@ -61,62 +67,121 @@
 
 #pragma mark - PUBLIC
 
-- (void)startProximityWithRegions:(NSArray *)geoRegions
+- (void)startMonitoringAndRangingOfRegions
 {
-    [ORCGIGLogManager log:@"[Orchextra] - Start proximity with %lu regions", (unsigned long)geoRegions.count];
+    NSArray *regions = [self.settingsInteractor loadRegions];
     
-    self.regions = [[NSArray alloc] initWithArray:geoRegions];
+    [self clearMonitoringAndRanging];
 
-    [self.orcLocation stopMonitoringAllRegions];
-    
-    if ([self.orcLocation isAuthorized])
+    if ([self.locationManagerWrapper isAuthorized])
     {
-        [self.orcLocation registerGeoRegions:geoRegions];
-        [self.orcLocation updateUserLocation];
+        [self canRegisterRegions:regions];
     }
     else
     {
-        [ORCGIGLogManager log:@"[Orchextra] - Authorization denied we can't get start location services"];
+        [ORCLog logError:@"Authorization denied we can't get start location services."];
     }
 }
 
-- (void)stopProximity
+- (void)stopMonitoringAndRangingOfRegions
 {
-    [self.orcLocation stopMonitoringAllRegions];
+    [self clearMonitoringAndRanging];
 }
 
 - (void)updateUserLocation
 {
-    if ([self.orcLocation isAuthorized])
+    if ([self.locationManagerWrapper isAuthorized])
     {
-        [self.orcLocation updateUserLocation];
+        __weak typeof(self) this = self;
+        
+        [self.locationManagerWrapper updateUserLocationWithCompletion:^(CLLocation *location, CLPlacemark *placemark) {
+            
+            [this.settingsInteractor saveLastLocation:location completionCallBack:^(BOOL success, NSError *error) {
+                if (success)
+                {
+                    [this startMonitoringAndRangingOfRegions];
+                }
+            }];
+            
+            [this.settingsInteractor saveLastPlacemark:placemark];
+        }];
     }
 }
 
-- (void)loadActionWithLocationEvent:(CLRegion *)region event:(NSInteger)event
+
+#pragma mark - PRIVATE (Validate region)
+
+- (void)requestActionWithGeofence:(ORCGeofence *)geofence
 {
-    [self didRegionHasBeenFiredWithRegion:region event:event];
+    __weak typeof(self) this = self;
+    
+    [self.validatorInteractor validateProximityWithGeofence:geofence
+                                                 completion:^(ORCAction *action, NSError *error) {
+                                                     
+                                                     if (action)
+                                                     {
+                                                         action.launchedByTriggerCode = geofence.code;
+                                                         [this.actionInterface didFireTriggerWithAction:action];
+                                                     }
+                                                 }];
 }
+
+- (void)requestActionWithBeacon:(ORCBeacon *)beacon
+{
+    __weak typeof(self) this = self;
+    
+    [self.validatorInteractor validateProximityWithBeacon:beacon
+                                               completion:^(ORCAction *action, NSError *error) {
+                                                   if (action)
+                                                   {
+                                                       action.launchedByTriggerCode = beacon.code;
+                                                       [this.actionInterface didFireTriggerWithAction:action];
+                                                   }
+                                               }];
+}
+
+- (void)requestActionWithRegion:(ORCRegion *)region
+{
+    __weak typeof(self) this = self;
+    
+    [self.validatorInteractor validateProximityWithRegion:region
+                                               completion:^(ORCAction *action, NSError *error) {
+                                                   
+                                                   if (action)
+                                                   {
+                                                       action.launchedByTriggerCode = region.code;
+                                                       [this.actionInterface didFireTriggerWithAction:action];
+                                                   }
+                                               }];
+}
+
 
 #pragma mark - PRIVATE
 
-- (void)startMonitoringRegion:(ORCTriggerRegion *)region
+- (void)clearMonitoringAndRanging
 {
-    [self.orcLocation registerRegion:region];
+    [self.locationManagerWrapper stopMonitoringAllRegions];
 }
 
-- (void)stopMonitoringRegion:(ORCTriggerRegion *)region
+- (void)canRegisterRegions:(NSArray *)regions
 {
-    [self.orcLocation stopMonitoring:region];
-}
-
-- (ORCTriggerRegion *)getORCTriggerWithIdentifier:(NSString *)identifier
-{
-    NSArray *regionsLoaded = [[[ORCLocationStorage alloc] init] loadRegions];
-    
-    for (ORCTriggerRegion *regionRegistered in regionsLoaded)
+    if (regions.count > 0)
     {
-        if ([regionRegistered.identifier isEqualToString:identifier])
+        [self.locationManagerWrapper registerRegions:regions];
+    }
+    else
+    {
+        [ORCLog logDebug:@"There are not regions to register."];
+    }
+}
+
+- (ORCRegion *)triggerWithIdentifier:(NSString *)identifier
+{
+    NSArray *regionsLoaded = [self.settingsInteractor loadRegions];
+    
+    for (ORCRegion *regionRegistered in regionsLoaded)
+    {
+        if ([regionRegistered.code isEqualToString:identifier])
         {
             return regionRegistered;
         }
@@ -125,15 +190,51 @@
     return nil;
 }
 
-- (BOOL)isUserAtRegion:(CLRegion *)region withLocation:(CLLocation *)lastLocation
+- (void)scheduleGeofenceIfNeedIt:(ORCGeofence *)geofence
+{
+    if (geofence.timer > 0)
+    {
+        [[ORCPushManager sharedPushManager] sendLocalPushNotificationWithGeofence:geofence];
+    }
+}
+
+- (void)needToHandleStayTimeGeofence:(ORCGeofence *)geofence
+{
+    ORCStayInteractor *stayInteractor = [[ORCStayInteractor alloc] init];
+    
+    __weak typeof(self) this = self;
+    [stayInteractor performStayRequestWithRegion:geofence completion:^(BOOL success) {
+        
+        if (success)
+        {
+            [this locationUserInsideGeofence:geofence completion:^(BOOL isInsideRegion) {
+                CLLocationDistance distance = [self distanceFromUserLocationTo:geofence];
+                geofence.currentDistance = @(distance);
+                geofence.currentEvent = ORCtypeEventStay;
+                
+                if (isInsideRegion)
+                {
+                    [this requestActionWithGeofence:geofence];
+                }
+            }];
+        }
+    }];
+}
+
+- (BOOL)isUserAtRegion:(ORCGeofence *)geofence withLocation:(CLLocation *)lastLocation
 {
     BOOL isUserAtRegion = NO;
+    
+    CLCircularRegion *regionWithGeofence = [[CLCircularRegion alloc]
+                                            initWithCenter:CLLocationCoordinate2DMake([geofence.latitude doubleValue],
+                                                                                      [geofence.longitude doubleValue])
+                                            radius:[geofence.radius doubleValue]
+                                            identifier:geofence.code];
     
     if (lastLocation)
     {
         CLLocationCoordinate2D theLocationCoordinate = lastLocation.coordinate;
-        CLCircularRegion * enterRegion = (CLCircularRegion*)region;
-        isUserAtRegion = [enterRegion containsCoordinate:theLocationCoordinate];
+        isUserAtRegion = [regionWithGeofence containsCoordinate:theLocationCoordinate];
     }
     else
     {
@@ -143,102 +244,63 @@
     return isUserAtRegion;
 }
 
--(void)userIsInRegion:(CLRegion *)region completion:(void (^)(BOOL isInsideRegion))completion;
+-(void)locationUserInsideGeofence:(ORCGeofence *)geofence completion:(void (^)(BOOL isInsideRegion))completion;
 {
     __weak typeof(self) this = self;
-    
-    [self.orcLocation updateUserLocationWithCompletion:^(CLLocation *location) {
+    [self.locationManagerWrapper updateUserLocationWithCompletion:^(CLLocation *location, CLPlacemark *placemark) {
         
-        BOOL isAtRegion = [this isUserAtRegion:region withLocation:location];
+        BOOL isAtRegion = [this isUserAtRegion:geofence withLocation:location];
         completion(isAtRegion);
     }];
 }
 
-#pragma mark - PRIVATE (Validate region)
-
-- (void)requestActionWithGeofence:(ORCTriggerGeofence *)geofence
+- (CLLocationDistance)distanceFromUserLocationTo:(ORCGeofence *)geofence
 {
-    __weak typeof(self) this = self;
+    CLLocation *userLocation = [self.settingsInteractor loadLastLocation];
     
-    [self.validatorInteractor validateProximityWithGeofence:geofence completion:^(ORCAction *action, NSError *error) {
-        
-        if (action)
-        {
-            [this.actionInterface didFireTriggerWithAction:action fromViewController:nil];
-        }
-    }];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:[geofence.latitude doubleValue]
+                                                      longitude:[geofence.longitude doubleValue]];
+    CLLocationDistance distance = [userLocation distanceFromLocation:location];
+    
+    return distance;
 }
 
-- (void)requestActionWithBeacon:(ORCTriggerBeacon *)beacon
+- (void)handleGeofence:(ORCGeofence *)geofence
 {
-    __weak typeof(self) this = self;
+    CLLocationDistance distance = [self distanceFromUserLocationTo:geofence];
+    [geofence setCurrentDistance:@(distance)];
     
-    [self.validatorInteractor validateProximityWithBeacon:beacon completion:^(ORCAction *action, NSError *error) {
-        
-        if (action)
-        {
-            [this.actionInterface didFireTriggerWithAction:action fromViewController:nil];
-        }
-    }];
+    if (geofence.currentEvent == ORCTypeEventEnter)
+    {
+        [self needToHandleStayTimeGeofence:geofence];
+//        [self scheduleGeofenceIfNeedIt:geofence];
+    }
 }
+
 
 #pragma mark - DELEGATE
 
-- (void)didRegionHasBeenFiredWithRegion:(CLRegion *)region event:(NSInteger)event;
+- (void)didRegionHasBeenFired:(CLRegion *)region event:(ORCTypeEvent)event
 {
-    ORCTriggerGeofence *orctrigger = (ORCTriggerGeofence *)[self getORCTriggerWithIdentifier:region.identifier];
-    orctrigger.currentEvent = event;
-    
-    ORCStayInteractor *stayInteractor = [[ORCStayInteractor alloc] init];
-    
-    CLLocationDistance distance = [self.orcLocation distanceFromUserLocationTo:(CLCircularRegion*)region];
-    orctrigger.currentDistance = @(distance);
-    [self requestActionWithGeofence:orctrigger];
+    ORCRegion *triggerRegion = [self triggerWithIdentifier:region.identifier];
+    triggerRegion.currentEvent = event;
 
-    __weak typeof(self) this = self;
-
-    [stayInteractor performStayRequestWithRegion:orctrigger completion:^(BOOL success) {
-        
-        if (success)
-        {
-            [this userIsInRegion:region completion:^(BOOL isInsideRegion) {
-                
-                CLLocationDistance distance = [self.orcLocation distanceFromUserLocationTo:(CLCircularRegion*)region];
-                orctrigger.currentDistance = @(distance);
-                orctrigger.currentEvent = ORCtypeEventStay;
-                
-                if (isInsideRegion)
-                {
-                    [this requestActionWithGeofence:orctrigger];
-                }
-            }];
-        }
-    }];
+    if (triggerRegion.type == ORCTypeGeofence)
+    {
+        [self handleGeofence:(ORCGeofence *)triggerRegion];
+    }
+    
+    [self requestActionWithRegion:triggerRegion];
+    
+    if (event == ORCTypeEventExit)
+    {
+        [ORCPushManager removeLocalNotificationWithId:triggerRegion.code];
+    }
 }
 
-- (void)didBeaconHasBeenFired:(ORCTriggerBeacon *)beacon
+- (void)didBeaconHasBeenFired:(ORCBeacon *)beacon
 {
-    if (beacon.currentEvent != ORCtypeEventStay)
-    {
-        [self requestActionWithBeacon:beacon];
-    }
-    else
-    {
-        __block CLProximity proximityBeacon = beacon.currentProximity;
-        __block NSInteger eventBeacon = beacon.currentEvent;
-
-        __weak typeof(self) this = self;
-        
-        ORCStayInteractor *stayInteractor = [[ORCStayInteractor alloc] init];
-        
-        [stayInteractor performStayRequestWithRegion:beacon completion:^(BOOL success) {
-            
-            if (success && (proximityBeacon == beacon.currentProximity) && (beacon.currentEvent == eventBeacon))
-            {
-                [this requestActionWithBeacon:beacon];
-            }
-        }];
-    }
+    [self requestActionWithBeacon:beacon];
 }
 
 - (void)didAuthorizationStatusChanged:(CLAuthorizationStatus)status
@@ -247,12 +309,12 @@
     {
         case kCLAuthorizationStatusAuthorizedAlways:
         {
-            [self startProximityWithRegions:self.regions];
+            [self startMonitoringAndRangingOfRegions];
         }
             break;
         case kCLAuthorizationStatusDenied:
         {
-            [self stopProximity];
+            [self stopMonitoringAndRangingOfRegions];
         }
         default:
             break;

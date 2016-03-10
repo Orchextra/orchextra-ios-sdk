@@ -15,7 +15,9 @@
 
 @protocol ORCActionInterface <NSObject>
 
+- (void)didFireTriggerWithAction:(ORCAction *)action;
 - (void)didFireTriggerWithAction:(ORCAction *)action fromViewController:(UIViewController *)viewController;
+
 - (void)presentViewController:(UIViewController *)toViewController;
 - (void)presentActionWithCustomScheme:(NSString *)customScheme;
 - (void)pushActionToViewController:(UIViewController *)toViewController;

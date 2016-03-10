@@ -10,24 +10,27 @@
 #import <Foundation/Foundation.h>
 
 #import "ORCActionInterface.h"
-#import "ORCLocationManager.h"
+#import "ORCLocationManagerWrapper.h"
 
 @class ORCActionCommunicator;
 @class ORCValidatorActionInterator;
+@class ORCSettingsInteractor;
 @class ORCStayInteractor;
 
 @interface ORCProximityManager : NSObject
 <ORCLocationManagerDelegate>
 
 
-- (instancetype)initWithActionManager:(id<ORCActionInterface>)actionInterface;
-- (instancetype)initWithCoreLocationManager:(ORCLocationManager *)orcLocation
-                            actionInterface:(id<ORCActionInterface>)actionInterface
-                                 interactor:(ORCValidatorActionInterator *)interactor;
-- (void)startProximityWithRegions:(NSArray *)geoRegions;
-- (void)stopProximity;
+- (instancetype)initWithActionInterface:(id<ORCActionInterface>)actionInterface;
 
+- (instancetype)initWithActionInterface:(id<ORCActionInterface>)actionInterface
+                    coreLocationManager:(ORCLocationManagerWrapper *)orcLocation
+                             interactor:(ORCValidatorActionInterator *)interactor
+                     settingsInteractor:(ORCSettingsInteractor *)settingsInteractor;
+
+
+- (void)startMonitoringAndRangingOfRegions;
+- (void)stopMonitoringAndRangingOfRegions;
 - (void)updateUserLocation;
-- (void)loadActionWithLocationEvent:(CLRegion *)region event:(NSInteger)event;
 
 @end

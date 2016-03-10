@@ -10,8 +10,11 @@
 
 @interface ORCURLProvider : NSObject
 
++(NSString *)domain;
+
 + (NSString *)endPointConfiguration;
 + (NSString *)endPointAction;
 + (NSString *)endPointSecurityToken;
++ (NSString *)endPointConfirmAction:(NSString *)actionId;
 
 @end

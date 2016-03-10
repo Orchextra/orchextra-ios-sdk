@@ -7,12 +7,16 @@
 //
 
 #import "ORCValidatorActionInterator.h"
-#import "ORCTriggerBeacon.h"
-#import "ORCTriggerGeofence.h"
+#import "ORCBeacon.h"
+#import "ORCGeofence.h"
+#import "ORCRegion.h"
 #import "ORCAction.h"
-#import "ORCGIGLogManager.h"
 #import "ORCActionCommunicator.h"
 
+#import "NSString+MD5.h"
+#import "ORCConstants.h"
+#import "ORCProximityFormatter.h"
+#import "ORCErrorManager.h"
 
 NSString * const TYPE_KEY = @"type";
 NSString * const VALUE_KEY = @"value";
@@ -20,7 +24,6 @@ NSString * const EVENT_KEY = @"event";
 NSString * const PHONE_STATUS_KEY = @"phoneStatus";
 NSString * const DISTANCE_KEY = @"distance";
 
-NSString * const DOMAIN_ORCHEXTRA_SDK = @"com.orchextra.sdk";
 int ERROR_ACTION_NOT_FOUND = 5001;
 
 @interface ORCValidatorActionInterator()
@@ -77,12 +80,12 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     }];
 }
 
-- (void)validateProximityWithGeofence:(ORCTriggerGeofence *)geofence completion:(CompletionActionValidated)completion
+- (void)validateProximityWithGeofence:(ORCGeofence *)geofence completion:(CompletionActionValidated)completion
 {
     NSDictionary *dictionary = @{ TYPE_KEY : geofence.type,
-                                  VALUE_KEY : geofence.identifier,
-                                  EVENT_KEY : [self convertEvent:geofence.currentEvent],
-                                  PHONE_STATUS_KEY : [self applicationStateStringFormat],
+                                  VALUE_KEY : geofence.code,
+                                  EVENT_KEY : [ORCProximityFormatter proximityEventToString:geofence.currentEvent],
+                                  PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString],
                                   DISTANCE_KEY : geofence.currentDistance};
     
     [self printValidatingLogMessageWithValues:dictionary];
@@ -93,13 +96,36 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     }];
 }
 
-- (void)validateProximityWithBeacon:(ORCTriggerBeacon *)beacon completion:(CompletionActionValidated)completionAction
+- (void)validateProximityWithRegion:(ORCRegion *)region completion:(CompletionActionValidated)completionAction
 {
+    NSString *typeRegion = (region.type == ORCTypeGeofence) ? ORCTypeGeofence : ORCTypeRegion;
+    
+    NSDictionary *dictionary = @{ TYPE_KEY : typeRegion,
+                                  VALUE_KEY : region.code,
+                                  EVENT_KEY : [ORCProximityFormatter proximityEventToString:region.currentEvent],
+                                  PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString]};
+    
+    [self printValidatingLogMessageWithValues:dictionary];
+    
+    __weak typeof(self) this = self;
+    [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
+        
+        [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
+    }];
+}
+
+- (void)validateProximityWithBeacon:(ORCBeacon *)beacon completion:(CompletionActionValidated)completionAction
+{
+    NSString *plainCodeBeacon = [NSString stringWithFormat:@"%@_%@_%@",
+                                 beacon.uuid.UUIDString,
+                                 beacon.major,
+                                 beacon.minor];
+    
+    NSString *md5codeBeacon = [plainCodeBeacon MD5];
     NSDictionary *dictionary = @{ TYPE_KEY : beacon.type,
-                                  VALUE_KEY : beacon.identifier,
-                                  EVENT_KEY : [self convertEvent:beacon.currentEvent],
-                                  PHONE_STATUS_KEY : [self applicationStateStringFormat],
-                                  DISTANCE_KEY : [self nameForProximity:beacon.currentProximity]};
+                                  VALUE_KEY : md5codeBeacon,
+                                  PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString],
+                                  DISTANCE_KEY : [ORCProximityFormatter proximityDistanceToString:beacon.currentProximity]};
 
     [self printValidatingLogMessageWithValues:dictionary];
     
@@ -111,11 +137,9 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     }];
 }
 
-
 #pragma mark - PRIVATE
 
-- (NSDictionary *)formattedParametersWithType:(NSString *)type value:(NSString *)value
-{
+- (NSDictionary *)formattedParametersWithType:(NSString *)type value:(NSString *)value{
     return @{ TYPE_KEY : type, VALUE_KEY : value };
 }
 
@@ -124,19 +148,17 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     
     if (!response.action)
     {
-        NSDictionary *userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"** [Orchextra SDK] - Action not found ** %@ - %@",
-                                                              requestParams[TYPE_KEY], requestParams[VALUE_KEY]] };
-        NSError *error = [NSError errorWithDomain:DOMAIN_ORCHEXTRA_SDK
-                                             code:ERROR_ACTION_NOT_FOUND
-                                         userInfo:userInfo];
-        completion(nil, error);
-        [ORCGIGLogManager log:@"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
+        [ORCLog logDebug:@"---- ACTION NOT FOUND---- \n ---j---> Trigger: %@, Value: %@\n",
          requestParams[TYPE_KEY], requestParams[VALUE_KEY]];
+        
+        completion(nil, response.error);
+
     }
     else
     {
-        [ORCGIGLogManager log:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@\n",
-         requestParams[TYPE_KEY], requestParams[VALUE_KEY], response.action.type, response.action.urlString];
+        [ORCLog logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
+         requestParams[TYPE_KEY], requestParams[VALUE_KEY], response.action.type, response.action.urlString, response.action.scheduleTime];
+        
         completion(response.action, nil);
     }
 }
@@ -146,57 +168,20 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 -(void)printValidatingLogMessageWithValues:(NSDictionary *)dictionary
 {
     __block NSString *message = [NSString stringWithFormat:@"--- VALIDATING %@: ---\n", [dictionary[TYPE_KEY] uppercaseString]];
+    
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL * _Nonnull stop) {
         message = [message stringByAppendingString:[NSString stringWithFormat:@" ------>   %@: %@\n", key, obj]];
     }];
     
-    [ORCGIGLogManager log:message];
+    [ORCLog logDebug:message];
 }
 
-#pragma mark - FORMATTER
-
-- (NSString *)convertEvent:(NSInteger)typeEvent
+- (NSString *)encodingString:(NSString *)clearString
 {
-    switch (typeEvent)
-    {
-        case 0:
-            return @"enter";
-        case 1:
-            return @"exit";
-        default:
-            return @"stay";
-    }
+    NSString *escapedString =[clearString stringByAddingPercentEncodingWithAllowedCharacters:
+                              [NSCharacterSet characterSetWithCharactersInString:@";,/?:@&=+$-_.!~*'()#"]];
+    return escapedString;
 }
 
-- (NSString *)applicationStateStringFormat
-{
-    UIApplicationState appState = [UIApplication sharedApplication].applicationState;
-    switch ( appState )
-    {
-        case UIApplicationStateActive:
-            return @"foreground";
-        case UIApplicationStateBackground:
-            return @"background";
-        default:
-            return @"inactive";
-    }
-}
-
-- (NSString *)nameForProximity:(CLProximity)proximity {
-    switch (proximity) {
-        case CLProximityUnknown:
-            return @"unknown";
-            break;
-        case CLProximityImmediate:
-            return @"immediate";
-            break;
-        case CLProximityNear:
-            return @"near";
-            break;
-        case CLProximityFar:
-            return @"far";
-            break;
-    }
-}
 
 @end

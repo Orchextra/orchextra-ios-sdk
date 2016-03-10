@@ -8,13 +8,12 @@
 
 #import "ORCURLProvider.h"
 #import "ORCConstants.h"
-#import "ORCStorage.h"
+#import "ORCSettingsPersister.h"
 
 @implementation ORCURLProvider
 
 + (NSString *)endPointConfiguration
 {
-    ;
     return [NSString stringWithFormat:@"%@/%@/configuration", [ORCURLProvider domain], ORCNetworkVersion];
 }
 
@@ -29,12 +28,16 @@
     return urlRequest;
 }
 
++ (NSString *)endPointConfirmAction:(NSString *)actionId
+{
+    NSString *urlRequest = [NSString stringWithFormat:@"%@/%@/action/confirm/%@", [ORCURLProvider domain], ORCNetworkVersion, actionId];
+    return urlRequest;
+}
+
 +(NSString *)domain
 {
-    ORCStorage *storage = [[ORCStorage alloc] init];
-    
+    ORCSettingsPersister *storage = [[ORCSettingsPersister alloc] init];
     NSString *domain = [storage loadURLEnvironment];
-    
     
     if (!domain) domain = ORCNetworkHost;
     

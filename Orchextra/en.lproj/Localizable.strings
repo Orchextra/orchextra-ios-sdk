@@ -9,6 +9,7 @@
 /* Globals */
 "cancel_button" = "Cancel";
 "Ok" = "Ok";
+"OK" = "OK";
 
 /* Alert Location */
 "Location_services_are_off" = "Location services are off";
@@ -39,8 +40,7 @@
 //------------------------------------------------------------------------------------------------------------------------------//
 
 
-"app_description"="Vuforia Sample Applications";
-
+"title_image_recognition" = "Image Recognition";
 "button_start"="Start";
 "activities_list_title_string"="Vuforia Samples";
 "activities_list_empty"="No activities";

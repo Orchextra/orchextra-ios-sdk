@@ -1,7 +1,7 @@
 
 //
 //  ORCActionManager.m
-//  Orchestra
+//  Orchextra
 //
 //  Created by Judith Medina on 21/4/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
@@ -13,12 +13,16 @@
 #import "ORCWireframe.h"
 #import "ORCAction.h"
 #import "ORCGIGLogManager.h"
+#import "ORCStatisticsInteractor.h"
+#import "ORCValidatorActionInterator.h"
 
 @interface ORCActionManager()
 
 @property (strong, nonatomic) ORCWireframe *wireframe;
 @property (strong, nonatomic) ORCProximityManager *proximityManager;
-@property (strong, nonatomic) ORCPushManager *notificationManager;
+@property (strong, nonatomic) ORCPushManager *pushManager;
+@property (strong, nonatomic) ORCStatisticsInteractor *statisticsInteractor;
+@property (strong, nonatomic) ORCValidatorActionInterator *validatorInteractor;
 
 @end
 
@@ -39,23 +43,47 @@
 
 - (instancetype)init
 {
-    ORCProximityManager *proximityManager = [[ORCProximityManager alloc] initWithActionManager:self];
+    ORCProximityManager *proximityManager = [[ORCProximityManager alloc] initWithActionInterface:self];
     ORCPushManager *notificationManager = [ORCPushManager sharedPushManager];
+    ORCStatisticsInteractor *statisticsInteractor = [[ORCStatisticsInteractor alloc] init];
+    ORCWireframe *wireframe = [[ORCWireframe alloc] init];
+    ORCValidatorActionInterator *validatorInteractor = [[ORCValidatorActionInterator alloc] init];
 
-    return [self initWithProximity:proximityManager notificationManager:notificationManager];
+    return [self initWithProximity:proximityManager
+               notificationManager:notificationManager
+              statisticsInteractor:statisticsInteractor
+               validatorInteractor:validatorInteractor
+                         wireframe:wireframe];
 }
 
 - (instancetype)initWithProximity:(ORCProximityManager *)proximityManager
               notificationManager:(ORCPushManager *)notificationManager
+             statisticsInteractor:(ORCStatisticsInteractor *)statisticsInteractor
+                        wireframe:(ORCWireframe *)wireframe
 {
+    ORCValidatorActionInterator *validatorInteractor = [[ORCValidatorActionInterator alloc] init];
+    return [self initWithProximity:proximityManager
+               notificationManager:notificationManager
+              statisticsInteractor:statisticsInteractor
+               validatorInteractor:validatorInteractor
+                         wireframe:wireframe];
+}
 
+- (instancetype)initWithProximity:(ORCProximityManager *)proximityManager
+              notificationManager:(ORCPushManager *)notificationManager
+             statisticsInteractor:(ORCStatisticsInteractor *)statisticsInteractor
+             validatorInteractor:(ORCValidatorActionInterator *)validatorInteractor
+                        wireframe:(ORCWireframe *)wireframe
+{
     self = [super init];
     
     if (self)
     {
         _proximityManager = proximityManager;
-        _notificationManager = notificationManager;
-        _wireframe = [[ORCWireframe alloc] init];
+        _pushManager = notificationManager;
+        _validatorInteractor = validatorInteractor;
+        _statisticsInteractor = statisticsInteractor;
+        _wireframe = wireframe;
     }
     
     return self;
@@ -63,53 +91,33 @@
 
 #pragma mark - PUBLIC
 
-- (void)startGeoMarketingWithRegions:(NSArray *)geoRegions
+- (void)startWithAppConfiguration
 {
-    if(geoRegions.count > 0)
-    {
-        [self.proximityManager startProximityWithRegions:geoRegions];
-    }
-    else
-    {
-        [self.proximityManager stopProximity];
-    }
+    [self performUpdateUserLocation];
+    [self updateMonitoringAndRangingOfRegions];
 }
 
-- (void)updateUserLocation
+- (void)performUpdateUserLocation
 {
     [self.proximityManager updateUserLocation];
 }
 
-- (void)handleLocationEvent:(CLRegion *)region event:(NSInteger)event
+- (void)updateMonitoringAndRangingOfRegions
 {
-    [self.proximityManager loadActionWithLocationEvent:region event:event];
+    [self.proximityManager startMonitoringAndRangingOfRegions];
 }
-
-#pragma mark - Parse Actions
-
-#pragma mark - PRIVATE
 
 - (void)launchAction:(ORCAction *)action
 {
-    [ORCGIGLogManager log:@"[Orchextra] - Launch Action : %@", action.type];
+    [self.statisticsInteractor trackActionHasBeenLaunched:action];
     [action executeActionWithActionInterface:self];
 }
 
-- (void)hasLocalNotification:(ORCAction *)action handleAPN:(BOOL)handleAPN
+- (void)prepareActionToBeExecute:(ORCAction *)action
 {
-    if (action.messageNotification.length > 0)
+    if (action.bodyNotification.length > 0)
     {
-        [ORCGIGLogManager log:@"[Orchextra] - Action With notification: %@", action.type];
-        NSDictionary *notificationValues = @{@"title" : action.titleNotification,
-                                             @"body" : action.messageNotification,
-                                             @"type" : action.type,
-                                             @"url" : action.urlString};
-
-        __weak typeof(self) this = self;
-        [self.notificationManager sendLocalPushNotificationWithValues:notificationValues handleAPN:handleAPN completion:^{
-            [this launchAction:action];
-        }];
-        
+        [self checkActionWithApplicationState:action];
     }
     else
     {
@@ -117,13 +125,69 @@
     }
 }
 
+- (void)findActionFromGeofence:(ORCGeofence *)geofence
+{
+    [self.validatorInteractor validateProximityWithGeofence:geofence completion:^(ORCAction *action, NSError *error) {
+        
+        if (action)
+        {
+            [self actionFromPushNotification:action];
+        }
+    }];
+}
+
+
+#pragma mark - PRIVATE
+
+- (void)checkActionWithApplicationState:(ORCAction *)action
+{
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+    {
+        [self executeActionBasedOnScheduleTime:action];
+    }
+    else
+    {
+        [self.pushManager sendLocalPushNotificationWithAction:action];
+    }
+}
+
+- (void)actionFromPushNotification:(ORCAction *)action
+{
+    __weak typeof(self) this = self;
+    [self.pushManager
+     showAlertViewWithTitle:action.titleNotification
+     body:action.bodyNotification
+     cancelable:action.actionWithUserInteraction
+                completion:^{
+                        [this launchAction:action];
+     }];
+}
+
+- (void)executeActionBasedOnScheduleTime:(ORCAction *)action
+{
+    if(action.scheduleTime > 0)
+    {
+        [self.pushManager sendLocalPushNotificationWithAction:action];
+    }
+    else
+    {
+        [self actionFromPushNotification:action];
+    }
+}
+
 #pragma mark - DELEGATES
 
-- (void)didFireTriggerWithAction:(ORCAction *)action fromViewController:(UIViewController *)viewController
+- (void)didFireTriggerWithAction:(ORCAction *)action
+{
+    [self prepareActionToBeExecute:action];
+}
+
+- (void)didFireTriggerWithAction:(ORCAction *)action
+              fromViewController:(UIViewController *)viewController
 {
     __weak typeof (self) this = self;
     [self.wireframe dismissActionWithViewController:viewController completion:^{
-        [this hasLocalNotification:action handleAPN:NO];
+        [this prepareActionToBeExecute:action];
     }];
 }
 

@@ -1,5 +1,5 @@
 //
-//  ORCConfigurationSdk.m
+//  ORCUser.m
 //  Orchestra
 //
 //  Created by Judith Medina on 7/7/15.
@@ -7,7 +7,6 @@
 //
 
 #import "ORCUser.h"
-#import "ORCConfigurationInteractor.h"
 
 
 NSString * const ORCCrmIdKey = @"ORCCrmId";
@@ -16,34 +15,8 @@ NSString * const ORCGenderKey = @"ORCGender";
 NSString * const ORCTagsKey = @"ORCTags";
 NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
 
-@interface ORCUser ()
-
-@property (strong, nonatomic) NSString *genderString;
-
-@end
 
 @implementation ORCUser
-
-#pragma mark - INIT
-
-- (instancetype)initWithConfigurationInteractor:(ORCConfigurationInteractor *)interactor
-{
-    self = [super init];
-    
-    if (self)
-    {
-        _interactor = interactor;
-        _gender = ORCGenderMale;
-    }
-    
-    return self;
-}
-
-- (instancetype)init
-{
-    ORCConfigurationInteractor *interactor = [[ORCConfigurationInteractor alloc] init];
-    return [self initWithConfigurationInteractor:interactor];
-}
 
 #pragma mark - NSCODING
 
@@ -57,8 +30,9 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
         _birthday   = [aDecoder decodeObjectForKey:ORCBirthdayKey];
         _tags       = [aDecoder decodeObjectForKey:ORCTagsKey];
         _deviceToken = [aDecoder decodeObjectForKey:ORCDeviceTokenKey];
-        _genderString = [aDecoder decodeObjectForKey:ORCGenderKey];
-
+        
+        NSNumber *genderNumber = [aDecoder decodeObjectForKey:ORCGenderKey];
+        _gender = [self genderUser:genderNumber];
     }
     
     return self;
@@ -70,70 +44,103 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
     [aCoder encodeObject:_birthday forKey:ORCBirthdayKey];
     [aCoder encodeObject:_tags forKey:ORCTagsKey];
     [aCoder encodeObject:_deviceToken forKey:ORCDeviceTokenKey];
-    [aCoder encodeObject:_genderString forKey:ORCGenderKey];
+    [aCoder encodeObject:@(_gender) forKey:ORCGenderKey];
 }
 
 #pragma mark - PUBLIC
 
-- (NSString *)birthdayFormatted
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy-MM-dd";
-    
-    NSString *dateString = [dateFormatter stringFromDate:self.birthday];
-    return dateString;
-}
-
-- (NSString *)genderUser
-{
-    switch (self.gender) {
-        case ORCGenderFemale:
-            self.genderString = @"f";
-            break;
-        case ORCGenderMale:
-            self.genderString = @"m";
-            break;
-        default:
-            self.genderString = @"m";
-            break;
-    }
-    
-    return self.genderString;
-}
-
 - (BOOL)isSameUser:(ORCUser *)user
 {
-    if ([user.crmID isEqualToString:self.crmID] &&
-        [user.birthday isEqualToDate:self.birthday] &&
-        [user.tags isEqualToArray:self.tags] &&
-        [user.deviceToken isEqualToString:self.deviceToken] &&
-        [[user genderUser] isEqualToString:[self genderUser]])
+    if ([self equalCRM:user.crmID] &&
+        [self equalBirthday:user.birthday] &&
+        [self equalTags:user.tags] &&
+        [self equalDeviceToken:user.deviceToken] &&
+        [self equalGender:user.gender])
     {
         return YES;
     }
-    
+
     return NO;
 }
 
-- (void)saveUser
+- (BOOL)crmHasChanged:(ORCUser *)user
 {
-    [self.interactor saveUserData:self];
+    if([self equalCRM:user.crmID])
+    {
+        return NO;
+    }
+    return YES;
 }
 
-+ (ORCUser *)currentUser
+#pragma mark - PRIVATE
+
+- (ORCUserGender)genderUser:(NSNumber *)genderNumber
 {
-    ORCUser *user = [[self alloc] init];
-    
-    if ([user.interactor currentUser])
+    if ([genderNumber integerValue] == 0)
     {
-        ORCUser *tmpUser = [user.interactor currentUser];
-        tmpUser.interactor = user.interactor;
-        return tmpUser;
+        return ORCGenderNone;
+    }
+    else if ([genderNumber integerValue] == 1)
+    {
+        return ORCGenderFemale;
     }
     else
     {
-        return user;
+        return ORCGenderMale;
     }
+}
+
+- (BOOL)equalCRM:(NSString *)crm
+{
+    if (crm)
+    {
+        return [crm isEqualToString:self.crmID];
+    }
+    else
+    {
+        return (self.crmID == nil);
+    }
+}
+
+- (BOOL)equalBirthday:(NSDate *)birthday
+{
+    if (birthday)
+    {
+        return [birthday isEqualToDate:self.birthday];
+    }
+    else
+    {
+        return (self.birthday == nil);
+    }
+}
+
+- (BOOL)equalTags:(NSArray *)tags
+{
+    if (tags)
+    {
+        return [tags isEqualToArray:self.tags];
+    }
+    else
+    {
+        return (self.tags == nil);
+    }
+}
+
+- (BOOL)equalDeviceToken:(NSString *)deviceToken
+{
+    if (deviceToken)
+    {
+        return [deviceToken isEqualToString:self.deviceToken];
+    }
+    else
+    {
+        return (self.deviceToken == nil);
+    }
+}
+
+- (BOOL)equalGender:(ORCUserGender)gender
+{
+    return (gender == self.gender);
 }
 
 @end

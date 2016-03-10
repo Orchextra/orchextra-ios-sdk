@@ -11,10 +11,11 @@
 #import "ORCVuforiaViewController.h"
 #import "ORCActionInterface.h"
 
-#import "ORCStorage.h"
+#import "ORCSettingsPersister.h"
 #import "ORCVuforiaConfig.h"
 #import "ORCGIGLogManager.h"
 #import "NSBundle+ORCBundle.h"
+#import <Orchextra/ORCLog.h>
 
 @interface ORCActionVuforia ()
 
@@ -24,7 +25,7 @@
 
 - (void)executeActionWithActionInterface:(id<ORCActionInterface>)actionInterface
 {
-    ORCStorage *storage = [[ORCStorage alloc] init];
+    ORCSettingsPersister *storage = [[ORCSettingsPersister alloc] init];
     ORCVuforiaConfig *vuforiaConfig = [storage loadVuforiaConfig];
     
     if (vuforiaConfig)
@@ -38,7 +39,7 @@
     }
     else
     {
-        [ORCGIGLogManager log:ORCLocalizedBundle(@"ERROR_MISSING_VUFORIA_CREDENTIALS", nil, nil)];
+        [ORCLog logError:ORCLocalizedBundle(@"ERROR_MISSING_VUFORIA_CREDENTIALS", nil, nil)];
     }
 }
 

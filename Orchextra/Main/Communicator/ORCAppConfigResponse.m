@@ -1,16 +1,17 @@
 //
 //  ORCAppConfigResponse.m
-//  Orchestra
+//  Orchextra
 //
 //  Created by Judith Medina on 17/6/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
 #import "ORCAppConfigResponse.h"
-#import "ORCTriggerBeacon.h"
-#import "ORCTriggerGeofence.h"
+#import "ORCBeacon.h"
+#import "ORCGeofence.h"
 #import "ORCThemeSdk.h"
 #import "ORCVuforiaConfig.h"
+#import "ORCErrorManager.h"
 
 
 NSString * const PROXIMITY_JSON = @"proximity";
@@ -18,10 +19,6 @@ NSString * const GEOMARKETING_JSON = @"geoMarketing";
 NSString * const REQUEST_WAIT_TIME = @"requestWaitTime";
 NSString * const THEME_JSON = @"theme";
 NSString * const VUFORIA_JSON = @"vuforia";
-
-
-NSInteger MAX_GEOFENCES = 20;
-
 
 @implementation ORCAppConfigResponse
 
@@ -33,10 +30,14 @@ NSInteger MAX_GEOFENCES = 20;
     {
         if (self.success)
         {
-            self.geoRegions = [self parseGeoMarketingResponse:self.jsonData];
+            [self parseGeoMarketingResponse:self.jsonData];
             self.themeSDK = [self parseThemeWithJSON:self.jsonData];
             self.requestWaitTime = [self.jsonData integerForKey:REQUEST_WAIT_TIME];
             self.vuforiaConfig = [self parseVuforiaCredentials:self.jsonData];
+        }
+        else
+        {
+            self.error = [ORCErrorManager errorWithResponse:self];
         }
     }
     
@@ -45,40 +46,44 @@ NSInteger MAX_GEOFENCES = 20;
 
 #pragma mark - PRIVATE 
 
-- (NSArray *)parseGeoMarketingResponse:(NSDictionary *)json
+- (void)parseGeoMarketingResponse:(NSDictionary *)json
 {
-    NSMutableArray *geoRegions = [[NSMutableArray alloc] init];
-    
+    // Parse Beacons
     if ([json isKindOfClass:[NSDictionary class]] && json[PROXIMITY_JSON])
     {
+        NSMutableArray *beaconRegions = [[NSMutableArray alloc] init];
+
         for (NSDictionary *beaconObj in json[PROXIMITY_JSON])
         {
-            ORCTriggerBeacon *beacon = [[ORCTriggerBeacon alloc] initWithJSON:beaconObj];
-            [geoRegions addObject:beacon];
+            ORCBeacon *beacon = [[ORCBeacon alloc] initWithJSON:beaconObj];
+            [beaconRegions addObject:beacon];
         }
+        
+        if (!self.beaconRegions) self.beaconRegions = [[NSArray alloc] init];
+        self.beaconRegions = beaconRegions;
     }
     
+    // Parse Geofences
     if ([json isKindOfClass:[NSDictionary class]] && json[GEOMARKETING_JSON])
     {
-        int countGeofence = 0;
-        
+        NSMutableArray *geoRegions = [[NSMutableArray alloc] init];
+
         for (NSDictionary *geofenceObj in  json[GEOMARKETING_JSON])
         {
-            ORCTriggerGeofence *geofence = [[ORCTriggerGeofence alloc] initWithJSON:geofenceObj];
+            ORCGeofence *geofence = [[ORCGeofence alloc] initWithJSON:geofenceObj];
             [geoRegions addObject:geofence];
-            if (countGeofence > MAX_GEOFENCES) break;
-            countGeofence++;
         }
+        
+        if (!self.geoRegions) self.geoRegions = [[NSArray alloc] init];
+        self.geoRegions = geoRegions;
     }
-    
-    return geoRegions;
 }
 
 - (ORCThemeSdk *)parseThemeWithJSON:(NSDictionary *)json
 {
     ORCThemeSdk *theme = nil;
     
-    if (json[THEME_JSON])
+    if ([json isKindOfClass:[NSDictionary class]] && json[THEME_JSON])
     {
         theme = [[ORCThemeSdk alloc] initWithJSON:json[THEME_JSON]];
     }

@@ -20,6 +20,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
 #import <Orchextra/NSBundle+ORCBundle.h>
 #import <Orchextra/ORCThemeSdk.h>
 #import <Orchextra/ORCVuforiaConfig.h>
+#import <Orchextra/ORCLog.h>
 
 #import "VFConfigurationInteractor.h"
 
@@ -311,7 +312,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
         return NO;
     }
     
-//    NSLog(@"Successfully initialized ObjectTracker.");
+    NSLog(@"Successfully initialized ObjectTracker.");
     return YES;
 }
 
@@ -517,6 +518,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     if (statusCode < 0)
     {
         // Show a message if we encountered an error:
+//        NSLog(@"update search result failed:%d", statusCode);
         if (statusCode == QCAR::TargetFinder::UPDATE_ERROR_NO_NETWORK_CONNECTION) {
             [self showUIAlertFromErrorCode:statusCode];
         }
@@ -536,11 +538,6 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
                 QCAR::Trackable* newTrackable = finder->enableTracking(*result);
                 if (newTrackable != 0)
                 {
-                    //  Avoid entering on ContentMode when a bad target is found
-                    //  (Bad Targets are targets that are exists on the CloudReco database but not on our
-                    //  own book database)
-//                    NSLog(@"Successfully created new trackable '%s' with rating '%d'.",
-//                          newTrackable->getName(), result->getTrackingRating());
                     if (extendedTrackingEnabled) {
                         newTrackable->startExtendedTracking();
                     }

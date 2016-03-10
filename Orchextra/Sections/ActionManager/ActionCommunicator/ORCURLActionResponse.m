@@ -1,3 +1,5 @@
+
+
 //
 //  ORCURLActionResponse.m
 //  Orchestra
@@ -11,6 +13,7 @@
 #import "ORCActionWebView.h"
 #import "ORCActionBrowser.h"
 #import "ORCActionVuforia.h"
+#import "ORCErrorManager.h"
 
 @implementation ORCURLActionResponse
 
@@ -29,7 +32,7 @@
         }
         else
         {
-            self.error = [NSError errorWithDomain:@"com.orchextra.error.actionresponse" code:2000 userInfo:nil];
+            self.error = [ORCErrorManager errorWithErrorCode:2001];
         }
     }
     
@@ -39,7 +42,6 @@
 - (void)parseActionResponse:(NSDictionary *)json
 {
     NSString *type = json[@"type"];
-    
     self.action = [[ORCAction alloc] initWithType:type json:json];
 }
 

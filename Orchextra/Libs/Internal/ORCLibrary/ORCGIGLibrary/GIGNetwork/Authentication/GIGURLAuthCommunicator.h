@@ -1,6 +1,6 @@
 //
 //  GIGURLAuthCommunicator.h
-//  Orchestra
+//  Orchextra
 //
 //  Created by Judith Medina on 27/5/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
@@ -16,7 +16,7 @@
 #import "ORCConstants.h"
 #import "ORCURLRequest.h"
 
-@class ORCStorage;
+@class ORCSettingsPersister;
 
 typedef void(^CompletionAuthenticationResponse)(ORCGIGURLJSONResponse *response);
 
@@ -24,7 +24,7 @@ typedef void(^CompletionAuthenticationResponse)(ORCGIGURLJSONResponse *response)
 
 @property (strong, nonatomic) ORCGIGURLStorage *storage;
 
-- (instancetype)initWithStorage:(ORCGIGURLStorage *)storage orchextraStorage:(ORCStorage *)orchextraStorage;
+- (instancetype)initWithStorage:(ORCGIGURLStorage *)storage orchextraStorage:(ORCSettingsPersister *)orchextraStorage;
 - (void)send:(ORCURLRequest *)request completion:(ORCGIGURLRequestCompletion)completion;
 
 - (void)clientAuthenticationRequest:(CompletionAuthenticationResponse)completion;

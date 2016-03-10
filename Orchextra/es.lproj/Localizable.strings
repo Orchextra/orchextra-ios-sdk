@@ -1,6 +1,6 @@
 /* 
   Localizable.strings
-  Orchestra
+  Orchextra
 
   Created by Judith Medina on 12/6/15.
   Copyright (c) 2015 Gigigo. All rights reserved.
@@ -9,6 +9,7 @@
 /* Globals */
 "cancel_button" = "Cancelar";
 "Ok" = "Ok";
+"OK" = "OK";
 
 /* Alert Location */
 "Location_services_are_off" = "La localización está desactivada.";
@@ -47,9 +48,9 @@
 //-----------------------------------------------           VUFORIA            -------------------------------------------------//
 //------------------------------------------------------------------------------------------------------------------------------//
 
-"app_description"="Escaner de Imagenes";
+"title_image_recognition" = "Reconocimiento de Imágenes";
 "button_start"="Comenzar";
-"activities_list_title_string"="Escaner de Imagenes";
+"activities_list_title_string"="Reconocimiento de Imágenes";
 "activities_list_empty"="Vacio";
 
 "button_OK"="OK";

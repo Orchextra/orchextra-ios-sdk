@@ -8,6 +8,7 @@
 
 #import "ORCURLRequest.h"
 #import "ORCConstants.h"
+#import "ORCDevice.h"
 
 
 @implementation ORCURLRequest
@@ -39,6 +40,7 @@
         NSMutableDictionary *tmp = (self.headers) ? [self.headers mutableCopy] : [NSMutableDictionary new];
         [tmp addEntriesFromDictionary: @{@"X-app-sdk" : headerPrefix}];
         [tmp addEntriesFromDictionary:@{@"Accept-Language" : [[NSLocale currentLocale] localeIdentifier]}];
+        tmp = [self addCustomUserAgent:tmp];
         return tmp;
     }
     
@@ -50,5 +52,13 @@
     return [NSString stringWithFormat:@"IOS_%@", ORCSDKVersion];
 }
 
+- (NSMutableDictionary *)addCustomUserAgent:(NSMutableDictionary *)headers
+{
+    ORCDevice *device = [[ORCDevice alloc] init];
+    NSString *userAgent = [NSString stringWithFormat:@"iOS_%@_%@", [device versionIOS], [device bundleId]];
+    [headers addEntriesFromDictionary:@{@"user-agent" : userAgent}];
+
+    return headers;
+}
 
 @end

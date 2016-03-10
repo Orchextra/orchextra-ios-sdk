@@ -7,7 +7,7 @@
 //
 
 #import "ORCStayInteractor.h"
-#import "ORCTriggerBeacon.h"
+#import "ORCBeacon.h"
 
 @interface ORCStayInteractor ()
 
@@ -20,14 +20,13 @@
 @implementation ORCStayInteractor
 
 
-- (void)performStayRequestWithRegion:(ORCTriggerRegion*)region completion:(ORCCompletionStayTime)completion
+- (void)performStayRequestWithRegion:(ORCRegion*)region completion:(ORCCompletionStayTime)completion
 {
     
     self.completion = completion;
     
     if(region.timer > 0)
     {
-        NSLog(@"Init timer %f", region.timer);
         UIApplication  *app = [UIApplication sharedApplication];
         self.bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
             [app endBackgroundTask:self.bgTask];
@@ -39,7 +38,7 @@
     }
     else
     {
-        if ([region isKindOfClass:[ORCTriggerBeacon class]])
+        if ([region isKindOfClass:[ORCBeacon class]])
         {
             completion(YES);
         }
