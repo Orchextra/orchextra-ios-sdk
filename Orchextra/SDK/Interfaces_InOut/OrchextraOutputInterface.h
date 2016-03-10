@@ -22,6 +22,4 @@
 - (NSArray *)fetchGeofencesRegistered;
 - (NSArray *)fetchBeaconsRegistered;
 
-
-
 @end

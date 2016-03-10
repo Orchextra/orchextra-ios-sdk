@@ -9,19 +9,16 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "Orchextra.h"
-#import "ORCConfigurationInteractor.h"
-
+#import "ORCSettingsInteractor.h"
+#import "ORCApplicationCenter.h"
 #import "ORCActionScanner.h"
-#import "ORCActionVuforia.h"
-#import "ORCGIGLogManager.h"
-
+#import "ORCURLProvider.h"
 
 @interface Orchextra()
 <ORCActionHandlerInterface, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) ORCActionManager *actionManager;
-@property (strong, nonatomic) ORCConfigurationInteractor *interactor;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) ORCSettingsInteractor *interactor;
 
 @end
 
@@ -44,26 +41,21 @@
 
 - (instancetype)init
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(applicationWillEnterForeground:)
-                                                 name:UIApplicationWillEnterForegroundNotification
-                                               object:[UIApplication sharedApplication]];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(applicationDidFinishLaunching:)
-                                                 name:UIApplicationDidFinishLaunchingNotification
-                                               object:[UIApplication sharedApplication]];
-    
     ORCActionManager *actionManager = [ORCActionManager sharedInstance];
     actionManager.delegateAction = self;
-    ORCConfigurationInteractor *interactor = [[ORCConfigurationInteractor alloc] init];
+    
+    ORCSettingsInteractor *interactor = [[ORCSettingsInteractor alloc] init];
+    ORCApplicationCenter *applicationCenter = [[ORCApplicationCenter alloc] init];
     
     return [self initWithActionManager:actionManager
-                      configInteractor:interactor];
+                      configInteractor:interactor
+                     applicationCenter:applicationCenter];
 }
 
 - (instancetype)initWithActionManager:(ORCActionManager *)actionManager
-                         configInteractor:(ORCConfigurationInteractor *)configInteractor
+                         configInteractor:(ORCSettingsInteractor *)configInteractor
+                    applicationCenter:(ORCApplicationCenter *)applicationCenter
+
 {
     self = [super init];
     
@@ -71,8 +63,12 @@
     {
         _actionManager = actionManager;
         _interactor = configInteractor;
-        
-        [self debug:ORCShowLogs];
+        _applicationCenter = applicationCenter;
+        [_applicationCenter observeAppDelegateEvents];
+
+        // Set up to error level by default.
+        [Orchextra logLevel:ORCLogLevelError];
+        [Orchextra saveLogsToAFile];
     }
     
     return self;
@@ -83,19 +79,39 @@
 - (void)setApiKey:(NSString *)apiKey apiSecret:(NSString *)apiSecret completion:(void (^)(BOOL, NSError *))completion
 {
     __weak typeof(self) this = self;
-    [self.interactor loadProjectWithApiKey:apiKey apiSecret:apiSecret completion:^(NSArray *regions, NSError *error) {
+    [self.interactor loadProjectWithApiKey:apiKey apiSecret:apiSecret completion:^(BOOL success, NSError *error) {
         
-        if (error == nil)
+        if (success)
         {
-            [ORCGIGLogManager log:@"[ORCHEXTRA] -LOADED PROJECT APIKEY: %@ - APISECRET: %@", apiKey, apiSecret];
-            [this.actionManager startGeoMarketingWithRegions:regions];
-            completion(YES, nil);
+            [ORCLog logDebug:@" ---  ORCHEXTRA INFO --- "];
+            [ORCLog logDebug:@" ---  SDK Version: %@", ORCSDKVersion];
+            [ORCLog logDebug:@" ---  Endpoint SDK: %@", [ORCURLProvider domain]];
+
+            [ORCLog logDebug:@"LOADED PROJECT WITH: "];
+            [ORCLog logDebug:@"- APIKEY: %@", apiKey];
+            [ORCLog logDebug:@"- API SECRET: %@", apiSecret];
+
+            [this.actionManager startWithAppConfiguration];
         }
         else
         {
-            completion(NO, error);
+            [ORCLog logError:error.debugDescription];
         }
+        
+        completion(success, error);
     }];
+}
+
+#pragma mark - PUBLIC ()
+
+- (void)setUser:(ORCUser *)user
+{
+    [self.interactor saveUser:user];
+}
+
+- (ORCUser *)currentUser
+{
+    return [self.interactor currentUser];
 }
 
 # pragma mark - PUBLIC (Actions)
@@ -104,35 +120,7 @@
 {
     ORCAction *barcodeAction = [[ORCAction alloc] initWithType:ORCActionOpenScannerID];
     barcodeAction.urlString = ORCSchemeScanner;
-    
     [self.actionManager launchAction:barcodeAction];
-}
-
-#pragma mark - NOTIFICATION
-
-- (void)applicationWillEnterForeground:(NSNotification *)object
-{
-    [self.actionManager updateUserLocation];
-}
-
-- (void)applicationDidFinishLaunching:(NSNotification *)object
-{
-    NSDictionary *userInfo = [object userInfo];
-    NSLog(@"applicationDidFinishLaunching: %@", userInfo);
-    if ([userInfo objectForKey:UIApplicationLaunchOptionsLocationKey] != nil)
-    {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
-        
-        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
-        {
-            [self.locationManager requestAlwaysAuthorization];
-        }
-    }
-    else if ([userInfo objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey])
-    {
-        [ORCPushManager handlePush:[userInfo objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey]];
-    }
 }
 
 #pragma mark - DELEGATE
@@ -142,13 +130,14 @@
     [self.delegate executeCustomScheme:customScheme];
 }
 
-
-- (void)debug:(BOOL)debug
-{
-    [ORCGIGLogManager shared].appName = @"Orchextra SDK";
-    [ORCGIGLogManager shared].logEnabled = debug;
++ (void)logLevel:(ORCLogLevel)logLevel
+{    
+    [ORCLog logLevel:logLevel];
 }
 
-
++ (void)saveLogsToAFile
+{
+    [ORCLog addLogsToFile];
+}
 
 @end

@@ -7,9 +7,8 @@
 //
 
 #import "ORCGIGURLJSONResponse.h"
-
+#import "ORCErrorManager.h"
 #import "ORCGIGJSON.h"
-#import "ORCErrorNetworkHandler.h"
 
 
 @implementation ORCGIGURLJSONResponse
@@ -33,23 +32,13 @@
                 self.jsonData = nil;
                 if (self.json[@"error"])
                 {
-                    NSDictionary *errorJSON = self.json[@"error"];
-                    self.error = [NSError errorWithDomain:ORCOrchextraDomain
-                                                     code:[errorJSON[@"code"] integerValue]
-                                                 userInfo:[NSDictionary dictionaryWithObject:errorJSON[@"message"]
-                                                                                      forKey:NSLocalizedDescriptionKey]];
+                    self.error = [ORCErrorManager errorWithResponse:self];
                 }
-
             }
-
         }
         else
         {
-            NSDictionary *errorJSON = self.json[@"error"];
-            self.error = [NSError errorWithDomain:@"com.orchextra"
-                                             code:[errorJSON[@"code"] integerValue]
-                                         userInfo:[NSDictionary dictionaryWithObject:errorJSON[@"message"]
-                                                                              forKey:NSLocalizedDescriptionKey]];
+            self.error = [ORCErrorManager errorWithResponse:self];
         }
     }
     return self;

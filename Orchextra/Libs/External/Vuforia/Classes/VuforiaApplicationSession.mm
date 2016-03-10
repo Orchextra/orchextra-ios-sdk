@@ -20,7 +20,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "ORCStorage.h"
+//#import "ORCSettingsPersister.h"
+#import <Orchextra/Orchextra.h>
 #import "ORCVuforiaConfig.h"
 
 #define DEBUG_SAMPLE_APP 1
@@ -56,7 +57,7 @@ namespace {
 @property (nonatomic, readwrite) BOOL cameraIsActive;
 
 @property (nonatomic, assign) id delegate;
-@property (nonatomic, strong) ORCStorage *storage;
+@property (nonatomic, strong) ORCSettingsDataManager *dataManager;
 
 
 @end
@@ -72,7 +73,7 @@ namespace {
     if (self) {
         
         self.delegate = delegate;
-        _storage = [[ORCStorage alloc] init];
+        _dataManager = [[ORCSettingsDataManager alloc] init];
         
         // we keep a reference of the instance in order to implemet the QCAR callback
         instance = self;
@@ -128,7 +129,7 @@ namespace {
 // (Performed on a background thread)
 - (void)initQCARInBackground
 {
-    ORCVuforiaConfig *vuforiaKeys = [self.storage loadVuforiaConfig];
+    ORCVuforiaConfig *vuforiaKeys = [self.dataManager fetchVuforiaCredentials];
     const char *licenseVuforia = [vuforiaKeys.licenseKey cStringUsingEncoding:NSUTF8StringEncoding];
 
     // Background thread must have its own autorelease pool

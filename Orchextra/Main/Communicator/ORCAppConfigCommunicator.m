@@ -12,7 +12,7 @@
 #import "ORCAppConfigCommunicator.h"
 #import "ORCFormatterParameters.h"
 #import "ORCURLRequest.h"
-#import "ORCStorage.h"
+#import "ORCSettingsPersister.h"
 #import "ORCURLProvider.h"
 
 NSString * const CONFIGURATION_ENDPOINT = @"configuration";
@@ -22,19 +22,14 @@ NSString * const CONFIGURATION_ENDPOINT = @"configuration";
 
 #pragma mark - PUBLIC
 
-- (void)loadConfigurationWithCompletion:(CompletionOrchestraConfigResponse)completion
-{
-    ORCFormatterParameters *formatter = [[ORCFormatterParameters alloc] init];
-    NSDictionary *deviceConfiguration = [formatter formatterParameteresDevice];
-    [self loadConfiguration:deviceConfiguration completion:completion];
-}
-
 - (void)loadConfiguration:(NSDictionary *)configuration
                completion:(CompletionOrchestraConfigResponse)completion
-{
+{    
+    [ORCLog logVerbose:@" - Configuration Body: %@", [self printJsonFormat:configuration]];
+
     [self useFixtures:ORCUseFixtures];
-    self.logLevel = GIGLogLevelBasic;
-    
+    self.logLevel = GIGLogLevelBasic;    
+
     ORCURLRequest *request = [[ORCURLRequest alloc] initWithMethod:@"POST" url:[ORCURLProvider endPointConfiguration]];
 
     request.json = configuration;
@@ -44,12 +39,20 @@ NSString * const CONFIGURATION_ENDPOINT = @"configuration";
     [self send:request completion:completion];
 }
 
-
 #pragma mark - PRIVATE
 
 - (void)useFixtures:(BOOL)useFixtures
 {
     [[ORCGIGURLManager sharedManager] setUseFixture:useFixtures];
+}
+
+- (NSString *)printJsonFormat:(NSDictionary *)json
+{
+    NSError *writeError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:&writeError];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    return jsonString;
 }
 
 

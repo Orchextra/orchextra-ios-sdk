@@ -1,6 +1,6 @@
 //
 //  ORCConfig.m
-//  Orchestra
+//  Orchextra
 //
 //  Created by Judith Medina on 27/4/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
@@ -11,6 +11,7 @@
 #pragma mark - Types Trigger
 
 NSString * const ORCTypeBeacon = @"beacon";
+NSString * const ORCTypeRegion = @"beacon_region";
 NSString * const ORCTypeGeofence = @"geofence";
 NSString * const ORCTypeQR = @"qr";
 NSString * const ORCTypeBarcode = @"barcode";
@@ -32,8 +33,8 @@ NSString * const ORCSchemeWatermark = @"Orchextra://watermark";
 NSString * const ORCSchemeVuforia = @"orchextra://vuforia";
 
 #pragma mark - SDK
-
-NSString * const ORCSDKVersion = @"1.1.1";
+    
+NSString * const ORCSDKVersion = @"2.0.0";
 
 #pragma mark - Network
 
@@ -41,7 +42,6 @@ NSString * const ORCNetworkVersion = @"v1";
 
 BOOL ORCUseFixtures = NO;
 BOOL ORCShowLogs = NO;
-
 
 #ifdef DEBUG
 
@@ -52,3 +52,12 @@ NSString * const ORCNetworkHost = @"https://sdk.s.orchextra.io";
 NSString * const ORCNetworkHost = @"https://sdk.orchextra.io";
 
 #endif
+
+#pragma mark 
+
+NSInteger const DEFAULT_BACKGROUND_TIME = 10;
+NSInteger const MAX_BACKGROUND_TIME = 180;
+
+
+
+

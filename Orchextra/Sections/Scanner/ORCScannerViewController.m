@@ -9,9 +9,8 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "ORCScannerViewController.h"
-#import "ORCScannerPresenter.h"
 #import "ORCBarButtonItem.h"
-#import "ORCStorage.h"
+#import "ORCSettingsPersister.h"
 #import "ORCGIGLayout.h"
 #import "ORCThemeSdk.h"
 #import "UIImage+ORCGIGExtension.h"
@@ -25,14 +24,11 @@ NSInteger PADDING_SCANNER = 100;
 
 
 @interface ORCScannerViewController ()
-<ORCScannerViewControllerInterface>
 
-@property (strong, nonatomic) ORCScannerPresenter *presenter;
-@property (strong, nonatomic) ORCStorage *storage;
+@property (strong, nonatomic) ORCSettingsPersister *storage;
 @property (strong, nonatomic) UIView *containerScanner;
 @property (strong, nonatomic) UIImageView *imageViewScanner;
 @property (strong, nonatomic) UIImageView *imageViewCopyright;
-@property (strong, nonatomic) NSString *typeScanner;
 @property (strong, nonatomic) NSArray *constraintSize;
 @property (assign, nonatomic) BOOL *scannerBeingDissmissing;
 
@@ -44,27 +40,28 @@ NSInteger PADDING_SCANNER = 100;
 
 #pragma mark - LIFECYCLE
 
-- (instancetype)initWithScanType:(NSString *)type actionInterface:(id<ORCActionInterface>)actionInterface
+- (instancetype)init
 {
-    ORCScannerPresenter *presenter = [[ORCScannerPresenter alloc] initWithViewController:self actionInterface:actionInterface];
-    ORCStorage *storage = [[ORCStorage alloc] init];
-    return [self initWithScanType:type actionInterface:actionInterface presenter:presenter storage:storage];
+    ORCSettingsPersister *storage = [[ORCSettingsPersister alloc] init];
+    return [self initWithStorage:storage];
 }
 
-- (instancetype)initWithScanType:(NSString *)type actionInterface:(id<ORCActionInterface>)actionInterface
-                       presenter:(ORCScannerPresenter *)presenter
-                         storage:(ORCStorage *)storage
+- (instancetype)initWithStorage:(ORCSettingsPersister *)storage
 {
     self = [super init];
     
     if (self)
     {
-        _typeScanner = type;
-        _presenter = presenter;
         _storage = storage;
     }
     
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self startScanning];
 }
 
 - (void)viewDidLoad
@@ -78,7 +75,6 @@ NSInteger PADDING_SCANNER = 100;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self startScanning];
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,11 +126,13 @@ NSInteger PADDING_SCANNER = 100;
 {
     dispatch_async(dispatch_get_main_queue(), ^{
 
-        ORCMBProgressHUD *HUD = [[ORCMBProgressHUD alloc] initWithView:self.navigationController.view];
-        [self.navigationController.view addSubview:HUD];
-        HUD.customView = [[UIImageView alloc] initWithImage: [NSBundle imageFromBundleWithName:imageStatus]];
+        ORCMBProgressHUD *HUD = [[ORCMBProgressHUD alloc]
+                                 initWithView:self.navigationController.view];
         
-        // Set custom view mode
+        [self.navigationController.view addSubview:HUD];
+        HUD.customView = [[UIImageView alloc] initWithImage:
+                          [NSBundle imageFromBundleWithName:imageStatus]];
+        
         HUD.mode = MBProgressHUDModeCustomView;
         HUD.labelText = message;
         

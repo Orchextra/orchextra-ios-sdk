@@ -1,6 +1,6 @@
 //
 //  GIGURLAuthCommunicator.m
-//  Orchestra
+//  Orchextra
 //
 //  Created by Judith Medina on 27/5/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
@@ -10,10 +10,12 @@
 #import "ORCGIGURLRequest.h"
 #import "ORCGIGURLJSONResponse.h"
 #import "ORCGIGURLDomain.h"
-#import "ORCStorage.h"
+#import "ORCSettingsPersister.h"
 #import "ORCURLProvider.h"
+#import "ORCUser.h"
 
 NSInteger MAX_ATTEMPTS_CONNECTION = 5;
+NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 
 @interface GIGURLAuthCommunicator()
 
@@ -22,7 +24,7 @@ NSInteger MAX_ATTEMPTS_CONNECTION = 5;
 @property (copy, nonatomic) NSString *apiKey;
 @property (copy, nonatomic) NSString *apiSecret;
 @property (assign, nonatomic) NSInteger numConnection;
-@property (strong, nonatomic) ORCStorage *orchextraStorage;
+@property (strong, nonatomic) ORCSettingsPersister *orchextraStorage;
 @property (strong, nonatomic) NSString *domain;
 
 @end
@@ -35,12 +37,12 @@ NSInteger MAX_ATTEMPTS_CONNECTION = 5;
 - (instancetype)init
 {
     ORCGIGURLStorage *storage = [[ORCGIGURLStorage alloc] init];
-    ORCStorage *orchextraStorage = [[ORCStorage alloc] init];
+    ORCSettingsPersister *orchextraStorage = [[ORCSettingsPersister alloc] init];
 
     return [self initWithStorage:storage orchextraStorage:orchextraStorage];
 }
 
-- (instancetype)initWithStorage:(ORCGIGURLStorage *)storage orchextraStorage:(ORCStorage *)orchextraStorage
+- (instancetype)initWithStorage:(ORCGIGURLStorage *)storage orchextraStorage:(ORCSettingsPersister *)orchextraStorage
 {
     self = [super init];
     if (self)
@@ -81,7 +83,7 @@ NSInteger MAX_ATTEMPTS_CONNECTION = 5;
             }
             else
             {
-                if(response.error.code == 401)
+                if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
                 {
                     if (this.numConnection < MAX_ATTEMPTS_CONNECTION)
                     {
@@ -120,7 +122,7 @@ NSInteger MAX_ATTEMPTS_CONNECTION = 5;
             }
             else
             {
-                if(response.error.code == 401)
+                if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
                 {
                     [this.orchextraStorage storeAcessToken:nil];
                     [this send:request completion:completion];
@@ -198,12 +200,18 @@ NSInteger MAX_ATTEMPTS_CONNECTION = 5;
     NSString *advertiserId  = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     NSString *vendorId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
-    NSDictionary *parametersJSON = @{
-                                     @"grantType" : @"auth_user",
-                                     @"credentials" : @{@"clientToken" : clientToken,
-                                                        @"advertiserId" : advertiserId,
-                                                        @"vendorId" : vendorId}};
+    NSMutableDictionary *parametersJSON = [[NSMutableDictionary alloc] init];
+    [parametersJSON addEntriesFromDictionary:
+     @{@"grantType" : @"auth_user",
+       @"credentials" : @{@"clientToken" : clientToken,
+                          @"advertiserId" : advertiserId,
+                          @"vendorId" : vendorId}}];
     
+    ORCUser *user = [self.orchextraStorage loadCurrentUser];
+    if (user.crmID)
+    {
+        [parametersJSON addEntriesFromDictionary:@{@"crmId" : user.crmID}];
+    }
 
     NSString *urlRequest = [ORCURLProvider endPointSecurityToken];
     
@@ -212,11 +220,22 @@ NSInteger MAX_ATTEMPTS_CONNECTION = 5;
     request.json = parametersJSON;
     request.logLevel = GIGLogLevelBasic;
     request.requestTag = @"accessToken";
+    [ORCLog logVerbose:[self printToJSONFormat:parametersJSON]];
 
     [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
         completion(response);
     }];
 
+}
+
+#pragma mark - Helpers
+
+- (NSString *)printToJSONFormat:(NSDictionary *)dictionary
+{
+    NSError *writeError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&writeError];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    return jsonString;
 }
 
 

@@ -7,7 +7,6 @@
 //
 
 #import "ORCGIGURLRequestLogger.h"
-#import "ORCGIGLogManager.h"
 
 @implementation ORCGIGURLRequestLogger
 
@@ -19,17 +18,18 @@
     {
         case GIGLogLevelVerbose:
         {
-            [ORCGIGLogManager log:@"-- REQUEST: %@ --", self.tag ?: @""];
-            [ORCGIGLogManager log:@"URL: %@", request.URL.absoluteString];
-            [ORCGIGLogManager log:@"Method: %@", request.HTTPMethod];
-            [ORCGIGLogManager log:@"Headers: %@", request.allHTTPHeaderFields];
+            [ORCLog logVerbose:@"-- REQUEST: %@ --", self.tag ?: @""];
+            [ORCLog logVerbose:@"URL: %@", request.URL.absoluteString];
+            [ORCLog logVerbose:@"Method: %@", request.HTTPMethod];
+            [ORCLog logVerbose:@"Headers: %@", request.allHTTPHeaderFields];
             [self logBody:request.HTTPBody stringEncoding:stringEncoding];
             break;
         }
         case GIGLogLevelBasic:
         {
-            [ORCGIGLogManager log:@"-- REQUEST: %@ --", self.tag ?: @""];
-            [ORCGIGLogManager log:@"URL: %@", request.URL.absoluteString];
+            [ORCLog logVerbose:@"-- REQUEST: %@ --", self.tag ?: @""];
+            [ORCLog logVerbose:@"URL: %@", request.URL.absoluteString];
+            [self logBody:request.HTTPBody stringEncoding:stringEncoding];
             break;
         }
         case GIGLogLevelError:
@@ -45,26 +45,27 @@
     {
         case GIGLogLevelVerbose:
         {
-            [ORCGIGLogManager log:@"-- RESPONSE: %@ --", self.tag ?: @""];
-            [ORCGIGLogManager log:@"URL: %@", response.URL.absoluteString];
-            [ORCGIGLogManager log:@"Status Code: %d", (int)response.statusCode];
-            [ORCGIGLogManager log:@"Headers: %@", response.allHeaderFields];
+            [ORCLog logVerbose:@"-- RESPONSE: %@ --", self.tag ?: @""];
+            [ORCLog logVerbose:@"URL: %@", response.URL.absoluteString];
+            [ORCLog logVerbose:@"Status Code: %d", (int)response.statusCode];
+            [ORCLog logVerbose:@"Headers: %@", response.allHeaderFields];
             [self logBody:data stringEncoding:stringEncoding];
             [self logError:error];
             break;
         }
         case GIGLogLevelBasic:
         {
-            [ORCGIGLogManager log:@"-- RESPONSE: %@ --", self.tag ?: @""];
-            [ORCGIGLogManager log:@"URL: %@", response.URL.absoluteString];
-            [ORCGIGLogManager log:@"Status Code: %d", (int)response.statusCode];
+            [ORCLog logVerbose:@"-- RESPONSE: %@ --", self.tag ?: @""];
+            [ORCLog logVerbose:@"URL: %@", response.URL.absoluteString];
+            [ORCLog logVerbose:@"Status Code: %d", (int)response.statusCode];
+            [self logBody:data stringEncoding:stringEncoding];
             break;
         }
         case GIGLogLevelError:
         {
-            [ORCGIGLogManager log:@"-- RESPONSE: %@ --", self.tag ?: @""];
-            [ORCGIGLogManager log:@"URL: %@", response.URL.absoluteString];
-            [ORCGIGLogManager log:@"Status Code: %d", (int)response.statusCode];
+            [ORCLog logVerbose:@"-- RESPONSE: %@ --", self.tag ?: @""];
+            [ORCLog logVerbose:@"URL: %@", response.URL.absoluteString];
+            [ORCLog logVerbose:@"Status Code: %d", (int)response.statusCode];
             [self logError:error];
             break;
         }
@@ -79,17 +80,17 @@
 - (void)logBody:(NSData *)body stringEncoding:(NSStringEncoding)stringEncoding
 {
     NSString *dataString = [[NSString alloc] initWithData:body encoding:stringEncoding];
-    [ORCGIGLogManager log:@"Body (%d): %@", (int)body.length, dataString ?: @""];
+    [ORCLog logVerbose:@"Body (%d): %@", (int)body.length, dataString ?: @""];
 }
 
 - (void)logError:(NSError *)error
 {
     if (error != nil)
     {
-        [ORCGIGLogManager log:@"Error (%d): %@", (int)error.code, error.localizedDescription];
+        [ORCLog logError:@"Error (%d): %@", (int)error.code, error.localizedDescription];
         if (error.userInfo)
         {
-            [ORCGIGLogManager log:@"%@", error.userInfo];
+            [ORCLog logError:@"%@", error.userInfo];
         }
     }
 }

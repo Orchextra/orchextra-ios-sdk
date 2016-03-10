@@ -1,0 +1,10 @@
+{
+"notification": {
+"body": "Vuforia",
+"title": "Open Vuforia"
+},
+"schedule": "<null>",
+"trackId": "56bdc0993570a1893b8b45fe",
+"type": "scan_vuforia",
+"url": "orchextra://vuforia"
+}

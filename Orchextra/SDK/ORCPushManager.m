@@ -1,22 +1,29 @@
 //
-//  ORCNotificationManager.m
-//  Orchestra
+//  ORCPushManager.m
+//  Orchextra
 //
 //  Created by Judith Medina on 29/4/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
 #import "ORCPushManager.h"
-#import "ORCStorage.h"
-#import "ORCUser.h"
+#import "ORCSettingsPersister.h"
 #import "ORCPushNotification.h"
-#import "NSBundle+ORCBundle.h"
-#import "ORCConstants.h"
-#import "ORCAction.h"
 #import "ORCActionManager.h"
+#import "ORCConstants.h"
+#import "ORCUser.h"
+#import "ORCAction.h"
+#import "ORCGeofence.h"
+
+#import "ORCSettingsInteractor.h"
+#import "ORCValidatorActionInterator.h"
+
 #import "NSDictionary+ORCGIGJSON.h"
+#import "NSBundle+ORCBundle.h"
 
 
+
+NSString * const NOTIFICATION_ACTION_ID = @"id";
 NSString * const NOTIFICATION_TITLE = @"title";
 NSString * const NOTIFICATION_BODY = @"body";
 NSString * const NOTIFICATION_URL = @"url";
@@ -27,6 +34,8 @@ NSString * const NOTIFICATION_TYPE = @"type";
 <UIAlertViewDelegate>
 
 @property (strong, nonatomic) CompletionNotification completionNotification;
+@property (strong, nonatomic) NSMutableArray *notificationCompletions;
+
 @property (assign, nonatomic) BOOL allowsNotification;
 @property (assign, nonatomic) BOOL allowsSound;
 @property (assign, nonatomic) BOOL allowsBadge;
@@ -56,15 +65,11 @@ NSString * const NOTIFICATION_TYPE = @"type";
     if (self)
     {
         _currentTagAlertView = 0;
+        _notificationCompletions = [[NSMutableArray alloc] init];
         [self registerPushNotification];
     }
     
     return self;
-}
-
-- (void)didReceiveNotification:(ORCPushNotification *)notification
-{
-    [self showAlertViewWithTitle:notification.title body:notification.body];
 }
 
 #pragma mark - PUBLIC
@@ -77,8 +82,13 @@ NSString * const NOTIFICATION_TYPE = @"type";
     {
         if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
         {
-            UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+            UIUserNotificationType types =  UIUserNotificationTypeBadge |
+                                            UIUserNotificationTypeSound |
+                                            UIUserNotificationTypeAlert;
+            
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings
+                                                    settingsForTypes:types
+                                                    categories:nil];
             
             [application registerUserNotificationSettings:settings];
             [application registerForRemoteNotifications];
@@ -91,23 +101,38 @@ NSString * const NOTIFICATION_TYPE = @"type";
     }
 }
 
-- (void)sendLocalPushNotificationWithValues:(NSDictionary *)notificationValues handleAPN:(BOOL)handleAPN
-                                 completion:(CompletionNotification)completion
+- (void)sendLocalPushNotificationWithAction:(ORCAction *)action
 {
-    UIApplication *application = [UIApplication sharedApplication];
-    
-    NSString *title = [notificationValues stringForKey:NOTIFICATION_TITLE];
-    NSString *body = [notificationValues stringForKey:NOTIFICATION_BODY];
+    [self scheduleLocalPushNotificationWithAction:action];
+}
 
-    if (application.applicationState == UIApplicationStateActive || handleAPN)
-    {
-        [self showAlertViewWithTitle:title body:body completion:completion];
-    }
-    else
-    {
-        NSLog(@"--Send LocalPushNotification : %@", notificationValues);
-        UILocalNotification *notification = [self prepareLocalNotificationWithValues:notificationValues];
-        [application presentLocalNotificationNow:notification];
+- (void)sendLocalPushNotificationWithGeofence:(ORCGeofence *)geofence
+{
+    [self scheduleLocalPushNotificationWithGeofence:geofence];
+}
+
++ (void)removeLocalNotificationWithId:(NSString *)identifier
+{
+    UIApplication *app = [UIApplication sharedApplication];
+    
+    NSArray *localNotifications = [app scheduledLocalNotifications];
+    [ORCLog logDebug:@"Local Notifications: %d", localNotifications.count];
+    
+    for (UILocalNotification *localNotification in localNotifications) {
+        
+        NSString *idNotification = localNotification.userInfo[@"launchedById"];
+        
+        if ([idNotification isEqualToString:identifier])
+        {
+            BOOL cancelable = [localNotification.userInfo boolForKey:@"cancelable"];
+            if (cancelable)
+            {
+                [app cancelLocalNotification:localNotification];
+                [ORCLog logDebug:@"Removed localNotification with id: %@", idNotification];
+            }
+            
+            break;
+        }
     }
 }
 
@@ -115,10 +140,17 @@ NSString * const NOTIFICATION_TYPE = @"type";
 
 + (void)storeDeviceToken:(NSData *)deviceToken
 {
-    NSString *deviceTokenString = [[ORCPushManager sharedPushManager] tokenStringWithData:deviceToken];
-    ORCUser *user = [ORCUser currentUser];
+    NSString *deviceTokenString = [[ORCPushManager sharedPushManager]
+                                   tokenStringWithData:deviceToken];
+    
+    ORCSettingsInteractor *interactor = [[ORCSettingsInteractor alloc] init];
+    ORCUser *user = [interactor currentUser];
+    if (!user)
+    {
+        user = [[ORCUser alloc] init];
+    }
     user.deviceToken = deviceTokenString;
-    [user saveUser];
+    [interactor saveUser:user];
 }
 
 #pragma mark - HANDLE PUSH NOTIFICATION
@@ -126,6 +158,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
 + (void)handlePush:(id)userInfo {
 
     ORCPushNotification *push = nil;
+    
     if ([userInfo isKindOfClass:[UILocalNotification class]])
     {
         push = [[ORCPushNotification alloc] initWithLocalNotification:(UILocalNotification *)userInfo];
@@ -135,50 +168,102 @@ NSString * const NOTIFICATION_TYPE = @"type";
         push = [[ORCPushNotification alloc] initWithRemoteNotification:userInfo];
     }
     
-    if (push.type) {
+    if (![push.type isEqualToString:ORCTypeGeofence])
+    {
         ORCAction *action = [[ORCAction alloc] initWithType:push.type];
         action.urlString = push.url;
         action.titleNotification = push.title;
-        action.messageNotification = push.body;
+        action.bodyNotification = push.body;
+        action.trackId = push.trackerId;
+        action.launchedByTriggerCode = push.launchedBy;
         
-        [[ORCActionManager sharedInstance] hasLocalNotification:action handleAPN:YES];
+        [[ORCActionManager sharedInstance] actionFromPushNotification:action];
+    }
+    else
+    {
+        ORCGeofence *geofence = [[ORCGeofence alloc] init];
+        geofence.type = ORCTypeGeofence;
+        geofence.code = push.code;
+        geofence.currentEvent = ORCtypeEventStay;
+        geofence.currentDistance = @([push.distance doubleValue]);
+        
+        [[ORCActionManager sharedInstance] findActionFromGeofence:geofence];
     }
     
     UIApplication *application = [UIApplication sharedApplication];
     
-    if (push.badge) {
+    if (push.badge)
+    {
         NSInteger number = [push.badge integerValue];
         [application setApplicationIconBadgeNumber:number];
     }
 }
 
-
 #pragma mark - PRIVATE
 
-- (void)showAlertViewWithTitle:(NSString *)title body:(NSString *)body completion:(CompletionNotification)completion
+- (void)scheduleLocalPushNotificationWithAction:(ORCAction *)action
 {
-    NSString *cancelButtonTitle = ORCLocalizedBundle(@"Ok", nil, nil);
+    NSDictionary *values = [action toDictionary];
+    NSDate *fireDate = [[NSDate date] dateByAddingTimeInterval:action.scheduleTime];
+
+    [ORCLog logDebug:@"--SCHEDULE LOCAL PUSH NOTIFICATION: \n%@ ", values];
+    UILocalNotification *notification = [self prepareLocalNotificationWithUserInfo:values];
+    notification.fireDate = fireDate;
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+}
+
+- (void)scheduleLocalPushNotificationWithGeofence:(ORCGeofence *)geofence
+{
+    NSDictionary *values = [geofence toDictionary];
+    NSDate *fireDate = [[NSDate date] dateByAddingTimeInterval:geofence.timer];
+    [ORCLog logDebug:@"--SCHEDULE LOCAL PUSH NOTIFICATION WITH GEOFENCE: \n%@", values];
+    UILocalNotification *notification = [self prepareLocalNotificationWithUserInfo:values];
+    notification.fireDate = fireDate;
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+}
+
+- (void)showAlertViewWithTitle:(NSString *)title body:(NSString *)body
+                    cancelable:(BOOL)cancelable
+                    completion:(CompletionNotification)completion
+{
+    NSString *cancelButtonTitle = ORCLocalizedBundle(@"cancel_button", nil, nil);
+    NSString *okButtonTitle = ORCLocalizedBundle(@"OK", nil, nil);
+
+    [self.notificationCompletions addObject:completion];
     self.completionNotification = completion;
-    self.currentTagAlertView++;
 
     dispatch_async( dispatch_get_main_queue(), ^{
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:body
-                                                       delegate:self
-                                              cancelButtonTitle:cancelButtonTitle
-                                              otherButtonTitles:nil];
+        UIAlertView *alert = nil;
+        
+        if (cancelable)
+        {
+           alert = [[UIAlertView alloc] initWithTitle:title
+                                                            message:body
+                                                           delegate:self
+                                                  cancelButtonTitle:okButtonTitle
+                                                  otherButtonTitles:cancelButtonTitle, nil];
+        }
+        else
+        {
+            alert = [[UIAlertView alloc] initWithTitle:title
+                                               message:body
+                                              delegate:self
+                                     cancelButtonTitle:okButtonTitle
+                                     otherButtonTitles:nil];
+        }
+
         alert.tag = self.currentTagAlertView;
+        self.currentTagAlertView++;
         [alert show];
     });
+    
+
 }
 
-- (UILocalNotification *)prepareLocalNotificationWithValues:(NSDictionary *)values
+- (UILocalNotification *)prepareLocalNotificationWithUserInfo:(NSDictionary *)userInfo
 {
-    NSString *title = [values stringForKey:NOTIFICATION_TITLE];
-    NSString *body = [values stringForKey:NOTIFICATION_BODY];
-    NSString *url = [values stringForKey:NOTIFICATION_URL];
-    NSString *type = [values stringForKey:NOTIFICATION_TYPE];
+    NSString *body = [userInfo stringForKey:NOTIFICATION_BODY];
 
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     
@@ -191,7 +276,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
             if (self.allowsAlert)
             {
                 notification.alertBody = body;
-                notification.userInfo = @{NOTIFICATION_TITLE : title, NOTIFICATION_URL : url, NOTIFICATION_TYPE : type};
+                notification.userInfo =userInfo;
             }
             if (self.allowsSound)
             {
@@ -204,7 +289,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
         if (notification)
         {
             notification.alertBody = body;
-            notification.userInfo = @{NOTIFICATION_TITLE : title, NOTIFICATION_URL : url, NOTIFICATION_TYPE : type};
+            notification.userInfo = userInfo;
             notification.soundName = UILocalNotificationDefaultSoundName;
         }
     }
@@ -233,21 +318,6 @@ NSString * const NOTIFICATION_TYPE = @"type";
     return token;
 }
 
-- (void)showAlertViewWithTitle:(NSString *)title body:(NSString *)body
-{
-    NSString *cancelButtonTitle = ORCLocalizedBundle(@"Ok", nil, nil);
-    
-    dispatch_async( dispatch_get_main_queue(), ^{
-
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                        message:body
-                                                       delegate:self
-                                              cancelButtonTitle:cancelButtonTitle
-                                              otherButtonTitles:nil];
-        [alert show];
-    });
-}
-
 #pragma mark - DELEGATE
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -257,9 +327,13 @@ NSString * const NOTIFICATION_TYPE = @"type";
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    if (self.currentTagAlertView == alertView.tag && self.completionNotification)
+    if (buttonIndex == 0)
     {
-        self.completionNotification();
+        CompletionNotification completion = self.notificationCompletions[alertView.tag];
+        if (completion)
+        {
+            completion();
+        }
     }
 }
 

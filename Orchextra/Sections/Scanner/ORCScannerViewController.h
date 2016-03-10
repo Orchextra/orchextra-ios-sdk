@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "GIGScannerViewController.h"
 #import "ORCActionInterface.h"
+#import "ORCScannerPresenter.h"
 
-@class ORCScannerPresenter;
-@class ORCStorage;
+@class ORCSettingsPersister;
 
 
-@interface ORCScannerViewController : GIGScannerViewController <GIGScannerViewControllerDelegate>
+@interface ORCScannerViewController : GIGScannerViewController <GIGScannerViewControllerDelegate , ORCScannerViewControllerInterface>
 
-- (instancetype)initWithScanType:(NSString *)type actionInterface:(id<ORCActionInterface>)actionInterface;
-- (instancetype)initWithScanType:(NSString *)type actionInterface:(id<ORCActionInterface>)actionInterface
-                       presenter:(ORCScannerPresenter *)presenter
-                         storage:(ORCStorage *)storage;
+@property (strong, nonatomic) ORCScannerPresenter *presenter;
+
+- (instancetype)initWithStorage:(ORCSettingsPersister *)storage;
+
 @end

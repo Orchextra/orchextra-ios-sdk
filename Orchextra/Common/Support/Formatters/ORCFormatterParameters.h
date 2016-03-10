@@ -10,8 +10,15 @@
 #import <CoreLocation/CoreLocation.h>
 
 @class ORCUser;
+@class ORCDevice;
+@class ORCUserLocationPersister;
+@class ORCSettingsPersister;
 
 @interface ORCFormatterParameters : NSObject
+
+- (instancetype)initWithDevice:(ORCDevice *)device
+         userLocationPersister:(ORCUserLocationPersister *)userLocationPersister
+             settingsPersister:(ORCSettingsPersister *)settingsPersister;
 
 - (NSDictionary *)formatterParameteresDevice;
 - (NSDictionary *)formattedPlacemark:(CLPlacemark *)placemark;

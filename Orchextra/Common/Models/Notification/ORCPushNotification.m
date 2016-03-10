@@ -18,11 +18,24 @@
     if (self)
     {
         NSDictionary *notificionDic = [notification userInfo];
-        _title = [notificionDic stringForKey:@"title"];
-        _body = [notification alertBody];
-        _type = [notificionDic stringForKey:@"type"];
-        _url = [notificionDic stringForKey:@"url"];
         
+        _type = [notificionDic stringForKey:@"type"];
+        
+        if ([_type isEqualToString:ORCTypeGeofence])
+        {
+            _code = [notificionDic stringForKey:@"launchedById"];
+            _event = [notificionDic stringForKey:@"event"];
+            _distance = [notificionDic stringForKey:@"distance"];
+        }
+        else
+        {
+            _trackerId = [notificionDic stringForKey:@"trackId"];
+            _title = [notificionDic stringForKey:@"title"];
+            _body = [notification alertBody];
+            _url = [notificionDic stringForKey:@"url"];
+            _launchedBy = [notificionDic stringForKey:@"launchedById"];
+
+        }
     }
     return self;
 }
@@ -47,6 +60,5 @@
     }
     return self;
 }
-
 
 @end

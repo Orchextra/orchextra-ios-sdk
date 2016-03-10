@@ -27,7 +27,7 @@
     
     if (self)
     {
-        _coreOutput = [[ORCData alloc] init];
+        _coreOutput = [[ORCSettingsDataManager alloc] init];
     }
     
     return self;

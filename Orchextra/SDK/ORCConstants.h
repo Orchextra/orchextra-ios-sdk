@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+
+#define LOG_LEVEL_DEF ddLogLevel
 
 #define IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
@@ -14,6 +17,7 @@
 #pragma mark - Types Trigger
 
 extern NSString * const ORCTypeBeacon;
+extern NSString * const ORCTypeRegion;
 extern NSString * const ORCTypeGeofence;
 extern NSString * const ORCTypeQR;
 extern NSString * const ORCTypeBarcode;
@@ -43,9 +47,18 @@ extern NSString * const ORCSDKVersion;
 #pragma mark - Network
 
 extern BOOL ORCUseFixtures;
+
 extern NSString * const ORCNetworkVersion;
 extern NSString * const ORCNetworkHost;
 
 #pragma mark - Logs
+
 extern BOOL ORCShowLogs;
 
+#pragma mark - Background Time
+
+extern NSInteger const DEFAULT_BACKGROUND_TIME;
+extern NSInteger const MAX_BACKGROUND_TIME;
+
+#pragma mark - Completion
+typedef void(^ORCCompletionUserLocation)(CLLocation *location, CLPlacemark *placemark);
