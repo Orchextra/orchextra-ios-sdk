@@ -5,27 +5,29 @@
 
 A library that gives you access to Orchextra platform from your iOS app.
 
-### Getting started
+## Getting started
 Start by creating a project in [Orchextra dashboard][dashboard], if you haven't done it yet. Go to "Setting" > "SDK Configuration" to get the **api key** and **api secret**, you will need these values to start Orchextra SDK.
 
-### Overview
+## Overview
 Orchextra SDK is composed of **Orchextra Core** and **Vuforia Orchextra** as an Add-on, which means that you need to have installed the *Core* in the first instance in order to use *Vuforia*. This division has been done to allow you decide if you want to include image recognition in your apps or just the main functionality.  
-
 #### Orchextra Core
 - Geofences
 - Beacons
 - Scan QR/Barcodes
-
 #### Vuforia Orchextra (Add-on)
 - Image recognition (Supports Vuforia)
+
+## Installation
+Download [*Orchextra iOS-Sample-App*][ios-sample-app] to understand how to use the SDK.
+
+### Requirements
+- ios 7 or later
 
 ### Download SDK
 To use *Orchextra Core*, head on over to the [releases][releases] page, and download the latest build "Orchextra.zip".
 Drag and drop **Orchextra.framework** and **Orchextra.bundle** into your xCode project folder target. To use image recognition, drag and drop **VuforiaOrchextra.framework** into your xCode project.
 
-
 Make sure the framework is linked:
-
 * Click on Targets  → Your app name  → and then the Build Phases tab
 * Expand "Link With Libraries" to check that Orchextra.framework is there.
 * Also expand "Copy bundle resources" to make sure that Orchextra.bundle is also there.
@@ -56,7 +58,7 @@ by using the following keys and providing an string with the reason.
 * NSLocationAlwaysUsageDescription
 * NSLocationWhenInUseUsageDescription
 
-### Integrate Orchextra SDK
+## Integrate Orchextra SDK
 Open up your AppDelegate.m and add the following to it:
 
 ```objective-c
@@ -67,54 +69,55 @@ Open up your AppDelegate.m and add the following to it:
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [[Orchextra sharedInstance] setApiKey:ORCHEXTRA_API_KEY apiSecret:ORCHEXTRA_API_SECRET
-                                completion:^(BOOL success, NSError *error) {
-                                if (success)
-                                {
-                                     NSLog(@"ORCHEXTRA has loaded successfully");
-                                }
-                                else {
-                                     NSLog(@"ORCHEXTRA ERROR: %@", error.localizedDescription);
-                                }
+[[Orchextra sharedInstance] setApiKey:ORCHEXTRA_API_KEY apiSecret:ORCHEXTRA_API_SECRET
+completion:^(BOOL success, NSError *error) {
+if (success)
+{
+NSLog(@"ORCHEXTRA has loaded successfully");
+}
+else {
+NSLog(@"ORCHEXTRA ERROR: %@", error.localizedDescription);
+}
 
-    }];
+}];
 
-    /* Uncomment this line to get the debug logs
-    [Orchextra logLevel:ORCLogLevelDebug];
-    */
+/* Uncomment this line to get the debug logs
+[Orchextra logLevel:ORCLogLevelDebug];
+*/
 
-    return YES;
+return YES;
 }
 ```
 
 
-###  Local & Remote Push Notification
+##  Local & Remote Push Notification
 Orchextra offers you the chance to show notifications to the user when an action is launched, add
 the following method to use the local push notification to inform your users about actions when the app is in the background.
 
 ```objective-c
+#pragma mark - NOTIFICATION ( Local Push Notification)
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-  [ORCPushManager handlePush:notification];
+[ORCPushManager handlePush:notification];
 }
 ```
 
 To use remote push notification register your app by adding the following in your AppDelegate.m
 
 ```objective-c
-#pragma mark - NOTIFICATION DELEGATION
+#pragma mark - NOTIFICATION ( Remote Push Notification)
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken
 {
-  [ORCPushManager storeDeviceToken:devToken];
+[ORCPushManager storeDeviceToken:devToken];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-  [ORCPushManager handlePush:userInfo];
+[ORCPushManager handlePush:userInfo];
 }
 ```
 
-### Custom Scheme - Delegate
+## Custom Scheme - Delegate
 In order to get custom schemes within our app AppDelegate must conform the OrchextraCustomActionDelegate protocol, the following method will handle all the custom schemes created in Orchextra.
 
 ```objective-c
@@ -126,19 +129,19 @@ In order to get custom schemes within our app AppDelegate must conform the Orche
 // Conform delegate with Orchextra object
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  //....... Code........//
-  [[Orchextra sharedInstance] setDelegate:self];
+//....... Code........//
+[[Orchextra sharedInstance] setDelegate:self];
 }
 
 #pragma mark - Orchextra CustomAction Delegate
 // Method to handle custom schemes
 - (void)executeCustomScheme:(NSString *)scheme
 {
-  /* Code to handle custom scheme */
+/* Code to handle custom scheme */
 }
 ```
 
-### Add user to Orchextra
+## Add user to Orchextra
 ORCUser class is a local representation of a user persisted to the Orchextra Database to help to create a good user segmentation. This object is optional and could be set up at any time, "currentUser" this method will return the latest user stored in the database or in case there isn't any value will return an empty ORCUser instance.
 
 ```objective-c
@@ -154,17 +157,17 @@ user.gender = ORCGenderFemale;
 [orchextra setUser:user];
 ```
 
-###  Start Actions
+##  Start Actions
 Orchextra SDK let you invoke a couple of action within your own application to start a new user journey
 
-#### Scanner
+### Scanner
 This functionality is included in Orchextra.framework.
 
 To launch the scanner you just need to add the following line to the action.
 ```objective-c
 [[Orchextra sharedInstance] startScanner];
 ```
-#### Image Recognition
+### Image Recognition
 This functionality is included in VuforiaOrchextra.framework, to use it first of all you have to add the framework in the class that need to use this feature:
 ```objective-c
 <VuforiaOrchextra/VuforiaOrchextra.h>
@@ -175,7 +178,7 @@ This option is only available if you have a Vuforia account with a cloud databas
 ```objective-c
 [[VuforiaOrchextra sharedInstance] startImageRecognition];
 ```
-###  How to Get Extra Ranging Time
+##  How to Get Extra Ranging Time
 One of the most common use cases for beacon applications is to perform an action when a user gets close to a specific location. This approach is problematic on iOS, because CoreLocation generally allows only 10 seconds of ranging time when an app is in the background. So if a beacons is first detected at 50 meters and a person is approaching the beacon, once the user arrives at the right location the iOS app would have been already suspended and stopped it from ranging. 
 
 Fortunately, Orchextra allows to extend the background ranging time up to 180 seconds, you can see below an example of how to get extra time if need it. 
@@ -184,7 +187,7 @@ ORCSettingsDataManager *settingsDM = [[ORCSettingsDataManager alloc] init];
 [settingsDM extendBackgroundTime:YOUR_BACKGROUND_TIME];
 ```
 
-###  Logs
+##  Logs
 
 Orchextra gives you the possibility to show 5 levels of logs.
 ```
@@ -205,3 +208,4 @@ By default Orchextra has only error level, so if you want to change the level of
 
 [releases]: https://github.com/Orchextra/orchextra-ios-sdk/releases
 [dashboard]: https://dashboard.orchextra.io
+[ios-sample-app]: https://github.com/Orchextra/orchextra-ios-sample-app
