@@ -60,7 +60,7 @@ static AVCaptureVideoOrientation ORCVideoOrientationFromInterfaceOrientation(UII
     }
     else
     {
-        //TODO: Error No camera available
+        [ORCLog logError:@"No camera available."];
     }
 }
 
@@ -98,7 +98,7 @@ static AVCaptureVideoOrientation ORCVideoOrientationFromInterfaceOrientation(UII
 {
     if(![self isCameraAvailable])
     {
-        //TODO: Error No Camera available
+        [ORCLog logError:@"No camera available."];
     }
 }
 

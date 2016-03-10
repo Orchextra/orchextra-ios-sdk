@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 #import "ORCActionInterface.h"
+#import "ORCAction.h"
 
 @class ORCValidatorActionInterator;
+@class ORCStatisticsInteractor;
 
 @protocol ORCScannerViewControllerInterface <NSObject>
 
@@ -26,12 +29,13 @@
 
 @interface ORCScannerPresenter : NSObject
 
-- (instancetype)initWithViewController:(UIViewController<ORCScannerViewControllerInterface> *)viewController
-                          actionInterface:(id<ORCActionInterface>)actionInterface;
-- (instancetype)initWithViewController:(UIViewController<ORCScannerViewControllerInterface> *)viewController
-                         actionInterface:(id<ORCActionInterface>)actionInterface
-                            interactor:(ORCValidatorActionInterator *)interactor;
 
+@property (weak, nonatomic) UIViewController<ORCScannerViewControllerInterface> *viewController;
+@property (weak, nonatomic) id<ORCActionInterface> actionInterface;
+@property (strong, nonatomic) ORCAction *actionLaunched;
+
+- (instancetype)initWithValidator:(ORCValidatorActionInterator *)validator
+                       statistics:(ORCStatisticsInteractor *)statistics;
 - (void)viewIsReady;
 - (void)userDidTapCancelScanner;
 - (void)didSuccessfullyScan:(NSString *)aScannedValue type:(NSString *)type;

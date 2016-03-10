@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 
-@class ORCTriggerBeacon;
-@class ORCTriggerGeofence;
+@class ORCRegion;
+@class ORCBeacon;
+@class ORCGeofence;
 @class ORCAction;
 @class ORCActionCommunicator;
 
@@ -25,10 +26,10 @@ typedef void(^CompletionActionValidated)(ORCAction *action, NSError *error);
 
 - (void)validateVuforia:(NSString *)imageRecognized completion:(CompletionActionValidated)completion;
 
-- (void)validateProximityWithBeacon:(ORCTriggerBeacon *)beacon completion:(CompletionActionValidated)completion;
+- (void)validateProximityWithBeacon:(ORCBeacon *)beacon completion:(CompletionActionValidated)completion;
 
-- (void)validateProximityWithGeofence:(ORCTriggerGeofence *)geofence completion:(CompletionActionValidated)completionAction;
+- (void)validateProximityWithRegion:(ORCRegion *)region completion:(CompletionActionValidated)completionAction;
 
-- (NSDictionary *)formattedParametersWithType:(NSString *)type value:(NSString *)value;
+- (void)validateProximityWithGeofence:(ORCGeofence *)geofence completion:(CompletionActionValidated)completionAction;
 
 @end

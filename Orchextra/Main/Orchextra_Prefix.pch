@@ -1,0 +1,19 @@
+//
+//  Orchextra_Prefix.pch
+//  Orchextra
+//
+//  Created by Judith Medina on 17/2/16.
+//  Copyright © 2016 Gigigo. All rights reserved.
+//
+
+#ifndef Orchextra_Prefix_pch
+#define Orchextra_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "ORCConstants.h"
+#import "ORCLog.h"
+
+#endif /* Orchextra_Prefix_pch */
+

@@ -16,7 +16,7 @@ typedef void(^CompletionOrchestraConfigResponse)(ORCAppConfigResponse *response)
 
 @interface ORCAppConfigCommunicator : ORCURLCommunicator
 
-- (void)loadConfigurationWithCompletion:(CompletionOrchestraConfigResponse)completion;
+//- (void)loadConfigurationWithCompletion:(CompletionOrchestraConfigResponse)completion;
 
 - (void)loadConfiguration:(NSDictionary *)configuration completion:(CompletionOrchestraConfigResponse)completion;
 

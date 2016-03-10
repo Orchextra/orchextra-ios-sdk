@@ -35,12 +35,31 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		A90FCFD71BF362080042F370 /* ORCLocationStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCE7D1BF362080042F370 /* ORCLocationStorage.h */; };
-		A90FCFD81BF362080042F370 /* ORCLocationStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCE7E1BF362080042F370 /* ORCLocationStorage.m */; };
-		A90FCFD91BF362080042F370 /* ORCStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCE801BF362080042F370 /* ORCStorage.h */; };
-		A90FCFDA1BF362080042F370 /* ORCStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCE811BF362080042F370 /* ORCStorage.m */; };
-		A90FCFDB1BF362080042F370 /* ORCConfigurationInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCE841BF362080042F370 /* ORCConfigurationInteractor.h */; };
-		A90FCFDC1BF362080042F370 /* ORCConfigurationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCE851BF362080042F370 /* ORCConfigurationInteractor.m */; };
+		A909AF7F1C6B48F7005CEAA2 /* OrchextraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */; };
+		A909AF801C6B48F7005CEAA2 /* ORCActionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */; };
+		A909AF871C6B48F7005CEAA2 /* ORCScannerPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */; };
+		A909AF881C6B48F7005CEAA2 /* ORCScannerViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF7A1C6B48F7005CEAA2 /* ORCScannerViewControllerTests.m */; };
+		A909AF891C6B48F7005CEAA2 /* ORCFormatterParametersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF7C1C6B48F7005CEAA2 /* ORCFormatterParametersTests.m */; };
+		A909AF8E1C6B4A95005CEAA2 /* ORCSettingsPersisterMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF8D1C6B4A95005CEAA2 /* ORCSettingsPersisterMock.m */; };
+		A909AF921C6B4E42005CEAA2 /* ORCAppConfigCommunicatorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF911C6B4E42005CEAA2 /* ORCAppConfigCommunicatorMock.m */; };
+		A909AF951C6B4FB8005CEAA2 /* ORCUserLocationPersisterMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF941C6B4FB8005CEAA2 /* ORCUserLocationPersisterMock.m */; };
+		A909AF991C6B502C005CEAA2 /* ORCFormatterParametersMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF981C6B502C005CEAA2 /* ORCFormatterParametersMock.m */; };
+		A909AF9D1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */; };
+		A909AF9E1C6B5ED6005CEAA2 /* Orchextra.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A915DCE11B2ADDA7001A4587 /* Orchextra.bundle */; };
+		A909AFA41C6B9497005CEAA2 /* ORCSettingsPersister.h in Headers */ = {isa = PBXBuildFile; fileRef = A909AFA01C6B9497005CEAA2 /* ORCSettingsPersister.h */; };
+		A909AFA51C6B9497005CEAA2 /* ORCSettingsPersister.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFA11C6B9497005CEAA2 /* ORCSettingsPersister.m */; };
+		A909AFA61C6B9497005CEAA2 /* ORCUserLocationPersister.h in Headers */ = {isa = PBXBuildFile; fileRef = A909AFA21C6B9497005CEAA2 /* ORCUserLocationPersister.h */; };
+		A909AFA71C6B9497005CEAA2 /* ORCUserLocationPersister.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFA31C6B9497005CEAA2 /* ORCUserLocationPersister.m */; };
+		A909AFAC1C6BA0EC005CEAA2 /* ORCUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFA91C6BA0EC005CEAA2 /* ORCUserTests.m */; };
+		A909AFAD1C6BA0EC005CEAA2 /* ORCSettingsPersisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFAB1C6BA0EC005CEAA2 /* ORCSettingsPersisterTests.m */; };
+		A909AFAF1C6BA16D005CEAA2 /* ORCRegionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFAE1C6BA16D005CEAA2 /* ORCRegionTests.m */; };
+		A909AFB31C6BA26D005CEAA2 /* region_beacon.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB11C6BA26D005CEAA2 /* region_beacon.json */; };
+		A909AFB41C6BA26D005CEAA2 /* region_geofence.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB21C6BA26D005CEAA2 /* region_geofence.json */; };
+		A909AFB61C6BA5BE005CEAA2 /* ORCBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFB51C6BA5BE005CEAA2 /* ORCBeaconTests.m */; };
+		A909AFB81C6BA803005CEAA2 /* region_beacon_major_minor_nil.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB71C6BA803005CEAA2 /* region_beacon_major_minor_nil.json */; };
+		A909AFBC1C6BA900005CEAA2 /* CLLocationManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFBB1C6BA900005CEAA2 /* CLLocationManagerMock.m */; };
+		A90FCFDB1BF362080042F370 /* ORCSettingsInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCE841BF362080042F370 /* ORCSettingsInteractor.h */; };
+		A90FCFDC1BF362080042F370 /* ORCSettingsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCE851BF362080042F370 /* ORCSettingsInteractor.m */; };
 		A90FCFDD1BF362080042F370 /* ORCStayInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCE871BF362080042F370 /* ORCStayInteractor.h */; };
 		A90FCFDE1BF362080042F370 /* ORCStayInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCE881BF362080042F370 /* ORCStayInteractor.m */; };
 		A90FCFDF1BF362080042F370 /* ORCValidatorActionInterator.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCE8A1BF362080042F370 /* ORCValidatorActionInterator.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,16 +80,14 @@
 		A90FCFF01BF362080042F370 /* ORCVuforiaConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCE9F1BF362080042F370 /* ORCVuforiaConfig.m */; };
 		A90FCFF11BF362080042F370 /* ORCPushNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA11BF362080042F370 /* ORCPushNotification.h */; };
 		A90FCFF21BF362080042F370 /* ORCPushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA21BF362080042F370 /* ORCPushNotification.m */; };
-		A90FCFF31BF362080042F370 /* ORCTriggerBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA41BF362080042F370 /* ORCTriggerBeacon.h */; };
-		A90FCFF41BF362080042F370 /* ORCTriggerBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA51BF362080042F370 /* ORCTriggerBeacon.m */; };
-		A90FCFF51BF362080042F370 /* ORCTriggerGeofence.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA61BF362080042F370 /* ORCTriggerGeofence.h */; };
-		A90FCFF61BF362080042F370 /* ORCTriggerGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA71BF362080042F370 /* ORCTriggerGeofence.m */; };
-		A90FCFF71BF362080042F370 /* ORCTriggerRegion.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA81BF362080042F370 /* ORCTriggerRegion.h */; };
-		A90FCFF81BF362080042F370 /* ORCTriggerRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA91BF362080042F370 /* ORCTriggerRegion.m */; };
+		A90FCFF31BF362080042F370 /* ORCBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA41BF362080042F370 /* ORCBeacon.h */; };
+		A90FCFF41BF362080042F370 /* ORCBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA51BF362080042F370 /* ORCBeacon.m */; };
+		A90FCFF51BF362080042F370 /* ORCGeofence.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA61BF362080042F370 /* ORCGeofence.h */; };
+		A90FCFF61BF362080042F370 /* ORCGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA71BF362080042F370 /* ORCGeofence.m */; };
+		A90FCFF71BF362080042F370 /* ORCRegion.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA81BF362080042F370 /* ORCRegion.h */; };
+		A90FCFF81BF362080042F370 /* ORCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA91BF362080042F370 /* ORCRegion.m */; };
 		A90FCFF91BF362080042F370 /* ORCURLCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEAC1BF362080042F370 /* ORCURLCommunicator.h */; };
 		A90FCFFA1BF362080042F370 /* ORCURLCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEAD1BF362080042F370 /* ORCURLCommunicator.m */; };
-		A90FCFFB1BF362080042F370 /* ORCErrorNetworkHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEAE1BF362080042F370 /* ORCErrorNetworkHandler.h */; };
-		A90FCFFC1BF362080042F370 /* ORCErrorNetworkHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEAF1BF362080042F370 /* ORCErrorNetworkHandler.m */; };
 		A90FCFFD1BF362080042F370 /* ORCURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEB11BF362080042F370 /* ORCURLRequest.h */; };
 		A90FCFFE1BF362080042F370 /* ORCURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEB21BF362080042F370 /* ORCURLRequest.m */; };
 		A90FCFFF1BF362080042F370 /* ORCURLProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEB41BF362080042F370 /* ORCURLProvider.h */; };
@@ -81,8 +98,6 @@
 		A90FD0041BF362080042F370 /* ORCBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEBD1BF362080042F370 /* ORCBarButtonItem.m */; };
 		A90FD0051BF362080042F370 /* ORCWireframe.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEBF1BF362080042F370 /* ORCWireframe.h */; };
 		A90FD0061BF362080042F370 /* ORCWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEC01BF362080042F370 /* ORCWireframe.m */; };
-		A90FD0081BF362080042F370 /* MWLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEC61BF362080042F370 /* MWLogging.h */; };
-		A90FD0091BF362080042F370 /* MWLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEC71BF362080042F370 /* MWLogging.m */; };
 		A90FD00A1BF362080042F370 /* ORCMBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEC91BF362080042F370 /* ORCMBProgressHUD.h */; };
 		A90FD00B1BF362080042F370 /* ORCMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCECA1BF362080042F370 /* ORCMBProgressHUD.m */; };
 		A90FD05C1BF362080042F370 /* GIGScannerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF241BF362080042F370 /* GIGScannerViewController.h */; };
@@ -186,8 +201,8 @@
 		A90FD0BF1BF362080042F370 /* ORCAppConfigCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFA11BF362080042F370 /* ORCAppConfigCommunicator.m */; };
 		A90FD0C01BF362080042F370 /* ORCAppConfigResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFA21BF362080042F370 /* ORCAppConfigResponse.h */; };
 		A90FD0C11BF362080042F370 /* ORCAppConfigResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFA31BF362080042F370 /* ORCAppConfigResponse.m */; };
-		A90FD0C41BF362080042F370 /* ORCData.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFA71BF362080042F370 /* ORCData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A90FD0C51BF362080042F370 /* ORCData.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFA81BF362080042F370 /* ORCData.m */; };
+		A90FD0C41BF362080042F370 /* ORCSettingsDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFA71BF362080042F370 /* ORCSettingsDataManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A90FD0C51BF362080042F370 /* ORCSettingsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFA81BF362080042F370 /* ORCSettingsDataManager.m */; };
 		A90FD0C61BF362080042F370 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFA91BF362080042F370 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A90FD0C71BF362080042F370 /* Orchextra.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFAA1BF362080042F370 /* Orchextra.m */; };
 		A90FD0C81BF362080042F370 /* ORCUser.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFAB1BF362080042F370 /* ORCUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -203,8 +218,8 @@
 		A90FD0D41BF362080042F370 /* ORCOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFBD1BF362080042F370 /* ORCOpenURL.m */; };
 		A90FD0D51BF362080042F370 /* ORCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFBE1BF362080042F370 /* ORCWebViewController.h */; };
 		A90FD0D61BF362080042F370 /* ORCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFBF1BF362080042F370 /* ORCWebViewController.m */; };
-		A90FD0D71BF362080042F370 /* ORCLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFC21BF362080042F370 /* ORCLocationManager.h */; };
-		A90FD0D81BF362080042F370 /* ORCLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFC31BF362080042F370 /* ORCLocationManager.m */; };
+		A90FD0D71BF362080042F370 /* ORCLocationManagerWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFC21BF362080042F370 /* ORCLocationManagerWrapper.h */; };
+		A90FD0D81BF362080042F370 /* ORCLocationManagerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFC31BF362080042F370 /* ORCLocationManagerWrapper.m */; };
 		A90FD0D91BF362080042F370 /* ORCProximityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFC41BF362080042F370 /* ORCProximityManager.h */; };
 		A90FD0DA1BF362080042F370 /* ORCProximityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFC51BF362080042F370 /* ORCProximityManager.m */; };
 		A90FD0DB1BF362080042F370 /* ORCScannerPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFC71BF362080042F370 /* ORCScannerPresenter.h */; };
@@ -214,11 +229,6 @@
 		A90FD0EF1BF364BD0042F370 /* ORCConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FD0ED1BF364BD0042F370 /* ORCConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A90FD0F01BF364BD0042F370 /* ORCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD0EE1BF364BD0042F370 /* ORCConstants.m */; };
 		A90FD1101BF36CD30042F370 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A90FD0F91BF36CD30042F370 /* Info.plist */; };
-		A90FD1211BF36CF40042F370 /* ORCActionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD0FF1BF36CD30042F370 /* ORCActionManagerTests.m */; };
-		A90FD1221BF36CF40042F370 /* OrchextraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD1001BF36CD30042F370 /* OrchextraTests.m */; };
-		A90FD1231BF36CF40042F370 /* ORCScannerPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD1011BF36CD30042F370 /* ORCScannerPresenterTests.m */; };
-		A90FD1241BF36CF40042F370 /* ORCScannerViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD1021BF36CD30042F370 /* ORCScannerViewControllerTests.m */; };
-		A90FD1261BF36CF90042F370 /* ORCStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD0FE1BF36CD30042F370 /* ORCStorageTests.m */; };
 		A90FD1271BF36CFE0042F370 /* GET_actionScanner.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1061BF36CD30042F370 /* GET_actionScanner.json */; };
 		A90FD1281BF36D030042F370 /* accessToken.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1081BF36CD30042F370 /* accessToken.json */; };
 		A90FD1291BF36D030042F370 /* clientToken.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1091BF36CD30042F370 /* clientToken.json */; };
@@ -252,13 +262,40 @@
 		A90FD17E1BF36D6B0042F370 /* scanning-by@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1481BF36D650042F370 /* scanning-by@3x.png */; };
 		A90FD17F1BF36D6B0042F370 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1491BF36D650042F370 /* Simple.fragsh */; };
 		A90FD1801BF36D6B0042F370 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
-		A92607DE1C0C4725005771AF /* ORCUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A92607DD1C0C4725005771AF /* ORCUserTests.m */; };
 		A9369B321C32A67100196491 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */; };
-		A940521C1C0F0CB000E092BE /* ORCConfigurationInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A94052191C0F0CB000E092BE /* ORCConfigurationInteractorTests.m */; };
+		A940521C1C0F0CB000E092BE /* ORCSettingsInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A94052191C0F0CB000E092BE /* ORCSettingsInteractorTests.m */; };
 		A940521D1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A940521A1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m */; };
-		A940521E1C0F0CB000E092BE /* ORCFormatterParametersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A940521B1C0F0CB000E092BE /* ORCFormatterParametersTests.m */; };
 		A940521F1C0F16E700E092BE /* POST_configuration_failure.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */; };
+		A94185241C74BDAD0089385A /* CLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185091C74BDAD0089385A /* CLIColor.h */; };
+		A94185251C74BDAD0089385A /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A941850A1C74BDAD0089385A /* CLIColor.m */; };
+		A94185261C74BDAD0089385A /* CocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = A941850B1C74BDAD0089385A /* CocoaLumberjack.h */; };
+		A94185281C74BDAD0089385A /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A941850D1C74BDAD0089385A /* DDAbstractDatabaseLogger.h */; };
+		A94185291C74BDAD0089385A /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A941850E1C74BDAD0089385A /* DDAbstractDatabaseLogger.m */; };
+		A941852A1C74BDAD0089385A /* DDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = A941850F1C74BDAD0089385A /* DDASLLogCapture.h */; };
+		A941852B1C74BDAD0089385A /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185101C74BDAD0089385A /* DDASLLogCapture.m */; };
+		A941852C1C74BDAD0089385A /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185111C74BDAD0089385A /* DDASLLogger.h */; };
+		A941852D1C74BDAD0089385A /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185121C74BDAD0089385A /* DDASLLogger.m */; };
+		A941852E1C74BDAD0089385A /* DDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185131C74BDAD0089385A /* DDAssertMacros.h */; };
+		A941852F1C74BDAD0089385A /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185141C74BDAD0089385A /* DDFileLogger.h */; };
+		A94185301C74BDAD0089385A /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185151C74BDAD0089385A /* DDFileLogger.m */; };
+		A94185311C74BDAD0089385A /* DDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185161C74BDAD0089385A /* DDLegacyMacros.h */; };
+		A94185321C74BDAD0089385A /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185171C74BDAD0089385A /* DDLog+LOGV.h */; };
+		A94185331C74BDAD0089385A /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185181C74BDAD0089385A /* DDLog.h */; };
+		A94185341C74BDAD0089385A /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185191C74BDAD0089385A /* DDLog.m */; };
+		A94185351C74BDAD0089385A /* DDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = A941851A1C74BDAD0089385A /* DDLogMacros.h */; };
+		A94185361C74BDAD0089385A /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A941851B1C74BDAD0089385A /* DDTTYLogger.h */; };
+		A94185371C74BDAD0089385A /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A941851C1C74BDAD0089385A /* DDTTYLogger.m */; };
+		A94185381C74BDAD0089385A /* DDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A941851E1C74BDAD0089385A /* DDContextFilterLogFormatter.h */; };
+		A94185391C74BDAD0089385A /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A941851F1C74BDAD0089385A /* DDContextFilterLogFormatter.m */; };
+		A941853A1C74BDAD0089385A /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185201C74BDAD0089385A /* DDDispatchQueueLogFormatter.h */; };
+		A941853B1C74BDAD0089385A /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185211C74BDAD0089385A /* DDDispatchQueueLogFormatter.m */; };
+		A941853C1C74BDAD0089385A /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185221C74BDAD0089385A /* DDMultiFormatter.h */; };
+		A941853D1C74BDAD0089385A /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185231C74BDAD0089385A /* DDMultiFormatter.m */; };
+		A94185491C74DEF80089385A /* Orchextra_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A94185481C74DEF80089385A /* Orchextra_Prefix.pch */; };
 		A947738F1BFE1E1300D4908A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A90FCEC11BF362080042F370 /* Localizable.strings */; };
+		A948011A1C6C77F3000573BD /* ORCGeofenceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A94801191C6C77F3000573BD /* ORCGeofenceTests.m */; };
+		A948011C1C6C85C4000573BD /* ORCLocationManagerWrapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A948011B1C6C85C4000573BD /* ORCLocationManagerWrapperTests.m */; };
+		A94801211C6C92E9000573BD /* ORCLocationManagerWrapperMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A94801201C6C92E9000573BD /* ORCLocationManagerWrapperMock.m */; };
 		A95373521BFDB01600AEFE2E /* ORCVuforiaPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFD11BF362080042F370 /* ORCVuforiaPresenter.h */; };
 		A95373531BFDB01600AEFE2E /* ORCVuforiaPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFD21BF362080042F370 /* ORCVuforiaPresenter.m */; };
 		A95373541BFDB01600AEFE2E /* ORCVuforiaViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFD31BF362080042F370 /* ORCVuforiaViewController.h */; };
@@ -348,15 +385,34 @@
 		A95373BF1BFDD77500AEFE2E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C8021B25B21E008E5912 /* AVFoundation.framework */; };
 		A95373C01BFDD78000AEFE2E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0051BC6BDD900341A37 /* CoreMotion.framework */; };
 		A95373C81BFDD94800AEFE2E /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A90FCF211BF362080042F370 /* libVuforia.a */; };
+		A95E1F381C63319100509235 /* ORCStatisticsInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = A95E1F361C63319100509235 /* ORCStatisticsInteractor.h */; };
+		A95E1F391C63319100509235 /* ORCStatisticsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A95E1F371C63319100509235 /* ORCStatisticsInteractor.m */; };
+		A95E1F3D1C633C2C00509235 /* ORCApplicationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A95E1F3B1C633C2C00509235 /* ORCApplicationCenter.h */; };
+		A95E1F3E1C633C2C00509235 /* ORCApplicationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A95E1F3C1C633C2C00509235 /* ORCApplicationCenter.m */; };
 		A98360E01BFB82FA00413CB8 /* ORCPushManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A98360E11BFB82FA00413CB8 /* ORCPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */; };
 		A98360E41BFB82FF00413CB8 /* OrchextraOutputInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = A98360E31BFB82FF00413CB8 /* OrchextraOutputInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A98A0EA61C71AFFF00EDA316 /* GET_action_webview_without_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A98A0EA51C71AFFF00EDA316 /* GET_action_webview_without_schedule.json */; };
+		A98A0EA81C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A98A0EA71C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json */; };
+		A98F557C1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */; };
+		A98F557E1C6DEF63000E7C60 /* ORCActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A98F557D1C6DEF63000E7C60 /* ORCActionTests.m */; };
+		A98F55821C6DF910000E7C60 /* GET_action_without_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A98F55811C6DF910000E7C60 /* GET_action_without_schedule.json */; };
+		A98F55841C6DFE29000E7C60 /* GET_action_scanner_without_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A98F55831C6DFE29000E7C60 /* GET_action_scanner_without_schedule.json */; };
+		A98F55861C6DFF90000E7C60 /* GET_action_browser_without_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A98F55851C6DFF90000E7C60 /* GET_action_browser_without_schedule.json */; };
+		A99073891C6DCD6E00186C8D /* ORCPushManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A99073881C6DCD6E00186C8D /* ORCPushManagerMock.m */; };
+		A99073951C6DD26200186C8D /* ORCStatisticsInteractorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */; };
 		A9A2C8031B25B21E008E5912 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C8021B25B21E008E5912 /* AVFoundation.framework */; };
+		A9AD5BA91C5FAC7A009C02D3 /* ORCProximityFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A9AD5BA71C5FAC7A009C02D3 /* ORCProximityFormatter.h */; };
+		A9AD5BAA1C5FAC7A009C02D3 /* ORCProximityFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AD5BA81C5FAC7A009C02D3 /* ORCProximityFormatter.m */; };
+		A9B17B0A1C566C6C00D2BCB1 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = A9B17B081C566C6C00D2BCB1 /* NSString+MD5.h */; };
+		A9B17B0B1C566C6C00D2BCB1 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B17B091C566C6C00D2BCB1 /* NSString+MD5.m */; };
 		A9C188A51BFCC75F0073EE33 /* VuforiaOrchextra.h in Copy Files */ = {isa = PBXBuildFile; fileRef = A9C188A41BFCC75F0073EE33 /* VuforiaOrchextra.h */; };
 		A9C188A71BFCC75F0073EE33 /* VuforiaOrchextra.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C188A61BFCC75F0073EE33 /* VuforiaOrchextra.m */; };
 		A9C188B01BFCC7AB0073EE33 /* VuforiaOrchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C188A41BFCC75F0073EE33 /* VuforiaOrchextra.h */; };
 		A9C188B51BFCC8F30073EE33 /* VFConfigurationInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C188B31BFCC8F30073EE33 /* VFConfigurationInteractor.h */; };
 		A9C188B61BFCC8F30073EE33 /* VFConfigurationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C188B41BFCC8F30073EE33 /* VFConfigurationInteractor.m */; };
+		A9CD197E1C45521C004CF212 /* ORCURLActionConfirmationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CD197C1C45521C004CF212 /* ORCURLActionConfirmationResponse.h */; };
+		A9CD197F1C45521C004CF212 /* ORCURLActionConfirmationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CD197D1C45521C004CF212 /* ORCURLActionConfirmationResponse.m */; };
 		A9E4BFFA1BC6BD9200341A37 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4BFF91BC6BD9200341A37 /* SystemConfiguration.framework */; };
 		A9E4BFFC1BC6BDA400341A37 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4BFFB1BC6BDA400341A37 /* Security.framework */; };
 		A9E4BFFE1BC6BDAF00341A37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4BFFD1BC6BDAF00341A37 /* QuartzCore.framework */; };
@@ -366,10 +422,17 @@
 		A9E4C0081BC6BDE100341A37 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */; };
 		A9E4C00A1BC6BDE800341A37 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0091BC6BDE800341A37 /* MediaPlayer.framework */; };
 		A9E4C0341BC6C08D00341A37 /* libOrchextra.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E595781B04DA6F0040EAD4 /* libOrchextra.a */; };
+		A9E535D61C75BE2B0049DD54 /* ORCErrorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A9E535D41C75BE2B0049DD54 /* ORCErrorManager.h */; };
+		A9E535D71C75BE2B0049DD54 /* ORCErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E535D51C75BE2B0049DD54 /* ORCErrorManager.m */; };
+		A9E535DD1C75E71F0049DD54 /* ORCFormatterLog.h in Headers */ = {isa = PBXBuildFile; fileRef = A9E535D91C75E71F0049DD54 /* ORCFormatterLog.h */; };
+		A9E535DE1C75E71F0049DD54 /* ORCFormatterLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E535DA1C75E71F0049DD54 /* ORCFormatterLog.m */; };
+		A9E535DF1C75E71F0049DD54 /* ORCLog.h in Headers */ = {isa = PBXBuildFile; fileRef = A9E535DB1C75E71F0049DD54 /* ORCLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9E535E01C75E71F0049DD54 /* ORCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E535DC1C75E71F0049DD54 /* ORCLog.m */; };
 		A9E596601B04DB210040EAD4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E5965F1B04DB210040EAD4 /* CoreLocation.framework */; };
 		A9E596621B04DB260040EAD4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E596611B04DB260040EAD4 /* UIKit.framework */; };
 		A9E596641B04DB2C0040EAD4 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E596631B04DB2C0040EAD4 /* AdSupport.framework */; };
 		A9E596661B04DB8C0040EAD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E596651B04DB8C0040EAD4 /* Foundation.framework */; };
+		A9E8A5531C71F1030033E203 /* ORCSettingsDataManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E8A5521C71F1030033E203 /* ORCSettingsDataManagerTests.m */; };
 		A9ECA71D1B31BBCC00C7515E /* Orchextra.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A915DCE11B2ADDA7001A4587 /* Orchextra.bundle */; };
 /* End PBXBuildFile section */
 
@@ -443,12 +506,35 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A90FCE7D1BF362080042F370 /* ORCLocationStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCLocationStorage.h; sourceTree = "<group>"; };
-		A90FCE7E1BF362080042F370 /* ORCLocationStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCLocationStorage.m; sourceTree = "<group>"; };
-		A90FCE801BF362080042F370 /* ORCStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCStorage.h; sourceTree = "<group>"; };
-		A90FCE811BF362080042F370 /* ORCStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCStorage.m; sourceTree = "<group>"; };
-		A90FCE841BF362080042F370 /* ORCConfigurationInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCConfigurationInteractor.h; sourceTree = "<group>"; };
-		A90FCE851BF362080042F370 /* ORCConfigurationInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCConfigurationInteractor.m; sourceTree = "<group>"; };
+		A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrchextraTests.m; sourceTree = "<group>"; };
+		A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionManagerTests.m; sourceTree = "<group>"; };
+		A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerPresenterTests.m; sourceTree = "<group>"; };
+		A909AF7A1C6B48F7005CEAA2 /* ORCScannerViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerViewControllerTests.m; sourceTree = "<group>"; };
+		A909AF7C1C6B48F7005CEAA2 /* ORCFormatterParametersTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCFormatterParametersTests.m; sourceTree = "<group>"; };
+		A909AF8C1C6B4A95005CEAA2 /* ORCSettingsPersisterMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCSettingsPersisterMock.h; path = Mocks/Data/ORCSettingsPersisterMock.h; sourceTree = "<group>"; };
+		A909AF8D1C6B4A95005CEAA2 /* ORCSettingsPersisterMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCSettingsPersisterMock.m; path = Mocks/Data/ORCSettingsPersisterMock.m; sourceTree = "<group>"; };
+		A909AF901C6B4E42005CEAA2 /* ORCAppConfigCommunicatorMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCAppConfigCommunicatorMock.h; path = Mocks/Communicator/ORCAppConfigCommunicatorMock.h; sourceTree = "<group>"; };
+		A909AF911C6B4E42005CEAA2 /* ORCAppConfigCommunicatorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCAppConfigCommunicatorMock.m; path = Mocks/Communicator/ORCAppConfigCommunicatorMock.m; sourceTree = "<group>"; };
+		A909AF931C6B4FB8005CEAA2 /* ORCUserLocationPersisterMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCUserLocationPersisterMock.h; path = Mocks/Data/ORCUserLocationPersisterMock.h; sourceTree = "<group>"; };
+		A909AF941C6B4FB8005CEAA2 /* ORCUserLocationPersisterMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCUserLocationPersisterMock.m; path = Mocks/Data/ORCUserLocationPersisterMock.m; sourceTree = "<group>"; };
+		A909AF971C6B502C005CEAA2 /* ORCFormatterParametersMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCFormatterParametersMock.h; path = Mocks/Support/ORCFormatterParametersMock.h; sourceTree = "<group>"; };
+		A909AF981C6B502C005CEAA2 /* ORCFormatterParametersMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCFormatterParametersMock.m; path = Mocks/Support/ORCFormatterParametersMock.m; sourceTree = "<group>"; };
+		A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_Configuration_Complex.json; sourceTree = "<group>"; };
+		A909AFA01C6B9497005CEAA2 /* ORCSettingsPersister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCSettingsPersister.h; sourceTree = "<group>"; };
+		A909AFA11C6B9497005CEAA2 /* ORCSettingsPersister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsPersister.m; sourceTree = "<group>"; };
+		A909AFA21C6B9497005CEAA2 /* ORCUserLocationPersister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCUserLocationPersister.h; sourceTree = "<group>"; };
+		A909AFA31C6B9497005CEAA2 /* ORCUserLocationPersister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCUserLocationPersister.m; sourceTree = "<group>"; };
+		A909AFA91C6BA0EC005CEAA2 /* ORCUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCUserTests.m; sourceTree = "<group>"; };
+		A909AFAB1C6BA0EC005CEAA2 /* ORCSettingsPersisterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsPersisterTests.m; sourceTree = "<group>"; };
+		A909AFAE1C6BA16D005CEAA2 /* ORCRegionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCRegionTests.m; sourceTree = "<group>"; };
+		A909AFB11C6BA26D005CEAA2 /* region_beacon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = region_beacon.json; sourceTree = "<group>"; };
+		A909AFB21C6BA26D005CEAA2 /* region_geofence.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = region_geofence.json; sourceTree = "<group>"; };
+		A909AFB51C6BA5BE005CEAA2 /* ORCBeaconTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBeaconTests.m; sourceTree = "<group>"; };
+		A909AFB71C6BA803005CEAA2 /* region_beacon_major_minor_nil.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = region_beacon_major_minor_nil.json; sourceTree = "<group>"; };
+		A909AFBA1C6BA900005CEAA2 /* CLLocationManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLLocationManagerMock.h; path = Mocks/Managers/CLLocationManagerMock.h; sourceTree = "<group>"; };
+		A909AFBB1C6BA900005CEAA2 /* CLLocationManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLLocationManagerMock.m; path = Mocks/Managers/CLLocationManagerMock.m; sourceTree = "<group>"; };
+		A90FCE841BF362080042F370 /* ORCSettingsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCSettingsInteractor.h; sourceTree = "<group>"; };
+		A90FCE851BF362080042F370 /* ORCSettingsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsInteractor.m; sourceTree = "<group>"; };
 		A90FCE871BF362080042F370 /* ORCStayInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCStayInteractor.h; sourceTree = "<group>"; };
 		A90FCE881BF362080042F370 /* ORCStayInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCStayInteractor.m; sourceTree = "<group>"; };
 		A90FCE8A1BF362080042F370 /* ORCValidatorActionInterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCValidatorActionInterator.h; sourceTree = "<group>"; };
@@ -471,16 +557,14 @@
 		A90FCE9F1BF362080042F370 /* ORCVuforiaConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCVuforiaConfig.m; sourceTree = "<group>"; };
 		A90FCEA11BF362080042F370 /* ORCPushNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCPushNotification.h; sourceTree = "<group>"; };
 		A90FCEA21BF362080042F370 /* ORCPushNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCPushNotification.m; sourceTree = "<group>"; };
-		A90FCEA41BF362080042F370 /* ORCTriggerBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCTriggerBeacon.h; sourceTree = "<group>"; };
-		A90FCEA51BF362080042F370 /* ORCTriggerBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCTriggerBeacon.m; sourceTree = "<group>"; };
-		A90FCEA61BF362080042F370 /* ORCTriggerGeofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCTriggerGeofence.h; sourceTree = "<group>"; };
-		A90FCEA71BF362080042F370 /* ORCTriggerGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCTriggerGeofence.m; sourceTree = "<group>"; };
-		A90FCEA81BF362080042F370 /* ORCTriggerRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCTriggerRegion.h; sourceTree = "<group>"; };
-		A90FCEA91BF362080042F370 /* ORCTriggerRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCTriggerRegion.m; sourceTree = "<group>"; };
+		A90FCEA41BF362080042F370 /* ORCBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCBeacon.h; sourceTree = "<group>"; };
+		A90FCEA51BF362080042F370 /* ORCBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBeacon.m; sourceTree = "<group>"; };
+		A90FCEA61BF362080042F370 /* ORCGeofence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGeofence.h; sourceTree = "<group>"; };
+		A90FCEA71BF362080042F370 /* ORCGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGeofence.m; sourceTree = "<group>"; };
+		A90FCEA81BF362080042F370 /* ORCRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCRegion.h; sourceTree = "<group>"; };
+		A90FCEA91BF362080042F370 /* ORCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCRegion.m; sourceTree = "<group>"; };
 		A90FCEAC1BF362080042F370 /* ORCURLCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLCommunicator.h; sourceTree = "<group>"; };
 		A90FCEAD1BF362080042F370 /* ORCURLCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLCommunicator.m; sourceTree = "<group>"; };
-		A90FCEAE1BF362080042F370 /* ORCErrorNetworkHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCErrorNetworkHandler.h; sourceTree = "<group>"; };
-		A90FCEAF1BF362080042F370 /* ORCErrorNetworkHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCErrorNetworkHandler.m; sourceTree = "<group>"; };
 		A90FCEB11BF362080042F370 /* ORCURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLRequest.h; sourceTree = "<group>"; };
 		A90FCEB21BF362080042F370 /* ORCURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLRequest.m; sourceTree = "<group>"; };
 		A90FCEB41BF362080042F370 /* ORCURLProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLProvider.h; sourceTree = "<group>"; };
@@ -493,8 +577,6 @@
 		A90FCEC01BF362080042F370 /* ORCWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCWireframe.m; sourceTree = "<group>"; };
 		A90FCEC21BF362080042F370 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A90FCEC31BF362080042F370 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A90FCEC61BF362080042F370 /* MWLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWLogging.h; sourceTree = "<group>"; };
-		A90FCEC71BF362080042F370 /* MWLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWLogging.m; sourceTree = "<group>"; };
 		A90FCEC91BF362080042F370 /* ORCMBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCMBProgressHUD.h; sourceTree = "<group>"; };
 		A90FCECA1BF362080042F370 /* ORCMBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCMBProgressHUD.m; sourceTree = "<group>"; };
 		A90FCECD1BF362080042F370 /* ORCTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCTexture.h; sourceTree = "<group>"; };
@@ -674,8 +756,8 @@
 		A90FCFA11BF362080042F370 /* ORCAppConfigCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCAppConfigCommunicator.m; sourceTree = "<group>"; };
 		A90FCFA21BF362080042F370 /* ORCAppConfigResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCAppConfigResponse.h; sourceTree = "<group>"; };
 		A90FCFA31BF362080042F370 /* ORCAppConfigResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCAppConfigResponse.m; sourceTree = "<group>"; };
-		A90FCFA71BF362080042F370 /* ORCData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCData.h; sourceTree = "<group>"; };
-		A90FCFA81BF362080042F370 /* ORCData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCData.m; sourceTree = "<group>"; };
+		A90FCFA71BF362080042F370 /* ORCSettingsDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCSettingsDataManager.h; sourceTree = "<group>"; };
+		A90FCFA81BF362080042F370 /* ORCSettingsDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsDataManager.m; sourceTree = "<group>"; };
 		A90FCFA91BF362080042F370 /* Orchextra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A90FCFAA1BF362080042F370 /* Orchextra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Orchextra.m; sourceTree = "<group>"; };
 		A90FCFAB1BF362080042F370 /* ORCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCUser.h; sourceTree = "<group>"; };
@@ -691,8 +773,8 @@
 		A90FCFBD1BF362080042F370 /* ORCOpenURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCOpenURL.m; sourceTree = "<group>"; };
 		A90FCFBE1BF362080042F370 /* ORCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCWebViewController.h; sourceTree = "<group>"; };
 		A90FCFBF1BF362080042F370 /* ORCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCWebViewController.m; sourceTree = "<group>"; };
-		A90FCFC21BF362080042F370 /* ORCLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCLocationManager.h; sourceTree = "<group>"; };
-		A90FCFC31BF362080042F370 /* ORCLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCLocationManager.m; sourceTree = "<group>"; };
+		A90FCFC21BF362080042F370 /* ORCLocationManagerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCLocationManagerWrapper.h; sourceTree = "<group>"; };
+		A90FCFC31BF362080042F370 /* ORCLocationManagerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCLocationManagerWrapper.m; sourceTree = "<group>"; };
 		A90FCFC41BF362080042F370 /* ORCProximityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCProximityManager.h; sourceTree = "<group>"; };
 		A90FCFC51BF362080042F370 /* ORCProximityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCProximityManager.m; sourceTree = "<group>"; };
 		A90FCFC71BF362080042F370 /* ORCScannerPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCScannerPresenter.h; sourceTree = "<group>"; };
@@ -712,11 +794,6 @@
 		A90FD0F91BF36CD30042F370 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A90FD0FB1BF36CD30042F370 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		A90FD0FC1BF36CD30042F370 /* OCMockitoIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCMockitoIOS.framework; sourceTree = "<group>"; };
-		A90FD0FE1BF36CD30042F370 /* ORCStorageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCStorageTests.m; sourceTree = "<group>"; };
-		A90FD0FF1BF36CD30042F370 /* ORCActionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionManagerTests.m; sourceTree = "<group>"; };
-		A90FD1001BF36CD30042F370 /* OrchextraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrchextraTests.m; sourceTree = "<group>"; };
-		A90FD1011BF36CD30042F370 /* ORCScannerPresenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerPresenterTests.m; sourceTree = "<group>"; };
-		A90FD1021BF36CD30042F370 /* ORCScannerViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerViewControllerTests.m; sourceTree = "<group>"; };
 		A90FD1061BF36CD30042F370 /* GET_actionScanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_actionScanner.json; sourceTree = "<group>"; };
 		A90FD1081BF36CD30042F370 /* accessToken.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accessToken.json; sourceTree = "<group>"; };
 		A90FD1091BF36CD30042F370 /* clientToken.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clientToken.json; sourceTree = "<group>"; };
@@ -751,20 +828,71 @@
 		A90FD1491BF36D650042F370 /* Simple.fragsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.fragsh; sourceTree = "<group>"; };
 		A90FD14A1BF36D650042F370 /* Simple.vertsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.vertsh; sourceTree = "<group>"; };
 		A915DCE11B2ADDA7001A4587 /* Orchextra.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Orchextra.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		A92607DD1C0C4725005771AF /* ORCUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCUserTests.m; sourceTree = "<group>"; };
-		A94052191C0F0CB000E092BE /* ORCConfigurationInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCConfigurationInteractorTests.m; sourceTree = "<group>"; };
+		A94052191C0F0CB000E092BE /* ORCSettingsInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsInteractorTests.m; sourceTree = "<group>"; };
 		A940521A1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCValidatorActionInteractorTests.m; sourceTree = "<group>"; };
-		A940521B1C0F0CB000E092BE /* ORCFormatterParametersTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCFormatterParametersTests.m; sourceTree = "<group>"; };
+		A94185091C74BDAD0089385A /* CLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLIColor.h; sourceTree = "<group>"; };
+		A941850A1C74BDAD0089385A /* CLIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLIColor.m; sourceTree = "<group>"; };
+		A941850B1C74BDAD0089385A /* CocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjack.h; sourceTree = "<group>"; };
+		A941850D1C74BDAD0089385A /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		A941850E1C74BDAD0089385A /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		A941850F1C74BDAD0089385A /* DDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogCapture.h; sourceTree = "<group>"; };
+		A94185101C74BDAD0089385A /* DDASLLogCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogCapture.m; sourceTree = "<group>"; };
+		A94185111C74BDAD0089385A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		A94185121C74BDAD0089385A /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		A94185131C74BDAD0089385A /* DDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAssertMacros.h; sourceTree = "<group>"; };
+		A94185141C74BDAD0089385A /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		A94185151C74BDAD0089385A /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		A94185161C74BDAD0089385A /* DDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLegacyMacros.h; sourceTree = "<group>"; };
+		A94185171C74BDAD0089385A /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
+		A94185181C74BDAD0089385A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		A94185191C74BDAD0089385A /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		A941851A1C74BDAD0089385A /* DDLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLogMacros.h; sourceTree = "<group>"; };
+		A941851B1C74BDAD0089385A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		A941851C1C74BDAD0089385A /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		A941851E1C74BDAD0089385A /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		A941851F1C74BDAD0089385A /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		A94185201C74BDAD0089385A /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		A94185211C74BDAD0089385A /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		A94185221C74BDAD0089385A /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
+		A94185231C74BDAD0089385A /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
+		A94185481C74DEF80089385A /* Orchextra_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orchextra_Prefix.pch; sourceTree = "<group>"; };
+		A94801191C6C77F3000573BD /* ORCGeofenceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGeofenceTests.m; sourceTree = "<group>"; };
+		A948011B1C6C85C4000573BD /* ORCLocationManagerWrapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCLocationManagerWrapperTests.m; sourceTree = "<group>"; };
+		A948011F1C6C92E9000573BD /* ORCLocationManagerWrapperMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCLocationManagerWrapperMock.h; path = Mocks/Sections/Scanner/ORCLocationManagerWrapperMock.h; sourceTree = "<group>"; };
+		A94801201C6C92E9000573BD /* ORCLocationManagerWrapperMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCLocationManagerWrapperMock.m; path = Mocks/Sections/Scanner/ORCLocationManagerWrapperMock.m; sourceTree = "<group>"; };
+		A95E1F361C63319100509235 /* ORCStatisticsInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCStatisticsInteractor.h; sourceTree = "<group>"; };
+		A95E1F371C63319100509235 /* ORCStatisticsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCStatisticsInteractor.m; sourceTree = "<group>"; };
+		A95E1F3B1C633C2C00509235 /* ORCApplicationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCApplicationCenter.h; path = UIApplicationCenter/ORCApplicationCenter.h; sourceTree = "<group>"; };
+		A95E1F3C1C633C2C00509235 /* ORCApplicationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCApplicationCenter.m; path = UIApplicationCenter/ORCApplicationCenter.m; sourceTree = "<group>"; };
 		A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCPushManager.h; sourceTree = "<group>"; };
 		A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCPushManager.m; sourceTree = "<group>"; };
 		A98360E31BFB82FF00413CB8 /* OrchextraOutputInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrchextraOutputInterface.h; sourceTree = "<group>"; };
+		A98A0EA51C71AFFF00EDA316 /* GET_action_webview_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_webview_without_schedule.json; sourceTree = "<group>"; };
+		A98A0EA71C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_vuforia_without_schedule.json; sourceTree = "<group>"; };
+		A98F557A1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCSettingsInteractorMock.h; sourceTree = "<group>"; };
+		A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsInteractorMock.m; sourceTree = "<group>"; };
+		A98F557D1C6DEF63000E7C60 /* ORCActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionTests.m; sourceTree = "<group>"; };
+		A98F55811C6DF910000E7C60 /* GET_action_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_without_schedule.json; sourceTree = "<group>"; };
+		A98F55831C6DFE29000E7C60 /* GET_action_scanner_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_scanner_without_schedule.json; sourceTree = "<group>"; };
+		A98F55851C6DFF90000E7C60 /* GET_action_browser_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_browser_without_schedule.json; sourceTree = "<group>"; };
+		A99073871C6DCD6E00186C8D /* ORCPushManagerMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCPushManagerMock.h; path = Mocks/Managers/ORCPushManagerMock.h; sourceTree = "<group>"; };
+		A99073881C6DCD6E00186C8D /* ORCPushManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCPushManagerMock.m; path = Mocks/Managers/ORCPushManagerMock.m; sourceTree = "<group>"; };
+		A99073931C6DD26200186C8D /* ORCStatisticsInteractorMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCStatisticsInteractorMock.h; sourceTree = "<group>"; };
+		A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCStatisticsInteractorMock.m; sourceTree = "<group>"; };
 		A9A2C7FB1B25AD95008E5912 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A9A2C8021B25B21E008E5912 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A9AD5BA71C5FAC7A009C02D3 /* ORCProximityFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCProximityFormatter.h; sourceTree = "<group>"; };
+		A9AD5BA81C5FAC7A009C02D3 /* ORCProximityFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCProximityFormatter.m; sourceTree = "<group>"; };
+		A9B17B081C566C6C00D2BCB1 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "MD%/NSString+MD5.h"; sourceTree = "<group>"; };
+		A9B17B091C566C6C00D2BCB1 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "MD%/NSString+MD5.m"; sourceTree = "<group>"; };
+		A9B17B0C1C566CB400D2BCB1 /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
 		A9C188A21BFCC75F0073EE33 /* libVuforiaOrchextra.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVuforiaOrchextra.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C188A41BFCC75F0073EE33 /* VuforiaOrchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VuforiaOrchextra.h; sourceTree = "<group>"; };
 		A9C188A61BFCC75F0073EE33 /* VuforiaOrchextra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VuforiaOrchextra.m; sourceTree = "<group>"; };
 		A9C188B31BFCC8F30073EE33 /* VFConfigurationInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VFConfigurationInteractor.h; path = Common/Interactor/VFConfigurationInteractor.h; sourceTree = "<group>"; };
 		A9C188B41BFCC8F30073EE33 /* VFConfigurationInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VFConfigurationInteractor.m; path = Common/Interactor/VFConfigurationInteractor.m; sourceTree = "<group>"; };
+		A9CD197C1C45521C004CF212 /* ORCURLActionConfirmationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLActionConfirmationResponse.h; sourceTree = "<group>"; };
+		A9CD197D1C45521C004CF212 /* ORCURLActionConfirmationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLActionConfirmationResponse.m; sourceTree = "<group>"; };
 		A9E4BFF91BC6BD9200341A37 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A9E4BFFB1BC6BDA400341A37 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A9E4BFFD1BC6BDAF00341A37 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -774,12 +902,19 @@
 		A9E4C0051BC6BDD900341A37 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A9E4C0091BC6BDE800341A37 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A9E535D41C75BE2B0049DD54 /* ORCErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCErrorManager.h; path = Manager/ORCErrorManager.h; sourceTree = "<group>"; };
+		A9E535D51C75BE2B0049DD54 /* ORCErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCErrorManager.m; path = Manager/ORCErrorManager.m; sourceTree = "<group>"; };
+		A9E535D91C75E71F0049DD54 /* ORCFormatterLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCFormatterLog.h; sourceTree = "<group>"; };
+		A9E535DA1C75E71F0049DD54 /* ORCFormatterLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCFormatterLog.m; sourceTree = "<group>"; };
+		A9E535DB1C75E71F0049DD54 /* ORCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCLog.h; sourceTree = "<group>"; };
+		A9E535DC1C75E71F0049DD54 /* ORCLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCLog.m; sourceTree = "<group>"; };
 		A9E595781B04DA6F0040EAD4 /* libOrchextra.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrchextra.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E595831B04DA6F0040EAD4 /* Orchextra.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Orchextra.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E5965F1B04DB210040EAD4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A9E596611B04DB260040EAD4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A9E596631B04DB2C0040EAD4 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A9E596651B04DB8C0040EAD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A9E8A5521C71F1030033E203 /* ORCSettingsDataManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsDataManagerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -835,6 +970,161 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A909AF651C6B48F7005CEAA2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A909AFA81C6BA0EC005CEAA2 /* Models */,
+				A909AFAA1C6BA0EC005CEAA2 /* Persisters */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A909AF681C6B48F7005CEAA2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A909AF6A1C6B48F7005CEAA2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A909AF761C6B48F7005CEAA2 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				A909AF771C6B48F7005CEAA2 /* Proximity */,
+				A909AF781C6B48F7005CEAA2 /* Scanner */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		A909AF771C6B48F7005CEAA2 /* Proximity */ = {
+			isa = PBXGroup;
+			children = (
+				A948011B1C6C85C4000573BD /* ORCLocationManagerWrapperTests.m */,
+			);
+			path = Proximity;
+			sourceTree = "<group>";
+		};
+		A909AF781C6B48F7005CEAA2 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */,
+				A909AF7A1C6B48F7005CEAA2 /* ORCScannerViewControllerTests.m */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		A909AF7B1C6B48F7005CEAA2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A909AF7C1C6B48F7005CEAA2 /* ORCFormatterParametersTests.m */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A909AF8A1C6B497C005CEAA2 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A9E8A5501C71DE240033E203 /* Interface */,
+				A99073921C6DD26200186C8D /* Interactor */,
+				A948011D1C6C92BE000573BD /* Section */,
+				A909AFB91C6BA8D8005CEAA2 /* Managers */,
+				A909AF961C6B5012005CEAA2 /* Support */,
+				A909AF8F1C6B4E1D005CEAA2 /* Communicator */,
+				A909AF8B1C6B4A71005CEAA2 /* Data */,
+			);
+			name = Mocks;
+			sourceTree = "<group>";
+		};
+		A909AF8B1C6B4A71005CEAA2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A909AF8C1C6B4A95005CEAA2 /* ORCSettingsPersisterMock.h */,
+				A909AF8D1C6B4A95005CEAA2 /* ORCSettingsPersisterMock.m */,
+				A909AF931C6B4FB8005CEAA2 /* ORCUserLocationPersisterMock.h */,
+				A909AF941C6B4FB8005CEAA2 /* ORCUserLocationPersisterMock.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		A909AF8F1C6B4E1D005CEAA2 /* Communicator */ = {
+			isa = PBXGroup;
+			children = (
+				A909AF901C6B4E42005CEAA2 /* ORCAppConfigCommunicatorMock.h */,
+				A909AF911C6B4E42005CEAA2 /* ORCAppConfigCommunicatorMock.m */,
+			);
+			name = Communicator;
+			sourceTree = "<group>";
+		};
+		A909AF961C6B5012005CEAA2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A909AF971C6B502C005CEAA2 /* ORCFormatterParametersMock.h */,
+				A909AF981C6B502C005CEAA2 /* ORCFormatterParametersMock.m */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		A909AF9F1C6B9497005CEAA2 /* Persisters */ = {
+			isa = PBXGroup;
+			children = (
+				A909AFA01C6B9497005CEAA2 /* ORCSettingsPersister.h */,
+				A909AFA11C6B9497005CEAA2 /* ORCSettingsPersister.m */,
+				A909AFA21C6B9497005CEAA2 /* ORCUserLocationPersister.h */,
+				A909AFA31C6B9497005CEAA2 /* ORCUserLocationPersister.m */,
+			);
+			path = Persisters;
+			sourceTree = "<group>";
+		};
+		A909AFA81C6BA0EC005CEAA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A909AFA91C6BA0EC005CEAA2 /* ORCUserTests.m */,
+				A909AFAE1C6BA16D005CEAA2 /* ORCRegionTests.m */,
+				A909AFB51C6BA5BE005CEAA2 /* ORCBeaconTests.m */,
+				A94801191C6C77F3000573BD /* ORCGeofenceTests.m */,
+				A98F557D1C6DEF63000E7C60 /* ORCActionTests.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A909AFAA1C6BA0EC005CEAA2 /* Persisters */ = {
+			isa = PBXGroup;
+			children = (
+				A909AFAB1C6BA0EC005CEAA2 /* ORCSettingsPersisterTests.m */,
+				A9E8A5521C71F1030033E203 /* ORCSettingsDataManagerTests.m */,
+			);
+			path = Persisters;
+			sourceTree = "<group>";
+		};
+		A909AFB01C6BA26D005CEAA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A909AFB71C6BA803005CEAA2 /* region_beacon_major_minor_nil.json */,
+				A909AFB11C6BA26D005CEAA2 /* region_beacon.json */,
+				A909AFB21C6BA26D005CEAA2 /* region_geofence.json */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A909AFB91C6BA8D8005CEAA2 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A909AFBA1C6BA900005CEAA2 /* CLLocationManagerMock.h */,
+				A909AFBB1C6BA900005CEAA2 /* CLLocationManagerMock.m */,
+				A99073871C6DCD6E00186C8D /* ORCPushManagerMock.h */,
+				A99073881C6DCD6E00186C8D /* ORCPushManagerMock.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		A90FCE791BF362080042F370 /* Orchextra */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,6 +1140,7 @@
 		A90FCE7A1BF362080042F370 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A9E535D31C75BE130049DD54 /* Manager */,
 				A90FCE7B1BF362080042F370 /* Data */,
 				A90FCE821BF362080042F370 /* Interactors */,
 				A90FCE8C1BF362080042F370 /* Models */,
@@ -864,33 +1155,15 @@
 		A90FCE7B1BF362080042F370 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A90FCE7C1BF362080042F370 /* LocationStorage */,
-				A90FCE7F1BF362080042F370 /* ORCStorage */,
+				A909AF9F1C6B9497005CEAA2 /* Persisters */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		A90FCE7C1BF362080042F370 /* LocationStorage */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCE7D1BF362080042F370 /* ORCLocationStorage.h */,
-				A90FCE7E1BF362080042F370 /* ORCLocationStorage.m */,
-			);
-			path = LocationStorage;
-			sourceTree = "<group>";
-		};
-		A90FCE7F1BF362080042F370 /* ORCStorage */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCE801BF362080042F370 /* ORCStorage.h */,
-				A90FCE811BF362080042F370 /* ORCStorage.m */,
-			);
-			path = ORCStorage;
 			sourceTree = "<group>";
 		};
 		A90FCE821BF362080042F370 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				A95E1F351C63319100509235 /* Statistics */,
 				A90FCE831BF362080042F370 /* ConfigurationInteractor */,
 				A90FCE861BF362080042F370 /* StayProximity */,
 				A90FCE891BF362080042F370 /* ValidatorTrigger */,
@@ -901,8 +1174,8 @@
 		A90FCE831BF362080042F370 /* ConfigurationInteractor */ = {
 			isa = PBXGroup;
 			children = (
-				A90FCE841BF362080042F370 /* ORCConfigurationInteractor.h */,
-				A90FCE851BF362080042F370 /* ORCConfigurationInteractor.m */,
+				A90FCE841BF362080042F370 /* ORCSettingsInteractor.h */,
+				A90FCE851BF362080042F370 /* ORCSettingsInteractor.m */,
 			);
 			path = ConfigurationInteractor;
 			sourceTree = "<group>";
@@ -986,12 +1259,12 @@
 		A90FCEA31BF362080042F370 /* Proximity */ = {
 			isa = PBXGroup;
 			children = (
-				A90FCEA41BF362080042F370 /* ORCTriggerBeacon.h */,
-				A90FCEA51BF362080042F370 /* ORCTriggerBeacon.m */,
-				A90FCEA61BF362080042F370 /* ORCTriggerGeofence.h */,
-				A90FCEA71BF362080042F370 /* ORCTriggerGeofence.m */,
-				A90FCEA81BF362080042F370 /* ORCTriggerRegion.h */,
-				A90FCEA91BF362080042F370 /* ORCTriggerRegion.m */,
+				A90FCEA41BF362080042F370 /* ORCBeacon.h */,
+				A90FCEA51BF362080042F370 /* ORCBeacon.m */,
+				A90FCEA61BF362080042F370 /* ORCGeofence.h */,
+				A90FCEA71BF362080042F370 /* ORCGeofence.m */,
+				A90FCEA81BF362080042F370 /* ORCRegion.h */,
+				A90FCEA91BF362080042F370 /* ORCRegion.m */,
 			);
 			path = Proximity;
 			sourceTree = "<group>";
@@ -1000,8 +1273,6 @@
 			isa = PBXGroup;
 			children = (
 				A90FCEAB1BF362080042F370 /* Communicator */,
-				A90FCEAE1BF362080042F370 /* ORCErrorNetworkHandler.h */,
-				A90FCEAF1BF362080042F370 /* ORCErrorNetworkHandler.m */,
 				A90FCEB01BF362080042F370 /* Request */,
 				A90FCEB31BF362080042F370 /* URLProvider */,
 			);
@@ -1038,6 +1309,7 @@
 		A90FCEB61BF362080042F370 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A9B17B071C566C1200D2BCB1 /* MD5 */,
 				A90FCEB71BF362080042F370 /* Formatters */,
 			);
 			path = Support;
@@ -1048,6 +1320,8 @@
 			children = (
 				A90FCEB81BF362080042F370 /* ORCFormatterParameters.h */,
 				A90FCEB91BF362080042F370 /* ORCFormatterParameters.m */,
+				A9AD5BA71C5FAC7A009C02D3 /* ORCProximityFormatter.h */,
+				A9AD5BA81C5FAC7A009C02D3 /* ORCProximityFormatter.m */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -1090,8 +1364,7 @@
 		A90FCEC51BF362080042F370 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				A90FCEC61BF362080042F370 /* MWLogging.h */,
-				A90FCEC71BF362080042F370 /* MWLogging.m */,
+				A94185071C74BDAD0089385A /* CocoaLumberjack */,
 				A90FCEC81BF362080042F370 /* ORCMBProgressHUD */,
 				A90FCECB1BF362080042F370 /* Vuforia */,
 			);
@@ -1529,6 +1802,8 @@
 		A90FCF9C1BF362080042F370 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A94185481C74DEF80089385A /* Orchextra_Prefix.pch */,
+				A95E1F3A1C633B8300509235 /* UIApplicationCenter */,
 				A90FCEC11BF362080042F370 /* Localizable.strings */,
 				A90FCF9F1BF362080042F370 /* Communicator */,
 			);
@@ -1553,12 +1828,13 @@
 				A90FCFAA1BF362080042F370 /* Orchextra.m */,
 				A90FD0ED1BF364BD0042F370 /* ORCConstants.h */,
 				A90FD0EE1BF364BD0042F370 /* ORCConstants.m */,
-				A90FCFA71BF362080042F370 /* ORCData.h */,
-				A90FCFA81BF362080042F370 /* ORCData.m */,
+				A90FCFA71BF362080042F370 /* ORCSettingsDataManager.h */,
+				A90FCFA81BF362080042F370 /* ORCSettingsDataManager.m */,
 				A90FCFAB1BF362080042F370 /* ORCUser.h */,
 				A90FCFAC1BF362080042F370 /* ORCUser.m */,
 				A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */,
 				A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */,
+				A9E535D81C75E71F0049DD54 /* ORCLog */,
 				A98360E21BFB82FF00413CB8 /* Interfaces_InOut */,
 			);
 			path = SDK;
@@ -1594,6 +1870,8 @@
 				A90FCFB41BF362080042F370 /* ORCActionCommunicator.m */,
 				A90FCFB51BF362080042F370 /* ORCURLActionResponse.h */,
 				A90FCFB61BF362080042F370 /* ORCURLActionResponse.m */,
+				A9CD197C1C45521C004CF212 /* ORCURLActionConfirmationResponse.h */,
+				A9CD197D1C45521C004CF212 /* ORCURLActionConfirmationResponse.m */,
 			);
 			path = ActionCommunicator;
 			sourceTree = "<group>";
@@ -1630,8 +1908,8 @@
 		A90FCFC11BF362080042F370 /* ORCLocation */ = {
 			isa = PBXGroup;
 			children = (
-				A90FCFC21BF362080042F370 /* ORCLocationManager.h */,
-				A90FCFC31BF362080042F370 /* ORCLocationManager.m */,
+				A90FCFC21BF362080042F370 /* ORCLocationManagerWrapper.h */,
+				A90FCFC31BF362080042F370 /* ORCLocationManagerWrapper.m */,
 			);
 			path = ORCLocation;
 			sourceTree = "<group>";
@@ -1673,16 +1951,16 @@
 		A90FD0F81BF36CD30042F370 /* OrchextraTests */ = {
 			isa = PBXGroup;
 			children = (
-				A90FD0FD1BF36CD30042F370 /* Models */,
+				A909AF651C6B48F7005CEAA2 /* Data */,
+				A909AF681C6B48F7005CEAA2 /* Main */,
+				A909AF6A1C6B48F7005CEAA2 /* Managers */,
+				A909AF761C6B48F7005CEAA2 /* Sections */,
 				A94052181C0F0CB000E092BE /* Interactor */,
-				A90FD0FF1BF36CD30042F370 /* ORCActionManagerTests.m */,
-				A90FD1001BF36CD30042F370 /* OrchextraTests.m */,
-				A940521B1C0F0CB000E092BE /* ORCFormatterParametersTests.m */,
-				A90FD1011BF36CD30042F370 /* ORCScannerPresenterTests.m */,
-				A90FD1021BF36CD30042F370 /* ORCScannerViewControllerTests.m */,
-				A90FD0F91BF36CD30042F370 /* Info.plist */,
+				A909AF7B1C6B48F7005CEAA2 /* Support */,
+				A909AF8A1C6B497C005CEAA2 /* Mocks */,
 				A90FD0FA1BF36CD30042F370 /* Libs */,
 				A90FD1041BF36CD30042F370 /* Resources */,
+				A90FD0F91BF36CD30042F370 /* Info.plist */,
 			);
 			path = OrchextraTests;
 			sourceTree = "<group>";
@@ -1696,18 +1974,10 @@
 			path = Libs;
 			sourceTree = "<group>";
 		};
-		A90FD0FD1BF36CD30042F370 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A92607DD1C0C4725005771AF /* ORCUserTests.m */,
-				A90FD0FE1BF36CD30042F370 /* ORCStorageTests.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		A90FD1041BF36CD30042F370 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A909AFB01C6BA26D005CEAA2 /* Models */,
 				A90FD1051BF36CD30042F370 /* Actions */,
 				A90FD1071BF36CD30042F370 /* Authentication */,
 				A90FD10A1BF36CD30042F370 /* Configuration */,
@@ -1718,6 +1988,11 @@
 		A90FD1051BF36CD30042F370 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				A98A0EA71C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json */,
+				A98A0EA51C71AFFF00EDA316 /* GET_action_webview_without_schedule.json */,
+				A98F55851C6DFF90000E7C60 /* GET_action_browser_without_schedule.json */,
+				A98F55831C6DFE29000E7C60 /* GET_action_scanner_without_schedule.json */,
+				A98F55811C6DF910000E7C60 /* GET_action_without_schedule.json */,
 				A90FD1061BF36CD30042F370 /* GET_actionScanner.json */,
 			);
 			path = Actions;
@@ -1735,6 +2010,7 @@
 		A90FD10A1BF36CD30042F370 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */,
 				A90FD10B1BF36CD30042F370 /* POST_confi_without_geomarketing.json */,
 				A90FD10C1BF36CD30042F370 /* POST_configuration.json */,
 				A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */,
@@ -1779,10 +2055,93 @@
 		A94052181C0F0CB000E092BE /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				A94052191C0F0CB000E092BE /* ORCConfigurationInteractorTests.m */,
+				A94052191C0F0CB000E092BE /* ORCSettingsInteractorTests.m */,
 				A940521A1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A94185071C74BDAD0089385A /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				A94185081C74BDAD0089385A /* CLI */,
+				A941850B1C74BDAD0089385A /* CocoaLumberjack.h */,
+				A941850D1C74BDAD0089385A /* DDAbstractDatabaseLogger.h */,
+				A941850E1C74BDAD0089385A /* DDAbstractDatabaseLogger.m */,
+				A941850F1C74BDAD0089385A /* DDASLLogCapture.h */,
+				A94185101C74BDAD0089385A /* DDASLLogCapture.m */,
+				A94185111C74BDAD0089385A /* DDASLLogger.h */,
+				A94185121C74BDAD0089385A /* DDASLLogger.m */,
+				A94185131C74BDAD0089385A /* DDAssertMacros.h */,
+				A94185141C74BDAD0089385A /* DDFileLogger.h */,
+				A94185151C74BDAD0089385A /* DDFileLogger.m */,
+				A94185161C74BDAD0089385A /* DDLegacyMacros.h */,
+				A94185171C74BDAD0089385A /* DDLog+LOGV.h */,
+				A94185181C74BDAD0089385A /* DDLog.h */,
+				A94185191C74BDAD0089385A /* DDLog.m */,
+				A941851A1C74BDAD0089385A /* DDLogMacros.h */,
+				A941851B1C74BDAD0089385A /* DDTTYLogger.h */,
+				A941851C1C74BDAD0089385A /* DDTTYLogger.m */,
+				A941851D1C74BDAD0089385A /* Extensions */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		A94185081C74BDAD0089385A /* CLI */ = {
+			isa = PBXGroup;
+			children = (
+				A94185091C74BDAD0089385A /* CLIColor.h */,
+				A941850A1C74BDAD0089385A /* CLIColor.m */,
+			);
+			path = CLI;
+			sourceTree = "<group>";
+		};
+		A941851D1C74BDAD0089385A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A941851E1C74BDAD0089385A /* DDContextFilterLogFormatter.h */,
+				A941851F1C74BDAD0089385A /* DDContextFilterLogFormatter.m */,
+				A94185201C74BDAD0089385A /* DDDispatchQueueLogFormatter.h */,
+				A94185211C74BDAD0089385A /* DDDispatchQueueLogFormatter.m */,
+				A94185221C74BDAD0089385A /* DDMultiFormatter.h */,
+				A94185231C74BDAD0089385A /* DDMultiFormatter.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A948011D1C6C92BE000573BD /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				A948011E1C6C92C6000573BD /* LocationManagerWrapper */,
+			);
+			name = Section;
+			sourceTree = "<group>";
+		};
+		A948011E1C6C92C6000573BD /* LocationManagerWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				A948011F1C6C92E9000573BD /* ORCLocationManagerWrapperMock.h */,
+				A94801201C6C92E9000573BD /* ORCLocationManagerWrapperMock.m */,
+			);
+			name = LocationManagerWrapper;
+			sourceTree = "<group>";
+		};
+		A95E1F351C63319100509235 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				A95E1F361C63319100509235 /* ORCStatisticsInteractor.h */,
+				A95E1F371C63319100509235 /* ORCStatisticsInteractor.m */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		A95E1F3A1C633B8300509235 /* UIApplicationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				A95E1F3B1C633C2C00509235 /* ORCApplicationCenter.h */,
+				A95E1F3C1C633C2C00509235 /* ORCApplicationCenter.m */,
+			);
+			name = UIApplicationCenter;
 			sourceTree = "<group>";
 		};
 		A98360E21BFB82FF00413CB8 /* Interfaces_InOut */ = {
@@ -1791,6 +2150,27 @@
 				A98360E31BFB82FF00413CB8 /* OrchextraOutputInterface.h */,
 			);
 			path = Interfaces_InOut;
+			sourceTree = "<group>";
+		};
+		A99073921C6DD26200186C8D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A99073931C6DD26200186C8D /* ORCStatisticsInteractorMock.h */,
+				A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */,
+				A98F557A1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.h */,
+				A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */,
+			);
+			name = Interactor;
+			path = Mocks/Interactor;
+			sourceTree = "<group>";
+		};
+		A9B17B071C566C1200D2BCB1 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				A9B17B081C566C6C00D2BCB1 /* NSString+MD5.h */,
+				A9B17B091C566C6C00D2BCB1 /* NSString+MD5.m */,
+			);
+			name = MD5;
 			sourceTree = "<group>";
 		};
 		A9C188A31BFCC75F0073EE33 /* VuforiaOrchextra */ = {
@@ -1820,6 +2200,26 @@
 			name = Interactor;
 			sourceTree = "<group>";
 		};
+		A9E535D31C75BE130049DD54 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A9E535D41C75BE2B0049DD54 /* ORCErrorManager.h */,
+				A9E535D51C75BE2B0049DD54 /* ORCErrorManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		A9E535D81C75E71F0049DD54 /* ORCLog */ = {
+			isa = PBXGroup;
+			children = (
+				A9E535DB1C75E71F0049DD54 /* ORCLog.h */,
+				A9E535DC1C75E71F0049DD54 /* ORCLog.m */,
+				A9E535D91C75E71F0049DD54 /* ORCFormatterLog.h */,
+				A9E535DA1C75E71F0049DD54 /* ORCFormatterLog.m */,
+			);
+			path = ORCLog;
+			sourceTree = "<group>";
+		};
 		A9E5956F1B04DA6F0040EAD4 = {
 			isa = PBXGroup;
 			children = (
@@ -1846,6 +2246,7 @@
 		A9E596691B04DBC40040EAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9B17B0C1C566CB400D2BCB1 /* libcommonCrypto.tbd */,
 				A9E4C0091BC6BDE800341A37 /* MediaPlayer.framework */,
 				A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */,
 				A9E4C0051BC6BDD900341A37 /* CoreMotion.framework */,
@@ -1863,6 +2264,13 @@
 				A9E5965F1B04DB210040EAD4 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9E8A5501C71DE240033E203 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1961,23 +2369,31 @@
 				A90FD0C01BF362080042F370 /* ORCAppConfigResponse.h in Headers */,
 				A90FD0EF1BF364BD0042F370 /* ORCConstants.h in Headers */,
 				A90FD0BA1BF362080042F370 /* NSUserDefaults+ORCGIGArchive.h in Headers */,
+				A941852F1C74BDAD0089385A /* DDFileLogger.h in Headers */,
 				A90FD0A21BF362080042F370 /* GIGDispatch.h in Headers */,
+				A94185361C74BDAD0089385A /* DDTTYLogger.h in Headers */,
+				A95E1F3D1C633C2C00509235 /* ORCApplicationCenter.h in Headers */,
 				A90FD09B1BF362080042F370 /* NSArray+ORCGIGExtension.h in Headers */,
 				A90FD0661BF362080042F370 /* ORCGIGLayoutGridHorizontal.h in Headers */,
 				A90FD0A31BF362080042F370 /* GIGRandom.h in Headers */,
+				A94185331C74BDAD0089385A /* DDLog.h in Headers */,
+				A941852E1C74BDAD0089385A /* DDAssertMacros.h in Headers */,
 				A90FD0B51BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.h in Headers */,
 				A90FD0D51BF362080042F370 /* ORCWebViewController.h in Headers */,
 				A90FCFEF1BF362080042F370 /* ORCVuforiaConfig.h in Headers */,
 				A90FD0821BF362080042F370 /* ORCGIGURLParametersFormatter.h in Headers */,
+				A94185321C74BDAD0089385A /* DDLog+LOGV.h in Headers */,
 				A90FCFFD1BF362080042F370 /* ORCURLRequest.h in Headers */,
 				A90FD0051BF362080042F370 /* ORCWireframe.h in Headers */,
+				A94185381C74BDAD0089385A /* DDContextFilterLogFormatter.h in Headers */,
 				A90FD0641BF362080042F370 /* ORCGIGLayoutCenter.h in Headers */,
 				A90FD00A1BF362080042F370 /* ORCMBProgressHUD.h in Headers */,
+				A909AFA41C6B9497005CEAA2 /* ORCSettingsPersister.h in Headers */,
 				A90FD0681BF362080042F370 /* ORCGIGLayoutGridVertical.h in Headers */,
 				A90FD0871BF362080042F370 /* ORCGIGURLFile.h in Headers */,
 				A90FD0B41BF362080042F370 /* ORCGIGLocalization.h in Headers */,
 				A90FCFFF1BF362080042F370 /* ORCURLProvider.h in Headers */,
-				A90FCFF71BF362080042F370 /* ORCTriggerRegion.h in Headers */,
+				A90FCFF71BF362080042F370 /* ORCRegion.h in Headers */,
 				A90FD0A91BF362080042F370 /* NSArray+ORCGIGJSON.h in Headers */,
 				A90FD07C1BF362080042F370 /* ORCGIGURLFixture.h in Headers */,
 				A90FCFE71BF362080042F370 /* ORCActionWebView.h in Headers */,
@@ -1988,10 +2404,11 @@
 				A90FD0781BF362080042F370 /* ORCGIGURLDomain.h in Headers */,
 				A90FD0971BF362080042F370 /* ORCGIGURLJSONResponse.h in Headers */,
 				A90FD0911BF362080042F370 /* ORCGIGURLRequestLogger.h in Headers */,
-				A90FCFFB1BF362080042F370 /* ORCErrorNetworkHandler.h in Headers */,
 				A90FD06A1BF362080042F370 /* ORCGIGLayoutSides.h in Headers */,
-				A90FD0C41BF362080042F370 /* ORCData.h in Headers */,
+				A941852C1C74BDAD0089385A /* DDASLLogger.h in Headers */,
+				A90FD0C41BF362080042F370 /* ORCSettingsDataManager.h in Headers */,
 				A90FCFE11BF362080042F370 /* ORCActionBrowser.h in Headers */,
+				A941853A1C74BDAD0089385A /* DDDispatchQueueLogFormatter.h in Headers */,
 				A90FD08D1BF362080042F370 /* ORCGIGURLConnectionBuilder.h in Headers */,
 				A90FD08F1BF362080042F370 /* ORCGIGURLRequestFactory.h in Headers */,
 				A90FD0B21BF362080042F370 /* ORCGIGLogManager.h in Headers */,
@@ -2000,15 +2417,19 @@
 				A90FD0951BF362080042F370 /* ORCGIGURLImageResponse.h in Headers */,
 				A90FD0651BF362080042F370 /* ORCGIGLayoutFit.h in Headers */,
 				A90FD0B71BF362080042F370 /* NSString+ORCGIGRegexp.h in Headers */,
-				A90FCFD71BF362080042F370 /* ORCLocationStorage.h in Headers */,
+				A909AFA61C6B9497005CEAA2 /* ORCUserLocationPersister.h in Headers */,
 				A90FD0DB1BF362080042F370 /* ORCScannerPresenter.h in Headers */,
 				A90FCFDD1BF362080042F370 /* ORCStayInteractor.h in Headers */,
 				A90FD05C1BF362080042F370 /* GIGScannerViewController.h in Headers */,
 				A90FD0891BF362080042F370 /* ORCGIGURLManager.h in Headers */,
 				A90FCFED1BF362080042F370 /* ORCThemeSdk.h in Headers */,
 				A90FCFF11BF362080042F370 /* ORCPushNotification.h in Headers */,
+				A9CD197E1C45521C004CF212 /* ORCURLActionConfirmationResponse.h in Headers */,
 				A90FD0721BF362080042F370 /* ORCGIGURLConfigFixtureDetailTableViewController.h in Headers */,
+				A9B17B0A1C566C6C00D2BCB1 /* NSString+MD5.h in Headers */,
+				A94185241C74BDAD0089385A /* CLIColor.h in Headers */,
 				A90FD09D1BF362080042F370 /* NSBundle+ORCGIGExtension.h in Headers */,
+				A94185311C74BDAD0089385A /* DDLegacyMacros.h in Headers */,
 				A90FD0801BF362080042F370 /* ORCGIGURLFormatter.h in Headers */,
 				A90FD07E1BF362080042F370 /* ORCGIGURLFixturesKeeper.h in Headers */,
 				A90FD0031BF362080042F370 /* ORCBarButtonItem.h in Headers */,
@@ -2016,36 +2437,45 @@
 				A90FD0B91BF362080042F370 /* ORCGIGRegexp.h in Headers */,
 				A90FD0851BF362080042F370 /* ORCGIGURLCommunicator.h in Headers */,
 				A90FD0AB1BF362080042F370 /* NSData+ORCGIGJSON.h in Headers */,
+				A94185491C74DEF80089385A /* Orchextra_Prefix.pch in Headers */,
 				A90FD0761BF362080042F370 /* ORCGIGURLConfigTableViewController.h in Headers */,
 				A98360E01BFB82FA00413CB8 /* ORCPushManager.h in Headers */,
+				A9E535D61C75BE2B0049DD54 /* ORCErrorManager.h in Headers */,
 				A90FD0631BF362080042F370 /* ORCGIGLayoutBase.h in Headers */,
-				A90FD0081BF362080042F370 /* MWLogging.h in Headers */,
+				A9AD5BA91C5FAC7A009C02D3 /* ORCProximityFormatter.h in Headers */,
+				A94185261C74BDAD0089385A /* CocoaLumberjack.h in Headers */,
 				A90FD0C81BF362080042F370 /* ORCUser.h in Headers */,
 				A90FD0CE1BF362080042F370 /* ORCURLActionResponse.h in Headers */,
 				A98360E41BFB82FF00413CB8 /* OrchextraOutputInterface.h in Headers */,
 				A90FCFE91BF362080042F370 /* ORCAction.h in Headers */,
 				A90FD0D31BF362080042F370 /* ORCOpenURL.h in Headers */,
-				A90FCFD91BF362080042F370 /* ORCStorage.h in Headers */,
+				A941853C1C74BDAD0089385A /* DDMultiFormatter.h in Headers */,
 				A90FD08B1BF362080042F370 /* ORCGIGURLRequest.h in Headers */,
+				A941852A1C74BDAD0089385A /* DDASLLogCapture.h in Headers */,
 				A90FD0D91BF362080042F370 /* ORCProximityManager.h in Headers */,
 				A90FD0D01BF362080042F370 /* ORCActionInterface.h in Headers */,
-				A90FCFF31BF362080042F370 /* ORCTriggerBeacon.h in Headers */,
+				A90FCFF31BF362080042F370 /* ORCBeacon.h in Headers */,
 				A90FCFEB1BF362080042F370 /* ORCDevice.h in Headers */,
 				A90FD0931BF362080042F370 /* ORCGIGURLStorage.h in Headers */,
 				A90FD0BC1BF362080042F370 /* ORCGIGConstants.h in Headers */,
 				A90FD0A41BF362080042F370 /* GIGUtils.h in Headers */,
-				A90FCFDB1BF362080042F370 /* ORCConfigurationInteractor.h in Headers */,
+				A90FCFDB1BF362080042F370 /* ORCSettingsInteractor.h in Headers */,
 				A90FCFF91BF362080042F370 /* ORCURLCommunicator.h in Headers */,
 				A90FD0A11BF362080042F370 /* GIGDebug.h in Headers */,
+				A9E535DD1C75E71F0049DD54 /* ORCFormatterLog.h in Headers */,
 				A90FD06E1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.h in Headers */,
-				A90FD0D71BF362080042F370 /* ORCLocationManager.h in Headers */,
+				A90FD0D71BF362080042F370 /* ORCLocationManagerWrapper.h in Headers */,
+				A94185351C74BDAD0089385A /* DDLogMacros.h in Headers */,
+				A94185281C74BDAD0089385A /* DDAbstractDatabaseLogger.h in Headers */,
 				A90FD0BE1BF362080042F370 /* ORCAppConfigCommunicator.h in Headers */,
-				A90FCFF51BF362080042F370 /* ORCTriggerGeofence.h in Headers */,
+				A90FCFF51BF362080042F370 /* ORCGeofence.h in Headers */,
 				A90FD0A71BF362080042F370 /* NSInvocation+ORCGIGExtension.h in Headers */,
 				A90FD0701BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.h in Headers */,
 				A90FD0AF1BF362080042F370 /* NSString+ORCGIGJSON.h in Headers */,
+				A95E1F381C63319100509235 /* ORCStatisticsInteractor.h in Headers */,
 				A90FD06B1BF362080042F370 /* ORCGIGLayoutSize.h in Headers */,
 				A90FD07A1BF362080042F370 /* ORCGIGURLDomainsKeeper.h in Headers */,
+				A9E535DF1C75E71F0049DD54 /* ORCLog.h in Headers */,
 				A90FD05E1BF362080042F370 /* NSBundle+ORCBundle.h in Headers */,
 				A90FD0AD1BF362080042F370 /* NSDictionary+ORCGIGJSON.h in Headers */,
 				A90FD0011BF362080042F370 /* ORCFormatterParameters.h in Headers */,
@@ -2144,7 +2574,7 @@
 		A9E595701B04DA6F0040EAD4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Gigigo;
 				TargetAttributes = {
 					A915DCE01B2ADDA7001A4587 = {
@@ -2238,11 +2668,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A98F55821C6DF910000E7C60 /* GET_action_without_schedule.json in Resources */,
+				A909AF9E1C6B5ED6005CEAA2 /* Orchextra.bundle in Resources */,
 				A90FD12B1BF36D090042F370 /* POST_configuration.json in Resources */,
 				A90FD1271BF36CFE0042F370 /* GET_actionScanner.json in Resources */,
+				A909AFB31C6BA26D005CEAA2 /* region_beacon.json in Resources */,
+				A98F55861C6DFF90000E7C60 /* GET_action_browser_without_schedule.json in Resources */,
 				A90FD1281BF36D030042F370 /* accessToken.json in Resources */,
+				A98A0EA81C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json in Resources */,
 				A940521F1C0F16E700E092BE /* POST_configuration_failure.json in Resources */,
+				A98F55841C6DFE29000E7C60 /* GET_action_scanner_without_schedule.json in Resources */,
+				A98A0EA61C71AFFF00EDA316 /* GET_action_webview_without_schedule.json in Resources */,
 				A90FD1291BF36D030042F370 /* clientToken.json in Resources */,
+				A909AFB41C6BA26D005CEAA2 /* region_geofence.json in Resources */,
+				A909AF9D1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json in Resources */,
+				A909AFB81C6BA803005CEAA2 /* region_beacon_major_minor_nil.json in Resources */,
 				A90FD12A1BF36D090042F370 /* POST_confi_without_geomarketing.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2303,7 +2743,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=\"Orchextra\"\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"\n\n# Copy the resources bundle to the user's desktop\nditto \"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.bundle\" \\\n\"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.bundle\"";
+			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=\"Orchextra\"\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/Orchextra_${CONFIGURATION}/${RW_FRAMEWORK_NAME}.framework\"\n\n# Copy the resources bundle to the user's desktop\nditto \"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.bundle\" \\\n\"${HOME}/Desktop/Orchextra_${CONFIGURATION}/${RW_FRAMEWORK_NAME}.bundle\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2337,42 +2777,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95E1F391C63319100509235 /* ORCStatisticsInteractor.m in Sources */,
 				A90FD08A1BF362080042F370 /* ORCGIGURLManager.m in Sources */,
 				A90FD0C11BF362080042F370 /* ORCAppConfigResponse.m in Sources */,
 				A90FD0DA1BF362080042F370 /* ORCProximityManager.m in Sources */,
 				A90FD0A81BF362080042F370 /* NSInvocation+ORCGIGExtension.m in Sources */,
 				A90FD0AC1BF362080042F370 /* NSData+ORCGIGJSON.m in Sources */,
 				A90FCFF01BF362080042F370 /* ORCVuforiaConfig.m in Sources */,
+				A909AFA71C6B9497005CEAA2 /* ORCUserLocationPersister.m in Sources */,
 				A90FD0CD1BF362080042F370 /* ORCActionCommunicator.m in Sources */,
 				A90FD08C1BF362080042F370 /* ORCGIGURLRequest.m in Sources */,
 				A90FD0861BF362080042F370 /* ORCGIGURLCommunicator.m in Sources */,
+				A941853B1C74BDAD0089385A /* DDDispatchQueueLogFormatter.m in Sources */,
+				A95E1F3E1C633C2C00509235 /* ORCApplicationCenter.m in Sources */,
 				A90FCFEC1BF362080042F370 /* ORCDevice.m in Sources */,
 				A90FD0691BF362080042F370 /* ORCGIGLayoutGridVertical.m in Sources */,
 				A90FD07B1BF362080042F370 /* ORCGIGURLDomainsKeeper.m in Sources */,
 				A90FD09C1BF362080042F370 /* NSArray+ORCGIGExtension.m in Sources */,
+				A909AFA51C6B9497005CEAA2 /* ORCSettingsPersister.m in Sources */,
 				A90FCFEE1BF362080042F370 /* ORCThemeSdk.m in Sources */,
+				A94185341C74BDAD0089385A /* DDLog.m in Sources */,
 				A90FD0B61BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.m in Sources */,
 				A90FD0AE1BF362080042F370 /* NSDictionary+ORCGIGJSON.m in Sources */,
 				A90FD0001BF362080042F370 /* ORCURLProvider.m in Sources */,
 				A90FCFFA1BF362080042F370 /* ORCURLCommunicator.m in Sources */,
-				A90FCFF61BF362080042F370 /* ORCTriggerGeofence.m in Sources */,
+				A90FCFF61BF362080042F370 /* ORCGeofence.m in Sources */,
 				A90FD0791BF362080042F370 /* ORCGIGURLDomain.m in Sources */,
 				A90FD0611BF362080042F370 /* ORCGIGGeolocation.m in Sources */,
+				A9E535E01C75E71F0049DD54 /* ORCLog.m in Sources */,
+				A94185301C74BDAD0089385A /* DDFileLogger.m in Sources */,
 				A90FD0CF1BF362080042F370 /* ORCURLActionResponse.m in Sources */,
-				A90FCFFC1BF362080042F370 /* ORCErrorNetworkHandler.m in Sources */,
 				A90FCFFE1BF362080042F370 /* ORCURLRequest.m in Sources */,
 				A90FCFEA1BF362080042F370 /* ORCAction.m in Sources */,
-				A90FD0091BF362080042F370 /* MWLogging.m in Sources */,
-				A90FCFDC1BF362080042F370 /* ORCConfigurationInteractor.m in Sources */,
-				A90FCFF41BF362080042F370 /* ORCTriggerBeacon.m in Sources */,
+				A90FCFDC1BF362080042F370 /* ORCSettingsInteractor.m in Sources */,
+				A9E535D71C75BE2B0049DD54 /* ORCErrorManager.m in Sources */,
+				A90FCFF41BF362080042F370 /* ORCBeacon.m in Sources */,
 				A90FCFE81BF362080042F370 /* ORCActionWebView.m in Sources */,
+				A9CD197F1C45521C004CF212 /* ORCURLActionConfirmationResponse.m in Sources */,
 				A90FD0041BF362080042F370 /* ORCBarButtonItem.m in Sources */,
 				A90FD07F1BF362080042F370 /* ORCGIGURLFixturesKeeper.m in Sources */,
+				A9E535DE1C75E71F0049DD54 /* ORCFormatterLog.m in Sources */,
+				A9AD5BAA1C5FAC7A009C02D3 /* ORCProximityFormatter.m in Sources */,
 				A90FD0771BF362080042F370 /* ORCGIGURLConfigTableViewController.m in Sources */,
 				A90FD0C71BF362080042F370 /* Orchextra.m in Sources */,
 				A90FD0981BF362080042F370 /* ORCGIGURLJSONResponse.m in Sources */,
 				A90FCFE21BF362080042F370 /* ORCActionBrowser.m in Sources */,
-				A90FCFF81BF362080042F370 /* ORCTriggerRegion.m in Sources */,
+				A90FCFF81BF362080042F370 /* ORCRegion.m in Sources */,
 				A90FD0BF1BF362080042F370 /* ORCAppConfigCommunicator.m in Sources */,
 				A90FD0D41BF362080042F370 /* ORCOpenURL.m in Sources */,
 				A90FD0831BF362080042F370 /* ORCGIGURLParametersFormatter.m in Sources */,
@@ -2386,27 +2836,33 @@
 				A90FCFE41BF362080042F370 /* ORCActionScanner.m in Sources */,
 				A90FD0671BF362080042F370 /* ORCGIGLayoutGridHorizontal.m in Sources */,
 				A90FD0921BF362080042F370 /* ORCGIGURLRequestLogger.m in Sources */,
+				A941853D1C74BDAD0089385A /* DDMultiFormatter.m in Sources */,
 				A90FD08E1BF362080042F370 /* ORCGIGURLConnectionBuilder.m in Sources */,
 				A90FD07D1BF362080042F370 /* ORCGIGURLFixture.m in Sources */,
 				A90FD0751BF362080042F370 /* ORCGIGURLConfigFixturesTableViewController.m in Sources */,
 				A90FD0711BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.m in Sources */,
+				A94185291C74BDAD0089385A /* DDAbstractDatabaseLogger.m in Sources */,
 				A90FD0941BF362080042F370 /* ORCGIGURLStorage.m in Sources */,
 				A90FD0BB1BF362080042F370 /* NSUserDefaults+ORCGIGArchive.m in Sources */,
 				A90FD0DC1BF362080042F370 /* ORCScannerPresenter.m in Sources */,
 				A90FCFF21BF362080042F370 /* ORCPushNotification.m in Sources */,
+				A94185391C74BDAD0089385A /* DDContextFilterLogFormatter.m in Sources */,
 				A90FD0AA1BF362080042F370 /* NSArray+ORCGIGJSON.m in Sources */,
 				A90FD0731BF362080042F370 /* ORCGIGURLConfigFixtureDetailTableViewController.m in Sources */,
 				A90FD0021BF362080042F370 /* ORCFormatterParameters.m in Sources */,
+				A94185251C74BDAD0089385A /* CLIColor.m in Sources */,
 				A90FD0B31BF362080042F370 /* ORCGIGLogManager.m in Sources */,
-				A90FCFDA1BF362080042F370 /* ORCStorage.m in Sources */,
-				A90FD0C51BF362080042F370 /* ORCData.m in Sources */,
+				A90FD0C51BF362080042F370 /* ORCSettingsDataManager.m in Sources */,
 				A90FCFE01BF362080042F370 /* ORCValidatorActionInterator.m in Sources */,
 				A90FD0DE1BF362080042F370 /* ORCScannerViewController.m in Sources */,
+				A94185371C74BDAD0089385A /* DDTTYLogger.m in Sources */,
 				A90FD0881BF362080042F370 /* ORCGIGURLFile.m in Sources */,
 				A90FD0A01BF362080042F370 /* UIColor+ORCGIGExtension.m in Sources */,
 				A90FD09A1BF362080042F370 /* ORCGIGURLResponse.m in Sources */,
 				A90FD0B81BF362080042F370 /* NSString+ORCGIGRegexp.m in Sources */,
+				A941852D1C74BDAD0089385A /* DDASLLogger.m in Sources */,
 				A90FD0901BF362080042F370 /* ORCGIGURLRequestFactory.m in Sources */,
+				A9B17B0B1C566C6C00D2BCB1 /* NSString+MD5.m in Sources */,
 				A90FD0D61BF362080042F370 /* ORCWebViewController.m in Sources */,
 				A90FD0961BF362080042F370 /* ORCGIGURLImageResponse.m in Sources */,
 				A90FD0A61BF362080042F370 /* UIImage+ORCGIGExtension.m in Sources */,
@@ -2414,8 +2870,8 @@
 				A90FD09E1BF362080042F370 /* NSBundle+ORCGIGExtension.m in Sources */,
 				A90FCFDE1BF362080042F370 /* ORCStayInteractor.m in Sources */,
 				A90FD0F01BF364BD0042F370 /* ORCConstants.m in Sources */,
-				A90FD0D81BF362080042F370 /* ORCLocationManager.m in Sources */,
-				A90FCFD81BF362080042F370 /* ORCLocationStorage.m in Sources */,
+				A941852B1C74BDAD0089385A /* DDASLLogCapture.m in Sources */,
+				A90FD0D81BF362080042F370 /* ORCLocationManagerWrapper.m in Sources */,
 				A90FD06F1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.m in Sources */,
 				A90FD05D1BF362080042F370 /* GIGScannerViewController.m in Sources */,
 				A90FD0C91BF362080042F370 /* ORCUser.m in Sources */,
@@ -2426,15 +2882,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A90FD1221BF36CF40042F370 /* OrchextraTests.m in Sources */,
-				A90FD1241BF36CF40042F370 /* ORCScannerViewControllerTests.m in Sources */,
-				A90FD1211BF36CF40042F370 /* ORCActionManagerTests.m in Sources */,
-				A940521E1C0F0CB000E092BE /* ORCFormatterParametersTests.m in Sources */,
-				A940521C1C0F0CB000E092BE /* ORCConfigurationInteractorTests.m in Sources */,
+				A909AFB61C6BA5BE005CEAA2 /* ORCBeaconTests.m in Sources */,
+				A94801211C6C92E9000573BD /* ORCLocationManagerWrapperMock.m in Sources */,
+				A909AF951C6B4FB8005CEAA2 /* ORCUserLocationPersisterMock.m in Sources */,
+				A99073951C6DD26200186C8D /* ORCStatisticsInteractorMock.m in Sources */,
+				A909AF801C6B48F7005CEAA2 /* ORCActionManagerTests.m in Sources */,
+				A99073891C6DCD6E00186C8D /* ORCPushManagerMock.m in Sources */,
+				A909AFAF1C6BA16D005CEAA2 /* ORCRegionTests.m in Sources */,
+				A98F557E1C6DEF63000E7C60 /* ORCActionTests.m in Sources */,
+				A909AF921C6B4E42005CEAA2 /* ORCAppConfigCommunicatorMock.m in Sources */,
+				A909AFAD1C6BA0EC005CEAA2 /* ORCSettingsPersisterTests.m in Sources */,
+				A98F557C1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m in Sources */,
+				A948011C1C6C85C4000573BD /* ORCLocationManagerWrapperTests.m in Sources */,
+				A909AFAC1C6BA0EC005CEAA2 /* ORCUserTests.m in Sources */,
+				A909AF871C6B48F7005CEAA2 /* ORCScannerPresenterTests.m in Sources */,
+				A909AF881C6B48F7005CEAA2 /* ORCScannerViewControllerTests.m in Sources */,
+				A909AF8E1C6B4A95005CEAA2 /* ORCSettingsPersisterMock.m in Sources */,
+				A909AF991C6B502C005CEAA2 /* ORCFormatterParametersMock.m in Sources */,
+				A948011A1C6C77F3000573BD /* ORCGeofenceTests.m in Sources */,
+				A909AF891C6B48F7005CEAA2 /* ORCFormatterParametersTests.m in Sources */,
+				A909AF7F1C6B48F7005CEAA2 /* OrchextraTests.m in Sources */,
+				A940521C1C0F0CB000E092BE /* ORCSettingsInteractorTests.m in Sources */,
+				A9E8A5531C71F1030033E203 /* ORCSettingsDataManagerTests.m in Sources */,
 				A940521D1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m in Sources */,
-				A90FD1231BF36CF40042F370 /* ORCScannerPresenterTests.m in Sources */,
-				A90FD1261BF36CF90042F370 /* ORCStorageTests.m in Sources */,
-				A92607DE1C0C4725005771AF /* ORCUserTests.m in Sources */,
+				A909AFBC1C6BA900005CEAA2 /* CLLocationManagerMock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2691,13 +3162,14 @@
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Orchextra/Main/Orchextra_Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Orchextra/Libs/External/Vuforia/include";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Orchextra/Libs/External/Vuforia/lib/arm",
+					"$(SDKROOT)/usr/lib/system",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-lc++",
@@ -2724,11 +3196,12 @@
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Orchextra/Main/Orchextra_Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Orchextra/Libs/External/Vuforia/include";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Orchextra/Libs/External/Vuforia/lib/arm",
+					"$(SDKROOT)/usr/lib/system",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

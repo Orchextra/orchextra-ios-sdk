@@ -1,19 +1,19 @@
 //
 //  ORCBarButtonItem.m
-//  Orchestra
+//  Orchextra
 //
 //  Created by Judith Medina on 31/8/15.
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
 #import "ORCBarButtonItem.h"
-#import "ORCStorage.h"
+#import "ORCSettingsPersister.h"
 #import "ORCThemeSdk.h"
 
 
 @interface ORCBarButtonItem()
 
-@property (strong, nonatomic) ORCStorage *storage;
+@property (strong, nonatomic) ORCSettingsPersister *storage;
 @property (strong, nonatomic) ORCThemeSdk *theme;
 
 @end
@@ -52,7 +52,7 @@
 
 - (void)initialize
 {
-    self.storage = [[ORCStorage alloc] init];
+    self.storage = [[ORCSettingsPersister alloc] init];
     self.theme = [self.storage loadThemeSdk];
     self.tintColor = [self.theme secondaryColor];
 }

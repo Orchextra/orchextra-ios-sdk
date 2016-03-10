@@ -9,14 +9,14 @@
 #import "ORCFormatterParameters.h"
 #import "ORCDevice.h"
 #import "ORCUser.h"
-#import "ORCLocationStorage.h"
-#import "ORCStorage.h"
+#import "ORCUserLocationPersister.h"
+#import "ORCSettingsPersister.h"
 
 @interface ORCFormatterParameters()
 
 @property (strong, nonatomic) ORCDevice *device;
-@property (strong, nonatomic) ORCLocationStorage *locationStorage;
-@property (strong, nonatomic) ORCStorage *storage;
+@property (strong, nonatomic) ORCUserLocationPersister *userLocationPersister;
+@property (strong, nonatomic) ORCSettingsPersister *settingsPersister;
 
 @end
 
@@ -24,25 +24,35 @@
 
 - (instancetype) init
 {
+    ORCDevice *device = [[ORCDevice alloc] init];
+    ORCUserLocationPersister *userLocationPersister = [[ORCUserLocationPersister alloc] init];
+    ORCSettingsPersister *settingsPersister = [[ORCSettingsPersister alloc] init];
+    
+    return [self initWithDevice:device userLocationPersister:userLocationPersister settingsPersister:settingsPersister];
+}
+
+- (instancetype)initWithDevice:(ORCDevice *)device
+         userLocationPersister:(ORCUserLocationPersister *)userLocationPersister
+             settingsPersister:(ORCSettingsPersister *)settingsPersister
+{
     self = [super init];
     
     if (self)
     {
-        _device = [[ORCDevice alloc] init];
-        _locationStorage = [[ORCLocationStorage alloc] init];
-        _storage = [[ORCStorage alloc] init];
+        _device = device;
+        _userLocationPersister = userLocationPersister;
+        _settingsPersister = settingsPersister;
     }
     
     return self;
     
 }
 
-
 #pragma mark - PUBLIC
 
 - (NSDictionary *)formatterParameteresDevice
 {
-    ORCUser *currentUser = [self.storage loadCurrentUserData];
+    ORCUser *currentUser = [self.settingsPersister loadCurrentUser];
     NSDictionary *deviceValues = [self formatterDeviceValues];
     NSDictionary *appValues = [self formatterAppValues];
     NSDictionary *userValues= [self formatterUserValues:currentUser];
@@ -81,7 +91,7 @@
 
 - (NSDictionary *)formattedCurrentUserLocation
 {
-    CLLocation *lastLocation = [self.locationStorage loadLastLocation];
+    CLLocation *lastLocation = [self.userLocationPersister loadLastLocation];
     NSDictionary *dicPoint = @{   @"lat" : [NSNumber numberWithDouble:lastLocation.coordinate.latitude],
                                   @"lng" : [NSNumber numberWithDouble:lastLocation.coordinate.longitude]};
     
@@ -152,7 +162,6 @@
 
 - (NSDictionary *)formatterDeviceValues
 {
-    
     NSMutableDictionary *deviceValues = [NSMutableDictionary new];
     
     if (self.device.versionIOS)
@@ -229,17 +238,19 @@
     
     if (user.birthday)
     {
-        [userValues setValue:[user birthdayFormatted] forKey:@"birthDate"];
-    }
-    
-    if ([user genderUser])
-    {
-        [userValues setValue:[user genderUser] forKey:@"gender"];
+        [userValues setValue:[self birthdayUserFormatted:user.birthday] forKey:@"birthDate"];
     }
     
     if (user.tags && user.tags.count > 0)
     {
         [userValues setValue:user.tags forKey:@"keywords"];
+    }
+    
+    NSString *genderString = [self convertGenderUsertoString:user.gender];
+    
+    if (genderString)
+    {
+        [userValues setValue:genderString forKey:@"gender"];
     }
     
     if (userValues.count == 0) return nil;
@@ -261,26 +272,47 @@
 {
     NSMutableDictionary *locationValues = [[NSMutableDictionary alloc] init];
     
-    CLPlacemark *lastPlacemark = [self.locationStorage loadLastPlacemark];
-    CLLocation *lastLocation = [self.locationStorage loadLastLocation];
+    CLPlacemark *lastPlacemark = [self.userLocationPersister loadLastPlacemark];
+    CLLocation *lastLocation = [self.userLocationPersister loadLastLocation];
 
-    NSDictionary *userLocationValues = [self formattedUserLocation:lastLocation];
-    NSDictionary *formattedAddress = [self formattedPlacemark:lastPlacemark];
-    
 
-    if (userLocationValues)
+    if (lastLocation)
     {
+        NSDictionary *userLocationValues = [self formattedUserLocation:lastLocation];
         [locationValues addEntriesFromDictionary:userLocationValues];
     }
     
-    if (formattedAddress)
+    if (lastPlacemark)
     {
+        NSDictionary *formattedAddress = [self formattedPlacemark:lastPlacemark];
         [locationValues addEntriesFromDictionary:formattedAddress];
     }
     
     if (locationValues.count == 0) return nil;
     
     return locationValues;
+}
+
+- (NSString *)birthdayUserFormatted:(NSDate *)birthdayDate
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    
+    NSString *dateString = [dateFormatter stringFromDate:birthdayDate];
+    return dateString;
+}
+
+- (NSString *)convertGenderUsertoString:(ORCUserGender)gender
+{
+    switch (gender)
+    {
+        case ORCGenderFemale:
+            return @"f";
+        case ORCGenderMale:
+            return @"m";
+        case ORCGenderNone:
+            return nil;
+    }
 }
 
 

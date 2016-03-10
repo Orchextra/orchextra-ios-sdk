@@ -109,7 +109,7 @@
 - (void)initialize
 {
     ORCThemeSdk *theme = [self.interactor themeSDK];
-    self.title = ORCLocalizedBundle(@"Vuforia", nil, nil);
+    self.title = ORCLocalizedBundle(@"title_image_recognition", nil, nil);
     
     if (theme.secondaryColor)
     {
