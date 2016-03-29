@@ -2,6 +2,7 @@
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
 ![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
+[![codecov.io](https://codecov.io/github/Orchextra/orchextra-ios-sdk/coverage.svg?branch=master)](https://codecov.io/github/Orchextra/orchextra-ios-sdk?branch=master)
 
 A library that gives you access to Orchextra platform from your iOS app.
 
@@ -40,6 +41,7 @@ Click the + button in the bottom left of the 'Link Binary With Libraries' sectio
 * AdSupport.framework
 * AVFoundation.framework
 * CoreLocation.framework
+
 
 #### Vuforia dependencies
 * SystemConfiguration.framework
