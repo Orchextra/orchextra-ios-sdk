@@ -9,22 +9,49 @@
 #import "ORCActionScanner.h"
 #import "ORCScannerViewController.h"
 #import "ORCActionInterface.h"
-#import "ORCScannerPresenter.H"
+#import "ORCScannerPresenter.h"
+#import "ORCSettingsPersister.h"
 
+@interface ORCActionScanner()
+
+@property (nonatomic, strong) ORCSettingsPersister *persister;
+
+@end
 
 @implementation ORCActionScanner
 
+- (instancetype)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        _persister = [[ORCSettingsPersister alloc] init];
+    }
+    
+    return self;
+}
+
 - (void)executeActionWithActionInterface:(id<ORCActionInterface>)actionInterface
 {
-    ORCScannerPresenter *presenter = [[ORCScannerPresenter alloc] init];
-    presenter.actionInterface = actionInterface;
-    presenter.actionLaunched = self;
+    BOOL isOrchextraRunning = [self.persister loadOrchextraState];
 
-    ORCScannerViewController *scannerViewController = [[ORCScannerViewController alloc] init];
-    [actionInterface presentViewController:scannerViewController];
-    scannerViewController.presenter = presenter;
-    
-    presenter.viewController = scannerViewController;
+    if (isOrchextraRunning)
+    {
+        ORCScannerPresenter *presenter = [[ORCScannerPresenter alloc] init];
+        presenter.actionInterface = actionInterface;
+        presenter.actionLaunched = self;
+        
+        ORCScannerViewController *scannerViewController = [[ORCScannerViewController alloc] init];
+        [actionInterface presentViewController:scannerViewController];
+        scannerViewController.presenter = presenter;
+        
+        presenter.viewController = scannerViewController;
+    }
+    else
+    {
+        [ORCLog logError:@"Orchextra has been stopped - start orchextra before continuing."];
+    }
 }
 
 @end

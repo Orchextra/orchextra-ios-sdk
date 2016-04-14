@@ -168,7 +168,7 @@ NSString * const ORC_CANCELABLE = @"cancelable";
 
 - (NSString *)description
 {
-    NSString *description = [NSString stringWithFormat:@"Action id: %@, type: %@ \n title: %@, body: %@, url: %@",
+    NSString *description = [NSString stringWithFormat:@"Action id: %@, type: %@ title: %@, body: %@, url: %@",
                              self.trackId, self.type, self.titleNotification, self.bodyNotification, self.urlString];
     
     return description;

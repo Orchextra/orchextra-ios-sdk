@@ -14,7 +14,8 @@
 @interface VuforiaOrchextra : NSObject
 
 + (instancetype)sharedInstance;
-- (instancetype)initWithCoreInputInterface:(id<ORCActionInterface>)coreInput interactor:(VFConfigurationInteractor *)interactor;
+- (instancetype)initWithCoreInputInterface:(id<ORCActionInterface>)coreInput
+                                interactor:(VFConfigurationInteractor *)interactor;
 
 - (BOOL)isVuforiaEnable;
 - (void)startImageRecognition;

@@ -195,17 +195,12 @@ NSInteger PADDING_SCANNER = 100;
 
 - (void)customNavigationBar
 {
-    ORCThemeSdk *theme = [self.storage loadThemeSdk];
     self.title = ORCLocalizedBundle(@"scanner", nil, nil);
     
-    if (theme.secondaryColor)
-    {
-        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : theme.secondaryColor}];
-    }
-    
-    self.navigationItem.leftBarButtonItem = [[ORCBarButtonItem alloc]
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                              target:self action:@selector(cancelButtonTapped)];
+    
     self.navigationItem.leftBarButtonItem.title = ORCLocalizedBundle(@"cancel_button", nil, nil);
 
 }

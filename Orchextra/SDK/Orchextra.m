@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) ORCActionManager *actionManager;
 @property (strong, nonatomic) ORCSettingsInteractor *interactor;
+@property (strong, nonatomic) ORCWebViewViewController *webviewOrchextra;
 
 @end
 
@@ -64,7 +65,6 @@
         _actionManager = actionManager;
         _interactor = configInteractor;
         _applicationCenter = applicationCenter;
-        [_applicationCenter observeAppDelegateEvents];
 
         // Set up to error level by default.
         [Orchextra logLevel:ORCLogLevelError];
@@ -91,14 +91,23 @@
             [ORCLog logDebug:@"- APIKEY: %@", apiKey];
             [ORCLog logDebug:@"- API SECRET: %@", apiSecret];
 
+            [this.applicationCenter startObservingAppDelegateEvents];
             [this.actionManager startWithAppConfiguration];
+            [this.interactor saveOrchextraRunning:YES];
+
         }
         else
         {
             [ORCLog logError:error.debugDescription];
+
+            // If an error has occurred then we stop orchextra services.
+            [this.interactor saveOrchextraRunning:NO];
         }
         
-        completion(success, error);
+        if (completion)
+        {
+            completion(success, error);
+        }
     }];
 }
 
@@ -123,11 +132,49 @@
     [self.actionManager launchAction:barcodeAction];
 }
 
+- (void)stopOrchextraServices
+{
+    [self.applicationCenter stopObservingAppDelegateEvens];
+    [self.actionManager stopMonitoringAndRanging];
+    
+    [self.interactor saveOrchextraRunning:NO];
+    [ORCLog logDebug:@"Stoping Orchextra Services"];
+}
+
+- (ORCWebViewViewController *)getOrchextraWebViewWithURLWithString:(NSString *)urlString
+{
+    if (IOS_8_OR_LATER)
+    {
+        if (!self.webviewOrchextra)
+        {
+            self.webviewOrchextra = [[ORCWebViewViewController alloc]
+                                     initWithActionManager:self.actionManager];
+        }
+        
+        [self.webviewOrchextra startWithURLString:urlString];
+    }
+    else
+    {
+        [ORCLog logError:@"The webviewcontroller hasn't been initialized"];
+    }
+
+    return self.webviewOrchextra;
+}
+
 #pragma mark - DELEGATE
 
 - (void)didExecuteActionWithCustomScheme:(NSString *)customScheme
 {
-    [self.delegate executeCustomScheme:customScheme];
+    NSString *urlString = [self URLToReloadWebView:customScheme];
+
+    if (urlString)
+    {
+        [self.webviewOrchextra reloadURLString:urlString];
+    }
+    else
+    {
+        [self.delegate executeCustomScheme:customScheme];
+    }
 }
 
 + (void)logLevel:(ORCLogLevel)logLevel
@@ -138,6 +185,21 @@
 + (void)saveLogsToAFile
 {
     [ORCLog addLogsToFile];
+}
+
+#pragma mark - PRIVATE 
+
+- (NSString *)URLToReloadWebView:(NSString *)customScheme
+{
+    NSArray *components = [customScheme
+                           componentsSeparatedByString:ORCHEXTRA_TO_LOADURL];
+    
+    if (components.count > 1)
+    {
+        return components[1];
+    }
+    
+    return nil;
 }
 
 @end

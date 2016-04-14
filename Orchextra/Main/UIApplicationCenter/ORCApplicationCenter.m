@@ -64,7 +64,9 @@
     return self;
 }
 
-- (void)observeAppDelegateEvents
+#pragma mark - PUBLIC
+
+- (void)startObservingAppDelegateEvents
 {
     [self.notificationCenter addObserver:self
                                 selector:@selector(applicationDidFinishLaunching:)
@@ -96,6 +98,51 @@
                                     name:UIApplicationWillTerminateNotification
                                   object:[UIApplication sharedApplication]];
 }
+
+- (void)stopObservingAppDelegateEvens
+{
+    [self removeObservers];
+}
+
+- (void)extendBackgroundRunningTime
+{
+    if (_backgroundTask != UIBackgroundTaskInvalid)
+    {
+        return;
+    }
+    
+    [ORCLog logVerbose:@"Attempting to extend background running time: %d", _limitBackgroundRangingTime];
+    
+    __block Boolean self_terminate = YES;
+    _secondsRunningInBackground = 0;
+    
+    _backgroundTask = [[UIApplication sharedApplication]
+                       beginBackgroundTaskWithName:kBACKGROUND_TASK_RANGING expirationHandler:^{
+                           
+                           if (self_terminate)
+                           {
+                               [self endExtendBackgroundTask];
+                           }
+                       }];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [ORCLog logVerbose:@"Background task started"];
+        
+        while (_secondsRunningInBackground < _limitBackgroundRangingTime) {
+            
+            [NSThread sleepForTimeInterval:1];
+            _secondsRunningInBackground++;
+            
+            if (_secondsRunningInBackground == _limitBackgroundRangingTime)
+            {
+                [self endExtendBackgroundTask];
+            }
+        }
+    });
+}
+
+
+#pragma mark - PRIVATE (AppDelegate Events)
 
 - (void)applicationWillEnterForeground:(NSNotification *)object
 {
@@ -158,46 +205,6 @@
     }
 }
 
-
-#pragma mark - PUBLIC
-
-- (void)extendBackgroundRunningTime
-{
-    if (_backgroundTask != UIBackgroundTaskInvalid)
-    {
-        return;
-    }
-    
-    [ORCLog logVerbose:@"Attempting to extend background running time: %d", _limitBackgroundRangingTime];
-
-    __block Boolean self_terminate = YES;
-    _secondsRunningInBackground = 0;
-    
-    _backgroundTask = [[UIApplication sharedApplication]
-                       beginBackgroundTaskWithName:kBACKGROUND_TASK_RANGING expirationHandler:^{
-               
-        if (self_terminate)
-        {
-            [self endExtendBackgroundTask];
-        }
-    }];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [ORCLog logVerbose:@"Background task started"];
-
-        while (_secondsRunningInBackground < _limitBackgroundRangingTime) {
-            
-            [NSThread sleepForTimeInterval:1];
-            _secondsRunningInBackground++;
-            
-            if (_secondsRunningInBackground == _limitBackgroundRangingTime)
-            {
-                [self endExtendBackgroundTask];
-            }
-        }
-    });
-}
-
 #pragma mark - PRIVATE
 
 - (void)updateConfiguration
@@ -222,17 +229,21 @@
     _backgroundTask = UIBackgroundTaskInvalid;
 }
 
-
-#pragma mark - DEALLOC
-
-- (void)dealloc
-{    
+- (void)removeObservers
+{
     [self.notificationCenter removeObserver:self name:UIApplicationDidFinishLaunchingNotification object:nil];
     [self.notificationCenter removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
     [self.notificationCenter removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
     [self.notificationCenter removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
     [self.notificationCenter removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
     [self.notificationCenter removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
+}
+
+#pragma mark - DEALLOC
+
+- (void)dealloc
+{    
+    [self removeObservers];
 }
 
 @end

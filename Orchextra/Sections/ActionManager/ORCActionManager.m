@@ -16,6 +16,7 @@
 #import "ORCStatisticsInteractor.h"
 #import "ORCValidatorActionInterator.h"
 
+
 @interface ORCActionManager()
 
 @property (strong, nonatomic) ORCWireframe *wireframe;
@@ -105,6 +106,11 @@
 - (void)updateMonitoringAndRangingOfRegions
 {
     [self.proximityManager startMonitoringAndRangingOfRegions];
+}
+
+- (void)stopMonitoringAndRanging
+{
+    [self.proximityManager stopMonitoringAndRangingOfRegions];
 }
 
 - (void)launchAction:(ORCAction *)action
@@ -210,5 +216,6 @@
         [self.delegateAction didExecuteActionWithCustomScheme:customScheme];
     }
 }
+
 
 @end

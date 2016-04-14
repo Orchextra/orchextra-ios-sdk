@@ -76,11 +76,11 @@ NSInteger const MAX_REGIONS = 20;
         [self.settingsPersister storeAcessToken:nil];
     }
     
-    __weak typeof(self) this = self;
     
     ORCFormatterParameters *formatter = [[ORCFormatterParameters alloc] init];
     NSDictionary *deviceConfiguration = [formatter formatterParameteresDevice];
     
+    __weak typeof(self) this = self;
     [self.communicator loadConfiguration:deviceConfiguration completion:^(ORCAppConfigResponse *response) {
         if (response.success)
         {
@@ -93,7 +93,6 @@ NSInteger const MAX_REGIONS = 20;
             completion(response.success, error);
         }
     }];
-    
 }
 
 - (void)saveUser:(ORCUser *)user
@@ -137,6 +136,11 @@ NSInteger const MAX_REGIONS = 20;
 - (void)saveRegions:(NSArray *)regions
 {
     [self.userLocationPersister storeRegions:regions];
+}
+
+- (void)saveOrchextraRunning:(BOOL)orchextraRunning
+{
+    return [self.settingsPersister storeOrchextraState:orchextraRunning];
 }
 
 - (void)saveLastLocation:(CLLocation *)location

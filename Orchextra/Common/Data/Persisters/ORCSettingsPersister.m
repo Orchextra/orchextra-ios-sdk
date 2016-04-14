@@ -29,6 +29,8 @@ NSString * const ORCEnvironment = @"ORCEnvironment";
 NSString * const ORCGIGURLManagerClientTokenKey = @"ORCGIGURLManagerClientTokenKey";
 NSString * const ORCGIGURLManagerAccessTokenKey = @"ORCGIGURLManagerAccessTokenKey";
 
+NSString * const OrchextraState = @"OrchextraState";
+
 NSString * const ORCVuforiaConfigDetails = @"ORCVuforiaConfigDetails";
 
 @interface ORCSettingsPersister()
@@ -59,6 +61,17 @@ NSString * const ORCVuforiaConfigDetails = @"ORCVuforiaConfigDetails";
 }
 
 #pragma mark - PUBLIC
+
+- (BOOL)loadOrchextraState
+{
+    return [self.userDefaults boolForKey:OrchextraState];
+}
+
+- (void)storeOrchextraState:(BOOL)orchextraState
+{
+    [self.userDefaults setBool:orchextraState forKey:OrchextraState];
+    [self.userDefaults synchronize];
+}
 
 - (void)storeApiKey:(NSString *)apiKey
 {

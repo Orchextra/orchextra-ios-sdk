@@ -18,15 +18,18 @@
 
 - (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults;
 
-// ----- CRM CONFIGURATION ---- //
+// GLOBAL CONFIGURATION
+- (BOOL)loadOrchextraState;
+- (void)storeOrchextraState:(BOOL)orchextraState;
 
+// CRM CONFIGURATION
 - (void)storeUser:(ORCUser *)user;
 - (ORCUser *)loadCurrentUser;
 
 - (void)storeBackgroundTime:(NSInteger)backgroundTime;
 - (NSInteger)loadBackgroundTime;
 
-// Input from CRM
+// INPUT CRM INFORMATION
 
 - (void)storeThemeSdk:(ORCThemeSdk *)theme;
 - (ORCThemeSdk *)loadThemeSdk;
@@ -35,7 +38,7 @@
 - (NSInteger)loadRequestWaitTime;
 
 
-// ----- NETWORK ---- //
+// NETWORK
 
 // Environment
 - (NSString *)loadURLEnvironment;

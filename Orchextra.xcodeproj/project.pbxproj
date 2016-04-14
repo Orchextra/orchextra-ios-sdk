@@ -389,6 +389,7 @@
 		A95E1F391C63319100509235 /* ORCStatisticsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A95E1F371C63319100509235 /* ORCStatisticsInteractor.m */; };
 		A95E1F3D1C633C2C00509235 /* ORCApplicationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A95E1F3B1C633C2C00509235 /* ORCApplicationCenter.h */; };
 		A95E1F3E1C633C2C00509235 /* ORCApplicationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A95E1F3C1C633C2C00509235 /* ORCApplicationCenter.m */; };
+		A9801C621C9AFC5200A28CF5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A98360E01BFB82FA00413CB8 /* ORCPushManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A98360E11BFB82FA00413CB8 /* ORCPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */; };
 		A98360E41BFB82FF00413CB8 /* OrchextraOutputInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = A98360E31BFB82FF00413CB8 /* OrchextraOutputInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -411,8 +412,13 @@
 		A9C188B01BFCC7AB0073EE33 /* VuforiaOrchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C188A41BFCC75F0073EE33 /* VuforiaOrchextra.h */; };
 		A9C188B51BFCC8F30073EE33 /* VFConfigurationInteractor.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C188B31BFCC8F30073EE33 /* VFConfigurationInteractor.h */; };
 		A9C188B61BFCC8F30073EE33 /* VFConfigurationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C188B41BFCC8F30073EE33 /* VFConfigurationInteractor.m */; };
+		A9C56A5B1C97FEF50098C07E /* ORCWebViewViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C56A591C97FEF50098C07E /* ORCWebViewViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9C56A5C1C97FEF50098C07E /* ORCWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C56A5A1C97FEF50098C07E /* ORCWebViewViewController.m */; };
+		A9C56A5F1C97FF110098C07E /* ORCWebViewPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C56A5D1C97FF110098C07E /* ORCWebViewPresenter.h */; };
+		A9C56A601C97FF110098C07E /* ORCWebViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C56A5E1C97FF110098C07E /* ORCWebViewPresenter.m */; };
 		A9CD197E1C45521C004CF212 /* ORCURLActionConfirmationResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CD197C1C45521C004CF212 /* ORCURLActionConfirmationResponse.h */; };
 		A9CD197F1C45521C004CF212 /* ORCURLActionConfirmationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CD197D1C45521C004CF212 /* ORCURLActionConfirmationResponse.m */; };
+		A9D1D69E1C9BE9E90070C666 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */; };
 		A9E4BFFA1BC6BD9200341A37 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4BFF91BC6BD9200341A37 /* SystemConfiguration.framework */; };
 		A9E4BFFC1BC6BDA400341A37 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4BFFB1BC6BDA400341A37 /* Security.framework */; };
 		A9E4BFFE1BC6BDAF00341A37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4BFFD1BC6BDAF00341A37 /* QuartzCore.framework */; };
@@ -856,6 +862,7 @@
 		A94185221C74BDAD0089385A /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
 		A94185231C74BDAD0089385A /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
 		A94185481C74DEF80089385A /* Orchextra_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orchextra_Prefix.pch; sourceTree = "<group>"; };
+		A9472BF41C9B0CCD00FA5460 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/PrivateFrameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A94801191C6C77F3000573BD /* ORCGeofenceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGeofenceTests.m; sourceTree = "<group>"; };
 		A948011B1C6C85C4000573BD /* ORCLocationManagerWrapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCLocationManagerWrapperTests.m; sourceTree = "<group>"; };
 		A948011F1C6C92E9000573BD /* ORCLocationManagerWrapperMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCLocationManagerWrapperMock.h; path = Mocks/Sections/Scanner/ORCLocationManagerWrapperMock.h; sourceTree = "<group>"; };
@@ -864,6 +871,7 @@
 		A95E1F371C63319100509235 /* ORCStatisticsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCStatisticsInteractor.m; sourceTree = "<group>"; };
 		A95E1F3B1C633C2C00509235 /* ORCApplicationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCApplicationCenter.h; path = UIApplicationCenter/ORCApplicationCenter.h; sourceTree = "<group>"; };
 		A95E1F3C1C633C2C00509235 /* ORCApplicationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCApplicationCenter.m; path = UIApplicationCenter/ORCApplicationCenter.m; sourceTree = "<group>"; };
+		A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCPushManager.h; sourceTree = "<group>"; };
 		A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCPushManager.m; sourceTree = "<group>"; };
 		A98360E31BFB82FF00413CB8 /* OrchextraOutputInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrchextraOutputInterface.h; sourceTree = "<group>"; };
@@ -891,6 +899,10 @@
 		A9C188A61BFCC75F0073EE33 /* VuforiaOrchextra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VuforiaOrchextra.m; sourceTree = "<group>"; };
 		A9C188B31BFCC8F30073EE33 /* VFConfigurationInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VFConfigurationInteractor.h; path = Common/Interactor/VFConfigurationInteractor.h; sourceTree = "<group>"; };
 		A9C188B41BFCC8F30073EE33 /* VFConfigurationInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VFConfigurationInteractor.m; path = Common/Interactor/VFConfigurationInteractor.m; sourceTree = "<group>"; };
+		A9C56A591C97FEF50098C07E /* ORCWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCWebViewViewController.h; path = WebViewJavascript/ORCWebViewViewController.h; sourceTree = "<group>"; };
+		A9C56A5A1C97FEF50098C07E /* ORCWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCWebViewViewController.m; path = WebViewJavascript/ORCWebViewViewController.m; sourceTree = "<group>"; };
+		A9C56A5D1C97FF110098C07E /* ORCWebViewPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCWebViewPresenter.h; path = WebViewJavascript/ORCWebViewPresenter.h; sourceTree = "<group>"; };
+		A9C56A5E1C97FF110098C07E /* ORCWebViewPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCWebViewPresenter.m; path = WebViewJavascript/ORCWebViewPresenter.m; sourceTree = "<group>"; };
 		A9CD197C1C45521C004CF212 /* ORCURLActionConfirmationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLActionConfirmationResponse.h; sourceTree = "<group>"; };
 		A9CD197D1C45521C004CF212 /* ORCURLActionConfirmationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLActionConfirmationResponse.m; sourceTree = "<group>"; };
 		A9E4BFF91BC6BD9200341A37 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -941,6 +953,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9801C621C9AFC5200A28CF5 /* WebKit.framework in Frameworks */,
 				A9E4C00A1BC6BDE800341A37 /* MediaPlayer.framework in Frameworks */,
 				A9E4C0081BC6BDE100341A37 /* CoreMedia.framework in Frameworks */,
 				A9E4C0061BC6BDD900341A37 /* CoreMotion.framework in Frameworks */,
@@ -961,6 +974,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D1D69E1C9BE9E90070C666 /* WebKit.framework in Frameworks */,
 				A9E4C0341BC6C08D00341A37 /* libOrchextra.a in Frameworks */,
 				A90FD12D1BF36D3E0042F370 /* OCHamcrestIOS.framework in Frameworks */,
 				A90FD12E1BF36D3E0042F370 /* OCMockitoIOS.framework in Frameworks */,
@@ -1843,6 +1857,7 @@
 		A90FCFB01BF362080042F370 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				A9C56A581C97FE940098C07E /* WebViewJavascript */,
 				A90FCFB11BF362080042F370 /* ActionManager */,
 				A90FCFBB1BF362080042F370 /* OpenURL */,
 				A90FCFC01BF362080042F370 /* Proximity */,
@@ -2200,6 +2215,17 @@
 			name = Interactor;
 			sourceTree = "<group>";
 		};
+		A9C56A581C97FE940098C07E /* WebViewJavascript */ = {
+			isa = PBXGroup;
+			children = (
+				A9C56A591C97FEF50098C07E /* ORCWebViewViewController.h */,
+				A9C56A5A1C97FEF50098C07E /* ORCWebViewViewController.m */,
+				A9C56A5D1C97FF110098C07E /* ORCWebViewPresenter.h */,
+				A9C56A5E1C97FF110098C07E /* ORCWebViewPresenter.m */,
+			);
+			name = WebViewJavascript;
+			sourceTree = "<group>";
+		};
 		A9E535D31C75BE130049DD54 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2246,6 +2272,8 @@
 		A9E596691B04DBC40040EAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9472BF41C9B0CCD00FA5460 /* WebKit.framework */,
+				A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */,
 				A9B17B0C1C566CB400D2BCB1 /* libcommonCrypto.tbd */,
 				A9E4C0091BC6BDE800341A37 /* MediaPlayer.framework */,
 				A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */,
@@ -2373,6 +2401,7 @@
 				A90FD0A21BF362080042F370 /* GIGDispatch.h in Headers */,
 				A94185361C74BDAD0089385A /* DDTTYLogger.h in Headers */,
 				A95E1F3D1C633C2C00509235 /* ORCApplicationCenter.h in Headers */,
+				A9C56A5B1C97FEF50098C07E /* ORCWebViewViewController.h in Headers */,
 				A90FD09B1BF362080042F370 /* NSArray+ORCGIGExtension.h in Headers */,
 				A90FD0661BF362080042F370 /* ORCGIGLayoutGridHorizontal.h in Headers */,
 				A90FD0A31BF362080042F370 /* GIGRandom.h in Headers */,
@@ -2472,6 +2501,7 @@
 				A90FD0A71BF362080042F370 /* NSInvocation+ORCGIGExtension.h in Headers */,
 				A90FD0701BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.h in Headers */,
 				A90FD0AF1BF362080042F370 /* NSString+ORCGIGJSON.h in Headers */,
+				A9C56A5F1C97FF110098C07E /* ORCWebViewPresenter.h in Headers */,
 				A95E1F381C63319100509235 /* ORCStatisticsInteractor.h in Headers */,
 				A90FD06B1BF362080042F370 /* ORCGIGLayoutSize.h in Headers */,
 				A90FD07A1BF362080042F370 /* ORCGIGURLDomainsKeeper.h in Headers */,
@@ -2574,7 +2604,7 @@
 		A9E595701B04DA6F0040EAD4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Gigigo;
 				TargetAttributes = {
 					A915DCE01B2ADDA7001A4587 = {
@@ -2798,6 +2828,7 @@
 				A90FCFEE1BF362080042F370 /* ORCThemeSdk.m in Sources */,
 				A94185341C74BDAD0089385A /* DDLog.m in Sources */,
 				A90FD0B61BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.m in Sources */,
+				A9C56A601C97FF110098C07E /* ORCWebViewPresenter.m in Sources */,
 				A90FD0AE1BF362080042F370 /* NSDictionary+ORCGIGJSON.m in Sources */,
 				A90FD0001BF362080042F370 /* ORCURLProvider.m in Sources */,
 				A90FCFFA1BF362080042F370 /* ORCURLCommunicator.m in Sources */,
@@ -2812,6 +2843,7 @@
 				A90FCFDC1BF362080042F370 /* ORCSettingsInteractor.m in Sources */,
 				A9E535D71C75BE2B0049DD54 /* ORCErrorManager.m in Sources */,
 				A90FCFF41BF362080042F370 /* ORCBeacon.m in Sources */,
+				A9C56A5C1C97FEF50098C07E /* ORCWebViewViewController.m in Sources */,
 				A90FCFE81BF362080042F370 /* ORCActionWebView.m in Sources */,
 				A9CD197F1C45521C004CF212 /* ORCURLActionConfirmationResponse.m in Sources */,
 				A90FD0041BF362080042F370 /* ORCBarButtonItem.m in Sources */,
@@ -3041,6 +3073,7 @@
 				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -3160,6 +3193,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)Client",
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Orchextra/Main/Orchextra_Prefix.pch";
@@ -3194,6 +3228,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)Client",
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Orchextra/Main/Orchextra_Prefix.pch";
@@ -3223,6 +3258,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -3232,7 +3268,7 @@
 				INFOPLIST_FILE = OrchextraTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -3253,6 +3289,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				INFOPLIST_FILE = OrchextraTests/Info.plist;

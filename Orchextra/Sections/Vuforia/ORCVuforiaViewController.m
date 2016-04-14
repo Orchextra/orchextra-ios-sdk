@@ -108,15 +108,9 @@
 
 - (void)initialize
 {
-    ORCThemeSdk *theme = [self.interactor themeSDK];
     self.title = ORCLocalizedBundle(@"title_image_recognition", nil, nil);
     
-    if (theme.secondaryColor)
-    {
-        [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : theme.secondaryColor}];
-    }
-    
-    self.navigationItem.leftBarButtonItem = [[ORCBarButtonItem alloc]
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                              target:self action:@selector(cancelButtonTapped)];
     self.navigationItem.leftBarButtonItem.title = ORCLocalizedBundle(@"cancel_button", nil, nil);

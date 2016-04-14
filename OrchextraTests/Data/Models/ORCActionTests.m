@@ -50,7 +50,6 @@
 
 - (void)test_init_action_scanner_with_json
 {
-
     NSDictionary *json = [self jsonFromFileName:@"GET_action_scanner_without_schedule"];
     
     ORCAction *action = [[ORCAction alloc] initWithJSON:json];
@@ -74,6 +73,12 @@
     ORCAction *action = [[ORCAction alloc] initWithJSON:json];
     XCTAssertNotNil(action);
     XCTAssertTrue([action isKindOfClass:[ORCActionWebView class]]);
+}
+
+- (void)test_initWithTypeVuforia
+{
+    ORCAction *action = [[ORCAction alloc] initWithType:@"scan_vuforia"];
+    XCTAssertNotNil(action);
 }
 
 - (void)test_toDictionary_whereActionHasAllValues
@@ -100,6 +105,22 @@
     
     NSDictionary *actionDictionary = [action toDictionary];
     XCTAssertTrue([actionDictionary isEqualToDictionary:resultActionDictionary]);
+}
+
+- (void)test_description_whereActionHasContent_returnString
+{
+    ORCAction *action = [[ORCAction alloc] init];
+    action.type = @"webview";
+    action.trackId = @"trackId";
+    action.urlString = @"http://www.gigigo.com";
+    action.titleNotification = @"Title";
+    action.bodyNotification = @"Body";
+    action.scheduleTime = 60;
+    action.cancelable = YES;
+    action.launchedByTriggerCode = @"code";
+
+    NSString *description = [action description];
+    XCTAssert([description isEqualToString:@"Action id: trackId, type: webview title: Title, body: Body, url: http://www.gigigo.com"]);
 }
 
 #pragma mark - Helper

@@ -13,6 +13,9 @@
 
 @protocol OrchextraOutputInterface <NSObject>
 
+// ** GLOBAL CONFIGURATION **
+- (BOOL)isOrchextraRunning;
+
 // ** CONFIGURATION **
 - (ORCVuforiaConfig *)fetchVuforiaCredentials;
 - (ORCThemeSdk *)fetchThemeSdk;

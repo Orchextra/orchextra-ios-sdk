@@ -30,7 +30,6 @@
     
     if (self)
     {
-        [self initialize];
     }
     
     return self;
@@ -42,7 +41,6 @@
     
     if (self)
     {
-        [self initialize];
     }
     
     return self;
@@ -54,7 +52,7 @@
 {
     self.storage = [[ORCSettingsPersister alloc] init];
     self.theme = [self.storage loadThemeSdk];
-    self.tintColor = [self.theme secondaryColor];
+//    self.tintColor = [self.theme secondaryColor];
 }
 
 

@@ -45,6 +45,7 @@
                         wireframe:(ORCWireframe *)wireframe;
 
 - (void)startWithAppConfiguration;
+- (void)stopMonitoringAndRanging;
 - (void)launchAction:(ORCAction *)action;
 
 - (void)prepareActionToBeExecute:(ORCAction *)action;

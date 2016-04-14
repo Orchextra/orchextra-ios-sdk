@@ -112,14 +112,4 @@
     XCTAssertFalse([self.user isSameUser:user1]);
 }
 
-#pragma mark - HELPERS
-
-- (NSDate *)convertToDate:(NSString *)dateString
-{
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *date = [dateFormatter dateFromString:dateString];
-    
-    return date;
-}
 @end

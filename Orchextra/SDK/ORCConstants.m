@@ -29,12 +29,11 @@ NSString * const ORCActionVuforiaID = @"scan_vuforia";
 #pragma mark - Schemes URL
 
 NSString * const ORCSchemeScanner = @"Orchextra://scanner";
-NSString * const ORCSchemeWatermark = @"Orchextra://watermark";
-NSString * const ORCSchemeVuforia = @"orchextra://vuforia";
+NSString * const ORCSchemeImageRecognition = @"Orchextra://imageRecognition";
 
 #pragma mark - SDK
     
-NSString * const ORCSDKVersion = @"2.0.0";
+NSString * const ORCSDKVersion = @"2.0.1";
 
 #pragma mark - Network
 
@@ -57,6 +56,7 @@ NSString * const ORCNetworkHost = @"https://sdk.orchextra.io";
 
 NSInteger const DEFAULT_BACKGROUND_TIME = 10;
 NSInteger const MAX_BACKGROUND_TIME = 180;
+NSString * const ORCHEXTRA_TO_LOADURL = @"Orchextra://loadURL:";
 
 
 

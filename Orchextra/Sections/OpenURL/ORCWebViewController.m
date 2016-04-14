@@ -85,11 +85,8 @@ CGFloat const HEIGHT_TOOLBAR = 44;
 
 - (void)initialize
 {
-    ORCThemeSdk *theme = [self.storage loadThemeSdk];
-
     self.title =  ORCLocalizedBundle(@"Browser", nil, nil);
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: theme.secondaryColor}];
-    self.navigationItem.leftBarButtonItem = [[ORCBarButtonItem alloc]
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                              target:self action:@selector(cancelButtonTapped)];
     
@@ -105,33 +102,31 @@ CGFloat const HEIGHT_TOOLBAR = 44;
     
     // Back button
     UIImage *previousImg = [NSBundle imageFromBundleWithName:@"previous-grey"];
-    UIImage *previousCustomize = [UIImage imageFromMaskImage:previousImg withColor:theme.secondaryColor];
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setImage:previousCustomize forState:UIControlStateNormal];
-    [backButton setBounds:CGRectMake(0, 0, previousCustomize.size.width, previousCustomize.size.height)];
+    [backButton setImage:previousImg forState:UIControlStateNormal];
+    [backButton setBounds:CGRectMake(0, 0, previousImg.size.width, previousImg.size.height)];
     [backButton addTarget:self action:@selector(goBackWebView) forControlEvents:UIControlEventTouchUpInside];
-    ORCBarButtonItem *backBarButton = [[ORCBarButtonItem alloc] initWithCustomView:backButton];
+    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     [items addObject:backBarButton];
     
     // Forward button
     UIImage *nextImg = [NSBundle imageFromBundleWithName:@"next-grey"];
-    UIImage *nextCustomize = [UIImage imageFromMaskImage:nextImg withColor:theme.secondaryColor];
     
     UIButton *forwardButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [forwardButton setImage:nextCustomize forState:UIControlStateNormal];
-    [forwardButton setBounds:CGRectMake(0, 0, nextCustomize.size.width, nextCustomize.size.height)];
+    [forwardButton setImage:nextImg forState:UIControlStateNormal];
+    [forwardButton setBounds:CGRectMake(0, 0, nextImg.size.width, nextImg.size.height)];
     [forwardButton addTarget:self action:@selector(goForwardWebView) forControlEvents:UIControlEventTouchUpInside];
-    ORCBarButtonItem *forwardBarButton = [[ORCBarButtonItem alloc] initWithCustomView:forwardButton];
+    UIBarButtonItem *forwardBarButton = [[UIBarButtonItem alloc] initWithCustomView:forwardButton];
     [items addObject:forwardBarButton];
     
     // Flexible Space
-    [items addObject:[[ORCBarButtonItem alloc]
+    [items addObject:[[UIBarButtonItem alloc]
                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                       target:nil action:nil]];
     
     // Refresh button
-    [items addObject:[[ORCBarButtonItem alloc]
+    [items addObject:[[UIBarButtonItem alloc]
                       initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                       target:self action:@selector(reloadWebView)]];
     [self.toolBar setItems:items];

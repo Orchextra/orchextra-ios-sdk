@@ -67,7 +67,7 @@
 - (void)startImageRecognition
 {
     ORCAction *vuforiaAction = [[ORCAction alloc] initWithType:ORCActionVuforiaID];
-    vuforiaAction.urlString = ORCSchemeVuforia;
+    vuforiaAction.urlString = ORCSchemeImageRecognition;
     [self.coreInput didFireTriggerWithAction:vuforiaAction fromViewController:nil];
 }
 

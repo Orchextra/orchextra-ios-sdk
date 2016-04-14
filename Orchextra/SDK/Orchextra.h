@@ -15,16 +15,16 @@
 
 #import "ORCVuforiaConfig.h"
 #import "ORCConstants.h"
-
 #import "ORCSettingsDataManager.h"
 #import "ORCActionInterface.h"
 #import "OrchextraOutputInterface.h"
 #import "ORCValidatorActionInterator.h"
 #import "ORCLog.h"
+#import "ORCWebViewViewController.h"
+
 
 @class ORCSettingsInteractor;
 @class ORCApplicationCenter;
-
 
 @protocol OrchextraCustomActionDelegate <NSObject>
 
@@ -47,6 +47,11 @@
        completion:(void(^)(BOOL success, NSError *error))completion;
 
 - (void)startScanner;
+- (void)stopOrchextraServices;
+
+// WEBVIEW - JAVASCRIPT
+
+- (ORCWebViewViewController *)getOrchextraWebViewWithURLWithString:(NSString *)urlString;
 
 // SETTINGS
 

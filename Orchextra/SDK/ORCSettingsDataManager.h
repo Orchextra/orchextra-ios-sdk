@@ -25,4 +25,5 @@ typedef void(^CompletionUpdateUser)(BOOL success);
 - (void)setEnvironment:(NSString *)environment;
 - (BOOL)extendBackgroundTime:(NSInteger)backgroundTime;
 
+
 @end

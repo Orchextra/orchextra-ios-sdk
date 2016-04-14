@@ -36,6 +36,7 @@ typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 - (NSInteger)backgroundTime;
 - (NSArray *)loadRegions;
 - (void)saveRegions:(NSArray *)regions;
+- (void)saveOrchextraRunning:(BOOL)orchextraRunning;
 
 // GEOLOCATION
 - (void)saveLastLocation:(CLLocation *)location

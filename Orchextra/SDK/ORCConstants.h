@@ -37,8 +37,7 @@ extern NSString * const ORCActionCustomSchemeID;
 #pragma mark - Schemes
 
 extern NSString * const ORCSchemeScanner;
-extern NSString * const ORCSchemeWatermark;
-extern NSString * const ORCSchemeVuforia;
+extern NSString * const ORCSchemeImageRecognition;
 
 #pragma mark - SDK
 
@@ -59,6 +58,7 @@ extern BOOL ORCShowLogs;
 
 extern NSInteger const DEFAULT_BACKGROUND_TIME;
 extern NSInteger const MAX_BACKGROUND_TIME;
+extern NSString * const ORCHEXTRA_TO_LOADURL;
 
 #pragma mark - Completion
 typedef void(^ORCCompletionUserLocation)(CLLocation *location, CLPlacemark *placemark);

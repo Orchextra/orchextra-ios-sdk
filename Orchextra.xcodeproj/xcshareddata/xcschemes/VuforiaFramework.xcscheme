@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9E595771B04DA6F0040EAD4"
-               BuildableName = "libOrchextra.a"
-               BlueprintName = "Orchextra"
+               BlueprintIdentifier = "A9C188B91BFCCD190073EE33"
+               BuildableName = "VuforiaFramework"
+               BlueprintName = "VuforiaFramework"
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,34 +26,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9E595821B04DA6F0040EAD4"
-               BuildableName = "Orchextra.xctest"
-               BlueprintName = "OrchextraTests"
-               ReferencedContainer = "container:Orchextra.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9E595771B04DA6F0040EAD4"
-            BuildableName = "libOrchextra.a"
-            BlueprintName = "Orchextra"
-            ReferencedContainer = "container:Orchextra.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -65,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9E595771B04DA6F0040EAD4"
-            BuildableName = "libOrchextra.a"
-            BlueprintName = "Orchextra"
+            BlueprintIdentifier = "A9C188B91BFCCD190073EE33"
+            BuildableName = "VuforiaFramework"
+            BlueprintName = "VuforiaFramework"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -83,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9E595771B04DA6F0040EAD4"
-            BuildableName = "libOrchextra.a"
-            BlueprintName = "Orchextra"
+            BlueprintIdentifier = "A9C188B91BFCCD190073EE33"
+            BuildableName = "VuforiaFramework"
+            BlueprintName = "VuforiaFramework"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

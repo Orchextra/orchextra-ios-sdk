@@ -502,14 +502,14 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
         NSString *const resultConstString = [NSString stringWithCString:value encoding:NSUTF8StringEncoding];
         self.imageUniqueId = resultConstString;
     }
-    
-    const CGFloat* components = CGColorGetComponents( self.theme.secondaryColor.CGColor);
+
+    UIColor *color = [UIColor colorWithRed:192.0/255.0 green:192.0/255.0 blue:192.0/255.0 alpha:1.0];
+    const CGFloat* components = CGColorGetComponents(color.CGColor);
     
     CGFloat red = components[0];
     CGFloat blue = components[1];
     CGFloat green = components[2];
     
-    finder->setUIScanlineColor(red, blue, green);
     finder->setUIPointColor(red, blue, green);
 
 
@@ -517,8 +517,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     const int statusCode = finder->updateSearchResults();
     if (statusCode < 0)
     {
-        // Show a message if we encountered an error:
-//        NSLog(@"update search result failed:%d", statusCode);
+
         if (statusCode == QCAR::TargetFinder::UPDATE_ERROR_NO_NETWORK_CONNECTION) {
             [self showUIAlertFromErrorCode:statusCode];
         }

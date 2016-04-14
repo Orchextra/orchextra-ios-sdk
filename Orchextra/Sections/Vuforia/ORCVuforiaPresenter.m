@@ -86,9 +86,12 @@ NSString * const ORCVuforiaNotificationName = @"ORCVuforiaNotificationName";
 
 -(void)foundAction:(ORCAction *)action
 {
-    self.waitingResponse = NO;
-    [self.viewController showScannedValue:self.imageRecognized statusMessage:ORCLocalizedBundle(@"match_found", nil, nil)];
-    [self.actionInterface didFireTriggerWithAction:action fromViewController:self.viewController];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.waitingResponse = NO;
+        [self.viewController showScannedValue:self.imageRecognized statusMessage:ORCLocalizedBundle(@"match_found", nil, nil)];
+        [self.actionInterface didFireTriggerWithAction:action fromViewController:self.viewController];
+    });
+
 }
 
 - (void)notFoundAction

@@ -143,14 +143,16 @@ NSString * const NOTIFICATION_TYPE = @"type";
     NSString *deviceTokenString = [[ORCPushManager sharedPushManager]
                                    tokenStringWithData:deviceToken];
     
-    ORCSettingsInteractor *interactor = [[ORCSettingsInteractor alloc] init];
-    ORCUser *user = [interactor currentUser];
+//    ORCSettingsInteractor *interactor = [[ORCSettingsInteractor alloc] init];
+    ORCSettingsPersister *persister = [[ORCSettingsPersister alloc] init];
+    
+    ORCUser *user = [persister loadCurrentUser];
     if (!user)
     {
         user = [[ORCUser alloc] init];
     }
     user.deviceToken = deviceTokenString;
-    [interactor saveUser:user];
+    [persister storeUser:user];
 }
 
 #pragma mark - HANDLE PUSH NOTIFICATION

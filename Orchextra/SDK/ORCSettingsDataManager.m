@@ -61,6 +61,11 @@
 
 #pragma mark - Orchextra Output Delegate
 
+- (BOOL)isOrchextraRunning
+{
+    return [self.settingsPersister loadOrchextraState];
+}
+
 - (ORCVuforiaConfig *)fetchVuforiaCredentials
 {
     return [self.settingsPersister loadVuforiaConfig];

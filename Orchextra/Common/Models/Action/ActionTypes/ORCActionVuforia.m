@@ -19,15 +19,44 @@
 
 @interface ORCActionVuforia ()
 
+@property (nonatomic, strong) ORCSettingsPersister *persister;
+
 @end
 
 @implementation ORCActionVuforia
 
+- (instancetype)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        _persister = [[ORCSettingsPersister alloc] init];
+    }
+    
+    return self;
+}
+
 - (void)executeActionWithActionInterface:(id<ORCActionInterface>)actionInterface
 {
-    ORCSettingsPersister *storage = [[ORCSettingsPersister alloc] init];
-    ORCVuforiaConfig *vuforiaConfig = [storage loadVuforiaConfig];
     
+    BOOL isOrchextraRunning = [self.persister loadOrchextraState];
+    
+    if (isOrchextraRunning)
+    {
+        [self executeIfHasVuforiaCredentialsWithActionInterface:actionInterface];
+    }
+    else
+    {
+        [ORCLog logError:@"Orchextra has been stopped - start orchextra before continuing."];
+    }
+
+}
+
+- (void)executeIfHasVuforiaCredentialsWithActionInterface:(id<ORCActionInterface>)actionInterface
+{
+    ORCVuforiaConfig *vuforiaConfig = [self.persister loadVuforiaConfig];
+
     if (vuforiaConfig)
     {
         ORCVuforiaViewController *vuforiaViewController = [[ORCVuforiaViewController alloc] init];

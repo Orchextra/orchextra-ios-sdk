@@ -18,7 +18,8 @@
                              actionManager:(ORCActionManager *)actionManager
                         settingsInteractor:(ORCSettingsInteractor *)settingsInteractor;
 
-- (void)observeAppDelegateEvents;
+- (void)startObservingAppDelegateEvents;
+- (void)stopObservingAppDelegateEvens;
 - (void)extendBackgroundRunningTime;
 
 @end

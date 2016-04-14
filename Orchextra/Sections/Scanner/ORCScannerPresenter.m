@@ -75,10 +75,12 @@
 
 -(void)foundAction:(ORCAction *)action
 {
-    self.waitingResponseScannedValue = NO;
-    [self.viewController showImageStatus:@"37-Checkmark" message:ORCLocalizedBundle(@"match_found", nil, nil)];
-    [self.viewController stopScanner];
-    [self.actionInterface didFireTriggerWithAction:action fromViewController:self.viewController];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.waitingResponseScannedValue = NO;
+        [self.viewController showImageStatus:@"37-Checkmark" message:ORCLocalizedBundle(@"match_found", nil, nil)];
+        [self.viewController stopScanner];
+        [self.actionInterface didFireTriggerWithAction:action fromViewController:self.viewController];
+    });
 }
 
 - (void)notFoundAction
