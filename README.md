@@ -22,7 +22,7 @@ Orchextra SDK is composed of **Orchextra Core** and **Vuforia Orchextra** as an 
 Download [*Orchextra iOS-Sample-App*][ios-sample-app] to understand how to use the SDK.
 
 ### Requirements
-- ios 7 or later
+- iOS 7 or later
 
 ### Download SDK
 To use *Orchextra Core*, head on over to the [releases][releases] page, and download the latest build "Orchextra.zip".
@@ -207,6 +207,19 @@ By default Orchextra has only error level, so if you want to change the level of
 [Orchextra logLevel:ORCLogLevelDebug];
 ```
 
+## Custom Theme
+
+To customize your view (navigation bar, title color, etc...), you will have to do it from your code, below there is a code snippet that will help you to do it. ;)
+
+```objective-c
+- (void)customizeTheme
+{
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setBarTintColor:__BACKGROUND_BAR_COLOR__];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : __TITLE_COLOR__}];
+    [[UINavigationBar appearance] setTintColor:__BUTTON_BAR_COLOR__];
+}
+```
 
 [releases]: https://github.com/Orchextra/orchextra-ios-sdk/releases
 [dashboard]: https://dashboard.orchextra.io
