@@ -14,6 +14,7 @@
 
 typedef NS_ENUM(NSInteger, ORCTypeEvent)
 {
+    ORCTypeEventNone,
     ORCTypeEventEnter,
     ORCTypeEventExit,
     ORCtypeEventStay
@@ -33,6 +34,7 @@ typedef void(^ORCCompletionStayTime)(BOOL success);
 @property (assign, nonatomic) NSInteger currentEvent;
 
 
+- (instancetype)initWithRegion:(ORCRegion *)region;
 - (instancetype)initWithJSON:(NSDictionary *)json;
 - (void)registerRegionWithLocationManager:(CLLocationManager *)locationManager;
 - (void)stopMonitoringRegionWithLocationManager:(CLLocationManager *)locationManager;

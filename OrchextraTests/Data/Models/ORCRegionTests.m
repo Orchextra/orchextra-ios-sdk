@@ -46,5 +46,34 @@
     XCTAssertTrue(region.notifyOnExit);
 }
 
+- (void)test_init_region_with_region
+{
+    ORCRegion *region = [[ORCRegion alloc] init];
+    region.identifier = @"identifier";
+    region.code = @"code";
+    region.currentEvent = ORCTypeEventEnter;
+    region.type = @"beacon_region";
+    
+    ORCRegion *regionFromRegion = [[ORCRegion alloc] initWithRegion:region];
+    
+    XCTAssertNotNil(regionFromRegion);
+    XCTAssert([regionFromRegion.type isEqualToString:@"beacon_region"]);
+    XCTAssert([regionFromRegion.code isEqualToString:@"code"]);
+    XCTAssertTrue([regionFromRegion.identifier isEqualToString:@"identifier"]);
+    XCTAssertTrue(regionFromRegion.currentEvent == ORCTypeEventEnter);
+}
+
+- (void)test_init_region_withRegionNil
+{
+    ORCRegion *region = [[ORCRegion alloc] init];
+
+    ORCRegion *regionFromRegion = [[ORCRegion alloc] initWithRegion:region];
+    
+    XCTAssertNotNil(regionFromRegion);
+    XCTAssert([regionFromRegion.type isEqualToString:@"beacon_region"]);
+    XCTAssert([regionFromRegion.code isEqualToString:@""]);
+    XCTAssertTrue([regionFromRegion.identifier isEqualToString:@""]);
+    XCTAssertTrue(regionFromRegion.currentEvent == ORCTypeEventNone);
+}
 
 @end
