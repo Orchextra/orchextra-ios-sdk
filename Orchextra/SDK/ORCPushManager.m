@@ -143,7 +143,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
     NSString *deviceTokenString = [[ORCPushManager sharedPushManager]
                                    tokenStringWithData:deviceToken];
     
-//    ORCSettingsInteractor *interactor = [[ORCSettingsInteractor alloc] init];
+    ORCSettingsInteractor *interactor = [[ORCSettingsInteractor alloc] init];
     ORCSettingsPersister *persister = [[ORCSettingsPersister alloc] init];
     
     ORCUser *user = [persister loadCurrentUser];
@@ -152,7 +152,11 @@ NSString * const NOTIFICATION_TYPE = @"type";
         user = [[ORCUser alloc] init];
     }
     user.deviceToken = deviceTokenString;
-    [persister storeUser:user];
+    
+    [interactor saveUser:user];
+
+//    [persister storeUser:user];
+    
 }
 
 #pragma mark - HANDLE PUSH NOTIFICATION
@@ -259,8 +263,6 @@ NSString * const NOTIFICATION_TYPE = @"type";
         self.currentTagAlertView++;
         [alert show];
     });
-    
-
 }
 
 - (UILocalNotification *)prepareLocalNotificationWithUserInfo:(NSDictionary *)userInfo

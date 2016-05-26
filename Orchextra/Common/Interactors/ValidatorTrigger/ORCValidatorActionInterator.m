@@ -82,11 +82,14 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 
 - (void)validateProximityWithGeofence:(ORCGeofence *)geofence completion:(CompletionActionValidated)completion
 {
-    NSDictionary *dictionary = @{ TYPE_KEY : geofence.type,
-                                  VALUE_KEY : geofence.code,
-                                  EVENT_KEY : [ORCProximityFormatter proximityEventToString:geofence.currentEvent],
+    
+    ORCGeofence *geofenceToValidate = [[ORCGeofence alloc] initWithGeofence:geofence];
+    
+    NSDictionary *dictionary = @{ TYPE_KEY : ORCTypeGeofence,
+                                  VALUE_KEY : geofenceToValidate.code,
+                                  EVENT_KEY : [ORCProximityFormatter proximityEventToString:geofenceToValidate.currentEvent],
                                   PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString],
-                                  DISTANCE_KEY : geofence.currentDistance};
+                                  DISTANCE_KEY : geofenceToValidate.currentDistance};
     
     [self printValidatingLogMessageWithValues:dictionary];
     
@@ -98,11 +101,12 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 
 - (void)validateProximityWithRegion:(ORCRegion *)region completion:(CompletionActionValidated)completionAction
 {
-    NSString *typeRegion = (region.type == ORCTypeGeofence) ? ORCTypeGeofence : ORCTypeRegion;
+
+    ORCRegion *regionToValidate = [[ORCRegion alloc] initWithRegion:region];
     
-    NSDictionary *dictionary = @{ TYPE_KEY : typeRegion,
-                                  VALUE_KEY : region.code,
-                                  EVENT_KEY : [ORCProximityFormatter proximityEventToString:region.currentEvent],
+    NSDictionary *dictionary = @{ TYPE_KEY : regionToValidate.type,
+                                  VALUE_KEY : regionToValidate.code,
+                                  EVENT_KEY : [ORCProximityFormatter proximityEventToString:regionToValidate.currentEvent],
                                   PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString]};
     
     [self printValidatingLogMessageWithValues:dictionary];
@@ -182,6 +186,5 @@ int ERROR_ACTION_NOT_FOUND = 5001;
                               [NSCharacterSet characterSetWithCharactersInString:@";,/?:@&=+$-_.!~*'()#"]];
     return escapedString;
 }
-
 
 @end

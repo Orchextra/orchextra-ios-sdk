@@ -25,6 +25,26 @@ NSString * const ORC_DISTANCE = @"distance";
 
 @implementation ORCGeofence
 
+
+- (instancetype)initWithGeofence:(ORCGeofence *)geofence
+{
+    self = [super init];
+    
+    if (self)
+    {
+        self.type = ORCTypeGeofence;
+        self.identifier     = (geofence.identifier) ? geofence.identifier : @"";
+        self.code           = (geofence.code) ? geofence.code : @"";
+        self.currentEvent   = (geofence.currentEvent) ? geofence.currentEvent : ORCTypeEventNone;
+        _longitude          = (geofence.longitude) ? geofence.longitude : @"0";
+        _latitude           = (geofence.latitude) ? geofence.latitude : @"0";
+        _radius             = (geofence.radius) ? geofence.radius : @0;
+        _currentDistance    = (geofence.currentDistance) ? geofence.currentDistance : @0;
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     NSDictionary *point = json[@"point"];
@@ -38,6 +58,8 @@ NSString * const ORC_DISTANCE = @"distance";
         _radius = json[@"radius"];
         _currentDistance = @0;
         self.type = ORCTypeGeofence;
+        
+        [self validateValues];
     }
     
     return self;
@@ -96,7 +118,6 @@ NSString * const ORC_DISTANCE = @"distance";
         }
         else
         {
-
             region.notifyOnEntry = self.notifyOnEntry;
             region.notifyOnExit = self.notifyOnExit;
             [locationManager startMonitoringForRegion:region];
@@ -147,8 +168,16 @@ NSString * const ORC_DISTANCE = @"distance";
     [geofenceDic addEntriesFromDictionary:@{ @"cancelable" : @(YES)}];
     [geofenceDic addEntriesFromDictionary:@{ ORC_EVENT : @(self.currentEvent)}];
 
-    
     return geofenceDic;
 }
+
+- (void)validateValues
+{
+    if (!self.type) [ORCLog logError:@"Geofence - type: Null"];
+    if (!self.code) [ORCLog logError:@"Geofence - code: Null"];
+    if (!self.currentDistance) [ORCLog logError:@"Geofence - currentDistance: Null"];
+    if (!self.currentEvent) [ORCLog logError:@"Geofence - currentEvent: Null"];
+}
+
 
 @end

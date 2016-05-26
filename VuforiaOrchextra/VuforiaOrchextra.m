@@ -54,7 +54,9 @@
 
 - (BOOL)isVuforiaEnable
 {
-    if ([self.interactor vuforiaCredentials])
+    ORCVuforiaConfig *config = [self.interactor vuforiaCredentials];
+    
+    if (config.licenseKey.length > 0  && config.accessKey.length > 0 && config.secretKey.length > 0)
     {
         return YES;
     }

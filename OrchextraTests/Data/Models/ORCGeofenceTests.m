@@ -29,7 +29,7 @@
     [super tearDown];
 }
 
-- (void)test_init_beacon_with_minor_nil
+- (void)test_init_geofence_with_minor_nil
 {
     //Prepare
     NSDictionary *json = [self jsonGeofence];
@@ -48,6 +48,44 @@
 
     XCTAssertTrue(geofence.notifyOnEntry);
     XCTAssertTrue(geofence.notifyOnExit);
+}
+
+- (void)test_initGeofence_withGeofence
+{
+    ORCGeofence *geofence = [[ORCGeofence alloc] init];
+    geofence.code = @"code";
+    geofence.identifier = @"identifier";
+    geofence.currentEvent = 2;
+    geofence.currentDistance = @0;
+    geofence.longitude = @"100";
+    geofence.latitude = @"100";
+    geofence.radius = @0;
+    
+    ORCGeofence *geofenceFromGeofence = [[ORCGeofence alloc] initWithGeofence:geofence];
+    
+    XCTAssert([geofenceFromGeofence.type isEqualToString:@"geofence"]);
+    XCTAssert([geofenceFromGeofence.code isEqualToString:@"code"]);
+    XCTAssert([geofenceFromGeofence.identifier isEqualToString:@"identifier"]);
+    XCTAssert(geofenceFromGeofence.currentEvent == 2);
+    XCTAssert([geofenceFromGeofence.currentDistance isEqual:@0]);
+    XCTAssert([geofenceFromGeofence.longitude isEqual:@"100"]);
+    XCTAssert([geofenceFromGeofence.latitude isEqual:@"100"]);
+    XCTAssert([geofenceFromGeofence.radius isEqual:@0]);
+}
+
+- (void)test_initGeofence_withGeofenceNil
+{
+    ORCGeofence *geofence = [[ORCGeofence alloc] init];
+    ORCGeofence *geofenceFromGeofence = [[ORCGeofence alloc] initWithGeofence:geofence];
+    
+    XCTAssert([geofenceFromGeofence.type isEqualToString:@"geofence"]);
+    XCTAssert([geofenceFromGeofence.code isEqualToString:@""]);
+    XCTAssert([geofenceFromGeofence.identifier isEqualToString:@""]);
+    XCTAssert(geofenceFromGeofence.currentEvent == 0);
+    XCTAssert([geofenceFromGeofence.currentDistance isEqual:@0]);
+    XCTAssert([geofenceFromGeofence.longitude isEqual:@"0"]);
+    XCTAssert([geofenceFromGeofence.latitude isEqual:@"0"]);
+    XCTAssert([geofenceFromGeofence.radius isEqual:@0]);
 }
 
 - (void)test_convert_to_cl_region

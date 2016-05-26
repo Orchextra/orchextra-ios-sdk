@@ -262,6 +262,9 @@
 		A90FD17E1BF36D6B0042F370 /* scanning-by@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1481BF36D650042F370 /* scanning-by@3x.png */; };
 		A90FD17F1BF36D6B0042F370 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1491BF36D650042F370 /* Simple.fragsh */; };
 		A90FD1801BF36D6B0042F370 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
+		A92C8E021CD2580700322000 /* torch.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8DFF1CD2580700322000 /* torch.png */; };
+		A92C8E031CD2580700322000 /* torch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8E001CD2580700322000 /* torch@2x.png */; };
+		A92C8E041CD2580700322000 /* torch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8E011CD2580700322000 /* torch@3x.png */; };
 		A9369B321C32A67100196491 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */; };
 		A940521C1C0F0CB000E092BE /* ORCSettingsInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A94052191C0F0CB000E092BE /* ORCSettingsInteractorTests.m */; };
 		A940521D1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A940521A1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m */; };
@@ -834,6 +837,9 @@
 		A90FD1491BF36D650042F370 /* Simple.fragsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.fragsh; sourceTree = "<group>"; };
 		A90FD14A1BF36D650042F370 /* Simple.vertsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.vertsh; sourceTree = "<group>"; };
 		A915DCE11B2ADDA7001A4587 /* Orchextra.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Orchextra.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A92C8DFF1CD2580700322000 /* torch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = torch.png; sourceTree = "<group>"; };
+		A92C8E001CD2580700322000 /* torch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "torch@2x.png"; sourceTree = "<group>"; };
+		A92C8E011CD2580700322000 /* torch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "torch@3x.png"; sourceTree = "<group>"; };
 		A94052191C0F0CB000E092BE /* ORCSettingsInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsInteractorTests.m; sourceTree = "<group>"; };
 		A940521A1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCValidatorActionInteractorTests.m; sourceTree = "<group>"; };
 		A94185091C74BDAD0089385A /* CLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLIColor.h; sourceTree = "<group>"; };
@@ -2036,6 +2042,9 @@
 		A90FD12F1BF36D650042F370 /* OrchextraResources */ = {
 			isa = PBXGroup;
 			children = (
+				A92C8DFF1CD2580700322000 /* torch.png */,
+				A92C8E001CD2580700322000 /* torch@2x.png */,
+				A92C8E011CD2580700322000 /* torch@3x.png */,
 				A90FD1301BF36D650042F370 /* 37x-Checkmark.png */,
 				A90FD1311BF36D650042F370 /* 37x-Checkmark@2x.png */,
 				A90FD1321BF36D650042F370 /* Fail_cross.png */,
@@ -2662,11 +2671,13 @@
 				A90FD17A1BF36D6B0042F370 /* previous-grey@2x.png in Resources */,
 				A90FD16F1BF36D6B0042F370 /* Line.vertsh in Resources */,
 				A90FD1791BF36D6B0042F370 /* previous-grey.png in Resources */,
+				A92C8E031CD2580700322000 /* torch@2x.png in Resources */,
 				A90FD17C1BF36D6B0042F370 /* scanning-by.png in Resources */,
 				A90FD17D1BF36D6B0042F370 /* scanning-by@2x.png in Resources */,
 				A90FD1681BF36D6B0042F370 /* Fail_cross.png in Resources */,
 				A90FD1781BF36D6B0042F370 /* previous-blue@3x.png in Resources */,
 				A90FD1731BF36D6B0042F370 /* next-grey.png in Resources */,
+				A92C8E021CD2580700322000 /* torch.png in Resources */,
 				A90FD16C1BF36D6B0042F370 /* frame-scan@3x.png in Resources */,
 				A947738F1BFE1E1300D4908A /* Localizable.strings in Resources */,
 				A90FD1801BF36D6B0042F370 /* Simple.vertsh in Resources */,
@@ -2679,6 +2690,7 @@
 				A90FD1671BF36D6B0042F370 /* 37x-Checkmark@2x.png in Resources */,
 				A90FD16B1BF36D6B0042F370 /* frame-scan@2x.png in Resources */,
 				A90FD1691BF36D6B0042F370 /* Fail_cross@2x.png in Resources */,
+				A92C8E041CD2580700322000 /* torch@3x.png in Resources */,
 				A90FD16A1BF36D6B0042F370 /* frame-scan.png in Resources */,
 				A90FD17B1BF36D6B0042F370 /* previous-grey@3x.png in Resources */,
 				A90FD17E1BF36D6B0042F370 /* scanning-by@3x.png in Resources */,

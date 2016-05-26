@@ -15,7 +15,7 @@
 - (BOOL)isCameraAvailable;
 - (void)startScanning;
 - (void)stopScanning;
-- (void)setTorch:(BOOL) aStatus;
+- (void)setTorch:(BOOL)aStatus;
 
 @end
 
