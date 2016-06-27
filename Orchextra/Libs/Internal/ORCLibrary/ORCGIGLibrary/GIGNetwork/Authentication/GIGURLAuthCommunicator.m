@@ -170,18 +170,22 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     NSString *advertiserId  = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     NSString *vendorId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
-    NSMutableDictionary *parametersJSON = [[NSMutableDictionary alloc] init];
-    [parametersJSON addEntriesFromDictionary:
-     @{@"grantType" : @"auth_user",
-       @"credentials" : @{@"clientToken" : clientToken,
-                          @"advertiserId" : advertiserId,
-                          @"vendorId" : vendorId}}];
+    NSMutableDictionary *credentialsDictValue = [[NSMutableDictionary alloc] initWithDictionary:@{@"clientToken" : clientToken,
+                                                                                                  @"advertiserId" : advertiserId,
+                                                                                                  @"vendorId" : vendorId}];
     
     ORCUser *user = [self.orchextraStorage loadCurrentUser];
     if (user.crmID)
     {
-        [parametersJSON addEntriesFromDictionary:@{@"crmId" : user.crmID}];
+        [credentialsDictValue addEntriesFromDictionary:@{@"crmId" : user.crmID}];
     }
+    
+    NSMutableDictionary *credentialsJSON = [[NSMutableDictionary alloc] init];
+    [credentialsJSON addEntriesFromDictionary:@{@"credentials" : credentialsDictValue}];
+    
+    NSMutableDictionary *parametersJSON = [[NSMutableDictionary alloc] init];
+    [parametersJSON addEntriesFromDictionary:@{@"grantType" : @"auth_user"}];
+    [parametersJSON addEntriesFromDictionary:credentialsJSON];
 
     NSString *urlRequest = [ORCURLProvider endPointSecurityToken];
     
