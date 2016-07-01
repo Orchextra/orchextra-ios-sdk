@@ -76,7 +76,6 @@ NSInteger const MAX_REGIONS = 20;
         [self.settingsPersister storeAcessToken:nil];
     }
     
-    
     ORCFormatterParameters *formatter = [[ORCFormatterParameters alloc] init];
     NSDictionary *deviceConfiguration = [formatter formatterParameteresDevice];
     

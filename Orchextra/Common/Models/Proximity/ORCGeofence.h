@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSNumber *radius;
 @property (strong, nonatomic) NSNumber *currentDistance;
 
+- (instancetype)initWithGeofence:(ORCGeofence *)geofence;
 - (instancetype)initWithJSON:(NSDictionary *)json;
 - (void)registerRegionWithLocationManager:(CLLocationManager *)locationManager;
 - (CLRegion *)convertToCLRegion;

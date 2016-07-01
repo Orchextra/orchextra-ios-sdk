@@ -20,6 +20,23 @@ NSString *const ORCRegionName = @"name";
 
 #pragma mark - INIT
 
+- (instancetype)initWithRegion:(ORCRegion *)region
+{
+    self = [super init];
+    
+    if (self)
+    {
+        _type = (region.type == ORCTypeGeofence) ? ORCTypeGeofence : ORCTypeRegion;
+        _identifier     = (region.identifier) ? region.identifier : @"";
+        _code           = (region.code) ? region.code : @"";
+        _currentEvent   = (region.currentEvent) ? region.currentEvent : ORCTypeEventNone;
+        
+        [self validateValues];
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     return [self initWithIdentifier:[json stringForKey:@"id"]
@@ -109,5 +126,12 @@ NSString *const ORCRegionName = @"name";
     [self canPerformRequestWithCompletion:completion];
 }
 
+- (void)validateValues
+{
+    if (!self.type) [ORCLog logError:@"Region - type: Null"];
+    if (!self.identifier) [ORCLog logError:@"Region - identifier: Null"];
+    if (!self.code) [ORCLog logError:@"Region - code: Null"];
+    if (!self.currentEvent) [ORCLog logError:@"Region - currentEvent: Null"];
+}
 
 @end

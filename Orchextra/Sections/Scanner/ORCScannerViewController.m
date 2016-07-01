@@ -29,14 +29,16 @@ NSInteger PADDING_SCANNER = 100;
 @property (strong, nonatomic) UIView *containerScanner;
 @property (strong, nonatomic) UIImageView *imageViewScanner;
 @property (strong, nonatomic) UIImageView *imageViewCopyright;
+@property (strong, nonatomic) UIImageView *torchImage;
+
 @property (strong, nonatomic) NSArray *constraintSize;
 @property (assign, nonatomic) BOOL *scannerBeingDissmissing;
+@property (assign, nonatomic) BOOL enableTorch;
 
 @end
 
 
 @implementation ORCScannerViewController
-
 
 #pragma mark - LIFECYCLE
 
@@ -153,7 +155,6 @@ NSInteger PADDING_SCANNER = 100;
 
 - (void)initialize
 {
-    
     [self customNavigationBar];
     
     self.containerScanner = [[UIView alloc] init];
@@ -191,6 +192,23 @@ NSInteger PADDING_SCANNER = 100;
                                             attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:0];
     [self.containerScanner addConstraint:constraintPadding];
     [self.containerScanner layoutIfNeeded];
+    
+    [self addTorch];
+    
+}
+
+- (void)addTorch
+{
+    UIImage *torch = [NSBundle imageFromBundleWithName:@"torch"];
+    
+    UIBarButtonItem *torchButton = [[UIBarButtonItem alloc] initWithImage:torch style:UIBarButtonItemStylePlain target:self action:@selector(enableTorchButton)];
+    self.navigationItem.rightBarButtonItem = torchButton;
+}
+
+- (void)enableTorchButton
+{
+    self.enableTorch = !self.enableTorch;
+    [self setTorch:self.enableTorch];
 }
 
 - (void)customNavigationBar

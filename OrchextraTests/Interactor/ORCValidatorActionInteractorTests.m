@@ -91,7 +91,7 @@
     ORCRegion *region = [[ORCRegion alloc] init];
     region.type = ORCTypeGeofence;
     region.code = @"808d1108c9913b284f045059fb6e77d7";
-    region.currentEvent = 0;
+    region.currentEvent = 1;
     
     [self.validatorInterator validateProximityWithRegion:region completion:nil];
     
@@ -111,7 +111,7 @@
     ORCRegion *region = [[ORCRegion alloc] init];
     region.type = ORCTypeBeacon;
     region.code = @"808d1108c9913b284f045059fb6e77d7";
-    region.currentEvent = 0;
+    region.currentEvent = 1;
     
     [self.validatorInterator validateProximityWithRegion:region completion:nil];
     
@@ -231,5 +231,35 @@
     XCTAssert([valitateValues[@"value"] isEqualToString:formattedValues[@"value"]]);
 }
 
+- (void)test_validateGeofence_WhenGeofenceNil
+{
+    ORCGeofence *geofence = [[ORCGeofence alloc] init];
+    
+    [self.validatorInterator validateProximityWithGeofence:geofence completion:nil];
+
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    
+    XCTAssert([formattedValues[@"type"] isEqualToString:ORCTypeGeofence]);
+    XCTAssert([formattedValues[@"value"] isEqualToString:@""]);
+    XCTAssert([formattedValues[@"event"] isEqualToString:@"none"]);
+    XCTAssert([formattedValues[@"distance"] isEqual:@0]);
+}
+
+- (void)test_validateRegion_WhenRegionNil
+{
+    ORCRegion *region = [[ORCRegion alloc] init];
+    
+    [self.validatorInterator validateProximityWithRegion:region completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    
+    XCTAssert([formattedValues[@"type"] isEqualToString:ORCTypeRegion]);
+    XCTAssert([formattedValues[@"value"] isEqualToString:@""]);
+    XCTAssert([formattedValues[@"event"] isEqualToString:@"none"]);
+}
 
 @end

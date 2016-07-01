@@ -17,8 +17,10 @@
     switch (typeEvent)
     {
         case 0:
-            return @"enter";
+            return @"none";
         case 1:
+            return @"enter";
+        case 2:
             return @"exit";
         default:
             return @"stay";
