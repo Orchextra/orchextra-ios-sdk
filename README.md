@@ -41,6 +41,8 @@ Click the + button in the bottom left of the 'Link Binary With Libraries' sectio
 * AdSupport.framework
 * AVFoundation.framework
 * CoreLocation.framework
+* PassKit.framework
+* WebKit.framework
 
 
 #### Vuforia dependencies
