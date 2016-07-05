@@ -515,6 +515,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9121B5861D2C19CC00B1061D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrchextraTests.m; sourceTree = "<group>"; };
 		A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionManagerTests.m; sourceTree = "<group>"; };
 		A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerPresenterTests.m; sourceTree = "<group>"; };
@@ -2643,6 +2644,7 @@
 			knownRegions = (
 				en,
 				es,
+				"pt-BR",
 			);
 			mainGroup = A9E5956F1B04DA6F0040EAD4;
 			productRefGroup = A9E595791B04DA6F0040EAD4 /* Products */;
@@ -2994,6 +2996,7 @@
 			children = (
 				A90FCEC21BF362080042F370 /* en */,
 				A90FCEC31BF362080042F370 /* es */,
+				9121B5861D2C19CC00B1061D /* pt-BR */,
 			);
 			name = Localizable.strings;
 			path = ..;
