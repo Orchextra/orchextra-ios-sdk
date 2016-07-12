@@ -9,13 +9,23 @@
 #import "ORCActionWebView.h"
 #import "ORCWebViewController.h"
 #import "ORCActionInterface.h"
+#import <SafariServices/SafariServices.h>
 
 
 @implementation ORCActionWebView
 
 - (void)executeActionWithActionInterface:(id<ORCActionInterface>)actionInterface
 {
-    ORCWebViewController *webViewController = [[ORCWebViewController alloc] initWithURLString:self.urlString];
+    UIViewController *webViewController = nil;
+    if (NSClassFromString(@"SFSafariViewController"))
+    {
+        webViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:self.urlString]];
+        
+    } else
+    {
+        webViewController = [[ORCWebViewController alloc] initWithURLString:self.urlString];
+    }
+    
     [actionInterface presentViewController:webViewController];
 }
 
