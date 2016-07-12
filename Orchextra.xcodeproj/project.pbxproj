@@ -35,6 +35,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8F447A141D34D69400705861 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F447A131D34D69400705861 /* SafariServices.framework */; };
+		8F447A471D34E7FB00705861 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F447A131D34D69400705861 /* SafariServices.framework */; };
 		A909AF7F1C6B48F7005CEAA2 /* OrchextraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */; };
 		A909AF801C6B48F7005CEAA2 /* ORCActionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */; };
 		A909AF871C6B48F7005CEAA2 /* ORCScannerPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */; };
@@ -515,6 +517,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F447A131D34D69400705861 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		9121B5861D2C19CC00B1061D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrchextraTests.m; sourceTree = "<group>"; };
 		A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionManagerTests.m; sourceTree = "<group>"; };
@@ -960,6 +963,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F447A141D34D69400705861 /* SafariServices.framework in Frameworks */,
 				A9801C621C9AFC5200A28CF5 /* WebKit.framework in Frameworks */,
 				A9E4C00A1BC6BDE800341A37 /* MediaPlayer.framework in Frameworks */,
 				A9E4C0081BC6BDE100341A37 /* CoreMedia.framework in Frameworks */,
@@ -981,6 +985,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F447A471D34E7FB00705861 /* SafariServices.framework in Frameworks */,
 				A9D1D69E1C9BE9E90070C666 /* WebKit.framework in Frameworks */,
 				A9E4C0341BC6C08D00341A37 /* libOrchextra.a in Frameworks */,
 				A90FD12D1BF36D3E0042F370 /* OCHamcrestIOS.framework in Frameworks */,
@@ -2282,6 +2287,7 @@
 		A9E596691B04DBC40040EAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F447A131D34D69400705861 /* SafariServices.framework */,
 				A9472BF41C9B0CCD00FA5460 /* WebKit.framework */,
 				A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */,
 				A9B17B0C1C566CB400D2BCB1 /* libcommonCrypto.tbd */,
