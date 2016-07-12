@@ -43,6 +43,7 @@ Click the + button in the bottom left of the 'Link Binary With Libraries' sectio
 * CoreLocation.framework
 * PassKit.framework
 * WebKit.framework
+* SafariServices.framework
 
 
 #### Vuforia dependencies
