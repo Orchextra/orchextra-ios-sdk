@@ -94,7 +94,7 @@ NSString * const ORC_CANCELABLE = @"cancelable";
             
             NSDictionary *notification = [json dictionaryForKey:@"notification"];
             
-            if (![notification isKindOfClass:[NSNull class]])
+            if (![notification isKindOfClass:[NSNull class]] && notification)
             {
                 _titleNotification = [notification stringForKey:ORC_TITLE];
                 _bodyNotification = [notification stringForKey:ORC_BODY];

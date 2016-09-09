@@ -114,7 +114,7 @@ NSInteger PADDING_SCANNER = 100;
     hud.labelText = statusMessage;
     hud.detailsLabelText = scannedValue;
     
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC);
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
     
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
@@ -139,7 +139,7 @@ NSInteger PADDING_SCANNER = 100;
         HUD.labelText = message;
         
         [HUD show:YES];
-        [HUD hide:YES afterDelay:2.0];
+        [HUD hide:YES afterDelay:1.0];
     });
 }
 
@@ -194,7 +194,6 @@ NSInteger PADDING_SCANNER = 100;
     [self.containerScanner layoutIfNeeded];
     
     [self addTorch];
-    
 }
 
 - (void)addTorch
@@ -220,7 +219,6 @@ NSInteger PADDING_SCANNER = 100;
                                              target:self action:@selector(cancelButtonTapped)];
     
     self.navigationItem.leftBarButtonItem.title = ORCLocalizedBundle(@"cancel_button", nil, nil);
-
 }
 
 @end

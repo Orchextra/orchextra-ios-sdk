@@ -262,4 +262,96 @@
     XCTAssert([formattedValues[@"event"] isEqualToString:@"none"]);
 }
 
+- (void)test_validateResponse_withActionAndErrorNil_andRequetParams
+{
+    
+    ORCURLActionResponse *response = [[ORCURLActionResponse alloc] init];
+    response.action = nil;
+    response.error = nil;
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"validateResponse"];
+    [self.validatorInterator validateResponse:response requestParams:@{} completion:^(ORCAction *action, NSError *error) {
+        XCTAssertNil(action);
+        XCTAssertNil(error);
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if(error)
+        {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
+    }];
+}
+
+- (void)test_validateResponse_withNilResponse_withRequetParams
+{
+    
+    ORCURLActionResponse *response = nil;
+    XCTestExpectation *expectation = [self expectationWithDescription:@"validateResponse"];
+    [self.validatorInterator validateResponse:response requestParams:@{} completion:^(ORCAction *action, NSError *error) {
+        XCTAssertNil(action);
+        XCTAssertNil(error);
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        if(error)
+        {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
+    }];
+}
+
+- (void)test_validateResponse_withAction_andNilRequetParams
+{
+    
+    NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"GET_action_vuforia_without_schedule_data" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+
+    ORCURLActionResponse *response = [[ORCURLActionResponse alloc] initWithData:data];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"validateResponse"];
+    [self.validatorInterator validateResponse:response requestParams:@{} completion:^(ORCAction *action, NSError *error) {
+        XCTAssertNotNil(action);
+        XCTAssertNil(error);
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        if(error)
+        {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
+    }];
+}
+
+- (void)test_validateResponse_withNilAction_andNilRequetParams
+{
+    
+    NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"GET_action_datanil" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    
+    ORCURLActionResponse *response = [[ORCURLActionResponse alloc] initWithData:data];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"validateResponse"];
+    [self.validatorInterator validateResponse:response requestParams:nil completion:^(ORCAction *action, NSError *error) {
+        XCTAssertNil(action);
+        XCTAssertNil(error);
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        
+        if(error)
+        {
+            XCTFail(@"Expectation Failed with error: %@", error);
+        }
+    }];
+}
+
+
+
 @end

@@ -79,7 +79,7 @@
         
     });
     
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 2.0 * NSEC_PER_SEC);
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -99,7 +99,7 @@
         HUD.labelText = message;
         
         [HUD show:YES];
-        [HUD hide:YES afterDelay:2.0];
+        [HUD hide:YES afterDelay:1.0];
     });
     
 }

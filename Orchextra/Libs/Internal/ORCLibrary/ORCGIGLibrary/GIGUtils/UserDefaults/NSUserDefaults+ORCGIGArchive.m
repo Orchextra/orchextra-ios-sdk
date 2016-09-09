@@ -11,10 +11,37 @@
 
 @implementation NSUserDefaults (ORCGIGArchive)
 
+- (void)archiveObjects:(NSArray *)objects forKey:(NSString *)key
+{
+    NSMutableArray *objectsArchived = [[NSMutableArray alloc] init];
+    
+    for (id object in objects)
+    {
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
+        if (data) [objectsArchived addObject:data];
+    }
+    
+    [self setObject:objectsArchived forKey:key];
+}
+
 - (void)archiveObject:(id)object forKey:(NSString *)key
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
     [self setObject:data forKey:key];
+}
+
+- (NSArray *)unarchiveObjectsForKey:(NSString *)key
+{
+    NSMutableArray *objectsUnarchived = [[NSMutableArray alloc] init];
+    NSArray *objectsArchived = [self objectForKey:key];
+    
+    for (NSData *data in objectsArchived)
+    {
+        id object = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if (object) [objectsUnarchived addObject:object];
+    }
+    
+    return objectsUnarchived;
 }
 
 - (id)unarchiveObjectForKey:(NSString *)key

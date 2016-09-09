@@ -10,6 +10,8 @@
 #import "ORCSettingsDataManager.h"
 #import "ORCAppConfigCommunicator.h"
 #import "ORCAppConfigResponse.h"
+#import "ORCBusinessUnit.h"
+#import "ORCCustomField.h"
 #import "ORCUserLocationPersister.h"
 #import "ORCFormatterParameters.h"
 
@@ -35,8 +37,8 @@ NSInteger const MAX_REGIONS = 20;
 
 - (instancetype)init
 {
-    ORCSettingsPersister *settingsPersister           = [[ORCSettingsPersister alloc] init];
-    ORCAppConfigCommunicator *communicator  = [[ORCAppConfigCommunicator alloc] init];
+    ORCSettingsPersister *settingsPersister         = [[ORCSettingsPersister alloc] init];
+    ORCAppConfigCommunicator *communicator          = [[ORCAppConfigCommunicator alloc] init];
     ORCFormatterParameters *formatterParameters     = [[ORCFormatterParameters alloc] init];
     ORCUserLocationPersister *userLocationPersister =  [[ORCUserLocationPersister alloc] init];
     
@@ -80,7 +82,7 @@ NSInteger const MAX_REGIONS = 20;
     NSDictionary *deviceConfiguration = [formatter formatterParameteresDevice];
     
     __weak typeof(self) this = self;
-    [self.communicator loadConfiguration:deviceConfiguration completion:^(ORCAppConfigResponse *response) {
+    [self.communicator loadConfiguration:deviceConfiguration sections:nil completion:^(ORCAppConfigResponse *response) {
         if (response.success)
         {
             [this updateConfigurationResponse:response];
@@ -142,6 +144,12 @@ NSInteger const MAX_REGIONS = 20;
     return [self.settingsPersister storeOrchextraState:orchextraRunning];
 }
 
+- (BOOL)isOrchextraRunning
+{
+    return [self.settingsPersister loadOrchextraState];
+}
+
+
 - (void)saveLastLocation:(CLLocation *)location
               completionCallBack:(CompletionProjectSettings)completion
 {
@@ -180,15 +188,125 @@ NSInteger const MAX_REGIONS = 20;
     return [self.userLocationPersister loadLastPlacemark];
 }
 
+#pragma mark - PUBLIC (Custom fields)
+
+- (NSArray <ORCCustomField *> *)loadAvailableCustomFields
+{
+    return [self.settingsPersister loadAvailableCustomFields];
+}
+
+- (NSArray <ORCCustomField *> *)loadCustomFields
+{
+    return [self.settingsPersister loadCustomFields];
+}
+
+- (void)saveCustomFields:(NSArray <ORCCustomField *> *)customFields
+{
+    ORCUser *user = [self currentUser];
+    
+    if ([user.crmID length] > 0)
+    {
+        [self.settingsPersister setCustomFields:customFields];
+        
+    } else
+    {
+        [ORCLog logError:@"crmID required to set user custom fields"];
+    }
+}
+
+- (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key
+{
+    return [self.settingsPersister updateCustomFieldValue:value withKey:key];
+}
+
+#pragma mark - PUBLIC (User tags)
+
+- (NSArray <ORCTag *> *)loadUserTags
+{
+    return [self.settingsPersister loadUserTags];
+}
+
+- (void)saveUserTags:(NSArray <ORCTag *> *)userTags
+{
+    ORCUser *user = [self currentUser];
+    
+    if ([user.crmID length] > 0)
+    {
+        [self.settingsPersister setUserTags:userTags];
+        
+    } else
+    {
+        [ORCLog logError:@"crmID required to set user tags"];
+    }
+}
+
+#pragma mark - PUBLIC (Device tags)
+
+- (NSArray <ORCTag *> *)loadDeviceTags
+{
+   return [self.settingsPersister loadDeviceTags];
+}
+
+- (void)saveDeviceTags:(NSArray <ORCTag *> *)deviceTags
+{
+    [self.settingsPersister setDeviceTags:deviceTags];
+}
+
+#pragma mark - PUBLIC (User business units)
+
+- (NSArray <ORCBusinessUnit *> *)loadUserBusinessUnits
+{
+    return [self.settingsPersister loadUserBusinessUnits];
+}
+
+- (void)saveUserBusinessUnits:(NSArray <ORCBusinessUnit *> *)userBusinessUnits
+{
+    ORCUser *user = [self currentUser];
+    
+    if ([user.crmID length] > 0)
+    {
+        [self.settingsPersister setUserBusinessUnit:userBusinessUnits];
+        
+    } else
+    {
+        [ORCLog logError:@"crmID required to set user business units"];
+    }
+
+}
+
+#pragma mark - PUBLIC (Device business units)
+
+- (NSArray <ORCBusinessUnit *> *)loadDeviceBusinessUnits
+{
+    return [self.settingsPersister loadDeviceBusinessUnits];
+}
+
+- (void)saveDeviceBusinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits
+{
+    [self.settingsPersister setUserBusinessUnit:deviceBusinessUnits];
+}
+
+#pragma  mark - PUBLIC ()
+
+- (void)invalidateAccessToken
+{
+    [self.settingsPersister storeAcessToken:nil];
+    
+    ORCUser *user = [self currentUser];
+    NSDictionary *newValues = [self.formatter formattedUserData:user];
+    [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+}
+
 #pragma mark - PRIVATE
 
 - (void)handleLoadConfigurationWithValues:(NSDictionary *)values completionCallBack:(CompletionProjectSettings)completionCallBack
 {
     __weak typeof(self) this = self;
-    [self.communicator loadConfiguration:values completion:^(ORCAppConfigResponse *response) {
+    [self.communicator loadConfiguration:values sections:nil completion:^(ORCAppConfigResponse *response) {
         
         if (response.success)
         {
+            [ORCLog logVerbose:@" - Configuration Response: %@", response.json];
             [this updateConfigurationResponse:response];
             if(completionCallBack) completionCallBack(YES, nil);
         }
@@ -213,8 +331,11 @@ NSInteger const MAX_REGIONS = 20;
             [self.settingsPersister storeAcessToken:nil];
         }
 
-        NSDictionary *newValues = [self.formatter formattedUserData:user];
-        [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+        if ([self.settingsPersister loadOrchextraState])
+        {
+            NSDictionary *newValues = [self.formatter formattedUserData:user];
+            [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+        }
     }
 }
 
@@ -238,11 +359,59 @@ NSInteger const MAX_REGIONS = 20;
 - (void)updateConfigurationResponse:(ORCAppConfigResponse *)response
 {
     NSArray *regions = [self gatherRegionsWithResponse:response];
+    NSArray <ORCCustomField *> *availableCustomFields = response.availableCustomFields;
+    NSArray <ORCCustomField *> *userCustomFields = response.userCustomFields;
+    NSArray <ORCBusinessUnit *> *userBusinessUnits = response.userBusinessUnits;
+    NSArray <ORCTag *> *userTags = response.userTags;
+    NSArray <ORCTag *> *deviceTags = response.deviceTags;
+    NSArray <ORCBusinessUnit *> *deviceBusinessUnits = response.deviceBusinessUnits;
+    
     [self.userLocationPersister storeRegions:regions];
 
     [self.settingsPersister storeThemeSdk:response.themeSDK];
     [self.settingsPersister storeRequestWaitTime:response.requestWaitTime];
     [self.settingsPersister storeVuforiaConfig:response.vuforiaConfig];
+    [self.settingsPersister storeAvailableCustomFields:availableCustomFields];
+    
+    NSArray <ORCCustomField *> *customFields = [self updateUserCustomFields:userCustomFields withAvailableCustomFields:availableCustomFields];
+    [self.settingsPersister setCustomFields:customFields];
+    [self.settingsPersister setUserTags:userTags];
+    [self.settingsPersister setDeviceTags:deviceTags];
+    [self.settingsPersister setUserBusinessUnit:userBusinessUnits];
+    [self.settingsPersister setDeviceBusinessUnits:deviceBusinessUnits];
+}
+
+- (ORCCustomField *)existsKey:(NSString *)key inAvailableCustomFields:(NSArray <ORCCustomField *> *)availableCustomFields
+{
+    ORCCustomField *result = nil;
+    
+    for (ORCCustomField *customField in availableCustomFields) {
+        
+        if ([customField.key isEqualToString:key])
+        {
+            result = customField;
+            break;
+        }
+    }
+    
+    return result;
+}
+
+- (NSArray <ORCCustomField *> *)updateUserCustomFields:(NSArray <ORCCustomField *> *)userCustomFields withAvailableCustomFields:(NSArray <ORCCustomField *> *)availableCustomFields
+{
+    NSMutableArray <ORCCustomField *> *result = [[NSMutableArray alloc] init];
+    for (ORCCustomField *customField in userCustomFields)
+    {
+        ORCCustomField *availableCustomField = [self existsKey:customField.key inAvailableCustomFields:availableCustomFields];
+        
+        if (availableCustomField)
+        {
+            availableCustomField.value = customField.value;
+            [result addObject:availableCustomField];
+        }
+    }
+    
+    return [NSArray arrayWithArray:result];
 }
 
 - (NSArray *)gatherRegionsWithResponse:(ORCAppConfigResponse *)response

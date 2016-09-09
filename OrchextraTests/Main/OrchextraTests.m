@@ -181,5 +181,50 @@
     XCTAssertTrue(response.error.code == 403, @"Error code: %li", (long)response.error.code);
 }
 
+- (void)test_configuration_response_with_Customfields
+{
+    NSString *path = [self.testBundle pathForResource:@"POST_confi_with_customfieldsAndTags" ofType:@"json"];
+    XCTAssertNotNil(path);
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    XCTAssertNotNil(data);
+    
+    ORCAppConfigResponse *response = [[ORCAppConfigResponse alloc] initWithData:data];
+    
+    XCTAssertTrue(response.success);
+    XCTAssertNil(response.error);
+    XCTAssertTrue(response.availableCustomFields.count == 3, @"Number of available custom fields: %lu", (unsigned long)response.availableCustomFields.count);
+    XCTAssertTrue(response.userCustomFields.count == 2, @"Number of user custom fields: %lu", (unsigned long)response.userCustomFields.count);
+}
+
+- (void)test_configuration_response_with_user_tags
+{
+    NSString *path = [self.testBundle pathForResource:@"POST_confi_with_customfieldsAndTags" ofType:@"json"];
+    XCTAssertNotNil(path);
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    XCTAssertNotNil(data);
+    
+    ORCAppConfigResponse *response = [[ORCAppConfigResponse alloc] initWithData:data];
+    
+    XCTAssertTrue(response.success);
+    XCTAssertNil(response.error);
+    XCTAssertTrue(response.userTags.count == 2, @"Number of user tags: %lu", (unsigned long)response.userTags.count);
+}
+
+- (void)test_configuration_response_with_device_tags
+{
+    NSString *path = [self.testBundle pathForResource:@"POST_confi_with_customfieldsAndTags" ofType:@"json"];
+    XCTAssertNotNil(path);
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    XCTAssertNotNil(data);
+    
+    ORCAppConfigResponse *response = [[ORCAppConfigResponse alloc] initWithData:data];
+    
+    XCTAssertTrue(response.success);
+    XCTAssertNil(response.error);
+    XCTAssertTrue(response.deviceTags.count == 2, @"Number of device tags: %lu", (unsigned long)response.deviceTags.count);
+}
 
 @end

@@ -35,8 +35,13 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		8F447A141D34D69400705861 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F447A131D34D69400705861 /* SafariServices.framework */; };
-		8F447A471D34E7FB00705861 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F447A131D34D69400705861 /* SafariServices.framework */; };
+		8F15F61D1D13E0DD00B589E0 /* ORCBusinessUnit.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F15F61B1D13E0DD00B589E0 /* ORCBusinessUnit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F15F61E1D13E0DD00B589E0 /* ORCBusinessUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F15F61C1D13E0DD00B589E0 /* ORCBusinessUnit.m */; };
+		8F2884651D23D68D00BA5230 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2884641D23D68D00BA5230 /* SafariServices.framework */; };
+		8F33A6F91D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F33A6F81D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json */; };
+		8F447A4A1D34F56100705861 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2884641D23D68D00BA5230 /* SafariServices.framework */; };
+		8FE1DF871D082FC10015D2F1 /* ORCCustomField.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FE1DF851D082FC10015D2F1 /* ORCCustomField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FE1DF881D082FC10015D2F1 /* ORCCustomField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE1DF861D082FC10015D2F1 /* ORCCustomField.m */; };
 		A909AF7F1C6B48F7005CEAA2 /* OrchextraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */; };
 		A909AF801C6B48F7005CEAA2 /* ORCActionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */; };
 		A909AF871C6B48F7005CEAA2 /* ORCScannerPresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */; };
@@ -267,7 +272,10 @@
 		A92C8E021CD2580700322000 /* torch.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8DFF1CD2580700322000 /* torch.png */; };
 		A92C8E031CD2580700322000 /* torch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8E001CD2580700322000 /* torch@2x.png */; };
 		A92C8E041CD2580700322000 /* torch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8E011CD2580700322000 /* torch@3x.png */; };
+		A93378991D7963B4001E1BA0 /* ORCGIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A93378981D7963B4001E1BA0 /* ORCGIGURLJSONResponseTests.m */; };
 		A9369B321C32A67100196491 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */; };
+		A93950461D0016A70063A27A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93950451D0016A70063A27A /* PassKit.framework */; };
+		A939504D1D001C930063A27A /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93950451D0016A70063A27A /* PassKit.framework */; };
 		A940521C1C0F0CB000E092BE /* ORCSettingsInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A94052191C0F0CB000E092BE /* ORCSettingsInteractorTests.m */; };
 		A940521D1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A940521A1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m */; };
 		A940521F1C0F16E700E092BE /* POST_configuration_failure.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */; };
@@ -394,6 +402,8 @@
 		A95E1F391C63319100509235 /* ORCStatisticsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A95E1F371C63319100509235 /* ORCStatisticsInteractor.m */; };
 		A95E1F3D1C633C2C00509235 /* ORCApplicationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A95E1F3B1C633C2C00509235 /* ORCApplicationCenter.h */; };
 		A95E1F3E1C633C2C00509235 /* ORCApplicationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A95E1F3C1C633C2C00509235 /* ORCApplicationCenter.m */; };
+		A962E7A71D7D7A4000237DF3 /* GET_action_vuforia_without_schedule_data.json in Resources */ = {isa = PBXBuildFile; fileRef = A962E7A61D7D7A4000237DF3 /* GET_action_vuforia_without_schedule_data.json */; };
+		A962E7A91D7D83E800237DF3 /* GET_action_datanil.json in Resources */ = {isa = PBXBuildFile; fileRef = A962E7A81D7D83E800237DF3 /* GET_action_datanil.json */; };
 		A9801C621C9AFC5200A28CF5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A98360E01BFB82FA00413CB8 /* ORCPushManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A98360E11BFB82FA00413CB8 /* ORCPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */; };
@@ -407,6 +417,9 @@
 		A98F55861C6DFF90000E7C60 /* GET_action_browser_without_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A98F55851C6DFF90000E7C60 /* GET_action_browser_without_schedule.json */; };
 		A99073891C6DCD6E00186C8D /* ORCPushManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A99073881C6DCD6E00186C8D /* ORCPushManagerMock.m */; };
 		A99073951C6DD26200186C8D /* ORCStatisticsInteractorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */; };
+		A9A0065B1CF8257700175922 /* ORCTag.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A006591CF8257700175922 /* ORCTag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9A0065C1CF8257700175922 /* ORCTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A0065A1CF8257700175922 /* ORCTag.m */; };
+		A9A0065E1CF8380300175922 /* ORCTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A0065D1CF8380300175922 /* ORCTagTests.m */; };
 		A9A2C8031B25B21E008E5912 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C8021B25B21E008E5912 /* AVFoundation.framework */; };
 		A9AD5BA91C5FAC7A009C02D3 /* ORCProximityFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A9AD5BA71C5FAC7A009C02D3 /* ORCProximityFormatter.h */; };
 		A9AD5BAA1C5FAC7A009C02D3 /* ORCProximityFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AD5BA81C5FAC7A009C02D3 /* ORCProximityFormatter.m */; };
@@ -517,8 +530,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8F447A131D34D69400705861 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
-		9121B5861D2C19CC00B1061D /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8F15F61B1D13E0DD00B589E0 /* ORCBusinessUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCBusinessUnit.h; sourceTree = "<group>"; };
+		8F15F61C1D13E0DD00B589E0 /* ORCBusinessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBusinessUnit.m; sourceTree = "<group>"; };
+		8F2884641D23D68D00BA5230 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		8F33A6F81D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_confi_with_customfieldsAndTags.json; sourceTree = "<group>"; };
+		8FE1DF851D082FC10015D2F1 /* ORCCustomField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCCustomField.h; sourceTree = "<group>"; };
+		8FE1DF861D082FC10015D2F1 /* ORCCustomField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCCustomField.m; sourceTree = "<group>"; };
 		A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrchextraTests.m; sourceTree = "<group>"; };
 		A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionManagerTests.m; sourceTree = "<group>"; };
 		A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerPresenterTests.m; sourceTree = "<group>"; };
@@ -844,6 +861,8 @@
 		A92C8DFF1CD2580700322000 /* torch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = torch.png; sourceTree = "<group>"; };
 		A92C8E001CD2580700322000 /* torch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "torch@2x.png"; sourceTree = "<group>"; };
 		A92C8E011CD2580700322000 /* torch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "torch@3x.png"; sourceTree = "<group>"; };
+		A93378981D7963B4001E1BA0 /* ORCGIGURLJSONResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCGIGURLJSONResponseTests.m; path = Network/ORCGIGURLJSONResponseTests.m; sourceTree = "<group>"; };
+		A93950451D0016A70063A27A /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		A94052191C0F0CB000E092BE /* ORCSettingsInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsInteractorTests.m; sourceTree = "<group>"; };
 		A940521A1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCValidatorActionInteractorTests.m; sourceTree = "<group>"; };
 		A94185091C74BDAD0089385A /* CLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLIColor.h; sourceTree = "<group>"; };
@@ -872,7 +891,6 @@
 		A94185221C74BDAD0089385A /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
 		A94185231C74BDAD0089385A /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
 		A94185481C74DEF80089385A /* Orchextra_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orchextra_Prefix.pch; sourceTree = "<group>"; };
-		A9472BF41C9B0CCD00FA5460 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/PrivateFrameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A94801191C6C77F3000573BD /* ORCGeofenceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGeofenceTests.m; sourceTree = "<group>"; };
 		A948011B1C6C85C4000573BD /* ORCLocationManagerWrapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCLocationManagerWrapperTests.m; sourceTree = "<group>"; };
 		A948011F1C6C92E9000573BD /* ORCLocationManagerWrapperMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCLocationManagerWrapperMock.h; path = Mocks/Sections/Scanner/ORCLocationManagerWrapperMock.h; sourceTree = "<group>"; };
@@ -881,6 +899,8 @@
 		A95E1F371C63319100509235 /* ORCStatisticsInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCStatisticsInteractor.m; sourceTree = "<group>"; };
 		A95E1F3B1C633C2C00509235 /* ORCApplicationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORCApplicationCenter.h; path = UIApplicationCenter/ORCApplicationCenter.h; sourceTree = "<group>"; };
 		A95E1F3C1C633C2C00509235 /* ORCApplicationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCApplicationCenter.m; path = UIApplicationCenter/ORCApplicationCenter.m; sourceTree = "<group>"; };
+		A962E7A61D7D7A4000237DF3 /* GET_action_vuforia_without_schedule_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_vuforia_without_schedule_data.json; sourceTree = "<group>"; };
+		A962E7A81D7D83E800237DF3 /* GET_action_datanil.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_datanil.json; sourceTree = "<group>"; };
 		A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCPushManager.h; sourceTree = "<group>"; };
 		A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCPushManager.m; sourceTree = "<group>"; };
@@ -897,6 +917,9 @@
 		A99073881C6DCD6E00186C8D /* ORCPushManagerMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORCPushManagerMock.m; path = Mocks/Managers/ORCPushManagerMock.m; sourceTree = "<group>"; };
 		A99073931C6DD26200186C8D /* ORCStatisticsInteractorMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCStatisticsInteractorMock.h; sourceTree = "<group>"; };
 		A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCStatisticsInteractorMock.m; sourceTree = "<group>"; };
+		A9A006591CF8257700175922 /* ORCTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCTag.h; sourceTree = "<group>"; };
+		A9A0065A1CF8257700175922 /* ORCTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCTag.m; sourceTree = "<group>"; };
+		A9A0065D1CF8380300175922 /* ORCTagTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCTagTests.m; sourceTree = "<group>"; };
 		A9A2C7FB1B25AD95008E5912 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A9A2C8021B25B21E008E5912 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A9AD5BA71C5FAC7A009C02D3 /* ORCProximityFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCProximityFormatter.h; sourceTree = "<group>"; };
@@ -963,7 +986,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F447A141D34D69400705861 /* SafariServices.framework in Frameworks */,
+				8F2884651D23D68D00BA5230 /* SafariServices.framework in Frameworks */,
+				A93950461D0016A70063A27A /* PassKit.framework in Frameworks */,
 				A9801C621C9AFC5200A28CF5 /* WebKit.framework in Frameworks */,
 				A9E4C00A1BC6BDE800341A37 /* MediaPlayer.framework in Frameworks */,
 				A9E4C0081BC6BDE100341A37 /* CoreMedia.framework in Frameworks */,
@@ -985,8 +1009,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F447A471D34E7FB00705861 /* SafariServices.framework in Frameworks */,
+				8F447A4A1D34F56100705861 /* SafariServices.framework in Frameworks */,
 				A9D1D69E1C9BE9E90070C666 /* WebKit.framework in Frameworks */,
+				A939504D1D001C930063A27A /* PassKit.framework in Frameworks */,
 				A9E4C0341BC6C08D00341A37 /* libOrchextra.a in Frameworks */,
 				A90FD12D1BF36D3E0042F370 /* OCHamcrestIOS.framework in Frameworks */,
 				A90FD12E1BF36D3E0042F370 /* OCMockitoIOS.framework in Frameworks */,
@@ -1117,6 +1142,7 @@
 				A909AFB51C6BA5BE005CEAA2 /* ORCBeaconTests.m */,
 				A94801191C6C77F3000573BD /* ORCGeofenceTests.m */,
 				A98F557D1C6DEF63000E7C60 /* ORCActionTests.m */,
+				A9A0065D1CF8380300175922 /* ORCTagTests.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1263,8 +1289,14 @@
 		A90FCE991BF362080042F370 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				8F15F61B1D13E0DD00B589E0 /* ORCBusinessUnit.h */,
+				8F15F61C1D13E0DD00B589E0 /* ORCBusinessUnit.m */,
+				8FE1DF851D082FC10015D2F1 /* ORCCustomField.h */,
+				8FE1DF861D082FC10015D2F1 /* ORCCustomField.m */,
 				A90FCE9A1BF362080042F370 /* ORCDevice.h */,
 				A90FCE9B1BF362080042F370 /* ORCDevice.m */,
+				A9A006591CF8257700175922 /* ORCTag.h */,
+				A9A0065A1CF8257700175922 /* ORCTag.m */,
 				A90FCE9C1BF362080042F370 /* ORCThemeSdk.h */,
 				A90FCE9D1BF362080042F370 /* ORCThemeSdk.m */,
 				A90FCE9E1BF362080042F370 /* ORCVuforiaConfig.h */,
@@ -1978,6 +2010,7 @@
 		A90FD0F81BF36CD30042F370 /* OrchextraTests */ = {
 			isa = PBXGroup;
 			children = (
+				A93378971D796382001E1BA0 /* Network */,
 				A909AF651C6B48F7005CEAA2 /* Data */,
 				A909AF681C6B48F7005CEAA2 /* Main */,
 				A909AF6A1C6B48F7005CEAA2 /* Managers */,
@@ -2015,6 +2048,8 @@
 		A90FD1051BF36CD30042F370 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				A962E7A81D7D83E800237DF3 /* GET_action_datanil.json */,
+				A962E7A61D7D7A4000237DF3 /* GET_action_vuforia_without_schedule_data.json */,
 				A98A0EA71C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json */,
 				A98A0EA51C71AFFF00EDA316 /* GET_action_webview_without_schedule.json */,
 				A98F55851C6DFF90000E7C60 /* GET_action_browser_without_schedule.json */,
@@ -2037,10 +2072,11 @@
 		A90FD10A1BF36CD30042F370 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */,
+				8F33A6F81D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json */,
 				A90FD10B1BF36CD30042F370 /* POST_confi_without_geomarketing.json */,
-				A90FD10C1BF36CD30042F370 /* POST_configuration.json */,
+				A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */,
 				A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */,
+				A90FD10C1BF36CD30042F370 /* POST_configuration.json */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -2080,6 +2116,14 @@
 				A90FD14A1BF36D650042F370 /* Simple.vertsh */,
 			);
 			path = OrchextraResources;
+			sourceTree = "<group>";
+		};
+		A93378971D796382001E1BA0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A93378981D7963B4001E1BA0 /* ORCGIGURLJSONResponseTests.m */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		A94052181C0F0CB000E092BE /* Interactor */ = {
@@ -2287,8 +2331,8 @@
 		A9E596691B04DBC40040EAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8F447A131D34D69400705861 /* SafariServices.framework */,
-				A9472BF41C9B0CCD00FA5460 /* WebKit.framework */,
+				8F2884641D23D68D00BA5230 /* SafariServices.framework */,
+				A93950451D0016A70063A27A /* PassKit.framework */,
 				A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */,
 				A9B17B0C1C566CB400D2BCB1 /* libcommonCrypto.tbd */,
 				A9E4C0091BC6BDE800341A37 /* MediaPlayer.framework */,
@@ -2409,6 +2453,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F15F61D1D13E0DD00B589E0 /* ORCBusinessUnit.h in Headers */,
+				8FE1DF871D082FC10015D2F1 /* ORCCustomField.h in Headers */,
 				A90FD06C1BF362080042F370 /* GIGURLAuthCommunicator.h in Headers */,
 				A90FD0C01BF362080042F370 /* ORCAppConfigResponse.h in Headers */,
 				A90FD0EF1BF364BD0042F370 /* ORCConstants.h in Headers */,
@@ -2442,6 +2488,7 @@
 				A90FD0A91BF362080042F370 /* NSArray+ORCGIGJSON.h in Headers */,
 				A90FD07C1BF362080042F370 /* ORCGIGURLFixture.h in Headers */,
 				A90FCFE71BF362080042F370 /* ORCActionWebView.h in Headers */,
+				A9A0065B1CF8257700175922 /* ORCTag.h in Headers */,
 				A90FD0621BF362080042F370 /* ORCGIGLayout.h in Headers */,
 				A90FD0CC1BF362080042F370 /* ORCActionCommunicator.h in Headers */,
 				A90FD09F1BF362080042F370 /* UIColor+ORCGIGExtension.h in Headers */,
@@ -2650,7 +2697,6 @@
 			knownRegions = (
 				en,
 				es,
-				"pt-BR",
 			);
 			mainGroup = A9E5956F1B04DA6F0040EAD4;
 			productRefGroup = A9E595791B04DA6F0040EAD4 /* Products */;
@@ -2719,6 +2765,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A98F55821C6DF910000E7C60 /* GET_action_without_schedule.json in Resources */,
+				8F33A6F91D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json in Resources */,
 				A909AF9E1C6B5ED6005CEAA2 /* Orchextra.bundle in Resources */,
 				A90FD12B1BF36D090042F370 /* POST_configuration.json in Resources */,
 				A90FD1271BF36CFE0042F370 /* GET_actionScanner.json in Resources */,
@@ -2728,7 +2775,9 @@
 				A98A0EA81C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json in Resources */,
 				A940521F1C0F16E700E092BE /* POST_configuration_failure.json in Resources */,
 				A98F55841C6DFE29000E7C60 /* GET_action_scanner_without_schedule.json in Resources */,
+				A962E7A71D7D7A4000237DF3 /* GET_action_vuforia_without_schedule_data.json in Resources */,
 				A98A0EA61C71AFFF00EDA316 /* GET_action_webview_without_schedule.json in Resources */,
+				A962E7A91D7D83E800237DF3 /* GET_action_datanil.json in Resources */,
 				A90FD1291BF36D030042F370 /* clientToken.json in Resources */,
 				A909AFB41C6BA26D005CEAA2 /* region_geofence.json in Resources */,
 				A909AF9D1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json in Resources */,
@@ -2834,12 +2883,14 @@
 				A90FD0A81BF362080042F370 /* NSInvocation+ORCGIGExtension.m in Sources */,
 				A90FD0AC1BF362080042F370 /* NSData+ORCGIGJSON.m in Sources */,
 				A90FCFF01BF362080042F370 /* ORCVuforiaConfig.m in Sources */,
+				A9A0065C1CF8257700175922 /* ORCTag.m in Sources */,
 				A909AFA71C6B9497005CEAA2 /* ORCUserLocationPersister.m in Sources */,
 				A90FD0CD1BF362080042F370 /* ORCActionCommunicator.m in Sources */,
 				A90FD08C1BF362080042F370 /* ORCGIGURLRequest.m in Sources */,
 				A90FD0861BF362080042F370 /* ORCGIGURLCommunicator.m in Sources */,
 				A941853B1C74BDAD0089385A /* DDDispatchQueueLogFormatter.m in Sources */,
 				A95E1F3E1C633C2C00509235 /* ORCApplicationCenter.m in Sources */,
+				8F15F61E1D13E0DD00B589E0 /* ORCBusinessUnit.m in Sources */,
 				A90FCFEC1BF362080042F370 /* ORCDevice.m in Sources */,
 				A90FD0691BF362080042F370 /* ORCGIGLayoutGridVertical.m in Sources */,
 				A90FD07B1BF362080042F370 /* ORCGIGURLDomainsKeeper.m in Sources */,
@@ -2926,6 +2977,7 @@
 				A90FD0D81BF362080042F370 /* ORCLocationManagerWrapper.m in Sources */,
 				A90FD06F1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.m in Sources */,
 				A90FD05D1BF362080042F370 /* GIGScannerViewController.m in Sources */,
+				8FE1DF881D082FC10015D2F1 /* ORCCustomField.m in Sources */,
 				A90FD0C91BF362080042F370 /* ORCUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2949,9 +3001,11 @@
 				A909AFAC1C6BA0EC005CEAA2 /* ORCUserTests.m in Sources */,
 				A909AF871C6B48F7005CEAA2 /* ORCScannerPresenterTests.m in Sources */,
 				A909AF881C6B48F7005CEAA2 /* ORCScannerViewControllerTests.m in Sources */,
+				A93378991D7963B4001E1BA0 /* ORCGIGURLJSONResponseTests.m in Sources */,
 				A909AF8E1C6B4A95005CEAA2 /* ORCSettingsPersisterMock.m in Sources */,
 				A909AF991C6B502C005CEAA2 /* ORCFormatterParametersMock.m in Sources */,
 				A948011A1C6C77F3000573BD /* ORCGeofenceTests.m in Sources */,
+				A9A0065E1CF8380300175922 /* ORCTagTests.m in Sources */,
 				A909AF891C6B48F7005CEAA2 /* ORCFormatterParametersTests.m in Sources */,
 				A909AF7F1C6B48F7005CEAA2 /* OrchextraTests.m in Sources */,
 				A940521C1C0F0CB000E092BE /* ORCSettingsInteractorTests.m in Sources */,
@@ -3002,7 +3056,6 @@
 			children = (
 				A90FCEC21BF362080042F370 /* en */,
 				A90FCEC31BF362080042F370 /* es */,
-				9121B5861D2C19CC00B1061D /* pt-BR */,
 			);
 			name = Localizable.strings;
 			path = ..;

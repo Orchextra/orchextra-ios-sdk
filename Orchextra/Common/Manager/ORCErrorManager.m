@@ -60,12 +60,16 @@ NSString * const kErrorActionNotFoundMessage = @"Action not found.";
                 break;
                 
             default:
-                
                 break;
         }
 
         error = [NSError errorWithDomain:ORCErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey : message}];
     }
+    else
+    {
+        error = [NSError errorWithDomain:ORCErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey : kORCUnexpectedError}];
+    }
+    
     
     return error;
 }

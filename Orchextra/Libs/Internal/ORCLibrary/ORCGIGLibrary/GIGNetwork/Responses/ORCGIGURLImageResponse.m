@@ -25,7 +25,6 @@
 - (instancetype)initWithImage:(UIImage *)image
 {
     NSData *data = UIImagePNGRepresentation(image);
-    
     return [self initWithData:data];
 }
 

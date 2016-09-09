@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
+#import <PassKit/PassKit.h>
+
 #import "ORCWebViewController.h"
 #import "ORCBarButtonItem.h"
 #import "ORCSettingsPersister.h"
@@ -24,6 +26,7 @@ CGFloat const HEIGHT_TOOLBAR = 44;
 @property (strong, nonatomic) UIToolbar *toolBar;
 @property (strong, nonatomic) UIWebView *webView;
 @property (strong, nonatomic) NSURL *url;
+@property (strong, nonatomic) NSURLRequest *lastRequest;
 
 @end
 
@@ -49,7 +52,7 @@ CGFloat const HEIGHT_TOOLBAR = 44;
 {
     [super viewDidLoad];
     [self initialize];
-
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
     [self.webView loadRequest:request];
 }
@@ -143,5 +146,29 @@ CGFloat const HEIGHT_TOOLBAR = 44;
     [self.view addConstraints:constraintWidth];
 }
 
+#pragma mark - UIWebViewDelegate
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    self.lastRequest = request;
+    return YES;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:_lastRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
+        if ([response.MIMEType isEqualToString:@"application/vnd.apple.pkpass"]) {
+            NSError *error;
+            PKPass *pass = [[PKPass alloc] initWithData:data error:&error];
+            if (error) {
+                [ORCLog logError:@"Error: %@", error];
+            } else {
+                PKAddPassesViewController *apvc = [[PKAddPassesViewController alloc] initWithPass:pass];
+                [self presentViewController:apvc animated:YES completion:nil];
+            }
+        }
+    }];
+}
 
 @end
