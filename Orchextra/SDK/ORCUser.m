@@ -8,28 +8,34 @@
 
 #import "ORCUser.h"
 
+#import "ORCCustomField.h"
+#import "ORCTag.h"
 
 NSString * const ORCCrmIdKey = @"ORCCrmId";
 NSString * const ORCBirthdayKey = @"ORCBirthday";
 NSString * const ORCGenderKey = @"ORCGender";
 NSString * const ORCTagsKey = @"ORCTags";
 NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
-
+NSString * const ORCCustomFields = @"ORCCustomFields";
+NSString * const ORCBusinessUnits = @"ORCBusinessUnits";
 
 @implementation ORCUser
 
 #pragma mark - NSCODING
 
--(instancetype)initWithCoder:(NSCoder *)aDecoder
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
     
     if (self)
     {
-        _crmID      = [aDecoder decodeObjectForKey:ORCCrmIdKey];
-        _birthday   = [aDecoder decodeObjectForKey:ORCBirthdayKey];
-        _tags       = [aDecoder decodeObjectForKey:ORCTagsKey];
-        _deviceToken = [aDecoder decodeObjectForKey:ORCDeviceTokenKey];
+        _crmID          = [aDecoder decodeObjectForKey:ORCCrmIdKey];
+        _birthday       = [aDecoder decodeObjectForKey:ORCBirthdayKey];
+        _tags           = [aDecoder decodeObjectForKey:ORCTagsKey];
+        _deviceToken    = [aDecoder decodeObjectForKey:ORCDeviceTokenKey];
+        _customFields   = [aDecoder decodeObjectForKey:ORCCustomFields];
+        _businessUnits  = [aDecoder decodeObjectForKey:ORCBusinessUnits];
         
         NSNumber *genderNumber = [aDecoder decodeObjectForKey:ORCGenderKey];
         _gender = [self genderUser:genderNumber];
@@ -43,11 +49,31 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
     [aCoder encodeObject:_crmID forKey:ORCCrmIdKey];
     [aCoder encodeObject:_birthday forKey:ORCBirthdayKey];
     [aCoder encodeObject:_tags forKey:ORCTagsKey];
+    [aCoder encodeObject:_customFields forKey:ORCCustomFields];
     [aCoder encodeObject:_deviceToken forKey:ORCDeviceTokenKey];
     [aCoder encodeObject:@(_gender) forKey:ORCGenderKey];
+    [aCoder encodeObject:_businessUnits forKey:ORCBusinessUnits];
 }
 
 #pragma mark - PUBLIC
+
+- (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key
+{
+    BOOL result = NO;
+    NSArray <ORCCustomField *> *customFields = self.customFields;
+    
+    for (ORCCustomField *customField in customFields)
+    {
+        if ([customField.key isEqualToString:key])
+        {
+            result = YES;
+            customField.value = value;
+            break;
+        }
+    }
+    
+    return result;
+}
 
 - (BOOL)isSameUser:(ORCUser *)user
 {
@@ -55,7 +81,9 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
         [self equalBirthday:user.birthday] &&
         [self equalTags:user.tags] &&
         [self equalDeviceToken:user.deviceToken] &&
-        [self equalGender:user.gender])
+        [self equalGender:user.gender] &&
+        [self equalCustomFields:user.customFields] &&
+        [self equalBusinessUnits:user.businessUnits])
     {
         return YES;
     }
@@ -114,7 +142,7 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
     }
 }
 
-- (BOOL)equalTags:(NSArray *)tags
+- (BOOL)equalTags:(NSArray <ORCTag *> *)tags
 {
     if (tags)
     {
@@ -123,6 +151,18 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
     else
     {
         return (self.tags == nil);
+    }
+}
+
+- (BOOL)equalCustomFields:(NSArray <ORCCustomField *> *)customFields
+{
+    if (customFields)
+    {
+        return [customFields isEqualToArray:self.customFields];
+    }
+    else
+    {
+        return (self.customFields == nil);
     }
 }
 
@@ -141,6 +181,11 @@ NSString * const ORCDeviceTokenKey = @"ORCDeviceToken";
 - (BOOL)equalGender:(ORCUserGender)gender
 {
     return (gender == self.gender);
+}
+
+- (BOOL)equalBusinessUnits:(NSArray <ORCBusinessUnit *> *)businessUnits
+{
+    return (businessUnits == self.businessUnits);
 }
 
 @end

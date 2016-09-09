@@ -27,4 +27,6 @@
 
 - (NSDictionary *)formattedCurrentUserLocation;
 
+- (NSDictionary *)formattedCustomFields;
+
 @end

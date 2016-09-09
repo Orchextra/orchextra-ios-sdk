@@ -7,7 +7,9 @@
 //
 
 #import "ORCDevice.h"
+
 #import "NSBundle+ORCGIGExtension.h"
+#import "ORCTag.h"
 
 #import <AdSupport/AdSupport.h>
 #import <sys/sysctl.h>
@@ -39,7 +41,6 @@ NSString * const IPAD_DEVICE = @"Ipad";
     
     return self;
 }
-
 
 #pragma mark - PRIVATE (Device Hardware)
 

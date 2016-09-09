@@ -12,26 +12,30 @@
 #import "ORCRegion.h"
 #import "ORCUser.h"
 #import "ORCConstants.h"
+#import "ORCCustomField.h"
 
 #import "NSUserDefaults+ORCGIGArchive.h"
 
 
-NSString * const ORCApiKey = @"ORCApiKey";
-NSString * const ORCApiSecret = @"ORCApiSecret";
-NSString * const ORCUserKey = @"ORCUserKey";
-NSString * const ORCConfigDataKey = @"ORCConfigDataKey";
-NSString * const ORCBackgroundTimeKey = @"ORCBackgroundTimeKey";
-NSString * const ORCRequestWaitTimeKey = @"ORCRequestWaitTimeKey";
-NSString * const ORCGIGURLManagerApiKey = @"ORCGIGURLManagerApiKey";
-NSString * const ORCGIGURLManagerApiSecret = @"ORCGIGURLManagerApiSecret";
-NSString * const ORCEnvironment = @"ORCEnvironment";
+NSString * const ORCApiKey                      = @"ORCApiKey";
+NSString * const ORCApiSecret                   = @"ORCApiSecret";
+NSString * const ORCUserKey                     = @"ORCUserKey";
+NSString * const ORCConfigDataKey               = @"ORCConfigDataKey";
+NSString * const ORCBackgroundTimeKey           = @"ORCBackgroundTimeKey";
+NSString * const ORCRequestWaitTimeKey          = @"ORCRequestWaitTimeKey";
+NSString * const ORCGIGURLManagerApiKey         = @"ORCGIGURLManagerApiKey";
+NSString * const ORCGIGURLManagerApiSecret      = @"ORCGIGURLManagerApiSecret";
+NSString * const ORCEnvironment                 = @"ORCEnvironment";
 
 NSString * const ORCGIGURLManagerClientTokenKey = @"ORCGIGURLManagerClientTokenKey";
 NSString * const ORCGIGURLManagerAccessTokenKey = @"ORCGIGURLManagerAccessTokenKey";
 
-NSString * const OrchextraState = @"OrchextraState";
+NSString * const OrchextraState                 = @"OrchextraState";
 
-NSString * const ORCVuforiaConfigDetails = @"ORCVuforiaConfigDetails";
+NSString * const ORCVuforiaConfigDetails        = @"ORCVuforiaConfigDetails";
+NSString * const ORCAvailableCustomFields       = @"ORCAvailableCustomFields";
+NSString * const ORCDeviceTags                  = @"ORCDeviceTags";
+NSString * const ORCDeviceBusinessUnits         = @"ORCDeviceBusinessUnits";
 
 @interface ORCSettingsPersister()
 
@@ -115,7 +119,7 @@ NSString * const ORCVuforiaConfigDetails = @"ORCVuforiaConfigDetails";
 - (NSInteger)loadBackgroundTime
 {
     NSInteger backgroundTime = [self.userDefaults integerForKey:ORCBackgroundTimeKey];
-   
+    
     if (backgroundTime < DEFAULT_BACKGROUND_TIME) {
         backgroundTime = DEFAULT_BACKGROUND_TIME;
         [self storeBackgroundTime:DEFAULT_BACKGROUND_TIME];
@@ -158,6 +162,7 @@ NSString * const ORCVuforiaConfigDetails = @"ORCVuforiaConfigDetails";
     [self.userDefaults setValue:environment forKey:ORCEnvironment];
     [self.userDefaults synchronize];
 }
+
 #pragma mark - PUBLIC (Authentication)
 
 - (NSString *)loadAccessToken
@@ -185,13 +190,105 @@ NSString * const ORCVuforiaConfigDetails = @"ORCVuforiaConfigDetails";
 - (ORCVuforiaConfig *)loadVuforiaConfig
 {
     return [self.userDefaults unarchiveObjectForKey:ORCVuforiaConfigDetails];
-
 }
+
 - (void)storeVuforiaConfig:(ORCVuforiaConfig *)vuforiaConfig
 {
     [self.userDefaults archiveObject:vuforiaConfig forKey:ORCVuforiaConfigDetails];
     [self.userDefaults synchronize];
 }
 
+#pragma mark - PUBLIC (Custom fields)
+
+- (NSArray <ORCCustomField *> *)loadAvailableCustomFields
+{
+    return [self.userDefaults unarchiveObjectForKey:ORCAvailableCustomFields];
+}
+
+- (void)storeAvailableCustomFields:(NSArray <ORCCustomField *> *)availableCustomFields
+{
+    [self.userDefaults archiveObject:availableCustomFields forKey:ORCAvailableCustomFields];
+    [self.userDefaults synchronize];
+}
+
+- (NSArray <ORCCustomField *> *)loadCustomFields
+{
+    ORCUser *user = [self loadCurrentUser];
+    return user.customFields;
+}
+
+- (void)setCustomFields:(NSArray <ORCCustomField *> *)customFields
+{
+    ORCUser *user = [self loadCurrentUser];
+    user.customFields = customFields;
+    [self storeUser:user];
+}
+
+- (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key
+{
+    ORCUser *user = [self loadCurrentUser];
+    BOOL userUpdated = [user updateCustomFieldValue:value withKey:key];
+    
+    if (userUpdated)
+    {
+        [self storeUser:user];
+    }
+    
+    return userUpdated;
+}
+
+#pragma mark - PUBLIC (User tags)
+
+- (NSArray <ORCTag *> *)loadUserTags
+{
+    ORCUser *user = [self loadCurrentUser];
+    return user.tags;
+}
+
+- (void)setUserTags:(NSArray <ORCTag *> *)userTags
+{
+    ORCUser *user = [self loadCurrentUser];
+    user.tags = userTags;
+    [self storeUser:user];
+}
+
+#pragma mark - PUBLIC (Device tags)
+
+- (NSArray <ORCTag *> *)loadDeviceTags
+{
+    return [self.userDefaults unarchiveObjectsForKey:ORCDeviceTags];
+}
+
+- (void)setDeviceTags:(NSArray <ORCTag *> *)deviceTags
+{
+    [self.userDefaults archiveObjects:deviceTags forKey:ORCDeviceTags];
+}
+
+#pragma mark - PUBLIC (User business units)
+
+- (NSArray <ORCBusinessUnit *> *)loadUserBusinessUnits
+{
+    ORCUser *user = [self loadCurrentUser];
+    return user.businessUnits;
+}
+
+- (void)setUserBusinessUnit:(NSArray <ORCBusinessUnit *> *)userBusinessUnit
+{
+    ORCUser *user = [self loadCurrentUser];
+    user.businessUnits = userBusinessUnit;
+    [self storeUser:user];
+}
+
+#pragma mark - PUBLIC (Device business units)
+
+- (NSArray <ORCBusinessUnit *> *)loadDeviceBusinessUnits
+{
+    return [self.userDefaults unarchiveObjectsForKey:ORCDeviceBusinessUnits];
+}
+
+- (void)setDeviceBusinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits
+{
+    [self.userDefaults archiveObjects:deviceBusinessUnits forKey:ORCDeviceBusinessUnits];
+}
 
 @end

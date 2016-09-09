@@ -15,6 +15,7 @@ NSString *const ORCRegionNotifyOnEntry = @"regionNotifyOnEntry";
 NSString *const ORCRegionNotifyOnExit = @"regionNotifyOnExit";
 NSString *const ORCRegionTimer = @"stayTime";
 NSString *const ORCRegionName = @"name";
+NSString *const ORCRegionCurrentEvent = @"currentEvent";
 
 @implementation ORCRegion
 
@@ -84,6 +85,7 @@ NSString *const ORCRegionName = @"name";
         _notifyOnExit = [aDecoder decodeBoolForKey:ORCRegionNotifyOnExit];
         _timer = [aDecoder decodeDoubleForKey:ORCRegionTimer];
         _name = [aDecoder decodeObjectForKey:ORCRegionName];
+        _currentEvent = [aDecoder decodeIntegerForKey:ORCRegionCurrentEvent];
     }
     
     return self;
@@ -97,6 +99,7 @@ NSString *const ORCRegionName = @"name";
     [aCoder encodeBool:_notifyOnExit forKey:ORCRegionNotifyOnExit];
     [aCoder encodeDouble:_timer forKey:ORCRegionTimer];
     [aCoder encodeObject:_name forKey:ORCRegionName];
+    [aCoder encodeInteger:_currentEvent forKey:ORCRegionCurrentEvent];
 }
 
 - (void)registerRegionWithLocationManager:(CLLocationManager *)locationManager

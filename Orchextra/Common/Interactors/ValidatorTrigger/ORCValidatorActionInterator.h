@@ -14,6 +14,7 @@
 @class ORCGeofence;
 @class ORCAction;
 @class ORCActionCommunicator;
+@class ORCURLActionResponse;
 
 
 typedef void(^CompletionActionValidated)(ORCAction *action, NSError *error);
@@ -31,5 +32,8 @@ typedef void(^CompletionActionValidated)(ORCAction *action, NSError *error);
 - (void)validateProximityWithRegion:(ORCRegion *)region completion:(CompletionActionValidated)completionAction;
 
 - (void)validateProximityWithGeofence:(ORCGeofence *)geofence completion:(CompletionActionValidated)completionAction;
+
+- (void)validateResponse:(ORCURLActionResponse *)response requestParams:(NSDictionary *)requestParams
+              completion:(CompletionActionValidated)completion;
 
 @end

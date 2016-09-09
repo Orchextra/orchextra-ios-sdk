@@ -16,7 +16,10 @@
 #import "ORCUserLocationPersisterMock.h"
 #import "ORCAppConfigCommunicator.h"
 
+#import "ORCBusinessUnit.h"
+#import "ORCCustomField.h"
 #import "ORCUser.h"
+#import "ORCTag.h"
 #import "ORCThemeSdk.h"
 #import "ORCVuforiaConfig.h"
 
@@ -59,7 +62,7 @@
     [self.settingPersister storeApiKey:apikey];
     
     //Verify
-     NSString *apikeyStored = [self.settingPersister loadApiKey];
+    NSString *apikeyStored = [self.settingPersister loadApiKey];
     XCTAssertTrue([apikey isEqualToString:apikeyStored]);
 }
 
@@ -167,7 +170,7 @@
     
     //Verify
     ORCThemeSdk *themeStored = [self.settingPersister loadThemeSdk];
-
+    
     XCTAssert([theme.primaryColor isEqual:themeStored.primaryColor]);
     XCTAssert([theme.secondaryColor isEqual:themeStored.secondaryColor]);
 }
@@ -191,7 +194,7 @@
     NSString *license = @"license";
     NSString *accessKey = @"accessKey";
     NSString *secretKey = @"secretKey";
-
+    
     ORCVuforiaConfig *vuforia = [[ORCVuforiaConfig alloc] init];
     vuforia.licenseKey = license;
     vuforia.accessKey = accessKey;
@@ -206,7 +209,285 @@
     XCTAssert([vuforia.licenseKey isEqualToString:vuforiaStored.licenseKey]);
     XCTAssert([vuforia.accessKey isEqualToString:vuforiaStored.accessKey]);
     XCTAssert([vuforia.secretKey isEqualToString:vuforiaStored.secretKey]);
+    
+}
 
+- (void)test_store_custom_field_config
+{
+    //Prepare
+    [self givenAnUser];
+    
+    NSMutableArray<ORCCustomField *> *customFields = [[NSMutableArray alloc] init];
+    
+    ORCCustomField *customField1 = [[ORCCustomField alloc] initWithKey:@"name"
+                                                                    label:@"Nombre"
+                                                                     type:ORCCustomFieldTypeString
+                                                                    value:nil];
+    ORCCustomField *customField2 = [[ORCCustomField alloc] initWithKey:@"surname"
+                                                                    label:@"Surname"
+                                                                     type:ORCCustomFieldTypeString
+                                                                    value:nil];
+    ORCCustomField *customField3 = [[ORCCustomField alloc] initWithKey:@"email"
+                                                                    label:@"Email"
+                                                                     type:ORCCustomFieldTypeString
+                                                                    value:nil];
+    
+    [customFields addObject:customField1];
+    [customFields addObject:customField2];
+    [customFields addObject:customField3];
+    
+    //Execute
+    [self.settingPersister setCustomFields:customFields];
+    
+    //Verify
+    NSArray <ORCCustomField *> *loadedCustomFields = [self.settingPersister loadCustomFields];
+    ORCCustomField *customFieldToBeTest = [loadedCustomFields objectAtIndex:0];
+    
+    BOOL customFieldEqual = [self givenCustomField:customField1 isEqualTo:customFieldToBeTest];
+    XCTAssertTrue(customFieldEqual);
+    
+    customFieldToBeTest = [loadedCustomFields objectAtIndex:1];
+    customFieldEqual = [self givenCustomField:customField2 isEqualTo:customFieldToBeTest];
+    XCTAssertTrue(customFieldEqual);
+    
+    customFieldToBeTest = [loadedCustomFields objectAtIndex:2];
+    customFieldEqual = [self givenCustomField:customField3 isEqualTo:customFieldToBeTest];
+    XCTAssertTrue(customFieldEqual);
+}
+
+- (void)test_update_custom_field_value_valid_key
+{
+    //Prepare
+    [self givenAnUser];
+    NSMutableArray<ORCCustomField *> *customFields = [[NSMutableArray alloc] init];
+    ORCCustomField *customField = [[ORCCustomField alloc] initWithKey:@"name"
+                                                                    label:@"Nombre"
+                                                                     type:ORCCustomFieldTypeString
+                                                                    value:nil];
+    [customFields addObject:customField];
+    [self.settingPersister setCustomFields:customFields];
+    
+    //Execute
+    BOOL updatedSuccesfully = [self.settingPersister updateCustomFieldValue:@"Carlos" withKey:@"name"];
+    
+    //Verify
+    NSArray <ORCCustomField *> *loadedCustomFields = [self.settingPersister loadCustomFields];
+    ORCCustomField *customFieldModified = [loadedCustomFields objectAtIndex:0];
+    BOOL isEqualCustomFieldValue = [@"Carlos" isEqualToString:customFieldModified.value];
+    
+    XCTAssertTrue(updatedSuccesfully);
+    XCTAssertNotNil(customFieldModified.value);
+    XCTAssertTrue(isEqualCustomFieldValue);
+}
+
+- (void)test_update_custom_field_value_not_valid_key
+{
+    //Prepare
+    NSMutableArray<ORCCustomField *> *customFields = [[NSMutableArray alloc] init];
+    ORCCustomField *customField = [[ORCCustomField alloc] initWithKey:@"name"
+                                                                label:@"Nombre"
+                                                                 type:ORCCustomFieldTypeString
+                                                                value:nil];
+    [customFields addObject:customField];
+    [self.settingPersister setCustomFields:customFields];
+    
+    //Execute
+    BOOL updatedSuccesfully = [self.settingPersister updateCustomFieldValue:@"NoName" withKey:@"key"];
+    
+    //Verify
+    NSArray <ORCCustomField *> *loadedCustomFields = [self.settingPersister loadCustomFields];
+    ORCCustomField *customFieldModified = [loadedCustomFields objectAtIndex:0];
+    BOOL isEqualCustomFieldValue = [@"NoName" isEqualToString:customFieldModified.value];
+    
+    XCTAssertFalse(updatedSuccesfully);
+    XCTAssertNil(customFieldModified.value);
+    XCTAssertFalse(isEqualCustomFieldValue);
+}
+
+- (void)test_store_user_tags
+{
+    //Prepare
+    [self givenAnUser];
+    NSArray <ORCTag *> *tags = [self givenTags];
+    
+    //Execute
+    [self.settingPersister setUserTags:tags];
+    
+    //Verify
+    NSArray <ORCTag *> *loadedTags = [self.settingPersister loadUserTags];
+    
+    for (NSUInteger i = 0; i < tags.count; i++)
+    {
+        ORCTag *tag = [tags objectAtIndex:i];
+        ORCTag *loadedTag = [loadedTags objectAtIndex:i];
+        
+        BOOL tagAreEquals = [self givenTag:tag
+                                 isEqualTo:loadedTag];
+        
+        XCTAssertTrue(tagAreEquals);
+    }
+    
+    XCTAssertNotNil(loadedTags);
+    XCTAssertTrue(loadedTags.count == 3);
+}
+
+- (void)test_store_device_tags
+{
+    //Prepare
+    NSArray <ORCTag *> *tags = [self givenTags];
+    
+    //Execute
+    [self.settingPersister setDeviceTags:tags];
+    
+    //Verify
+    NSArray <ORCTag *> *loadedDevicetags = [self.settingPersister loadDeviceTags];
+    
+    for (NSUInteger i = 0; i < tags.count; i++)
+    {
+        ORCTag *tag = [tags objectAtIndex:i];
+        ORCTag *loadedTag = [loadedDevicetags objectAtIndex:i];
+        
+        BOOL tagAreEquals = [self givenTag:tag
+                                 isEqualTo:loadedTag];
+        
+        XCTAssertTrue(tagAreEquals);
+    }
+
+    XCTAssertNotNil(loadedDevicetags);
+    XCTAssertTrue(loadedDevicetags.count == 3);
+}
+
+- (void)test_store_user_business_units
+{
+    //Prepare
+    [self givenAnUser];
+    NSArray <ORCBusinessUnit *> *businessUnits = [self givenBusinessUnits];
+    
+    //Execute
+    [self.settingPersister setUserBusinessUnit:businessUnits];
+    
+    //Verify
+    NSArray <ORCBusinessUnit *> *loadedBusinessUnits = [self.settingPersister loadUserBusinessUnits];
+    
+    for (NSUInteger i = 0; i < businessUnits.count; i++)
+    {
+        ORCBusinessUnit *businessUnit = [businessUnits objectAtIndex:i];
+        ORCBusinessUnit *loadedBusinessUnit = [loadedBusinessUnits objectAtIndex:i];
+        
+        BOOL businessUnitsAreEquals = [self givenBusinessUnit:businessUnit
+                                                    isEqualTo:loadedBusinessUnit];
+        
+        XCTAssertTrue(businessUnitsAreEquals);
+    }
+    
+    XCTAssertNotNil(loadedBusinessUnits);
+    XCTAssertTrue(loadedBusinessUnits.count == 3);
+}
+
+- (void)test_store_device_business_units
+{
+    //Prepare
+    [self givenAnUser];
+    NSArray <ORCBusinessUnit *> *businessUnits = [self givenBusinessUnits];
+    
+    //Execute
+    [self.settingPersister setDeviceBusinessUnits:businessUnits];
+    
+    //Verify
+    NSArray <ORCBusinessUnit *> *loadedBusinessUnits = [self.settingPersister loadDeviceBusinessUnits];
+    
+    for (NSUInteger i = 0; i < businessUnits.count; i++)
+    {
+        ORCBusinessUnit *businessUnit = [businessUnits objectAtIndex:i];
+        ORCBusinessUnit *loadedBusinessUnit = [loadedBusinessUnits objectAtIndex:i];
+        
+        BOOL businessUnitsAreEquals = [self givenBusinessUnit:businessUnit
+                                                    isEqualTo:loadedBusinessUnit];
+        
+        XCTAssertTrue(businessUnitsAreEquals);
+    }
+    
+    XCTAssertNotNil(loadedBusinessUnits);
+    XCTAssertTrue(loadedBusinessUnits.count == 3);
+}
+
+
+#pragma mark - Helper
+
+- (void)givenAnUser
+{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    
+    ORCUser *userData = [[ORCUser alloc] init];
+    userData.crmID = uuid;
+    
+    [self.settingPersister storeUser:userData];
+}
+
+- (BOOL)givenCustomField:(ORCCustomField *)customField isEqualTo:(ORCCustomField *)customFieldToBeTest
+{
+    BOOL result = NO;
+    
+    BOOL isEqualKey = [customField.key isEqualToString:customFieldToBeTest.key];
+    BOOL isEqualName = [customField.label isEqualToString:customFieldToBeTest.label];
+    BOOL isEqualType = customField.type == customFieldToBeTest.type;
+    BOOL isEqualValue = customField.value == customFieldToBeTest.value;
+
+    if (isEqualKey  &&
+        isEqualName &&
+        isEqualType &&
+        isEqualValue)
+    {
+        result = YES;
+    }
+    
+    return result;
+}
+
+- (BOOL)givenTag:(ORCTag *)tag isEqualTo:(ORCTag *)tagToBeTest
+{
+    NSString *tagFormatted = [tag tag];
+    NSString *tagToBeTestFormatted = [tagToBeTest tag];
+    
+    return [tagFormatted isEqualToString:tagToBeTestFormatted];
+}
+
+- (BOOL)givenBusinessUnit:(ORCBusinessUnit *)businessUnit isEqualTo:(ORCBusinessUnit *)businessUnitToBeTest
+{
+    NSString *businessUnitFormatted = [businessUnit tag];
+    NSString *businessUnitToBeTestFormatted = [businessUnitToBeTest tag];
+    
+    return [businessUnitFormatted isEqualToString:businessUnitToBeTestFormatted];
+}
+
+- (NSArray <ORCTag *> *)givenTags
+{
+    NSMutableArray <ORCTag *> *tags = [[NSMutableArray alloc] init];
+    
+    ORCTag *tag1 = [[ORCTag alloc] initWithPrefix:@"color" name:@"green"];
+    ORCTag *tag2 = [[ORCTag alloc] initWithPrefix:@"color" name:@"yellow"];
+    ORCTag *tag3 = [[ORCTag alloc] initWithPrefix:@"color"];
+    
+    [tags addObject:tag1];
+    [tags addObject:tag2];
+    [tags addObject:tag3];
+    
+    return tags;
+}
+
+- (NSArray <ORCBusinessUnit *> *)givenBusinessUnits {
+
+    NSMutableArray <ORCBusinessUnit *> *businessUnits = [[NSMutableArray alloc] init];
+    
+    ORCBusinessUnit *businessUnit1 = [[ORCBusinessUnit alloc] initWithPrefix:@"brand" name:@"renault"];
+    ORCBusinessUnit *businessUnit2 = [[ORCBusinessUnit alloc] initWithPrefix:@"brand" name:@"bmw"];
+    ORCBusinessUnit *businessUnit3 = [[ORCBusinessUnit alloc] initWithPrefix:@"brand"];
+    
+    [businessUnits addObject:businessUnit1];
+    [businessUnits addObject:businessUnit2];
+    [businessUnits addObject:businessUnit3];
+    
+    return businessUnits;
 }
 
 @end

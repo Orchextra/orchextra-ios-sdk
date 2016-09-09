@@ -18,7 +18,9 @@ typedef void(^CompletionOrchestraConfigResponse)(ORCAppConfigResponse *response)
 
 //- (void)loadConfigurationWithCompletion:(CompletionOrchestraConfigResponse)completion;
 
-- (void)loadConfiguration:(NSDictionary *)configuration completion:(CompletionOrchestraConfigResponse)completion;
+- (void)loadConfiguration:(NSDictionary *)configuration
+                 sections:(NSArray *)sections
+               completion:(CompletionOrchestraConfigResponse)completion;
 
 - (void)useFixtures:(BOOL)useFixtures;
 

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class ORCTag;
+
 @interface ORCDevice : NSObject
 
 @property (strong, nonatomic) NSString *advertisingID;

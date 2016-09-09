@@ -7,7 +7,7 @@
 //
 
 #import "ORCPushManager.h"
-#import "ORCSettingsPersister.h"
+#import "Orchextra.h"
 #import "ORCPushNotification.h"
 #import "ORCActionManager.h"
 #import "ORCConstants.h"
@@ -20,7 +20,6 @@
 
 #import "NSDictionary+ORCGIGJSON.h"
 #import "NSBundle+ORCBundle.h"
-
 
 
 NSString * const NOTIFICATION_ACTION_ID = @"id";
@@ -66,6 +65,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
     {
         _currentTagAlertView = 0;
         _notificationCompletions = [[NSMutableArray alloc] init];
+
         [self registerPushNotification];
     }
     
@@ -143,20 +143,15 @@ NSString * const NOTIFICATION_TYPE = @"type";
     NSString *deviceTokenString = [[ORCPushManager sharedPushManager]
                                    tokenStringWithData:deviceToken];
     
-    ORCSettingsInteractor *interactor = [[ORCSettingsInteractor alloc] init];
-    ORCSettingsPersister *persister = [[ORCSettingsPersister alloc] init];
+    Orchextra *orchextra = [Orchextra sharedInstance];
+    ORCUser *user = [orchextra currentUser];
     
-    ORCUser *user = [persister loadCurrentUser];
     if (!user)
     {
         user = [[ORCUser alloc] init];
     }
     user.deviceToken = deviceTokenString;
-    
-    [interactor saveUser:user];
-
-//    [persister storeUser:user];
-    
+    [orchextra bindUser:user];
 }
 
 #pragma mark - HANDLE PUSH NOTIFICATION
@@ -165,43 +160,50 @@ NSString * const NOTIFICATION_TYPE = @"type";
 
     ORCPushNotification *push = nil;
     
-    if ([userInfo isKindOfClass:[UILocalNotification class]])
-    {
-        push = [[ORCPushNotification alloc] initWithLocalNotification:(UILocalNotification *)userInfo];
-    }
-    else
-    {
-        push = [[ORCPushNotification alloc] initWithRemoteNotification:userInfo];
-    }
+    Orchextra *orchextra = [Orchextra sharedInstance];
+    BOOL isRunningOrchextra = [orchextra orchextraRunning];
     
-    if (![push.type isEqualToString:ORCTypeGeofence])
+    if (isRunningOrchextra)
     {
-        ORCAction *action = [[ORCAction alloc] initWithType:push.type];
-        action.urlString = push.url;
-        action.titleNotification = push.title;
-        action.bodyNotification = push.body;
-        action.trackId = push.trackerId;
-        action.launchedByTriggerCode = push.launchedBy;
+        if ([userInfo isKindOfClass:[UILocalNotification class]])
+        {
+            push = [[ORCPushNotification alloc] initWithLocalNotification:(UILocalNotification *)userInfo];
+        }
+        else
+        {
+            push = [[ORCPushNotification alloc] initWithRemoteNotification:userInfo];
+        }
         
-        [[ORCActionManager sharedInstance] actionFromPushNotification:action];
-    }
-    else
-    {
-        ORCGeofence *geofence = [[ORCGeofence alloc] init];
-        geofence.type = ORCTypeGeofence;
-        geofence.code = push.code;
-        geofence.currentEvent = ORCtypeEventStay;
-        geofence.currentDistance = @([push.distance doubleValue]);
+        if (![push.type isEqualToString:ORCTypeGeofence])
+        {
+            ORCAction *action = [[ORCAction alloc] initWithType:push.type];
+            action.urlString = push.url;
+            action.titleNotification = push.title;
+            action.bodyNotification = push.body;
+            action.trackId = push.trackerId;
+            action.launchedByTriggerCode = push.launchedBy;
+            
+            [[ORCActionManager sharedInstance] actionFromPushNotification:action];
+        }
+        else
+        {
+            ORCGeofence *geofence = [[ORCGeofence alloc] init];
+            geofence.type = ORCTypeGeofence;
+            geofence.code = push.code;
+            geofence.currentEvent = ORCtypeEventStay;
+            geofence.currentDistance = @([push.distance doubleValue]);
+            
+            [[ORCActionManager sharedInstance] findActionFromGeofence:geofence];
+        }
         
-        [[ORCActionManager sharedInstance] findActionFromGeofence:geofence];
-    }
-    
-    UIApplication *application = [UIApplication sharedApplication];
-    
-    if (push.badge)
-    {
-        NSInteger number = [push.badge integerValue];
-        [application setApplicationIconBadgeNumber:number];
+        UIApplication *application = [UIApplication sharedApplication];
+        
+        if (push.badge)
+        {
+            NSInteger number = [push.badge integerValue];
+            [application setApplicationIconBadgeNumber:number];
+        }
+
     }
 }
 

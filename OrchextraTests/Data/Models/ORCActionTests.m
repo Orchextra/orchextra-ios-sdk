@@ -27,9 +27,7 @@
 - (void)setUp
 {
     [super setUp];
-    
     self.testBundle = [NSBundle bundleForClass:self.class];
-
 }
 
 - (void)tearDown

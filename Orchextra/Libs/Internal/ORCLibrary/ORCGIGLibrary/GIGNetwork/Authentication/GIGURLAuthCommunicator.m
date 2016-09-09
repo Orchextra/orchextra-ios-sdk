@@ -39,7 +39,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 {
     ORCGIGURLStorage *storage = [[ORCGIGURLStorage alloc] init];
     ORCSettingsPersister *orchextraStorage = [[ORCSettingsPersister alloc] init];
-
+    
     return [self initWithStorage:storage orchextraStorage:orchextraStorage];
 }
 
@@ -60,7 +60,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     return self;
 }
 
-#pragma mark - PUBLIC 
+#pragma mark - PUBLIC
 
 - (void)send:(ORCURLRequest *)request completion:(ORCGIGURLRequestCompletion)completion
 {
@@ -85,7 +85,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         __weak typeof(self) this = self;
         
         [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
-           
+            
             if (response.success)
             {
                 completion(response);
@@ -175,6 +175,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                                                                                                   @"vendorId" : vendorId}];
     
     ORCUser *user = [self.orchextraStorage loadCurrentUser];
+    
     if (user.crmID)
     {
         [credentialsDictValue addEntriesFromDictionary:@{@"crmId" : user.crmID}];
@@ -186,7 +187,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     NSMutableDictionary *parametersJSON = [[NSMutableDictionary alloc] init];
     [parametersJSON addEntriesFromDictionary:@{@"grantType" : @"auth_user"}];
     [parametersJSON addEntriesFromDictionary:credentialsJSON];
-
+    
     NSString *urlRequest = [ORCURLProvider endPointSecurityToken];
     
     ORCURLRequest *request = [[ORCURLRequest alloc] initWithMethod:@"POST" url:urlRequest];
@@ -195,11 +196,11 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     request.logLevel = GIGLogLevelBasic;
     request.requestTag = @"accessToken";
     [ORCLog logVerbose:[self printToJSONFormat:parametersJSON]];
-
+    
     [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
         completion(response);
     }];
-
+    
 }
 
 #pragma mark - Helpers
@@ -239,7 +240,6 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                 }
                 [this.orchextraStorage storeAcessToken:nil];
                 this.numConnection++;
-                
             }
             else
             {
@@ -248,7 +248,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
             
         }
     }];
-
+    
 }
 
 - (void)performQueueRequests:(NSMutableArray *)requests

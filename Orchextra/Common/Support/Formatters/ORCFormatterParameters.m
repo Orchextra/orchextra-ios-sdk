@@ -7,8 +7,11 @@
 //
 
 #import "ORCFormatterParameters.h"
+#import "ORCBusinessUnit.h"
+#import "ORCCustomField.h"
 #import "ORCDevice.h"
 #import "ORCUser.h"
+#import "ORCTag.h"
 #import "ORCUserLocationPersister.h"
 #import "ORCSettingsPersister.h"
 
@@ -158,6 +161,25 @@
     return values;
 }
 
+- (NSDictionary *)formattedCustomFields
+{
+    NSMutableDictionary *formattedCustomFields = [[NSMutableDictionary alloc] init];
+    NSArray <ORCCustomField *> *customFieldList = [self.settingsPersister loadCustomFields];
+    
+    for (ORCCustomField *customField in customFieldList)
+    {
+        if (customField.value != nil)
+        {
+            NSDictionary *customFieldDict = [NSDictionary dictionaryWithObject:customField.value
+                                                                        forKey:customField.key];
+            
+            [formattedCustomFields addEntriesFromDictionary:customFieldDict];
+        }
+    }
+    
+    return formattedCustomFields;
+}
+
 #pragma mark - PRIVATE
 
 - (NSDictionary *)formatterDeviceValues
@@ -197,6 +219,12 @@
         [deviceValues setValue:self.device.vendorID forKey:@"vendorId"];
     }
     
+    NSArray <ORCTag *> *deviceTags = [self.settingsPersister loadDeviceTags];
+    [deviceValues setValue:[self tagsFormatted:deviceTags] forKey:@"tags"];
+    
+    NSArray <ORCBusinessUnit *> *deviceBusinessUnits = [self.settingsPersister loadDeviceBusinessUnits];
+    [deviceValues setValue:[self tagsFormatted:deviceBusinessUnits]  forKey:@"businessUnits"];
+    
     if (deviceValues.count == 0) return nil;
     
     return deviceValues;
@@ -204,7 +232,6 @@
 
 - (NSDictionary *)formatterAppValues
 {
-    
     NSMutableDictionary *appValues = [NSMutableDictionary new];
      
     if (self.device.appVersion)
@@ -231,19 +258,28 @@
 {
     NSMutableDictionary *userValues = [[NSMutableDictionary alloc] init];
     
-    if (user.crmID)
-    {
-        [userValues setValue:user.crmID forKey:@"crmId"];
-    }
-    
     if (user.birthday)
     {
         [userValues setValue:[self birthdayUserFormatted:user.birthday] forKey:@"birthDate"];
     }
     
-    if (user.tags && user.tags.count > 0)
+    if (user.crmID)
     {
-        [userValues setValue:user.tags forKey:@"keywords"];
+        [userValues setValue:user.crmID forKey:@"crmId"];
+        
+        NSArray *userTags = [self tagsFormatted:[user tags]];
+        [userValues setValue:userTags forKey:@"tags"];
+        
+        NSArray *userBusinessUnits = [self tagsFormatted:[user businessUnits]];
+        [userValues setValue:userBusinessUnits forKey:@"businessUnits"];
+        
+        NSDictionary *customFields = self.formattedCustomFields;
+        
+        if (customFields)
+        {
+            [userValues setValue:customFields forKey:@"customFields"];
+
+        }
     }
     
     NSString *genderString = [self convertGenderUsertoString:user.gender];
@@ -315,5 +351,24 @@
     }
 }
 
+- (NSMutableArray <NSString *> *)tagsFormatted:(NSArray <ORCTag *> *)tags
+{
+    NSMutableArray <NSString *> *tagsFormatted = [[NSMutableArray alloc] init];
+    
+    for (ORCTag *tag in tags)
+    {
+        if ([tag isKindOfClass:[ORCTag class]])
+        {
+            NSString *tagFormatted = [tag tag];
+            
+            if (tagFormatted)
+            {
+                [tagsFormatted addObject:tagFormatted];
+            }
+        }
+    }
+    
+    return tagsFormatted;
+}
 
 @end

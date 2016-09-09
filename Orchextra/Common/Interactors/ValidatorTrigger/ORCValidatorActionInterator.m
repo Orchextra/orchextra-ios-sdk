@@ -17,6 +17,7 @@
 #import "ORCConstants.h"
 #import "ORCProximityFormatter.h"
 #import "ORCErrorManager.h"
+#import "ORCGIGJSON.h"
 
 NSString * const TYPE_KEY = @"type";
 NSString * const VALUE_KEY = @"value";
@@ -143,27 +144,40 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 
 #pragma mark - PRIVATE
 
-- (NSDictionary *)formattedParametersWithType:(NSString *)type value:(NSString *)value{
+- (NSDictionary *)formattedParametersWithType:(NSString *)type value:(NSString *)value {
     return @{ TYPE_KEY : type, VALUE_KEY : value };
 }
 
 - (void)validateResponse:(ORCURLActionResponse *)response requestParams:(NSDictionary *)requestParams
               completion:(CompletionActionValidated)completion {
     
+    if (!response || !requestParams)
+    {
+        [ORCLog logError:@"Response or Request Params are nil"];
+        completion(nil, nil);
+        return;
+    }
+    
+    NSString *type = [requestParams stringForKey:TYPE_KEY];
+    NSString *value = [requestParams stringForKey:VALUE_KEY];
+    
     if (!response.action)
     {
-        [ORCLog logDebug:@"---- ACTION NOT FOUND---- \n ---j---> Trigger: %@, Value: %@\n",
-         requestParams[TYPE_KEY], requestParams[VALUE_KEY]];
-        
-        completion(nil, response.error);
-
+        if (requestParams && type && value)
+        {
+            [ORCLog logDebug:@"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
+             type, value];
+        }
+        if (completion) completion(nil, response.error);
     }
     else
     {
-        [ORCLog logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
-         requestParams[TYPE_KEY], requestParams[VALUE_KEY], response.action.type, response.action.urlString, response.action.scheduleTime];
-        
-        completion(response.action, nil);
+        if (type && value)
+        {
+            [ORCLog logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
+             type, value, response.action.type, response.action.urlString, response.action.scheduleTime];
+        }
+        if (completion) completion(response.action, nil);
     }
 }
 
