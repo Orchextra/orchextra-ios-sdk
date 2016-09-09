@@ -26,7 +26,7 @@
             self.jsonData = self.json[@"data"];
             self.error = nil;
             
-            if (self.jsonData == nil)
+            if (!self.jsonData)
             {
                 self.success = NO;
                 self.jsonData = nil;
@@ -41,6 +41,7 @@
             self.error = [ORCErrorManager errorWithResponse:self];
         }
     }
+    
     return self;
 }
 

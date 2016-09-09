@@ -14,6 +14,7 @@
 #import "ORCActionBrowser.h"
 #import "ORCActionVuforia.h"
 #import "ORCErrorManager.h"
+#import "ORCGIGJSON.h"
 
 @implementation ORCURLActionResponse
 
@@ -41,7 +42,7 @@
 
 - (void)parseActionResponse:(NSDictionary *)json
 {
-    NSString *type = json[@"type"];
+    NSString *type = [json stringForKey:@"type"];
     self.action = [[ORCAction alloc] initWithType:type json:json];
 }
 

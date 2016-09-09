@@ -16,7 +16,7 @@
     completion(self.inAppConfigResponse);
 }
 
-- (void)loadConfiguration:(NSDictionary *)configuration completion:(CompletionOrchestraConfigResponse)completion
+- (void)loadConfiguration:(NSDictionary *)configuration sections:(NSArray *)sections completion:(CompletionOrchestraConfigResponse)completion
 {
     self.outLoadCustomConfiguration = YES;
     self.outConfigurationValues = configuration;

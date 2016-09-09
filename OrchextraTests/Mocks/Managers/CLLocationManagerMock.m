@@ -30,7 +30,7 @@
     self.outstopUpdatingLocationCalled = YES;
 }
 
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray <CLLocation *> *)locations
 {
     self.outDidUpdateLocationCalled = YES;
     self.didLocationUpdate = locations.lastObject;

@@ -113,15 +113,28 @@
 
 #pragma mark - PUBLIC ()
 
-- (void)setUser:(ORCUser *)user
+- (void)bindUser:(ORCUser *)user
 {
     [self.interactor saveUser:user];
+}
+
+- (void)unbindUser
+{
+    ORCUser *user = [[ORCUser alloc] init];
+    [self.interactor saveUser:user];
+    [self.interactor invalidateAccessToken];
 }
 
 - (ORCUser *)currentUser
 {
     return [self.interactor currentUser];
 }
+
+- (BOOL)orchextraRunning
+{
+    return [self.interactor isOrchextraRunning];
+}
+
 
 # pragma mark - PUBLIC (Actions)
 
@@ -136,7 +149,7 @@
 {
     [self.applicationCenter stopObservingAppDelegateEvens];
     [self.actionManager stopMonitoringAndRanging];
-    
+
     [self.interactor saveOrchextraRunning:NO];
     [ORCLog logDebug:@"Stoping Orchextra Services"];
 }
@@ -159,6 +172,76 @@
     }
 
     return self.webviewOrchextra;
+}
+
+#pragma mark - PUBLIC (CustomFields)
+
+- (NSArray <ORCCustomField *> *)getAvailableCustomFields
+{
+    return [self.interactor loadAvailableCustomFields];
+}
+
+- (NSArray <ORCCustomField *> *)getCustomFields
+{
+   return [self.interactor loadCustomFields];
+}
+
+- (void)setCustomFields:(NSArray <ORCCustomField *> *)customFields
+{
+    [self.interactor saveCustomFields:customFields];
+}
+
+- (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key
+{
+    return [self.interactor updateCustomFieldValue:value withKey:key];
+}
+
+#pragma mark - PUBLIC (User tags)
+
+- (NSArray <ORCTag *> *)getUserTags
+{
+    return [self.interactor loadUserTags];
+}
+
+- (void)setUserTags:(NSArray <ORCTag *> *)userTags
+{
+    [self.interactor saveUserTags:userTags];
+}
+
+#pragma mark - PUBLIC (Device tags)
+
+- (NSArray <ORCTag *> *)getDeviceTags
+{
+    return [self.interactor loadDeviceTags];
+}
+
+- (void)setDeviceTags:(NSArray <ORCTag *> *)deviceTags
+{
+    [self.interactor saveDeviceTags:deviceTags];
+}
+
+#pragma mark - PUBLIC (User business unit)
+
+- (NSArray <ORCBusinessUnit *> *)getUserBusinessUnits
+{
+    return [self.interactor loadUserBusinessUnits];
+}
+
+- (void)setUserBusinessUnits:(NSArray <ORCBusinessUnit *> *)businessUnits
+{
+    [self.interactor saveUserBusinessUnits:businessUnits];
+}
+
+#pragma mark - PUBLIC (Device business unit)
+
+- (NSArray <ORCBusinessUnit *> *)getDeviceBusinessUnits
+{
+    return [self.interactor loadDeviceBusinessUnits];
+}
+
+- (void)setDeviceBussinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits
+{
+    [self.interactor saveDeviceBusinessUnits:deviceBusinessUnits];
 }
 
 #pragma mark - DELEGATE

@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class ORCBusinessUnit;
+@class ORCCustomField;
 @class ORCUser;
+@class ORCTag;
 @class ORCThemeSdk;
 @class ORCUserLocationPersister;
 @class ORCVuforiaConfig;
@@ -63,5 +66,29 @@
 // Vuforia AccessToken
 - (ORCVuforiaConfig *)loadVuforiaConfig;
 - (void)storeVuforiaConfig:(ORCVuforiaConfig *)vuforiaConfig;
+
+// Custom fields
+- (NSArray <ORCCustomField *> *)loadAvailableCustomFields;
+- (void)storeAvailableCustomFields:(NSArray <ORCCustomField*> *)availableCustomFields;
+
+- (NSArray <ORCCustomField *> *)loadCustomFields;
+- (void)setCustomFields:(NSArray <ORCCustomField *> *)customFields;
+- (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key;
+
+// User tags
+- (NSArray <ORCTag *> *)loadUserTags;
+- (void)setUserTags:(NSArray <ORCTag *> *)userTags;
+
+// Device tags
+- (NSArray <ORCTag *> *)loadDeviceTags;
+- (void)setDeviceTags:(NSArray <ORCTag *> *)deviceTags;
+
+// User business units
+- (NSArray <ORCBusinessUnit *> *)loadUserBusinessUnits;
+- (void)setUserBusinessUnit:(NSArray <ORCBusinessUnit *> *)userBusinessUnit;
+
+// Device business units
+- (NSArray <ORCBusinessUnit *> *)loadDeviceBusinessUnits;
+- (void)setDeviceBusinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits;
 
 @end

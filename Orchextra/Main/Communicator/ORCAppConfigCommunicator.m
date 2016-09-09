@@ -23,15 +23,32 @@ NSString * const CONFIGURATION_ENDPOINT = @"configuration";
 #pragma mark - PUBLIC
 
 - (void)loadConfiguration:(NSDictionary *)configuration
+                 sections:(NSArray *)sections
                completion:(CompletionOrchestraConfigResponse)completion
-{    
+{
     [ORCLog logVerbose:@" - Configuration Body: %@", [self printJsonFormat:configuration]];
-
+    
     [self useFixtures:ORCUseFixtures];
-    self.logLevel = GIGLogLevelBasic;    
-
-    ORCURLRequest *request = [[ORCURLRequest alloc] initWithMethod:@"POST" url:[ORCURLProvider endPointConfiguration]];
-
+    self.logLevel = GIGLogLevelBasic;
+    
+    NSMutableString *endPointConfiguration = [[NSMutableString alloc] initWithString:[ORCURLProvider endPointConfiguration]];
+    if (sections.count > 0)
+    {
+        [endPointConfiguration appendString:@"?sections="];
+        for (NSUInteger i = 0; i < sections.count; i++)
+        {
+            NSString *section = [sections objectAtIndex:i];
+            NSUInteger nextElement = i + 1;
+            [endPointConfiguration appendString:section];
+            
+            if (nextElement < sections.count)
+            {
+                [endPointConfiguration appendString:@","];
+            }
+        }
+    }
+    
+    ORCURLRequest *request = [[ORCURLRequest alloc] initWithMethod:@"POST" url:endPointConfiguration];
     request.json = configuration;
     request.responseClass = [ORCAppConfigResponse class];
     request.requestTag = CONFIGURATION_ENDPOINT;

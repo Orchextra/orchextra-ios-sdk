@@ -79,7 +79,7 @@ NSString * const ORCVuforiaNotificationName = @"ORCVuforiaNotificationName";
 
 - (void)resetScannedValue
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.waitingResponse = NO;
     });
 }
@@ -118,12 +118,12 @@ NSString * const ORCVuforiaNotificationName = @"ORCVuforiaNotificationName";
             if (action)
             {
                 //Match ...
-                [this performSelector:@selector(foundAction:) withObject:action afterDelay:2.0];
+                [this performSelector:@selector(foundAction:) withObject:action afterDelay:1.0];
             }
             else
             {
                 //Not match ...
-                [this performSelector:@selector(notFoundAction) withObject:nil afterDelay:2.0];
+                [this performSelector:@selector(notFoundAction) withObject:nil afterDelay:1.0];
             }            
         }];
     }

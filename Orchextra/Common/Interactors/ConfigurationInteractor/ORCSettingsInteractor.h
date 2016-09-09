@@ -12,8 +12,10 @@
 #import "ORCFormatterParameters.h"
 #import "ORCSettingsPersister.h"
 
-@class ORCUser;
 @class ORCAppConfigCommunicator;
+@class ORCBusinessUnit;
+@class ORCUser;
+@class ORCTag;
 
 typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 
@@ -35,8 +37,24 @@ typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 // CONFIG
 - (NSInteger)backgroundTime;
 - (NSArray *)loadRegions;
+- (NSArray <ORCCustomField *> *)loadAvailableCustomFields;
+- (NSArray <ORCCustomField *> *)loadCustomFields;
+- (NSArray <ORCTag *> *)loadUserTags;
+- (NSArray <ORCTag *> *)loadDeviceTags;
+- (NSArray <ORCBusinessUnit *> *)loadUserBusinessUnits;
+- (NSArray <ORCBusinessUnit *> *)loadDeviceBusinessUnits;
 - (void)saveRegions:(NSArray *)regions;
 - (void)saveOrchextraRunning:(BOOL)orchextraRunning;
+- (BOOL)isOrchextraRunning;
+- (void)saveCustomFields:(NSArray <ORCCustomField *> *)customFields;
+- (void)saveUserTags:(NSArray <ORCTag *> *)userTags;
+- (void)saveDeviceTags:(NSArray <ORCTag *> *)deviceTags;
+- (void)saveUserBusinessUnits:(NSArray <ORCBusinessUnit *> *)userBusinessUnits;
+- (void)saveDeviceBusinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits;
+- (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key;
+
+// ACCESS TOKEN
+- (void)invalidateAccessToken;
 
 // GEOLOCATION
 - (void)saveLastLocation:(CLLocation *)location

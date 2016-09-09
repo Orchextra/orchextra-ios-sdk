@@ -37,6 +37,11 @@
     return self.inApiSecret;
 }
 
+- (NSArray <ORCTag *> *)loadDeviceTags
+{
+    return self.inDeviceTags;
+}
+
 - (void)storeApiKey:(NSString *)apiKey
 {
     self.outStoreApiKey = YES;
@@ -83,6 +88,21 @@
 {
     self.outBackgroundTime = backgroundTime;
     self.outStoreBackgroundTimeCalled = YES;
+}
+
+- (void)setDeviceTags:(NSArray <ORCTag *> *)deviceTags
+{
+    self.inDeviceTags = deviceTags;
+}
+
+- (BOOL)loadOrchextraState
+{
+    return self.orchextraState;
+}
+
+- (void)storeOrchextraState:(BOOL)orchextraState
+{
+    self.orchextraState = orchextraState;
 }
 
 @end

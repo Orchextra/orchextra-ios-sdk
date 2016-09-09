@@ -8,6 +8,9 @@
 
 #import "ORCGIGURLJSONResponse.h"
 
+@class ORCBusinessUnit;
+@class ORCCustomField;
+@class ORCTag;
 @class ORCThemeSdk;
 @class ORCVuforiaConfig;
 
@@ -15,6 +18,12 @@
 
 @property (strong, nonatomic) NSArray *geoRegions;
 @property (strong, nonatomic) NSArray *beaconRegions;
+@property (strong, nonatomic) NSArray <ORCCustomField *> *availableCustomFields;
+@property (strong, nonatomic) NSArray <ORCCustomField *> *userCustomFields;
+@property (strong, nonatomic) NSArray <ORCBusinessUnit *> *userBusinessUnits;
+@property (strong, nonatomic) NSArray <ORCTag *> *userTags;
+@property (strong, nonatomic) NSArray <ORCTag *> *deviceTags;
+@property (strong, nonatomic) NSArray <ORCBusinessUnit *> *deviceBusinessUnits;
 @property (strong, nonatomic) ORCThemeSdk *themeSDK;
 @property (strong, nonatomic) ORCVuforiaConfig *vuforiaConfig;
 @property (assign, nonatomic) NSInteger requestWaitTime;
