@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TEST_CMD="xctool -project Orchextra.xcodeproj -scheme Orchextra build test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=9.2' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES"
+TEST_CMD="xctool -project Orchextra.xcodeproj -scheme Orchextra build test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=9.2' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES"
 
 which -s xcpretty
 XCPRETTY_INSTALLED=$?
