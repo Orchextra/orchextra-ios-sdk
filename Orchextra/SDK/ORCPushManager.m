@@ -77,27 +77,19 @@ NSString * const NOTIFICATION_TYPE = @"type";
 - (void)registerPushNotification
 {
     UIApplication *application = [UIApplication sharedApplication];
-    
-    if(IOS_8_OR_LATER)
+
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
     {
-        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
-        {
-            UIUserNotificationType types =  UIUserNotificationTypeBadge |
-                                            UIUserNotificationTypeSound |
-                                            UIUserNotificationTypeAlert;
-            
-            UIUserNotificationSettings *settings = [UIUserNotificationSettings
-                                                    settingsForTypes:types
-                                                    categories:nil];
-            
-            [application registerUserNotificationSettings:settings];
-            [application registerForRemoteNotifications];
-        }
-    }
-    else
-    {
-        [application registerForRemoteNotificationTypes:
-         (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+        UIUserNotificationType types =  UIUserNotificationTypeBadge |
+                                        UIUserNotificationTypeSound |
+                                        UIUserNotificationTypeAlert;
+        
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings
+                                                settingsForTypes:types
+                                                categories:nil];
+        
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
     }
 }
 
@@ -272,30 +264,18 @@ NSString * const NOTIFICATION_TYPE = @"type";
     NSString *body = [userInfo stringForKey:NOTIFICATION_BODY];
 
     UILocalNotification *notification = [[UILocalNotification alloc] init];
+
+    [self setNotificationTypesAllowed];
     
-    if (IOS_8_OR_LATER)
+    if (notification)
     {
-        [self setNotificationTypesAllowed];
-        
-        if (notification)
-        {
-            if (self.allowsAlert)
-            {
-                notification.alertBody = body;
-                notification.userInfo =userInfo;
-            }
-            if (self.allowsSound)
-            {
-                notification.soundName = UILocalNotificationDefaultSoundName;
-            }
-        }
-    }
-    else
-    {
-        if (notification)
+        if (self.allowsAlert)
         {
             notification.alertBody = body;
-            notification.userInfo = userInfo;
+            notification.userInfo =userInfo;
+        }
+        if (self.allowsSound)
+        {
             notification.soundName = UILocalNotificationDefaultSoundName;
         }
     }

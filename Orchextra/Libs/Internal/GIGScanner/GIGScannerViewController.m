@@ -223,7 +223,8 @@ static AVCaptureVideoOrientation ORCVideoOrientationFromInterfaceOrientation(UII
     
     if (self.preview.connection.isVideoOrientationSupported)
     {
-        self.preview.connection.videoOrientation = ORCVideoOrientationFromInterfaceOrientation(self.interfaceOrientation);
+        UIInterfaceOrientation statusBarOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+        self.preview.connection.videoOrientation = ORCVideoOrientationFromInterfaceOrientation(statusBarOrientation);
     }
 
     AVCaptureConnection *con = self.preview.connection;
