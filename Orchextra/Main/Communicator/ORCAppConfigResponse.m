@@ -48,7 +48,7 @@ NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
             self.userTags = [self parseUserTagsResponse:self.jsonData];
             self.deviceTags = [self parseDeviceTagsResponse:self.jsonData];
             self.userBusinessUnits = [self parseUserBusinessUnitResponse:self.jsonData];
-            self.deviceBusinessUnits = [self parseUserBusinessUnitResponse:self.jsonData];
+            self.deviceBusinessUnits = [self parseDeviceBusinessUnitResponse:self.jsonData];
         }
         else
         {

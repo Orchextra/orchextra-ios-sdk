@@ -75,6 +75,7 @@ NSInteger const MAX_REGIONS = 20;
     
     if (hasChanged)
     {
+        [self.settingsPersister storeClientToken:nil];
         [self.settingsPersister storeAcessToken:nil];
     }
     
@@ -219,6 +220,12 @@ NSInteger const MAX_REGIONS = 20;
     return [self.settingsPersister updateCustomFieldValue:value withKey:key];
 }
 
+- (void)commitConfiguration
+{
+    NSDictionary *newValues = [self.formatter formatterParameteresDevice];
+    [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+}
+
 #pragma mark - PUBLIC (User tags)
 
 - (NSArray <ORCTag *> *)loadUserTags
@@ -283,7 +290,7 @@ NSInteger const MAX_REGIONS = 20;
 
 - (void)saveDeviceBusinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits
 {
-    [self.settingsPersister setUserBusinessUnit:deviceBusinessUnits];
+    [self.settingsPersister setDeviceBusinessUnits:deviceBusinessUnits];
 }
 
 #pragma  mark - PUBLIC ()
@@ -313,7 +320,12 @@ NSInteger const MAX_REGIONS = 20;
         else
         {
             if(completionCallBack) completionCallBack(NO, response.error);
-            [ORCLog logError:response.error.debugDescription];
+            
+            NSError *error = nil;
+            id json = [NSJSONSerialization JSONObjectWithData:response.data
+                                                      options:NSJSONReadingAllowFragments
+                                                        error:&error];
+            [ORCLog logError:[json description]];
         }
     }];
 }
@@ -328,6 +340,7 @@ NSInteger const MAX_REGIONS = 20;
         
         if ([oldUser crmHasChanged:user])
         {
+            [self.settingsPersister storeClientToken:nil];
             [self.settingsPersister storeAcessToken:nil];
         }
 

@@ -82,6 +82,7 @@
 - (void)bindUser:(ORCUser *)user;
 - (void)unbindUser;
 - (ORCUser *)currentUser;
+- (void)commitConfiguration;
 
 // CUSTOM FIELDS
 
