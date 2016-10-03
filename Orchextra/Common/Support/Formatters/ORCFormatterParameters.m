@@ -223,7 +223,7 @@
     [deviceValues setValue:[self tagsFormatted:deviceTags] forKey:@"tags"];
     
     NSArray <ORCBusinessUnit *> *deviceBusinessUnits = [self.settingsPersister loadDeviceBusinessUnits];
-    [deviceValues setValue:[self tagsFormatted:deviceBusinessUnits]  forKey:@"businessUnits"];
+    [deviceValues setValue:[self tagsFormatted:deviceBusinessUnits] forKey:@"businessUnits"];
     
     if (deviceValues.count == 0) return nil;
     
@@ -273,7 +273,7 @@
         NSArray *userBusinessUnits = [self tagsFormatted:[user businessUnits]];
         [userValues setValue:userBusinessUnits forKey:@"businessUnits"];
         
-        NSDictionary *customFields = self.formattedCustomFields;
+        NSDictionary *customFields = [self formattedCustomFields];
         
         if (customFields)
         {

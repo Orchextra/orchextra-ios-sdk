@@ -63,7 +63,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 {
     NSDictionary *dictionary = [self formattedParametersWithType:scanType value:scannedValue];
     [self printValidatingLogMessageWithValues:dictionary];
-
+    
     __weak typeof(self) this = self;
     [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
         [this validateResponse:responseAction requestParams:dictionary completion:completion];
@@ -102,7 +102,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 
 - (void)validateProximityWithRegion:(ORCRegion *)region completion:(CompletionActionValidated)completionAction
 {
-
+    
     ORCRegion *regionToValidate = [[ORCRegion alloc] initWithRegion:region];
     
     NSDictionary *dictionary = @{ TYPE_KEY : regionToValidate.type,
@@ -121,24 +121,26 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 
 - (void)validateProximityWithBeacon:(ORCBeacon *)beacon completion:(CompletionActionValidated)completionAction
 {
-    NSString *plainCodeBeacon = [NSString stringWithFormat:@"%@_%@_%@",
-                                 beacon.uuid.UUIDString,
-                                 beacon.major,
-                                 beacon.minor];
+    
+    NSString *beaconUUIDUpperCaseString = [beacon.uuid.UUIDString uppercaseString];
+    NSString *plainCodeBeacon           = [NSString stringWithFormat:@"%@_%@_%@",
+                                           beaconUUIDUpperCaseString,
+                                           beacon.major,
+                                           beacon.minor];
     
     NSString *md5codeBeacon = [plainCodeBeacon MD5];
     NSDictionary *dictionary = @{ TYPE_KEY : beacon.type,
                                   VALUE_KEY : md5codeBeacon,
                                   PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString],
                                   DISTANCE_KEY : [ORCProximityFormatter proximityDistanceToString:beacon.currentProximity]};
-
+    
     [self printValidatingLogMessageWithValues:dictionary];
     
     __weak typeof(self) this = self;
     [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
         
         [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
-
+        
     }];
 }
 
