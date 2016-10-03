@@ -161,7 +161,7 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
         
         NSString *message = ORCLocalizedBundle(@"Turn_on_background_location_service", nil, nil);
         
-        NSString *otherButton = (IOS_8_OR_LATER) ? ORCLocalizedBundle(@"Settings", nil, nil) : nil;
+        NSString *otherButton = ORCLocalizedBundle(@"Settings", nil, nil);
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                             message:message
@@ -371,7 +371,7 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1 && IOS_8_OR_LATER)
+    if (buttonIndex == 1)
     {
         NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
         [[UIApplication sharedApplication] openURL:settingsURL];
