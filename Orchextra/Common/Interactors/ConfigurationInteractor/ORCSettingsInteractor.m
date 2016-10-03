@@ -321,11 +321,14 @@ NSInteger const MAX_REGIONS = 20;
         {
             if(completionCallBack) completionCallBack(NO, response.error);
             
-            NSError *error = nil;
-            id json = [NSJSONSerialization JSONObjectWithData:response.data
-                                                      options:NSJSONReadingAllowFragments
-                                                        error:&error];
-            [ORCLog logError:[json description]];
+            if (response.data)
+            {
+                NSError *error = nil;
+                id json = [NSJSONSerialization JSONObjectWithData:response.data
+                                                          options:NSJSONReadingAllowFragments
+                                                            error:&error];
+                [ORCLog logError:[json description]];
+            }
         }
     }];
 }
