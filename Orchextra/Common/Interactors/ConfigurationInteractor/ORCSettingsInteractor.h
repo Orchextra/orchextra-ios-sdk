@@ -52,6 +52,7 @@ typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 - (void)saveUserBusinessUnits:(NSArray <ORCBusinessUnit *> *)userBusinessUnits;
 - (void)saveDeviceBusinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits;
 - (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key;
+- (void)commitConfiguration;
 
 // ACCESS TOKEN
 - (void)invalidateAccessToken;

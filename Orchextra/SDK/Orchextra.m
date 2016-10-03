@@ -122,7 +122,6 @@
 {
     ORCUser *user = [[ORCUser alloc] init];
     [self.interactor saveUser:user];
-    [self.interactor invalidateAccessToken];
 }
 
 - (ORCUser *)currentUser
@@ -130,11 +129,15 @@
     return [self.interactor currentUser];
 }
 
+- (void)commitConfiguration
+{
+    [self.interactor commitConfiguration];
+}
+
 - (BOOL)orchextraRunning
 {
     return [self.interactor isOrchextraRunning];
 }
-
 
 # pragma mark - PUBLIC (Actions)
 

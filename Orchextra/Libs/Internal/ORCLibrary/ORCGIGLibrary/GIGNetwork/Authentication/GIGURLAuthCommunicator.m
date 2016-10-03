@@ -22,8 +22,8 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 @property (strong, nonatomic) ORCURLRequest *nextRequest;
 @property (strong, nonatomic) NSMutableArray *queueRequests;
 
-@property (copy, nonatomic) NSString *apiKey;
-@property (copy, nonatomic) NSString *apiSecret;
+@property (copy, nonatomic)   NSString *apiKey;
+@property (copy, nonatomic)   NSString *apiSecret;
 @property (assign, nonatomic) NSInteger numConnection;
 @property (strong, nonatomic) ORCSettingsPersister *orchextraStorage;
 @property (strong, nonatomic) NSString *domain;
@@ -95,6 +95,12 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                 if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
                 {
                     [this.orchextraStorage storeAcessToken:nil];
+                    
+                    if ([request.requestTag isEqualToString:@"accessToken"])
+                    {
+                        [this.orchextraStorage storeClientToken:nil];
+                    }
+                    
                     [this send:request completion:completion];
                     this.numConnection++;
                 }
@@ -213,42 +219,78 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     return jsonString;
 }
 
-- (void)requestAuthenticationTokenWithRequest:(ORCURLRequest *)request completion:(ORCGIGURLRequestCompletion)completion
+- (void)requestAuthenticationTokenWithRequest:(ORCURLRequest *)request
+                                   completion:(ORCGIGURLRequestCompletion)completion
 {
     NSLog(@"requestAuthenticationTokenWithRequest");
+    
+    NSString *clientToken = [self.orchextraStorage loadClientToken];
     __weak typeof(self) this = self;
-    [self sendAuthWithCompletion:^(ORCGIGURLJSONResponse *response) {
-        
-        if (response.success)
-        {
-            [this performQueueRequests:self.queueRequests];
-        }
-        else
-        {
-            if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
+    
+    if ([clientToken length] > 0)
+    {
+        [self deviceAuthenticationWithClientToken:clientToken completion:^(ORCGIGURLJSONResponse *response) {
+            
+            if (response.success)
             {
-                if (this.numConnection < MAX_ATTEMPTS_CONNECTION)
-                {
-                    [this send:request completion:completion];
-                }
-                else
-                {
-                    ORCGIGURLJSONResponse *errorResponse = [[ORCGIGURLJSONResponse alloc]
-                                                            initWithError:[NSError errorWithDomain:@"com.gigigo.error"
-                                                                                              code:401 userInfo:nil]];
-                    completion(errorResponse);
-                }
-                [this.orchextraStorage storeAcessToken:nil];
-                this.numConnection++;
+                NSString *accessToken = response.jsonData[@"value"];
+                [this.orchextraStorage storeAcessToken:accessToken];
+                [this performQueueRequests:this.queueRequests];
             }
             else
             {
-                completion(response);
+                [this.orchextraStorage storeClientToken:nil];
+                [this performAuthenticationErrorActionsForRequest:request
+                                                       completion:completion
+                                                         response:response];
             }
+        }];
+    }
+    else
+    {
+        [self sendAuthWithCompletion:^(ORCGIGURLJSONResponse *response) {
             
+            if (response.success)
+            {
+                [this performQueueRequests:self.queueRequests];
+            }
+            else
+            {
+                if ([request.requestTag isEqualToString:@"accessToken"]) {
+                    
+                    [this.orchextraStorage storeClientToken:nil];
+                }
+
+                [this performAuthenticationErrorActionsForRequest:request
+                                                       completion:completion
+                                                         response:response];
+            }
+        }];
+    }
+}
+
+- (void)performAuthenticationErrorActionsForRequest:(ORCURLRequest *)request
+                                         completion:(ORCGIGURLRequestCompletion)completion
+                                           response:(ORCGIGURLJSONResponse *)response
+{
+    if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
+    {
+        [self.orchextraStorage storeAcessToken:nil];
+        
+        if (self.numConnection < MAX_ATTEMPTS_CONNECTION)
+        {
+            [self send:request completion:completion];
         }
-    }];
-    
+        else
+        {
+            ORCGIGURLJSONResponse *errorResponse = [[ORCGIGURLJSONResponse alloc]
+                                                    initWithError:[NSError errorWithDomain:@"com.gigigo.error"
+                                                                                      code:401 userInfo:nil]];
+            completion(errorResponse);
+        }
+        
+        self.numConnection++;
+    }
 }
 
 - (void)performQueueRequests:(NSMutableArray *)requests
