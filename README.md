@@ -1,6 +1,6 @@
 # Orchextra SDK for iOS
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
-![Version](https://img.shields.io/badge/version-2.0.6-blue.svg)
+![Version](https://img.shields.io/badge/version-2.0.7-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
 [![codecov.io](https://codecov.io/github/Orchextra/orchextra-ios-sdk/coverage.svg?branch=develop)](https://codecov.io/github/Orchextra/orchextra-ios-sdk?branch=master)
 
@@ -146,7 +146,7 @@ In order to get custom schemes within our app AppDelegate must conform the Orche
 }
 ```
 
-## Add user to Orchextra
+## Bind user to Orchextra
 ORCUser class is a local representation of a user persisted to the Orchextra Database to help to create a good user segmentation. This object is optional and could be set up at any time, "currentUser" this method will return the latest user stored in the database or in case there isn't any value will return an empty ORCUser instance.
 
 ```objective-c
@@ -160,6 +160,113 @@ user.gender = ORCGenderFemale;
 
 /* Save Orchextra user */
 [orchextra bindUser:user];
+```
+
+## Unbind user to Orchextra
+ORCUser information will be set to nil. Current user will be an empty object now.
+
+```objective-c
+[[Orchextra sharedInstance] unbindUser];
+```
+
+## Segmentation
+Orchextra SDK allows to create segmentation using tags, business units or custom fields. This segmentation can be performed by user or by device.
+
+### Segmentation by device
+Device segmentation can be created by using tags or business units.
+
+#### Using tags
+You can set new device tags:
+
+```objective-c
+ORCTag *countryTag = [[ORCTag alloc] initWithPrefix:@"country" name:@"Spain"];
+NSArray <ORCTag *> *deviceTags = [NSArray arrayWithObjects:countryTag, nil];
+    
+[[Orchextra sharedInstance] setDeviceTags:deviceTags];
+```
+You can get device tags:
+
+```objective-c
+NSArray <ORCTag *> *deviceTags = [[Orchextra sharedInstance] getDeviceTags];
+```
+
+#### Using business units
+You can set new device business units:
+
+```objective-c
+ORCBusinessUnit *businessUnit1 = [[ORCBusinessUnit alloc] initWithPrefix:@"bu1"];
+ORCBusinessUnit *businessUnit2 = [[ORCBusinessUnit alloc] initWithPrefix:@"bu2"];   
+NSArray <ORCBusinessUnit *> *deviceBusinessUnits = [NSArray arrayWithObjects:businessUnit1, businessUnit2, nil];
+
+[[Orchextra sharedInstance] setDeviceBussinessUnits:deviceBusinessUnits];
+```
+You can get device business unit:
+
+```objective-c
+NSArray <ORCBusinessUnit *> *deviceBusinessUnits = [[Orchextra sharedInstance] getDeviceBusinessUnits];
+```
+
+### Segmentation by user
+User segmentation can be created by using tags, business units or custom fields.
+
+#### Using tags
+You can set new user tags:
+
+```objective-c
+ORCTag *countryTag = [[ORCTag alloc] initWithPrefix:@"country" name:@"Spain"];
+NSArray <ORCTag *> *userTags = [NSArray arrayWithObjects:countryTag, nil];
+    
+[[Orchextra sharedInstance] setUserTags:userTags];
+```
+You can get user tags:
+
+```objective-c
+NSArray <ORCTag *> *userTags = [[Orchextra sharedInstance] getUserTags];
+```
+
+#### Using business units
+You can set new user business units:
+
+```objective-c
+ORCBusinessUnit *businessUnit1 = [[ORCBusinessUnit alloc] initWithPrefix:@"bu1"];
+ORCBusinessUnit *businessUnit2 = [[ORCBusinessUnit alloc] initWithPrefix:@"bu2"];   
+NSArray <ORCBusinessUnit *> *userBusinessUnits = [NSArray arrayWithObjects:businessUnit1, businessUnit2, nil];
+
+[[Orchextra sharedInstance] setUserBussinessUnits:deviceBusinessUnits];
+```
+You can get user business unit:
+
+```objective-c
+NSArray <ORCBusinessUnit *> *userBusinessUnits = [[Orchextra sharedInstance] getUserBusinessUnits];
+```
+
+#### Using custom fields
+You can set new custom fields:
+
+```objective-c
+ORCCustomField *customField = [[ORCCustomField alloc] initWithKey:@"key" label:@"label" type:ORCCustomFieldTypeString value:@"value"];
+NSArray <ORCCustomField *> *customFields = [NSArray arrayWithObjects:customField, nil];
+    
+[[Orchextra sharedInstance] setCustomFields:customFields];
+```
+You can get custom fields:
+
+```objective-c
+NSArray <ORCCustomField *> * customFields =  [[Orchextra sharedInstance] getCustomFields];
+```
+
+You can update custom field value. Custom field key has to exist to update its value:
+
+```objective-c
+[[Orchextra sharedInstance] updateCustomFieldValue:@"value2" withKey:@"key"];
+```
+
+### Commit configuration
+
+Afer set segmentation information is required to commit back this to refresh new values.
+
+```objective-c
+[[Orchextra sharedInstance] commitConfiguration];
 ```
 
 ##  Start Actions
