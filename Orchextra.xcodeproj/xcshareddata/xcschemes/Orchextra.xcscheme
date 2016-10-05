@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9E595771B04DA6F0040EAD4"
-               BuildableName = "libOrchextra.a"
+               BlueprintIdentifier = "8F660C8B1DA2B8D0007B9551"
+               BuildableName = "Orchextra.framework"
                BlueprintName = "Orchextra"
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>
@@ -26,15 +26,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9E595821B04DA6F0040EAD4"
-               BuildableName = "Orchextra.xctest"
+               BlueprintIdentifier = "8F1593A91DA3B18A003257C2"
+               BuildableName = "OrchextraTests.xctest"
                BlueprintName = "OrchextraTests"
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>
@@ -43,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9E595771B04DA6F0040EAD4"
-            BuildableName = "libOrchextra.a"
+            BlueprintIdentifier = "8F660C8B1DA2B8D0007B9551"
+            BuildableName = "Orchextra.framework"
             BlueprintName = "Orchextra"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
@@ -65,8 +64,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9E595771B04DA6F0040EAD4"
-            BuildableName = "libOrchextra.a"
+            BlueprintIdentifier = "8F660C8B1DA2B8D0007B9551"
+            BuildableName = "Orchextra.framework"
             BlueprintName = "Orchextra"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
@@ -83,8 +82,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9E595771B04DA6F0040EAD4"
-            BuildableName = "libOrchextra.a"
+            BlueprintIdentifier = "8F660C8B1DA2B8D0007B9551"
+            BuildableName = "Orchextra.framework"
             BlueprintName = "Orchextra"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
@@ -95,6 +94,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Orchextra"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

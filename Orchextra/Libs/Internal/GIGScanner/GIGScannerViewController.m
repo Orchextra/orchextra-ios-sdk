@@ -56,7 +56,9 @@ static AVCaptureVideoOrientation ORCVideoOrientationFromInterfaceOrientation(UII
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(backFromBackground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     if([self isCameraAvailable])
     {
+        #if !(TARGET_OS_SIMULATOR) 
         [self setupScanner];
+        #endif
     }
     else
     {

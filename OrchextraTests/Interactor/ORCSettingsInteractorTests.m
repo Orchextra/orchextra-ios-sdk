@@ -15,7 +15,6 @@
 #import "ORCFormatterParametersMock.h"
 
 #import "ORCAppConfigResponse.h"
-#import "NSBundle+ORCBundle.h"
 #import "ORCBusinessUnit.h"
 #import "ORCCustomField.h"
 #import "ORCUser.h"

@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9E595821B04DA6F0040EAD4"
-               BuildableName = "Orchextra.xctest"
+               BlueprintIdentifier = "8F660C931DA2B8D0007B9551"
+               BuildableName = "OrchextraTests.xctest"
                BlueprintName = "OrchextraTests"
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>

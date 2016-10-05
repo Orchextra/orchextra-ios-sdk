@@ -17,7 +17,7 @@
     
     dispatch_once(&onceToken, ^
                   {
-                      myLibraryResourcesBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"Orchextra" withExtension:@"bundle"]];
+                      myLibraryResourcesBundle = [NSBundle mainBundle];
                   });
     
     return myLibraryResourcesBundle;
@@ -44,12 +44,12 @@
 
 + (NSBundle *)bundleSDK
 {
-    return [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"Orchextra" withExtension:@"bundle"]];
+    return [NSBundle mainBundle];
 }
 
 + (UIImage *)imageFromBundleWithName:(NSString *)imageName
 {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"Orchextra.bundle/%@", imageName]];
+    return [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@",[NSBundle mainBundle], imageName]];
 }
 
 + (NSURL *)fileFromBundleWithName:(NSString *)filename

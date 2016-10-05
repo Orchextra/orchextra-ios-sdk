@@ -1,30 +1,36 @@
 //
-//  Orchestra.h
-//  Orchestra
+//  Orchextra.h
+//  Orchextra
 //
-//  Created by Judith Medina on 27/4/15.
-//  Copyright (c) 2015 Gigigo. All rights reserved.
+//  Created by Carlos Vicente on 3/10/16.
+//  Copyright © 2016 Gigigo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-#import "ORCAction.h"
-#import "ORCBusinessUnit.h"
-#import "ORCCustomField.h"
-#import "ORCUser.h"
-#import "ORCTag.h"
-#import "ORCPushManager.h"
-#import "ORCActionManager.h"
+//! Project version number for Orchextra.
+FOUNDATION_EXPORT double OrchextraVersionNumber;
 
-#import "ORCVuforiaConfig.h"
-#import "ORCConstants.h"
-#import "ORCSettingsDataManager.h"
-#import "ORCActionInterface.h"
-#import "OrchextraOutputInterface.h"
-#import "ORCValidatorActionInterator.h"
-#import "ORCLog.h"
-#import "ORCWebViewViewController.h"
+//! Project version string for Orchextra.
+FOUNDATION_EXPORT const unsigned char OrchextraVersionString[];
 
+#import <Orchextra/ORCAction.h>
+#import <Orchextra/ORCActionInterface.h>
+#import <Orchextra/ORCActionManager.h>
+#import <Orchextra/ORCBusinessUnit.h>
+#import <Orchextra/ORCCustomField.h>
+#import <Orchextra/ORCLog.h>
+#import <Orchextra/NSBundle+ORCBundle.h>
+#import <Orchextra/ORCPushManager.h>
+#import <Orchextra/ORCSettingsDataManager.h>
+#import <Orchextra/ORCTag.h>
+#import <Orchextra/ORCThemeSDK.h>
+#import <Orchextra/ORCUser.h>
+#import <Orchextra/ORCValidatorActionInterator.h>
+#import <Orchextra/ORCVuforiaConfig.h>
+#import <Orchextra/ORCWebViewViewController.h>
+
+// In this header, you should import all the public headers of your framework using statements like #import <Orchextra/PublicHeader.h>
 
 @class ORCApplicationCenter;
 @class ORCSettingsInteractor;
@@ -55,15 +61,15 @@
        completion:(void(^)(BOOL success, NSError *error))completion;
 
 /**
- Start scanner action - Will show a default view with the Orchextra scanner 
+ Start scanner action - Will show a default view with the Orchextra scanner
  where the user can scan a barcode or QR code.
  */
 - (void)startScanner;
 
 /**
- Stop all services that are running with Orchextra. 
-    - Location: Beacon and Geofences
-    - Stop monitoring app delegate events
+ Stop all services that are running with Orchextra.
+ - Location: Beacon and Geofences
+ - Stop monitoring app delegate events
  */
 - (void)stopOrchextraServices;
 
@@ -116,6 +122,5 @@
 
 + (void)logLevel:(ORCLogLevel)logLevel;
 + (void)saveLogsToAFile;
-
 
 @end
