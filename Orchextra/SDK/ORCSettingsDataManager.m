@@ -66,6 +66,26 @@
     return [self.settingsPersister loadOrchextraState];
 }
 
+- (NSString *)apiKey
+{
+	return [self.settingsPersister loadApiKey];
+}
+
+- (NSString *)apiSecret
+{
+	return [self.settingsPersister loadApiSecret];
+}
+
+- (NSString *)clientToken
+{
+	return [self.settingsPersister loadClientToken];
+}
+
+- (NSString *)accessToken
+{
+	return [self.settingsPersister loadAccessToken];
+}
+
 - (ORCVuforiaConfig *)fetchVuforiaCredentials
 {
     return [self.settingsPersister loadVuforiaConfig];
