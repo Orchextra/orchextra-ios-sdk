@@ -7,6 +7,7 @@
 //
 
 #import "NSBundle+ORCBundle.h"
+#import "Orchextra.h"
 
 @implementation NSBundle (ORCBundle)
 
@@ -44,7 +45,7 @@
 
 + (NSBundle *)bundleSDK
 {
-    return [NSBundle mainBundle];
+    return [NSBundle bundleForClass:[Orchextra class]];
 }
 
 + (UIImage *)imageFromBundleWithName:(NSString *)imageName
