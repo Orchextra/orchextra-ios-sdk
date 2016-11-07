@@ -466,6 +466,7 @@
 		A95373BF1BFDD77500AEFE2E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C8021B25B21E008E5912 /* AVFoundation.framework */; };
 		A95373C01BFDD78000AEFE2E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0051BC6BDD900341A37 /* CoreMotion.framework */; };
 		A95373C81BFDD94800AEFE2E /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A90FCF211BF362080042F370 /* libVuforia.a */; };
+		A98527B01DD1059E000CA664 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A90FCEC11BF362080042F370 /* Localizable.strings */; };
 		A9C188A51BFCC75F0073EE33 /* VuforiaOrchextra.h in Copy Files */ = {isa = PBXBuildFile; fileRef = A9C188A41BFCC75F0073EE33 /* VuforiaOrchextra.h */; };
 		A9C188A71BFCC75F0073EE33 /* VuforiaOrchextra.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C188A61BFCC75F0073EE33 /* VuforiaOrchextra.m */; };
 		A9C188B01BFCC7AB0073EE33 /* VuforiaOrchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C188A41BFCC75F0073EE33 /* VuforiaOrchextra.h */; };
@@ -2741,6 +2742,7 @@
 				8FA9F6C81DA2F794009A6E87 /* next-blue.png in Resources */,
 				8FA9F6C91DA2F794009A6E87 /* next-blue@2x.png in Resources */,
 				8FA9F6CA1DA2F794009A6E87 /* next-blue@3x.png in Resources */,
+				A98527B01DD1059E000CA664 /* Localizable.strings in Resources */,
 				8FA9F6CB1DA2F794009A6E87 /* next-grey.png in Resources */,
 				8FA9F6CC1DA2F794009A6E87 /* next-grey@2x.png in Resources */,
 				8FA9F6CD1DA2F794009A6E87 /* next-grey@3x.png in Resources */,

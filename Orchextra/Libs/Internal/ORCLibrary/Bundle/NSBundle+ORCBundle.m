@@ -45,7 +45,7 @@
 
 + (NSBundle *)bundleSDK
 {
-    return [NSBundle bundleWithIdentifier:@"com.gigigo.Orchextra"];
+    return [NSBundle bundleForClass:[Orchextra class]];
 }
 
 + (UIImage *)imageFromBundleWithName:(NSString *)imageName
