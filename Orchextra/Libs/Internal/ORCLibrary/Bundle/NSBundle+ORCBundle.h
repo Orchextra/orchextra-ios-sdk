@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define ORCLocalizedBundle(key, comment, chapter) \
-NSLocalizedStringFromTableInBundle((key),(chapter),[NSBundle preferredLanguageResourcesBundle],(comment))
+NSLocalizedStringFromTableInBundle((key),(chapter),[NSBundle bundleSDK],(comment))
 
 @interface NSBundle (ORCBundle)
 
