@@ -50,7 +50,7 @@
 
 + (UIImage *)imageFromBundleWithName:(NSString *)imageName
 {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@",[NSBundle bundleSDK], imageName]];
+    return  [UIImage imageNamed:imageName inBundle:[NSBundle bundleSDK] compatibleWithTraitCollection:nil];
 }
 
 + (NSURL *)fileFromBundleWithName:(NSString *)filename
