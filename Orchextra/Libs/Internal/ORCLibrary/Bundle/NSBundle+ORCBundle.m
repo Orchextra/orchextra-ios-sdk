@@ -11,37 +11,37 @@
 
 @implementation NSBundle (ORCBundle)
 
-+ (NSBundle*)resourcesBundle
-{
-    static dispatch_once_t onceToken;
-    static NSBundle *myLibraryResourcesBundle = nil;
-    
-    dispatch_once(&onceToken, ^
-                  {
-                      myLibraryResourcesBundle = [NSBundle mainBundle];
-                  });
-    
-    return myLibraryResourcesBundle;
-}
-
-+ (NSBundle*)preferredLanguageResourcesBundle
-{
-    static dispatch_once_t onceToken;
-    static NSBundle *myLanguageResourcesBundle = nil;
-    
-    dispatch_once(&onceToken, ^
-                  {
-                      NSString *language = [NSLocale preferredLanguages][0];
-                      myLanguageResourcesBundle = [NSBundle bundleWithPath:[[NSBundle resourcesBundle] pathForResource:language ofType:@"lproj"]];
-                      
-                      if( myLanguageResourcesBundle == nil )
-                      {
-                          myLanguageResourcesBundle = [NSBundle resourcesBundle];
-                      }
-                  });
-    
-    return myLanguageResourcesBundle;
-}
+//+ (NSBundle*)resourcesBundle
+//{
+//    static dispatch_once_t onceToken;
+//    static NSBundle *myLibraryResourcesBundle = nil;
+//    
+//    dispatch_once(&onceToken, ^
+//                  {
+//                      myLibraryResourcesBundle = [NSBundle mainBundle];
+//                  });
+//    
+//    return myLibraryResourcesBundle;
+//}
+//
+//+ (NSBundle*)preferredLanguageResourcesBundle
+//{
+//    static dispatch_once_t onceToken;
+//    static NSBundle *myLanguageResourcesBundle = nil;
+//    
+//    dispatch_once(&onceToken, ^
+//                  {
+//                      NSString *language = [NSLocale preferredLanguages][0];
+//                      myLanguageResourcesBundle = [NSBundle bundleWithPath:[[NSBundle resourcesBundle] pathForResource:language ofType:@"lproj"]];
+//                      
+//                      if( myLanguageResourcesBundle == nil )
+//                      {
+//                          myLanguageResourcesBundle = [NSBundle resourcesBundle];
+//                      }
+//                  });
+//    
+//    return myLanguageResourcesBundle;
+//}
 
 + (NSBundle *)bundleSDK
 {
@@ -50,7 +50,7 @@
 
 + (UIImage *)imageFromBundleWithName:(NSString *)imageName
 {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@",[NSBundle bundleSDK], imageName]];
+    return [UIImage imageNamed:[NSString stringWithFormat:@"%@/%@",[NSBundle mainBundle], imageName]];
 }
 
 + (NSURL *)fileFromBundleWithName:(NSString *)filename

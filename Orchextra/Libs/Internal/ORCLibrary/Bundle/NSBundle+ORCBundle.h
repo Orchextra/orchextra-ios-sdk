@@ -13,7 +13,7 @@ NSLocalizedStringFromTableInBundle((key),(chapter),[NSBundle bundleSDK],(comment
 
 @interface NSBundle (ORCBundle)
 
-+ (NSBundle*)preferredLanguageResourcesBundle;
+//+ (NSBundle*)preferredLanguageResourcesBundle;
 + (NSBundle *)bundleSDK;
 + (UIImage *)imageFromBundleWithName:(NSString *)imageName;
 + (UIFont *)fontORCWithSize:(CGFloat)size;
