@@ -83,7 +83,6 @@
 		8F1593EF1DA3B461003257C2 /* scanning-by@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1481BF36D650042F370 /* scanning-by@3x.png */; };
 		8F1593F01DA3B461003257C2 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1491BF36D650042F370 /* Simple.fragsh */; };
 		8F1593F11DA3B461003257C2 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
-		8F5412EE1DA4E6D400C2F7B6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1371BF36D650042F370 /* Info.plist */; };
 		8F660CA31DA2BBBC007B9551 /* Orchextra.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFAA1BF362080042F370 /* Orchextra.m */; };
 		8F660CA41DA2BBBC007B9551 /* ORCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD0EE1BF364BD0042F370 /* ORCConstants.m */; };
 		8F660CA51DA2BBBC007B9551 /* ORCSettingsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFA81BF362080042F370 /* ORCSettingsDataManager.m */; };
@@ -2734,7 +2733,6 @@
 				8FA9F6C01DA2F794009A6E87 /* Fail_cross.png in Resources */,
 				8FA9F6C11DA2F794009A6E87 /* Fail_cross@2x.png in Resources */,
 				8FA9F6C21DA2F794009A6E87 /* frame-scan.png in Resources */,
-				8F5412EE1DA4E6D400C2F7B6 /* Info.plist in Resources */,
 				8FA9F6C31DA2F794009A6E87 /* frame-scan@2x.png in Resources */,
 				8FA9F6C41DA2F794009A6E87 /* frame-scan@3x.png in Resources */,
 				8FA9F6C61DA2F794009A6E87 /* Line.fragsh in Resources */,
@@ -3058,7 +3056,7 @@
 					"$(inherited)",
 					"${ENVIRONMENT}",
 				);
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "$(SRCROOT)/OrchextraResources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -3194,7 +3192,7 @@
 					"$(inherited)",
 					"${ENVIRONMENT}",
 				);
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = "$(SRCROOT)/OrchextraResources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
