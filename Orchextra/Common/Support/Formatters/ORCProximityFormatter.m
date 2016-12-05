@@ -59,4 +59,23 @@
     }
 }
 
++ (NSString *)eddystoneProximityDistanceToString:(proximity)proximity
+{
+    switch (proximity) {
+        case proximityUnknown:
+            return @"unknown";
+            break;
+        case proximityInmediate:
+            return @"immediate";
+            break;
+        case proximityNear:
+            return @"near";
+            break;
+        case proximityFar:
+            return @"far";
+            break;
+    }
+}
+
+
 @end

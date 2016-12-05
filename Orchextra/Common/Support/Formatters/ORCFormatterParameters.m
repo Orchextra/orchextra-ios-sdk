@@ -198,7 +198,7 @@
     
     if (self.device.language)
     {
-        [deviceValues setValue:self.device.language forKey:@"languaje"];
+        [deviceValues setValue:self.device.language forKey:@"language"];
     }
     if (self.device.deviceOS)
     {

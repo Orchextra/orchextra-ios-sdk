@@ -19,10 +19,14 @@
 #import "ORCConstants.h"
 #import "ORCPushManagerMock.h"
 #import "ORCStatisticsInteractorMock.h"
+#import "ORCValidatorActionInterator.h"
 
 #import "ORCAction.h"
 #import "ORCActionScanner.h"
 #import "ORCWireframe.h"
+
+#import "OrchextraTests-Swift.h"
+
 
 @interface ORCActionManagerTests : XCTestCase
 
@@ -33,6 +37,8 @@
 @property (strong, nonatomic) ORCStatisticsInteractorMock *statisticsInteractorMock;
 @property (strong, nonatomic) ORCWireframe *wireframeMock;
 @property (strong, nonatomic) ORCAction *action;
+@property (strong, nonatomic) ORCCBCentralWrapperMock *cenralWrapperMock;
+@property (strong, nonatomic) ORCValidatorActionInterator *validatorActionInteractor;
 
 @end
 
@@ -49,13 +55,19 @@
     self.pushManagerMock  = [[ORCPushManagerMock alloc] init];
     self.statisticsInteractorMock = [[ORCStatisticsInteractorMock alloc] init];
     self.proximityManagerMock = MKTMock([ORCProximityManager class]);
+    self.validatorActionInteractor = MKTMock([ORCValidatorActionInterator class]);
     self.actionInterface = MKTMockProtocol(@protocol(ORCActionInterface));
     
-    self.actionManager = [[ORCActionManager alloc] initWithProximity:self.proximityManagerMock
-                                                 notificationManager:self.pushManagerMock
-                                                statisticsInteractor:self.statisticsInteractorMock
-                                                           wireframe:self.wireframeMock];
+    self.cenralWrapperMock = [[ORCCBCentralWrapperMock alloc] initWithActionInterface:self.actionInterface
+                                                               validatorActionInteractor:self.validatorActionInteractor
+                                                                         requestWaitTime:120];
     
+    self.actionManager = [[ORCActionManager alloc] initWithProximity:self.proximityManagerMock
+                     notificationManager:self.pushManagerMock
+                    statisticsInteractor:self.statisticsInteractorMock
+                     validatorInteractor:self.validatorActionInteractor
+                               wireframe:self.wireframeMock
+                          centralWrapper:self.cenralWrapperMock];
 }
 
 - (void)tearDown
@@ -67,6 +79,7 @@
     self.pushManagerMock = nil;
     self.statisticsInteractorMock = nil;
     self.actionManager = nil;
+    self.cenralWrapperMock = nil;
 }
 
 -(void)test_prepareActionTobeExecute_without_notification

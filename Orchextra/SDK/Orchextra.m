@@ -240,6 +240,18 @@
     [self.interactor saveDeviceBusinessUnits:deviceBusinessUnits];
 }
 
+#pragma mark - PUBLIC (Eddystone Beacons)
+
+- (void)startEddystoneBeaconsScanner
+{
+    [self.actionManager startEddystoneBeaconsScanner];
+}
+
+- (void)stopEddystoneBeaconsScanner
+{
+    [self.actionManager stopEddystoneBeaconsScanner];
+}
+
 #pragma mark - DELEGATE
 
 - (void)didExecuteActionWithCustomScheme:(NSString *)customScheme

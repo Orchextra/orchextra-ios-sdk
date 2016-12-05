@@ -118,6 +118,11 @@ FOUNDATION_EXPORT const unsigned char OrchextraVersionString[];
 - (NSArray <ORCBusinessUnit *> *)getDeviceBusinessUnits;
 - (void)setDeviceBussinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits;
 
+// EDDYSTONE BEACONS
+
+- (void)startEddystoneBeaconsScanner;
+- (void)stopEddystoneBeaconsScanner;
+
 // DEBUG
 
 + (void)logLevel:(ORCLogLevel)logLevel;

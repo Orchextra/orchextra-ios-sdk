@@ -15,5 +15,7 @@
 #import "ORCConstants.h"
 #import "ORCLog.h"
 
+#import <Orchextra/Orchextra-Swift.h>
+
 #endif /* Orchextra_Prefix_pch */
 

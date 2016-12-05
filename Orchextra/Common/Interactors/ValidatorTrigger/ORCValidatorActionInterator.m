@@ -19,11 +19,20 @@
 #import "ORCErrorManager.h"
 #import "ORCGIGJSON.h"
 
-NSString * const TYPE_KEY = @"type";
-NSString * const VALUE_KEY = @"value";
-NSString * const EVENT_KEY = @"event";
-NSString * const PHONE_STATUS_KEY = @"phoneStatus";
-NSString * const DISTANCE_KEY = @"distance";
+NSString * const TYPE_KEY           = @"type";
+NSString * const VALUE_KEY          = @"value";
+NSString * const EVENT_KEY          = @"event";
+NSString * const PHONE_STATUS_KEY   = @"phoneStatus";
+NSString * const DISTANCE_KEY       = @"distance";
+NSString * const EDDYSTONE_KEY      = @"eddystone";
+NSString * const TEMPERATURE_KEY    = @"temperature";
+NSString * const NAMESPACE_KEY      = @"namespace";
+NSString * const INSTANCE_KEY       = @"instance";
+NSString * const BATTERY_KEY        = @"battery";
+NSString * const UPTIME_KEY         = @"uptime";
+NSString * const URL_KEY            = @"url";
+
+
 
 int ERROR_ACTION_NOT_FOUND = 5001;
 
@@ -143,6 +152,28 @@ int ERROR_ACTION_NOT_FOUND = 5001;
         
     }];
 }
+
+- (void)validateProximityWithEddystoneBeacon:(ORCEddystoneBeacon *)beacon completion:(CompletionActionValidated)completionAction
+{
+    NSDictionary *dictionary = @{ TYPE_KEY          : EDDYSTONE_KEY,
+                                  NAMESPACE_KEY     : beacon.uid.namespace,
+                                  INSTANCE_KEY      : beacon.uid.instance,
+                                  URL_KEY           : beacon.url,
+                                  TEMPERATURE_KEY   : [NSNumber numberWithFloat:beacon.telemetry.temperature],
+                                  BATTERY_KEY       : [NSNumber numberWithDouble:beacon.telemetry.batteryPercentage],
+                                  PHONE_STATUS_KEY  : [ORCProximityFormatter applicationStateString],
+                                  DISTANCE_KEY      : [ORCProximityFormatter eddystoneProximityDistanceToString:beacon.proximity] };
+    
+    [self printValidatingLogMessageWithValues:dictionary];
+    
+    __weak typeof(self) this = self;
+    [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
+        
+        [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
+        
+    }];
+}
+
 
 #pragma mark - PRIVATE
 
