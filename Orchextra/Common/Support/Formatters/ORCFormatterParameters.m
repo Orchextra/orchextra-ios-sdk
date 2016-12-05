@@ -223,7 +223,7 @@
     [deviceValues setValue:[self tagsFormatted:deviceTags] forKey:@"tags"];
     
     NSArray <ORCBusinessUnit *> *deviceBusinessUnits = [self.settingsPersister loadDeviceBusinessUnits];
-    [deviceValues setValue:[self tagsFormatted:deviceBusinessUnits] forKey:@"businessUnits"];
+    [deviceValues setValue:[self businessUnistFormatted:deviceBusinessUnits] forKey:@"businessUnits"];
     
     if (deviceValues.count == 0) return nil;
     
@@ -270,7 +270,7 @@
         NSArray *userTags = [self tagsFormatted:[user tags]];
         [userValues setValue:userTags forKey:@"tags"];
         
-        NSArray *userBusinessUnits = [self tagsFormatted:[user businessUnits]];
+        NSArray *userBusinessUnits = [self businessUnistFormatted:[user businessUnits]];
         [userValues setValue:userBusinessUnits forKey:@"businessUnits"];
         
         NSDictionary *customFields = [self formattedCustomFields];
@@ -369,6 +369,26 @@
     }
     
     return tagsFormatted;
+}
+
+- (NSMutableArray <NSString *> *)businessUnistFormatted:(NSArray <ORCBusinessUnit *> *)businessUnits
+{
+    NSMutableArray <NSString *> *businessUnistFormatted = [[NSMutableArray alloc] init];
+    
+    for (ORCBusinessUnit *businessUnit in businessUnits)
+    {
+        if ([businessUnit isKindOfClass:[ORCBusinessUnit class]])
+        {
+            NSString *businessUnitFormatted = [businessUnit name];
+            
+            if (businessUnitFormatted)
+            {
+                [businessUnistFormatted addObject:businessUnitFormatted];
+            }
+        }
+    }
+    
+    return businessUnistFormatted;
 }
 
 @end

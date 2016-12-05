@@ -437,8 +437,7 @@
     ORCUser *user = [[ORCUser alloc] init];
     self.settingsPersisterMock.inUser = user;
     
-    ORCBusinessUnit *businessUnit = [[ORCBusinessUnit alloc] initWithPrefix:@"brand"
-                                                                       name:@"bmw"];
+    ORCBusinessUnit *businessUnit = [[ORCBusinessUnit alloc] initWithName:@"bmw"];
     
     NSArray <ORCBusinessUnit *> *businessUnits = [NSArray arrayWithObject:businessUnit];
     
@@ -460,8 +459,7 @@
     user.crmID = @"userId";
     self.settingsPersisterMock.inUser = user;
     
-    ORCBusinessUnit *businessUnit = [[ORCBusinessUnit alloc] initWithPrefix:@"brand"
-                                                                       name:@"bmw"];
+    ORCBusinessUnit *businessUnit = [[ORCBusinessUnit alloc] initWithName:@"bmw"];
     
     NSArray <ORCBusinessUnit *> *businessUnits = [NSArray arrayWithObject:businessUnit];
     
@@ -472,12 +470,12 @@
     user = [self.settingsPersisterMock loadCurrentUser];
     
     ORCBusinessUnit *loadedBusinessUnit = [user.businessUnits objectAtIndex:0];
-    NSString *businessUnitFormatted = [businessUnit tag];
-    NSString *loadedBusinessUnitFormatted = [loadedBusinessUnit tag];
+    NSString *businessUnitName = [businessUnit name];
+    NSString *loadedBusinessUnitName = [loadedBusinessUnit name];
     
     XCTAssertNotNil(user.businessUnits);
     XCTAssertTrue(user.businessUnits.count == 1);
-    XCTAssertTrue([businessUnitFormatted isEqualToString:loadedBusinessUnitFormatted]);
+    XCTAssertTrue([businessUnitName isEqualToString:loadedBusinessUnitName]);
 }
 
 @end

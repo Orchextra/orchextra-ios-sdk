@@ -6,8 +6,19 @@
 //  Copyright © 2016 Gigigo. All rights reserved.
 //
 
-#import "ORCTag.h"
+#import <Foundation/Foundation.h>
 
-@interface ORCBusinessUnit : ORCTag
+@interface ORCBusinessUnit : NSObject <NSCoding>
+
+/**
+ * The business unit name information.
+ */
+@property (strong, nonatomic) NSString *name;
+
+/*
+ Init business unit with name
+ @param: name
+ */
+- (instancetype)initWithName:(NSString *)name;
 
 @end

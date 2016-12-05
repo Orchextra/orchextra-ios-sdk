@@ -310,12 +310,11 @@
 {
     self.settingsPersisterMock.inUser = self.user;
     
-    ORCBusinessUnit *brand = [[ORCBusinessUnit alloc] initWithPrefix:@"brand" name:@"renault"];
-    ORCBusinessUnit *color = [[ORCBusinessUnit alloc] initWithPrefix:@"color" name:@"blue"];
-    ORCBusinessUnit *weight = [[ORCBusinessUnit alloc] initWithPrefix:@"_weight" name:@"1300"];
-    ORCBusinessUnit *doors = [[ORCBusinessUnit alloc] initWithPrefix:@"doors" name:@"/5"];
+    ORCBusinessUnit *brand = [[ORCBusinessUnit alloc] initWithName:@"renault"];
+    ORCBusinessUnit *color = [[ORCBusinessUnit alloc] initWithName:@"blue"];
+    ORCBusinessUnit *weight = [[ORCBusinessUnit alloc] initWithName:@"1300"];
     
-    NSArray <ORCBusinessUnit *> *businessUnits = [NSArray arrayWithObjects:brand, color, weight, doors,  nil];
+    NSArray <ORCBusinessUnit *> *businessUnits = [NSArray arrayWithObjects:brand, color, weight, nil];
     [self.settingsPersisterMock setUserBusinessUnit:businessUnits];
     
     NSDictionary *dictionary = [self.formatter formattedUserData:self.user];
@@ -325,16 +324,17 @@
     XCTAssertNotNil(crm);
     
     NSArray *businessUnitsFormatted = crm[@"businessUnits"];
-    XCTAssert(businessUnitsFormatted.count == 2);
-    XCTAssert([businessUnitsFormatted[0] isEqualToString:@"brand::renault"]);
-    XCTAssert([businessUnitsFormatted[1] isEqualToString:@"color::blue"]);
+    XCTAssert(businessUnitsFormatted.count == 3);
+    XCTAssert([businessUnitsFormatted[0] isEqualToString:@"renault"]);
+    XCTAssert([businessUnitsFormatted[1] isEqualToString:@"blue"]);
+    XCTAssert([businessUnitsFormatted[2] isEqualToString:@"1300"]);
 }
 
 - (void)test_formatter_deviceValues_business_units_twoValid_oneInvalid
 {
-    ORCBusinessUnit *brand = [[ORCBusinessUnit alloc] initWithPrefix:@"brand" name:@"renault"];
-    ORCBusinessUnit *color = [[ORCBusinessUnit alloc] initWithPrefix:@"color" name:@"blue"];
-    ORCBusinessUnit *weight = [[ORCBusinessUnit alloc] initWithPrefix:@"_weight" name:@"1300"];
+    ORCBusinessUnit *brand = [[ORCBusinessUnit alloc] initWithName:@"renault"];
+    ORCBusinessUnit *color = [[ORCBusinessUnit alloc] initWithName:@"blue"];
+    ORCBusinessUnit *weight = [[ORCBusinessUnit alloc] initWithName:@"1300"];
     
     NSArray <ORCBusinessUnit *> *businessUnits = [NSArray arrayWithObjects:brand, color, weight,  nil];
     [self.settingsPersisterMock setDeviceBusinessUnits:businessUnits];
@@ -346,9 +346,10 @@
     XCTAssertNotNil(device);
     
     NSArray *businessUnitsFormatted = device[@"businessUnits"];
-    XCTAssert(businessUnitsFormatted.count == 2);
-    XCTAssert([businessUnitsFormatted[0] isEqualToString:@"brand::renault"]);
-    XCTAssert([businessUnitsFormatted[1] isEqualToString:@"color::blue"]);
+    XCTAssert(businessUnitsFormatted.count == 3);
+    XCTAssert([businessUnitsFormatted[0] isEqualToString:@"renault"]);
+    XCTAssert([businessUnitsFormatted[1] isEqualToString:@"blue"]);
+    XCTAssert([businessUnitsFormatted[2] isEqualToString:@"1300"]);
 }
 
 @end
