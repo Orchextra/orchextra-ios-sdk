@@ -163,7 +163,6 @@ NSInteger const MAX_REGIONS = 20;
     return [self.settingsPersister loadOrchextraState];
 }
 
-
 - (void)saveLastLocation:(CLLocation *)location
       completionCallBack:(CompletionProjectSettings)completion
 {
@@ -309,8 +308,8 @@ NSInteger const MAX_REGIONS = 20;
 
 - (void)invalidateTokens
 {
+    [self.settingsPersister storeAcessToken:nil];
     [self.settingsPersister storeClientToken:nil];
-    [self invalidateAccessToken];
 }
 
 #pragma mark - PRIVATE
@@ -475,8 +474,7 @@ NSInteger const MAX_REGIONS = 20;
     [self.settingsPersister storeAcessToken:nil];
     
     ORCUser *user = [self currentUser];
-    NSDictionary *newValues = [self.formatter formattedUserData:user];
-    [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+    [self updateConfigurationForUser:user];
 }
 
 - (void)updateConfigurationForUser:(ORCUser *)user
