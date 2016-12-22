@@ -14,7 +14,7 @@
 /* Alert Location */
 "Location_services_are_off" = "Location services are off";
 "Background_location_is_not_enabled" = "Background location is not enabled";
-"Turn_on_background_location_service" = "To use background location you must turn on 'Always' in the Location Services Settings";
+"Turn_on_background_location_service" = "The application needs the location in background to provide personalized content based in your position. Please visit your device settings to enable location permissions 'Always'";
 "Settings" = "Settings";
 
 /* Default Local Notification*/

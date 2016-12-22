@@ -14,7 +14,7 @@
 /* Alert Location */
 "Location_services_are_off" = "La localización está desactivada.";
 "Background_location_is_not_enabled" = "La localización en segundo plano no está activada.";
-"Turn_on_background_location_service" = "Para usar la localización en segundo plano debes seleccionar la opción 'Siempre' en Ajustes Servicios de Localización";
+"Turn_on_background_location_service" = "La aplicación necesita tener activada la localización en segundo plano para ofrecer información personalizada en funcición de tu posición. Debes seleccionar la opción 'Siempre' en Ajustes Servicios de Localización";
 "Settings" = "Ajustes";
 
 
