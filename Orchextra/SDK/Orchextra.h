@@ -45,6 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol OrchextraLoginDelegate <NSObject>
 
+@optional
+
 - (void)didUpdateAccessToken:(nullable NSString *)accessToken;
 
 @end
