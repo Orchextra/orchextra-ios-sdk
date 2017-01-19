@@ -14,6 +14,8 @@
 #import "ORCConstants.h"
 #import "ORCCustomField.h"
 
+#import "Orchextra.h"
+
 #import "NSUserDefaults+ORCGIGArchive.h"
 
 
@@ -174,6 +176,15 @@ NSString * const ORCDeviceBusinessUnits         = @"ORCDeviceBusinessUnits";
 {
     [self.userDefaults archiveObject:accessToken forKey:ORCGIGURLManagerAccessTokenKey];
     [self.userDefaults synchronize];
+    
+    Orchextra *orchextra = [Orchextra sharedInstance];
+    id <OrchextraLoginDelegate> loginDelegate = orchextra.loginDelegate;
+    
+    if (loginDelegate &&
+        [loginDelegate conformsToProtocol: @protocol(OrchextraLoginDelegate)])
+    {
+        [loginDelegate didUpdateAccessToken:accessToken];
+    }
 }
 
 - (NSString *)loadClientToken
