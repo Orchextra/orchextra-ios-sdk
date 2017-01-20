@@ -15,6 +15,10 @@
 
 // ** GLOBAL CONFIGURATION **
 - (BOOL)isOrchextraRunning;
+- (NSString *)apiKey;
+- (NSString *)apiSecret;
+- (NSString *)clientToken;
+- (NSString *)accessToken;
 
 // ** CONFIGURATION **
 - (ORCVuforiaConfig *)fetchVuforiaCredentials;

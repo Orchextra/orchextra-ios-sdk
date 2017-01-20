@@ -115,13 +115,12 @@
 
 - (void)bindUser:(ORCUser *)user
 {
-    [self.interactor saveUser:user];
+    [self.interactor bindUser:user];
 }
 
 - (void)unbindUser
 {
-    ORCUser *user = [[ORCUser alloc] init];
-    [self.interactor saveUser:user];
+    [self.interactor unbindUser];
 }
 
 - (ORCUser *)currentUser
@@ -159,21 +158,14 @@
 
 - (ORCWebViewViewController *)getOrchextraWebViewWithURLWithString:(NSString *)urlString
 {
-    if (IOS_8_OR_LATER)
+    if (!self.webviewOrchextra)
     {
-        if (!self.webviewOrchextra)
-        {
-            self.webviewOrchextra = [[ORCWebViewViewController alloc]
-                                     initWithActionManager:self.actionManager];
-        }
-        
-        [self.webviewOrchextra startWithURLString:urlString];
+        self.webviewOrchextra = [[ORCWebViewViewController alloc]
+                                 initWithActionManager:self.actionManager];
     }
-    else
-    {
-        [ORCLog logError:@"The webviewcontroller hasn't been initialized"];
-    }
-
+    
+    [self.webviewOrchextra startWithURLString:urlString];
+   
     return self.webviewOrchextra;
 }
 

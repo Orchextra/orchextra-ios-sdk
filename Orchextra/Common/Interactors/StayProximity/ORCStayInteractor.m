@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
+#import "Orchextra.h"
 #import "ORCStayInteractor.h"
 #import "ORCBeacon.h"
 

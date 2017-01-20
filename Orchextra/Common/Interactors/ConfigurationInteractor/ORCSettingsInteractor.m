@@ -50,8 +50,8 @@ NSInteger const MAX_REGIONS = 20;
 
 - (instancetype)initWithSettingsPersister:(ORCSettingsPersister *)settingsPersister
                     userLocationPersister:(ORCUserLocationPersister *)userLocationPersister
-                   communicator:(ORCAppConfigCommunicator *)communicator
-                      formatter:(ORCFormatterParameters *)formatter
+                             communicator:(ORCAppConfigCommunicator *)communicator
+                                formatter:(ORCFormatterParameters *)formatter
 {
     self = [super init];
     
@@ -112,13 +112,26 @@ NSInteger const MAX_REGIONS = 20;
 - (ORCUser *)currentUser
 {
     ORCUser *user = [self.settingsPersister loadCurrentUser];
- 
+    
     if (!user)
     {
         user = [[ORCUser alloc] init];
     }
     
     return user;
+}
+
+- (void)bindUser:(ORCUser *)user
+{
+    [self saveUser:user];
+}
+
+- (void)unbindUser
+{
+    [self invalidateTokens];
+    
+    ORCUser *user = [[ORCUser alloc] init];
+    [self saveUser:user];
 }
 
 #pragma mark - PUBLIC
@@ -150,9 +163,8 @@ NSInteger const MAX_REGIONS = 20;
     return [self.settingsPersister loadOrchextraState];
 }
 
-
 - (void)saveLastLocation:(CLLocation *)location
-              completionCallBack:(CompletionProjectSettings)completion
+      completionCallBack:(CompletionProjectSettings)completion
 {
     NSDictionary *values = [self.formatter formattedUserLocation:[self.userLocationPersister loadLastLocation]];
     NSDictionary *newValues = [self.formatter formattedUserLocation:location];
@@ -160,7 +172,7 @@ NSInteger const MAX_REGIONS = 20;
     if (![values isEqualToDictionary:newValues])
     {
         [self.userLocationPersister storeLastLocation:location];
-       
+        
         NSDictionary *geoLocationValues = @{@"geoLocation" : newValues};
         [self handleLoadConfigurationWithValues:geoLocationValues completionCallBack:completion];
     }
@@ -251,7 +263,7 @@ NSInteger const MAX_REGIONS = 20;
 
 - (NSArray <ORCTag *> *)loadDeviceTags
 {
-   return [self.settingsPersister loadDeviceTags];
+    return [self.settingsPersister loadDeviceTags];
 }
 
 - (void)saveDeviceTags:(NSArray <ORCTag *> *)deviceTags
@@ -278,7 +290,6 @@ NSInteger const MAX_REGIONS = 20;
     {
         [ORCLog logError:@"crmID required to set user business units"];
     }
-
 }
 
 #pragma mark - PUBLIC (Device business units)
@@ -295,13 +306,10 @@ NSInteger const MAX_REGIONS = 20;
 
 #pragma  mark - PUBLIC ()
 
-- (void)invalidateAccessToken
+- (void)invalidateTokens
 {
     [self.settingsPersister storeAcessToken:nil];
-    
-    ORCUser *user = [self currentUser];
-    NSDictionary *newValues = [self.formatter formattedUserData:user];
-    [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+    [self.settingsPersister storeClientToken:nil];
 }
 
 #pragma mark - PRIVATE
@@ -336,21 +344,18 @@ NSInteger const MAX_REGIONS = 20;
 - (void)checkIfNeedToUpdateUser:(ORCUser *)user
 {
     ORCUser *oldUser = [self currentUser];
-    
     if (![oldUser isSameUser:user])
     {
         [self.settingsPersister storeUser:user];
         
         if ([oldUser crmHasChanged:user])
         {
-            [self.settingsPersister storeClientToken:nil];
-            [self.settingsPersister storeAcessToken:nil];
+            [self invalidateTokens];
         }
-
+        
         if ([self.settingsPersister loadOrchextraState])
         {
-            NSDictionary *newValues = [self.formatter formattedUserData:user];
-            [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+            [self updateConfigurationForUser:user];
         }
     }
 }
@@ -383,7 +388,7 @@ NSInteger const MAX_REGIONS = 20;
     NSArray <ORCBusinessUnit *> *deviceBusinessUnits = response.deviceBusinessUnits;
     
     [self.userLocationPersister storeRegions:regions];
-
+    
     [self.settingsPersister storeThemeSdk:response.themeSDK];
     [self.settingsPersister storeRequestWaitTime:response.requestWaitTime];
     [self.settingsPersister storeVuforiaConfig:response.vuforiaConfig];
@@ -458,8 +463,24 @@ NSInteger const MAX_REGIONS = 20;
     
     [ORCLog logDebug:@"Beacon_Region to register: %lu", response.beaconRegions.count];
     [ORCLog logDebug:@"Geofences to register: %lu", geofencesStored];
-
+    
     return regions;
+}
+
+#pragma mark - PRIVATE (TOKENS)
+
+- (void)invalidateAccessToken
+{
+    [self.settingsPersister storeAcessToken:nil];
+    
+    ORCUser *user = [self currentUser];
+    [self updateConfigurationForUser:user];
+}
+
+- (void)updateConfigurationForUser:(ORCUser *)user
+{
+    NSDictionary *newValues = [self.formatter formattedUserData:user];
+    [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
 }
 
 @end

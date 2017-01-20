@@ -42,15 +42,7 @@ NSString * const ORCNetworkVersion = @"v1";
 BOOL ORCUseFixtures = NO;
 BOOL ORCShowLogs = NO;
 
-#ifdef DEBUG
-
-NSString * const ORCNetworkHost = @"https://sdk.s.orchextra.io";
-
-#else
-
 NSString * const ORCNetworkHost = @"https://sdk.orchextra.io";
-
-#endif
 
 #pragma mark 
 

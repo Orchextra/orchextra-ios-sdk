@@ -8,6 +8,9 @@
 
 #import <XCTest/XCTest.h>
 
+#import <OCMockitoIOS/OCMockitoIOS.h>
+#import <OCHamcrestIOS/OCHamcrestIOS.h>
+
 #import "ORCSettingsDataManager.h"
 #import "ORCSettingsPersisterMock.h"
 #import "ORCUserLocationPersisterMock.h"

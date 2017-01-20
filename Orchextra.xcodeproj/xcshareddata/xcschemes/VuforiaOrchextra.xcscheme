@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9E595821B04DA6F0040EAD4"
-               BuildableName = "Orchextra.xctest"
+               BlueprintIdentifier = "8F1593A91DA3B18A003257C2"
+               BuildableName = "OrchextraTests.xctest"
                BlueprintName = "OrchextraTests"
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>

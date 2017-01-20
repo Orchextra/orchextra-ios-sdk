@@ -246,29 +246,14 @@ NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
         
         if (businessUnitsJson && businessUnitsJson.count > 0)
         {
-            for (NSString *businessUnitsUnformatted in businessUnitsJson)
+            for (NSString *businessUnitToStore in businessUnitsJson)
             {
-                ORCBusinessUnit *businessUnit = nil;
-                NSArray *businessUnitComponents = [businessUnitsUnformatted componentsSeparatedByString:@"::"];
-                
-                if (businessUnitComponents.count == 1)
-                {
-                    NSString *prefix = [businessUnitComponents objectAtIndex:0];
-                    businessUnit = [[ORCBusinessUnit alloc] initWithPrefix:prefix];
-                    
-                } else if (businessUnitComponents.count == 2)
-                {
-                    NSString *prefix = [businessUnitComponents objectAtIndex:0];
-                    NSString *name = [businessUnitComponents objectAtIndex:1];
-                    businessUnit = [[ORCBusinessUnit alloc] initWithPrefix:prefix
-                                                    name:name];
-                }
+                ORCBusinessUnit *businessUnit = [[ORCBusinessUnit alloc] initWithName:businessUnitToStore];
                 
                 if (businessUnit)
                 {
                     [businessUnits addObject:businessUnit];
                 }
-                
             }
         }
     }

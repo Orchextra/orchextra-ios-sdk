@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+
+
 #import <OCMockitoIOS/OCMockitoIOS.h>
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 
@@ -16,7 +18,6 @@
 #import "ORCScannerPresenter.h"
 #import "ORCValidatorActionInterator.h"
 #import "ORCURLActionResponse.h"
-#import "NSBundle+ORCBundle.h"
 #import "ORCAction.h"
 #import "ORCConstants.h"
 #import "ORCStatisticsInteractor.h"

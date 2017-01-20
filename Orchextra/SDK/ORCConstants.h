@@ -11,9 +11,6 @@
 
 #define LOG_LEVEL_DEF ddLogLevel
 
-#define IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-
-
 #pragma mark - Types Trigger
 
 extern NSString * const ORCTypeBeacon;

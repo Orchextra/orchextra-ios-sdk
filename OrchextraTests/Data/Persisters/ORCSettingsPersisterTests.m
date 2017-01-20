@@ -454,10 +454,10 @@
 
 - (BOOL)givenBusinessUnit:(ORCBusinessUnit *)businessUnit isEqualTo:(ORCBusinessUnit *)businessUnitToBeTest
 {
-    NSString *businessUnitFormatted = [businessUnit tag];
-    NSString *businessUnitToBeTestFormatted = [businessUnitToBeTest tag];
+    NSString *businessUnitName = [businessUnit name];
+    NSString *businessUnitToBeTestName = [businessUnitToBeTest name];
     
-    return [businessUnitFormatted isEqualToString:businessUnitToBeTestFormatted];
+    return [businessUnitName isEqualToString:businessUnitToBeTestName];
 }
 
 - (NSArray <ORCTag *> *)givenTags
@@ -479,9 +479,9 @@
 
     NSMutableArray <ORCBusinessUnit *> *businessUnits = [[NSMutableArray alloc] init];
     
-    ORCBusinessUnit *businessUnit1 = [[ORCBusinessUnit alloc] initWithPrefix:@"brand" name:@"renault"];
-    ORCBusinessUnit *businessUnit2 = [[ORCBusinessUnit alloc] initWithPrefix:@"brand" name:@"bmw"];
-    ORCBusinessUnit *businessUnit3 = [[ORCBusinessUnit alloc] initWithPrefix:@"brand"];
+    ORCBusinessUnit *businessUnit1 = [[ORCBusinessUnit alloc] initWithName:@"renault"];
+    ORCBusinessUnit *businessUnit2 = [[ORCBusinessUnit alloc] initWithName:@"bmw"];
+    ORCBusinessUnit *businessUnit3 = [[ORCBusinessUnit alloc] initWithName:@"brand"];
     
     [businessUnits addObject:businessUnit1];
     [businessUnits addObject:businessUnit2];

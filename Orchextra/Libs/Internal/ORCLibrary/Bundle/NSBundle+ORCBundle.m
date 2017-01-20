@@ -7,6 +7,7 @@
 //
 
 #import "NSBundle+ORCBundle.h"
+#import "Orchextra.h"
 
 @implementation NSBundle (ORCBundle)
 
@@ -17,7 +18,7 @@
     
     dispatch_once(&onceToken, ^
                   {
-                      myLibraryResourcesBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"Orchextra" withExtension:@"bundle"]];
+                      myLibraryResourcesBundle = [NSBundle bundleSDK];
                   });
     
     return myLibraryResourcesBundle;
@@ -44,12 +45,12 @@
 
 + (NSBundle *)bundleSDK
 {
-    return [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"Orchextra" withExtension:@"bundle"]];
+    return [NSBundle bundleForClass:[Orchextra class]];
 }
 
 + (UIImage *)imageFromBundleWithName:(NSString *)imageName
 {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"Orchextra.bundle/%@", imageName]];
+    return  [UIImage imageNamed:imageName inBundle:[NSBundle bundleSDK] compatibleWithTraitCollection:nil];
 }
 
 + (NSURL *)fileFromBundleWithName:(NSString *)filename

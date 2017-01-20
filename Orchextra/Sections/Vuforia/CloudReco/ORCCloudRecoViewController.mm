@@ -110,7 +110,9 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
      object:nil];
     
     // initialize AR
-    [vapp initAR:QCAR::GL_20 orientation:self.interfaceOrientation];
+    
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    [vapp initAR:QCAR::GL_20 orientation:orientation];
 
     // show loading animation while AR is being initialized
     [self showLoadingAnimation];
