@@ -49,7 +49,7 @@
     ORCStatisticsInteractor *statisticsInteractor = [[ORCStatisticsInteractor alloc] init];
     ORCWireframe *wireframe = [[ORCWireframe alloc] init];
     ORCValidatorActionInterator *validatorInteractor = [[ORCValidatorActionInterator alloc] init];
-
+    
     return [self initWithProximity:proximityManager
                notificationManager:notificationManager
               statisticsInteractor:statisticsInteractor
@@ -73,7 +73,7 @@
 - (instancetype)initWithProximity:(ORCProximityManager *)proximityManager
               notificationManager:(ORCPushManager *)notificationManager
              statisticsInteractor:(ORCStatisticsInteractor *)statisticsInteractor
-             validatorInteractor:(ORCValidatorActionInterator *)validatorInteractor
+              validatorInteractor:(ORCValidatorActionInterator *)validatorInteractor
                         wireframe:(ORCWireframe *)wireframe
 {
     self = [super init];
@@ -164,8 +164,8 @@
      showAlertViewWithTitle:action.titleNotification
      body:action.bodyNotification
      cancelable:action.actionWithUserInteraction
-                completion:^{
-                        [this launchAction:action];
+     completion:^{
+         [this launchAction:action];
      }];
 }
 
@@ -217,5 +217,14 @@
     }
 }
 
+- (UIViewController *)topViewController
+{
+    return [self.wireframe topViewController];
+}
+
+- (BOOL)viewControllerToBePresented:(UIViewController *)viewControllerToBePresented isEqualToTopViewController:(UIViewController *)topViewController
+{
+    return [self.wireframe viewControllerToBePresented:viewControllerToBePresented isEqualToTopViewController:topViewController];
+}
 
 @end
