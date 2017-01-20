@@ -23,22 +23,13 @@
 
 - (void)presentViewController:(UIViewController *)toViewController
 {
-    UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topViewController = [self topViewController];
+    BOOL viewControllerHasBeenPresented = [self viewControllerToBePresented:toViewController
+                                               isEqualToTopViewController:topViewController];
     
-    while (topViewController.presentedViewController)
+    if (viewControllerHasBeenPresented)
     {
-        topViewController = topViewController.presentedViewController;
-    }
-    
-    if ([topViewController isKindOfClass:[UINavigationController class]])
-    {
-        UINavigationController *navController = (UINavigationController *)topViewController;
-        UIViewController *firstViewController = navController.viewControllers[0];
-        
-        if ([firstViewController isKindOfClass:[toViewController class]])
-        {
-            topViewController = nil;
-        }
+         topViewController = nil;
     }
     
     if (topViewController)
@@ -47,6 +38,35 @@
                                                  initWithRootViewController:toViewController];
         [topViewController presentViewController:navController animated:YES completion:nil];
     }
+}
+
+- (UIViewController *)topViewController
+{
+    UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topViewController.presentedViewController)
+    {
+        topViewController = topViewController.presentedViewController;
+    }
+        
+    return topViewController;
+}
+
+- (BOOL)viewControllerToBePresented:(UIViewController *)viewControllerToBePresented isEqualToTopViewController:(UIViewController *)topViewController
+{
+    BOOL viewControllerHasBeenPresented = NO;
+    if ([topViewController isKindOfClass:[UINavigationController class]])
+    {
+        UINavigationController *navController = (UINavigationController *)topViewController;
+        UIViewController *firstViewController = navController.viewControllers[0];
+        
+        if ([firstViewController isKindOfClass:[viewControllerToBePresented class]])
+        {
+           viewControllerHasBeenPresented = YES;
+        }
+    }
+    
+    return viewControllerHasBeenPresented;
 }
 
 - (void)dismissActionWithViewController:(UIViewController *)viewController completion: (void (^)(void))completion
