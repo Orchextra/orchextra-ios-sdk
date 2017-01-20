@@ -21,7 +21,8 @@
 - (void)presentViewController:(UIViewController *)toViewController;
 - (void)presentActionWithCustomScheme:(NSString *)customScheme;
 - (void)pushActionToViewController:(UIViewController *)toViewController;
-
+- (UIViewController *)topViewController;
+- (BOOL)viewControllerToBePresented:(UIViewController *)viewControllerToBePresented isEqualToTopViewController:(UIViewController *)topViewController;
 @end
 
 #endif

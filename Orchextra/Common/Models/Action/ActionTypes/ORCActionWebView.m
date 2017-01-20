@@ -19,13 +19,23 @@
     if (NSClassFromString(@"SFSafariViewController"))
     {
         webViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:self.urlString]];
+        UIViewController *topViewController = [actionInterface topViewController];
         
-    } else
+        BOOL viewControllerHasBeenPresented = [actionInterface viewControllerToBePresented:webViewController
+                                                                isEqualToTopViewController:topViewController];
+        
+        if (!viewControllerHasBeenPresented)
+        {
+            [topViewController presentViewController:webViewController
+                                            animated:YES
+                                          completion:nil];
+        }
+    }
+    else
     {
         webViewController = [[ORCWebViewController alloc] initWithURLString:self.urlString];
+        [actionInterface presentViewController:webViewController];
     }
-    
-    [actionInterface presentViewController:webViewController];
 }
 
 @end

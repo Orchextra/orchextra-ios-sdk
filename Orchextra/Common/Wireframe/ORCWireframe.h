@@ -13,4 +13,6 @@
 - (void)presentViewController:(UIViewController *)toViewController;
 - (void)dismissActionWithViewController:(UIViewController *)viewController completion: (void (^)(void))completion;
 - (void)pushActionToViewController:(UIViewController *)toViewController;
+- (UIViewController *)topViewController;
+- (BOOL)viewControllerToBePresented:(UIViewController *)viewControllerToBePresented isEqualToTopViewController:(UIViewController *)topViewController;
 @end
