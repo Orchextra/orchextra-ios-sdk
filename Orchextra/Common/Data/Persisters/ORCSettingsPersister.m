@@ -180,19 +180,11 @@ NSString * const ORCDeviceBusinessUnits         = @"ORCDeviceBusinessUnits";
     Orchextra *orchextra = [Orchextra sharedInstance];
     id <OrchextraLoginDelegate> loginDelegate = orchextra.loginDelegate;
     
-    [ORCLog logVerbose:@"-- ACCESS TOKEN: %@ --", accessToken];
-    
     if (loginDelegate != nil  &&
         [loginDelegate conformsToProtocol: @protocol(OrchextraLoginDelegate)])
     {
-         [ORCLog logVerbose:@"-- LOGIN DELEGATE NOT NIL -- %@", loginDelegate];
         [loginDelegate didUpdateAccessToken:accessToken];
     }
-    else
-    {
-         [ORCLog logVerbose:@"--  LOGIN DELEGATE IS NIL -- %@", loginDelegate];
-    }
-    
 }
 
 - (NSString *)loadClientToken

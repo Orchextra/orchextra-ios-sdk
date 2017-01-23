@@ -128,8 +128,6 @@ NSInteger const MAX_REGIONS = 20;
 
 - (void)unbindUser
 {
-    [self invalidateTokens];
-    
     ORCUser *user = [[ORCUser alloc] init];
     [self saveUser:user];
 }
