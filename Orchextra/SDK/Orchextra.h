@@ -35,6 +35,7 @@ FOUNDATION_EXPORT const unsigned char OrchextraVersionString[];
 @class ORCApplicationCenter;
 @class ORCSettingsInteractor;
 
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol OrchextraCustomActionDelegate <NSObject>
 
@@ -42,10 +43,19 @@ FOUNDATION_EXPORT const unsigned char OrchextraVersionString[];
 
 @end
 
+@protocol OrchextraLoginDelegate <NSObject>
+
+@optional
+
+- (void)didUpdateAccessToken:(nullable NSString *)accessToken;
+
+@end
+
 
 @interface Orchextra : NSObject
 
 @property (weak, nonatomic) id <OrchextraCustomActionDelegate> delegate;
+@property (weak, nonatomic, nullable) id <OrchextraLoginDelegate> loginDelegate;
 @property (strong, nonatomic) ORCApplicationCenter *applicationCenter;
 
 /**
@@ -122,5 +132,7 @@ FOUNDATION_EXPORT const unsigned char OrchextraVersionString[];
 
 + (void)logLevel:(ORCLogLevel)logLevel;
 + (void)saveLogsToAFile;
+
+NS_ASSUME_NONNULL_END
 
 @end
