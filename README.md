@@ -35,7 +35,7 @@ To do this, you have to add in your Cartfile file:
  ```
  github "Orchextra/orchextra-ios-sdk" branch-name-or-version
  
- Example: github "Orchextra/orchextra-ios-sdk" ~> 2.1 (To add pointing 2.1 or newers)
+ Example: github "Orchextra/orchextra-ios-sdk" ~> 2.1 (To add pointing 2.1 version or newer)
  
  ``` 
  For more information you can consult [Carthage README] (https://github.com/Carthage/Carthage/blob/master/README.md).
