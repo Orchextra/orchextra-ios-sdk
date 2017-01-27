@@ -353,7 +353,7 @@ NSInteger const MAX_REGIONS = 20;
         
         if ([self.settingsPersister loadOrchextraState])
         {
-            [self updateConfigurationForUser:user];
+            [self updateConfiguration];
         }
     }
 }
@@ -470,14 +470,11 @@ NSInteger const MAX_REGIONS = 20;
 - (void)invalidateAccessToken
 {
     [self.settingsPersister storeAcessToken:nil];
-    
-    ORCUser *user = [self currentUser];
-    [self updateConfigurationForUser:user];
 }
 
-- (void)updateConfigurationForUser:(ORCUser *)user
+- (void)updateConfiguration
 {
-    NSDictionary *newValues = [self.formatter formattedUserData:user];
+    NSDictionary *newValues = [self.formatter formatterParameteresDevice];
     [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
 }
 
