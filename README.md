@@ -36,15 +36,12 @@ To do this, you have to add in your Cartfile file:
  github "Orchextra/orchextra-ios-sdk" branch-name-or-version
  
  Example: github "Orchextra/orchextra-ios-sdk" ~> 2.1 (To add pointing 2.1 version or newer)
- 
  ``` 
  For more information you can consult [Carthage README] (https://github.com/Carthage/Carthage/blob/master/README.md).
 
 Make sure the framework is linked:
-* Click on Targets  → Your app name  → and then the Build Phases tab
-* Check if you have already add some dynamic framework. If you don´t you have to create it. Tap "+" button and add a "New Copy Files Phase " and set "Frameworks" at destination path combo selector, after that add Orchextra.framework inside this new copy files phase element. 
-* Expand the copy files phase elements where you store dynamic frameworks to check that Orchextra.framework is there.
-* Also expand "Copy bundle resources" to make sure that Orchextra.bundle is also there.
+* Click on Targets  → Your app name  → and then the General tab
+* Add Orchextra.framework into Embeded Binaries
 *Note*: If you have added *VuforiaOrchextra.framework* check as well that is in "Link With Libraries".
 
 
