@@ -1,7 +1,8 @@
 # Orchextra SDK for iOS
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
-![Version](https://img.shields.io/badge/version-2.0.8-blue.svg)
+![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov.io](https://codecov.io/github/Orchextra/orchextra-ios-sdk/coverage.svg?branch=develop)](https://codecov.io/github/Orchextra/orchextra-ios-sdk?branch=master)
 
 A library that gives you access to Orchextra platform from your iOS app.
@@ -22,17 +23,30 @@ Orchextra SDK is composed of **Orchextra Core** and **Vuforia Orchextra** as an 
 Download [*Orchextra iOS-Sample-App*][ios-sample-app] to understand how to use the SDK.
 
 ### Requirements
-- iOS 7 or later
+- iOS 8 or later
 
 ### Download SDK
 To use *Orchextra Core*, head on over to the [releases][releases] page, and download the latest build "Orchextra.zip".
-Drag and drop **Orchextra.framework** and **Orchextra.bundle** into your xCode project folder target. To use image recognition, drag and drop **VuforiaOrchextra.framework** into your xCode project.
+Drag and drop **Orchextra.framework**. To use image recognition, drag and drop **VuforiaOrchextra.framework** into your xCode project.
+
+If you want you can add **Orchextra.framework** using Carthage.
+To do this, you have to add in your Cartfile file: 
+
+ ```
+ github "Orchextra/orchextra-ios-sdk" branch-name-or-version
+ 
+ Example: github "Orchextra/orchextra-ios-sdk" ~> 2.1 (To add pointing 2.1 or newers)
+ 
+ ``` 
+ For more information you can consult [Carthage README] (https://github.com/Carthage/Carthage/blob/master/README.md).
 
 Make sure the framework is linked:
 * Click on Targets  → Your app name  → and then the Build Phases tab
-* Expand "Link With Libraries" to check that Orchextra.framework is there.
+* Check if you have already add some dynamic framework. If you don´t you have to create it. Tap "+" button and add a "New Copy Files Phase " and set "Frameworks" at destination path combo selector, after that add Orchextra.framework inside this new copy files phase element. 
+* Expand the copy files phase elements where you store dynamic frameworks to check that Orchextra.framework is there.
 * Also expand "Copy bundle resources" to make sure that Orchextra.bundle is also there.
 *Note*: If you have added *VuforiaOrchextra.framework* check as well that is in "Link With Libraries".
+
 
 ### Add the dependencies
 Click the + button in the bottom left of the 'Link Binary With Libraries' section and add the following libraries:
