@@ -182,6 +182,36 @@
     XCTAssertTrue(response.error.code == 403, @"Error code: %li", (long)response.error.code);
 }
 
+- (void)test_configuration_response_failure_html
+{
+    NSBundle *testBundle = [NSBundle bundleForClass:self.class];
+    NSString *path = [testBundle pathForResource:@"POST_configuration_failure_html" ofType:@"html"];
+    XCTAssertNotNil(path);
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    XCTAssertNotNil(data);
+    
+    ORCAppConfigResponse *response = [[ORCAppConfigResponse alloc] initWithData:data];
+    XCTAssertFalse(response.success);
+    XCTAssertNotNil(response.error);
+    XCTAssertTrue(response.error.code == -1, @"Unexpected error.");
+}
+
+- (void)test_configuration_response_failure_empty_json
+{
+    NSBundle *testBundle = [NSBundle bundleForClass:self.class];
+    NSString *path = [testBundle pathForResource:@"POST_configuration_failure_empty" ofType:@"json"];
+    XCTAssertNotNil(path);
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    XCTAssertNotNil(data);
+    
+    ORCAppConfigResponse *response = [[ORCAppConfigResponse alloc] initWithData:data];
+    XCTAssertFalse(response.success);
+    XCTAssertNotNil(response.error);
+    XCTAssertTrue(response.error.code == -1, @"Unexpected error.");
+}
+
 - (void)test_configuration_response_with_Customfields
 {
     NSString *path = [self.testBundle pathForResource:@"POST_confi_with_customfieldsAndTags" ofType:@"json"];

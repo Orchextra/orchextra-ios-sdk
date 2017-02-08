@@ -12,6 +12,11 @@
 #import "ORCGIGURLFormatter.h"
 #import "ORCGIGLayout.h"
 
+// Visual Constants
+static NSString * const kEditDomain = @"Edit Domain";
+static NSString * const kAddDomain = @"Add Domain";
+static NSString * const kName = @"name";
+static NSString * const kUrl = @"url";
 
 @interface ORCGIGURLConfigAddDomainViewController ()
 <UITextFieldDelegate>
@@ -33,7 +38,7 @@
 {
     [super viewDidLoad];
     
-    self.title = (self.domain != nil) ? @"Edit Domain" : @"Add Domain";
+    self.title = (self.domain != nil) ? kEditDomain : kAddDomain;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     
@@ -140,7 +145,7 @@
 
 - (void)addNameField
 {
-    self.nameField = [self textFieldWithPlaceholder:@"name" returnKey:UIReturnKeyNext];
+    self.nameField = [self textFieldWithPlaceholder:kName returnKey:UIReturnKeyNext];
     self.nameField.text = self.domain.name;
     
     [self.view addSubview:self.nameField];
@@ -152,7 +157,7 @@
 
 - (void)addUrlField
 {
-    self.urlField = [self textFieldWithPlaceholder:@"url" returnKey:UIReturnKeyGo];
+    self.urlField = [self textFieldWithPlaceholder:kUrl returnKey:UIReturnKeyGo];
     self.urlField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.urlField.text = self.domain.url;
     

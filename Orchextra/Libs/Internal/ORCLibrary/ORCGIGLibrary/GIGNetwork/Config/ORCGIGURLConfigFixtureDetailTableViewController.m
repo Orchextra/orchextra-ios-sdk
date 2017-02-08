@@ -10,6 +10,8 @@
 
 #import "ORCGIGURLManager.h"
 
+// Visual Constants
+static NSString * const kSet = @"Set";
 
 @interface ORCGIGURLConfigFixtureDetailTableViewController ()
 
@@ -33,7 +35,7 @@
     
     if (![self.fixture isEqualToFixture:self.manager.fixture])
     {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Set"
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kSet
                                                                                   style:UIBarButtonItemStyleDone
                                                                                  target:self
                                                                                  action:@selector(tapSetFixture)];
