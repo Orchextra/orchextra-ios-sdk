@@ -64,54 +64,20 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 
 - (void)send:(ORCURLRequest *)request completion:(ORCGIGURLRequestCompletion)completion
 {
-    NSDictionary *bearerHeader = [self bearerHeader];
     self.apiKey = [self.orchextraStorage loadApiKey];
     self.apiSecret = [self.orchextraStorage loadApiSecret];
     
-    if (bearerHeader == nil)
+    if (self.apiKey != nil &&
+        self.apiSecret != nil)
     {
-        ORCURLRequest *urlRequest = (ORCURLRequest *)request;
-        [self.queueRequests addObject:@{@"request" : urlRequest, @"completion" : completion}];
-        
-        if (self.queueRequests.count == 1)
-        {
-            [self requestAuthenticationTokenWithRequest:request completion:completion];
-        }
+        [self retrieveAccessTokenWithRequest:request
+                                 completion:completion];
     }
     else
     {
-        request.headers = bearerHeader;
-        
-        __weak typeof(self) this = self;
-        
-        [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
-            
-            if (response.success)
-            {
-                completion(response);
-            }
-            else
-            {
-                if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
-                {
-                    [this.orchextraStorage storeAcessToken:nil];
-                    
-                    if ([request.requestTag isEqualToString:@"accessToken"])
-                    {
-                        [this.orchextraStorage storeClientToken:nil];
-                    }
-                    
-                    [this send:request completion:completion];
-                    this.numConnection++;
-                }
-                else
-                {
-                    completion(response);
-                }
-            }
-            
-        }];
+        [ORCLog logError:@"Orchextra has not api key either api secret - start orchextra before continuing."];
     }
+    
 }
 
 #pragma mark - PRIVATE
@@ -154,21 +120,29 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 
 - (void)clientAuthenticationRequest:(CompletionAuthenticationResponse)completion
 {
-    NSDictionary *parametersJSON = @{@"grantType" : @"auth_sdk",
-                                     @"credentials" : @{@"apiKey" : self.apiKey,
-                                                        @"apiSecret" : self.apiSecret
-                                                        }};
-    
-    NSString *urlRequest = [ORCURLProvider endPointSecurityToken];
-    ORCURLRequest *request = [[ORCURLRequest alloc] initWithMethod:@"POST" url:urlRequest];
-    request.responseClass = [ORCGIGURLJSONResponse class];
-    request.json = parametersJSON;
-    request.logLevel = GIGLogLevelBasic;
-    request.requestTag = @"clientToken";
-    
-    [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
-        completion(response);
-    }];
+    if (self.apiKey != nil
+        && self.apiSecret != nil)
+    {
+        NSDictionary *parametersJSON = @{@"grantType" : @"auth_sdk",
+                                         @"credentials" : @{@"apiKey" : self.apiKey,
+                                                            @"apiSecret" : self.apiSecret
+                                                            }};
+        
+        NSString *urlRequest = [ORCURLProvider endPointSecurityToken];
+        ORCURLRequest *request = [[ORCURLRequest alloc] initWithMethod:@"POST" url:urlRequest];
+        request.responseClass = [ORCGIGURLJSONResponse class];
+        request.json = parametersJSON;
+        request.logLevel = GIGLogLevelBasic;
+        request.requestTag = @"clientToken";
+        
+        [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
+            completion(response);
+        }];
+    }
+    else
+    {
+         [ORCLog logError:@"Orchextra has not api key either api secret - start orchextra before continuing."];
+    }
 }
 
 - (void)deviceAuthenticationWithClientToken:(NSString *)clientToken completion:(CompletionAuthenticationResponse)completion
@@ -219,54 +193,142 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     return jsonString;
 }
 
-- (void)requestAuthenticationTokenWithRequest:(ORCURLRequest *)request
+- (void)retrieveAccessTokenWithRequest:(ORCURLRequest *)request
+                                      completion:(ORCGIGURLRequestCompletion)completion
+{
+    NSDictionary *bearerHeader = [self bearerHeader];
+    
+    if (bearerHeader == nil)
+    {
+        ORCURLRequest *urlRequest = (ORCURLRequest *)request;
+        [self.queueRequests addObject:@{@"request" : urlRequest, @"completion" : completion}];
+        
+        if (self.queueRequests.count == 1)
+        {
+            [self retrieveAuthenticationTokenWithRequest:request
+                                             completion:completion];
+        }
+    }
+    else
+    {
+        [self retrieveClientTokenWithRequest:request
+                                 completion:completion
+                               bearerHeader:bearerHeader];
+    }
+}
+
+- (void)retrieveClientTokenWithRequest:(ORCURLRequest *)request
+                           completion:(ORCGIGURLRequestCompletion)completion
+                         bearerHeader:(NSDictionary *)bearerHeader
+{
+    request.headers = bearerHeader;
+    
+    __weak typeof(self) this = self;
+    
+    [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
+        
+        if (response.success)
+        {
+            completion(response);
+        }
+        else
+        {
+            [this manageAuthenticationErrorForResponse:response
+                                               request:request
+                                            completion:completion];
+        }
+    }];
+
+}
+
+- (void)manageAuthenticationErrorForResponse:(ORCGIGURLJSONResponse *)response
+                                     request:(ORCURLRequest *)request
+                                  completion:(ORCGIGURLRequestCompletion)completion
+{
+    if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
+    {
+        [self.orchextraStorage storeAcessToken:nil];
+        
+        if ([request.requestTag isEqualToString:@"accessToken"])
+        {
+            [self.orchextraStorage storeClientToken:nil];
+        }
+        
+        [self send:request completion:completion];
+        self.numConnection++;
+    }
+    else
+    {
+        completion(response);
+    }
+}
+
+- (void)retrieveAuthenticationTokenWithRequest:(ORCURLRequest *)request
                                    completion:(ORCGIGURLRequestCompletion)completion
 {
     NSLog(@"requestAuthenticationTokenWithRequest");
     
     NSString *clientToken = [self.orchextraStorage loadClientToken];
-    __weak typeof(self) this = self;
     
     if ([clientToken length] > 0)
     {
-        [self deviceAuthenticationWithClientToken:clientToken completion:^(ORCGIGURLJSONResponse *response) {
-            
-            if (response.success)
-            {
-                NSString *accessToken = response.jsonData[@"value"];
-                [this.orchextraStorage storeAcessToken:accessToken];
-                [this performQueueRequests:this.queueRequests];
-            }
-            else
-            {
-                [this.orchextraStorage storeClientToken:nil];
-                [this performAuthenticationErrorActionsForRequest:request
-                                                       completion:completion
-                                                         response:response];
-            }
-        }];
+        [self retrieveAccessTokenWithClientToken:clientToken
+                                        request:request
+                                     completion:completion];
     }
     else
     {
-        [self sendAuthWithCompletion:^(ORCGIGURLJSONResponse *response) {
-            
-            if (response.success)
-            {
-                [this performQueueRequests:self.queueRequests];
-            }
-            else
-            {
-                if ([request.requestTag isEqualToString:@"accessToken"]) {
-                    
-                    [this.orchextraStorage storeClientToken:nil];
-                }
-
-                [this performAuthenticationErrorActionsForRequest:request
-                                                       completion:completion
-                                                         response:response];
-            }
-        }];
+        [self retrieveClientTokenForRequest:request
+                                completion:completion];
     }
+}
+
+- (void)retrieveAccessTokenWithClientToken:(NSString *)clientToken
+                                  request:(ORCURLRequest *)request
+                               completion:(ORCGIGURLRequestCompletion)completion
+{
+    __weak typeof(self) this = self;
+    [self deviceAuthenticationWithClientToken:clientToken completion:^(ORCGIGURLJSONResponse *response) {
+        
+        if (response.success)
+        {
+            NSString *accessToken = response.jsonData[@"value"];
+            [this.orchextraStorage storeAcessToken:accessToken];
+            [this performQueueRequests:this.queueRequests];
+        }
+        else
+        {
+            [this.orchextraStorage storeClientToken:nil];
+            [this performAuthenticationErrorActionsForRequest:request
+                                                   completion:completion
+                                                     response:response];
+        }
+    }];
+
+}
+
+- (void)retrieveClientTokenForRequest:(ORCURLRequest *)request
+                          completion:(ORCGIGURLRequestCompletion)completion
+{
+    __weak typeof(self) this = self;
+    [self sendAuthWithCompletion:^(ORCGIGURLJSONResponse *response) {
+        
+        if (response.success)
+        {
+            [this performQueueRequests:self.queueRequests];
+        }
+        else
+        {
+            if ([request.requestTag isEqualToString:@"accessToken"]) {
+                
+                [this.orchextraStorage storeClientToken:nil];
+            }
+            
+            [this performAuthenticationErrorActionsForRequest:request
+                                                   completion:completion
+                                                     response:response];
+        }
+    }];
 }
 
 - (void)performAuthenticationErrorActionsForRequest:(ORCURLRequest *)request

@@ -11,6 +11,8 @@
 #import "ORCGIGURLManager.h"
 #import "ORCGIGURLConfigFixtureDetailTableViewController.h"
 
+// Visual Constants
+static NSString * const kFixtures = @"Fixtures";
 
 @interface ORCGIGURLConfigFixturesTableViewController ()
 
@@ -26,7 +28,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Fixtures";
+    self.title = kFixtures;
     
     self.manager = [ORCGIGURLManager sharedManager];
     self.notificationCenter = [NSNotificationCenter defaultCenter];

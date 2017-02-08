@@ -40,11 +40,18 @@ NSString * const kErrorActionNotFoundMessage = @"Action not found.";
     NSError *error = nil;
     NSDictionary *errorjson = [response.data toJSON];
     
-    if (errorjson)
+    if (errorjson != nil &&
+        [errorjson isKindOfClass:[NSDictionary class]])
     {
         NSDictionary *errorDic = [errorjson dictionaryForKey:@"error"];
-        NSInteger code = [errorDic integerForKey:ORCErrorCodeKey];
-        NSString *message = [errorDic stringForKey:ORCErrorMessageKey];
+        NSString *message = nil;
+        NSInteger code = 0;
+        
+        if (errorDic != nil &&
+            ([errorDic isKindOfClass:[NSDictionary class]]))
+        {
+            code = [errorDic integerForKey:ORCErrorCodeKey];
+        }
 
         switch (code) {
             case 401:
@@ -60,6 +67,7 @@ NSString * const kErrorActionNotFoundMessage = @"Action not found.";
                 break;
                 
             default:
+                message = kORCUnexpectedError;
                 break;
         }
 
@@ -69,7 +77,6 @@ NSString * const kErrorActionNotFoundMessage = @"Action not found.";
     {
         error = [NSError errorWithDomain:ORCErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey : kORCUnexpectedError}];
     }
-    
     
     return error;
 }

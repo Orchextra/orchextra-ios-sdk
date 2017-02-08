@@ -11,6 +11,8 @@
 #import "ORCGIGURLManager.h"
 #import "ORCGIGURLConfigAddDomainViewController.h"
 
+// Visual Constants
+static NSString * const kDomains = @"Domains";
 
 @interface ORCGIGURLConfigDomainsTableViewController ()
 
@@ -28,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Domains";
+    self.title = kDomains;
     [self displayNormalLayout];
     
     self.manager = [ORCGIGURLManager sharedManager];
