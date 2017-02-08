@@ -83,6 +83,8 @@
 		8F1593EF1DA3B461003257C2 /* scanning-by@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1481BF36D650042F370 /* scanning-by@3x.png */; };
 		8F1593F01DA3B461003257C2 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1491BF36D650042F370 /* Simple.fragsh */; };
 		8F1593F11DA3B461003257C2 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
+		8F4D3C021E49B0EF0050F4B1 /* POST_configuration_failure_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */; };
+		8F4D3C031E49B0EF0050F4B1 /* POST_configuration_failure_html.html in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */; };
 		8F660CA31DA2BBBC007B9551 /* Orchextra.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFAA1BF362080042F370 /* Orchextra.m */; };
 		8F660CA41DA2BBBC007B9551 /* ORCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD0EE1BF364BD0042F370 /* ORCConstants.m */; };
 		8F660CA51DA2BBBC007B9551 /* ORCSettingsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFA81BF362080042F370 /* ORCSettingsDataManager.m */; };
@@ -510,8 +512,8 @@
 		8F15F61C1D13E0DD00B589E0 /* ORCBusinessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBusinessUnit.m; sourceTree = "<group>"; };
 		8F2884641D23D68D00BA5230 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		8F33A6F81D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_confi_with_customfieldsAndTags.json; sourceTree = "<group>"; };
-		8F5412DF1DA4D24800C2F7B6 /* Orchextra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Orchextra.framework; sourceTree = "<group>"; };
-		8F5412E01DA4D24800C2F7B6 /* VuforiaOrchextra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VuforiaOrchextra.framework; sourceTree = "<group>"; };
+		8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_configuration_failure_empty.json; sourceTree = "<group>"; };
+		8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = POST_configuration_failure_html.html; sourceTree = "<group>"; };
 		8F660C8C1DA2B8D0007B9551 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F77E3101DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ORCBundle.h"; sourceTree = "<group>"; };
 		8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ORCBundle.m"; sourceTree = "<group>"; };
@@ -990,16 +992,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8F5412DE1DA4D24800C2F7B6 /* OrchextraSDK */ = {
-			isa = PBXGroup;
-			children = (
-				8F5412DF1DA4D24800C2F7B6 /* Orchextra.framework */,
-				8F5412E01DA4D24800C2F7B6 /* VuforiaOrchextra.framework */,
-			);
-			name = OrchextraSDK;
-			path = "../../orchextra-ios-sample-app/SampleOrchextra/OrchextraSDK";
-			sourceTree = "<group>";
-		};
 		8F77E30F1DA3BB8D00B4FD97 /* Bundle */ = {
 			isa = PBXGroup;
 			children = (
@@ -2054,6 +2046,8 @@
 				8F33A6F81D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json */,
 				A90FD10B1BF36CD30042F370 /* POST_confi_without_geomarketing.json */,
 				A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */,
+				8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */,
+				8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */,
 				A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */,
 				A90FD10C1BF36CD30042F370 /* POST_configuration.json */,
 			);
@@ -2287,7 +2281,6 @@
 		A9E5956F1B04DA6F0040EAD4 = {
 			isa = PBXGroup;
 			children = (
-				8F5412DE1DA4D24800C2F7B6 /* OrchextraSDK */,
 				A90FCE791BF362080042F370 /* Orchextra */,
 				A90FD0F81BF36CD30042F370 /* OrchextraTests */,
 				A90FD12F1BF36D650042F370 /* OrchextraResources */,
@@ -2676,6 +2669,7 @@
 				8FE765F41DA3C2EF0014500D /* region_geofence.json in Resources */,
 				8FE765F51DA3C2EF0014500D /* GET_action_datanil.json in Resources */,
 				8FE765F61DA3C2EF0014500D /* GET_action_vuforia_without_schedule_data.json in Resources */,
+				8F4D3C031E49B0EF0050F4B1 /* POST_configuration_failure_html.html in Resources */,
 				8FE765F71DA3C2EF0014500D /* GET_action_vuforia_without_schedule.json in Resources */,
 				8FE765F81DA3C2EF0014500D /* GET_action_webview_without_schedule.json in Resources */,
 				8FE765F91DA3C2EF0014500D /* GET_action_browser_without_schedule.json in Resources */,
@@ -2686,6 +2680,7 @@
 				8FE765FE1DA3C2EF0014500D /* clientToken.json in Resources */,
 				8FE765FF1DA3C2EF0014500D /* POST_confi_with_customfieldsAndTags.json in Resources */,
 				8FE766001DA3C2EF0014500D /* POST_confi_without_geomarketing.json in Resources */,
+				8F4D3C021E49B0EF0050F4B1 /* POST_configuration_failure_empty.json in Resources */,
 				8FE766011DA3C2EF0014500D /* POST_Configuration_Complex.json in Resources */,
 				8FE766021DA3C2EF0014500D /* POST_configuration_failure.json in Resources */,
 				8FE766031DA3C2EF0014500D /* POST_configuration.json in Resources */,
