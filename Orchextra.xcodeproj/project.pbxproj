@@ -512,6 +512,7 @@
 		8F15F61C1D13E0DD00B589E0 /* ORCBusinessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBusinessUnit.m; sourceTree = "<group>"; };
 		8F2884641D23D68D00BA5230 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		8F33A6F81D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_confi_with_customfieldsAndTags.json; sourceTree = "<group>"; };
+		8F3E4A271E5C24AD00BBFF55 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_configuration_failure_empty.json; sourceTree = "<group>"; };
 		8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = POST_configuration_failure_html.html; sourceTree = "<group>"; };
 		8F660C8C1DA2B8D0007B9551 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2645,6 +2646,7 @@
 			knownRegions = (
 				en,
 				es,
+				"pt-BR",
 			);
 			mainGroup = A9E5956F1B04DA6F0040EAD4;
 			productRefGroup = A9E595791B04DA6F0040EAD4 /* Products */;
@@ -2968,6 +2970,7 @@
 			children = (
 				A90FCEC21BF362080042F370 /* en */,
 				A90FCEC31BF362080042F370 /* es */,
+				8F3E4A271E5C24AD00BBFF55 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			path = ..;
