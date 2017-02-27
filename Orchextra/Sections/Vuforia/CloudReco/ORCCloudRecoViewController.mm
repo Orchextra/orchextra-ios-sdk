@@ -141,7 +141,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     
     self.showingMenu = NO;
     
-    self.title = ORCLocalizedBundle(@"Vuforia", nil, nil);
+    self.title = NSLocalizedString(@"Vuforia", nil);
     
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:NO];
@@ -210,43 +210,43 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     
     if (code == QCAR::TargetFinder::UPDATE_ERROR_NO_NETWORK_CONNECTION)
     {
-        title = ORCLocalizedBundle(@"UPDATE_ERROR_NO_NETWORK_CONNECTION_TITLE", nil, nil);
-        message = ORCLocalizedBundle(@"UPDATE_ERROR_NO_NETWORK_CONNECTION_DESC", nil, nil);
+        title = NSLocalizedString(@"orc_vuforia_update_error_no_network_connection_title", nil);
+        message = NSLocalizedString(@"orc_vuforia_update_error_no_network_connection_desc", nil);
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_REQUEST_TIMEOUT)
     {
-        title = ORCLocalizedBundle(@"UPDATE_ERROR_REQUEST_TIMEOUT_TITLE", nil, nil);
-        message = ORCLocalizedBundle(@"UPDATE_ERROR_REQUEST_TIMEOUT_DESC", nil, nil);
+        title = NSLocalizedString(@"orc_vuforia_update_error_request_timeout_title", nil);
+        message = NSLocalizedString(@"orc_vuforia_update_error_request_timeout_desc", nil);
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_SERVICE_NOT_AVAILABLE)
     {
-        title = ORCLocalizedBundle(@"UPDATE_ERROR_SERVICE_NOT_AVAILABLE_TITLE", nil, nil);
-        message = ORCLocalizedBundle(@"UPDATE_ERROR_SERVICE_NOT_AVAILABLE_DESC", nil, nil);
+        title = NSLocalizedString(@"orc_vuforia_update_error_service_not_available_title", nil);
+        message = NSLocalizedString(@"orc_vuforia_update_error_service_not_available_desc", nil);
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_UPDATE_SDK)
     {
-        title = ORCLocalizedBundle(@"UPDATE_ERROR_UPDATE_SDK_TITLE", nil, nil);
-        message = ORCLocalizedBundle(@"UPDATE_ERROR_UPDATE_SDK_DESC", nil, nil);
+        title = NSLocalizedString(@"orc_vuforia_update_error_update_sdk_title", nil);
+        message = NSLocalizedString(@"orc_vuforia_update_error_update_sdk_desc", nil);
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_TIMESTAMP_OUT_OF_RANGE)
     {
-        title = ORCLocalizedBundle(@"UPDATE_ERROR_TIMESTAMP_OUT_OF_RANGE_TITLE", nil, nil);
-        message = ORCLocalizedBundle(@"UPDATE_ERROR_TIMESTAMP_OUT_OF_RANGE_DESC", nil, nil);
+        title = NSLocalizedString(@"orc_vuforia_update_error_timestamp_out_of_range_title", nil);
+        message = NSLocalizedString(@"orc_vuforia_update_error_timestamp_out_of_range_desc", nil);
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_AUTHORIZATION_FAILED)
     {
-        title = ORCLocalizedBundle(@"UPDATE_ERROR_AUTHORIZATION_FAILED_TITLE", nil, nil);
-        message = ORCLocalizedBundle(@"UPDATE_ERROR_AUTHORIZATION_FAILED_DESC", nil, nil);
+        title = NSLocalizedString(@"orc_vuforia_update_error_authorization_failed_title", nil);
+        message = NSLocalizedString(@"orc_vuforia_update_error_authorization_failed_desc", nil);
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_PROJECT_SUSPENDED)
     {
-        title = ORCLocalizedBundle(@"UPDATE_ERROR_PROJECT_SUSPENDED_TITLE", nil, nil);
-        message = ORCLocalizedBundle(@"UPDATE_ERROR_PROJECT_SUSPENDED_DESC", nil, nil);
+        title = NSLocalizedString(@"orc_vuforia_update_error_project_suspended_title", nil);
+        message = NSLocalizedString(@"orc_vuforia_update_error_project_suspended_desc", nil);
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_BAD_FRAME_QUALITY)
     {
-        title = ORCLocalizedBundle(@"UPDATE_ERROR_BAD_FRAME_QUALITY_TITLE", nil, nil);
-        message = ORCLocalizedBundle(@"UPDATE_ERROR_BAD_FRAME_QUALITY_DESC", nil, nil);
+        title = NSLocalizedString(@"orc_vuforia_update_error_bad_frame_quality_title", nil);
+        message = NSLocalizedString(@"orc_vuforia_update_error_bad_frame_quality_desc", nil);
     }
     else
     {

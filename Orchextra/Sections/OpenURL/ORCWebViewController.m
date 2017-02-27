@@ -88,7 +88,7 @@ CGFloat const HEIGHT_TOOLBAR = 44;
 
 - (void)initialize
 {
-    self.title =  ORCLocalizedBundle(@"Browser", nil, nil);
+    self.title =  LocalizableConstants.kLocaleOrcBrowserTitle;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                              target:self action:@selector(cancelButtonTapped)];

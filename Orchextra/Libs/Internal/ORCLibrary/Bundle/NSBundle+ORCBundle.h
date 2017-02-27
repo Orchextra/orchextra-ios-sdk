@@ -8,15 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#define ORCLocalizedBundle(key, comment, chapter) \
-NSLocalizedStringFromTableInBundle((key),(chapter),[NSBundle bundleSDK],(comment))
-
 @interface NSBundle (ORCBundle)
 
-//+ (NSBundle*)preferredLanguageResourcesBundle;
 + (NSBundle *)bundleSDK;
 + (UIImage *)imageFromBundleWithName:(NSString *)imageName;
 + (UIFont *)fontORCWithSize:(CGFloat)size;
 + (NSURL *)fileFromBundleWithName:(NSString *)filename;
++ (NSString *)localize:(NSString *)key comment:(NSString *)comment;
 
 @end

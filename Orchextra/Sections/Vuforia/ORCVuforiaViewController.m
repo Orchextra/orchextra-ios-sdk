@@ -108,12 +108,12 @@
 
 - (void)initialize
 {
-    self.title = ORCLocalizedBundle(@"title_image_recognition", nil, nil);
+    self.title = NSLocalizedString(@"orc_vuforia_title", nil);
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                              target:self action:@selector(cancelButtonTapped)];
-    self.navigationItem.leftBarButtonItem.title = ORCLocalizedBundle(@"cancel_button", nil, nil);
+    self.navigationItem.leftBarButtonItem.title = NSLocalizedString(@"orc_global_cancel_button", nil);
 }
 
 @end

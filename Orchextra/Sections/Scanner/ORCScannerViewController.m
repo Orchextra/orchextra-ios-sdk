@@ -69,8 +69,8 @@ NSInteger PADDING_SCANNER = 100;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self.presenter viewIsReady];
+    
     self.delegate = self;
 }
 
@@ -149,6 +149,23 @@ NSInteger PADDING_SCANNER = 100;
     [self.presenter didSuccessfullyScan:aScannedValue type:type];
 }
 
+- (void)showCameraPermissionAlert
+{
+    NSString *title;
+    title = LocalizableConstants.kLocaleOrcCameraPermissionOffTitle;
+    
+    NSString *message = LocalizableConstants.kLocaleOrcCameraPermissionOffMessage;
+    
+    NSString *otherButton = LocalizableConstants.kLocaleOrcGlobalSettingsButton;
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:LocalizableConstants.kLocaleOrcGlobalCancelButton
+                                              otherButtonTitles:otherButton, nil];
+    [alertView show];
+}
+
 #pragma mark - PRIVATE
 
 #pragma mark - Custom View
@@ -194,6 +211,11 @@ NSInteger PADDING_SCANNER = 100;
     [self.containerScanner layoutIfNeeded];
     
     [self addTorch];
+    
+    if (![self isCameraAvailable])
+    {
+        [self.presenter userNeedsCameraPermission];
+    }
 }
 
 - (void)addTorch
@@ -212,13 +234,23 @@ NSInteger PADDING_SCANNER = 100;
 
 - (void)customNavigationBar
 {
-    self.title = ORCLocalizedBundle(@"scanner", nil, nil);
+    self.title = LocalizableConstants.kLocaleOrcScannerTitle;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                              target:self action:@selector(cancelButtonTapped)];
     
-    self.navigationItem.leftBarButtonItem.title = ORCLocalizedBundle(@"cancel_button", nil, nil);
+    self.navigationItem.leftBarButtonItem.title = LocalizableConstants.kLocaleOrcGlobalCancelButton;
+}
+
+#pragma mark - AlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        [self.presenter userDidTapSettingsButton];
+    }
 }
 
 @end

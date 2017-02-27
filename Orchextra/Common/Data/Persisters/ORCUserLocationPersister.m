@@ -15,7 +15,7 @@ NSString * const ORCLastKnownPlacemark = @"ORCLastKnownPlacemark";
 NSString * const ORCLastKnownLocation = @"ORCLastKnownLocation";
 NSString * const ORCAuthorizationStatus = @"ORCAuthorizationStatus";
 NSString * const ORCListRegions = @"ORCListRegions";
-
+NSString * const ORCLocationAlertRequiredShowed = @"ORCLocationAlertRequiredShowed";
 
 @interface ORCUserLocationPersister ()
 
@@ -84,6 +84,18 @@ NSString * const ORCListRegions = @"ORCListRegions";
     [self.userdefaults synchronize];
 }
 
+- (BOOL)isLocationAlertRequiedShowed
+{
+    return [self.userdefaults boolForKey:ORCLocationAlertRequiredShowed];
+}
+
+- (void)storeLocationAlertRequiedShowed:(BOOL)locationAlertRequiedShowed
+{
+    [self.userdefaults setBool:locationAlertRequiedShowed forKey:ORCLocationAlertRequiredShowed];
+    [self.userdefaults synchronize];
+}
+
+
 #pragma mark - Geofences
 
 - (void)storeRegions:(NSArray *)regions
@@ -96,7 +108,5 @@ NSString * const ORCListRegions = @"ORCListRegions";
 {
     return [self.userdefaults unarchiveObjectForKey:ORCListRegions];
 }
-
-
 
 @end

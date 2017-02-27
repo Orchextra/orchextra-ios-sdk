@@ -1,0 +1,8 @@
+platform :swift
+
+output_path '.'
+source :google_drive,
+       :spreadsheet => '[TEXTS]Orchextra_SDK',
+       :client_id => '634268848345-5blis1f5u0j04eiqcqqq4t39j86bks46.apps.googleusercontent.com',
+       :client_secret => 'eJ0eN0x2riYI_l2plJOz8hOD'
+formatting :snake_case
