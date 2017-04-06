@@ -154,21 +154,12 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
     
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusDenied)
     {
-        NSString *title;
-        title = (status == kCLAuthorizationStatusDenied) ?
-        ORCLocalizedBundle(@"Location_services_are_off", nil, nil) :
-        ORCLocalizedBundle(@"Background_location_is_not_enabled", nil, nil);
+        BOOL locationAlertRequiredShowed = [self.userLocationPersister isLocationAlertRequiedShowed];
         
-        NSString *message = ORCLocalizedBundle(@"Turn_on_background_location_service", nil, nil);
-        
-        NSString *otherButton = ORCLocalizedBundle(@"Settings", nil, nil);
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                            message:message
-                                                           delegate:self
-                                                  cancelButtonTitle:ORCLocalizedBundle(@"cancel_button", nil, nil)
-                                                  otherButtonTitles:otherButton, nil];
-        [alertView show];
+        if (!locationAlertRequiredShowed)
+        {
+            [self showLocationRequiredAlertForStatus:status];
+        }
     }
     else if (status == kCLAuthorizationStatusNotDetermined)
     {
@@ -177,6 +168,25 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
             [self.locationManager requestAlwaysAuthorization];
         }
     }
+}
+
+- (void)showLocationRequiredAlertForStatus:(CLAuthorizationStatus)status
+{
+    NSString *title;
+    title = (status == kCLAuthorizationStatusDenied) ?
+    LocalizableConstants.kLocaleOrcLocationServiceOffAlertTitle :
+    LocalizableConstants.kLocaleOrcBackgroundLocationOffAlertTitle;
+    
+    NSString *message = LocalizableConstants.kLocaleOrcBackgroundLocationAlertMessage;
+    
+    NSString *otherButton = LocalizableConstants.kLocaleOrcGlobalSettingsButton;
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:LocalizableConstants.kLocaleOrcGlobalCancelButton
+                                              otherButtonTitles:otherButton, nil];
+    [alertView show];
 }
 
 - (void)notifyEnterRegion:(CLRegion *)region
@@ -371,7 +381,11 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1)
+    if (buttonIndex == 0)
+    {
+        [self.userLocationPersister storeLocationAlertRequiedShowed:YES];
+    }
+    else if (buttonIndex == 1)
     {
         NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
         [[UIApplication sharedApplication] openURL:settingsURL];

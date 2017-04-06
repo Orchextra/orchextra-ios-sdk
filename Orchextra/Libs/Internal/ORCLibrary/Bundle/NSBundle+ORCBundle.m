@@ -70,4 +70,26 @@
     return [UIFont fontWithName:@"icomoon" size:size];
 }
 
++ (NSString *)localize:(NSString *)key comment:(NSString *)comment
+{
+    return [NSBundle
+            localizeFromBundleSDKForKey:[NSBundle localizeFromMainBundleForKey:key]];
+}
+
++ (NSString *)localizeFromMainBundleForKey:(NSString *)key
+{
+   return NSLocalizedStringFromTableInBundle(key,
+                                       nil,
+                                       [NSBundle mainBundle],
+                                       nil);
+}
+
++ (NSString *)localizeFromBundleSDKForKey:(NSString *)key
+{
+   return NSLocalizedStringFromTableInBundle(key,
+                                       nil,
+                                       [NSBundle bundleSDK],
+                                       nil);
+}
+
 @end

@@ -1092,10 +1092,7 @@ static int exception_count = 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (NSDictionary *)fileAttributes {
-    if (_fileAttributes == nil) {
-        _fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
-    }
-
+    _fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:_filePath error:nil];
     return _fileAttributes;
 }
 

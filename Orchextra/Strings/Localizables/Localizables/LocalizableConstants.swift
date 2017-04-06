@@ -1,0 +1,77 @@
+/*
+LocalizableConstants.swift
+
+GENERATED - DO NOT MODIFY - use localio instead.
+
+Created by localio
+*/
+
+import Foundation
+
+@objc public class LocalizableConstants: NSObject {
+
+
+@objc public static let kLocaleOrcGlobalCancelButton: String = { return Bundle.localize("orc_global_cancel_button", comment: "") }()
+@objc public static let kLocaleOrcGlobalOkButton: String = { return Bundle.localize("orc_global_ok_button", comment: "") }()
+@objc public static let kLocaleOrcGlobalOkUppercasedButton: String = { return Bundle.localize("orc_global_ok_uppercased_button", comment: "") }()
+@objc public static let kLocaleOrcGlobalSettingsButton: String = { return Bundle.localize("orc_global_settings_button", comment: "") }()
+@objc public static let kLocaleOrcLocationServiceOffAlertTitle: String = { return Bundle.localize("orc_location_service_off_alert_title", comment: "") }()
+@objc public static let kLocaleOrcBackgroundLocationOffAlertTitle: String = { return Bundle.localize("orc_background_location_off_alert_title", comment: "") }()
+@objc public static let kLocaleOrcBackgroundLocationAlertMessage: String = { return Bundle.localize("orc_background_location_alert_message", comment: "") }()
+@objc public static let kLocaleOrcDefaultLocalNotificationTitle: String = { return Bundle.localize("orc_default_local_notification_title", comment: "") }()
+@objc public static let kLocaleOrcDefaultLocalNotificationMessage: String = { return Bundle.localize("orc_default_local_notification_message", comment: "") }()
+@objc public static let kLocaleOrcScannerTitle: String = { return Bundle.localize("orc_scanner_title", comment: "") }()
+@objc public static let kLocaleOrcScanningMessage: String = { return Bundle.localize("orc_scanning_message", comment: "") }()
+@objc public static let kLocaleOrcMatchNotFoundMessage: String = { return Bundle.localize("orc_match_not_found_message", comment: "") }()
+@objc public static let kLocaleOrcMatchFoundMessage: String = { return Bundle.localize("orc_match_found_message", comment: "") }()
+@objc public static let kLocaleOrcCameraPermissionOffTitle: String = { return Bundle.localize("orc_camera_permission_off_title", comment: "") }()
+@objc public static let kLocaleOrcCameraPermissionOffMessage: String = { return Bundle.localize("orc_camera_permission_off_message", comment: "") }()
+@objc public static let kLocaleOrcBrowserTitle: String = { return Bundle.localize("orc_browser_title", comment: "") }()
+@objc public static let kLocaleOrcUnexpectedError: String = { return Bundle.localize("orc_unexpected_error", comment: "") }()
+@objc public static let kLocaleOrcVuforiaTitle: String = { return Bundle.localize("orc_vuforia_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaButtonStart: String = { return Bundle.localize("orc_vuforia_button_start", comment: "") }()
+@objc public static let kLocaleOrcVuforiaActivitiesListTitle: String = { return Bundle.localize("orc_vuforia_activities_list_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaActivitiesListEmpty: String = { return Bundle.localize("orc_vuforia_activities_list_empty", comment: "") }()
+@objc public static let kLocaleOrcVuforiaButtonOk: String = { return Bundle.localize("orc_vuforia_button_ok", comment: "") }()
+@objc public static let kLocaleOrcVuforiaContentDescCameraButton: String = { return Bundle.localize("orc_vuforia_content_desc_camera_button", comment: "") }()
+@objc public static let kLocaleOrcVuforiaOverlayBuildTargetHelp: String = { return Bundle.localize("orc_vuforia_overlay_build_target_help", comment: "") }()
+@objc public static let kLocaleOrcVuforiaTargetQualityErrorTitle: String = { return Bundle.localize("orc_vuforia_target_quality_error_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaTargetQualityErrorDesc: String = { return Bundle.localize("orc_vuforia_target_quality_error_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuBack: String = { return Bundle.localize("orc_vuforia_menu_back", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuExtendedTracking: String = { return Bundle.localize("orc_vuforia_menu_extended_tracking", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuCharacterMode: String = { return Bundle.localize("orc_vuforia_menu_character_mode", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuFlash: String = { return Bundle.localize("orc_vuforia_menu_flash", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuFlashErrorOn: String = { return Bundle.localize("orc_vuforia_menu_flash_error_on", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuFlashErrorOff: String = { return Bundle.localize("orc_vuforia_menu_flash_error_off", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuContautofocus: String = { return Bundle.localize("orc_vuforia_menu_contautofocus", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuContautofocusErrorOn: String = { return Bundle.localize("orc_vuforia_menu_contautofocus_error_on", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuContautofocusErrorOff: String = { return Bundle.localize("orc_vuforia_menu_contautofocus_error_off", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuDatasets: String = { return Bundle.localize("orc_vuforia_menu_datasets", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuCamera: String = { return Bundle.localize("orc_vuforia_menu_camera", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuCameraFront: String = { return Bundle.localize("orc_vuforia_menu_camera_front", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuCameraBack: String = { return Bundle.localize("orc_vuforia_menu_camera_back", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuButtonRed: String = { return Bundle.localize("orc_vuforia_menu_button_red", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuButtonBlue: String = { return Bundle.localize("orc_vuforia_menu_button_blue", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuButtonYellow: String = { return Bundle.localize("orc_vuforia_menu_button_yellow", comment: "") }()
+@objc public static let kLocaleOrcVuforiaMenuButtonGreen: String = { return Bundle.localize("orc_vuforia_menu_button_green", comment: "") }()
+@objc public static let kLocaleOrcVuforiaSplashScreenDescription: String = { return Bundle.localize("orc_vuforia_splash_screen_description", comment: "") }()
+@objc public static let kLocaleOrcVuforiaErrorMissingVuforiaCredentials: String = { return Bundle.localize("orc_vuforia_error_missing_vuforia_credentials", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorAuthorizationFailedTitle: String = { return Bundle.localize("orc_vuforia_update_error_authorization_failed_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorProjectSuspendedTitle: String = { return Bundle.localize("orc_vuforia_update_error_project_suspended_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorNoNetworkConnectionTitle: String = { return Bundle.localize("orc_vuforia_update_error_no_network_connection_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorServiceNotAvailableTitle: String = { return Bundle.localize("orc_vuforia_update_error_service_not_available_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorUpdateSdkTitle: String = { return Bundle.localize("orc_vuforia_update_error_update_sdk_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorTimestampOutOfRangeTitle: String = { return Bundle.localize("orc_vuforia_update_error_timestamp_out_of_range_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorRequestTimeoutTitle: String = { return Bundle.localize("orc_vuforia_update_error_request_timeout_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorBadFrameQualityTitle: String = { return Bundle.localize("orc_vuforia_update_error_bad_frame_quality_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorUnknownTitle: String = { return Bundle.localize("orc_vuforia_update_error_unknown_title", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorAuthorizationFailedDesc: String = { return Bundle.localize("orc_vuforia_update_error_authorization_failed_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorProjectSuspendedDesc: String = { return Bundle.localize("orc_vuforia_update_error_project_suspended_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorNoNetworkConnectionDesc: String = { return Bundle.localize("orc_vuforia_update_error_no_network_connection_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorServiceNotAvailableDesc: String = { return Bundle.localize("orc_vuforia_update_error_service_not_available_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorUpdateSdkDesc: String = { return Bundle.localize("orc_vuforia_update_error_update_sdk_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorTimestampOutOfRangeDesc: String = { return Bundle.localize("orc_vuforia_update_error_timestamp_out_of_range_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorRequestTimeoutDesc: String = { return Bundle.localize("orc_vuforia_update_error_request_timeout_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorBadFrameQualityDesc: String = { return Bundle.localize("orc_vuforia_update_error_bad_frame_quality_desc", comment: "") }()
+@objc public static let kLocaleOrcVuforiaUpdateErrorUnknownDesc: String = { return Bundle.localize("orc_vuforia_update_error_unknown_desc", comment: "") }()
+}

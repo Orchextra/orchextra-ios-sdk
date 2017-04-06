@@ -243,5 +243,14 @@
     }
 }
 
+- (UIViewController *)topViewController
+{
+    return [self.wireframe topViewController];
+}
+
+- (BOOL)viewControllerToBePresented:(UIViewController *)viewControllerToBePresented isEqualToTopViewController:(UIViewController *)topViewController
+{
+    return [self.wireframe viewControllerToBePresented:viewControllerToBePresented isEqualToTopViewController:topViewController];
+}
 
 @end

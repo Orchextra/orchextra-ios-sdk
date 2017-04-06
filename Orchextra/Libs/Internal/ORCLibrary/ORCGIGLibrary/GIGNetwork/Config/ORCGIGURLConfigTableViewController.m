@@ -17,6 +17,10 @@ NSInteger const ORCGIGURLConfigDomainRow = 0;
 NSInteger const ORCGIGURLConfigFixtureRow = 1;
 NSInteger const ORCGIGURLConfigNumberOfRows = 2;
 
+// Visual Constants
+static NSString * const kConfigTitle = @"Config";
+static NSString * const kDomains = @"Domains";
+static NSString * const kFixtures = @"Fixtures";
 
 @interface ORCGIGURLConfigTableViewController ()
 
@@ -32,7 +36,7 @@ NSInteger const ORCGIGURLConfigNumberOfRows = 2;
 {
     [super viewDidLoad];
     
-    self.title = @"Config";
+    self.title = kConfigTitle;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(tapDone)];
     
     self.manager = [ORCGIGURLManager sharedManager];
@@ -87,14 +91,14 @@ NSInteger const ORCGIGURLConfigNumberOfRows = 2;
         case ORCGIGURLConfigDomainRow:
         {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.text = @"Domains";
+            cell.textLabel.text = kDomains;
             cell.detailTextLabel.text = self.manager.domain.name;
         }
             break;
         case ORCGIGURLConfigFixtureRow:
         {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.text = @"Fixtures";
+            cell.textLabel.text = kFixtures;
             cell.detailTextLabel.text = self.manager.fixture.name;
         }
         default:

@@ -33,6 +33,8 @@ typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 // USER
 - (void)saveUser:(ORCUser *)user;
 - (ORCUser *)currentUser;
+- (void)bindUser:(ORCUser *)user;
+- (void)unbindUser;
 
 // CONFIG
 - (NSInteger)backgroundTime;
@@ -54,8 +56,8 @@ typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 - (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key;
 - (void)commitConfiguration;
 
-// ACCESS TOKEN
-- (void)invalidateAccessToken;
+// TOKENS
+- (void)invalidateTokens;
 
 // GEOLOCATION
 - (void)saveLastLocation:(CLLocation *)location

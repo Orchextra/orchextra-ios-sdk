@@ -115,13 +115,12 @@
 
 - (void)bindUser:(ORCUser *)user
 {
-    [self.interactor saveUser:user];
+    [self.interactor bindUser:user];
 }
 
 - (void)unbindUser
 {
-    ORCUser *user = [[ORCUser alloc] init];
-    [self.interactor saveUser:user];
+    [self.interactor unbindUser];
 }
 
 - (ORCUser *)currentUser
