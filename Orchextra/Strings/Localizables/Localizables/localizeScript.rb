@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 system 'localize'
 
 full_path_file = File.expand_path('LocalizableConstants.swift')
