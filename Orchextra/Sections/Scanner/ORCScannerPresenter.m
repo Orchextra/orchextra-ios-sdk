@@ -63,6 +63,16 @@
     [self.viewController dismissScanner];
 }
 
+- (void)userNeedsCameraPermission
+{
+    [self.viewController showCameraPermissionAlert];
+}
+
+- (void)userDidTapSettingsButton {
+    NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    [[UIApplication sharedApplication] openURL:settingsURL];
+}
+
 #pragma mark - PRIVATE
 
 - (void)resetScannedValue
@@ -78,7 +88,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.waitingResponseScannedValue = NO;
-        [self.viewController showImageStatus:@"37-Checkmark" message:ORCLocalizedBundle(@"match_found", nil, nil)];
+        [self.viewController showImageStatus:@"37-Checkmark" message:LocalizableConstants.kLocaleOrcMatchFoundMessage];
         [self.viewController stopScanner];
         [self.actionInterface didFireTriggerWithAction:action fromViewController:self.viewController];
     });
@@ -86,7 +96,7 @@
 
 - (void)notFoundAction
 {
-    [self.viewController showImageStatus:@"Fail_cross" message:ORCLocalizedBundle(@"match_not_found", nil, nil)];
+    [self.viewController showImageStatus:@"Fail_cross" message:LocalizableConstants.kLocaleOrcMatchNotFoundMessage];
     [self resetScannedValue];
 }
 

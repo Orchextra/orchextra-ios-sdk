@@ -88,7 +88,7 @@ NSString * const ORCVuforiaNotificationName = @"ORCVuforiaNotificationName";
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.waitingResponse = NO;
-        [self.viewController showScannedValue:self.imageRecognized statusMessage:ORCLocalizedBundle(@"match_found", nil, nil)];
+        [self.viewController showScannedValue:self.imageRecognized statusMessage:NSLocalizedString(@"orc_match_found_message", nil)];
         [self.actionInterface didFireTriggerWithAction:action fromViewController:self.viewController];
     });
 
@@ -96,7 +96,7 @@ NSString * const ORCVuforiaNotificationName = @"ORCVuforiaNotificationName";
 
 - (void)notFoundAction
 {
-    [self.viewController showImageStatus:@"Fail_cross" message:ORCLocalizedBundle(@"match_not_found", nil, nil)];
+    [self.viewController showImageStatus:@"Fail_cross" message:NSLocalizedString(@"orc_match_not_found_message", nil)];
     [self resetScannedValue];
 }
 
@@ -109,7 +109,7 @@ NSString * const ORCVuforiaNotificationName = @"ORCVuforiaNotificationName";
     if (!self.waitingResponse)
     {
         //Scanning ...
-        [self.viewController showScannedValue:self.imageRecognized statusMessage:ORCLocalizedBundle(@"scanning", nil, nil)];
+        [self.viewController showScannedValue:self.imageRecognized statusMessage:NSLocalizedString(@"orc_scanning_message", nil)];
         self.waitingResponse = YES;
 
         __weak typeof(self) this = self;

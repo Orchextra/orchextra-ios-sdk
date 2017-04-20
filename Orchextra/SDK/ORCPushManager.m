@@ -226,8 +226,8 @@ NSString * const NOTIFICATION_TYPE = @"type";
                     cancelable:(BOOL)cancelable
                     completion:(CompletionNotification)completion
 {
-    NSString *cancelButtonTitle = ORCLocalizedBundle(@"cancel_button", nil, nil);
-    NSString *okButtonTitle = ORCLocalizedBundle(@"OK", nil, nil);
+    NSString *cancelButtonTitle = LocalizableConstants.kLocaleOrcGlobalCancelButton;
+    NSString *okButtonTitle = LocalizableConstants.kLocaleOrcGlobalOkUppercasedButton;
 
     [self.notificationCompletions addObject:completion];
     self.completionNotification = completion;

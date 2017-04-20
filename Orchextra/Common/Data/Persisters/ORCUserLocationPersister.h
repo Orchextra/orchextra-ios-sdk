@@ -21,11 +21,10 @@
 
 - (BOOL)loadUserLocationPermission;
 - (void)storeUserLocationPermission:(BOOL)hasPermission;
+- (BOOL)isLocationAlertRequiedShowed;
+- (void)storeLocationAlertRequiedShowed:(BOOL)locationAlertRequiedShowed;
 
 - (NSArray *)loadRegions;
 - (void)storeRegions:(NSArray *)regions;
-
-
-
 
 @end

@@ -68,7 +68,7 @@
     }
     else
     {
-        [ORCLog logError:ORCLocalizedBundle(@"ERROR_MISSING_VUFORIA_CREDENTIALS", nil, nil)];
+        [ORCLog logError:NSLocalizedString(@"orc_vuforia_error_missing_vuforia_credentials", nil)];
     }
 }
 

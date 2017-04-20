@@ -23,6 +23,7 @@
 - (void)showScannedValue:(NSString *)scannedValue
            statusMessage:(NSString *)statusMessage;
 - (void)showImageStatus:(NSString *)imageStatus message:(NSString *)message;
+- (void)showCameraPermissionAlert;
 
 @end
 
@@ -39,7 +40,8 @@
 - (void)viewIsReady;
 - (void)userDidTapCancelScanner;
 - (void)didSuccessfullyScan:(NSString *)aScannedValue type:(NSString *)type;
-
+- (void)userNeedsCameraPermission;
+- (void)userDidTapSettingsButton;
 @end
 
 
