@@ -536,6 +536,9 @@
 		8FCBB6F91DBE514300D916F7 /* ORCCBCentralWrapperMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCCBCentralWrapperMock.swift; sourceTree = "<group>"; };
 		8FE1DF851D082FC10015D2F1 /* ORCCustomField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCCustomField.h; sourceTree = "<group>"; };
 		8FE1DF861D082FC10015D2F1 /* ORCCustomField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCCustomField.m; sourceTree = "<group>"; };
+		8FE3B55C1EA8CCDC00C320FF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8FE3B55D1EA8CD4A00C320FF /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8FE3B55E1EA8CD9B00C320FF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrchextraTests.m; sourceTree = "<group>"; };
 		A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionManagerTests.m; sourceTree = "<group>"; };
 		A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerPresenterTests.m; sourceTree = "<group>"; };
@@ -2722,6 +2725,9 @@
 				it,
 				pl,
 				"pt-br",
+				fr,
+				hu,
+				de,
 			);
 			mainGroup = A9E5956F1B04DA6F0040EAD4;
 			productRefGroup = A9E595791B04DA6F0040EAD4 /* Products */;
@@ -3035,6 +3041,9 @@
 				8F79D5D11E606ADC00AAB4CA /* it */,
 				8F79D5D51E606ADC00AAB4CA /* pl */,
 				8F79D5D61E606ADC00AAB4CA /* pt-br */,
+				8FE3B55C1EA8CCDC00C320FF /* fr */,
+				8FE3B55D1EA8CD4A00C320FF /* hu */,
+				8FE3B55E1EA8CD9B00C320FF /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3241,7 +3250,6 @@
 				SDKROOT = iphoneos;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
