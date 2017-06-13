@@ -27,6 +27,21 @@
     }
 }
 
++ (NSString *)eddystoneRegionEventToString:(regionEvent)typeEvent
+{
+    switch (typeEvent)
+    {
+        case regionEventUndetected:
+            return @"undetected";
+        case regionEventEnter:
+            return @"enter";
+        case regionEventExit:
+            return @"exit";
+        case regionEventStay:
+            return @"stay";
+    }
+}
+
 + (NSString *)applicationStateString
 {
     UIApplicationState appState = [UIApplication sharedApplication].applicationState;

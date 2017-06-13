@@ -25,6 +25,8 @@
 @property (strong, nonatomic) NSString *distance;
 @property (strong, nonatomic) NSString *event;
 
+// CORE BLUETOOTH EVENTS
+@property (strong, nonatomic) NSString *coreBluetoothEvent;
 
 - (instancetype)initWithLocalNotification:(UILocalNotification *)notification;
 - (instancetype)initWithRemoteNotification:(NSDictionary *)notification;

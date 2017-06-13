@@ -21,6 +21,7 @@ extern NSString * const ORCTypeBarcode;
 extern NSString * const ORCTypeWatermark;
 extern NSString * const ORCTypeScan;
 extern NSString * const ORCTypeVuforia;
+extern NSString * const ORCTypeCoreBluetooth ;
 
 #pragma mark - Actions
 
@@ -35,6 +36,11 @@ extern NSString * const ORCActionCustomSchemeID;
 
 extern NSString * const ORCSchemeScanner;
 extern NSString * const ORCSchemeImageRecognition;
+
+#pragma mark - Core Bluetooth
+
+extern NSString * const ORCCoreBluetoothStart;
+extern NSString * const ORCCoreBluetoothStop;
 
 #pragma mark - SDK
 

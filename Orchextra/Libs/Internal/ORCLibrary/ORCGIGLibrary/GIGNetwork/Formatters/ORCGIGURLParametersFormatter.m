@@ -19,7 +19,7 @@
     if (self)
     {
         _stringEncoding = NSUTF8StringEncoding;
-        _jsonWritingOptions = 0;
+        _jsonWritingOptions = NSJSONWritingPrettyPrinted;
     }
     return self;
 }
@@ -97,7 +97,9 @@
 {
     if (parameters.count == 0) return nil;
     
-    return [NSJSONSerialization dataWithJSONObject:parameters options:self.jsonWritingOptions error:error];
+    return [NSJSONSerialization dataWithJSONObject:parameters
+                                           options:self.jsonWritingOptions
+                                             error:error];
 }
 
 #pragma mark - PRIVATE

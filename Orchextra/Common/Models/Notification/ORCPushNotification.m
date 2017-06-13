@@ -27,6 +27,10 @@
             _event = [notificionDic stringForKey:@"event"];
             _distance = [notificionDic stringForKey:@"distance"];
         }
+        else if ([_type isEqualToString:ORCTypeCoreBluetooth])
+        {
+            _coreBluetoothEvent = [notificionDic stringForKey:@"core_bluetooth_event"];
+        }
         else
         {
             _trackerId = [notificionDic stringForKey:@"trackId"];

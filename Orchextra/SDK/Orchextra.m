@@ -277,6 +277,11 @@
     [ORCLog addLogsToFile];
 }
 
++ (void)setCoreBluetoothScannerLevel:(CoreBluetoothScanLevel)scanLevel
+{
+    [ORCCBCentralWrapper setScanLevel:scanLevel];
+}
+
 #pragma mark - PRIVATE 
 
 - (NSString *)URLToReloadWebView:(NSString *)customScheme

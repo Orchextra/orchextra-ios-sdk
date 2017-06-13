@@ -18,22 +18,28 @@ enum frameType {
 }
 
 class ORCEddystoneProtocolParser {
-    
+    // MARK: Properties
     var peripheralId:UUID?
     var serviceDataInformation: Data?
     var rssi:Int?
     var serviceBytes: [UInt8]?
     var currentFrameType: frameType?
     var currentBeacon: ORCEddystoneBeacon?
-    var beaconList: [ORCEddystoneBeacon]
     var requestWaitTime: Int
+    var regionManager: EddystoneRegionManager
     
-    init(requestWaitTime: Int) {
+    init(requestWaitTime: Int, validatorInteractor: ORCValidatorActionInterator) {
         self.requestWaitTime = requestWaitTime
-        beaconList = [ORCEddystoneBeacon]()
+        
+        let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
+        let availableRegion =  ORCEddystoneRegion(uid: uid, notifyOnEntry: true, notifyOnExit: true)
+        self.regionManager = EddystoneRegionManager(availableRegions: [availableRegion], validatorInteractor: validatorInteractor)
     }
     
-    // MARK: PUBLIC
+    // MARK: Public
+    func cleanDetectedBeaconList()  {
+        self.regionManager.cleanDetectedBeaconList()
+    }
     
     func parse(_ serviceDataInformation:Data, peripheralId:UUID, rssi:Int) -> Void {
         self.peripheralId = peripheralId
@@ -53,20 +59,21 @@ class ORCEddystoneProtocolParser {
 
             if let peripheralId = self.peripheralId,
                 let rssi = self.rssi {
-                self.currentBeacon = ORCEddystoneBeacon(peripheralId: peripheralId,
-                                                        requestWaitTime: requestWaitTime)
+                if self.currentBeacon?.peripheralId != peripheralId {
+                    self.currentBeacon = ORCEddystoneBeacon(peripheralId: peripheralId,
+                                                            requestWaitTime: requestWaitTime)
+                }
                 
-                self.currentBeacon?.updateRssiBuffer(rssi: rssi)
+                self.currentBeacon?.updateRssiBuffer(rssi: Int8(rssi))
                 self.currentFrameType = self.frameType(frameBytes)
                 self.parseInformationForFrameType()
             }
         }
         
-        return self.beaconList
+        return self.regionManager.beaconsDetected
     }
     
-    // MARK: PUBLIC (FrameType)
-    
+    // MARK: Public (FrameType)
     func frameType(_ fromBytes: UInt8) -> frameType {
         var frameType: frameType = .unknown
         switch fromBytes {
@@ -85,8 +92,7 @@ class ORCEddystoneProtocolParser {
         return frameType
     }
     
-    // MARK: PUBLIC (Url Scheme Prefix)
-    
+    // MARK: Public (Url Scheme Prefix)
     func urlSchemePrefix(_ fromBytes: UInt8) -> String {
         var urlScheme: String = ""
         switch fromBytes {
@@ -105,8 +111,7 @@ class ORCEddystoneProtocolParser {
         return urlScheme
     }
     
-    // MARK: PUBLIC (Url Decoded)
-    
+    // MARK: Public (Url Decoded)
     func urlDecoded(_ fromBytes: UInt8) -> String {
         
         var urlDecoded = ""
@@ -147,8 +152,7 @@ class ORCEddystoneProtocolParser {
         return urlDecoded
     }
     
-    // MARK: PUBLIC (Telemetry Parsing)
-    
+    // MARK: Public (Telemetry Parsing)
     func parseTelemetryInformation() -> Telemetry {
         
         var tlmVersionString:String = ""
@@ -176,8 +180,7 @@ class ORCEddystoneProtocolParser {
         
     }
     
-    // MARK: PRIVATE
-    
+    // MARK: Private methods
     fileprivate func parseTXPowerInformation(_ serviceBytesInformation: [UInt8]) -> UInt8? {
         let txPower:UInt8 = serviceBytesInformation[EddystoneConstants.txPowerPosition]
         return txPower
@@ -185,7 +188,7 @@ class ORCEddystoneProtocolParser {
     
     fileprivate func parseRangingDataInformation(_ serviceBytesInformation: [UInt8]) -> UInt8? {
         let rangingData:UInt8 = serviceBytesInformation[EddystoneConstants.rangingDataPosition]
-        return rangingData
+        return UInt8(rangingData)
     }
     
     fileprivate func parseInformationForFrameType() -> Void {
@@ -197,14 +200,14 @@ class ORCEddystoneProtocolParser {
                 }
                  if let serviceBytes = self.serviceBytes,
                     let rangingData = parseRangingDataInformation(serviceBytes) {
-                     self.currentBeacon?.rangingData = Int(rangingData)
+                    self.currentBeacon?.rangingData = Int8(bitPattern: rangingData)
                 }
             case .url:
                 if let url:URL = parseURLInformation() {
                     self.currentBeacon?.url = url
                     if let serviceBytes = self.serviceBytes,
                        let rangingData = parseRangingDataInformation(serviceBytes) {
-                         self.currentBeacon?.rangingData = Int(rangingData)
+                        self.currentBeacon?.rangingData = Int8(bitPattern: rangingData)
                     }
                 }
             case .telemetry:
@@ -215,7 +218,7 @@ class ORCEddystoneProtocolParser {
                     self.currentBeacon?.eid = eid
                     if let serviceBytes = self.serviceBytes,
                         let rangingData = parseRangingDataInformation(serviceBytes) {
-                        self.currentBeacon?.rangingData = Int(rangingData)
+                        self.currentBeacon?.rangingData = Int8(bitPattern: rangingData)
                     }
                 }
             default:
@@ -226,8 +229,7 @@ class ORCEddystoneProtocolParser {
         }
     }
     
-    // MARK: PRIVATE (UUID Parsing)
-    
+    // MARK: Private (UUID Parsing)
     fileprivate func parseUIDInformation() -> EddystoneUID? {
         var eddystoneUID:EddystoneUID? = nil
         
@@ -243,8 +245,7 @@ class ORCEddystoneProtocolParser {
         return eddystoneUID
     }
     
-    // MARK: PRIVATE (URL Parsing)
-    
+    // MARK: Private (URL Parsing)
     fileprivate func parseURLInformation() -> URL? {
         var urlString: String = ""
         if let serviceBytes = self.serviceBytes {
@@ -291,8 +292,7 @@ class ORCEddystoneProtocolParser {
         return result
     }
     
-    // MARK: PRIVATE (EID Parsing)
-    
+    // MARK: Private (EID Parsing)
     fileprivate func parseEIDInformation() -> String? {
         var eid:String? = nil
         if let serviceBytes = self.serviceBytes {
@@ -303,8 +303,7 @@ class ORCEddystoneProtocolParser {
         return eid
     }
     
-    // MARK: PRIVATE (Telemetry parsing)
-    
+    // MARK: Private (Telemetry parsing)
     fileprivate func parseTelemetryTlmVersion(_ serviceData: Data) -> String {
         var tlmVersion: UInt8 = 0
         let tlmVersionRange =  Range(uncheckedBounds: (EddystoneConstants.tlmVersionInitialPosition, EddystoneConstants.tlmVersionEndPosition))
@@ -405,12 +404,12 @@ class ORCEddystoneProtocolParser {
         return uptime
     }
     
-    // MARK: PRIVATE (BeaconList)
-    
+    // MARK: Private (BeaconList)
     fileprivate func addBeaconIfNeeded() -> Void {
         var beaconUpdated: Bool = false
-        for beacon in beaconList {
-            if beacon.peripheralId == currentBeacon?.peripheralId {
+        for beacon in self.regionManager.beaconsDetected {
+            if beacon.peripheralId == currentBeacon?.peripheralId ||
+                beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed {
                 if let rssiBuffer = currentBeacon?.rssiBuffer {
                     for rssi in rssiBuffer {
                         beacon.updateRssiBuffer(rssi: rssi)
@@ -422,10 +421,7 @@ class ORCEddystoneProtocolParser {
                 }
                 
                 if let proximity = currentBeacon?.proximity {
-                    if proximity != .unknown,
-                       proximity != beacon.proximity {
-                         beacon.updateProximity(currentProximity: proximity)
-                    }
+                    beacon.updateProximity(currentProximity: proximity)
                 }
                 
                 if let txPower = currentBeacon?.txPower {
@@ -452,7 +448,6 @@ class ORCEddystoneProtocolParser {
                     case .eid:
                         beacon.eid = currentBeacon?.eid
                         beaconUpdated = true
-                        
                     }
                 }
             }
@@ -460,7 +455,7 @@ class ORCEddystoneProtocolParser {
         
         if let currentBeacon = self.currentBeacon,
         beaconUpdated == false {
-            beaconList.append(currentBeacon)
+            self.regionManager.addDetectedBeacon(beacon: currentBeacon)
         }
     }
 }

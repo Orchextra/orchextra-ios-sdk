@@ -14,6 +14,7 @@
 
 @class ORCAppConfigCommunicator;
 @class ORCBusinessUnit;
+@class ORCEddystoneRegion;
 @class ORCUser;
 @class ORCTag;
 
@@ -39,6 +40,7 @@ typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 // CONFIG
 - (NSInteger)backgroundTime;
 - (NSArray *)loadRegions;
+- (NSArray <ORCEddystoneRegion *> *)loadEddystoneRegions;
 - (NSArray <ORCCustomField *> *)loadAvailableCustomFields;
 - (NSArray <ORCCustomField *> *)loadCustomFields;
 - (NSArray <ORCTag *> *)loadUserTags;
@@ -46,6 +48,7 @@ typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 - (NSArray <ORCBusinessUnit *> *)loadUserBusinessUnits;
 - (NSArray <ORCBusinessUnit *> *)loadDeviceBusinessUnits;
 - (void)saveRegions:(NSArray *)regions;
+- (void)saveEddystoneRegions:(NSArray<ORCEddystoneRegion *> *)regions;
 - (void)saveOrchextraRunning:(BOOL)orchextraRunning;
 - (BOOL)isOrchextraRunning;
 - (void)saveCustomFields:(NSArray <ORCCustomField *> *)customFields;

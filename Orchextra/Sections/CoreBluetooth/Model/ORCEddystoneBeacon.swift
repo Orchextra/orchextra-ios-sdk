@@ -15,12 +15,11 @@ import Foundation
     case far
 }
 
-@objc public class ORCEddystoneBeacon:NSObject {
-    
+@objc public class ORCEddystoneBeacon: NSObject {
     public var peripheralId:UUID?
     public var txPower:Int?
-    public var rangingData:Int? // Calibrated Tx power at 0 m
-    public var rssiBuffer:[Int]?
+    public var rangingData:Int8? // Calibrated Tx power at 0 m
+    public var rssiBuffer:[Int8]?
     public var rssi:Double { get {
         var totalRssi: Double = 0
         guard let rssiBuffer = self.rssiBuffer else {
@@ -53,38 +52,35 @@ import Foundation
         self.peripheralId = peripheralId
         self.requestWaitTime = requestWaitTime
         
-        super.init()        
+        super.init()
     }
     
-    public func updateRssiBuffer(rssi: Int) {
+    public func updateRssiBuffer(rssi: Int8) {
         let rssiBufferCount: Int = (self.rssiBuffer != nil) ? (self.rssiBuffer?.count)! : 0
         
-        if rssiBufferCount == 0 {
-            self.rssiBuffer = [Int]()
-            self.rssiBuffer?.insert(rssi, at: 0)
-        } else if rssiBufferCount < EddystoneConstants.maxRssiBufferCount {
-            self.rssiBuffer?.insert(rssi, at: 0)
-        } else {
-            self.rssiBuffer?.removeLast()
-            self.rssiBuffer?.insert(rssi, at: 0)
+        if rssi <= 0 {
+            if rssiBufferCount == 0 {
+                self.rssiBuffer = [Int8]()
+                self.rssiBuffer?.insert(Int8(rssi), at: 0)
+            } else if rssiBufferCount < EddystoneConstants.maxRssiBufferCount {
+                self.rssiBuffer?.insert(Int8(rssi), at: 0)
+            } else {
+                self.rssiBuffer?.removeAll()
+                self.rssiBuffer?.insert(Int8(rssi), at: 0)
+            }
         }
-        
     }
     
     public func canBeSentToValidateAction() -> Bool {
         var canBeSentToValidateAction: Bool = false
-        
         if (self.uid?.namespace != nil),
             (self.uid?.instance != nil ),
             (self.url != nil),
-            (self.telemetry?.temperature != nil),
-            (self.telemetry?.batteryPercentage != nil),
-            (self.telemetry?.uptime != nil),
             (self.proximity != .unknown),
             (self.proximityTimer == nil) {
             canBeSentToValidateAction = true
         }
-        
+        print("CAN BE SENT TO VALIDATE ACTION \(canBeSentToValidateAction)")
         return canBeSentToValidateAction
     }
     
@@ -94,7 +90,6 @@ import Foundation
     
     public func updateProximityTimer() {
         let timerTimeInterval = TimeInterval(self.requestWaitTime)
-        
         self.proximityTimer = Timer.scheduledTimer(timeInterval: timerTimeInterval,
                                                    target: self,
                                                    selector: #selector(resetProximityTimer),
@@ -107,7 +102,7 @@ import Foundation
         self.proximityTimer = nil
     }
     
-     func convertRSSIToProximity(_ rssi: Double, rangingData: Int) -> proximity {
+    private func convertRSSIToProximity(_ rssi: Double, rangingData: Int8) -> proximity {
         var rangingDataUpdated = rangingData
         
         if rangingData == 0 {
@@ -120,21 +115,21 @@ import Foundation
         return proximity
     }
     
-     func calculateDistanceFromRSSI(_ rssi: Double, rangingData: Int) -> Double {
+    private func calculateDistanceFromRSSI(_ rssi: Double, rangingData: Int8) -> Double {
         var distance: Double = 0.0
-
+        
         if rssi == 0 {
             distance = -1 // Distance not determined
         }
         
-        let ratio: Double = rssi / Double(rangingData)
+        let ratio: Double =  rssi / Double(rangingData)
         
         if ratio < 1 {
             distance = pow(ratio, 10)
         } else {
-            distance = 0.89976 * pow(ratio, 7.7095) + 0.111
+            distance = EddystoneConstants.coefficient1 * pow(ratio, EddystoneConstants.coefficient2) + EddystoneConstants.coefficient3
         }
-        
+    
         return distance
     }
     

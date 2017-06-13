@@ -19,18 +19,20 @@
 #import "ORCErrorManager.h"
 #import "ORCGIGJSON.h"
 
-NSString * const TYPE_KEY           = @"type";
-NSString * const VALUE_KEY          = @"value";
-NSString * const EVENT_KEY          = @"event";
-NSString * const PHONE_STATUS_KEY   = @"phoneStatus";
-NSString * const DISTANCE_KEY       = @"distance";
-NSString * const EDDYSTONE_KEY      = @"eddystone";
-NSString * const TEMPERATURE_KEY    = @"temperature";
-NSString * const NAMESPACE_KEY      = @"namespace";
-NSString * const INSTANCE_KEY       = @"instance";
-NSString * const BATTERY_KEY        = @"battery";
-NSString * const UPTIME_KEY         = @"uptime";
-NSString * const URL_KEY            = @"url";
+NSString * const TYPE_KEY               = @"type";
+NSString * const VALUE_KEY              = @"value";
+NSString * const EVENT_KEY              = @"event";
+NSString * const PHONE_STATUS_KEY       = @"phoneStatus";
+NSString * const DISTANCE_KEY           = @"distance";
+NSString * const EDDYSTONE_KEY          = @"eddystone";
+NSString * const EDDYSTONE_REGION_KEY   = @"eddystone_region";
+
+NSString * const TEMPERATURE_KEY        = @"temperature";
+NSString * const NAMESPACE_KEY          = @"namespace";
+NSString * const INSTANCE_KEY           = @"instance";
+NSString * const BATTERY_KEY            = @"battery";
+NSString * const UPTIME_KEY             = @"uptime";
+NSString * const URL_KEY                = @"url";
 
 
 
@@ -128,9 +130,24 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     }];
 }
 
+- (void)validateProximityWithEddystoneRegion:(ORCEddystoneRegion *)region completion:(CompletionActionValidated)completionAction
+{
+    NSDictionary *dictionary = @{ TYPE_KEY  : EDDYSTONE_REGION_KEY,
+                                  VALUE_KEY : region.uid.namespace,
+                                  EVENT_KEY : [ORCProximityFormatter eddystoneRegionEventToString:region.regionEvent],
+                                  PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString]};
+    
+    [self printValidatingLogMessageWithValues:dictionary];
+    
+    __weak typeof(self) this = self;
+    [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
+        
+        [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
+    }];
+}
+
 - (void)validateProximityWithBeacon:(ORCBeacon *)beacon completion:(CompletionActionValidated)completionAction
 {
-    
     NSString *beaconUUIDUpperCaseString = [beacon.uuid.UUIDString uppercaseString];
     NSString *plainCodeBeacon           = [NSString stringWithFormat:@"%@_%@_%@",
                                            beaconUUIDUpperCaseString,
@@ -155,14 +172,27 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 
 - (void)validateProximityWithEddystoneBeacon:(ORCEddystoneBeacon *)beacon completion:(CompletionActionValidated)completionAction
 {
-    NSDictionary *dictionary = @{ TYPE_KEY          : EDDYSTONE_KEY,
-                                  NAMESPACE_KEY     : beacon.uid.namespace,
-                                  INSTANCE_KEY      : beacon.uid.instance,
-                                  URL_KEY           : beacon.url,
-                                  TEMPERATURE_KEY   : [NSNumber numberWithFloat:beacon.telemetry.temperature],
-                                  BATTERY_KEY       : [NSNumber numberWithDouble:beacon.telemetry.batteryPercentage],
-                                  PHONE_STATUS_KEY  : [ORCProximityFormatter applicationStateString],
-                                  DISTANCE_KEY      : [ORCProximityFormatter eddystoneProximityDistanceToString:beacon.proximity] };
+    NSNumber *temperature = [NSNumber numberWithDouble:beacon.telemetry.temperature];
+    NSNumber *batteryPercentage = [NSNumber numberWithDouble:beacon.telemetry.batteryPercentage];
+    NSDictionary *partialDictionary =   @{ TYPE_KEY          : EDDYSTONE_KEY,
+                                           NAMESPACE_KEY     : beacon.uid.namespace,
+                                           INSTANCE_KEY      : beacon.uid.instance,
+                                           URL_KEY           : beacon.url.description,
+                                           PHONE_STATUS_KEY  : [ORCProximityFormatter applicationStateString],
+                                           DISTANCE_KEY      : [ORCProximityFormatter eddystoneProximityDistanceToString:beacon.proximity] };
+    
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc]
+                                       initWithDictionary:partialDictionary];
+    
+    if (temperature != nil && !([temperature isKindOfClass:[NSNull class]]))
+    {
+        [dictionary addEntriesFromDictionary: @{ TEMPERATURE_KEY : temperature }];
+    }
+    
+    if (batteryPercentage != nil && !([batteryPercentage isKindOfClass:[NSNull class]]))
+    {
+        [dictionary addEntriesFromDictionary: @{ BATTERY_KEY : batteryPercentage }];
+    }
     
     [self printValidatingLogMessageWithValues:dictionary];
     

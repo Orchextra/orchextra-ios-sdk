@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+@class ORCEddystoneRegion;
+
 @interface ORCUserLocationPersister : NSObject
 
 - (instancetype)initWithUserDefaults:(NSUserDefaults *)userDefaults;
@@ -26,5 +28,8 @@
 
 - (NSArray *)loadRegions;
 - (void)storeRegions:(NSArray *)regions;
+
+- (NSArray<ORCEddystoneRegion *> *)loadEddystoneRegions;
+- (void)storeEddystoneRegions:(NSArray<ORCEddystoneRegion *> *)regions;
 
 @end

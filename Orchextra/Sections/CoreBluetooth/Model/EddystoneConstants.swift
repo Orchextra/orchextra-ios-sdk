@@ -17,7 +17,7 @@ struct EddystoneConstants {
     static let bytesToStringConverterRadix:              Int    = 16
     
     // TX POWER
-    static let defaultRangingData:                       Int    = -65
+    static let defaultRangingData:                       Int8    = -65
     
     // URL SCHEMES
     static let urlSchemeTypeHttp_www :                   String = "http://www."
@@ -103,7 +103,15 @@ struct EddystoneConstants {
     static let miliVoltsToVolts:                         Double = 1000.0
     static let temperature8pointeNotation:               Float  = 256.0
     
+    // DISTANCE COEFICIENTS
+    static let coefficient1:                             Double = 0.89976
+    static let coefficient2:                             Double = 7.7095
+    static let coefficient3:                             Double = 0.111
+    
     // RSSI BUFFER 
     static let maxRssiBufferCount:                       Int    = 20
     
+    // CORE BLUETOOTH Timers
+    static let timeToScan:                               Int    = 30
+    static let timeToStopScanner:                        Int    = 300
 }

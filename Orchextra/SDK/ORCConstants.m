@@ -16,6 +16,8 @@ NSString * const ORCTypeGeofence = @"geofence";
 NSString * const ORCTypeQR = @"qr";
 NSString * const ORCTypeBarcode = @"barcode";
 NSString * const ORCTypeVuforia = @"vuforia";
+NSString * const ORCTypeCoreBluetooth = @"orc_core_bluetooth";
+
 
 #pragma mark - Actions
 
@@ -30,6 +32,12 @@ NSString * const ORCActionVuforiaID = @"scan_vuforia";
 
 NSString * const ORCSchemeScanner = @"Orchextra://scanner";
 NSString * const ORCSchemeImageRecognition = @"Orchextra://imageRecognition";
+
+#pragma mark - Core Bluetooth
+
+NSString * const ORCCoreBluetoothStart = @"core_bluetooth_start";
+NSString * const ORCCoreBluetoothStop = @"core_bluetooth_stop";
+
 
 #pragma mark - SDK
     

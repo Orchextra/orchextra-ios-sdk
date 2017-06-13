@@ -11,13 +11,15 @@ import Foundation
 @objc public class EddystoneUID:NSObject {
     
     public var namespace:String
-    public var instance:String
+    public var instance:String?
     public var uidCompossed: String { get {
+        
+        let instance = self.instance ?? ""
         return namespace + instance
         }
     }
     
-    public init(namespace: String, instance: String) {
+    public init(namespace: String, instance: String?) {
         self.namespace = namespace
         self.instance = instance
     }

@@ -13,6 +13,7 @@
 
 + (NSString *)applicationStateString;
 + (NSString *)proximityEventToString:(NSInteger)typeEvent;
++ (NSString *)eddystoneRegionEventToString:(regionEvent)typeEvent;
 + (NSString *)proximityDistanceToString:(CLProximity)proximity;
 + (NSString *)eddystoneProximityDistanceToString:(proximity)proximity;
 

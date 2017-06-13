@@ -10,11 +10,11 @@ import Foundation
 
 @objc public class Telemetry: NSObject {
     
-    public var tlmVersion:String
-    public var batteryVoltage:Double
+    public var tlmVersion: String
+    public var batteryVoltage: Double
     public var batteryPercentage: Double
-    public var temperature:Float
-    public var advertisingPDUcount:String
+    public var temperature: Float
+    public var advertisingPDUcount: String
     public var uptime: TimeInterval
     
     public init(tlmVersion: String,
