@@ -1,3 +1,4 @@
+
 //
 //  ORCCBCentralWrapper.swift
 //  EddystoneExample
@@ -10,7 +11,7 @@ import Foundation
 import CoreBluetooth
 import UserNotifications
 
-@objc public class ORCCBCentralWrapper: NSObject, CBCentralManagerDelegate {
+@objc public class ORCCBCentralWrapper: NSObject {
     
     // MARK: Public properties
     public static var scanLevel: CoreBluetoothScanLevel = .scanByIntervals
@@ -18,20 +19,20 @@ import UserNotifications
     
     @objc var validatorInteractor: ORCValidatorActionInterator
     @objc var actionInterface: ORCActionInterface
-    var centralManagerQueue: DispatchQueue
+    var centralManagerQueue: DispatchQueue?
     var requestWaitTime: Int
     var eddystoneParser: ORCEddystoneProtocolParser?
     var scannerStarted: Bool
     var beaconList: [ORCEddystoneBeacon]
-    var scanningTimer: Timer?
-    var stoppedScannerTimer: Timer?
+    
+    var startScannerBackgroundTask: UIBackgroundTaskIdentifier?
+    var stopScannerBackgroundTask: UIBackgroundTaskIdentifier?
     
     // MARK: Public methods
     @objc public init(actionInterface:ORCActionInterface,
                       validatorActionInteractor: ORCValidatorActionInterator,
                       requestWaitTime: Int) {
-        
-        let centralManagerQueue = DispatchQueue(label:"centralManagerQueue")
+        let centralManagerQueue = DispatchQueue(label:"centralManagerQueue", qos: .userInteractive)
         self.centralManagerQueue = centralManagerQueue
         self.requestWaitTime = requestWaitTime
         self.scannerStarted = false
@@ -72,123 +73,57 @@ import UserNotifications
     
     @objc public func initializeCentralManager() {
         let centralManager = CBCentralManager(delegate: self,
-                                              queue:self.centralManagerQueue,
+                                              queue: self.centralManagerQueue,
                                               options: [CBCentralManagerOptionRestoreIdentifierKey : "ORCCentralManagerIdentifier"])
         
         self.centralManager = centralManager
     }
-    
-    @objc public func createLocalNotification(with event: String, duration: Int) {
-        let currentDate = Date()
-        let timeToFireNotification: UInt = UInt(duration)
-        let timeInterval = TimeInterval(timeToFireNotification)
-        let userInfo: [AnyHashable : Any] = ["type": ORCTypeCoreBluetooth,
-                                             "core_bluetooth_event": event]
-        if #available(iOS 10, *) {
-            let center = UNUserNotificationCenter.current()
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval,
-                                                            repeats: true)
-            let content = UNMutableNotificationContent()
-            let identifier = event
-            let request = UNNotificationRequest(
-                identifier: identifier,
-                content: content,
-                trigger: trigger
-            )
-            center.add(request, withCompletionHandler: { (error) in
-                if let error = error {
-                    print("Error: \(error.localizedDescription)")
-                }
-            })
-            
-        } else {
-            let localNotification = UILocalNotification()
-            localNotification.fireDate = Date(timeInterval: timeInterval, since: currentDate)
-            localNotification.userInfo = userInfo
-            
-            guard let scheduledNotifications = UIApplication.shared.scheduledLocalNotifications else { return }
-            if !(scheduledNotifications.contains(localNotification)) {
-                UIApplication.shared.scheduleLocalNotification(localNotification)
-            }
-        }
-    }
-    
+
+    // MARK: Public scan methods
     @objc public func startScanner() -> Void {
+        var secondsToStopScanner: Int = 0
         if !self.scannerStarted,
             self.centralManager?.state == .poweredOn {
-            
-            DispatchQueue.global().async (execute: {
-                self.scannerStarted = true
-                let serviceUUID:String = EddystoneConstants.serviceUUID
-                let services: [CBUUID] = [CBUUID (string:serviceUUID)]
-                let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey : true]
-                
-                if self.eddystoneParser == nil {
-                    self.eddystoneParser = ORCEddystoneProtocolParser(requestWaitTime: self.requestWaitTime, validatorInteractor: self.validatorInteractor)
-                }
-                self.cancelLocalNotification(for: ORCCoreBluetoothStop)
-                self.createLocalNotification(with: ORCCoreBluetoothStart, duration: EddystoneConstants.timeToScan)
-                self.centralManager?.scanForPeripherals(withServices: services, options: options)
-                
+            self.startScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
+                    self.endStartScannerTask()
             })
             
-            
-            //            DispatchQueue.global().async {
-            //                self.scannerStarted = true
-            //                let serviceUUID:String = EddystoneConstants.serviceUUID
-            //                let services: [CBUUID] = [CBUUID (string:serviceUUID)]
-            //                let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey : true]
-            //
-            //                if self.eddystoneParser == nil {
-            //                    self.eddystoneParser = ORCEddystoneProtocolParser(requestWaitTime: self.requestWaitTime, validatorInteractor: self.validatorInteractor)
-            //                }
-            //
-            //                self.centralManager?.scanForPeripherals(withServices: services, options: options)
-            //
-            //                self.initializeScanningTimer()
-            //                if self.isAvailableStopTool() {
-            //                    self.invalidateStoppedScanerTimer()
-            //                }
-            //            }
+            DispatchQueue.global().async(execute: {
+                self.performStartScanner()
+                
+                while secondsToStopScanner < EddystoneConstants.timeToStopScanner {
+                    Thread.sleep(forTimeInterval: 1)
+                    secondsToStopScanner+=1
+                    
+                    ORCLog.logDebug(format: "Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+                }
+                
+                self.endStartScannerTask()
+            })
         }
     }
     
     @objc public func stopScanner() -> Void {
-        DispatchQueue.global().async (execute: {
-            self.scannerStarted = false
-            self.centralManager?.stopScan()
-            self.cancelLocalNotification(for: ORCCoreBluetoothStart)
-            if self.isAvailableStopTool() {
-                self.createLocalNotification(with: ORCCoreBluetoothStop, duration: EddystoneConstants.timeToStopScanner)
-            }
+        var secondsToStartScanner: Int = 0
+        self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
+            self.endStopScannerTask()
         })
-        self.eddystoneParser?.cleanDetectedBeaconList()
         
-        //        DispatchQueue.global().async (execute: {
-        //            self.scannerStarted = false
-        //            self.centralManager?.stopScan()
-        //            self.invalidateScanningTimer()
-        //            if self.isAvailableStopTool() {
-        //                self.initializeStoppedScannerTimer()
-        //            }
-        //        })
-        //        self.eddystoneParser?.cleanDetectedBeaconList()
-    }
-    
-    // MARK: Private utilities
-    private func beaconIsValidToSentAction(beacon: ORCEddystoneBeacon) -> Bool {
-        return beacon.canBeSentToValidateAction()
-    }
-    
-    private func validateAction(beacon: ORCEddystoneBeacon) {
-        self.validatorInteractor.validateProximity(with: beacon, completion: {(action, error) in
-            guard let actionNotNil = action else { return }
+        DispatchQueue.global().async(execute: {
+            self.performStopScanner()
             
-            actionNotNil.launchedByTriggerCode = beacon.uid?.uidCompossed
-            self.actionInterface.didFireTrigger(with: action)
+            while secondsToStartScanner < EddystoneConstants.timeToStartScanner {
+                Thread.sleep(forTimeInterval: 1)
+                secondsToStartScanner+=1
+                
+                ORCLog.logDebug(format: "Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+            }
+            
+            self.endStopScannerTask()
         })
     }
-    
+
+    // MARK: Private utilities
     private func isAvailableStopTool() -> Bool {
         var isAvailableStopTool: Bool
         
@@ -203,62 +138,21 @@ import UserNotifications
         return isAvailableStopTool
     }
     
-    // MARK: Private timer methods
-    
-    private func cancelLocalNotification(for event: String) {
-        if #available(iOS 10, *) {
-        } else {
-            let localNotificationsScheduledFiltered = UIApplication.shared.scheduledLocalNotifications?.filter ({ localNotification in
-                guard let userInfo = localNotification.userInfo,
-                    let eventType: String = userInfo["core_bluetooth_event"] as? String else { return false }
-                return  eventType == event
-            })
-            UIApplication.shared.scheduledLocalNotifications = localNotificationsScheduledFiltered
-        }
+    private func beaconIsValidToSentAction(beacon: ORCEddystoneBeacon) -> Bool {
+        return beacon.canBeSentToValidateAction()
     }
-//    private func initializeScanningTimer() {
-//        DispatchQueue.global().async(execute: {
-//            let timerTimeInterval = TimeInterval(EddystoneConstants.timeToScan)
-//            
-//            self.scanningTimer = Timer.scheduledTimer(timeInterval: timerTimeInterval,
-//                                                      target: self,
-//                                                      selector: #selector(self.stopScanner),
-//                                                      userInfo: nil,
-//                                                      repeats: true)
-//            
-//            guard let timer = self.scanningTimer else { return }
-//            self.addTimerToBackground(timer: timer)
-//        })
-//    }
     
-//    private func initializeStoppedScannerTimer() {
-//        DispatchQueue.global().async(execute: {
-//            let timerTimeInterval = TimeInterval(EddystoneConstants.timeToStopScanner)
-//            
-//            self.stoppedScannerTimer = Timer.scheduledTimer(timeInterval: timerTimeInterval,
-//                                                            target: self,
-//                                                            selector: #selector(self.startScanner),
-//                                                            userInfo: nil,
-//                                                            repeats: true)
-//            
-//            guard let timer = self.stoppedScannerTimer else { return }
-//            self.addTimerToBackground(timer: timer)
-//        })
-//    }
+    private func validateAction(beacon: ORCEddystoneBeacon) {
+        self.validatorInteractor.validateProximity(with: beacon, completion: {(action, error) in
+            guard let actionNotNil = action else { return }
+            
+            actionNotNil.launchedByTriggerCode = beacon.uid?.uidCompossed
+            self.actionInterface.didFireTrigger(with: action)
+        })
+    }
     
-//    private func invalidateScanningTimer() {
-//        self.scanningTimer?.invalidate()
-//        self.scanningTimer = nil
-//    }
-//    
-//    private func invalidateStoppedScanerTimer() {
-//        self.stoppedScannerTimer?.invalidate()
-//        self.stoppedScannerTimer = nil
-//    }
-    
-    private func sendInfoForBeaconsDetected() {
+    fileprivate func sendInfoForBeaconsDetected() {
         DispatchQueue.global().sync(execute: {
-            ORCLog.logVerbose(format: "Number of beacons detected \(self.beaconList.count)")
             let beaconListValidToSentAction = self.beaconList.filter(self.beaconIsValidToSentAction)
             for beacon in beaconListValidToSentAction {
                 self.validateAction(beacon: beacon)
@@ -266,10 +160,51 @@ import UserNotifications
         })
     }
     
-//    private func addTimerToBackground(timer: Timer) {
-//        RunLoop.current.add(timer, forMode: .commonModes)
-//        RunLoop.current.run()
-//    }
+    // MARK: Private scan methods
+    private func performStartScanner() {
+        ORCLog.logDebug(format: "--- START SCANNER ---")
+        self.scannerStarted = true
+        let serviceUUID:String = EddystoneConstants.serviceUUID
+        let services: [CBUUID] = [CBUUID (string:serviceUUID)]
+        let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey : true]
+        
+        if self.eddystoneParser == nil {
+            self.eddystoneParser = ORCEddystoneProtocolParser(requestWaitTime: self.requestWaitTime, validatorInteractor: self.validatorInteractor)
+        }
+        self.centralManager?.scanForPeripherals(withServices: services, options: options)
+    }
+    
+    private func performStopScanner() {
+        ORCLog.logDebug(format: "--- STOP SCANNER ---")
+        self.scannerStarted = false
+        self.centralManager?.stopScan()
+        self.eddystoneParser?.cleanDetectedBeaconList()
+    }
+    
+    //MARK: Private finish task methods
+    private func endStartScannerTask() {
+        if (self.isAvailableStopTool()) {
+            if let startScannerTask = self.startScannerBackgroundTask  {
+                UIApplication.shared.endBackgroundTask(startScannerTask)
+            }
+            
+            self.startScannerBackgroundTask = UIBackgroundTaskInvalid
+            self.stopScanner()
+        }
+    }
+    
+    private func endStopScannerTask() {
+        ORCLog.logVerbose(format: "Number of beacons detected \(self.beaconList.count)")
+        if let stopScannerTask = self.stopScannerBackgroundTask  {
+             UIApplication.shared.endBackgroundTask(stopScannerTask)
+        }
+        
+        self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
+        self.startScanner()
+    }
+    
+}
+extension ORCCBCentralWrapper: CBCentralManagerDelegate {
     
     // MARK: CBCentralManagerDelegate methods
     public func centralManagerDidUpdateState(_ centralManager: CBCentralManager) -> Void {

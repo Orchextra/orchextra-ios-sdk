@@ -21,7 +21,6 @@
 #import "NSDictionary+ORCGIGJSON.h"
 #import "NSBundle+ORCBundle.h"
 
-
 NSString * const NOTIFICATION_ACTION_ID = @"id";
 NSString * const NOTIFICATION_TITLE = @"title";
 NSString * const NOTIFICATION_BODY = @"body";
@@ -77,12 +76,12 @@ NSString * const NOTIFICATION_TYPE = @"type";
 - (void)registerPushNotification
 {
     UIApplication *application = [UIApplication sharedApplication];
-
+    
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
     {
         UIUserNotificationType types =  UIUserNotificationTypeBadge |
-                                        UIUserNotificationTypeSound |
-                                        UIUserNotificationTypeAlert;
+        UIUserNotificationTypeSound |
+        UIUserNotificationTypeAlert;
         
         UIUserNotificationSettings *settings = [UIUserNotificationSettings
                                                 settingsForTypes:types
@@ -175,27 +174,6 @@ NSString * const NOTIFICATION_TYPE = @"type";
             geofence.currentDistance = @([push.distance doubleValue]);
             
             [[ORCActionManager sharedInstance] findActionFromGeofence:geofence];
-        }
-        else if ([push.type isEqualToString:ORCTypeCoreBluetooth])
-        {
-            NSString *eventType = [push coreBluetoothEvent];
-            NSString *notificationName = nil;
-            
-            if ([eventType isEqualToString:ORCCoreBluetoothStart])
-            {
-                notificationName = ORCCoreBluetoothStart;
-            }
-            else if ([eventType isEqualToString:ORCCoreBluetoothStop])
-            {
-                notificationName = ORCCoreBluetoothStop;
-            }
-            
-            if (notificationName != nil)
-            {
-                [NSNotificationCenter.defaultCenter postNotificationName:notificationName
-                                                                  object:nil
-                                                                userInfo:nil];
-            }
         }
         else
         {

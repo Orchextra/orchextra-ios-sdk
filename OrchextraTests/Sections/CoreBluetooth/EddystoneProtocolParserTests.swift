@@ -17,7 +17,9 @@ class EddystoneProtocolParserTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        eddystoneProtocolParser = ORCEddystoneProtocolParser(requestWaitTime: 120)
+        
+        let validatorActionInteractor = ORCValidatorActionInterator()
+        eddystoneProtocolParser = ORCEddystoneProtocolParser(requestWaitTime: 120, validatorInteractor: validatorActionInteractor)
         peripheralId = UUID(uuidString:"4B9F9513-2877-77B1-5B9F-A198CCF814DF")
         rssi = -32
     }
@@ -130,7 +132,11 @@ class EddystoneProtocolParserTests: XCTestCase {
             eddystoneProtocolParser.parse(beaconServiceData,
                                           peripheralId: peripheralId,
                                           rssi: rssi)
-            
+            let currentBeacon = ORCEddystoneBeacon(peripheralId: peripheralId,
+                                                   requestWaitTime: 30)
+            let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
+            currentBeacon.uid = uid
+            eddystoneProtocolParser.currentBeacon = currentBeacon
             let beaconList:[ORCEddystoneBeacon] = (eddystoneProtocolParser.parseServiceInformation())
             XCTAssert(beaconList.count == 1)
             let beacon:ORCEddystoneBeacon = beaconList[0]
@@ -144,7 +150,7 @@ class EddystoneProtocolParserTests: XCTestCase {
     }
     
     func testEddystoneUIDFrame() {
-        let beaconServiceBytesArray:[UInt8] = [0, 0, 222, 229, 94,  231, 33,  88, 68, 158, 153, 0, 44, 112, 147, 123, 20, 28]
+        let beaconServiceBytesArray:[UInt8] = [0, 195, 99, 111, 107,  101, 99,  64, 99, 101, 101, 117, 16, 0, 0, 48, 57, 118, 0, 0]
         
         let beaconServiceData:Data = Data(bytes: beaconServiceBytesArray, count:beaconServiceBytesArray.count)
         if let peripheralId = self.peripheralId,
@@ -164,9 +170,9 @@ class EddystoneProtocolParserTests: XCTestCase {
                 XCTAssertNotNil(uid)
                 XCTAssertNotNil(uid.namespace)
                 XCTAssertNotNil(uid.instance)
-                XCTAssertTrue(uid.namespace == "dee55ee72158449e9900")
-                XCTAssertTrue(uid.instance == "2c70937b141c")
-                XCTAssertTrue(uid.uidCompossed == "dee55ee72158449e99002c70937b141c")
+                XCTAssertTrue(uid.namespace == "636f6b65634063656575")
+                XCTAssertTrue(uid.instance == "100000303976")
+                XCTAssertTrue(uid.uidCompossed == "636f6b65634063656575100000303976")
             }
         }
     }
@@ -177,10 +183,15 @@ class EddystoneProtocolParserTests: XCTestCase {
         if let peripheralId = self.peripheralId,
             let eddystoneProtocolParser = self.eddystoneProtocolParser,
             let rssi = self.rssi {
+            let currentBeacon = ORCEddystoneBeacon(peripheralId: peripheralId,
+                                                    requestWaitTime: 30)
+            let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
+            currentBeacon.uid = uid
+            eddystoneProtocolParser.currentBeacon = currentBeacon
             eddystoneProtocolParser.parse(beaconServiceData,
                                           peripheralId: peripheralId,
                                           rssi: rssi)
-            
+
             let beaconList:[ORCEddystoneBeacon] = eddystoneProtocolParser.parseServiceInformation()
             
             XCTAssert(beaconList.count == 1)
@@ -191,7 +202,6 @@ class EddystoneProtocolParserTests: XCTestCase {
             
             if let telemetry:Telemetry = beacon.telemetry {
                 let timeInterval: TimeInterval = 200795392
-                
                 XCTAssertNotNil(telemetry)
                 XCTAssertNotNil(telemetry.tlmVersion)
                 XCTAssertNotNil(telemetry.batteryVoltage)
@@ -203,10 +213,7 @@ class EddystoneProtocolParserTests: XCTestCase {
                 XCTAssertTrue(telemetry.temperature == 28.1875)
                 XCTAssertTrue(telemetry.advertisingPDUcount == "175795000")
                 XCTAssertTrue(telemetry.uptime == timeInterval)
-
             }
         }
     }
-    
-    
 }

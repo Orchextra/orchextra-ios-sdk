@@ -177,6 +177,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     NSDictionary *partialDictionary =   @{ TYPE_KEY          : EDDYSTONE_KEY,
                                            NAMESPACE_KEY     : beacon.uid.namespace,
                                            INSTANCE_KEY      : beacon.uid.instance,
+                                           VALUE_KEY         : beacon.uid.uidCompossed,
                                            URL_KEY           : beacon.url.description,
                                            PHONE_STATUS_KEY  : [ORCProximityFormatter applicationStateString],
                                            DISTANCE_KEY      : [ORCProximityFormatter eddystoneProximityDistanceToString:beacon.proximity] };

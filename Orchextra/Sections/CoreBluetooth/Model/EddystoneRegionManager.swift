@@ -53,7 +53,7 @@ class EddystoneRegionManager {
                 self.addNotification(message: "REGION DID ENTER")
                 self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
                     guard let actionNotNil = action else { return }
-                    ORCLog.logVerbose(format: "------------- REGION DID ENTER -------------", region.uid.namespace)
+                    ORCLog.logVerbose(format: "--- REGION DID ENTER ---", region.uid.namespace)
                     actionNotNil.launchedByTriggerCode = region.uid.namespace
                 })
             }
@@ -81,7 +81,7 @@ class EddystoneRegionManager {
                 self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
                     guard let actionNotNil = action else { return }
                     
-                    ORCLog.logVerbose(format: "------------- REGION DID EXIT -------------", region.uid.namespace)
+                    ORCLog.logVerbose(format: "--- REGION DID EXIT ---", region.uid.namespace)
                     actionNotNil.launchedByTriggerCode = region.uid.namespace
                 })
             }

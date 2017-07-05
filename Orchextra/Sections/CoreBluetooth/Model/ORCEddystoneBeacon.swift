@@ -80,7 +80,7 @@ import Foundation
             (self.proximityTimer == nil) {
             canBeSentToValidateAction = true
         }
-        print("CAN BE SENT TO VALIDATE ACTION \(canBeSentToValidateAction)")
+//        print("CAN BE SENT TO VALIDATE ACTION \(canBeSentToValidateAction)")
         return canBeSentToValidateAction
     }
     

@@ -30,7 +30,7 @@ class ORCEddystoneProtocolParser {
     
     init(requestWaitTime: Int, validatorInteractor: ORCValidatorActionInterator) {
         self.requestWaitTime = requestWaitTime
-        
+        // TODO: Delete this hardconding uid. Use configuration service response
         let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
         let availableRegion =  ORCEddystoneRegion(uid: uid, notifyOnEntry: true, notifyOnExit: true)
         self.regionManager = EddystoneRegionManager(availableRegions: [availableRegion], validatorInteractor: validatorInteractor)
