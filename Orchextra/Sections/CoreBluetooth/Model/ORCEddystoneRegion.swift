@@ -15,7 +15,7 @@ import Foundation
     case exit
 }
 
-@objc public class ORCEddystoneRegion: NSObject {
+@objc public class ORCEddystoneRegion: NSObject, NSCoding {
     // MARK: Public properties
      public let uid:EddystoneUID
      public var regionEvent: regionEvent
@@ -36,10 +36,28 @@ import Foundation
         self.notifyOnExit = (json["notifyOnExit"] as? Bool) ?? false
     }
     
-     init(uid: EddystoneUID, notifyOnEntry: Bool, notifyOnExit: Bool) {
+      init(uid: EddystoneUID, notifyOnEntry: Bool, notifyOnExit: Bool) {
         self.uid = uid
         self.regionEvent = .undetected
         self.notifyOnEntry = notifyOnEntry
         self.notifyOnExit = notifyOnExit
+    }
+    
+    // MARK: NSCoding delegate methods
+    public required init?(coder aDecoder: NSCoder) {
+        let namespace: String =  (aDecoder.decodeObject(forKey: "namespace") as? String) ?? ""
+        let instance: String? = (aDecoder.decodeObject(forKey: "instance") as? String) ?? ""
+        let uid = EddystoneUID(namespace: namespace, instance: instance)
+        self.uid = uid
+        self.regionEvent = .undetected
+        self.notifyOnEntry = (aDecoder.decodeBool(forKey: "notifyOnEntry"))
+        self.notifyOnExit = (aDecoder.decodeBool(forKey: "notifyOnExit"))
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.uid.namespace, forKey: "namespace")
+        aCoder.encode(self.uid.instance, forKey: "instance")
+        aCoder.encode(self.notifyOnEntry, forKey: "notifyOnEntry")
+        aCoder.encode(self.notifyOnEntry, forKey: "notifyOnExit")
     }
 }

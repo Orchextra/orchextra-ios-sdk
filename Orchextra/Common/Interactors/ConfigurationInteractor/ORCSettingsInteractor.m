@@ -240,10 +240,29 @@ NSInteger const MAX_REGIONS = 20;
     return [self.settingsPersister updateCustomFieldValue:value withKey:key];
 }
 
-- (void)commitConfiguration
+- (void)commitConfigurationWithBackgroundCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSDictionary *newValues = [self.formatter formatterParameteresDevice];
-    [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+    CompletionProjectSettings completionCallBack;
+    if (completionHandler != nil)
+    {
+        completionCallBack = ^ (BOOL success, NSError *error) {
+            if (success == true)
+            {
+                completionHandler(UIBackgroundFetchResultNewData);
+            }
+            else
+            {
+                completionHandler(UIBackgroundFetchResultNoData);
+            }
+        };
+    }
+    [self handleLoadConfigurationWithValues:newValues completionCallBack:completionCallBack];
+}
+
+- (void)commitConfiguration
+{
+    [self commitConfigurationWithBackgroundCompletionHandler:nil];
 }
 
 #pragma mark - PUBLIC (User tags)

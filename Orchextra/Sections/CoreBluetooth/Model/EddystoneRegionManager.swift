@@ -51,11 +51,13 @@ class EddystoneRegionManager {
             
             if region.notifyOnEntry {
                 self.addNotification(message: "REGION DID ENTER")
-                self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
-                    guard let actionNotNil = action else { return }
-                    ORCLog.logVerbose(format: "--- REGION DID ENTER ---", region.uid.namespace)
-                    actionNotNil.launchedByTriggerCode = region.uid.namespace
-                })
+                DispatchQueue.main.async {
+                    self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
+                        guard let actionNotNil = action else { return }
+                        ORCLog.logVerbose(format: "--- REGION DID ENTER ---", region.uid.namespace)
+                        actionNotNil.launchedByTriggerCode = region.uid.namespace
+                    })
+                }
             }
             
             if self.regionsExited.contains(region) {
@@ -69,21 +71,23 @@ class EddystoneRegionManager {
         if self.isAvailable(region) &&
             self.regionsEntered.contains(region) &&
             !(self.regionsExited.contains(region)) {
-                self.regionsExited.append(region)
-                region.regionEvent = .exit
-                if self.regionsEntered.contains(region) {
-                    guard let index = self.regionsEntered.index(of: region) else { return }
-                    self.regionsEntered.remove(at: index)
-                }
+            self.regionsExited.append(region)
+            region.regionEvent = .exit
+            if self.regionsEntered.contains(region) {
+                guard let index = self.regionsEntered.index(of: region) else { return }
+                self.regionsEntered.remove(at: index)
+            }
             
             if region.notifyOnExit {
                 self.addNotification(message: "REGION DID EXIT")
-                self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
-                    guard let actionNotNil = action else { return }
-                    
-                    ORCLog.logVerbose(format: "--- REGION DID EXIT ---", region.uid.namespace)
-                    actionNotNil.launchedByTriggerCode = region.uid.namespace
-                })
+                DispatchQueue.main.async {
+                    self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
+                        guard let actionNotNil = action else { return }
+                        
+                        ORCLog.logVerbose(format: "--- REGION DID EXIT ---", region.uid.namespace)
+                        actionNotNil.launchedByTriggerCode = region.uid.namespace
+                    })
+                }
             }
         }
     }

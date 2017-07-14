@@ -130,7 +130,7 @@
 
 - (void)commitConfiguration
 {
-    [self.interactor commitConfiguration];
+    [self.interactor commitConfigurationWithBackgroundCompletionHandler:nil];
 }
 
 - (BOOL)orchextraRunning
@@ -251,6 +251,13 @@
     [self.actionManager stopEddystoneBeaconsScanner];
 }
 
+# pragma mark - PUBLIC (Background fetch)
+
+- (void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    [self commitConfigurationWithBackgroundCompletionHandler:completionHandler];
+}
+
 #pragma mark - DELEGATE
 
 - (void)didExecuteActionWithCustomScheme:(NSString *)customScheme
@@ -295,6 +302,11 @@
     }
     
     return nil;
+}
+
+- (void)commitConfigurationWithBackgroundCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+   [self.interactor commitConfigurationWithBackgroundCompletionHandler:nil];
 }
 
 @end

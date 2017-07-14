@@ -41,7 +41,6 @@ import Foundation
     public var proximityTimer: Timer?
     public var requestWaitTime: Int
     public var proximity: proximity {
-        
         get {
             let rangingDataUnWrapped = (self.rangingData != nil) ? self.rangingData! : 0
             return self.convertRSSIToProximity(self.rssi, rangingData:rangingDataUnWrapped)
@@ -80,11 +79,11 @@ import Foundation
             (self.proximityTimer == nil) {
             canBeSentToValidateAction = true
         }
-//        print("CAN BE SENT TO VALIDATE ACTION \(canBeSentToValidateAction)")
         return canBeSentToValidateAction
     }
     
     public func updateProximity(currentProximity: proximity) {
+        self.resetProximityTimer()
         self.updateProximityTimer()
     }
     
@@ -95,6 +94,10 @@ import Foundation
                                                    selector: #selector(resetProximityTimer),
                                                    userInfo: nil,
                                                    repeats: false)
+        
+        guard let timer = self.proximityTimer else { return }
+        RunLoop.current.add(timer, forMode: .commonModes)
+        RunLoop.current.run()
     }
     
     public func resetProximityTimer() {

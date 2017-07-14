@@ -11,15 +11,26 @@ import XCTest
 
 class EddystoneProtocolParserTests: XCTestCase {
     
-     var eddystoneProtocolParser: ORCEddystoneProtocolParser?
-     var peripheralId:UUID?
-     var rssi: Int?
+    var eddystoneProtocolParser: ORCEddystoneProtocolParser?
+    var peripheralId:UUID?
+    var rssi: Int?
     
     override func setUp() {
         super.setUp()
         
         let validatorActionInteractor = ORCValidatorActionInterator()
-        eddystoneProtocolParser = ORCEddystoneProtocolParser(requestWaitTime: 120, validatorInteractor: validatorActionInteractor)
+        let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
+        let eddystoneRegion: ORCEddystoneRegion = ORCEddystoneRegion(
+            uid: uid,
+            notifyOnEntry: true,
+            notifyOnExit: true
+        )
+        
+        let availableRegions = [eddystoneRegion]
+        self.eddystoneProtocolParser = ORCEddystoneProtocolParser(
+                requestWaitTime: 120,
+                validatorInteractor: validatorActionInteractor,
+                availableRegions: availableRegions)
         peripheralId = UUID(uuidString:"4B9F9513-2877-77B1-5B9F-A198CCF814DF")
         rssi = -32
     }
@@ -166,7 +177,7 @@ class EddystoneProtocolParserTests: XCTestCase {
             
             XCTAssertTrue(beacon.peripheralId == self.peripheralId)
             
-            if let uid:EddystoneUID = beacon.uid {
+            if let uid = beacon.uid {
                 XCTAssertNotNil(uid)
                 XCTAssertNotNil(uid.namespace)
                 XCTAssertNotNil(uid.instance)
@@ -184,14 +195,14 @@ class EddystoneProtocolParserTests: XCTestCase {
             let eddystoneProtocolParser = self.eddystoneProtocolParser,
             let rssi = self.rssi {
             let currentBeacon = ORCEddystoneBeacon(peripheralId: peripheralId,
-                                                    requestWaitTime: 30)
+                                                   requestWaitTime: 30)
             let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
             currentBeacon.uid = uid
             eddystoneProtocolParser.currentBeacon = currentBeacon
             eddystoneProtocolParser.parse(beaconServiceData,
                                           peripheralId: peripheralId,
                                           rssi: rssi)
-
+            
             let beaconList:[ORCEddystoneBeacon] = eddystoneProtocolParser.parseServiceInformation()
             
             XCTAssert(beaconList.count == 1)

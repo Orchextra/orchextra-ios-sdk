@@ -153,6 +153,10 @@ typedef NS_ENUM(NSUInteger, CoreBluetoothScanLevel)
 + (void)saveLogsToAFile;
 + (void)setCoreBluetoothScannerLevel:(CoreBluetoothScanLevel)scanLevel;
 
+// BACKGROUND FETCH
+
+- (void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
+
 NS_ASSUME_NONNULL_END
 
 @end

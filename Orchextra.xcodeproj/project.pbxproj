@@ -48,7 +48,6 @@
 		8F1593C91DA3B2B3003257C2 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90FD0FB1BF36CD30042F370 /* OCHamcrestIOS.framework */; };
 		8F1593CA1DA3B2B3003257C2 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90FD0FC1BF36CD30042F370 /* OCMockitoIOS.framework */; };
 		8F1593CB1DA3B2DF003257C2 /* ORCStatisticsInteractorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */; };
-		8F1593CC1DA3B2DF003257C2 /* ORCSettingsInteractorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */; };
 		8F1593CD1DA3B2DF003257C2 /* ORCLocationManagerWrapperMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A94801201C6C92E9000573BD /* ORCLocationManagerWrapperMock.m */; };
 		8F1593CE1DA3B2DF003257C2 /* CLLocationManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFBB1C6BA900005CEAA2 /* CLLocationManagerMock.m */; };
 		8F1593CF1DA3B2DF003257C2 /* ORCPushManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A99073881C6DCD6E00186C8D /* ORCPushManagerMock.m */; };
@@ -99,6 +98,7 @@
 		8F4CFAF11E64567500B7603A /* VFConfigurationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C188B41BFCC8F30073EE33 /* VFConfigurationInteractor.m */; };
 		8F4D3C021E49B0EF0050F4B1 /* POST_configuration_failure_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */; };
 		8F4D3C031E49B0EF0050F4B1 /* POST_configuration_failure_html.html in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */; };
+		8F5996241F0D2433008204AC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5996231F0D2433008204AC /* CoreBluetooth.framework */; };
 		8F660CA31DA2BBBC007B9551 /* Orchextra.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFAA1BF362080042F370 /* Orchextra.m */; };
 		8F660CA41DA2BBBC007B9551 /* ORCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD0EE1BF364BD0042F370 /* ORCConstants.m */; };
 		8F660CA51DA2BBBC007B9551 /* ORCSettingsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFA81BF362080042F370 /* ORCSettingsDataManager.m */; };
@@ -522,6 +522,7 @@
 		8F4CFAD41E64158E00B7603A /* LocalizableConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableConstants.swift; sourceTree = "<group>"; };
 		8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_configuration_failure_empty.json; sourceTree = "<group>"; };
 		8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = POST_configuration_failure_html.html; sourceTree = "<group>"; };
+		8F5996231F0D2433008204AC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		8F660C8C1DA2B8D0007B9551 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F77E3101DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ORCBundle.h"; sourceTree = "<group>"; };
 		8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ORCBundle.m"; sourceTree = "<group>"; };
@@ -910,8 +911,6 @@
 		A98360E31BFB82FF00413CB8 /* OrchextraOutputInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrchextraOutputInterface.h; sourceTree = "<group>"; };
 		A98A0EA51C71AFFF00EDA316 /* GET_action_webview_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_webview_without_schedule.json; sourceTree = "<group>"; };
 		A98A0EA71C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_vuforia_without_schedule.json; sourceTree = "<group>"; };
-		A98F557A1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCSettingsInteractorMock.h; sourceTree = "<group>"; };
-		A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsInteractorMock.m; sourceTree = "<group>"; };
 		A98F557D1C6DEF63000E7C60 /* ORCActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionTests.m; sourceTree = "<group>"; };
 		A98F55811C6DF910000E7C60 /* GET_action_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_without_schedule.json; sourceTree = "<group>"; };
 		A98F55831C6DFE29000E7C60 /* GET_action_scanner_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_scanner_without_schedule.json; sourceTree = "<group>"; };
@@ -981,6 +980,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F5996241F0D2433008204AC /* CoreBluetooth.framework in Frameworks */,
 				8FA9F56B1DA2E628009A6E87 /* CoreLocation.framework in Frameworks */,
 				8FA9F56A1DA2E620009A6E87 /* SystemConfiguration.framework in Frameworks */,
 				8FA9F5691DA2E618009A6E87 /* AdSupport.framework in Frameworks */,
@@ -2281,8 +2281,6 @@
 			children = (
 				A99073931C6DD26200186C8D /* ORCStatisticsInteractorMock.h */,
 				A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */,
-				A98F557A1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.h */,
-				A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */,
 			);
 			name = Interactor;
 			path = Mocks/Interactor;
@@ -2381,6 +2379,7 @@
 		A9E596691B04DBC40040EAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F5996231F0D2433008204AC /* CoreBluetooth.framework */,
 				8F2884641D23D68D00BA5230 /* SafariServices.framework */,
 				A93950451D0016A70063A27A /* PassKit.framework */,
 				A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */,
@@ -2854,7 +2853,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1593CB1DA3B2DF003257C2 /* ORCStatisticsInteractorMock.m in Sources */,
-				8F1593CC1DA3B2DF003257C2 /* ORCSettingsInteractorMock.m in Sources */,
 				8F1593CD1DA3B2DF003257C2 /* ORCLocationManagerWrapperMock.m in Sources */,
 				8F1593CE1DA3B2DF003257C2 /* CLLocationManagerMock.m in Sources */,
 				8F1593CF1DA3B2DF003257C2 /* ORCPushManagerMock.m in Sources */,

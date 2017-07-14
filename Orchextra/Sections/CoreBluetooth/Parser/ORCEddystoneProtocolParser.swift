@@ -17,6 +17,10 @@ enum frameType {
     case eid
 }
 
+protocol EddystoneParserDelegate {
+    func sendInfoForBeaconsDetected()
+}
+
 class ORCEddystoneProtocolParser {
     // MARK: Properties
     var peripheralId:UUID?
@@ -28,12 +32,9 @@ class ORCEddystoneProtocolParser {
     var requestWaitTime: Int
     var regionManager: EddystoneRegionManager
     
-    init(requestWaitTime: Int, validatorInteractor: ORCValidatorActionInterator) {
+    init(requestWaitTime: Int, validatorInteractor: ORCValidatorActionInterator, availableRegions: [ORCEddystoneRegion]) {
         self.requestWaitTime = requestWaitTime
-        // TODO: Delete this hardconding uid. Use configuration service response
-        let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
-        let availableRegion =  ORCEddystoneRegion(uid: uid, notifyOnEntry: true, notifyOnExit: true)
-        self.regionManager = EddystoneRegionManager(availableRegions: [availableRegion], validatorInteractor: validatorInteractor)
+        self.regionManager = EddystoneRegionManager(availableRegions: availableRegions, validatorInteractor: validatorInteractor)
     }
     
     // MARK: Public
@@ -416,12 +417,23 @@ class ORCEddystoneProtocolParser {
                     }
                 }
                 
-                if let proximityTimer = currentBeacon?.proximityTimer {
-                    beacon.proximityTimer = proximityTimer
-                }
-                
-                if let proximity = currentBeacon?.proximity {
-                    beacon.updateProximity(currentProximity: proximity)
+                if let currentBeaconproximity = currentBeacon?.proximity,
+                    currentBeaconproximity != .unknown {
+                    let beaconProximity = beacon.proximity
+                    if currentBeaconproximity != beaconProximity {
+                        beacon.updateProximity(currentProximity: currentBeaconproximity)
+                    } else {
+                        if let proximityTimer = currentBeacon?.proximityTimer {
+                            beacon.proximityTimer = proximityTimer
+                            if proximityTimer.fireDate <= Date() {
+                                beacon.proximityTimer?.fire()
+                            }
+                        } else {
+                            beacon.updateProximity(currentProximity: currentBeaconproximity)
+                        }
+                    }
+                } else {
+                    beacon.updateProximity(currentProximity: .unknown)
                 }
                 
                 if let txPower = currentBeacon?.txPower {

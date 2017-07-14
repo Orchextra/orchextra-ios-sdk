@@ -1,4 +1,3 @@
-
 //
 //  ORCCBCentralWrapper.swift
 //  EddystoneExample
@@ -17,6 +16,7 @@ import UserNotifications
     public static var scanLevel: CoreBluetoothScanLevel = .scanByIntervals
     public var centralManager: CBCentralManager?
     
+    @objc public var availableRegions: [ORCEddystoneRegion]
     @objc var validatorInteractor: ORCValidatorActionInterator
     @objc var actionInterface: ORCActionInterface
     var centralManagerQueue: DispatchQueue?
@@ -25,21 +25,21 @@ import UserNotifications
     var scannerStarted: Bool
     var beaconList: [ORCEddystoneBeacon]
     
-    var startScannerBackgroundTask: UIBackgroundTaskIdentifier?
-    var stopScannerBackgroundTask: UIBackgroundTaskIdentifier?
+    var startScannerBackgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    var stopScannerBackgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     
     // MARK: Public methods
     @objc public init(actionInterface:ORCActionInterface,
                       validatorActionInteractor: ORCValidatorActionInterator,
                       requestWaitTime: Int) {
-        let centralManagerQueue = DispatchQueue(label:"centralManagerQueue", qos: .userInteractive)
+        let centralManagerQueue = DispatchQueue(label:"centralManagerQueue", qos: .userInitiated)
         self.centralManagerQueue = centralManagerQueue
         self.requestWaitTime = requestWaitTime
         self.scannerStarted = false
         self.validatorInteractor = validatorActionInteractor
         self.actionInterface = actionInterface
         self.beaconList = [ORCEddystoneBeacon]()
-        
+        self.availableRegions = [ORCEddystoneRegion]()
         super.init()
         
         self.initializeCentralManager()
@@ -78,14 +78,13 @@ import UserNotifications
         
         self.centralManager = centralManager
     }
-
+    
     // MARK: Public scan methods
     @objc public func startScanner() -> Void {
         var secondsToStopScanner: Int = 0
-        if !self.scannerStarted,
-            self.centralManager?.state == .poweredOn {
+        if self.isAvailableScanner() {
             self.startScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
-                    self.endStartScannerTask()
+                self.endStartScannerTask()
             })
             
             DispatchQueue.global().async(execute: {
@@ -106,6 +105,8 @@ import UserNotifications
     @objc public func stopScanner() -> Void {
         var secondsToStartScanner: Int = 0
         self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
+            
+            ORCLog.logDebug(format:"---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
             self.endStopScannerTask()
         })
         
@@ -122,8 +123,19 @@ import UserNotifications
             self.endStopScannerTask()
         })
     }
-
+    
     // MARK: Private utilities
+    
+    private func isAvailableScanner() -> Bool {
+        var isAvailableScanner = false
+        if !self.scannerStarted,
+            self.centralManager?.state == .poweredOn ,
+            self.availableRegions.count > 0 {
+            isAvailableScanner = true
+        }
+        return isAvailableScanner
+    }
+    
     private func isAvailableStopTool() -> Bool {
         var isAvailableStopTool: Bool
         
@@ -143,21 +155,21 @@ import UserNotifications
     }
     
     private func validateAction(beacon: ORCEddystoneBeacon) {
-        self.validatorInteractor.validateProximity(with: beacon, completion: {(action, error) in
-            guard let actionNotNil = action else { return }
-            
-            actionNotNil.launchedByTriggerCode = beacon.uid?.uidCompossed
-            self.actionInterface.didFireTrigger(with: action)
-        })
+        DispatchQueue.main.async {
+            self.validatorInteractor.validateProximity(with: beacon, completion: {(action, error) in
+                guard let actionNotNil = action else { return }
+                
+                actionNotNil.launchedByTriggerCode = beacon.uid?.uidCompossed
+                self.actionInterface.didFireTrigger(with: action)
+            })
+        }
     }
     
     fileprivate func sendInfoForBeaconsDetected() {
-        DispatchQueue.global().sync(execute: {
-            let beaconListValidToSentAction = self.beaconList.filter(self.beaconIsValidToSentAction)
-            for beacon in beaconListValidToSentAction {
-                self.validateAction(beacon: beacon)
-            }
-        })
+        let beaconListValidToSentAction = self.beaconList.filter(self.beaconIsValidToSentAction)
+        for beacon in beaconListValidToSentAction {
+            self.validateAction(beacon: beacon)
+        }
     }
     
     // MARK: Private scan methods
@@ -169,7 +181,10 @@ import UserNotifications
         let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey : true]
         
         if self.eddystoneParser == nil {
-            self.eddystoneParser = ORCEddystoneProtocolParser(requestWaitTime: self.requestWaitTime, validatorInteractor: self.validatorInteractor)
+            self.eddystoneParser = ORCEddystoneProtocolParser(
+                requestWaitTime: self.requestWaitTime,
+                validatorInteractor: self.validatorInteractor,
+                availableRegions: self.availableRegions)
         }
         self.centralManager?.scanForPeripherals(withServices: services, options: options)
     }
@@ -184,10 +199,7 @@ import UserNotifications
     //MARK: Private finish task methods
     private func endStartScannerTask() {
         if (self.isAvailableStopTool()) {
-            if let startScannerTask = self.startScannerBackgroundTask  {
-                UIApplication.shared.endBackgroundTask(startScannerTask)
-            }
-            
+            UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
             self.startScannerBackgroundTask = UIBackgroundTaskInvalid
             self.stopScanner()
         }
@@ -195,15 +207,13 @@ import UserNotifications
     
     private func endStopScannerTask() {
         ORCLog.logVerbose(format: "Number of beacons detected \(self.beaconList.count)")
-        if let stopScannerTask = self.stopScannerBackgroundTask  {
-             UIApplication.shared.endBackgroundTask(stopScannerTask)
-        }
-        
+        UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
         self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
         self.startScanner()
     }
     
 }
+
 extension ORCCBCentralWrapper: CBCentralManagerDelegate {
     
     // MARK: CBCentralManagerDelegate methods
@@ -238,6 +248,8 @@ extension ORCCBCentralWrapper: CBCentralManagerDelegate {
                               rssi: rssi)
         self.beaconList = eddystoneParser.parseServiceInformation()
         
-        self.sendInfoForBeaconsDetected()
+        DispatchQueue.global().async(execute: {
+            self.sendInfoForBeaconsDetected()
+        })
     }
 }

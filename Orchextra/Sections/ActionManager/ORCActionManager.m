@@ -13,6 +13,7 @@
 #import "ORCWireframe.h"
 #import "ORCAction.h"
 #import "ORCGIGLogManager.h"
+#import "ORCUserLocationPersister.h"
 #import "ORCSettingsPersister.h"
 #import "ORCStatisticsInteractor.h"
 #import "ORCValidatorActionInterator.h"
@@ -113,6 +114,7 @@
 {
     [self performUpdateUserLocation];
     [self updateMonitoringAndRangingOfRegions];
+    [self startEddystoneBeaconsScanner];
 }
 
 - (void)performUpdateUserLocation
@@ -161,6 +163,9 @@
 
 - (void)startEddystoneBeaconsScanner
 {
+    ORCUserLocationPersister *userLocationPersister = [[ORCUserLocationPersister alloc] init];
+    NSArray<ORCEddystoneRegion *> *availableEddystoneRegions = [userLocationPersister loadEddystoneRegions];
+    [self.centralWrapper setAvailableRegions: availableEddystoneRegions];
     [self.centralWrapper startScanner];
 }
 
