@@ -113,7 +113,8 @@ struct EddystoneConstants {
     
     // CORE BLUETOOTH Timers
     static let timeToStopScanner:                        Int    = 30
-    static let timeToStartScanner:                       Int    = 180
+    static let timeToStartScannerBackground:             Int    = 180
+    static let timeToStartScanner:                       Int    = 300
     
     // BACKGROUND TASKS IDENTIFIERS
     static let backgrond_task_start_scanner:             String = "start_scanner_task"

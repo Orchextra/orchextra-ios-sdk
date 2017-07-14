@@ -104,6 +104,7 @@ import UserNotifications
     
     @objc public func stopScanner() -> Void {
         var secondsToStartScanner: Int = 0
+        let timeToStartScanner = self.timeToStartScanner()
         self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
             
             ORCLog.logDebug(format:"---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
@@ -113,7 +114,7 @@ import UserNotifications
         DispatchQueue.global().async(execute: {
             self.performStopScanner()
             
-            while secondsToStartScanner < EddystoneConstants.timeToStartScanner {
+            while secondsToStartScanner < timeToStartScanner {
                 Thread.sleep(forTimeInterval: 1)
                 secondsToStartScanner+=1
                 
@@ -125,7 +126,6 @@ import UserNotifications
     }
     
     // MARK: Private utilities
-    
     private func isAvailableScanner() -> Bool {
         var isAvailableScanner = false
         if !self.scannerStarted,
@@ -162,6 +162,14 @@ import UserNotifications
                 actionNotNil.launchedByTriggerCode = beacon.uid?.uidCompossed
                 self.actionInterface.didFireTrigger(with: action)
             })
+        }
+    }
+    
+    private func timeToStartScanner() -> Int {
+        if UIApplication.shared.applicationState != .background {
+            return EddystoneConstants.timeToStartScanner
+        } else {
+            return EddystoneConstants.timeToStartScannerBackground
         }
     }
     
