@@ -59,7 +59,3 @@ NSString * const ORCNetworkHost = @"https://sdk-demo-1.s.orchextra.io";
 NSInteger const DEFAULT_BACKGROUND_TIME = 10;
 NSInteger const MAX_BACKGROUND_TIME = 180;
 NSString * const ORCHEXTRA_TO_LOADURL = @"Orchextra://loadURL:";
-
-
-
-

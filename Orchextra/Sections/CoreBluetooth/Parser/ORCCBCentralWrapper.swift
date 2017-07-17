@@ -60,14 +60,16 @@ import UserNotifications
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name(rawValue: ORCCoreBluetoothStart),
-                                                  object: nil
+        NotificationCenter.default.removeObserver(
+            self,
+            name: NSNotification.Name(rawValue: ORCCoreBluetoothStart),
+            object: nil
         )
         
-        NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name(rawValue: ORCCoreBluetoothStop),
-                                                  object: nil
+        NotificationCenter.default.removeObserver(
+            self,
+            name: NSNotification.Name(rawValue: ORCCoreBluetoothStop),
+            object: nil
         )
     }
     
@@ -113,7 +115,6 @@ import UserNotifications
         
         DispatchQueue.global().async(execute: {
             self.performStopScanner()
-            
             while secondsToStartScanner < timeToStartScanner {
                 Thread.sleep(forTimeInterval: 1)
                 secondsToStartScanner+=1
@@ -174,10 +175,8 @@ import UserNotifications
     }
     
     fileprivate func sendInfoForBeaconsDetected() {
-        let beaconListValidToSentAction = self.beaconList.filter(self.beaconIsValidToSentAction)
-        for beacon in beaconListValidToSentAction {
-            self.validateAction(beacon: beacon)
-        }
+         _ = self.beaconList.filter(self.beaconIsValidToSentAction)
+                            .map(self.validateAction)
     }
     
     // MARK: Private scan methods

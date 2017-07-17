@@ -9,7 +9,6 @@
 import Foundation
 
 enum frameType {
-    
     case unknown
     case uid
     case url
@@ -48,16 +47,15 @@ class ORCEddystoneProtocolParser {
         self.serviceDataInformation = serviceDataInformation
         self.serviceBytes = [UInt8](repeating: 0, count: serviceDataInformation.count)
         
-        if var serviceBytes = self.serviceBytes {
-            serviceDataInformation.copyBytes(to: &serviceBytes, count: serviceDataInformation.count)
-            self.serviceBytes = serviceBytes
-        }
+        guard  var serviceBytes = self.serviceBytes  else { return }
+        serviceDataInformation.copyBytes(to: &serviceBytes, count: serviceDataInformation.count)
+        self.serviceBytes = serviceBytes
     }
     
     func parseServiceInformation() -> [ORCEddystoneBeacon] {
         if let serviceBytesInformation = self.serviceBytes {
             let frameBytes:UInt8 = serviceBytesInformation[EddystoneConstants.frameTypePosition]
-
+            
             if let peripheralId = self.peripheralId,
                 let rssi = self.rssi {
                 if self.currentBeacon?.peripheralId != peripheralId {
@@ -114,7 +112,6 @@ class ORCEddystoneProtocolParser {
     
     // MARK: Public (Url Decoded)
     func urlDecoded(_ fromBytes: UInt8) -> String {
-        
         var urlDecoded = ""
         
         switch fromBytes {
@@ -155,22 +152,22 @@ class ORCEddystoneProtocolParser {
     
     // MARK: Public (Telemetry Parsing)
     func parseTelemetryInformation() -> Telemetry {
-        
-        var tlmVersionString:String = ""
-        var batteryVoltage:Double = 0
-        var batteryPercentage: Double = 0
-        var temperature: Float = 0
-        var advertisingPDUcountString:String = ""
-        var uptime: TimeInterval = 0
-        
-        if let serviceData:Data = self.serviceDataInformation {
-            tlmVersionString = self.parseTelemetryTlmVersion(serviceData)
-            batteryVoltage = self.parseTelemetryBatteryVoltage(serviceData)
-            batteryPercentage = self.parseBatteryPercentage(batteryVoltage)
-            temperature = self.parseTelemetryTemperature(serviceData)
-            advertisingPDUcountString = self.parseTelemetryAdvertisingPDUCount(serviceData)
-            uptime = self.parseTelemetryUptime(serviceData)
+        guard let serviceData:Data = self.serviceDataInformation else {
+            return Telemetry(tlmVersion: "",
+                             batteryVoltage: 0,
+                             batteryPercentage: 0,
+                             temperature: 0,
+                             advertisingPDUcount: "",
+                             uptime: 0)
         }
+        
+        
+        let tlmVersionString = self.parseTelemetryTlmVersion(serviceData)
+        let batteryVoltage = self.parseTelemetryBatteryVoltage(serviceData)
+        let batteryPercentage = self.parseBatteryPercentage(batteryVoltage)
+        let temperature = self.parseTelemetryTemperature(serviceData)
+        let advertisingPDUcountString = self.parseTelemetryAdvertisingPDUCount(serviceData)
+        let uptime = self.parseTelemetryUptime(serviceData)
         
         return Telemetry(tlmVersion: tlmVersionString,
                          batteryVoltage: batteryVoltage,
@@ -193,55 +190,45 @@ class ORCEddystoneProtocolParser {
     }
     
     fileprivate func parseInformationForFrameType() -> Void {
-        if let type = self.currentFrameType {
-            switch type {
-            case .uid:
-                if let eddystoneUID:EddystoneUID = parseUIDInformation() {
-                    self.currentBeacon?.uid = eddystoneUID
-                }
-                 if let serviceBytes = self.serviceBytes,
-                    let rangingData = parseRangingDataInformation(serviceBytes) {
-                    self.currentBeacon?.rangingData = Int8(bitPattern: rangingData)
-                }
-            case .url:
-                if let url:URL = parseURLInformation() {
-                    self.currentBeacon?.url = url
-                    if let serviceBytes = self.serviceBytes,
-                       let rangingData = parseRangingDataInformation(serviceBytes) {
-                        self.currentBeacon?.rangingData = Int8(bitPattern: rangingData)
-                    }
-                }
-            case .telemetry:
-                let telemetry:Telemetry = parseTelemetryInformation()
-                self.currentBeacon?.telemetry = telemetry
-            case .eid:
-                if let eid:String = parseEIDInformation() {
-                    self.currentBeacon?.eid = eid
-                    if let serviceBytes = self.serviceBytes,
-                        let rangingData = parseRangingDataInformation(serviceBytes) {
-                        self.currentBeacon?.rangingData = Int8(bitPattern: rangingData)
-                    }
-                }
-            default:
-                assert(true, "Invalid frame type")
-            }
-            
-            self.addBeaconIfNeeded()
+        guard let type = self.currentFrameType else { return }
+        switch type {
+        case .uid:
+            guard let eddystoneUID = parseUIDInformation() else { return }
+            self.currentBeacon?.uid = eddystoneUID
+            self.updateRangingData()
+        case .url:
+            guard let url = parseURLInformation() else { return }
+            self.currentBeacon?.url = url
+            self.updateRangingData()
+        case .telemetry:
+            let telemetry:Telemetry = parseTelemetryInformation()
+            self.currentBeacon?.telemetry = telemetry
+        case .eid:
+            guard let eid = parseEIDInformation() else { return }
+            self.currentBeacon?.eid = eid
+            self.updateRangingData()
+        default:
+            assert(true, "Invalid frame type")
         }
+        
+        self.addBeaconIfNeeded()
+    }
+    
+    private func updateRangingData() {
+        guard let serviceBytes = self.serviceBytes,
+            let rangingData = parseRangingDataInformation(serviceBytes) else { return }
+        self.currentBeacon?.rangingData = Int8(bitPattern: rangingData)
     }
     
     // MARK: Private (UUID Parsing)
     fileprivate func parseUIDInformation() -> EddystoneUID? {
-        var eddystoneUID:EddystoneUID? = nil
+        guard let serviceBytes = self.serviceBytes,
+            serviceBytes.count >= EddystoneConstants.uidMinimiumSize else { return nil }
         
-        if let serviceBytes = self.serviceBytes {
-            if serviceBytes.count >= EddystoneConstants.uidMinimiumSize {
-                let namespace:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidNamespaceEndPosition, EddystoneConstants.uidNamespaceInitialPosition)))
-                let instance:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidInstanceEndPosition, EddystoneConstants.uidInstanceInitialPosition)))
-                
-                eddystoneUID = EddystoneUID(namespace: namespace, instance: instance)
-            }
-        }
+        let namespace:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidNamespaceEndPosition, EddystoneConstants.uidNamespaceInitialPosition)))
+        let instance:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidInstanceEndPosition, EddystoneConstants.uidInstanceInitialPosition)))
+        
+        let eddystoneUID = EddystoneUID(namespace: namespace, instance: instance)
         
         return eddystoneUID
     }
@@ -249,24 +236,23 @@ class ORCEddystoneProtocolParser {
     // MARK: Private (URL Parsing)
     fileprivate func parseURLInformation() -> URL? {
         var urlString: String = ""
-        if let serviceBytes = self.serviceBytes {
-            let urlSchemeBytes:UInt8 = serviceBytes[EddystoneConstants.urlSchemePrefixPosition]
-            let urlScheme:String = urlSchemePrefix(urlSchemeBytes)
+        guard let serviceBytes = self.serviceBytes else { return URL(string: "") }
+        
+        let urlSchemeBytes:UInt8 = serviceBytes[EddystoneConstants.urlSchemePrefixPosition]
+        let urlScheme:String = urlSchemePrefix(urlSchemeBytes)
+        
+        urlString.append(urlScheme)
+        
+        for i in EddystoneConstants.urlHostInitialPosition..<serviceBytes.count {
+            let bytesToBeDecoded:UInt8 = serviceBytes[i]
+            let urlDecoded:String = self.urlDecoded(bytesToBeDecoded)
             
-            urlString.append(urlScheme)
-            
-            for i in EddystoneConstants.urlHostInitialPosition..<serviceBytes.count {
-                let bytesToBeDecoded:UInt8 = serviceBytes[i]
-                let urlDecoded:String = self.urlDecoded(bytesToBeDecoded)
-                
-                if urlDecoded.characters.count > 0  {
+            if urlDecoded.characters.count > 0  {
+                urlString.append(urlDecoded)
+            } else {
+                if let urlDecoded = String(data: Data(bytes:[bytesToBeDecoded], count: 1) as Data,
+                                           encoding: String.Encoding.utf8) {
                     urlString.append(urlDecoded)
-                } else {
-                    if let urlDecoded = String(data: Data(bytes:[bytesToBeDecoded], count: 1) as Data,
-                                               encoding: String.Encoding.utf8) {
-                        urlString.append(urlDecoded)
-                        
-                    }
                 }
             }
         }
@@ -279,11 +265,10 @@ class ORCEddystoneProtocolParser {
         for i in range.upperBound..<range.lowerBound {
             let bytesToBeDecoded:UInt8 = serviceBytes[i]
             let byteDecoded:String = String(bytesToBeDecoded,
-                                               radix:EddystoneConstants.bytesToStringConverterRadix,
-                                               uppercase: false)
-                
+                                            radix:EddystoneConstants.bytesToStringConverterRadix,
+                                            uppercase: false)
+            
             if byteDecoded.characters.count == 1 {
-                
                 result.append("0")
             }
             
@@ -295,11 +280,10 @@ class ORCEddystoneProtocolParser {
     
     // MARK: Private (EID Parsing)
     fileprivate func parseEIDInformation() -> String? {
-        var eid:String? = nil
-        if let serviceBytes = self.serviceBytes {
-            eid = self.parseRangeOfBytes(serviceBytes,
-                                    range:Range(uncheckedBounds:(serviceBytes.count, EddystoneConstants.eidInitialPosition)))
-        }
+        guard let serviceBytes = self.serviceBytes else { return nil }
+        let range = Range(uncheckedBounds:(serviceBytes.count, EddystoneConstants.eidInitialPosition))
+        let eid = self.parseRangeOfBytes(serviceBytes,
+                                         range:range)
         
         return eid
     }
@@ -308,7 +292,6 @@ class ORCEddystoneProtocolParser {
     fileprivate func parseTelemetryTlmVersion(_ serviceData: Data) -> String {
         var tlmVersion: UInt8 = 0
         let tlmVersionRange =  Range(uncheckedBounds: (EddystoneConstants.tlmVersionInitialPosition, EddystoneConstants.tlmVersionEndPosition))
-        
         serviceData.copyBytes(to: &tlmVersion, from: tlmVersionRange)
         
         return String(tlmVersion)
@@ -341,7 +324,7 @@ class ORCEddystoneProtocolParser {
         } else {
             batteryLevel = 0
         }
-
+        
         return batteryLevel
     }
     
@@ -361,7 +344,7 @@ class ORCEddystoneProtocolParser {
         let temperatureFractionalRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTemperatureFractionalInitialPosition, EddystoneConstants.tlmTemperatureFractionalEndPosition))
         let beaconTemperatureFractionalSubdata:Data = serviceData.subdata(in: temperatureFractionalRange)
         
-         // This is in 8.8 fixed point. Just have to divide by 256 to get the actual number.
+        // This is in 8.8 fixed point. Just have to divide by 256 to get the actual number.
         let beaconTemperatureFractional = beaconTemperatureFractionalSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) -> UInt8 in
             return pointer.pointee
         }
@@ -383,7 +366,6 @@ class ORCEddystoneProtocolParser {
         let advertisingPDUCountSubdata:Data = serviceData.subdata(in: advertisingPDUCountRange)
         
         let advertisingPDUCount = advertisingPDUCountSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
-            
             let result: UInt32 = UInt32(bigEndian: pointer.pointee)
             return result
         }
@@ -396,7 +378,6 @@ class ORCEddystoneProtocolParser {
         let timeOnSincePowerOnSubdata:Data = serviceData.subdata(in: timeOnSincePowerOnRange)
         
         let timeOnSincePowerOn = timeOnSincePowerOnSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
-            
             let result: UInt32 = UInt32(bigEndian: pointer.pointee)
             return result
         }
@@ -406,68 +387,106 @@ class ORCEddystoneProtocolParser {
     }
     
     // MARK: Private (BeaconList)
+//    fileprivate func addBeaconIfNeeded() -> Void {
+//        let beaconsDetected = self.regionManager.beaconsDetected.filter(isCurrentAlreadyDetected).map{ _ in  updateDetectedBeacon }
+//        
+//        
+//        guard let currentBeacon = self.currentBeacon else { return }
+//        if beaconsDetected.count == 0 {
+//            self.regionManager.addDetectedBeacon(beacon: currentBeacon)
+//        }
+//
+//    }
+    
     fileprivate func addBeaconIfNeeded() -> Void {
         var beaconUpdated: Bool = false
         for beacon in self.regionManager.beaconsDetected {
             if beacon.peripheralId == currentBeacon?.peripheralId ||
                 beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed {
-                if let rssiBuffer = currentBeacon?.rssiBuffer {
-                    for rssi in rssiBuffer {
-                        beacon.updateRssiBuffer(rssi: rssi)
-                    }
-                }
                 
-                if let currentBeaconproximity = currentBeacon?.proximity,
-                    currentBeaconproximity != .unknown {
-                    let beaconProximity = beacon.proximity
-                    if currentBeaconproximity != beaconProximity {
-                        beacon.updateProximity(currentProximity: currentBeaconproximity)
-                    } else {
-                        if let proximityTimer = currentBeacon?.proximityTimer {
-                            beacon.proximityTimer = proximityTimer
-                            if proximityTimer.fireDate <= Date() {
-                                beacon.proximityTimer?.fire()
-                            }
-                        } else {
-                            beacon.updateProximity(currentProximity: currentBeaconproximity)
-                        }
-                    }
-                } else {
-                    beacon.updateProximity(currentProximity: .unknown)
-                }
-                
-                if let txPower = currentBeacon?.txPower {
-                    beacon.txPower = txPower
-                }
-                
-                if let rangingData = currentBeacon?.rangingData {
-                    beacon.rangingData = rangingData
-                }
-                
-                if let type = currentFrameType {
-                    switch type {
-                    case .unknown:
-                        assert(true, "Update not allowed")
-                    case .uid:
-                        beacon.uid = currentBeacon?.uid
-                        beaconUpdated = true
-                    case .url:
-                        beacon.url = currentBeacon?.url
-                        beaconUpdated = true
-                    case .telemetry:
-                        beacon.telemetry = currentBeacon?.telemetry
-                        beaconUpdated = true
-                    case .eid:
-                        beacon.eid = currentBeacon?.eid
-                        beaconUpdated = true
-                    }
-                }
+                self.updateRssiBuffer(with: beacon)
+                self.updateRangingData(with: beacon)
+                self.updateProximity(with: beacon)
+                beaconUpdated = self.updateFrameTypeInformation(with: beacon)
             }
         }
         
-        if let currentBeacon = self.currentBeacon,
-        beaconUpdated == false {
-            self.regionManager.addDetectedBeacon(beacon: currentBeacon)
+        guard let currentBeacon = self.currentBeacon,
+            beaconUpdated == false else { return }
+        
+        self.regionManager.addDetectedBeacon(beacon: currentBeacon)
+    }
+    
+    private func isCurrentAlreadyDetected(beacon: ORCEddystoneBeacon) -> Bool {
+        return beacon.peripheralId == currentBeacon?.peripheralId ||
+                        beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed
+    }
+    
+    private func updateDetectedBeacon(beacon: ORCEddystoneBeacon) -> Bool {
+        self.updateRssiBuffer(with: beacon)
+        self.updateRangingData(with: beacon)
+        self.updateProximity(with: beacon)
+        return self.updateFrameTypeInformation(with: beacon)
+    }
+    
+    private func updateRangingData(with beacon: ORCEddystoneBeacon) {
+        guard let rangingData = currentBeacon?.rangingData else { return }
+        beacon.rangingData = rangingData
+    }
+    
+    private func updateRssiBuffer(with beacon: ORCEddystoneBeacon) {
+        guard let rssiBuffer = currentBeacon?.rssiBuffer else { return }
+        _ = rssiBuffer.map { _ in beacon.updateRssiBuffer }
+    }
+    
+    private func updateTxPower(with beacon: ORCEddystoneBeacon) {
+        guard let txPower = currentBeacon?.txPower else { return }
+        beacon.txPower = txPower
+    }
+    
+    private func updateProximity(with beacon: ORCEddystoneBeacon) {
+        guard let currentBeaconProximity = currentBeacon?.proximity,
+            currentBeaconProximity != .unknown else {
+                beacon.updateProximity(currentProximity: .unknown)
+                return
         }
+        
+        let beaconProximity = beacon.proximity
+        if currentBeaconProximity != beaconProximity {
+            beacon.updateProximity(currentProximity: currentBeaconProximity)
+        }
+        
+        guard let currentBeaconProximityTimer = currentBeacon?.proximityTimer else {
+            beacon.updateProximity(currentProximity: currentBeaconProximity)
+            return
+        }
+        
+        beacon.proximityTimer = currentBeaconProximityTimer
+        if currentBeaconProximityTimer.fireDate <= Date() {
+            beacon.proximityTimer?.fire()
+        }
+    }
+    
+    private func updateFrameTypeInformation(with beacon: ORCEddystoneBeacon) -> Bool {
+        var beaconUpdated: Bool = false
+        guard let type = currentFrameType else { return beaconUpdated }
+        switch type {
+        case .unknown:
+            assert(true, "Update not allowed")
+        case .uid:
+            beacon.uid = currentBeacon?.uid
+            beaconUpdated = true
+        case .url:
+            beacon.url = currentBeacon?.url
+            beaconUpdated = true
+        case .telemetry:
+            beacon.telemetry = currentBeacon?.telemetry
+            beaconUpdated = true
+        case .eid:
+            beacon.eid = currentBeacon?.eid
+            beaconUpdated = true
+        }
+        
+        return beaconUpdated
     }
 }

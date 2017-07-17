@@ -50,7 +50,6 @@ class EddystoneRegionManager {
             self.regionsEntered.append(region)
             
             if region.notifyOnEntry {
-                self.addNotification(message: "REGION DID ENTER")
                 DispatchQueue.main.async {
                     self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
                         guard let actionNotNil = action else { return }
@@ -79,7 +78,6 @@ class EddystoneRegionManager {
             }
             
             if region.notifyOnExit {
-                self.addNotification(message: "REGION DID EXIT")
                 DispatchQueue.main.async {
                     self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
                         guard let actionNotNil = action else { return }
@@ -110,16 +108,6 @@ class EddystoneRegionManager {
             }
         }
         return isNotDetected
-    }
-    
-    // TODO: Delete this method
-    private func addNotification(message: String) {
-        let notification = UILocalNotification()
-        notification.fireDate = Date()
-        notification.alertBody = "Hey you! \(message)"
-        notification.alertAction = message
-        notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.shared.scheduleLocalNotification(notification)
     }
     
     private func exit(from region: ORCEddystoneRegion) {
