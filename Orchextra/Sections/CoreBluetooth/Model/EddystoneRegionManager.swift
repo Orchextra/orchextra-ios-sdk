@@ -69,15 +69,11 @@ class EddystoneRegionManager {
             (!(self.regionsEntered.contains(region))) {
             region.regionEvent = .enter
             self.regionsEntered.append(region)
-            
             if region.notifyOnEntry {
-                DispatchQueue.main.async {
-                    self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
-                        guard let actionNotNil = action else { return }
-                        ORCLog.logVerbose(format: "--- REGION DID ENTER ---", region.uid.namespace)
-                        actionNotNil.launchedByTriggerCode = region.uid.namespace
-                    })
-                }
+                self.validateAction(
+                    for: region,
+                    event: "--- REGION DID ENTER ---"
+                )
             }
             
             if self.regionsExited.contains(region) {
@@ -91,6 +87,7 @@ class EddystoneRegionManager {
         if self.isAvailable(region) &&
             self.regionsEntered.contains(region) &&
             !(self.regionsExited.contains(region)) {
+            
             self.regionsExited.append(region)
             region.regionEvent = .exit
             if self.regionsEntered.contains(region) {
@@ -99,15 +96,22 @@ class EddystoneRegionManager {
             }
             
             if region.notifyOnExit {
-                DispatchQueue.main.async {
-                    self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
-                        guard let actionNotNil = action else { return }
-                        
-                        ORCLog.logVerbose(format: "--- REGION DID EXIT ---", region.uid.namespace)
-                        actionNotNil.launchedByTriggerCode = region.uid.namespace
-                    })
-                }
+                self.validateAction(
+                    for: region,
+                    event: "--- REGION DID EXIT ---"
+                )
             }
+        }
+    }
+    
+    private func validateAction(for region: ORCEddystoneRegion, event: String) {
+        DispatchQueue.main.async {
+            self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
+                guard let actionNotNil = action else { return }
+                
+                ORCLog.logVerbose(format: event, region.uid.namespace)
+                actionNotNil.launchedByTriggerCode = region.uid.namespace
+            })
         }
     }
     

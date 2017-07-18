@@ -8,14 +8,6 @@
 
 import Foundation
 
-enum frameType {
-    case unknown
-    case uid
-    case url
-    case telemetry
-    case eid
-}
-
 protocol EddystoneParserDelegate {
     func sendInfoForBeaconsDetected()
 }
@@ -65,88 +57,10 @@ class ORCEddystoneProtocolParser {
         }
         
         self.currentBeacon?.updateRssiBuffer(rssi: Int8(rssi))
-        self.currentFrameType = self.frameType(frameBytes)
+        self.currentFrameType = EddystoneDecoder.frameType(frameBytes)
         self.parseInformationForFrameType()
         
         return self.regionManager.beaconsDetected
-    }
-    
-    // MARK: Public (FrameType)
-    func frameType(_ fromBytes: UInt8) -> frameType {
-        var frameType: frameType = .unknown
-        switch fromBytes {
-        case EddystoneConstants.frameUID:
-            frameType = .uid
-        case EddystoneConstants.frameURL:
-            frameType = .url
-        case EddystoneConstants.frameTelemetry:
-            frameType = .telemetry
-        case EddystoneConstants.frameEID:
-            frameType = .eid
-        default:
-            frameType = .unknown
-        }
-        
-        return frameType
-    }
-    
-    // MARK: Public (Url Scheme Prefix)
-    func urlSchemePrefix(_ fromBytes: UInt8) -> String {
-        var urlScheme: String = ""
-        switch fromBytes {
-        case EddystoneConstants.urlSchemePrefixHttp_www:
-            urlScheme = EddystoneConstants.urlSchemeTypeHttp_www
-        case EddystoneConstants.urlSchemePrefixHttps_www:
-            urlScheme = EddystoneConstants.urlSchemeTypeHttps_www
-        case EddystoneConstants.urlSchemePrefixHttp:
-            urlScheme = EddystoneConstants.urlSchemeTypeHttp
-        case EddystoneConstants.urlSchemePrefixHttps:
-            urlScheme = EddystoneConstants.urlSchemeTypeHttps
-        default:
-            urlScheme = ""
-        }
-        
-        return urlScheme
-    }
-    
-    // MARK: Public (Url Decoded)
-    func urlDecoded(_ fromBytes: UInt8) -> String {
-        var urlDecoded = ""
-        
-        switch fromBytes {
-        case EddystoneConstants.urlEncodingCom_Slash:
-            urlDecoded = EddystoneConstants.urlDecodingCom_Slash
-        case EddystoneConstants.urlEncodingOrg_Slash:
-            urlDecoded = EddystoneConstants.urlDecodingOrg_Slash
-        case EddystoneConstants.urlEncodingEdu_Slash:
-            urlDecoded = EddystoneConstants.urlDecodingEdu_Slash
-        case EddystoneConstants.urlEncodingNet_Slash:
-            urlDecoded = EddystoneConstants.urlDecodingNet_Slash
-        case EddystoneConstants.urlEncodingInfo_Slash:
-            urlDecoded = EddystoneConstants.urlDecodingInfo_Slash
-        case EddystoneConstants.urlEncodingBiz_Slash:
-            urlDecoded = EddystoneConstants.urlDecodingBiz_Slash
-        case EddystoneConstants.urlEncodingGov_Slash:
-            urlDecoded = EddystoneConstants.urlDecodingGov_Slash
-        case EddystoneConstants.urlEncodingCom:
-            urlDecoded = EddystoneConstants.urlDecodingCom
-        case EddystoneConstants.urlEncodingOrg:
-            urlDecoded = EddystoneConstants.urlDecodingOrg
-        case EddystoneConstants.urlEncodingEdu:
-            urlDecoded = EddystoneConstants.urlDecodingEdu
-        case EddystoneConstants.urlEncodingNet:
-            urlDecoded = EddystoneConstants.urlDecodingNet
-        case EddystoneConstants.urlEncodingInfo:
-            urlDecoded = EddystoneConstants.urlDecodingInfo
-        case EddystoneConstants.urlEncodingBiz:
-            urlDecoded = EddystoneConstants.urlDecodingBiz
-        case EddystoneConstants.urlEncodingGov:
-            urlDecoded = EddystoneConstants.urlDecodingGov
-        default:
-            urlDecoded = ""
-        }
-        
-        return urlDecoded
     }
     
     // MARK: Public (Telemetry Parsing)
@@ -238,13 +152,13 @@ class ORCEddystoneProtocolParser {
         guard let serviceBytes = self.serviceBytes else { return URL(string: "") }
         
         let urlSchemeBytes:UInt8 = serviceBytes[EddystoneConstants.urlSchemePrefixPosition]
-        let urlScheme:String = urlSchemePrefix(urlSchemeBytes)
+        let urlScheme:String = EddystoneDecoder.urlSchemePrefix(urlSchemeBytes)
         
         urlString.append(urlScheme)
         
         for i in EddystoneConstants.urlHostInitialPosition..<serviceBytes.count {
             let bytesToBeDecoded:UInt8 = serviceBytes[i]
-            let urlDecoded:String = self.urlDecoded(bytesToBeDecoded)
+            let urlDecoded:String = EddystoneDecoder.urlDecoded(bytesToBeDecoded)
             
             if urlDecoded.characters.count > 0  {
                 urlString.append(urlDecoded)

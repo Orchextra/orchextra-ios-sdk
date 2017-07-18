@@ -349,6 +349,7 @@
 		8FA9F6BA1DA2F3B2009A6E87 /* ORCGIGConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF9B1BF362080042F370 /* ORCGIGConstants.h */; };
 		8FA9F6D91DA2FA54009A6E87 /* ORCGIGLayoutGridHorizontal.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF341BF362080042F370 /* ORCGIGLayoutGridHorizontal.m */; };
 		8FA9F6DA1DA2FA54009A6E87 /* ORCGIGLayoutGridVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF361BF362080042F370 /* ORCGIGLayoutGridVertical.m */; };
+		8FAE31771F1DF68F00685D74 /* EddystoneDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE31761F1DF68F00685D74 /* EddystoneDecoder.swift */; };
 		8FB1258D1ED8266600A4E654 /* EddystoneRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1258C1ED8266600A4E654 /* EddystoneRegionManager.swift */; };
 		8FBAE80D1DA3983A00BC6A22 /* ORCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFBE1BF362080042F370 /* ORCWebViewController.h */; };
 		8FCBB6FA1DBE514300D916F7 /* ORCCBCentralWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCBB6F91DBE514300D916F7 /* ORCCBCentralWrapperMock.swift */; };
@@ -537,6 +538,7 @@
 		8F7BF5D11DAB674300D608F0 /* ORCEddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneBeacon.swift; sourceTree = "<group>"; };
 		8F7BF5D31DAB674300D608F0 /* ORCEddystoneProtocolParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneProtocolParser.swift; sourceTree = "<group>"; };
 		8F7BF5D41DAB674300D608F0 /* ORCCBCentralWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCCBCentralWrapper.swift; sourceTree = "<group>"; };
+		8FAE31761F1DF68F00685D74 /* EddystoneDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneDecoder.swift; sourceTree = "<group>"; };
 		8FB1258C1ED8266600A4E654 /* EddystoneRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneRegionManager.swift; sourceTree = "<group>"; };
 		8FCBB6F91DBE514300D916F7 /* ORCCBCentralWrapperMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCCBCentralWrapperMock.swift; sourceTree = "<group>"; };
 		8FE1DF851D082FC10015D2F1 /* ORCCustomField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCCustomField.h; sourceTree = "<group>"; };
@@ -1049,6 +1051,7 @@
 			isa = PBXGroup;
 			children = (
 				8F7BF5D01DAB674300D608F0 /* EddystoneConstants.swift */,
+				8FAE31761F1DF68F00685D74 /* EddystoneDecoder.swift */,
 				8FB1258C1ED8266600A4E654 /* EddystoneRegionManager.swift */,
 				8F7BF5D11DAB674300D608F0 /* ORCEddystoneBeacon.swift */,
 				8F1E222A1ECC880E00EA5F5E /* ORCEddystoneRegion.swift */,
@@ -2972,6 +2975,7 @@
 				8F660CB81DA2BBBC007B9551 /* ORCScannerViewController.m in Sources */,
 				8F660CB91DA2BBBC007B9551 /* ORCErrorManager.m in Sources */,
 				8F660CBA1DA2BBBC007B9551 /* ORCSettingsPersister.m in Sources */,
+				8FAE31771F1DF68F00685D74 /* EddystoneDecoder.swift in Sources */,
 				8F660CBB1DA2BBBC007B9551 /* ORCUserLocationPersister.m in Sources */,
 				8F660CBC1DA2BBBC007B9551 /* ORCStatisticsInteractor.m in Sources */,
 				8F660CBD1DA2BBBC007B9551 /* ORCSettingsInteractor.m in Sources */,

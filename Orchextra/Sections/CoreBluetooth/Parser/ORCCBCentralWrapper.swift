@@ -151,6 +151,14 @@ import UserNotifications
         return isAvailableStopTool
     }
     
+    private func timeToStartScanner() -> Int {
+        if UIApplication.shared.applicationState != .background {
+            return EddystoneConstants.timeToStartScanner
+        } else {
+            return EddystoneConstants.timeToStartScannerBackground
+        }
+    }
+    
     private func beaconIsValidToSentAction(beacon: ORCEddystoneBeacon) -> Bool {
         return beacon.canBeSentToValidateAction()
     }
@@ -163,14 +171,6 @@ import UserNotifications
                 actionNotNil.launchedByTriggerCode = beacon.uid?.uidCompossed
                 self.actionInterface.didFireTrigger(with: action)
             })
-        }
-    }
-    
-    private func timeToStartScanner() -> Int {
-        if UIApplication.shared.applicationState != .background {
-            return EddystoneConstants.timeToStartScanner
-        } else {
-            return EddystoneConstants.timeToStartScannerBackground
         }
     }
     
