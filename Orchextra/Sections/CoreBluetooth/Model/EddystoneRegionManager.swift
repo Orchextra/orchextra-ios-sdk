@@ -27,6 +27,17 @@ class EddystoneRegionManager {
     
     // MARK: Public methods
     func addDetectedBeacon(beacon: ORCEddystoneBeacon) {
+        
+        //TODO: Convert to functional
+        //        let regionsAvailableDetected = self.availableRegions.filter { $0.uid.namespace == beacon.uid?.namespace }
+        //        .map { _ in self.regionDidEnter }
+        //
+        //        if regionsAvailableDetected.count > 0 {
+        //            if !self.beaconsDetected.contains(beacon) {
+        //                self.beaconsDetected.append(beacon)
+        //            }
+        //        }
+        
         for region in availableRegions {
             if region.uid.namespace == beacon.uid?.namespace {
                 if !self.beaconsDetected.contains(beacon) {
@@ -37,6 +48,16 @@ class EddystoneRegionManager {
         }
     }
     
+    //    func addDetectedBeacon(beacon: ORCEddystoneBeacon) {
+    //        for region in availableRegions {
+    //            if region.uid.namespace == beacon.uid?.namespace {
+    //                if !self.beaconsDetected.contains(beacon) {
+    //                    self.beaconsDetected.append(beacon)
+    //                }
+    //                self.regionDidEnter(region: region)
+    //            }
+    //        }
+    //    }
     func cleanDetectedBeaconList() {
         self.updateRegions()
         self.beaconsDetected.removeAll()
@@ -91,7 +112,8 @@ class EddystoneRegionManager {
     }
     
     private func updateRegions() {
-        let _ =  self.regionsEntered.filter(isNotDetected).map(exit)
+        _ =  self.regionsEntered.filter(isNotDetected)
+                                .map(exit)
     }
     
     // MARK: Private methods

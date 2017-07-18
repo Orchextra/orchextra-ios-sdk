@@ -53,21 +53,20 @@ class ORCEddystoneProtocolParser {
     }
     
     func parseServiceInformation() -> [ORCEddystoneBeacon] {
-        if let serviceBytesInformation = self.serviceBytes {
-            let frameBytes:UInt8 = serviceBytesInformation[EddystoneConstants.frameTypePosition]
-            
-            if let peripheralId = self.peripheralId,
-                let rssi = self.rssi {
-                if self.currentBeacon?.peripheralId != peripheralId {
-                    self.currentBeacon = ORCEddystoneBeacon(peripheralId: peripheralId,
-                                                            requestWaitTime: requestWaitTime)
-                }
-                
-                self.currentBeacon?.updateRssiBuffer(rssi: Int8(rssi))
-                self.currentFrameType = self.frameType(frameBytes)
-                self.parseInformationForFrameType()
-            }
+        guard let serviceBytesInformation = self.serviceBytes else { return self.regionManager.beaconsDetected }
+        let frameBytes:UInt8 = serviceBytesInformation[EddystoneConstants.frameTypePosition]
+        
+        guard let peripheralId = self.peripheralId,
+            let rssi = self.rssi else { return self.regionManager.beaconsDetected }
+        
+        if self.currentBeacon?.peripheralId != peripheralId {
+            self.currentBeacon = ORCEddystoneBeacon(peripheralId: peripheralId,
+                                                    requestWaitTime: requestWaitTime)
         }
+        
+        self.currentBeacon?.updateRssiBuffer(rssi: Int8(rssi))
+        self.currentFrameType = self.frameType(frameBytes)
+        self.parseInformationForFrameType()
         
         return self.regionManager.beaconsDetected
     }
@@ -250,10 +249,9 @@ class ORCEddystoneProtocolParser {
             if urlDecoded.characters.count > 0  {
                 urlString.append(urlDecoded)
             } else {
-                if let urlDecoded = String(data: Data(bytes:[bytesToBeDecoded], count: 1) as Data,
-                                           encoding: String.Encoding.utf8) {
-                    urlString.append(urlDecoded)
-                }
+                guard let urlDecoded = String(data: Data(bytes:[bytesToBeDecoded], count: 1) as Data,
+                                              encoding: String.Encoding.utf8)  else { return URL(string: urlString) }
+                urlString.append(urlDecoded)
             }
         }
         
@@ -387,15 +385,15 @@ class ORCEddystoneProtocolParser {
     }
     
     // MARK: Private (BeaconList)
+    // TODO: Convert to functional
 //    fileprivate func addBeaconIfNeeded() -> Void {
-//        let beaconsDetected = self.regionManager.beaconsDetected.filter(isCurrentAlreadyDetected).map{ _ in  updateDetectedBeacon }
-//        
-//        
 //        guard let currentBeacon = self.currentBeacon else { return }
-//        if beaconsDetected.count == 0 {
+//        let beaconsDetected = self.regionManager.beaconsDetected.filter(isCurrentBeaconAlreadyDetected)
+//        let beaconsUpdated = beaconsDetected.map { _ in  updateDetectedBeacon }
+//
+//        if beaconsUpdated.count == 0 {
 //            self.regionManager.addDetectedBeacon(beacon: currentBeacon)
 //        }
-//
 //    }
     
     fileprivate func addBeaconIfNeeded() -> Void {
@@ -417,7 +415,7 @@ class ORCEddystoneProtocolParser {
         self.regionManager.addDetectedBeacon(beacon: currentBeacon)
     }
     
-    private func isCurrentAlreadyDetected(beacon: ORCEddystoneBeacon) -> Bool {
+    private func isCurrentBeaconAlreadyDetected(beacon: ORCEddystoneBeacon) -> Bool {
         return beacon.peripheralId == currentBeacon?.peripheralId ||
                         beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed
     }
