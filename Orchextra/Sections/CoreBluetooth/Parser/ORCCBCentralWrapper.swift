@@ -191,7 +191,8 @@ import UserNotifications
             self.eddystoneParser = ORCEddystoneProtocolParser(
                 requestWaitTime: self.requestWaitTime,
                 validatorInteractor: self.validatorInteractor,
-                availableRegions: self.availableRegions)
+                availableRegions: self.availableRegions,
+                actionInterface: self.actionInterface)
         }
         self.centralManager?.scanForPeripherals(withServices: services, options: options)
     }

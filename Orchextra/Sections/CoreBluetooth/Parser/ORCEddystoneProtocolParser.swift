@@ -23,9 +23,18 @@ class ORCEddystoneProtocolParser {
     var requestWaitTime: Int
     var regionManager: EddystoneRegionManager
     
-    init(requestWaitTime: Int, validatorInteractor: ORCValidatorActionInterator, availableRegions: [ORCEddystoneRegion]) {
+    init(
+        requestWaitTime: Int,
+        validatorInteractor: ORCValidatorActionInterator,
+        availableRegions: [ORCEddystoneRegion],
+        actionInterface: ORCActionInterface
+        ) {
         self.requestWaitTime = requestWaitTime
-        self.regionManager = EddystoneRegionManager(availableRegions: availableRegions, validatorInteractor: validatorInteractor)
+        self.regionManager = EddystoneRegionManager(
+            availableRegions: availableRegions,
+            validatorInteractor: validatorInteractor,
+            actionInterface: actionInterface
+        )
     }
     
     // MARK: Public
@@ -300,15 +309,15 @@ class ORCEddystoneProtocolParser {
     
     // MARK: Private (BeaconList)
     // TODO: Convert to functional
-//    fileprivate func addBeaconIfNeeded() -> Void {
-//        guard let currentBeacon = self.currentBeacon else { return }
-//        let beaconsDetected = self.regionManager.beaconsDetected.filter(isCurrentBeaconAlreadyDetected)
-//        let beaconsUpdated = beaconsDetected.map { _ in  updateDetectedBeacon }
-//
-//        if beaconsUpdated.count == 0 {
-//            self.regionManager.addDetectedBeacon(beacon: currentBeacon)
-//        }
-//    }
+    //    fileprivate func addBeaconIfNeeded() -> Void {
+    //        guard let currentBeacon = self.currentBeacon else { return }
+    //        let beaconsDetected = self.regionManager.beaconsDetected.filter(isCurrentBeaconAlreadyDetected)
+    //        let beaconsUpdated = beaconsDetected.map { _ in  updateDetectedBeacon }
+    //
+    //        if beaconsUpdated.count == 0 {
+    //            self.regionManager.addDetectedBeacon(beacon: currentBeacon)
+    //        }
+    //    }
     
     fileprivate func addBeaconIfNeeded() -> Void {
         var beaconUpdated: Bool = false
@@ -331,7 +340,7 @@ class ORCEddystoneProtocolParser {
     
     private func isCurrentBeaconAlreadyDetected(beacon: ORCEddystoneBeacon) -> Bool {
         return beacon.peripheralId == currentBeacon?.peripheralId ||
-                        beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed
+            beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed
     }
     
     private func updateDetectedBeacon(beacon: ORCEddystoneBeacon) -> Bool {

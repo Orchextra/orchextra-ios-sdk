@@ -133,7 +133,8 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 - (void)validateProximityWithEddystoneRegion:(ORCEddystoneRegion *)region completion:(CompletionActionValidated)completionAction
 {
     NSDictionary *dictionary = @{ TYPE_KEY  : EDDYSTONE_REGION_KEY,
-                                  VALUE_KEY : region.uid.namespace,
+                                  VALUE_KEY : region.code,
+                                  NAMESPACE_KEY: region.uid.namespace,
                                   EVENT_KEY : [ORCProximityFormatter eddystoneRegionEventToString:region.regionEvent],
                                   PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString]};
     

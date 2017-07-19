@@ -71,15 +71,12 @@ import Foundation
     }
     
     public func canBeSentToValidateAction() -> Bool {
-        var canBeSentToValidateAction: Bool = false
-        if (self.uid?.namespace != nil),
-            (self.uid?.instance != nil ),
-            (self.url != nil),
-            (self.proximity != .unknown),
-            (self.proximityTimer == nil) {
-            canBeSentToValidateAction = true
-        }
-        return canBeSentToValidateAction
+        guard let _ = self.uid?.namespace,
+        let _ = self.uid?.instance,
+        let _ = self.url,
+        self.proximity != .unknown,
+        let _ = self.proximityTimer  else { return false }
+        return true
     }
     
     public func updateProximity(currentProximity: proximity) {

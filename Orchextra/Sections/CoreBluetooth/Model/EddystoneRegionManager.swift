@@ -10,6 +10,7 @@ import Foundation
 
 class EddystoneRegionManager {
     // MARK: Properties
+    let actionInterface: ORCActionInterface
     let availableRegions: [ORCEddystoneRegion]
     let validatorInteractor: ORCValidatorActionInterator
     var regionsEntered: [ORCEddystoneRegion]
@@ -17,9 +18,14 @@ class EddystoneRegionManager {
     var beaconsDetected: [ORCEddystoneBeacon]
     
     // MARK: Initializer
-    init(availableRegions: [ORCEddystoneRegion], validatorInteractor: ORCValidatorActionInterator) {
+    init(
+        availableRegions: [ORCEddystoneRegion],
+        validatorInteractor: ORCValidatorActionInterator,
+        actionInterface: ORCActionInterface
+        ) {
         self.availableRegions = availableRegions
         self.validatorInteractor = validatorInteractor
+        self.actionInterface = actionInterface
         self.regionsEntered = [ORCEddystoneRegion]()
         self.regionsExited = [ORCEddystoneRegion]()
         self.beaconsDetected = [ORCEddystoneBeacon]()
@@ -110,14 +116,15 @@ class EddystoneRegionManager {
                 guard let actionNotNil = action else { return }
                 
                 ORCLog.logVerbose(format: event, region.uid.namespace)
-                actionNotNil.launchedByTriggerCode = region.uid.namespace
+                actionNotNil.launchedByTriggerCode = region.code
+                self.actionInterface.didFireTrigger(with: actionNotNil)
             })
         }
     }
     
     private func updateRegions() {
         _ =  self.regionsEntered.filter(isNotDetected)
-                                .map(exit)
+            .map(exit)
     }
     
     // MARK: Private methods
