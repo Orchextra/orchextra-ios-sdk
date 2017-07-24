@@ -85,14 +85,14 @@ import UserNotifications
     @objc public func startScanner() -> Void {
         var secondsToStopScanner: Int = 0
         if self.isAvailableScanner() {
-            self.startScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
+            self.startScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: ORCEddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
                 self.endStartScannerTask()
             })
             
             DispatchQueue.global().async(execute: {
                 self.performStartScanner()
                 
-                while secondsToStopScanner < EddystoneConstants.timeToStopScanner {
+                while secondsToStopScanner < ORCEddystoneConstants.timeToStopScanner {
                     Thread.sleep(forTimeInterval: 1)
                     secondsToStopScanner+=1
                     
@@ -107,7 +107,7 @@ import UserNotifications
     @objc public func stopScanner() -> Void {
         var secondsToStartScanner: Int = 0
         let timeToStartScanner = self.timeToStartScanner()
-        self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
+        self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: ORCEddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
             
             ORCLog.logDebug(format:"---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
             self.endStopScannerTask()
@@ -127,7 +127,7 @@ import UserNotifications
     }
     
     // MARK: Private utilities
-    private func isAvailableScanner() -> Bool {
+    internal func isAvailableScanner() -> Bool {
         var isAvailableScanner = false
         if !self.scannerStarted,
             self.centralManager?.state == .poweredOn ,
@@ -153,9 +153,9 @@ import UserNotifications
     
     private func timeToStartScanner() -> Int {
         if UIApplication.shared.applicationState != .background {
-            return EddystoneConstants.timeToStartScanner
+            return ORCEddystoneConstants.timeToStartScanner
         } else {
-            return EddystoneConstants.timeToStartScannerBackground
+            return ORCEddystoneConstants.timeToStartScannerBackground
         }
     }
     
@@ -183,7 +183,7 @@ import UserNotifications
     private func performStartScanner() {
         ORCLog.logDebug(format: "--- START SCANNER ---")
         self.scannerStarted = true
-        let serviceUUID:String = EddystoneConstants.serviceUUID
+        let serviceUUID:String = ORCEddystoneConstants.serviceUUID
         let services: [CBUUID] = [CBUUID (string:serviceUUID)]
         let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey : true]
         
@@ -243,7 +243,7 @@ extension ORCCBCentralWrapper: CBCentralManagerDelegate {
         
         guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [AnyHashable : Any] else { return }
         
-        let serviceUUID:String = EddystoneConstants.serviceUUID
+        let serviceUUID:String = ORCEddystoneConstants.serviceUUID
         let serviceCBUUID = CBUUID(string: serviceUUID)
         let peripheralId:UUID = peripheral.identifier as UUID
         let rssi:Int = RSSI.intValue

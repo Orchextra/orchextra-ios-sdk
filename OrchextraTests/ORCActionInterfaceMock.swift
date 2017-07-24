@@ -9,8 +9,8 @@
 import Foundation
 import Orchextra
 
-class ORCACtionInterfaceMock: NSObject {
-    //MARK Properties
+@objc class ORCACtionInterfaceMock: NSObject {
+    //MARK: Properties
     var didFireTriggerCalled: Bool                      = false
     var didFireTriggerFromViewControllerCalled: Bool    = false
     var presentToViewControllerCalled: Bool             = false

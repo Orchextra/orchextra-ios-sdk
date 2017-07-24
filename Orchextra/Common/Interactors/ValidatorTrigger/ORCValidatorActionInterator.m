@@ -24,8 +24,6 @@ NSString * const VALUE_KEY              = @"value";
 NSString * const EVENT_KEY              = @"event";
 NSString * const PHONE_STATUS_KEY       = @"phoneStatus";
 NSString * const DISTANCE_KEY           = @"distance";
-NSString * const EDDYSTONE_KEY          = @"eddystone";
-NSString * const EDDYSTONE_REGION_KEY   = @"eddystone_region";
 
 NSString * const TEMPERATURE_KEY        = @"temperature";
 NSString * const NAMESPACE_KEY          = @"namespace";
@@ -132,7 +130,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 
 - (void)validateProximityWithEddystoneRegion:(ORCEddystoneRegion *)region completion:(CompletionActionValidated)completionAction
 {
-    NSDictionary *dictionary = @{ TYPE_KEY  : EDDYSTONE_REGION_KEY,
+    NSDictionary *dictionary = @{ TYPE_KEY  : ORCTypeEddystoneRegion,
                                   VALUE_KEY : region.code,
                                   NAMESPACE_KEY: region.uid.namespace,
                                   EVENT_KEY : [ORCProximityFormatter eddystoneRegionEventToString:region.regionEvent],
@@ -175,7 +173,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
 {
     NSNumber *temperature = [NSNumber numberWithDouble:beacon.telemetry.temperature];
     NSNumber *batteryPercentage = [NSNumber numberWithDouble:beacon.telemetry.batteryPercentage];
-    NSDictionary *partialDictionary =   @{ TYPE_KEY          : EDDYSTONE_KEY,
+    NSDictionary *partialDictionary =   @{ TYPE_KEY          : ORCTypeEddystoneBeacon,
                                            NAMESPACE_KEY     : beacon.uid.namespace,
                                            INSTANCE_KEY      : beacon.uid.instance,
                                            VALUE_KEY         : beacon.uid.uidCompossed,

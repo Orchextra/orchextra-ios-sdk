@@ -10,7 +10,6 @@ import XCTest
 @testable import Orchextra
 
 class EddystoneProtocolParserTests: XCTestCase {
-    
     var eddystoneProtocolParser: ORCEddystoneProtocolParser?
     var peripheralId:UUID?
     var rssi: Int?
@@ -48,86 +47,86 @@ class EddystoneProtocolParserTests: XCTestCase {
     }
     
     func testFrameTypeParser() {
-        var frameType:frameType = EddystoneDecoder.frameType(0x00)
+        var frameType:frameType = ORCEddystoneDecoder.frameType(0x00)
         XCTAssertTrue(frameType == .uid)
         
-        frameType = EddystoneDecoder.frameType(0x10)
+        frameType = ORCEddystoneDecoder.frameType(0x10)
         XCTAssertTrue(frameType == .url)
         
-        frameType = EddystoneDecoder.frameType(0x20)
+        frameType = ORCEddystoneDecoder.frameType(0x20)
         XCTAssertTrue(frameType == .telemetry)
         
-        frameType = EddystoneDecoder.frameType(0x30)
+        frameType = ORCEddystoneDecoder.frameType(0x30)
         XCTAssertTrue(frameType == .eid)
         
-        frameType = EddystoneDecoder.frameType(0x50)
+        frameType = ORCEddystoneDecoder.frameType(0x50)
         XCTAssertTrue(frameType == .unknown)
     }
     
     func testUrlSchemePrefixParser() {
-        var urlSchemePrefix: String = EddystoneDecoder.urlSchemePrefix(0x00)
-        XCTAssertTrue(urlSchemePrefix == EddystoneConstants.urlSchemeTypeHttp_www)
+        var urlSchemePrefix: String = ORCEddystoneDecoder.urlSchemePrefix(0x00)
+        XCTAssertTrue(urlSchemePrefix == ORCEddystoneConstants.urlSchemeTypeHttp_www)
         
-        urlSchemePrefix = EddystoneDecoder.urlSchemePrefix(0x01)
-        XCTAssertTrue(urlSchemePrefix == EddystoneConstants.urlSchemeTypeHttps_www)
+        urlSchemePrefix = ORCEddystoneDecoder.urlSchemePrefix(0x01)
+        XCTAssertTrue(urlSchemePrefix == ORCEddystoneConstants.urlSchemeTypeHttps_www)
         
-        urlSchemePrefix = EddystoneDecoder.urlSchemePrefix(0x02)
-        XCTAssertTrue(urlSchemePrefix == EddystoneConstants.urlSchemeTypeHttp)
+        urlSchemePrefix = ORCEddystoneDecoder.urlSchemePrefix(0x02)
+        XCTAssertTrue(urlSchemePrefix == ORCEddystoneConstants.urlSchemeTypeHttp)
         
-        urlSchemePrefix = EddystoneDecoder.urlSchemePrefix(0x03)
-        XCTAssertTrue(urlSchemePrefix == EddystoneConstants.urlSchemeTypeHttps)
+        urlSchemePrefix = ORCEddystoneDecoder.urlSchemePrefix(0x03)
+        XCTAssertTrue(urlSchemePrefix == ORCEddystoneConstants.urlSchemeTypeHttps)
         
-        urlSchemePrefix = EddystoneDecoder.urlSchemePrefix(0x04)
+        urlSchemePrefix = ORCEddystoneDecoder.urlSchemePrefix(0x04)
         XCTAssertTrue(urlSchemePrefix == "")
     }
     
     func testUrlEncodingParser() {
-        var urlDecoded: String = EddystoneDecoder.urlDecoded(0x00)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingCom_Slash)
+        var urlDecoded: String = ORCEddystoneDecoder.urlDecoded(0x00)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingCom_Slash)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x01)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingOrg_Slash)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x01)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingOrg_Slash)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x02)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingEdu_Slash)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x02)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingEdu_Slash)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x03)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingNet_Slash)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x03)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingNet_Slash)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x04)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingInfo_Slash)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x04)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingInfo_Slash)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x05)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingBiz_Slash)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x05)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingBiz_Slash)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x06)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingGov_Slash)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x06)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingGov_Slash)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x07)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingCom)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x07)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingCom)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x08)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingOrg)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x08)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingOrg)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x09)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingEdu)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x09)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingEdu)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x0a)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingNet)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x0a)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingNet)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x0b)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingInfo)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x0b)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingInfo)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x0c)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingBiz)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x0c)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingBiz)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x0d)
-        XCTAssertTrue(urlDecoded == EddystoneConstants.urlDecodingGov)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x0d)
+        XCTAssertTrue(urlDecoded == ORCEddystoneConstants.urlDecodingGov)
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x0e)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x0e)
         XCTAssertTrue(urlDecoded == "")
         
-        urlDecoded = EddystoneDecoder.urlDecoded(0x1e)
+        urlDecoded = ORCEddystoneDecoder.urlDecoded(0x1e)
         XCTAssertTrue(urlDecoded == "")
     }
     
@@ -224,7 +223,6 @@ class EddystoneProtocolParserTests: XCTestCase {
             XCTAssertNotNil("Telemetry is nil")
             return
         }
-        let timeInterval: TimeInterval = 200795392
         XCTAssertNotNil(telemetry)
         XCTAssertNotNil(telemetry.tlmVersion)
         XCTAssertNotNil(telemetry.batteryVoltage)
@@ -235,6 +233,6 @@ class EddystoneProtocolParserTests: XCTestCase {
         XCTAssertTrue(telemetry.batteryVoltage == 3632)
         XCTAssertTrue(telemetry.temperature == 28.1875)
         XCTAssertTrue(telemetry.advertisingPDUcount == "175795000")
-        XCTAssertTrue(telemetry.uptime == timeInterval)
+        XCTAssertNotNil(telemetry.uptime)
     }
 }

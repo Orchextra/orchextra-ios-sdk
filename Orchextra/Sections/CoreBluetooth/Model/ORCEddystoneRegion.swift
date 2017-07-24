@@ -18,14 +18,14 @@ import Foundation
 @objc public class ORCEddystoneRegion: NSObject, NSCoding {
     // MARK: Public properties
      public let uid:EddystoneUID
-     public var regionEvent: regionEvent
+     @objc public var regionEvent: regionEvent
      @objc public let code: String
     
     // MARK: Private properties
      let notifyOnEntry: Bool
      let notifyOnExit: Bool
     
-      public init?(json: [AnyHashable: Any]) {
+      @objc public init?(json: [AnyHashable: Any]) {
         guard let namespace = (json["namespace"] as? String),
             let code = json["code"] as? String else {
             return nil
@@ -39,7 +39,7 @@ import Foundation
         self.notifyOnExit = (json["notifyOnExit"] as? Bool) ?? false
     }
     
-    init(uid: EddystoneUID, code: String, notifyOnEntry: Bool, notifyOnExit: Bool) {
+    @objc public init(uid: EddystoneUID, code: String, notifyOnEntry: Bool, notifyOnExit: Bool) {
         self.uid = uid
         self.code = code
         self.regionEvent = .undetected

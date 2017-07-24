@@ -21,7 +21,7 @@ class ORCEddystoneProtocolParser {
     var currentFrameType: frameType?
     var currentBeacon: ORCEddystoneBeacon?
     var requestWaitTime: Int
-    var regionManager: EddystoneRegionManager
+    var regionManager: ORCEddystoneRegionManager
     
     init(
         requestWaitTime: Int,
@@ -30,7 +30,7 @@ class ORCEddystoneProtocolParser {
         actionInterface: ORCActionInterface
         ) {
         self.requestWaitTime = requestWaitTime
-        self.regionManager = EddystoneRegionManager(
+        self.regionManager = ORCEddystoneRegionManager(
             availableRegions: availableRegions,
             validatorInteractor: validatorInteractor,
             actionInterface: actionInterface
@@ -55,7 +55,7 @@ class ORCEddystoneProtocolParser {
     
     func parseServiceInformation() -> [ORCEddystoneBeacon] {
         guard let serviceBytesInformation = self.serviceBytes else { return self.regionManager.beaconsDetected }
-        let frameBytes:UInt8 = serviceBytesInformation[EddystoneConstants.frameTypePosition]
+        let frameBytes:UInt8 = serviceBytesInformation[ORCEddystoneConstants.frameTypePosition]
         
         guard let peripheralId = self.peripheralId,
             let rssi = self.rssi else { return self.regionManager.beaconsDetected }
@@ -66,7 +66,7 @@ class ORCEddystoneProtocolParser {
         }
         
         self.currentBeacon?.updateRssiBuffer(rssi: Int8(rssi))
-        self.currentFrameType = EddystoneDecoder.frameType(frameBytes)
+        self.currentFrameType = ORCEddystoneDecoder.frameType(frameBytes)
         self.parseInformationForFrameType()
         
         return self.regionManager.beaconsDetected
@@ -101,13 +101,8 @@ class ORCEddystoneProtocolParser {
     }
     
     // MARK: Private methods
-    fileprivate func parseTXPowerInformation(_ serviceBytesInformation: [UInt8]) -> UInt8? {
-        let txPower:UInt8 = serviceBytesInformation[EddystoneConstants.txPowerPosition]
-        return txPower
-    }
-    
     fileprivate func parseRangingDataInformation(_ serviceBytesInformation: [UInt8]) -> UInt8? {
-        let rangingData:UInt8 = serviceBytesInformation[EddystoneConstants.rangingDataPosition]
+        let rangingData:UInt8 = serviceBytesInformation[ORCEddystoneConstants.rangingDataPosition]
         return UInt8(rangingData)
     }
     
@@ -145,10 +140,10 @@ class ORCEddystoneProtocolParser {
     // MARK: Private (UUID Parsing)
     fileprivate func parseUIDInformation() -> EddystoneUID? {
         guard let serviceBytes = self.serviceBytes,
-            serviceBytes.count >= EddystoneConstants.uidMinimiumSize else { return nil }
+            serviceBytes.count >= ORCEddystoneConstants.uidMinimiumSize else { return nil }
         
-        let namespace:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidNamespaceEndPosition, EddystoneConstants.uidNamespaceInitialPosition)))
-        let instance:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidInstanceEndPosition, EddystoneConstants.uidInstanceInitialPosition)))
+        let namespace:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(ORCEddystoneConstants.uidNamespaceEndPosition, ORCEddystoneConstants.uidNamespaceInitialPosition)))
+        let instance:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(ORCEddystoneConstants.uidInstanceEndPosition, ORCEddystoneConstants.uidInstanceInitialPosition)))
         
         let eddystoneUID = EddystoneUID(namespace: namespace, instance: instance)
         
@@ -160,14 +155,14 @@ class ORCEddystoneProtocolParser {
         var urlString: String = ""
         guard let serviceBytes = self.serviceBytes else { return URL(string: "") }
         
-        let urlSchemeBytes:UInt8 = serviceBytes[EddystoneConstants.urlSchemePrefixPosition]
-        let urlScheme:String = EddystoneDecoder.urlSchemePrefix(urlSchemeBytes)
+        let urlSchemeBytes:UInt8 = serviceBytes[ORCEddystoneConstants.urlSchemePrefixPosition]
+        let urlScheme:String = ORCEddystoneDecoder.urlSchemePrefix(urlSchemeBytes)
         
         urlString.append(urlScheme)
         
-        for i in EddystoneConstants.urlHostInitialPosition..<serviceBytes.count {
+        for i in ORCEddystoneConstants.urlHostInitialPosition..<serviceBytes.count {
             let bytesToBeDecoded:UInt8 = serviceBytes[i]
-            let urlDecoded:String = EddystoneDecoder.urlDecoded(bytesToBeDecoded)
+            let urlDecoded:String = ORCEddystoneDecoder.urlDecoded(bytesToBeDecoded)
             
             if urlDecoded.characters.count > 0  {
                 urlString.append(urlDecoded)
@@ -186,7 +181,7 @@ class ORCEddystoneProtocolParser {
         for i in range.upperBound..<range.lowerBound {
             let bytesToBeDecoded:UInt8 = serviceBytes[i]
             let byteDecoded:String = String(bytesToBeDecoded,
-                                            radix:EddystoneConstants.bytesToStringConverterRadix,
+                                            radix:ORCEddystoneConstants.bytesToStringConverterRadix,
                                             uppercase: false)
             
             if byteDecoded.characters.count == 1 {
@@ -202,7 +197,7 @@ class ORCEddystoneProtocolParser {
     // MARK: Private (EID Parsing)
     fileprivate func parseEIDInformation() -> String? {
         guard let serviceBytes = self.serviceBytes else { return nil }
-        let range = Range(uncheckedBounds:(serviceBytes.count, EddystoneConstants.eidInitialPosition))
+        let range = Range(uncheckedBounds:(serviceBytes.count, ORCEddystoneConstants.eidInitialPosition))
         let eid = self.parseRangeOfBytes(serviceBytes,
                                          range:range)
         
@@ -212,14 +207,14 @@ class ORCEddystoneProtocolParser {
     // MARK: Private (Telemetry parsing)
     fileprivate func parseTelemetryTlmVersion(_ serviceData: Data) -> String {
         var tlmVersion: UInt8 = 0
-        let tlmVersionRange =  Range(uncheckedBounds: (EddystoneConstants.tlmVersionInitialPosition, EddystoneConstants.tlmVersionEndPosition))
+        let tlmVersionRange =  Range(uncheckedBounds: (ORCEddystoneConstants.tlmVersionInitialPosition, ORCEddystoneConstants.tlmVersionEndPosition))
         serviceData.copyBytes(to: &tlmVersion, from: tlmVersionRange)
         
         return String(tlmVersion)
     }
     
     fileprivate func parseTelemetryBatteryVoltage(_ serviceData:Data) -> Double {
-        let batteryRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmBatteryInitialPosition, EddystoneConstants.tlmBatteryEndPosition))
+        let batteryRange: Range<Data.Index> = Range(uncheckedBounds:(ORCEddystoneConstants.tlmBatteryInitialPosition, ORCEddystoneConstants.tlmBatteryEndPosition))
         let batterySubdata:Data = serviceData.subdata(in: batteryRange)
         let batteryVoltage = batterySubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt16>) -> UInt16 in
             let result: UInt16 = UInt16(bigEndian: pointer.pointee)
@@ -250,7 +245,7 @@ class ORCEddystoneProtocolParser {
     }
     
     fileprivate func parseTelemetryTemperatureFixed(_ serviceData: Data) -> Float {
-        let temperatureFixedRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTemperatureFixedInitialPosition, EddystoneConstants.tlmTemperatureFixedEndPosition))
+        let temperatureFixedRange: Range<Data.Index> = Range(uncheckedBounds:(ORCEddystoneConstants.tlmTemperatureFixedInitialPosition, ORCEddystoneConstants.tlmTemperatureFixedEndPosition))
         let beaconTemperatureFixedSubdata:Data = serviceData.subdata(in: temperatureFixedRange)
         
         // This is in 8.8 fixed point. Just have to divide by 256 to get the actual number.
@@ -262,7 +257,7 @@ class ORCEddystoneProtocolParser {
     }
     
     fileprivate func parseTelemetryTemperatureFractional(_ serviceData: Data) -> Float {
-        let temperatureFractionalRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTemperatureFractionalInitialPosition, EddystoneConstants.tlmTemperatureFractionalEndPosition))
+        let temperatureFractionalRange: Range<Data.Index> = Range(uncheckedBounds:(ORCEddystoneConstants.tlmTemperatureFractionalInitialPosition, ORCEddystoneConstants.tlmTemperatureFractionalEndPosition))
         let beaconTemperatureFractionalSubdata:Data = serviceData.subdata(in: temperatureFractionalRange)
         
         // This is in 8.8 fixed point. Just have to divide by 256 to get the actual number.
@@ -277,13 +272,13 @@ class ORCEddystoneProtocolParser {
         let temperatureFixed = parseTelemetryTemperatureFixed(serviceData)
         let temperatureFractional = parseTelemetryTemperatureFractional(serviceData)
         
-        let temperature = temperatureFixed + temperatureFractional / EddystoneConstants.temperature8pointeNotation
+        let temperature = temperatureFixed + temperatureFractional / ORCEddystoneConstants.temperature8pointeNotation
         
         return temperature
     }
     
     fileprivate func parseTelemetryAdvertisingPDUCount(_ serviceData: Data) -> String {
-        let advertisingPDUCountRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmAdvertisingPDUCountInitialPosition, EddystoneConstants.tlmAdvertisingPDUCountEndPosition))
+        let advertisingPDUCountRange: Range<Data.Index> = Range(uncheckedBounds:(ORCEddystoneConstants.tlmAdvertisingPDUCountInitialPosition, ORCEddystoneConstants.tlmAdvertisingPDUCountEndPosition))
         let advertisingPDUCountSubdata:Data = serviceData.subdata(in: advertisingPDUCountRange)
         
         let advertisingPDUCount = advertisingPDUCountSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
@@ -295,7 +290,7 @@ class ORCEddystoneProtocolParser {
     }
     
     fileprivate func parseTelemetryUptime(_ serviceData:Data) -> TimeInterval {
-        let timeOnSincePowerOnRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTimeOnSincePowerOnInitialPosition, EddystoneConstants.tlmTimeOnSincePowerOnEndPosition))
+        let timeOnSincePowerOnRange: Range<Data.Index> = Range(uncheckedBounds:(ORCEddystoneConstants.tlmTimeOnSincePowerOnInitialPosition, ORCEddystoneConstants.tlmTimeOnSincePowerOnEndPosition))
         let timeOnSincePowerOnSubdata:Data = serviceData.subdata(in: timeOnSincePowerOnRange)
         
         let timeOnSincePowerOn = timeOnSincePowerOnSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
@@ -307,7 +302,6 @@ class ORCEddystoneProtocolParser {
         return uptime
     }
     
-    // MARK: Private (BeaconList)
     // TODO: Convert to functional
     //    fileprivate func addBeaconIfNeeded() -> Void {
     //        guard let currentBeacon = self.currentBeacon else { return }
@@ -318,7 +312,8 @@ class ORCEddystoneProtocolParser {
     //            self.regionManager.addDetectedBeacon(beacon: currentBeacon)
     //        }
     //    }
-    
+
+// MARK: Private (BeaconList)
     fileprivate func addBeaconIfNeeded() -> Void {
         var beaconUpdated: Bool = false
         for beacon in self.regionManager.beaconsDetected {
@@ -358,11 +353,6 @@ class ORCEddystoneProtocolParser {
     private func updateRssiBuffer(with beacon: ORCEddystoneBeacon) {
         guard let rssiBuffer = currentBeacon?.rssiBuffer else { return }
         _ = rssiBuffer.map { _ in beacon.updateRssiBuffer }
-    }
-    
-    private func updateTxPower(with beacon: ORCEddystoneBeacon) {
-        guard let txPower = currentBeacon?.txPower else { return }
-        beacon.txPower = txPower
     }
     
     private func updateProximity(with beacon: ORCEddystoneBeacon) {

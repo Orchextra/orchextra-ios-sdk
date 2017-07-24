@@ -8,18 +8,17 @@
 
 import Foundation
 
-@objc public class EddystoneUID:NSObject {
-    
-    public var namespace:String
-    public var instance:String?
-    public var uidCompossed: String { get {
+@objc public class EddystoneUID: NSObject {
+    @objc public var namespace:String
+    @objc public var instance:String?
+    @objc public var uidCompossed: String { get {
         
         let instance = self.instance ?? ""
         return namespace + instance
         }
     }
     
-    public init(namespace: String, instance: String?) {
+    @objc public init(namespace: String, instance: String?) {
         self.namespace = namespace
         self.instance = instance
     }

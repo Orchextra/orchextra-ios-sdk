@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <Foundation/Foundation.h>
+
+#import "OrchextraTests-Swift.h"
 
 #import <OCMockitoIOS/OCMockitoIOS.h>
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
@@ -17,7 +20,7 @@
 #import "ORCRegion.h"
 #import "ORCBeacon.h"
 #import "ORCGeofence.h"
-
+#import "ORCProximityFormatter.h"
 
 @interface ORCValidatorActionInteractorTests : XCTestCase
 
@@ -49,11 +52,11 @@
 {
     NSDictionary *valitateValues = @{@"type" : ORCTypeBarcode, @"value" : @"12345"};
     [self.validatorInterator validateScanType:ORCTypeBarcode scannedValue:@"12345" completion:nil];
-
+    
     MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
     [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
     NSDictionary *formattedValues = [captorAction value];
-
+    
     XCTAssert([valitateValues[@"type"] isEqualToString:formattedValues[@"type"]]);
     XCTAssert([valitateValues[@"value"] isEqualToString:formattedValues[@"value"]]);
 }
@@ -103,7 +106,7 @@
     XCTAssert([formattedValues[@"value"] isEqualToString:@"808d1108c9913b284f045059fb6e77d7"]);
     XCTAssert([formattedValues[@"event"] isEqualToString:@"enter"]);
     XCTAssertNil(formattedValues[@"distance"]);
-
+    
 }
 
 - (void)test_validateProximityWithRegion_returnTypeBeaconRegionAndValueCode_whereIsBeaconRegion
@@ -123,7 +126,7 @@
     XCTAssert([formattedValues[@"value"] isEqualToString:@"808d1108c9913b284f045059fb6e77d7"]);
     XCTAssert([formattedValues[@"event"] isEqualToString:@"enter"]);
     XCTAssertNil(formattedValues[@"distance"]);
-
+    
 }
 
 - (void)test_validate_beacon_with_md5
@@ -211,6 +214,29 @@
     XCTAssert([formattedValues[@"distance"] isEqualToString:@"immediate"]);
 }
 
+- (void)testValidateProximityWithEddystoneRegion_whereEventIsEnter
+{
+    EddystoneUID *uid = [[EddystoneUID alloc] initWithNamespace:@"636f6b65634063656575"instance:nil];
+    
+    ORCEddystoneRegion *region = [[ORCEddystoneRegion alloc] initWithUid:uid
+                                                                    code:@"59631d973570a131308b4570"
+                                                           notifyOnEntry:YES
+                                                            notifyOnExit: YES];
+    region.regionEvent = regionEventEnter;
+    
+    [self.validatorInterator validateProximityWithEddystoneRegion: region
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    NSString *eventToString = formattedValues[@"event"];
+    
+    XCTAssert([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneRegion]);
+    XCTAssert([eventToString isEqualToString:@"enter"]);
+    XCTAssert(![eventToString isEqualToString:@"exit"]);
+}
+
 - (void)test_validate_geofences
 {
     NSDictionary *valitateValues = @{@"type" : ORCTypeGeofence, @"value" : @"GeofenceGigigo"};
@@ -236,7 +262,7 @@
     ORCGeofence *geofence = [[ORCGeofence alloc] init];
     
     [self.validatorInterator validateProximityWithGeofence:geofence completion:nil];
-
+    
     MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
     [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
     NSDictionary *formattedValues = [captorAction value];
@@ -309,7 +335,7 @@
     
     NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"GET_action_vuforia_without_schedule_data" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-
+    
     ORCURLActionResponse *response = [[ORCURLActionResponse alloc] initWithData:data];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"validateResponse"];

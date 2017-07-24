@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct EddystoneConstants {
+struct ORCEddystoneConstants {
         
     // EDDYSTONE PROTOCOL
     static let serviceUUID:                              String = "FEAA"
@@ -70,9 +70,7 @@ struct EddystoneConstants {
     static let urlEncodingGov :                          UInt8  = 0x0d
     
     // TRACE CONSTANTS
-    static let frameTypePosition:                        Int    = 0
-    
-    static let txPowerPosition:                          Int    = 1
+    static let frameTypePosition:                        Int    = 0    
     static let rangingDataPosition:                      Int    = 1
     
     static let uidMinimiumSize:                          Int    = 18

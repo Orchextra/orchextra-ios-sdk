@@ -17,7 +17,6 @@ import Foundation
 
 @objc public class ORCEddystoneBeacon: NSObject {
     public var peripheralId:UUID?
-    public var txPower:Int?
     public var rangingData:Int8? // Calibrated Tx power at 0 m
     public var rssiBuffer:[Int8]?
     public var rssi:Double { get {
@@ -61,7 +60,7 @@ import Foundation
             if rssiBufferCount == 0 {
                 self.rssiBuffer = [Int8]()
                 self.rssiBuffer?.insert(Int8(rssi), at: 0)
-            } else if rssiBufferCount < EddystoneConstants.maxRssiBufferCount {
+            } else if rssiBufferCount < ORCEddystoneConstants.maxRssiBufferCount {
                 self.rssiBuffer?.insert(Int8(rssi), at: 0)
             } else {
                 self.rssiBuffer?.removeAll()
@@ -106,7 +105,7 @@ import Foundation
         var rangingDataUpdated = rangingData
         
         if rangingData == 0 {
-            rangingDataUpdated = EddystoneConstants.defaultRangingData
+            rangingDataUpdated = ORCEddystoneConstants.defaultRangingData
         }
         
         let distance: Double = self.calculateDistanceFromRSSI(rssi, rangingData: rangingDataUpdated)
@@ -127,7 +126,7 @@ import Foundation
         if ratio < 1 {
             distance = pow(ratio, 10)
         } else {
-            distance = EddystoneConstants.coefficient1 * pow(ratio, EddystoneConstants.coefficient2) + EddystoneConstants.coefficient3
+            distance = ORCEddystoneConstants.coefficient1 * pow(ratio, ORCEddystoneConstants.coefficient2) + ORCEddystoneConstants.coefficient3
         }
     
         return distance

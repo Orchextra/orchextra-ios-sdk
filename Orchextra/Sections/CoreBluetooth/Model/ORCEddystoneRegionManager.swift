@@ -8,11 +8,11 @@
 
 import Foundation
 
-class EddystoneRegionManager {
+class ORCEddystoneRegionManager {
     // MARK: Properties
-    let actionInterface: ORCActionInterface
+    @objc let actionInterface: ORCActionInterface
     let availableRegions: [ORCEddystoneRegion]
-    let validatorInteractor: ORCValidatorActionInterator
+    @objc let validatorInteractor: ORCValidatorActionInterator
     var regionsEntered: [ORCEddystoneRegion]
     var regionsExited: [ORCEddystoneRegion]
     var beaconsDetected: [ORCEddystoneBeacon]

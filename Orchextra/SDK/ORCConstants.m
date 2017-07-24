@@ -12,12 +12,12 @@
 
 NSString * const ORCTypeBeacon = @"beacon";
 NSString * const ORCTypeRegion = @"beacon_region";
+NSString * const ORCTypeEddystoneRegion = @"eddystone_region";
+NSString * const ORCTypeEddystoneBeacon = @"eddystone";
 NSString * const ORCTypeGeofence = @"geofence";
 NSString * const ORCTypeQR = @"qr";
 NSString * const ORCTypeBarcode = @"barcode";
 NSString * const ORCTypeVuforia = @"vuforia";
-NSString * const ORCTypeCoreBluetooth = @"orc_core_bluetooth";
-
 
 #pragma mark - Actions
 

@@ -15,13 +15,14 @@
 
 extern NSString * const ORCTypeBeacon;
 extern NSString * const ORCTypeRegion;
+extern NSString * const ORCTypeEddystoneRegion;
+extern NSString * const ORCTypeEddystoneBeacon;
 extern NSString * const ORCTypeGeofence;
 extern NSString * const ORCTypeQR;
 extern NSString * const ORCTypeBarcode;
 extern NSString * const ORCTypeWatermark;
 extern NSString * const ORCTypeScan;
 extern NSString * const ORCTypeVuforia;
-extern NSString * const ORCTypeCoreBluetooth ;
 
 #pragma mark - Actions
 
