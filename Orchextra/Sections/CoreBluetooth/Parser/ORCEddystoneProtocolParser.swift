@@ -73,14 +73,14 @@ class ORCEddystoneProtocolParser {
     }
     
     // MARK: Public (Telemetry Parsing)
-    func parseTelemetryInformation() -> Telemetry {
+    func parseTelemetryInformation() -> ORCEddystoneTelemetry {
         guard let serviceData:Data = self.serviceDataInformation else {
-            return Telemetry(tlmVersion: "",
-                             batteryVoltage: 0,
-                             batteryPercentage: 0,
-                             temperature: 0,
-                             advertisingPDUcount: "",
-                             uptime: 0)
+            return ORCEddystoneTelemetry(tlmVersion: "",
+                                         batteryVoltage: 0,
+                                         batteryPercentage: 0,
+                                         temperature: 0,
+                                         advertisingPDUcount: "",
+                                         uptime: 0)
         }
         
         
@@ -91,12 +91,12 @@ class ORCEddystoneProtocolParser {
         let advertisingPDUcountString = self.parseTelemetryAdvertisingPDUCount(serviceData)
         let uptime = self.parseTelemetryUptime(serviceData)
         
-        return Telemetry(tlmVersion: tlmVersionString,
-                         batteryVoltage: batteryVoltage,
-                         batteryPercentage: batteryPercentage,
-                         temperature: temperature,
-                         advertisingPDUcount: advertisingPDUcountString,
-                         uptime: uptime)
+        return ORCEddystoneTelemetry(tlmVersion: tlmVersionString,
+                                     batteryVoltage: batteryVoltage,
+                                     batteryPercentage: batteryPercentage,
+                                     temperature: temperature,
+                                     advertisingPDUcount: advertisingPDUcountString,
+                                     uptime: uptime)
         
     }
     
@@ -118,7 +118,7 @@ class ORCEddystoneProtocolParser {
             self.currentBeacon?.url = url
             self.updateRangingData()
         case .telemetry:
-            let telemetry:Telemetry = parseTelemetryInformation()
+            let telemetry = parseTelemetryInformation()
             self.currentBeacon?.telemetry = telemetry
         case .eid:
             guard let eid = parseEIDInformation() else { return }
@@ -138,14 +138,14 @@ class ORCEddystoneProtocolParser {
     }
     
     // MARK: Private (UUID Parsing)
-    fileprivate func parseUIDInformation() -> EddystoneUID? {
+    fileprivate func parseUIDInformation() -> ORCEddystoneUID? {
         guard let serviceBytes = self.serviceBytes,
             serviceBytes.count >= ORCEddystoneConstants.uidMinimiumSize else { return nil }
         
         let namespace:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(ORCEddystoneConstants.uidNamespaceEndPosition, ORCEddystoneConstants.uidNamespaceInitialPosition)))
         let instance:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(ORCEddystoneConstants.uidInstanceEndPosition, ORCEddystoneConstants.uidInstanceInitialPosition)))
         
-        let eddystoneUID = EddystoneUID(namespace: namespace, instance: instance)
+        let eddystoneUID = ORCEddystoneUID(namespace: namespace, instance: instance)
         
         return eddystoneUID
     }
@@ -302,19 +302,9 @@ class ORCEddystoneProtocolParser {
         return uptime
     }
     
-    // TODO: Convert to functional
-    //    fileprivate func addBeaconIfNeeded() -> Void {
-    //        guard let currentBeacon = self.currentBeacon else { return }
-    //        let beaconsDetected = self.regionManager.beaconsDetected.filter(isCurrentBeaconAlreadyDetected)
-    //        let beaconsUpdated = beaconsDetected.map { _ in  updateDetectedBeacon }
-    //
-    //        if beaconsUpdated.count == 0 {
-    //            self.regionManager.addDetectedBeacon(beacon: currentBeacon)
-    //        }
-    //    }
-
-// MARK: Private (BeaconList)
+    // MARK: Private (BeaconList)
     fileprivate func addBeaconIfNeeded() -> Void {
+        // TODO: Convert to functional
         var beaconUpdated: Bool = false
         for beacon in self.regionManager.beaconsDetected {
             if beacon.peripheralId == currentBeacon?.peripheralId ||

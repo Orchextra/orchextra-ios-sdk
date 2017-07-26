@@ -16,29 +16,27 @@ import Foundation
 }
 
 @objc public class ORCEddystoneBeacon: NSObject {
-    public var peripheralId:UUID?
-    public var rangingData:Int8? // Calibrated Tx power at 0 m
-    public var rssiBuffer:[Int8]?
-    public var rssi:Double { get {
-        var totalRssi: Double = 0
-        guard let rssiBuffer = self.rssiBuffer else {
-            return 0
-        }
-        
-        for rssi in rssiBuffer {
-            totalRssi += Double(rssi)
-        }
-        
-        return totalRssi / Double(rssiBuffer.count)
+    // MARK: Public properties
+    public var peripheralId: UUID?
+    public var rangingData: Int8? // Calibrated Tx power at 0 m
+    public var rssiBuffer: [Int8]?
+    public var url: URL?
+    public var uid: ORCEddystoneUID?
+    public var eid:String?
+    public var telemetry: ORCEddystoneTelemetry?
+    public var proximityTimer: Timer?
+    public var requestWaitTime: Int
+    
+    // MARK: Public computed properties
+    public var rssi:Double {
+        get {
+            guard let rssiBuffer = self.rssiBuffer else { return 0 }
+            let totalRssi = Double(rssiBuffer.reduce(0, { (accumulator, rssi) in
+                return accumulator + rssi }))
+            return totalRssi / Double(rssiBuffer.count)
         }
     }
     
-    public var url:URL?
-    public var uid:EddystoneUID?
-    public var eid:String?
-    public var telemetry:Telemetry?
-    public var proximityTimer: Timer?
-    public var requestWaitTime: Int
     public var proximity: proximity {
         get {
             let rangingDataUnWrapped = (self.rangingData != nil) ? self.rangingData! : 0
@@ -46,6 +44,7 @@ import Foundation
         }
     }
     
+    // MARK: Public methods
     public init(peripheralId:UUID, requestWaitTime: Int) {
         self.peripheralId = peripheralId
         self.requestWaitTime = requestWaitTime
@@ -53,7 +52,7 @@ import Foundation
         super.init()
     }
     
-    public func updateRssiBuffer(rssi: Int8) {
+    @objc public func updateRssiBuffer(rssi: Int8) {
         let rssiBufferCount: Int = (self.rssiBuffer != nil) ? (self.rssiBuffer?.count)! : 0
         
         if rssi <= 0 {
@@ -71,10 +70,10 @@ import Foundation
     
     public func canBeSentToValidateAction() -> Bool {
         guard let _ = self.uid?.namespace,
-        let _ = self.uid?.instance,
-        let _ = self.url,
-        self.proximity != .unknown,
-        let _ = self.proximityTimer  else { return false }
+            let _ = self.uid?.instance,
+            let _ = self.url,
+            self.proximity != .unknown,
+            let _ = self.proximityTimer  else { return false }
         return true
     }
     
@@ -101,6 +100,7 @@ import Foundation
         self.proximityTimer = nil
     }
     
+    // MARK: Private methods
     private func convertRSSIToProximity(_ rssi: Double, rangingData: Int8) -> proximity {
         var rangingDataUpdated = rangingData
         
@@ -128,11 +128,11 @@ import Foundation
         } else {
             distance = ORCEddystoneConstants.coefficient1 * pow(ratio, ORCEddystoneConstants.coefficient2) + ORCEddystoneConstants.coefficient3
         }
-    
+        
         return distance
     }
     
-     func convertDistanceFromRSSI(_ distance: Double) -> proximity {
+    private func convertDistanceFromRSSI(_ distance: Double) -> proximity {
         var proximity: proximity = .unknown
         if distance > 0,
             distance <= 1 {

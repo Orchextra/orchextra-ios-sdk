@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public class Telemetry: NSObject {
+@objc public class ORCEddystoneTelemetry: NSObject {
     
     public var tlmVersion: String
     public var batteryVoltage: Double

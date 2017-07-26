@@ -17,7 +17,7 @@ import Foundation
 
 @objc public class ORCEddystoneRegion: NSObject, NSCoding {
     // MARK: Public properties
-     public let uid:EddystoneUID
+     public let uid:ORCEddystoneUID
      @objc public var regionEvent: regionEvent
      @objc public let code: String
     
@@ -31,7 +31,7 @@ import Foundation
             return nil
         }
         let instance: String? = json["instance"] as? String
-        let uid = EddystoneUID(namespace: namespace, instance: instance)
+        let uid = ORCEddystoneUID(namespace: namespace, instance: instance)
         self.uid = uid
         self.regionEvent = .undetected
         self.code = code
@@ -39,7 +39,7 @@ import Foundation
         self.notifyOnExit = (json["notifyOnExit"] as? Bool) ?? false
     }
     
-    @objc public init(uid: EddystoneUID, code: String, notifyOnEntry: Bool, notifyOnExit: Bool) {
+    @objc public init(uid: ORCEddystoneUID, code: String, notifyOnEntry: Bool, notifyOnExit: Bool) {
         self.uid = uid
         self.code = code
         self.regionEvent = .undetected
@@ -51,7 +51,7 @@ import Foundation
     public required init?(coder aDecoder: NSCoder) {
         let namespace: String =  (aDecoder.decodeObject(forKey: "namespace") as? String) ?? ""
         let instance: String? = (aDecoder.decodeObject(forKey: "instance") as? String) ?? ""
-        let uid = EddystoneUID(namespace: namespace, instance: instance)
+        let uid = ORCEddystoneUID(namespace: namespace, instance: instance)
         self.uid = uid
         self.code = (aDecoder.decodeObject(forKey: "code") as? String) ?? ""
         self.regionEvent = .undetected
