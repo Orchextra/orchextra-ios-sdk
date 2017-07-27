@@ -71,7 +71,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         self.apiSecret != nil)
     {
         [self retrieveAccessTokenWithRequest:request
-                                 completion:completion];
+                                  completion:completion];
     }
     else
     {
@@ -141,7 +141,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     }
     else
     {
-         [ORCLog logError:@"Orchextra has not api key either api secret - start orchextra before continuing."];
+        [ORCLog logError:@"Orchextra has not api key either api secret - start orchextra before continuing."];
     }
 }
 
@@ -194,7 +194,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 }
 
 - (void)retrieveAccessTokenWithRequest:(ORCURLRequest *)request
-                                      completion:(ORCGIGURLRequestCompletion)completion
+                            completion:(ORCGIGURLRequestCompletion)completion
 {
     NSDictionary *bearerHeader = [self bearerHeader];
     
@@ -206,20 +206,20 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         if (self.queueRequests.count == 1)
         {
             [self retrieveAuthenticationTokenWithRequest:request
-                                             completion:completion];
+                                              completion:completion];
         }
     }
     else
     {
         [self retrieveClientTokenWithRequest:request
-                                 completion:completion
-                               bearerHeader:bearerHeader];
+                                  completion:completion
+                                bearerHeader:bearerHeader];
     }
 }
 
 - (void)retrieveClientTokenWithRequest:(ORCURLRequest *)request
-                           completion:(ORCGIGURLRequestCompletion)completion
-                         bearerHeader:(NSDictionary *)bearerHeader
+                            completion:(ORCGIGURLRequestCompletion)completion
+                          bearerHeader:(NSDictionary *)bearerHeader
 {
     request.headers = bearerHeader;
     
@@ -238,7 +238,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                                             completion:completion];
         }
     }];
-
+    
 }
 
 - (void)manageAuthenticationErrorForResponse:(ORCGIGURLJSONResponse *)response
@@ -264,7 +264,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 }
 
 - (void)retrieveAuthenticationTokenWithRequest:(ORCURLRequest *)request
-                                   completion:(ORCGIGURLRequestCompletion)completion
+                                    completion:(ORCGIGURLRequestCompletion)completion
 {
     NSLog(@"requestAuthenticationTokenWithRequest");
     
@@ -273,19 +273,19 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     if ([clientToken length] > 0)
     {
         [self retrieveAccessTokenWithClientToken:clientToken
-                                        request:request
-                                     completion:completion];
+                                         request:request
+                                      completion:completion];
     }
     else
     {
         [self retrieveClientTokenForRequest:request
-                                completion:completion];
+                                 completion:completion];
     }
 }
 
 - (void)retrieveAccessTokenWithClientToken:(NSString *)clientToken
-                                  request:(ORCURLRequest *)request
-                               completion:(ORCGIGURLRequestCompletion)completion
+                                   request:(ORCURLRequest *)request
+                                completion:(ORCGIGURLRequestCompletion)completion
 {
     __weak typeof(self) this = self;
     [self deviceAuthenticationWithClientToken:clientToken completion:^(ORCGIGURLJSONResponse *response) {
@@ -304,11 +304,11 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                                                      response:response];
         }
     }];
-
+    
 }
 
 - (void)retrieveClientTokenForRequest:(ORCURLRequest *)request
-                          completion:(ORCGIGURLRequestCompletion)completion
+                           completion:(ORCGIGURLRequestCompletion)completion
 {
     __weak typeof(self) this = self;
     [self sendAuthWithCompletion:^(ORCGIGURLJSONResponse *response) {
@@ -352,6 +352,10 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         }
         
         self.numConnection++;
+    }
+    else
+    {
+        completion(response);
     }
 }
 
