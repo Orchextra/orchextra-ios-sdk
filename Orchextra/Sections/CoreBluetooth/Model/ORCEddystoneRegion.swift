@@ -66,4 +66,17 @@ import Foundation
         aCoder.encode(self.notifyOnEntry, forKey: "notifyOnEntry")
         aCoder.encode(self.notifyOnEntry, forKey: "notifyOnExit")
     }
+    
+    // MARK: Equatable protocol methods
+    public override func isEqual(_ object: Any?) -> Bool {
+        guard let objectToCompare = object as? ORCEddystoneRegion else { return false }
+        if self.uid == objectToCompare.uid,
+            self.code == objectToCompare.code,
+            self.regionEvent == objectToCompare.regionEvent,
+            self.notifyOnEntry == objectToCompare.notifyOnEntry,
+            self.notifyOnExit == objectToCompare.notifyOnExit {
+            return true
+        }
+        return false
+    }
 }

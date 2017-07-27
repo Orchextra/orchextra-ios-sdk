@@ -26,4 +26,15 @@ import Foundation
         self.namespace = namespace
         self.instance = instance
     }
+    
+    // MARK: Equatable protocol methods
+    public override func isEqual(_ object: Any?) -> Bool {
+        guard let objectToCompare = object as? ORCEddystoneUID else { return false }
+        if self.namespace == objectToCompare.namespace,
+            self.instance == objectToCompare.instance,
+            self.uidCompossed == objectToCompare.uidCompossed {
+            return true
+        }
+        return false
+    }
 }

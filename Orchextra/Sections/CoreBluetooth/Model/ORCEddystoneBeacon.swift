@@ -31,8 +31,7 @@ import Foundation
     public var rssi:Double {
         get {
             guard let rssiBuffer = self.rssiBuffer else { return 0 }
-            let totalRssi = Double(rssiBuffer.reduce(0, { (accumulator, rssi) in
-                return accumulator + rssi }))
+            let totalRssi = Double(rssiBuffer.reduce(0, { $0 + $1 } ))
             return totalRssi / Double(rssiBuffer.count)
         }
     }
