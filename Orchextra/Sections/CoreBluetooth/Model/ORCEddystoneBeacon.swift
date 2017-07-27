@@ -30,8 +30,15 @@ import Foundation
     // MARK: Public computed properties
     public var rssi:Double {
         get {
-            guard let rssiBuffer = self.rssiBuffer else { return 0 }
-            let totalRssi = Double(rssiBuffer.reduce(0, { $0 + $1 } ))
+            var totalRssi: Double = 0
+            guard let rssiBuffer = self.rssiBuffer else {
+                return 0
+            }
+            
+            for rssi in rssiBuffer {
+                totalRssi += Double(rssi)
+            }
+            
             return totalRssi / Double(rssiBuffer.count)
         }
     }
