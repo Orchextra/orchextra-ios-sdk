@@ -37,7 +37,7 @@ NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
     
     if (self)
     {
-        if (self.success)
+        if (self.success && [self.jsonData count])
         {
             [self parseGeoMarketingResponse:self.jsonData];
             self.themeSDK = [self parseThemeWithJSON:self.jsonData];
@@ -52,6 +52,7 @@ NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
         }
         else
         {
+            self.success = NO;
             self.error = [ORCErrorManager errorWithResponse:self];
         }
     }
