@@ -389,6 +389,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         }
     }
     completion(response);
+    [self performQueueRequests:self.queueRequests];
 }
 
 @end
