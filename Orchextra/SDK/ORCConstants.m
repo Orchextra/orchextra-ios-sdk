@@ -33,7 +33,7 @@ NSString * const ORCSchemeImageRecognition = @"Orchextra://imageRecognition";
 
 #pragma mark - SDK
     
-NSString * const ORCSDKVersion = @"2.1.5";
+NSString * const ORCSDKVersion = @"2.1.6";
 
 #pragma mark - Network
 
