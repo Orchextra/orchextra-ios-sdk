@@ -11,12 +11,14 @@
 
 #import <OCMockitoIOS/OCMockitoIOS.h>
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
+#import <GIGLibrary/GIGLibrary.h>
 
 #import "ORCActionCommunicator.h"
 #import "ORCValidatorActionInterator.h"
 #import "ORCRegion.h"
 #import "ORCBeacon.h"
 #import "ORCGeofence.h"
+#import "ORCConstants.h"
 
 
 @interface ORCValidatorActionInteractorTests : XCTestCase

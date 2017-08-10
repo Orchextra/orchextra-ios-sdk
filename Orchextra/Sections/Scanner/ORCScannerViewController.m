@@ -144,7 +144,7 @@ NSInteger PADDING_SCANNER = 100;
     });
 }
 
-- (void)didSuccessfullyScan:(NSString *)aScannedValue
+- (void)scanViewController:(GIGScannerViewController *)aCtler didSuccessfullyScan:(NSString *)aScannedValue
                       type:(NSString *)type
 {
     [self.presenter didSuccessfullyScan:aScannedValue type:type];

@@ -6,8 +6,8 @@
 //  Copyright © 2016 Gigigo. All rights reserved.
 //
 
-#import <GIGLibrary/GIGURLJSONResponse.h>
+#import "ORCGIGURLJSONResponse.h"
 
-@interface ORCURLActionConfirmationResponse : GIGURLJSONResponse
+@interface ORCURLActionConfirmationResponse : ORCGIGURLJSONResponse
 
 @end

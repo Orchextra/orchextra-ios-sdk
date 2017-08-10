@@ -18,7 +18,7 @@
     {
         if (self.success)
         {
-            if (self.json)
+            if (self.jsonData)
             {
 
             }

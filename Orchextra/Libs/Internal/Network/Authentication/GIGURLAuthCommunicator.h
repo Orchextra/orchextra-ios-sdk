@@ -12,12 +12,13 @@
 
 #import <GIGLibrary/GIGLibrary.h>
 #import <GIGLibrary/GIGURLCommunicator.h>
+#import "ORCGIGURLJSONResponse.h"
 #import "ORCConstants.h"
 
 @class ORCSettingsPersister;
 @class ORCURLRequest;
 
-typedef void(^CompletionAuthenticationResponse)(GIGURLJSONResponse *response);
+typedef void(^CompletionAuthenticationResponse)(ORCGIGURLJSONResponse *response);
 
 @interface GIGURLAuthCommunicator : GIGURLCommunicator
 

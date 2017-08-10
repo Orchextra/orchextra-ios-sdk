@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Gigigo SL. All rights reserved.
 //
 
-#import "ORCGIGURLResponse.h"
+#import <GIGLibrary/GIGURLResponse.h>
 
 
-@interface ORCGIGURLJSONResponse : ORCGIGURLResponse
+@interface ORCGIGURLJSONResponse : GIGURLResponse
 
 @property (strong, nonatomic) id json;
 @property (strong, nonatomic) id jsonData;

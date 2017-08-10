@@ -27,9 +27,9 @@
     {
         if (self.success)
         {
-            if (self.json)
+            if (self.jsonData)
             {
-                [self parseActionResponse:self.json];
+                [self parseActionResponse:self.jsonData];
             }
         }
         else

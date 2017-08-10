@@ -143,6 +143,9 @@
 		8F660CD61DA2BBBC007B9551 /* ORCWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEC01BF362080042F370 /* ORCWireframe.m */; };
 		8F79D5D81E606ADC00AAB4CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F79D5CE1E606ADC00AAB4CA /* Localizable.strings */; };
 		8F79D5DB1E606ADC00AAB4CA /* Locfile in Resources */ = {isa = PBXBuildFile; fileRef = 8F79D5D41E606ADC00AAB4CA /* Locfile */; };
+		8F80AFC21F3C6162005D07D7 /* GIGLibrary.framework in Embeded Frameworks */ = {isa = PBXBuildFile; fileRef = 8FFB61711F3B0D1F00D23780 /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F80AFC61F3C6722005D07D7 /* ORCGIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F80AFC41F3C6722005D07D7 /* ORCGIGURLJSONResponse.h */; };
+		8F80AFC71F3C6722005D07D7 /* ORCGIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F80AFC51F3C6722005D07D7 /* ORCGIGURLJSONResponse.m */; };
 		8FA9F5511DA2E4BC009A6E87 /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A941850A1C74BDAD0089385A /* CLIColor.m */; };
 		8FA9F5521DA2E4BC009A6E87 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A941850E1C74BDAD0089385A /* DDAbstractDatabaseLogger.m */; };
 		8FA9F5531DA2E4BC009A6E87 /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185101C74BDAD0089385A /* DDASLLogCapture.m */; };
@@ -290,6 +293,7 @@
 		8FE766011DA3C2EF0014500D /* POST_Configuration_Complex.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */; };
 		8FE766021DA3C2EF0014500D /* POST_configuration_failure.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */; };
 		8FE766031DA3C2EF0014500D /* POST_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD10C1BF36CD30042F370 /* POST_configuration.json */; };
+		8FEF1A791F3C57FB00A545A2 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FFB61711F3B0D1F00D23780 /* GIGLibrary.framework */; };
 		8FFB61721F3B0D1F00D23780 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FFB61711F3B0D1F00D23780 /* GIGLibrary.framework */; };
 		8FFB617B1F3B1F8700D23780 /* NSBundle+ORCBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FFB61751F3B1F8700D23780 /* NSBundle+ORCBundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FFB617C1F3B1F8700D23780 /* NSBundle+ORCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFB61761F3B1F8700D23780 /* NSBundle+ORCBundle.m */; };
@@ -410,6 +414,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8F80AFBF1F3C611D005D07D7 /* Embeded Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8F80AFC21F3C6162005D07D7 /* GIGLibrary.framework in Embeded Frameworks */,
+			);
+			name = "Embeded Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9C188A01BFCC75F0073EE33 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,6 +455,8 @@
 		8F79D5D41E606ADC00AAB4CA /* Locfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Locfile; sourceTree = "<group>"; };
 		8F79D5D51E606ADC00AAB4CA /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F79D5D61E606ADC00AAB4CA /* pt-br */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-br"; path = "pt-br.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8F80AFC41F3C6722005D07D7 /* ORCGIGURLJSONResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLJSONResponse.h; sourceTree = "<group>"; };
+		8F80AFC51F3C6722005D07D7 /* ORCGIGURLJSONResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLJSONResponse.m; sourceTree = "<group>"; };
 		8FCF1DF41F3B328100C5697B /* GIGScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGScannerViewController.h; sourceTree = "<group>"; };
 		8FCF1DF51F3B328100C5697B /* GIGScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGScannerViewController.m; sourceTree = "<group>"; };
 		8FCF1DFE1F3B39E200C5697B /* ORCURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLRequest.h; sourceTree = "<group>"; };
@@ -780,6 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1593C91DA3B2B3003257C2 /* OCHamcrestIOS.framework in Frameworks */,
+				8FEF1A791F3C57FB00A545A2 /* GIGLibrary.framework in Frameworks */,
 				8F1593CA1DA3B2B3003257C2 /* OCMockitoIOS.framework in Frameworks */,
 				8F1593C81DA3B28C003257C2 /* PassKit.framework in Frameworks */,
 				8F1593C71DA3B284003257C2 /* WebKit.framework in Frameworks */,
@@ -837,6 +855,15 @@
 			);
 			name = Localizables;
 			path = Strings/Localizables/Localizables;
+			sourceTree = "<group>";
+		};
+		8F80AFC31F3C6722005D07D7 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				8F80AFC41F3C6722005D07D7 /* ORCGIGURLJSONResponse.h */,
+				8F80AFC51F3C6722005D07D7 /* ORCGIGURLJSONResponse.m */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		8FCF1DF31F3B328100C5697B /* GIGScanner */ = {
@@ -898,6 +925,7 @@
 			isa = PBXGroup;
 			children = (
 				8FFB61781F3B1F8700D23780 /* Authentication */,
+				8F80AFC31F3C6722005D07D7 /* Responses */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1953,6 +1981,7 @@
 				8FA9F6771DA2F2FA009A6E87 /* DDASLLogCapture.h in Headers */,
 				8FA9F6781DA2F2FA009A6E87 /* DDASLLogger.h in Headers */,
 				8FA9F6791DA2F2FA009A6E87 /* DDAssertMacros.h in Headers */,
+				8F80AFC61F3C6722005D07D7 /* ORCGIGURLJSONResponse.h in Headers */,
 				8FA9F67A1DA2F2FA009A6E87 /* DDFileLogger.h in Headers */,
 				8FA9F67B1DA2F2FA009A6E87 /* DDLegacyMacros.h in Headers */,
 				8FA9F67C1DA2F2FA009A6E87 /* DDLog+LOGV.h in Headers */,
@@ -2100,6 +2129,7 @@
 				8F1593A61DA3B18A003257C2 /* Sources */,
 				8F1593A71DA3B18A003257C2 /* Frameworks */,
 				8F1593A81DA3B18A003257C2 /* Resources */,
+				8F80AFBF1F3C611D005D07D7 /* Embeded Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2419,6 +2449,7 @@
 				8F660CC11DA2BBBC007B9551 /* ORCActionScanner.m in Sources */,
 				8F660CC31DA2BBBC007B9551 /* ORCActionWebView.m in Sources */,
 				8F660CC41DA2BBBC007B9551 /* ORCAction.m in Sources */,
+				8F80AFC71F3C6722005D07D7 /* ORCGIGURLJSONResponse.m in Sources */,
 				8FFB617C1F3B1F8700D23780 /* NSBundle+ORCBundle.m in Sources */,
 				8F660CC51DA2BBBC007B9551 /* ORCBusinessUnit.m in Sources */,
 				8F4CFADC1E64471400B7603A /* ORCActionVuforia.m in Sources */,
@@ -2566,8 +2597,8 @@
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Orchextra/Libs",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Libs",
 				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Orchextra/Main/Orchextra_Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2639,6 +2670,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = OrchextraTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2715,8 +2747,8 @@
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Orchextra/Libs",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Libs",
 				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Orchextra/Main/Orchextra_Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2784,6 +2816,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = OrchextraTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

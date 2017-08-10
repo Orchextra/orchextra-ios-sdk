@@ -12,6 +12,7 @@
 #import "ORCURLProvider.h"
 #import "ORCUser.h"
 #import "ORCURLRequest.h"
+#import "ORCGIGURLJSONResponse.h"
 
 NSInteger MAX_ATTEMPTS_CONNECTION = 5;
 NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
@@ -91,14 +92,14 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 - (void)sendAuthWithCompletion:(CompletionAuthenticationResponse)completion
 {
     __weak typeof(self) this = self;
-    [self clientAuthenticationRequest:^(GIGURLJSONResponse *response) {
+    [self clientAuthenticationRequest:^(ORCGIGURLJSONResponse *response) {
         
         if (response.success)
         {
             NSString *clientToken = response.json[@"value"];
             [this.orchextraStorage storeClientToken:clientToken];
             
-            [this deviceAuthenticationWithClientToken:clientToken completion:^(GIGURLJSONResponse *response) {
+            [this deviceAuthenticationWithClientToken:clientToken completion:^(ORCGIGURLJSONResponse *response) {
                 
                 if (response.success)
                 {
@@ -127,12 +128,12 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         
         NSString *urlRequest = [ORCURLProvider endPointSecurityToken];
         ORCURLRequest *request = [[ORCURLRequest alloc] initWithMethod:@"POST" url:urlRequest];
-        request.responseClass = [GIGURLJSONResponse class];
+        request.responseClass = [ORCGIGURLJSONResponse class];
         request.json = parametersJSON;
         request.logLevel = GIGLogLevelBasic;
         request.requestTag = @"clientToken";
         
-        [self sendRequest:request completion:^(GIGURLJSONResponse *response) {
+        [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
             completion(response);
         }];
     }
@@ -168,13 +169,13 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     NSString *urlRequest = [ORCURLProvider endPointSecurityToken];
     
     ORCURLRequest *request = [[ORCURLRequest alloc] initWithMethod:@"POST" url:urlRequest];
-    request.responseClass = [GIGURLJSONResponse class];
+    request.responseClass = [ORCGIGURLJSONResponse class];
     request.json = parametersJSON;
     request.logLevel = GIGLogLevelBasic;
     request.requestTag = @"accessToken";
     [ORCLog logVerbose:[self printToJSONFormat:parametersJSON]];
     
-    [self sendRequest:request completion:^(GIGURLJSONResponse *response) {
+    [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
         completion(response);
     }];
     
@@ -222,7 +223,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     
     __weak typeof(self) this = self;
     
-    [self sendRequest:request completion:^(GIGURLJSONResponse *response) {
+    [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
         
         if (response.success)
         {
@@ -238,7 +239,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     
 }
 
-- (void)manageAuthenticationErrorForResponse:(GIGURLJSONResponse *)response
+- (void)manageAuthenticationErrorForResponse:(ORCGIGURLJSONResponse *)response
                                      request:(ORCURLRequest *)request
                                   completion:(GIGURLRequestCompletion)completion
 {
@@ -286,7 +287,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                                 completion:(GIGURLRequestCompletion)completion
 {
     __weak typeof(self) this = self;
-    [self deviceAuthenticationWithClientToken:clientToken completion:^(GIGURLJSONResponse *response) {
+    [self deviceAuthenticationWithClientToken:clientToken completion:^(ORCGIGURLJSONResponse *response) {
         
         if (response.success)
         {
@@ -309,7 +310,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                            completion:(GIGURLRequestCompletion)completion
 {
     __weak typeof(self) this = self;
-    [self sendAuthWithCompletion:^(GIGURLJSONResponse *response) {
+    [self sendAuthWithCompletion:^(ORCGIGURLJSONResponse *response) {
         
         if (response.success)
         {
@@ -331,7 +332,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 
 - (void)performAuthenticationErrorActionsForRequest:(ORCURLRequest *)request
                                          completion:(GIGURLRequestCompletion)completion
-                                           response:(GIGURLJSONResponse *)response
+                                           response:(ORCGIGURLJSONResponse *)response
 {
     if (response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
     {
@@ -344,7 +345,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         }
         else
         {
-            GIGURLJSONResponse *errorResponse = [[GIGURLJSONResponse alloc]
+            ORCGIGURLJSONResponse *errorResponse = [[ORCGIGURLJSONResponse alloc]
                                                     initWithError:[NSError errorWithDomain:@"com.gigigo.error"
                                                                                       code:401 userInfo:nil]];
             [self cancelQueueRequest:request completion:completion response:errorResponse];
@@ -375,7 +376,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 
 - (void)cancelQueueRequest:(ORCURLRequest *)request
                 completion:(GIGURLRequestCompletion)completion
-                  response:(GIGURLJSONResponse *)response
+                  response:(ORCGIGURLJSONResponse *)response
 {
     for (NSDictionary *item in self.queueRequests)
     {

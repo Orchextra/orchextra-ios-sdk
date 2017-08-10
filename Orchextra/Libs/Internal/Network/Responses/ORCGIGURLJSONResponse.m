@@ -8,7 +8,7 @@
 
 #import "ORCGIGURLJSONResponse.h"
 #import "ORCErrorManager.h"
-#import "ORCGIGJSON.h"
+#import <GIGLibrary/GIGJSON.h>
 
 
 @implementation ORCGIGURLJSONResponse

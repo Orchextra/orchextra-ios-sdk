@@ -35,7 +35,7 @@ NSString * const kErrorActionNotFoundMessage = @"Action not found.";
     return kORCUnexpectedError;
 }
 
-+ (NSError *)errorWithResponse:(GIGURLJSONResponse *)response
++ (NSError *)errorWithResponse:(ORCGIGURLJSONResponse *)response
 {
     NSError *error = nil;
     NSDictionary *errorjson = [response.data toJSON];
