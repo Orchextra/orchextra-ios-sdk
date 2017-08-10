@@ -37,18 +37,18 @@ NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
     
     if (self)
     {
-        if (self.success && [self.jsonData count])
+        if (self.success && [self.json count])
         {
-            [self parseGeoMarketingResponse:self.jsonData];
-            self.themeSDK = [self parseThemeWithJSON:self.jsonData];
-            self.requestWaitTime = [self.jsonData integerForKey:REQUEST_WAIT_TIME];
-            self.vuforiaConfig = [self parseVuforiaCredentials:self.jsonData];
-            self.availableCustomFields = [self parseAvailableCustomFieldsResponse:self.jsonData];
-            self.userCustomFields = [self parseCustomFieldsResponse:self.jsonData];
-            self.userTags = [self parseUserTagsResponse:self.jsonData];
-            self.deviceTags = [self parseDeviceTagsResponse:self.jsonData];
-            self.userBusinessUnits = [self parseUserBusinessUnitResponse:self.jsonData];
-            self.deviceBusinessUnits = [self parseDeviceBusinessUnitResponse:self.jsonData];
+            [self parseGeoMarketingResponse:self.json];
+            self.themeSDK = [self parseThemeWithJSON:self.json];
+            self.requestWaitTime = [self.json integerForKey:REQUEST_WAIT_TIME];
+            self.vuforiaConfig = [self parseVuforiaCredentials:self.json];
+            self.availableCustomFields = [self parseAvailableCustomFieldsResponse:self.json];
+            self.userCustomFields = [self parseCustomFieldsResponse:self.json];
+            self.userTags = [self parseUserTagsResponse:self.json];
+            self.deviceTags = [self parseDeviceTagsResponse:self.json];
+            self.userBusinessUnits = [self parseUserBusinessUnitResponse:self.json];
+            self.deviceBusinessUnits = [self parseDeviceBusinessUnitResponse:self.json];
         }
         else
         {

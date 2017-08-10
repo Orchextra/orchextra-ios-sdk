@@ -6,10 +6,11 @@
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
-#import "ORCGIGURLJSONResponse.h"
-#import "ORCAction.h"
+#import <GIGLibrary/GIGURLJSONResponse.h>
 
-@interface ORCURLActionResponse : ORCGIGURLJSONResponse
+@class ORCAction;
+
+@interface ORCURLActionResponse : GIGURLJSONResponse
 
 @property (strong, nonatomic) ORCAction *action;
 

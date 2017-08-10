@@ -7,7 +7,8 @@
 //
 
 #import "ORCRegion.h"
-#import "ORCGIGJSON.h"
+
+#import <GIGLibrary/GIGJSON.h>
 
 NSString *const ORCRegionIdentifier = @"regionIdentifier";
 NSString *const ORCRegionCode = @"regionCode";

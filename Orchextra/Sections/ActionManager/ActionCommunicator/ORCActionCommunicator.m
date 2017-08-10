@@ -7,6 +7,8 @@
 //
 
 #import "ORCActionCommunicator.h"
+
+#import "ORCAction.h"
 #import "ORCURLRequest.h"
 #import "ORCFormatterParameters.h"
 #import "ORCURLProvider.h"
@@ -38,29 +40,29 @@ NSString * const ACTION_ENDPOINT = @"action";
 #pragma mark - PUBLIC
 
 - (void)loadActionWithTriggerValues:(NSDictionary *)values completion:(ORCActionResponse)completion
-{    
-    ORCURLRequest *request = [self POST:[ORCURLProvider endPointAction]];
+{
+    GIGURLRequest *request = [self POST:@"%@", [ORCURLProvider endPointAction]];
     request.logLevel = GIGLogLevelBasic;
     request.responseClass = [ORCURLActionResponse class];
     request.json = [self parametersRequest:values];
-    [self send:request completion:completion];
+    [self sendRequest:request completion:completion];
 }
 
 - (void)trackActionLaunched:(ORCAction *)action completion:(ORCConfirmActionResponse)completion
 {
-    ORCURLRequest *request = [self POST:[ORCURLProvider endPointConfirmAction:action.trackId]];
+    GIGURLRequest *request = [self POST: @"%@", [ORCURLProvider endPointConfirmAction:action.trackId]];
     request.logLevel = GIGLogLevelBasic;
     request.responseClass = [ORCURLActionConfirmationResponse class];
-    [self send:request completion:completion];
+    [self sendRequest:request completion:completion];
 }
 
 - (void)trackInteractionWithAction:(ORCAction *)action values:(NSDictionary *)values completion:(ORCConfirmActionResponse)completion
 {
-    ORCURLRequest *request = [self POST:[ORCURLProvider endPointConfirmAction:action.trackId]];
+    GIGURLRequest *request = [self POST:@"%@", [ORCURLProvider endPointConfirmAction:action.trackId]];
     request.logLevel = GIGLogLevelBasic;
     request.json = values;
     request.responseClass = [ORCURLActionConfirmationResponse class];
-    [self send:request completion:completion];
+    [self sendRequest:request completion:completion];
     
 }
 

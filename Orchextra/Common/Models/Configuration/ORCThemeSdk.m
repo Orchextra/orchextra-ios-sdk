@@ -7,9 +7,9 @@
 //
 
 #import "ORCThemeSdk.h"
-#import "UIColor+ORCGIGExtension.h"
 #import "NSBundle+ORCBundle.h"
-#import "NSDictionary+ORCGIGJSON.h"
+#import <GIGLibrary/UIColor+GIGExtension.h>
+#import <GIGLibrary/NSDictionary+GIGJSON.h>
 
 NSString * const ORCPrimaryColorKey = @"primaryColor";
 NSString * const ORCSecondaryColorKey = @"secondaryColor";

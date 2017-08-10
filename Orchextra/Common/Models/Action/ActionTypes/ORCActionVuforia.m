@@ -13,8 +13,8 @@
 
 #import "ORCSettingsPersister.h"
 #import "ORCVuforiaConfig.h"
-#import "ORCGIGLogManager.h"
 #import "NSBundle+ORCBundle.h"
+#import <GIGLibrary/GIGLogManager.h>
 #import <Orchextra/ORCLog.h>
 
 @interface ORCActionVuforia ()

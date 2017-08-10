@@ -14,7 +14,8 @@
 #import "ORCActionBrowser.h"
 #import "ORCActionVuforia.h"
 #import "ORCErrorManager.h"
-#import "ORCGIGJSON.h"
+
+#import <GIGLibrary/GIGJSON.h>
 
 @implementation ORCURLActionResponse
 
@@ -26,9 +27,9 @@
     {
         if (self.success)
         {
-            if (self.jsonData)
+            if (self.json)
             {
-                [self parseActionResponse:self.jsonData];
+                [self parseActionResponse:self.json];
             }
         }
         else

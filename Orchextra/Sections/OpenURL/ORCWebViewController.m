@@ -11,10 +11,11 @@
 #import "ORCWebViewController.h"
 #import "ORCBarButtonItem.h"
 #import "ORCSettingsPersister.h"
-#import "ORCGIGLayout.h"
 #import "ORCThemeSdk.h"
 #import "NSBundle+ORCBundle.h"
-#import "UIImage+ORCGIGExtension.h"
+
+#import <GIGLibrary/UIImage+GIGExtension.h>
+#import <GIGLibrary/GIGLayout.h>
 
 CGFloat const HEIGHT_TOOLBAR = 44;
 

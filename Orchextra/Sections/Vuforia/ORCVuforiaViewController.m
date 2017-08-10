@@ -8,10 +8,10 @@
 
 #import "ORCVuforiaViewController.h"
 #import "ORCBarButtonItem.h"
-#import "ORCGIGLayout.h"
 #import "ORCMBProgressHUD.h"
 #import "VFConfigurationInteractor.h"
 
+#import <GIGLibrary/GIGLayout.h>
 #import <Orchextra/NSBundle+ORCBundle.h>
 #import <Orchextra/ORCThemeSdk.h>
 

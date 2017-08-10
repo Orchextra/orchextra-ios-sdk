@@ -7,7 +7,7 @@
 //
 
 #import "ORCVuforiaConfig.h"
-#import "ORCGIGJSON.h"
+#import <GIGLibrary/GIGJSON.h>
 
 NSString * const ORCVuforiaLicense = @"ORCVuforiaLicense";
 NSString * const ORCAccessKeyVuforia = @"ORCAccessKeyVuforia";

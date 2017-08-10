@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
-#import "ORCGIGURLRequest.h"
+#import <GIGLibrary/GIGURLRequest.h>
 
-@interface ORCURLRequest : ORCGIGURLRequest
+@interface ORCURLRequest :GIGURLRequest
 
 - (void)send;
 

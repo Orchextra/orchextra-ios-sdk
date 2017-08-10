@@ -7,7 +7,7 @@
 //
 
 #import "ORCErrorManager.h"
-#import "ORCGIGJSON.h"
+#import <GIGLibrary/GIGJSON.h>
 
 // Variables
 NSString * const ORCErrorKey = @"error";
@@ -35,7 +35,7 @@ NSString * const kErrorActionNotFoundMessage = @"Action not found.";
     return kORCUnexpectedError;
 }
 
-+ (NSError *)errorWithResponse:(ORCGIGURLJSONResponse *)response
++ (NSError *)errorWithResponse:(GIGURLJSONResponse *)response
 {
     NSError *error = nil;
     NSDictionary *errorjson = [response.data toJSON];

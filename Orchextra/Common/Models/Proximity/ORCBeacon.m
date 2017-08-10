@@ -9,8 +9,8 @@
 #import "ORCBeacon.h"
 #import <CoreLocation/CoreLocation.h>
 #import "ORCSettingsPersister.h"
-#import "ORCGIGJSON.h"
 #import "ORCConstants.h"
+#import <GIGLibrary/GIGJSON.h>
 
 
 NSString *const ORCBeaconUUID = @"beaconUUID";

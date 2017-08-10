@@ -7,9 +7,9 @@
 //
 
 #import "ORCUserLocationPersister.h"
-#import "NSUserDefaults+ORCGIGArchive.h"
 #import "ORCFormatterParameters.h"
 #import "ORCRegion.h"
+#import <GIGLibrary/NSUserDefaults+GIGArchive.h>
 
 NSString * const ORCLastKnownPlacemark = @"ORCLastKnownPlacemark";
 NSString * const ORCLastKnownLocation = @"ORCLastKnownLocation";

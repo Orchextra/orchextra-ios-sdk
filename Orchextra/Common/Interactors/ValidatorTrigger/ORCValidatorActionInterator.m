@@ -17,7 +17,7 @@
 #import "ORCConstants.h"
 #import "ORCProximityFormatter.h"
 #import "ORCErrorManager.h"
-#import "ORCGIGJSON.h"
+#import <GIGLibrary/GIGJSON.h>
 
 NSString * const TYPE_KEY = @"type";
 NSString * const VALUE_KEY = @"value";

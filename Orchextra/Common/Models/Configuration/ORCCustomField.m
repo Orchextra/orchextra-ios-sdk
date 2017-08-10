@@ -8,7 +8,7 @@
 
 #import "ORCCustomField.h"
 
-#import "NSDictionary+ORCGIGJSON.h"
+#import <GIGLibrary/NSDictionary+GIGJSON.h>
 
 NSString * const KEY_JSON   = @"key";
 NSString * const LABEL_JSON = @"label";

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
-#import "ORCGIGURLJSONResponse.h"
+#import <GIGLibrary/GIGURLJSONResponse.h>
 
 @class ORCBusinessUnit;
 @class ORCCustomField;
@@ -14,7 +14,7 @@
 @class ORCThemeSdk;
 @class ORCVuforiaConfig;
 
-@interface ORCAppConfigResponse : ORCGIGURLJSONResponse
+@interface ORCAppConfigResponse : GIGURLJSONResponse
 
 @property (strong, nonatomic) NSArray *geoRegions;
 @property (strong, nonatomic) NSArray *beaconRegions;

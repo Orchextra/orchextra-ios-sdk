@@ -12,9 +12,9 @@
 #import "ORCPushManager.h"
 #import "ORCWireframe.h"
 #import "ORCAction.h"
-#import "ORCGIGLogManager.h"
 #import "ORCStatisticsInteractor.h"
 #import "ORCValidatorActionInterator.h"
+#import <GIGLibrary/GIGLogManager.h>
 
 
 @interface ORCActionManager()

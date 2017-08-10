@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ORCGIGURLJSONResponse.h"
+#import <GIGLibrary/GIGURLJSONResponse.h>
 
 @interface ORCErrorManager : NSObject
 
 + (NSString *)errorMessageWithError:(NSError *)error;
-+ (NSError *)errorWithResponse:(ORCGIGURLJSONResponse *)response;
++ (NSError *)errorWithResponse:(GIGURLJSONResponse *)response;
 + (NSError *)errorWithErrorCode:(NSInteger)errorCode;
 
 @end

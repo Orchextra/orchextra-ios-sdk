@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "ORCURLActionResponse.h"
-#import "ORCURLCommunicator.h"
 #import "ORCURLActionConfirmationResponse.h"
+
+#import <GIGLibrary/GIGURLCommunicator.h>
+
+@class ORCAction;
 
 typedef void(^ORCActionResponse)(ORCURLActionResponse *responseAction);
 typedef void(^ORCConfirmActionResponse)(ORCURLActionConfirmationResponse *responseActionConfirmation);
 
-@interface ORCActionCommunicator : ORCURLCommunicator
+@interface ORCActionCommunicator : GIGURLCommunicator
 
 - (void)loadActionWithTriggerValues:(NSDictionary *)values completion:(ORCActionResponse)completion;
 

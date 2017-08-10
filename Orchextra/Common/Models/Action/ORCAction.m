@@ -7,13 +7,14 @@
 //
 
 #import "ORCAction.h"
+
+#import <GIGLibrary/GIGJSON.h>
 #import "ORCActionInterface.h"
 #import "ORCActionScanner.h"
 #import "ORCActionWebView.h"
 #import "ORCActionBrowser.h"
 #import "ORCConstants.h"
 #import "ORCActionCommunicator.h"
-#import "ORCGIGJSON.h"
 
 NSString * const ORC_LAUNCHED_BY_ID = @"launchedById";
 NSString * const ORC_TITLE = @"title";

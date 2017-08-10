@@ -16,7 +16,7 @@
 
 #import "Orchextra.h"
 
-#import "NSUserDefaults+ORCGIGArchive.h"
+#import <GIGLibrary/NSUserDefaults+GIGArchive.h>
 
 
 NSString * const ORCApiKey                      = @"ORCApiKey";

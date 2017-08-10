@@ -1,7 +1,8 @@
 
 
+#import <GIGLibrary/GIGLayout.h>
 #import "GIGScannerViewController.h"
-#import "ORCGIGLayout.h"
+
 
 
 static AVCaptureVideoOrientation ORCVideoOrientationFromInterfaceOrientation(UIInterfaceOrientation interfaceOrientation)

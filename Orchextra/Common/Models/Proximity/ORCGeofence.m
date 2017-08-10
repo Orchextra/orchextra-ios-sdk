@@ -8,7 +8,7 @@
 
 #import "ORCGeofence.h"
 #import "ORCConstants.h"
-#import "ORCGIGJSON.h"
+#import <GIGLibrary/GIGJSON.h>
 
 NSString *const ORCGeofenceLongitude = @"geofenceLongitude";
 NSString *const ORCGeofenceLatitude = @"geofenceLatitude";

@@ -7,13 +7,14 @@
 //
 
 #import <AdSupport/AdSupport.h>
-#import "ORCGIGURLManager.h"
 
 #import "ORCAppConfigCommunicator.h"
 #import "ORCFormatterParameters.h"
 #import "ORCURLRequest.h"
 #import "ORCSettingsPersister.h"
 #import "ORCURLProvider.h"
+
+#import <GIGLibrary/GIGURLManager.h>
 
 NSString * const CONFIGURATION_ENDPOINT = @"configuration";
 
@@ -53,14 +54,14 @@ NSString * const CONFIGURATION_ENDPOINT = @"configuration";
     request.responseClass = [ORCAppConfigResponse class];
     request.requestTag = CONFIGURATION_ENDPOINT;
     
-    [self send:request completion:completion];
+    [self sendRequest:request completion:completion];
 }
 
 #pragma mark - PRIVATE
 
 - (void)useFixtures:(BOOL)useFixtures
 {
-    [[ORCGIGURLManager sharedManager] setUseFixture:useFixtures];
+    [[GIGURLManager sharedManager] setUseFixture:useFixtures];
 }
 
 - (NSString *)printJsonFormat:(NSDictionary *)json

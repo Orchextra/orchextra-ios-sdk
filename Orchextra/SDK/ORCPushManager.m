@@ -18,7 +18,7 @@
 #import "ORCSettingsInteractor.h"
 #import "ORCValidatorActionInterator.h"
 
-#import "NSDictionary+ORCGIGJSON.h"
+#import <GIGLibrary/GIGLibrary.h>
 #import "NSBundle+ORCBundle.h"
 
 

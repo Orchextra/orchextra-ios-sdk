@@ -8,8 +8,8 @@
 
 #import "ORCDevice.h"
 
-#import "NSBundle+ORCGIGExtension.h"
 #import "ORCTag.h"
+#import <GIGLibrary/NSBundle+GIGExtension.h>
 
 #import <AdSupport/AdSupport.h>
 #import <sys/sysctl.h>

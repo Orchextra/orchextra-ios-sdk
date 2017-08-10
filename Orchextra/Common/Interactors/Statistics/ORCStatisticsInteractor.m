@@ -8,6 +8,7 @@
 
 #import "ORCStatisticsInteractor.h"
 #import "ORCActionCommunicator.h"
+#import "ORCAction.h"
 
 @interface ORCStatisticsInteractor ()
 

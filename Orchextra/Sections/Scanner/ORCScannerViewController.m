@@ -6,14 +6,15 @@
 //  Copyright (c) 2015 Gigigo. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
-
 #import "ORCScannerViewController.h"
+
+#import <QuartzCore/QuartzCore.h>
+#import <GIGLibrary/GIGLayout.h>
+#import <GIGLibrary/UIImage+GIGExtension.h>
+
 #import "ORCBarButtonItem.h"
 #import "ORCSettingsPersister.h"
-#import "ORCGIGLayout.h"
 #import "ORCThemeSdk.h"
-#import "UIImage+ORCGIGExtension.h"
 #import "NSBundle+ORCBundle.h"
 #import "ORCMBProgressHUD.h"
 
@@ -143,7 +144,7 @@ NSInteger PADDING_SCANNER = 100;
     });
 }
 
-- (void)scanViewController:(GIGScannerViewController *)aCtler didSuccessfullyScan:(NSString *)aScannedValue
+- (void)didSuccessfullyScan:(NSString *)aScannedValue
                       type:(NSString *)type
 {
     [self.presenter didSuccessfullyScan:aScannedValue type:type];

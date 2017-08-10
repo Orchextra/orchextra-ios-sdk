@@ -19,3 +19,9 @@ xcuserdata
 DerivedData
 .idea/
 *.orig
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts
+*.bcsymbolmap
+*.framework.dSYM*

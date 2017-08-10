@@ -7,7 +7,7 @@
 //
 
 #import "ORCTag.h"
-#import "ORCGIGRegexp.h"
+#import <GIGLibrary/GIGRegexp.h>
 
 NSString * const ORCTagPrefix = @"ORCTagPrefix";
 NSString * const ORCTagName = @"ORCTagName";

@@ -85,9 +85,7 @@
 		8F1593F11DA3B461003257C2 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
 		8F4CFAD51E64158E00B7603A /* LocalizableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CFAD41E64158E00B7603A /* LocalizableConstants.swift */; };
 		8F4CFAD61E641CD400B7603A /* LocalizableConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = 8F4CFAD41E64158E00B7603A /* LocalizableConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F4CFADA1E6446A200B7603A /* NSBundle+ORCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */; };
 		8F4CFADC1E64471400B7603A /* ORCActionVuforia.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCE941BF362080042F370 /* ORCActionVuforia.m */; };
-		8F4CFADD1E6449B500B7603A /* NSBundle+ORCBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F77E3101DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h */; };
 		8F4CFADE1E644A3600B7603A /* LocalizableConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = 8F4CFAD41E64158E00B7603A /* LocalizableConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F4CFAE11E644B3C00B7603A /* Orchextra_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = A94185481C74DEF80089385A /* Orchextra_Prefix.pch */; };
 		8F4CFAEF1E64565300B7603A /* ORCVuforiaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFD41BF362080042F370 /* ORCVuforiaViewController.m */; };
@@ -138,56 +136,13 @@
 		8F660CCC1DA2BBBC007B9551 /* ORCBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA51BF362080042F370 /* ORCBeacon.m */; };
 		8F660CCD1DA2BBBC007B9551 /* ORCGeofence.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA71BF362080042F370 /* ORCGeofence.m */; };
 		8F660CCE1DA2BBBC007B9551 /* ORCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEA91BF362080042F370 /* ORCRegion.m */; };
-		8F660CCF1DA2BBBC007B9551 /* ORCURLCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEAD1BF362080042F370 /* ORCURLCommunicator.m */; };
-		8F660CD01DA2BBBC007B9551 /* ORCURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEB21BF362080042F370 /* ORCURLRequest.m */; };
-		8F660CD11DA2BBBC007B9551 /* ORCURLProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEB51BF362080042F370 /* ORCURLProvider.m */; };
 		8F660CD21DA2BBBC007B9551 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B17B091C566C6C00D2BCB1 /* NSString+MD5.m */; };
 		8F660CD31DA2BBBC007B9551 /* ORCFormatterParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEB91BF362080042F370 /* ORCFormatterParameters.m */; };
 		8F660CD41DA2BBBC007B9551 /* ORCProximityFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A9AD5BA81C5FAC7A009C02D3 /* ORCProximityFormatter.m */; };
 		8F660CD51DA2BBBC007B9551 /* ORCBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEBD1BF362080042F370 /* ORCBarButtonItem.m */; };
 		8F660CD61DA2BBBC007B9551 /* ORCWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCEC01BF362080042F370 /* ORCWireframe.m */; };
-		8F77E3121DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F77E3101DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F77E3131DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */; };
 		8F79D5D81E606ADC00AAB4CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F79D5CE1E606ADC00AAB4CA /* Localizable.strings */; };
 		8F79D5DB1E606ADC00AAB4CA /* Locfile in Resources */ = {isa = PBXBuildFile; fileRef = 8F79D5D41E606ADC00AAB4CA /* Locfile */; };
-		8FA9F52A1DA2E3F0009A6E87 /* GIGScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF251BF362080042F370 /* GIGScannerViewController.m */; };
-		8FA9F52C1DA2E3F0009A6E87 /* ORCGIGGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF2D1BF362080042F370 /* ORCGIGGeolocation.m */; };
-		8FA9F52D1DA2E3F0009A6E87 /* GIGURLAuthCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF3C1BF362080042F370 /* GIGURLAuthCommunicator.m */; };
-		8FA9F52E1DA2E3F0009A6E87 /* ORCGIGURLConfigAddDomainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF3F1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.m */; };
-		8FA9F52F1DA2E3F0009A6E87 /* ORCGIGURLConfigDomainsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF411BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.m */; };
-		8FA9F5301DA2E3F0009A6E87 /* ORCGIGURLConfigFixtureDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF431BF362080042F370 /* ORCGIGURLConfigFixtureDetailTableViewController.m */; };
-		8FA9F5311DA2E3F0009A6E87 /* ORCGIGURLConfigFixturesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF451BF362080042F370 /* ORCGIGURLConfigFixturesTableViewController.m */; };
-		8FA9F5321DA2E3F0009A6E87 /* ORCGIGURLConfigTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF471BF362080042F370 /* ORCGIGURLConfigTableViewController.m */; };
-		8FA9F5331DA2E3F0009A6E87 /* ORCGIGURLDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF4A1BF362080042F370 /* ORCGIGURLDomain.m */; };
-		8FA9F5341DA2E3F0009A6E87 /* ORCGIGURLDomainsKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF4C1BF362080042F370 /* ORCGIGURLDomainsKeeper.m */; };
-		8FA9F5351DA2E3F0009A6E87 /* ORCGIGURLFixture.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF4F1BF362080042F370 /* ORCGIGURLFixture.m */; };
-		8FA9F5361DA2E3F0009A6E87 /* ORCGIGURLFixturesKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF511BF362080042F370 /* ORCGIGURLFixturesKeeper.m */; };
-		8FA9F5371DA2E3F0009A6E87 /* ORCGIGURLFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF541BF362080042F370 /* ORCGIGURLFormatter.m */; };
-		8FA9F5381DA2E3F0009A6E87 /* ORCGIGURLParametersFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF561BF362080042F370 /* ORCGIGURLParametersFormatter.m */; };
-		8FA9F5391DA2E3F0009A6E87 /* ORCGIGURLCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF591BF362080042F370 /* ORCGIGURLCommunicator.m */; };
-		8FA9F53A1DA2E3F0009A6E87 /* ORCGIGURLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF5B1BF362080042F370 /* ORCGIGURLFile.m */; };
-		8FA9F53B1DA2E3F0009A6E87 /* ORCGIGURLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF5D1BF362080042F370 /* ORCGIGURLManager.m */; };
-		8FA9F53C1DA2E3F0009A6E87 /* ORCGIGURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF5F1BF362080042F370 /* ORCGIGURLRequest.m */; };
-		8FA9F53D1DA2E3F0009A6E87 /* ORCGIGURLConnectionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF621BF362080042F370 /* ORCGIGURLConnectionBuilder.m */; };
-		8FA9F53E1DA2E3F0009A6E87 /* ORCGIGURLRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF641BF362080042F370 /* ORCGIGURLRequestFactory.m */; };
-		8FA9F53F1DA2E3F0009A6E87 /* ORCGIGURLRequestLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF661BF362080042F370 /* ORCGIGURLRequestLogger.m */; };
-		8FA9F5401DA2E3F0009A6E87 /* ORCGIGURLStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF681BF362080042F370 /* ORCGIGURLStorage.m */; };
-		8FA9F5411DA2E3F0009A6E87 /* ORCGIGURLImageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF6B1BF362080042F370 /* ORCGIGURLImageResponse.m */; };
-		8FA9F5421DA2E3F0009A6E87 /* ORCGIGURLJSONResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF6D1BF362080042F370 /* ORCGIGURLJSONResponse.m */; };
-		8FA9F5431DA2E3F0009A6E87 /* ORCGIGURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF6F1BF362080042F370 /* ORCGIGURLResponse.m */; };
-		8FA9F5441DA2E3F0009A6E87 /* NSArray+ORCGIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF731BF362080042F370 /* NSArray+ORCGIGExtension.m */; };
-		8FA9F5451DA2E3F0009A6E87 /* NSBundle+ORCGIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF761BF362080042F370 /* NSBundle+ORCGIGExtension.m */; };
-		8FA9F5461DA2E3F0009A6E87 /* UIColor+ORCGIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF791BF362080042F370 /* UIColor+ORCGIGExtension.m */; };
-		8FA9F5471DA2E3F0009A6E87 /* UIImage+ORCGIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF801BF362080042F370 /* UIImage+ORCGIGExtension.m */; };
-		8FA9F5481DA2E3F0009A6E87 /* NSInvocation+ORCGIGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF831BF362080042F370 /* NSInvocation+ORCGIGExtension.m */; };
-		8FA9F5491DA2E3F0009A6E87 /* NSArray+ORCGIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF861BF362080042F370 /* NSArray+ORCGIGJSON.m */; };
-		8FA9F54A1DA2E3F0009A6E87 /* NSData+ORCGIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF881BF362080042F370 /* NSData+ORCGIGJSON.m */; };
-		8FA9F54B1DA2E3F0009A6E87 /* NSDictionary+ORCGIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF8A1BF362080042F370 /* NSDictionary+ORCGIGJSON.m */; };
-		8FA9F54C1DA2E3F0009A6E87 /* NSString+ORCGIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF8C1BF362080042F370 /* NSString+ORCGIGJSON.m */; };
-		8FA9F54D1DA2E3F0009A6E87 /* ORCGIGLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF901BF362080042F370 /* ORCGIGLogManager.m */; };
-		8FA9F54E1DA2E3F0009A6E87 /* NSRegularExpression+ORCGIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF941BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.m */; };
-		8FA9F54F1DA2E3F0009A6E87 /* NSString+ORCGIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF961BF362080042F370 /* NSString+ORCGIGRegexp.m */; };
-		8FA9F5501DA2E3F0009A6E87 /* NSUserDefaults+ORCGIGArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF9A1BF362080042F370 /* NSUserDefaults+ORCGIGArchive.m */; };
 		8FA9F5511DA2E4BC009A6E87 /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A941850A1C74BDAD0089385A /* CLIColor.m */; };
 		8FA9F5521DA2E4BC009A6E87 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A941850E1C74BDAD0089385A /* DDAbstractDatabaseLogger.m */; };
 		8FA9F5531DA2E4BC009A6E87 /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185101C74BDAD0089385A /* DDASLLogCapture.m */; };
@@ -260,9 +215,6 @@
 		8FA9F6691DA2F257009A6E87 /* ORCBeacon.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA41BF362080042F370 /* ORCBeacon.h */; };
 		8FA9F66A1DA2F257009A6E87 /* ORCGeofence.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA61BF362080042F370 /* ORCGeofence.h */; };
 		8FA9F66B1DA2F257009A6E87 /* ORCRegion.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEA81BF362080042F370 /* ORCRegion.h */; };
-		8FA9F66C1DA2F257009A6E87 /* ORCURLCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEAC1BF362080042F370 /* ORCURLCommunicator.h */; };
-		8FA9F66D1DA2F257009A6E87 /* ORCURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEB11BF362080042F370 /* ORCURLRequest.h */; };
-		8FA9F66E1DA2F257009A6E87 /* ORCURLProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEB41BF362080042F370 /* ORCURLProvider.h */; };
 		8FA9F66F1DA2F257009A6E87 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = A9B17B081C566C6C00D2BCB1 /* NSString+MD5.h */; };
 		8FA9F6701DA2F257009A6E87 /* ORCFormatterParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEB81BF362080042F370 /* ORCFormatterParameters.h */; };
 		8FA9F6711DA2F257009A6E87 /* ORCProximityFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A9AD5BA71C5FAC7A009C02D3 /* ORCProximityFormatter.h */; };
@@ -284,61 +236,6 @@
 		8FA9F6811DA2F2FA009A6E87 /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185201C74BDAD0089385A /* DDDispatchQueueLogFormatter.h */; };
 		8FA9F6821DA2F2FA009A6E87 /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185221C74BDAD0089385A /* DDMultiFormatter.h */; };
 		8FA9F6831DA2F2FA009A6E87 /* ORCMBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEC91BF362080042F370 /* ORCMBProgressHUD.h */; };
-		8FA9F6841DA2F350009A6E87 /* GIGScannerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF241BF362080042F370 /* GIGScannerViewController.h */; };
-		8FA9F6851DA2F350009A6E87 /* ORCGIGGeolocation.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF2C1BF362080042F370 /* ORCGIGGeolocation.h */; };
-		8FA9F6861DA2F350009A6E87 /* ORCGIGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF2F1BF362080042F370 /* ORCGIGLayout.h */; };
-		8FA9F6871DA2F350009A6E87 /* ORCGIGLayoutBase.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF301BF362080042F370 /* ORCGIGLayoutBase.h */; };
-		8FA9F6881DA2F350009A6E87 /* ORCGIGLayoutCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF311BF362080042F370 /* ORCGIGLayoutCenter.h */; };
-		8FA9F6891DA2F350009A6E87 /* ORCGIGLayoutFit.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF321BF362080042F370 /* ORCGIGLayoutFit.h */; };
-		8FA9F68A1DA2F350009A6E87 /* ORCGIGLayoutGridHorizontal.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF331BF362080042F370 /* ORCGIGLayoutGridHorizontal.h */; };
-		8FA9F68B1DA2F350009A6E87 /* ORCGIGLayoutGridVertical.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF351BF362080042F370 /* ORCGIGLayoutGridVertical.h */; };
-		8FA9F68C1DA2F350009A6E87 /* ORCGIGLayoutSides.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF371BF362080042F370 /* ORCGIGLayoutSides.h */; };
-		8FA9F68D1DA2F350009A6E87 /* ORCGIGLayoutSize.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF381BF362080042F370 /* ORCGIGLayoutSize.h */; };
-		8FA9F68E1DA2F350009A6E87 /* GIGURLAuthCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF3B1BF362080042F370 /* GIGURLAuthCommunicator.h */; };
-		8FA9F68F1DA2F350009A6E87 /* ORCGIGURLConfigAddDomainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF3E1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.h */; };
-		8FA9F6901DA2F350009A6E87 /* ORCGIGURLConfigDomainsTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF401BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.h */; };
-		8FA9F6911DA2F350009A6E87 /* ORCGIGURLConfigFixtureDetailTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF421BF362080042F370 /* ORCGIGURLConfigFixtureDetailTableViewController.h */; };
-		8FA9F6921DA2F350009A6E87 /* ORCGIGURLConfigFixturesTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF441BF362080042F370 /* ORCGIGURLConfigFixturesTableViewController.h */; };
-		8FA9F6931DA2F350009A6E87 /* ORCGIGURLConfigTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF461BF362080042F370 /* ORCGIGURLConfigTableViewController.h */; };
-		8FA9F6941DA2F350009A6E87 /* ORCGIGURLDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF491BF362080042F370 /* ORCGIGURLDomain.h */; };
-		8FA9F6951DA2F350009A6E87 /* ORCGIGURLDomainsKeeper.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF4B1BF362080042F370 /* ORCGIGURLDomainsKeeper.h */; };
-		8FA9F6961DA2F350009A6E87 /* ORCGIGURLFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF4E1BF362080042F370 /* ORCGIGURLFixture.h */; };
-		8FA9F6971DA2F350009A6E87 /* ORCGIGURLFixturesKeeper.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF501BF362080042F370 /* ORCGIGURLFixturesKeeper.h */; };
-		8FA9F6981DA2F350009A6E87 /* ORCGIGURLFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF531BF362080042F370 /* ORCGIGURLFormatter.h */; };
-		8FA9F6991DA2F350009A6E87 /* ORCGIGURLParametersFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF551BF362080042F370 /* ORCGIGURLParametersFormatter.h */; };
-		8FA9F69A1DA2F350009A6E87 /* ORCGIGNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF571BF362080042F370 /* ORCGIGNetwork.h */; };
-		8FA9F69B1DA2F350009A6E87 /* ORCGIGURLCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF581BF362080042F370 /* ORCGIGURLCommunicator.h */; };
-		8FA9F69C1DA2F350009A6E87 /* ORCGIGURLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF5A1BF362080042F370 /* ORCGIGURLFile.h */; };
-		8FA9F69D1DA2F350009A6E87 /* ORCGIGURLManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF5C1BF362080042F370 /* ORCGIGURLManager.h */; };
-		8FA9F69E1DA2F350009A6E87 /* ORCGIGURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF5E1BF362080042F370 /* ORCGIGURLRequest.h */; };
-		8FA9F69F1DA2F3B2009A6E87 /* ORCGIGURLConnectionBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF611BF362080042F370 /* ORCGIGURLConnectionBuilder.h */; };
-		8FA9F6A01DA2F3B2009A6E87 /* ORCGIGURLRequestFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF631BF362080042F370 /* ORCGIGURLRequestFactory.h */; };
-		8FA9F6A11DA2F3B2009A6E87 /* ORCGIGURLRequestLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF651BF362080042F370 /* ORCGIGURLRequestLogger.h */; };
-		8FA9F6A21DA2F3B2009A6E87 /* ORCGIGURLStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF671BF362080042F370 /* ORCGIGURLStorage.h */; };
-		8FA9F6A31DA2F3B2009A6E87 /* ORCGIGURLImageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF6A1BF362080042F370 /* ORCGIGURLImageResponse.h */; };
-		8FA9F6A41DA2F3B2009A6E87 /* ORCGIGURLJSONResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF6C1BF362080042F370 /* ORCGIGURLJSONResponse.h */; };
-		8FA9F6A51DA2F3B2009A6E87 /* ORCGIGURLResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF6E1BF362080042F370 /* ORCGIGURLResponse.h */; };
-		8FA9F6A61DA2F3B2009A6E87 /* NSArray+ORCGIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF721BF362080042F370 /* NSArray+ORCGIGExtension.h */; };
-		8FA9F6A71DA2F3B2009A6E87 /* NSBundle+ORCGIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF751BF362080042F370 /* NSBundle+ORCGIGExtension.h */; };
-		8FA9F6A81DA2F3B2009A6E87 /* UIColor+ORCGIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF781BF362080042F370 /* UIColor+ORCGIGExtension.h */; };
-		8FA9F6A91DA2F3B2009A6E87 /* GIGDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF7A1BF362080042F370 /* GIGDebug.h */; };
-		8FA9F6AA1DA2F3B2009A6E87 /* GIGDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF7B1BF362080042F370 /* GIGDispatch.h */; };
-		8FA9F6AB1DA2F3B2009A6E87 /* GIGRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF7C1BF362080042F370 /* GIGRandom.h */; };
-		8FA9F6AC1DA2F3B2009A6E87 /* GIGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF7D1BF362080042F370 /* GIGUtils.h */; };
-		8FA9F6AD1DA2F3B2009A6E87 /* UIImage+ORCGIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF7F1BF362080042F370 /* UIImage+ORCGIGExtension.h */; };
-		8FA9F6AE1DA2F3B2009A6E87 /* NSInvocation+ORCGIGExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF821BF362080042F370 /* NSInvocation+ORCGIGExtension.h */; };
-		8FA9F6AF1DA2F3B2009A6E87 /* NSArray+ORCGIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF851BF362080042F370 /* NSArray+ORCGIGJSON.h */; };
-		8FA9F6B01DA2F3B2009A6E87 /* NSData+ORCGIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF871BF362080042F370 /* NSData+ORCGIGJSON.h */; };
-		8FA9F6B11DA2F3B2009A6E87 /* NSDictionary+ORCGIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF891BF362080042F370 /* NSDictionary+ORCGIGJSON.h */; };
-		8FA9F6B21DA2F3B2009A6E87 /* NSString+ORCGIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF8B1BF362080042F370 /* NSString+ORCGIGJSON.h */; };
-		8FA9F6B31DA2F3B2009A6E87 /* ORCGIGJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF8D1BF362080042F370 /* ORCGIGJSON.h */; };
-		8FA9F6B41DA2F3B2009A6E87 /* ORCGIGLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF8F1BF362080042F370 /* ORCGIGLogManager.h */; };
-		8FA9F6B51DA2F3B2009A6E87 /* ORCGIGLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF911BF362080042F370 /* ORCGIGLocalization.h */; };
-		8FA9F6B61DA2F3B2009A6E87 /* NSRegularExpression+ORCGIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF931BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.h */; };
-		8FA9F6B71DA2F3B2009A6E87 /* NSString+ORCGIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF951BF362080042F370 /* NSString+ORCGIGRegexp.h */; };
-		8FA9F6B81DA2F3B2009A6E87 /* ORCGIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF971BF362080042F370 /* ORCGIGRegexp.h */; };
-		8FA9F6B91DA2F3B2009A6E87 /* NSUserDefaults+ORCGIGArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF991BF362080042F370 /* NSUserDefaults+ORCGIGArchive.h */; };
-		8FA9F6BA1DA2F3B2009A6E87 /* ORCGIGConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF9B1BF362080042F370 /* ORCGIGConstants.h */; };
 		8FA9F6BB1DA2F794009A6E87 /* torch.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8DFF1CD2580700322000 /* torch.png */; };
 		8FA9F6BC1DA2F794009A6E87 /* torch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8E001CD2580700322000 /* torch@2x.png */; };
 		8FA9F6BD1DA2F794009A6E87 /* torch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8E011CD2580700322000 /* torch@3x.png */; };
@@ -368,9 +265,13 @@
 		8FA9F6D61DA2F794009A6E87 /* scanning-by@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1481BF36D650042F370 /* scanning-by@3x.png */; };
 		8FA9F6D71DA2F794009A6E87 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1491BF36D650042F370 /* Simple.fragsh */; };
 		8FA9F6D81DA2F794009A6E87 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
-		8FA9F6D91DA2FA54009A6E87 /* ORCGIGLayoutGridHorizontal.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF341BF362080042F370 /* ORCGIGLayoutGridHorizontal.m */; };
-		8FA9F6DA1DA2FA54009A6E87 /* ORCGIGLayoutGridVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF361BF362080042F370 /* ORCGIGLayoutGridVertical.m */; };
 		8FBAE80D1DA3983A00BC6A22 /* ORCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFBE1BF362080042F370 /* ORCWebViewController.h */; };
+		8FCF1DF61F3B328100C5697B /* GIGScannerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FCF1DF41F3B328100C5697B /* GIGScannerViewController.h */; };
+		8FCF1DF71F3B328100C5697B /* GIGScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF1DF51F3B328100C5697B /* GIGScannerViewController.m */; };
+		8FCF1E051F3B39E200C5697B /* ORCURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FCF1DFE1F3B39E200C5697B /* ORCURLRequest.h */; };
+		8FCF1E061F3B39E200C5697B /* ORCURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF1DFF1F3B39E200C5697B /* ORCURLRequest.m */; };
+		8FCF1E071F3B39E200C5697B /* ORCURLProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FCF1E011F3B39E200C5697B /* ORCURLProvider.h */; };
+		8FCF1E081F3B39E200C5697B /* ORCURLProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF1E021F3B39E200C5697B /* ORCURLProvider.m */; };
 		8FE765F21DA3C2EF0014500D /* region_beacon_major_minor_nil.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB71C6BA803005CEAA2 /* region_beacon_major_minor_nil.json */; };
 		8FE765F31DA3C2EF0014500D /* region_beacon.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB11C6BA26D005CEAA2 /* region_beacon.json */; };
 		8FE765F41DA3C2EF0014500D /* region_geofence.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB21C6BA26D005CEAA2 /* region_geofence.json */; };
@@ -389,6 +290,11 @@
 		8FE766011DA3C2EF0014500D /* POST_Configuration_Complex.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */; };
 		8FE766021DA3C2EF0014500D /* POST_configuration_failure.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */; };
 		8FE766031DA3C2EF0014500D /* POST_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD10C1BF36CD30042F370 /* POST_configuration.json */; };
+		8FFB61721F3B0D1F00D23780 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FFB61711F3B0D1F00D23780 /* GIGLibrary.framework */; };
+		8FFB617B1F3B1F8700D23780 /* NSBundle+ORCBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FFB61751F3B1F8700D23780 /* NSBundle+ORCBundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FFB617C1F3B1F8700D23780 /* NSBundle+ORCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFB61761F3B1F8700D23780 /* NSBundle+ORCBundle.m */; };
+		8FFB617D1F3B1F8700D23780 /* GIGURLAuthCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FFB61791F3B1F8700D23780 /* GIGURLAuthCommunicator.h */; };
+		8FFB617E1F3B1F8700D23780 /* GIGURLAuthCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFB617A1F3B1F8700D23780 /* GIGURLAuthCommunicator.m */; };
 		A9369B321C32A67100196491 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */; };
 		A95373521BFDB01600AEFE2E /* ORCVuforiaPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFD11BF362080042F370 /* ORCVuforiaPresenter.h */; };
 		A95373531BFDB01600AEFE2E /* ORCVuforiaPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFD21BF362080042F370 /* ORCVuforiaPresenter.m */; };
@@ -527,8 +433,6 @@
 		8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_configuration_failure_empty.json; sourceTree = "<group>"; };
 		8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = POST_configuration_failure_html.html; sourceTree = "<group>"; };
 		8F660C8C1DA2B8D0007B9551 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F77E3101DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ORCBundle.h"; sourceTree = "<group>"; };
-		8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ORCBundle.m"; sourceTree = "<group>"; };
 		8F79D5CF1E606ADC00AAB4CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F79D5D01E606ADC00AAB4CA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F79D5D11E606ADC00AAB4CA /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -536,11 +440,22 @@
 		8F79D5D41E606ADC00AAB4CA /* Locfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Locfile; sourceTree = "<group>"; };
 		8F79D5D51E606ADC00AAB4CA /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F79D5D61E606ADC00AAB4CA /* pt-br */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-br"; path = "pt-br.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8FCF1DF41F3B328100C5697B /* GIGScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGScannerViewController.h; sourceTree = "<group>"; };
+		8FCF1DF51F3B328100C5697B /* GIGScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGScannerViewController.m; sourceTree = "<group>"; };
+		8FCF1DFE1F3B39E200C5697B /* ORCURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLRequest.h; sourceTree = "<group>"; };
+		8FCF1DFF1F3B39E200C5697B /* ORCURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLRequest.m; sourceTree = "<group>"; };
+		8FCF1E011F3B39E200C5697B /* ORCURLProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLProvider.h; sourceTree = "<group>"; };
+		8FCF1E021F3B39E200C5697B /* ORCURLProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLProvider.m; sourceTree = "<group>"; };
 		8FE1DF851D082FC10015D2F1 /* ORCCustomField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCCustomField.h; sourceTree = "<group>"; };
 		8FE1DF861D082FC10015D2F1 /* ORCCustomField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCCustomField.m; sourceTree = "<group>"; };
 		8FE3B55C1EA8CCDC00C320FF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8FE3B55D1EA8CD4A00C320FF /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8FE3B55E1EA8CD9B00C320FF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8FFB61711F3B0D1F00D23780 /* GIGLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GIGLibrary.framework; path = Carthage/Build/iOS/GIGLibrary.framework; sourceTree = "<group>"; };
+		8FFB61751F3B1F8700D23780 /* NSBundle+ORCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ORCBundle.h"; sourceTree = "<group>"; };
+		8FFB61761F3B1F8700D23780 /* NSBundle+ORCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ORCBundle.m"; sourceTree = "<group>"; };
+		8FFB61791F3B1F8700D23780 /* GIGURLAuthCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLAuthCommunicator.h; sourceTree = "<group>"; };
+		8FFB617A1F3B1F8700D23780 /* GIGURLAuthCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLAuthCommunicator.m; sourceTree = "<group>"; };
 		A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrchextraTests.m; sourceTree = "<group>"; };
 		A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionManagerTests.m; sourceTree = "<group>"; };
 		A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerPresenterTests.m; sourceTree = "<group>"; };
@@ -598,12 +513,6 @@
 		A90FCEA71BF362080042F370 /* ORCGeofence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGeofence.m; sourceTree = "<group>"; };
 		A90FCEA81BF362080042F370 /* ORCRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCRegion.h; sourceTree = "<group>"; };
 		A90FCEA91BF362080042F370 /* ORCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCRegion.m; sourceTree = "<group>"; };
-		A90FCEAC1BF362080042F370 /* ORCURLCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLCommunicator.h; sourceTree = "<group>"; };
-		A90FCEAD1BF362080042F370 /* ORCURLCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLCommunicator.m; sourceTree = "<group>"; };
-		A90FCEB11BF362080042F370 /* ORCURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLRequest.h; sourceTree = "<group>"; };
-		A90FCEB21BF362080042F370 /* ORCURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLRequest.m; sourceTree = "<group>"; };
-		A90FCEB41BF362080042F370 /* ORCURLProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCURLProvider.h; sourceTree = "<group>"; };
-		A90FCEB51BF362080042F370 /* ORCURLProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCURLProvider.m; sourceTree = "<group>"; };
 		A90FCEB81BF362080042F370 /* ORCFormatterParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCFormatterParameters.h; sourceTree = "<group>"; };
 		A90FCEB91BF362080042F370 /* ORCFormatterParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCFormatterParameters.m; sourceTree = "<group>"; };
 		A90FCEBC1BF362080042F370 /* ORCBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCBarButtonItem.h; sourceTree = "<group>"; };
@@ -688,101 +597,6 @@
 		A90FCF1D1BF362080042F370 /* WordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordList.h; sourceTree = "<group>"; };
 		A90FCF1E1BF362080042F370 /* WordResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordResult.h; sourceTree = "<group>"; };
 		A90FCF211BF362080042F370 /* libVuforia.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libVuforia.a; sourceTree = "<group>"; };
-		A90FCF241BF362080042F370 /* GIGScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGScannerViewController.h; sourceTree = "<group>"; };
-		A90FCF251BF362080042F370 /* GIGScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGScannerViewController.m; sourceTree = "<group>"; };
-		A90FCF2C1BF362080042F370 /* ORCGIGGeolocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGGeolocation.h; sourceTree = "<group>"; };
-		A90FCF2D1BF362080042F370 /* ORCGIGGeolocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGGeolocation.m; sourceTree = "<group>"; };
-		A90FCF2F1BF362080042F370 /* ORCGIGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLayout.h; sourceTree = "<group>"; };
-		A90FCF301BF362080042F370 /* ORCGIGLayoutBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLayoutBase.h; sourceTree = "<group>"; };
-		A90FCF311BF362080042F370 /* ORCGIGLayoutCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLayoutCenter.h; sourceTree = "<group>"; };
-		A90FCF321BF362080042F370 /* ORCGIGLayoutFit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLayoutFit.h; sourceTree = "<group>"; };
-		A90FCF331BF362080042F370 /* ORCGIGLayoutGridHorizontal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLayoutGridHorizontal.h; sourceTree = "<group>"; };
-		A90FCF341BF362080042F370 /* ORCGIGLayoutGridHorizontal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGLayoutGridHorizontal.m; sourceTree = "<group>"; };
-		A90FCF351BF362080042F370 /* ORCGIGLayoutGridVertical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLayoutGridVertical.h; sourceTree = "<group>"; };
-		A90FCF361BF362080042F370 /* ORCGIGLayoutGridVertical.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGLayoutGridVertical.m; sourceTree = "<group>"; };
-		A90FCF371BF362080042F370 /* ORCGIGLayoutSides.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLayoutSides.h; sourceTree = "<group>"; };
-		A90FCF381BF362080042F370 /* ORCGIGLayoutSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLayoutSize.h; sourceTree = "<group>"; };
-		A90FCF3B1BF362080042F370 /* GIGURLAuthCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGURLAuthCommunicator.h; sourceTree = "<group>"; };
-		A90FCF3C1BF362080042F370 /* GIGURLAuthCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIGURLAuthCommunicator.m; sourceTree = "<group>"; };
-		A90FCF3E1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLConfigAddDomainViewController.h; sourceTree = "<group>"; };
-		A90FCF3F1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLConfigAddDomainViewController.m; sourceTree = "<group>"; };
-		A90FCF401BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLConfigDomainsTableViewController.h; sourceTree = "<group>"; };
-		A90FCF411BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLConfigDomainsTableViewController.m; sourceTree = "<group>"; };
-		A90FCF421BF362080042F370 /* ORCGIGURLConfigFixtureDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLConfigFixtureDetailTableViewController.h; sourceTree = "<group>"; };
-		A90FCF431BF362080042F370 /* ORCGIGURLConfigFixtureDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLConfigFixtureDetailTableViewController.m; sourceTree = "<group>"; };
-		A90FCF441BF362080042F370 /* ORCGIGURLConfigFixturesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLConfigFixturesTableViewController.h; sourceTree = "<group>"; };
-		A90FCF451BF362080042F370 /* ORCGIGURLConfigFixturesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLConfigFixturesTableViewController.m; sourceTree = "<group>"; };
-		A90FCF461BF362080042F370 /* ORCGIGURLConfigTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLConfigTableViewController.h; sourceTree = "<group>"; };
-		A90FCF471BF362080042F370 /* ORCGIGURLConfigTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLConfigTableViewController.m; sourceTree = "<group>"; };
-		A90FCF491BF362080042F370 /* ORCGIGURLDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLDomain.h; sourceTree = "<group>"; };
-		A90FCF4A1BF362080042F370 /* ORCGIGURLDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLDomain.m; sourceTree = "<group>"; };
-		A90FCF4B1BF362080042F370 /* ORCGIGURLDomainsKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLDomainsKeeper.h; sourceTree = "<group>"; };
-		A90FCF4C1BF362080042F370 /* ORCGIGURLDomainsKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLDomainsKeeper.m; sourceTree = "<group>"; };
-		A90FCF4E1BF362080042F370 /* ORCGIGURLFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLFixture.h; sourceTree = "<group>"; };
-		A90FCF4F1BF362080042F370 /* ORCGIGURLFixture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLFixture.m; sourceTree = "<group>"; };
-		A90FCF501BF362080042F370 /* ORCGIGURLFixturesKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLFixturesKeeper.h; sourceTree = "<group>"; };
-		A90FCF511BF362080042F370 /* ORCGIGURLFixturesKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLFixturesKeeper.m; sourceTree = "<group>"; };
-		A90FCF531BF362080042F370 /* ORCGIGURLFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLFormatter.h; sourceTree = "<group>"; };
-		A90FCF541BF362080042F370 /* ORCGIGURLFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLFormatter.m; sourceTree = "<group>"; };
-		A90FCF551BF362080042F370 /* ORCGIGURLParametersFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLParametersFormatter.h; sourceTree = "<group>"; };
-		A90FCF561BF362080042F370 /* ORCGIGURLParametersFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLParametersFormatter.m; sourceTree = "<group>"; };
-		A90FCF571BF362080042F370 /* ORCGIGNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGNetwork.h; sourceTree = "<group>"; };
-		A90FCF581BF362080042F370 /* ORCGIGURLCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLCommunicator.h; sourceTree = "<group>"; };
-		A90FCF591BF362080042F370 /* ORCGIGURLCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLCommunicator.m; sourceTree = "<group>"; };
-		A90FCF5A1BF362080042F370 /* ORCGIGURLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLFile.h; sourceTree = "<group>"; };
-		A90FCF5B1BF362080042F370 /* ORCGIGURLFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLFile.m; sourceTree = "<group>"; };
-		A90FCF5C1BF362080042F370 /* ORCGIGURLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLManager.h; sourceTree = "<group>"; };
-		A90FCF5D1BF362080042F370 /* ORCGIGURLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLManager.m; sourceTree = "<group>"; };
-		A90FCF5E1BF362080042F370 /* ORCGIGURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLRequest.h; sourceTree = "<group>"; };
-		A90FCF5F1BF362080042F370 /* ORCGIGURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLRequest.m; sourceTree = "<group>"; };
-		A90FCF611BF362080042F370 /* ORCGIGURLConnectionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLConnectionBuilder.h; sourceTree = "<group>"; };
-		A90FCF621BF362080042F370 /* ORCGIGURLConnectionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLConnectionBuilder.m; sourceTree = "<group>"; };
-		A90FCF631BF362080042F370 /* ORCGIGURLRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLRequestFactory.h; sourceTree = "<group>"; };
-		A90FCF641BF362080042F370 /* ORCGIGURLRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLRequestFactory.m; sourceTree = "<group>"; };
-		A90FCF651BF362080042F370 /* ORCGIGURLRequestLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLRequestLogger.h; sourceTree = "<group>"; };
-		A90FCF661BF362080042F370 /* ORCGIGURLRequestLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLRequestLogger.m; sourceTree = "<group>"; };
-		A90FCF671BF362080042F370 /* ORCGIGURLStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLStorage.h; sourceTree = "<group>"; };
-		A90FCF681BF362080042F370 /* ORCGIGURLStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLStorage.m; sourceTree = "<group>"; };
-		A90FCF6A1BF362080042F370 /* ORCGIGURLImageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLImageResponse.h; sourceTree = "<group>"; };
-		A90FCF6B1BF362080042F370 /* ORCGIGURLImageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLImageResponse.m; sourceTree = "<group>"; };
-		A90FCF6C1BF362080042F370 /* ORCGIGURLJSONResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLJSONResponse.h; sourceTree = "<group>"; };
-		A90FCF6D1BF362080042F370 /* ORCGIGURLJSONResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLJSONResponse.m; sourceTree = "<group>"; };
-		A90FCF6E1BF362080042F370 /* ORCGIGURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGURLResponse.h; sourceTree = "<group>"; };
-		A90FCF6F1BF362080042F370 /* ORCGIGURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGURLResponse.m; sourceTree = "<group>"; };
-		A90FCF721BF362080042F370 /* NSArray+ORCGIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ORCGIGExtension.h"; sourceTree = "<group>"; };
-		A90FCF731BF362080042F370 /* NSArray+ORCGIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ORCGIGExtension.m"; sourceTree = "<group>"; };
-		A90FCF751BF362080042F370 /* NSBundle+ORCGIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ORCGIGExtension.h"; sourceTree = "<group>"; };
-		A90FCF761BF362080042F370 /* NSBundle+ORCGIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ORCGIGExtension.m"; sourceTree = "<group>"; };
-		A90FCF781BF362080042F370 /* UIColor+ORCGIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ORCGIGExtension.h"; sourceTree = "<group>"; };
-		A90FCF791BF362080042F370 /* UIColor+ORCGIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ORCGIGExtension.m"; sourceTree = "<group>"; };
-		A90FCF7A1BF362080042F370 /* GIGDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGDebug.h; sourceTree = "<group>"; };
-		A90FCF7B1BF362080042F370 /* GIGDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGDispatch.h; sourceTree = "<group>"; };
-		A90FCF7C1BF362080042F370 /* GIGRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGRandom.h; sourceTree = "<group>"; };
-		A90FCF7D1BF362080042F370 /* GIGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIGUtils.h; sourceTree = "<group>"; };
-		A90FCF7F1BF362080042F370 /* UIImage+ORCGIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ORCGIGExtension.h"; sourceTree = "<group>"; };
-		A90FCF801BF362080042F370 /* UIImage+ORCGIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ORCGIGExtension.m"; sourceTree = "<group>"; };
-		A90FCF821BF362080042F370 /* NSInvocation+ORCGIGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+ORCGIGExtension.h"; sourceTree = "<group>"; };
-		A90FCF831BF362080042F370 /* NSInvocation+ORCGIGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+ORCGIGExtension.m"; sourceTree = "<group>"; };
-		A90FCF851BF362080042F370 /* NSArray+ORCGIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ORCGIGJSON.h"; sourceTree = "<group>"; };
-		A90FCF861BF362080042F370 /* NSArray+ORCGIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ORCGIGJSON.m"; sourceTree = "<group>"; };
-		A90FCF871BF362080042F370 /* NSData+ORCGIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ORCGIGJSON.h"; sourceTree = "<group>"; };
-		A90FCF881BF362080042F370 /* NSData+ORCGIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ORCGIGJSON.m"; sourceTree = "<group>"; };
-		A90FCF891BF362080042F370 /* NSDictionary+ORCGIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ORCGIGJSON.h"; sourceTree = "<group>"; };
-		A90FCF8A1BF362080042F370 /* NSDictionary+ORCGIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ORCGIGJSON.m"; sourceTree = "<group>"; };
-		A90FCF8B1BF362080042F370 /* NSString+ORCGIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ORCGIGJSON.h"; sourceTree = "<group>"; };
-		A90FCF8C1BF362080042F370 /* NSString+ORCGIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ORCGIGJSON.m"; sourceTree = "<group>"; };
-		A90FCF8D1BF362080042F370 /* ORCGIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGJSON.h; sourceTree = "<group>"; };
-		A90FCF8F1BF362080042F370 /* ORCGIGLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLogManager.h; sourceTree = "<group>"; };
-		A90FCF901BF362080042F370 /* ORCGIGLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGIGLogManager.m; sourceTree = "<group>"; };
-		A90FCF911BF362080042F370 /* ORCGIGLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGLocalization.h; sourceTree = "<group>"; };
-		A90FCF931BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+ORCGIGRegexp.h"; sourceTree = "<group>"; };
-		A90FCF941BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+ORCGIGRegexp.m"; sourceTree = "<group>"; };
-		A90FCF951BF362080042F370 /* NSString+ORCGIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ORCGIGRegexp.h"; sourceTree = "<group>"; };
-		A90FCF961BF362080042F370 /* NSString+ORCGIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ORCGIGRegexp.m"; sourceTree = "<group>"; };
-		A90FCF971BF362080042F370 /* ORCGIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGRegexp.h; sourceTree = "<group>"; };
-		A90FCF991BF362080042F370 /* NSUserDefaults+ORCGIGArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+ORCGIGArchive.h"; sourceTree = "<group>"; };
-		A90FCF9A1BF362080042F370 /* NSUserDefaults+ORCGIGArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+ORCGIGArchive.m"; sourceTree = "<group>"; };
-		A90FCF9B1BF362080042F370 /* ORCGIGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGConstants.h; sourceTree = "<group>"; };
 		A90FCFA01BF362080042F370 /* ORCAppConfigCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCAppConfigCommunicator.h; sourceTree = "<group>"; };
 		A90FCFA11BF362080042F370 /* ORCAppConfigCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCAppConfigCommunicator.m; sourceTree = "<group>"; };
 		A90FCFA21BF362080042F370 /* ORCAppConfigResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCAppConfigResponse.h; sourceTree = "<group>"; };
@@ -978,6 +792,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FFB61721F3B0D1F00D23780 /* GIGLibrary.framework in Frameworks */,
 				8FA9F56B1DA2E628009A6E87 /* CoreLocation.framework in Frameworks */,
 				8FA9F56A1DA2E620009A6E87 /* SystemConfiguration.framework in Frameworks */,
 				8FA9F5691DA2E618009A6E87 /* AdSupport.framework in Frameworks */,
@@ -1012,15 +827,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8F77E30F1DA3BB8D00B4FD97 /* Bundle */ = {
-			isa = PBXGroup;
-			children = (
-				8F77E3101DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h */,
-				8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */,
-			);
-			path = Bundle;
-			sourceTree = "<group>";
-		};
 		8F79D5CC1E606ADC00AAB4CA /* Localizables */ = {
 			isa = PBXGroup;
 			children = (
@@ -1031,6 +837,78 @@
 			);
 			name = Localizables;
 			path = Strings/Localizables/Localizables;
+			sourceTree = "<group>";
+		};
+		8FCF1DF31F3B328100C5697B /* GIGScanner */ = {
+			isa = PBXGroup;
+			children = (
+				8FCF1DF41F3B328100C5697B /* GIGScannerViewController.h */,
+				8FCF1DF51F3B328100C5697B /* GIGScannerViewController.m */,
+			);
+			path = GIGScanner;
+			sourceTree = "<group>";
+		};
+		8FCF1DF91F3B39E200C5697B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8FCF1DFD1F3B39E200C5697B /* Request */,
+				8FCF1E001F3B39E200C5697B /* URLProvider */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8FCF1DFD1F3B39E200C5697B /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				8FCF1DFE1F3B39E200C5697B /* ORCURLRequest.h */,
+				8FCF1DFF1F3B39E200C5697B /* ORCURLRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		8FCF1E001F3B39E200C5697B /* URLProvider */ = {
+			isa = PBXGroup;
+			children = (
+				8FCF1E011F3B39E200C5697B /* ORCURLProvider.h */,
+				8FCF1E021F3B39E200C5697B /* ORCURLProvider.m */,
+			);
+			path = URLProvider;
+			sourceTree = "<group>";
+		};
+		8FFB61731F3B1F8700D23780 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				8FCF1DF31F3B328100C5697B /* GIGScanner */,
+				8FFB61741F3B1F8700D23780 /* Bundle */,
+				8FFB61771F3B1F8700D23780 /* Network */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		8FFB61741F3B1F8700D23780 /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				8FFB61751F3B1F8700D23780 /* NSBundle+ORCBundle.h */,
+				8FFB61761F3B1F8700D23780 /* NSBundle+ORCBundle.m */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		8FFB61771F3B1F8700D23780 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8FFB61781F3B1F8700D23780 /* Authentication */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8FFB61781F3B1F8700D23780 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				8FFB61791F3B1F8700D23780 /* GIGURLAuthCommunicator.h */,
+				8FFB617A1F3B1F8700D23780 /* GIGURLAuthCommunicator.m */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		A909AF651C6B48F7005CEAA2 /* Data */ = {
@@ -1205,11 +1083,11 @@
 		A90FCE7A1BF362080042F370 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8FCF1DF91F3B39E200C5697B /* Network */,
 				A9E535D31C75BE130049DD54 /* Manager */,
 				A90FCE7B1BF362080042F370 /* Data */,
 				A90FCE821BF362080042F370 /* Interactors */,
 				A90FCE8C1BF362080042F370 /* Models */,
-				A90FCEAA1BF362080042F370 /* Network */,
 				A90FCEB61BF362080042F370 /* Support */,
 				A90FCEBA1BF362080042F370 /* Views */,
 				A90FCEBE1BF362080042F370 /* Wireframe */,
@@ -1340,43 +1218,6 @@
 			path = Proximity;
 			sourceTree = "<group>";
 		};
-		A90FCEAA1BF362080042F370 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCEAB1BF362080042F370 /* Communicator */,
-				A90FCEB01BF362080042F370 /* Request */,
-				A90FCEB31BF362080042F370 /* URLProvider */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		A90FCEAB1BF362080042F370 /* Communicator */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCEAC1BF362080042F370 /* ORCURLCommunicator.h */,
-				A90FCEAD1BF362080042F370 /* ORCURLCommunicator.m */,
-			);
-			path = Communicator;
-			sourceTree = "<group>";
-		};
-		A90FCEB01BF362080042F370 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCEB11BF362080042F370 /* ORCURLRequest.h */,
-				A90FCEB21BF362080042F370 /* ORCURLRequest.m */,
-			);
-			path = Request;
-			sourceTree = "<group>";
-		};
-		A90FCEB31BF362080042F370 /* URLProvider */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCEB41BF362080042F370 /* ORCURLProvider.h */,
-				A90FCEB51BF362080042F370 /* ORCURLProvider.m */,
-			);
-			path = URLProvider;
-			sourceTree = "<group>";
-		};
 		A90FCEB61BF362080042F370 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -1426,8 +1267,8 @@
 		A90FCEC41BF362080042F370 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				8FFB61731F3B1F8700D23780 /* Internal */,
 				A90FCEC51BF362080042F370 /* External */,
-				A90FCF221BF362080042F370 /* Internal */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -1572,293 +1413,6 @@
 				A90FCF211BF362080042F370 /* libVuforia.a */,
 			);
 			path = arm;
-			sourceTree = "<group>";
-		};
-		A90FCF221BF362080042F370 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF231BF362080042F370 /* GIGScanner */,
-				A90FCF261BF362080042F370 /* ORCLibrary */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
-		A90FCF231BF362080042F370 /* GIGScanner */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF241BF362080042F370 /* GIGScannerViewController.h */,
-				A90FCF251BF362080042F370 /* GIGScannerViewController.m */,
-			);
-			path = GIGScanner;
-			sourceTree = "<group>";
-		};
-		A90FCF261BF362080042F370 /* ORCLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				8F77E30F1DA3BB8D00B4FD97 /* Bundle */,
-				A90FCF2A1BF362080042F370 /* ORCGIGLibrary */,
-			);
-			path = ORCLibrary;
-			sourceTree = "<group>";
-		};
-		A90FCF2A1BF362080042F370 /* ORCGIGLibrary */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF2B1BF362080042F370 /* GIGGeolocation */,
-				A90FCF2E1BF362080042F370 /* GIGLayout */,
-				A90FCF391BF362080042F370 /* GIGNetwork */,
-				A90FCF701BF362080042F370 /* GIGUtils */,
-				A90FCF9B1BF362080042F370 /* ORCGIGConstants.h */,
-			);
-			path = ORCGIGLibrary;
-			sourceTree = "<group>";
-		};
-		A90FCF2B1BF362080042F370 /* GIGGeolocation */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF2C1BF362080042F370 /* ORCGIGGeolocation.h */,
-				A90FCF2D1BF362080042F370 /* ORCGIGGeolocation.m */,
-			);
-			path = GIGGeolocation;
-			sourceTree = "<group>";
-		};
-		A90FCF2E1BF362080042F370 /* GIGLayout */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF2F1BF362080042F370 /* ORCGIGLayout.h */,
-				A90FCF301BF362080042F370 /* ORCGIGLayoutBase.h */,
-				A90FCF311BF362080042F370 /* ORCGIGLayoutCenter.h */,
-				A90FCF321BF362080042F370 /* ORCGIGLayoutFit.h */,
-				A90FCF331BF362080042F370 /* ORCGIGLayoutGridHorizontal.h */,
-				A90FCF341BF362080042F370 /* ORCGIGLayoutGridHorizontal.m */,
-				A90FCF351BF362080042F370 /* ORCGIGLayoutGridVertical.h */,
-				A90FCF361BF362080042F370 /* ORCGIGLayoutGridVertical.m */,
-				A90FCF371BF362080042F370 /* ORCGIGLayoutSides.h */,
-				A90FCF381BF362080042F370 /* ORCGIGLayoutSize.h */,
-			);
-			path = GIGLayout;
-			sourceTree = "<group>";
-		};
-		A90FCF391BF362080042F370 /* GIGNetwork */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF3A1BF362080042F370 /* Authentication */,
-				A90FCF3D1BF362080042F370 /* Config */,
-				A90FCF481BF362080042F370 /* Domains */,
-				A90FCF4D1BF362080042F370 /* Fixtures */,
-				A90FCF521BF362080042F370 /* Formatters */,
-				A90FCF571BF362080042F370 /* ORCGIGNetwork.h */,
-				A90FCF581BF362080042F370 /* ORCGIGURLCommunicator.h */,
-				A90FCF591BF362080042F370 /* ORCGIGURLCommunicator.m */,
-				A90FCF5A1BF362080042F370 /* ORCGIGURLFile.h */,
-				A90FCF5B1BF362080042F370 /* ORCGIGURLFile.m */,
-				A90FCF5C1BF362080042F370 /* ORCGIGURLManager.h */,
-				A90FCF5D1BF362080042F370 /* ORCGIGURLManager.m */,
-				A90FCF5E1BF362080042F370 /* ORCGIGURLRequest.h */,
-				A90FCF5F1BF362080042F370 /* ORCGIGURLRequest.m */,
-				A90FCF601BF362080042F370 /* Private */,
-				A90FCF691BF362080042F370 /* Responses */,
-			);
-			path = GIGNetwork;
-			sourceTree = "<group>";
-		};
-		A90FCF3A1BF362080042F370 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF3B1BF362080042F370 /* GIGURLAuthCommunicator.h */,
-				A90FCF3C1BF362080042F370 /* GIGURLAuthCommunicator.m */,
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		A90FCF3D1BF362080042F370 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF3E1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.h */,
-				A90FCF3F1BF362080042F370 /* ORCGIGURLConfigAddDomainViewController.m */,
-				A90FCF401BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.h */,
-				A90FCF411BF362080042F370 /* ORCGIGURLConfigDomainsTableViewController.m */,
-				A90FCF421BF362080042F370 /* ORCGIGURLConfigFixtureDetailTableViewController.h */,
-				A90FCF431BF362080042F370 /* ORCGIGURLConfigFixtureDetailTableViewController.m */,
-				A90FCF441BF362080042F370 /* ORCGIGURLConfigFixturesTableViewController.h */,
-				A90FCF451BF362080042F370 /* ORCGIGURLConfigFixturesTableViewController.m */,
-				A90FCF461BF362080042F370 /* ORCGIGURLConfigTableViewController.h */,
-				A90FCF471BF362080042F370 /* ORCGIGURLConfigTableViewController.m */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
-		A90FCF481BF362080042F370 /* Domains */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF491BF362080042F370 /* ORCGIGURLDomain.h */,
-				A90FCF4A1BF362080042F370 /* ORCGIGURLDomain.m */,
-				A90FCF4B1BF362080042F370 /* ORCGIGURLDomainsKeeper.h */,
-				A90FCF4C1BF362080042F370 /* ORCGIGURLDomainsKeeper.m */,
-			);
-			path = Domains;
-			sourceTree = "<group>";
-		};
-		A90FCF4D1BF362080042F370 /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF4E1BF362080042F370 /* ORCGIGURLFixture.h */,
-				A90FCF4F1BF362080042F370 /* ORCGIGURLFixture.m */,
-				A90FCF501BF362080042F370 /* ORCGIGURLFixturesKeeper.h */,
-				A90FCF511BF362080042F370 /* ORCGIGURLFixturesKeeper.m */,
-			);
-			path = Fixtures;
-			sourceTree = "<group>";
-		};
-		A90FCF521BF362080042F370 /* Formatters */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF531BF362080042F370 /* ORCGIGURLFormatter.h */,
-				A90FCF541BF362080042F370 /* ORCGIGURLFormatter.m */,
-				A90FCF551BF362080042F370 /* ORCGIGURLParametersFormatter.h */,
-				A90FCF561BF362080042F370 /* ORCGIGURLParametersFormatter.m */,
-			);
-			path = Formatters;
-			sourceTree = "<group>";
-		};
-		A90FCF601BF362080042F370 /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF611BF362080042F370 /* ORCGIGURLConnectionBuilder.h */,
-				A90FCF621BF362080042F370 /* ORCGIGURLConnectionBuilder.m */,
-				A90FCF631BF362080042F370 /* ORCGIGURLRequestFactory.h */,
-				A90FCF641BF362080042F370 /* ORCGIGURLRequestFactory.m */,
-				A90FCF651BF362080042F370 /* ORCGIGURLRequestLogger.h */,
-				A90FCF661BF362080042F370 /* ORCGIGURLRequestLogger.m */,
-				A90FCF671BF362080042F370 /* ORCGIGURLStorage.h */,
-				A90FCF681BF362080042F370 /* ORCGIGURLStorage.m */,
-			);
-			path = Private;
-			sourceTree = "<group>";
-		};
-		A90FCF691BF362080042F370 /* Responses */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF6A1BF362080042F370 /* ORCGIGURLImageResponse.h */,
-				A90FCF6B1BF362080042F370 /* ORCGIGURLImageResponse.m */,
-				A90FCF6C1BF362080042F370 /* ORCGIGURLJSONResponse.h */,
-				A90FCF6D1BF362080042F370 /* ORCGIGURLJSONResponse.m */,
-				A90FCF6E1BF362080042F370 /* ORCGIGURLResponse.h */,
-				A90FCF6F1BF362080042F370 /* ORCGIGURLResponse.m */,
-			);
-			path = Responses;
-			sourceTree = "<group>";
-		};
-		A90FCF701BF362080042F370 /* GIGUtils */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF711BF362080042F370 /* Array */,
-				A90FCF741BF362080042F370 /* Bundle */,
-				A90FCF771BF362080042F370 /* Color */,
-				A90FCF7A1BF362080042F370 /* GIGDebug.h */,
-				A90FCF7B1BF362080042F370 /* GIGDispatch.h */,
-				A90FCF7C1BF362080042F370 /* GIGRandom.h */,
-				A90FCF7D1BF362080042F370 /* GIGUtils.h */,
-				A90FCF7E1BF362080042F370 /* Image */,
-				A90FCF811BF362080042F370 /* Invocation */,
-				A90FCF841BF362080042F370 /* JSON */,
-				A90FCF8E1BF362080042F370 /* Log */,
-				A90FCF911BF362080042F370 /* ORCGIGLocalization.h */,
-				A90FCF921BF362080042F370 /* Regexp */,
-				A90FCF981BF362080042F370 /* UserDefaults */,
-			);
-			path = GIGUtils;
-			sourceTree = "<group>";
-		};
-		A90FCF711BF362080042F370 /* Array */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF721BF362080042F370 /* NSArray+ORCGIGExtension.h */,
-				A90FCF731BF362080042F370 /* NSArray+ORCGIGExtension.m */,
-			);
-			path = Array;
-			sourceTree = "<group>";
-		};
-		A90FCF741BF362080042F370 /* Bundle */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF751BF362080042F370 /* NSBundle+ORCGIGExtension.h */,
-				A90FCF761BF362080042F370 /* NSBundle+ORCGIGExtension.m */,
-			);
-			path = Bundle;
-			sourceTree = "<group>";
-		};
-		A90FCF771BF362080042F370 /* Color */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF781BF362080042F370 /* UIColor+ORCGIGExtension.h */,
-				A90FCF791BF362080042F370 /* UIColor+ORCGIGExtension.m */,
-			);
-			path = Color;
-			sourceTree = "<group>";
-		};
-		A90FCF7E1BF362080042F370 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF7F1BF362080042F370 /* UIImage+ORCGIGExtension.h */,
-				A90FCF801BF362080042F370 /* UIImage+ORCGIGExtension.m */,
-			);
-			path = Image;
-			sourceTree = "<group>";
-		};
-		A90FCF811BF362080042F370 /* Invocation */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF821BF362080042F370 /* NSInvocation+ORCGIGExtension.h */,
-				A90FCF831BF362080042F370 /* NSInvocation+ORCGIGExtension.m */,
-			);
-			path = Invocation;
-			sourceTree = "<group>";
-		};
-		A90FCF841BF362080042F370 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF851BF362080042F370 /* NSArray+ORCGIGJSON.h */,
-				A90FCF861BF362080042F370 /* NSArray+ORCGIGJSON.m */,
-				A90FCF871BF362080042F370 /* NSData+ORCGIGJSON.h */,
-				A90FCF881BF362080042F370 /* NSData+ORCGIGJSON.m */,
-				A90FCF891BF362080042F370 /* NSDictionary+ORCGIGJSON.h */,
-				A90FCF8A1BF362080042F370 /* NSDictionary+ORCGIGJSON.m */,
-				A90FCF8B1BF362080042F370 /* NSString+ORCGIGJSON.h */,
-				A90FCF8C1BF362080042F370 /* NSString+ORCGIGJSON.m */,
-				A90FCF8D1BF362080042F370 /* ORCGIGJSON.h */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
-		A90FCF8E1BF362080042F370 /* Log */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF8F1BF362080042F370 /* ORCGIGLogManager.h */,
-				A90FCF901BF362080042F370 /* ORCGIGLogManager.m */,
-			);
-			path = Log;
-			sourceTree = "<group>";
-		};
-		A90FCF921BF362080042F370 /* Regexp */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF931BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.h */,
-				A90FCF941BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.m */,
-				A90FCF951BF362080042F370 /* NSString+ORCGIGRegexp.h */,
-				A90FCF961BF362080042F370 /* NSString+ORCGIGRegexp.m */,
-				A90FCF971BF362080042F370 /* ORCGIGRegexp.h */,
-			);
-			path = Regexp;
-			sourceTree = "<group>";
-		};
-		A90FCF981BF362080042F370 /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				A90FCF991BF362080042F370 /* NSUserDefaults+ORCGIGArchive.h */,
-				A90FCF9A1BF362080042F370 /* NSUserDefaults+ORCGIGArchive.m */,
-			);
-			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		A90FCF9C1BF362080042F370 /* Main */ = {
@@ -2335,6 +1889,7 @@
 		A9E596691B04DBC40040EAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FFB61711F3B0D1F00D23780 /* GIGLibrary.framework */,
 				8F2884641D23D68D00BA5230 /* SafariServices.framework */,
 				A93950451D0016A70063A27A /* PassKit.framework */,
 				A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */,
@@ -2372,7 +1927,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F77E3121DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h in Headers */,
 				8FA9F64F1DA2F257009A6E87 /* ORCWebViewViewController.h in Headers */,
 				8FA9F6491DA2F17B009A6E87 /* ORCActionManager.h in Headers */,
 				8F4CFAD61E641CD400B7603A /* LocalizableConstants.swift in Headers */,
@@ -2384,6 +1938,7 @@
 				8FA9F6421DA2F133009A6E87 /* ORCPushManager.h in Headers */,
 				8FA9F6411DA2F128009A6E87 /* ORCValidatorActionInterator.h in Headers */,
 				8FA9F6401DA2F120009A6E87 /* ORCThemeSdk.h in Headers */,
+				8FFB617D1F3B1F8700D23780 /* GIGURLAuthCommunicator.h in Headers */,
 				8FA9F63F1DA2F118009A6E87 /* ORCSettingsDataManager.h in Headers */,
 				8FA9F63E1DA2F10E009A6E87 /* ORCTag.h in Headers */,
 				8FA9F63D1DA2F107009A6E87 /* ORCVuforiaConfig.h in Headers */,
@@ -2392,61 +1947,6 @@
 				8FA9F6391DA2F0DB009A6E87 /* ORCBusinessUnit.h in Headers */,
 				8FA9F6381DA2F0D3009A6E87 /* Orchextra.h in Headers */,
 				8FBAE80D1DA3983A00BC6A22 /* ORCWebViewController.h in Headers */,
-				8FA9F69F1DA2F3B2009A6E87 /* ORCGIGURLConnectionBuilder.h in Headers */,
-				8FA9F6A01DA2F3B2009A6E87 /* ORCGIGURLRequestFactory.h in Headers */,
-				8FA9F6A11DA2F3B2009A6E87 /* ORCGIGURLRequestLogger.h in Headers */,
-				8FA9F6A21DA2F3B2009A6E87 /* ORCGIGURLStorage.h in Headers */,
-				8FA9F6A31DA2F3B2009A6E87 /* ORCGIGURLImageResponse.h in Headers */,
-				8FA9F6A41DA2F3B2009A6E87 /* ORCGIGURLJSONResponse.h in Headers */,
-				8FA9F6A51DA2F3B2009A6E87 /* ORCGIGURLResponse.h in Headers */,
-				8FA9F6A61DA2F3B2009A6E87 /* NSArray+ORCGIGExtension.h in Headers */,
-				8FA9F6A71DA2F3B2009A6E87 /* NSBundle+ORCGIGExtension.h in Headers */,
-				8FA9F6A81DA2F3B2009A6E87 /* UIColor+ORCGIGExtension.h in Headers */,
-				8FA9F6A91DA2F3B2009A6E87 /* GIGDebug.h in Headers */,
-				8FA9F6AA1DA2F3B2009A6E87 /* GIGDispatch.h in Headers */,
-				8FA9F6AB1DA2F3B2009A6E87 /* GIGRandom.h in Headers */,
-				8FA9F6AC1DA2F3B2009A6E87 /* GIGUtils.h in Headers */,
-				8FA9F6AD1DA2F3B2009A6E87 /* UIImage+ORCGIGExtension.h in Headers */,
-				8FA9F6AE1DA2F3B2009A6E87 /* NSInvocation+ORCGIGExtension.h in Headers */,
-				8FA9F6AF1DA2F3B2009A6E87 /* NSArray+ORCGIGJSON.h in Headers */,
-				8FA9F6B01DA2F3B2009A6E87 /* NSData+ORCGIGJSON.h in Headers */,
-				8FA9F6B11DA2F3B2009A6E87 /* NSDictionary+ORCGIGJSON.h in Headers */,
-				8FA9F6B21DA2F3B2009A6E87 /* NSString+ORCGIGJSON.h in Headers */,
-				8FA9F6B31DA2F3B2009A6E87 /* ORCGIGJSON.h in Headers */,
-				8FA9F6B41DA2F3B2009A6E87 /* ORCGIGLogManager.h in Headers */,
-				8FA9F6B51DA2F3B2009A6E87 /* ORCGIGLocalization.h in Headers */,
-				8FA9F6B61DA2F3B2009A6E87 /* NSRegularExpression+ORCGIGRegexp.h in Headers */,
-				8FA9F6B71DA2F3B2009A6E87 /* NSString+ORCGIGRegexp.h in Headers */,
-				8FA9F6B81DA2F3B2009A6E87 /* ORCGIGRegexp.h in Headers */,
-				8FA9F6B91DA2F3B2009A6E87 /* NSUserDefaults+ORCGIGArchive.h in Headers */,
-				8FA9F6BA1DA2F3B2009A6E87 /* ORCGIGConstants.h in Headers */,
-				8FA9F6841DA2F350009A6E87 /* GIGScannerViewController.h in Headers */,
-				8FA9F6851DA2F350009A6E87 /* ORCGIGGeolocation.h in Headers */,
-				8FA9F6861DA2F350009A6E87 /* ORCGIGLayout.h in Headers */,
-				8FA9F6871DA2F350009A6E87 /* ORCGIGLayoutBase.h in Headers */,
-				8FA9F6881DA2F350009A6E87 /* ORCGIGLayoutCenter.h in Headers */,
-				8FA9F6891DA2F350009A6E87 /* ORCGIGLayoutFit.h in Headers */,
-				8FA9F68A1DA2F350009A6E87 /* ORCGIGLayoutGridHorizontal.h in Headers */,
-				8FA9F68B1DA2F350009A6E87 /* ORCGIGLayoutGridVertical.h in Headers */,
-				8FA9F68C1DA2F350009A6E87 /* ORCGIGLayoutSides.h in Headers */,
-				8FA9F68D1DA2F350009A6E87 /* ORCGIGLayoutSize.h in Headers */,
-				8FA9F68E1DA2F350009A6E87 /* GIGURLAuthCommunicator.h in Headers */,
-				8FA9F68F1DA2F350009A6E87 /* ORCGIGURLConfigAddDomainViewController.h in Headers */,
-				8FA9F6901DA2F350009A6E87 /* ORCGIGURLConfigDomainsTableViewController.h in Headers */,
-				8FA9F6911DA2F350009A6E87 /* ORCGIGURLConfigFixtureDetailTableViewController.h in Headers */,
-				8FA9F6921DA2F350009A6E87 /* ORCGIGURLConfigFixturesTableViewController.h in Headers */,
-				8FA9F6931DA2F350009A6E87 /* ORCGIGURLConfigTableViewController.h in Headers */,
-				8FA9F6941DA2F350009A6E87 /* ORCGIGURLDomain.h in Headers */,
-				8FA9F6951DA2F350009A6E87 /* ORCGIGURLDomainsKeeper.h in Headers */,
-				8FA9F6961DA2F350009A6E87 /* ORCGIGURLFixture.h in Headers */,
-				8FA9F6971DA2F350009A6E87 /* ORCGIGURLFixturesKeeper.h in Headers */,
-				8FA9F6981DA2F350009A6E87 /* ORCGIGURLFormatter.h in Headers */,
-				8FA9F6991DA2F350009A6E87 /* ORCGIGURLParametersFormatter.h in Headers */,
-				8FA9F69A1DA2F350009A6E87 /* ORCGIGNetwork.h in Headers */,
-				8FA9F69B1DA2F350009A6E87 /* ORCGIGURLCommunicator.h in Headers */,
-				8FA9F69C1DA2F350009A6E87 /* ORCGIGURLFile.h in Headers */,
-				8FA9F69D1DA2F350009A6E87 /* ORCGIGURLManager.h in Headers */,
-				8FA9F69E1DA2F350009A6E87 /* ORCGIGURLRequest.h in Headers */,
 				8FA9F6741DA2F2FA009A6E87 /* CLIColor.h in Headers */,
 				8FA9F6751DA2F2FA009A6E87 /* CocoaLumberjack.h in Headers */,
 				8FA9F6761DA2F2FA009A6E87 /* DDAbstractDatabaseLogger.h in Headers */,
@@ -2466,8 +1966,10 @@
 				8FA9F64A1DA2F213009A6E87 /* Orchextra_Prefix.pch in Headers */,
 				8FA9F64B1DA2F257009A6E87 /* ORCFormatterLog.h in Headers */,
 				8FA9F64C1DA2F257009A6E87 /* ORCApplicationCenter.h in Headers */,
+				8FFB617B1F3B1F8700D23780 /* NSBundle+ORCBundle.h in Headers */,
 				8FA9F64D1DA2F257009A6E87 /* ORCAppConfigCommunicator.h in Headers */,
 				8FA9F64E1DA2F257009A6E87 /* ORCAppConfigResponse.h in Headers */,
+				8FCF1E071F3B39E200C5697B /* ORCURLProvider.h in Headers */,
 				8FA9F6501DA2F257009A6E87 /* ORCWebViewPresenter.h in Headers */,
 				8FA9F6511DA2F257009A6E87 /* ORCActionCommunicator.h in Headers */,
 				8FA9F6521DA2F257009A6E87 /* ORCURLActionResponse.h in Headers */,
@@ -2480,9 +1982,11 @@
 				8FA9F65D1DA2F257009A6E87 /* ORCErrorManager.h in Headers */,
 				8FA9F65E1DA2F257009A6E87 /* ORCSettingsPersister.h in Headers */,
 				8FA9F65F1DA2F257009A6E87 /* ORCUserLocationPersister.h in Headers */,
+				8FCF1DF61F3B328100C5697B /* GIGScannerViewController.h in Headers */,
 				8FA9F6601DA2F257009A6E87 /* ORCStatisticsInteractor.h in Headers */,
 				8FA9F6611DA2F257009A6E87 /* ORCSettingsInteractor.h in Headers */,
 				8FA9F6621DA2F257009A6E87 /* ORCStayInteractor.h in Headers */,
+				8FCF1E051F3B39E200C5697B /* ORCURLRequest.h in Headers */,
 				8FA9F6631DA2F257009A6E87 /* ORCActionBrowser.h in Headers */,
 				8FA9F6641DA2F257009A6E87 /* ORCActionScanner.h in Headers */,
 				8FA9F6661DA2F257009A6E87 /* ORCActionWebView.h in Headers */,
@@ -2491,9 +1995,6 @@
 				8FA9F6691DA2F257009A6E87 /* ORCBeacon.h in Headers */,
 				8FA9F66A1DA2F257009A6E87 /* ORCGeofence.h in Headers */,
 				8FA9F66B1DA2F257009A6E87 /* ORCRegion.h in Headers */,
-				8FA9F66C1DA2F257009A6E87 /* ORCURLCommunicator.h in Headers */,
-				8FA9F66D1DA2F257009A6E87 /* ORCURLRequest.h in Headers */,
-				8FA9F66E1DA2F257009A6E87 /* ORCURLProvider.h in Headers */,
 				8FA9F66F1DA2F257009A6E87 /* NSString+MD5.h in Headers */,
 				8FA9F6701DA2F257009A6E87 /* ORCFormatterParameters.h in Headers */,
 				8FA9F6711DA2F257009A6E87 /* ORCProximityFormatter.h in Headers */,
@@ -2516,7 +2017,6 @@
 				A95373741BFDB0B300AEFE2E /* CameraCalibration.h in Headers */,
 				A9C188B51BFCC8F30073EE33 /* VFConfigurationInteractor.h in Headers */,
 				A953738B1BFDB0B400AEFE2E /* Obb2D.h in Headers */,
-				8F4CFADD1E6449B500B7603A /* NSBundle+ORCBundle.h in Headers */,
 				A95373B41BFDB0B400AEFE2E /* WordResult.h in Headers */,
 				A95373971BFDB0B400AEFE2E /* Renderer.h in Headers */,
 				A953739D1BFDB0B400AEFE2E /* Surface.h in Headers */,
@@ -2868,8 +2368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA9F6D91DA2FA54009A6E87 /* ORCGIGLayoutGridHorizontal.m in Sources */,
-				8FA9F6DA1DA2FA54009A6E87 /* ORCGIGLayoutGridVertical.m in Sources */,
 				8FA9F5511DA2E4BC009A6E87 /* CLIColor.m in Sources */,
 				8FA9F5521DA2E4BC009A6E87 /* DDAbstractDatabaseLogger.m in Sources */,
 				8FA9F5531DA2E4BC009A6E87 /* DDASLLogCapture.m in Sources */,
@@ -2882,50 +2380,12 @@
 				8FA9F5591DA2E4BC009A6E87 /* DDDispatchQueueLogFormatter.m in Sources */,
 				8FA9F55A1DA2E4BC009A6E87 /* DDMultiFormatter.m in Sources */,
 				8FA9F55B1DA2E4BC009A6E87 /* ORCMBProgressHUD.m in Sources */,
-				8FA9F52A1DA2E3F0009A6E87 /* GIGScannerViewController.m in Sources */,
-				8FA9F52C1DA2E3F0009A6E87 /* ORCGIGGeolocation.m in Sources */,
-				8FA9F52D1DA2E3F0009A6E87 /* GIGURLAuthCommunicator.m in Sources */,
-				8FA9F52E1DA2E3F0009A6E87 /* ORCGIGURLConfigAddDomainViewController.m in Sources */,
-				8FA9F52F1DA2E3F0009A6E87 /* ORCGIGURLConfigDomainsTableViewController.m in Sources */,
-				8FA9F5301DA2E3F0009A6E87 /* ORCGIGURLConfigFixtureDetailTableViewController.m in Sources */,
-				8FA9F5311DA2E3F0009A6E87 /* ORCGIGURLConfigFixturesTableViewController.m in Sources */,
-				8FA9F5321DA2E3F0009A6E87 /* ORCGIGURLConfigTableViewController.m in Sources */,
-				8FA9F5331DA2E3F0009A6E87 /* ORCGIGURLDomain.m in Sources */,
-				8FA9F5341DA2E3F0009A6E87 /* ORCGIGURLDomainsKeeper.m in Sources */,
-				8FA9F5351DA2E3F0009A6E87 /* ORCGIGURLFixture.m in Sources */,
-				8FA9F5361DA2E3F0009A6E87 /* ORCGIGURLFixturesKeeper.m in Sources */,
-				8FA9F5371DA2E3F0009A6E87 /* ORCGIGURLFormatter.m in Sources */,
-				8FA9F5381DA2E3F0009A6E87 /* ORCGIGURLParametersFormatter.m in Sources */,
-				8FA9F5391DA2E3F0009A6E87 /* ORCGIGURLCommunicator.m in Sources */,
-				8FA9F53A1DA2E3F0009A6E87 /* ORCGIGURLFile.m in Sources */,
-				8FA9F53B1DA2E3F0009A6E87 /* ORCGIGURLManager.m in Sources */,
-				8FA9F53C1DA2E3F0009A6E87 /* ORCGIGURLRequest.m in Sources */,
-				8FA9F53D1DA2E3F0009A6E87 /* ORCGIGURLConnectionBuilder.m in Sources */,
-				8FA9F53E1DA2E3F0009A6E87 /* ORCGIGURLRequestFactory.m in Sources */,
-				8FA9F53F1DA2E3F0009A6E87 /* ORCGIGURLRequestLogger.m in Sources */,
-				8FA9F5401DA2E3F0009A6E87 /* ORCGIGURLStorage.m in Sources */,
-				8FA9F5411DA2E3F0009A6E87 /* ORCGIGURLImageResponse.m in Sources */,
-				8FA9F5421DA2E3F0009A6E87 /* ORCGIGURLJSONResponse.m in Sources */,
-				8FA9F5431DA2E3F0009A6E87 /* ORCGIGURLResponse.m in Sources */,
-				8FA9F5441DA2E3F0009A6E87 /* NSArray+ORCGIGExtension.m in Sources */,
-				8FA9F5451DA2E3F0009A6E87 /* NSBundle+ORCGIGExtension.m in Sources */,
-				8FA9F5461DA2E3F0009A6E87 /* UIColor+ORCGIGExtension.m in Sources */,
-				8FA9F5471DA2E3F0009A6E87 /* UIImage+ORCGIGExtension.m in Sources */,
-				8FA9F5481DA2E3F0009A6E87 /* NSInvocation+ORCGIGExtension.m in Sources */,
-				8FA9F5491DA2E3F0009A6E87 /* NSArray+ORCGIGJSON.m in Sources */,
-				8FA9F54A1DA2E3F0009A6E87 /* NSData+ORCGIGJSON.m in Sources */,
-				8FA9F54B1DA2E3F0009A6E87 /* NSDictionary+ORCGIGJSON.m in Sources */,
-				8FA9F54C1DA2E3F0009A6E87 /* NSString+ORCGIGJSON.m in Sources */,
-				8FA9F54D1DA2E3F0009A6E87 /* ORCGIGLogManager.m in Sources */,
-				8FA9F54E1DA2E3F0009A6E87 /* NSRegularExpression+ORCGIGRegexp.m in Sources */,
-				8FA9F54F1DA2E3F0009A6E87 /* NSString+ORCGIGRegexp.m in Sources */,
-				8FA9F5501DA2E3F0009A6E87 /* NSUserDefaults+ORCGIGArchive.m in Sources */,
 				8F660CA31DA2BBBC007B9551 /* Orchextra.m in Sources */,
 				8F660CA41DA2BBBC007B9551 /* ORCConstants.m in Sources */,
+				8FCF1E061F3B39E200C5697B /* ORCURLRequest.m in Sources */,
 				8F660CA51DA2BBBC007B9551 /* ORCSettingsDataManager.m in Sources */,
 				8F660CA61DA2BBBC007B9551 /* ORCUser.m in Sources */,
 				8F660CA71DA2BBBC007B9551 /* ORCPushManager.m in Sources */,
-				8F77E3131DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m in Sources */,
 				8F660CA81DA2BBBC007B9551 /* ORCLog.m in Sources */,
 				8F660CA91DA2BBBC007B9551 /* ORCFormatterLog.m in Sources */,
 				8F660CAA1DA2BBBC007B9551 /* ORCApplicationCenter.m in Sources */,
@@ -2938,6 +2398,7 @@
 				8F660CB01DA2BBBC007B9551 /* ORCURLActionResponse.m in Sources */,
 				8F660CB11DA2BBBC007B9551 /* ORCURLActionConfirmationResponse.m in Sources */,
 				8F660CB21DA2BBBC007B9551 /* ORCActionManager.m in Sources */,
+				8FFB617E1F3B1F8700D23780 /* GIGURLAuthCommunicator.m in Sources */,
 				8F4CFAD51E64158E00B7603A /* LocalizableConstants.swift in Sources */,
 				8F660CB31DA2BBBC007B9551 /* ORCOpenURL.m in Sources */,
 				8F660CB41DA2BBBC007B9551 /* ORCWebViewController.m in Sources */,
@@ -2951,11 +2412,14 @@
 				8F660CBC1DA2BBBC007B9551 /* ORCStatisticsInteractor.m in Sources */,
 				8F660CBD1DA2BBBC007B9551 /* ORCSettingsInteractor.m in Sources */,
 				8F660CBE1DA2BBBC007B9551 /* ORCStayInteractor.m in Sources */,
+				8FCF1DF71F3B328100C5697B /* GIGScannerViewController.m in Sources */,
+				8FCF1E081F3B39E200C5697B /* ORCURLProvider.m in Sources */,
 				8F660CBF1DA2BBBC007B9551 /* ORCValidatorActionInterator.m in Sources */,
 				8F660CC01DA2BBBC007B9551 /* ORCActionBrowser.m in Sources */,
 				8F660CC11DA2BBBC007B9551 /* ORCActionScanner.m in Sources */,
 				8F660CC31DA2BBBC007B9551 /* ORCActionWebView.m in Sources */,
 				8F660CC41DA2BBBC007B9551 /* ORCAction.m in Sources */,
+				8FFB617C1F3B1F8700D23780 /* NSBundle+ORCBundle.m in Sources */,
 				8F660CC51DA2BBBC007B9551 /* ORCBusinessUnit.m in Sources */,
 				8F4CFADC1E64471400B7603A /* ORCActionVuforia.m in Sources */,
 				8F660CC61DA2BBBC007B9551 /* ORCCustomField.m in Sources */,
@@ -2968,9 +2432,6 @@
 				8F660CCC1DA2BBBC007B9551 /* ORCBeacon.m in Sources */,
 				8F660CCD1DA2BBBC007B9551 /* ORCGeofence.m in Sources */,
 				8F660CCE1DA2BBBC007B9551 /* ORCRegion.m in Sources */,
-				8F660CCF1DA2BBBC007B9551 /* ORCURLCommunicator.m in Sources */,
-				8F660CD01DA2BBBC007B9551 /* ORCURLRequest.m in Sources */,
-				8F660CD11DA2BBBC007B9551 /* ORCURLProvider.m in Sources */,
 				8F660CD21DA2BBBC007B9551 /* NSString+MD5.m in Sources */,
 				8F660CD31DA2BBBC007B9551 /* ORCFormatterParameters.m in Sources */,
 				8F660CD41DA2BBBC007B9551 /* ORCProximityFormatter.m in Sources */,
@@ -2986,7 +2447,6 @@
 				A953735D1BFDB09400AEFE2E /* VuforiaApplicationSession.mm in Sources */,
 				A95373571BFDB03900AEFE2E /* ORCCloudRecoEAGLView.mm in Sources */,
 				A953735F1BFDB09400AEFE2E /* VuforiaApplicationShaderUtils.m in Sources */,
-				8F4CFADA1E6446A200B7603A /* NSBundle+ORCBundle.m in Sources */,
 				A95373B71BFDB14700AEFE2E /* ORCActionVuforia.m in Sources */,
 				A95373551BFDB01600AEFE2E /* ORCVuforiaViewController.m in Sources */,
 				A9C188A71BFCC75F0073EE33 /* VuforiaOrchextra.m in Sources */,
@@ -3088,6 +2548,7 @@
 		8F4733221DA3EFA200190E90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
@@ -3103,6 +2564,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Libs",
+				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Orchextra/Main/Orchextra_Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3232,6 +2698,7 @@
 		8F4733271DA3EFB200190E90 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
@@ -3246,6 +2713,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Libs",
+				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Orchextra/Main/Orchextra_Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",

@@ -14,23 +14,35 @@
 
 + (NSString *)endPointConfiguration
 {
-    return [NSString stringWithFormat:@"%@/%@/configuration", [ORCURLProvider domain], ORCNetworkVersion];
+    NSMutableString *urlRequest = [ORCURLProvider domainAndVersionComponents];
+    urlRequest = [[NSMutableString alloc] initWithString:[urlRequest stringByAppendingPathComponent:@"configuration"]];
+    
+    return urlRequest;
 }
 
 + (NSString *)endPointAction
 {
-    return [NSString stringWithFormat:@"%@/%@/action", [ORCURLProvider domain], ORCNetworkVersion];
+    NSMutableString *urlRequest = [ORCURLProvider domainAndVersionComponents];
+    urlRequest = [[NSMutableString alloc] initWithString:[urlRequest stringByAppendingPathComponent:@"action"]];
+    
+    return urlRequest;
 }
 
 + (NSString *)endPointSecurityToken
 {
-    NSString *urlRequest = [NSString stringWithFormat:@"%@/%@/security/token", [ORCURLProvider domain], ORCNetworkVersion];
+    NSMutableString *urlRequest = [ORCURLProvider domainAndVersionComponents];
+    urlRequest = [[NSMutableString alloc] initWithString:[urlRequest stringByAppendingPathComponent:@"security"]];
+    urlRequest = [[NSMutableString alloc] initWithString:[urlRequest stringByAppendingPathComponent:@"token"]];
+    
     return urlRequest;
 }
 
 + (NSString *)endPointConfirmAction:(NSString *)actionId
 {
-    NSString *urlRequest = [NSString stringWithFormat:@"%@/%@/action/confirm/%@", [ORCURLProvider domain], ORCNetworkVersion, actionId];
+    NSMutableString *urlRequest = [ORCURLProvider domainAndVersionComponents];
+    urlRequest = [[NSMutableString alloc] initWithString:[urlRequest stringByAppendingPathComponent:@"action"]];
+    urlRequest = [[NSMutableString alloc] initWithString:[urlRequest stringByAppendingPathComponent:@"confirm"]];
+    urlRequest = [[NSMutableString alloc] initWithString:[urlRequest stringByAppendingPathComponent:actionId]];
     return urlRequest;
 }
 
@@ -42,6 +54,14 @@
     if (!domain) domain = ORCNetworkHost;
     
     return domain;
+}
+
++ (NSMutableString *)domainAndVersionComponents
+{
+    NSMutableString *result = [[NSMutableString alloc] initWithString:[ORCURLProvider domain]];
+    result = [[NSMutableString alloc] initWithString:[result stringByAppendingPathComponent:ORCNetworkVersion]];
+    
+    return result;
 }
 
 @end

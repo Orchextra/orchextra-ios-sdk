@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "ORCURLCommunicator.h"
 #import "ORCAppConfigResponse.h"
+
+#import <GIGLibrary/GIGURLCommunicator.h>
 
 typedef void(^CompletionOrchestraConfigResponse)(ORCAppConfigResponse *response);
 
-@interface ORCAppConfigCommunicator : ORCURLCommunicator
+@interface ORCAppConfigCommunicator : GIGURLCommunicator
 
 //- (void)loadConfigurationWithCompletion:(CompletionOrchestraConfigResponse)completion;
 

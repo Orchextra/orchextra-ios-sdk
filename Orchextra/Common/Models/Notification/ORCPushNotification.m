@@ -7,7 +7,8 @@
 //
 
 #import "ORCPushNotification.h"
-#import "ORCGIGJSON.h"
+
+#import <GIGLibrary/GIGJSON.h>
 
 @implementation ORCPushNotification
 
