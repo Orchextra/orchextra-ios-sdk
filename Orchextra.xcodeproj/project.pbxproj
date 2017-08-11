@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8F0359C41F3DA48300CD0BD5 /* Orchextra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0359C31F3DA48300CD0BD5 /* Orchextra.swift */; };
 		8F1593AF1DA3B18B003257C2 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F660C8C1DA2B8D0007B9551 /* Orchextra.framework */; };
 		8F1593B51DA3B228003257C2 /* ORCGIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A93378981D7963B4001E1BA0 /* ORCGIGURLJSONResponseTests.m */; };
 		8F1593B61DA3B228003257C2 /* ORCUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFA91C6BA0EC005CEAA2 /* ORCUserTests.m */; };
@@ -439,6 +440,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F0359C31F3DA48300CD0BD5 /* Orchextra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orchextra.swift; sourceTree = "<group>"; };
 		8F1593AA1DA3B18A003257C2 /* OrchextraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrchextraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F15F61B1D13E0DD00B589E0 /* ORCBusinessUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCBusinessUnit.h; sourceTree = "<group>"; };
 		8F15F61C1D13E0DD00B589E0 /* ORCBusinessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBusinessUnit.m; sourceTree = "<group>"; };
@@ -845,6 +847,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F0359C21F3DA47000CD0BD5 /* SDK_Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8F0359C31F3DA48300CD0BD5 /* Orchextra.swift */,
+			);
+			path = SDK_Interface;
+			sourceTree = "<group>";
+		};
 		8F79D5CC1E606ADC00AAB4CA /* Localizables */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,6 +1108,7 @@
 		A90FCE791BF362080042F370 /* Orchextra */ = {
 			isa = PBXGroup;
 			children = (
+				8F0359C21F3DA47000CD0BD5 /* SDK_Interface */,
 				8F79D5CC1E606ADC00AAB4CA /* Localizables */,
 				A90FCFA41BF362080042F370 /* SDK */,
 				A90FCF9C1BF362080042F370 /* Main */,
@@ -1974,6 +1985,7 @@
 				8FA9F63A1DA2F0E3009A6E87 /* ORCCustomField.h in Headers */,
 				8FA9F6391DA2F0DB009A6E87 /* ORCBusinessUnit.h in Headers */,
 				8FA9F6381DA2F0D3009A6E87 /* Orchextra.h in Headers */,
+				8FA9F6611DA2F257009A6E87 /* ORCSettingsInteractor.h in Headers */,
 				8FBAE80D1DA3983A00BC6A22 /* ORCWebViewController.h in Headers */,
 				8FA9F6741DA2F2FA009A6E87 /* CLIColor.h in Headers */,
 				8FA9F6751DA2F2FA009A6E87 /* CocoaLumberjack.h in Headers */,
@@ -2013,7 +2025,6 @@
 				8FA9F65F1DA2F257009A6E87 /* ORCUserLocationPersister.h in Headers */,
 				8FCF1DF61F3B328100C5697B /* GIGScannerViewController.h in Headers */,
 				8FA9F6601DA2F257009A6E87 /* ORCStatisticsInteractor.h in Headers */,
-				8FA9F6611DA2F257009A6E87 /* ORCSettingsInteractor.h in Headers */,
 				8FA9F6621DA2F257009A6E87 /* ORCStayInteractor.h in Headers */,
 				8FCF1E051F3B39E200C5697B /* ORCURLRequest.h in Headers */,
 				8FA9F6631DA2F257009A6E87 /* ORCActionBrowser.h in Headers */,
@@ -2420,6 +2431,7 @@
 				8F660CA91DA2BBBC007B9551 /* ORCFormatterLog.m in Sources */,
 				8F660CAA1DA2BBBC007B9551 /* ORCApplicationCenter.m in Sources */,
 				8F4CFAEF1E64565300B7603A /* ORCVuforiaViewController.m in Sources */,
+				8F0359C41F3DA48300CD0BD5 /* Orchextra.swift in Sources */,
 				8F660CAB1DA2BBBC007B9551 /* ORCAppConfigCommunicator.m in Sources */,
 				8F660CAC1DA2BBBC007B9551 /* ORCAppConfigResponse.m in Sources */,
 				8F660CAD1DA2BBBC007B9551 /* ORCWebViewViewController.m in Sources */,
