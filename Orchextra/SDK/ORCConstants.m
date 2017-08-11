@@ -31,10 +31,6 @@ NSString * const ORCActionVuforiaID = @"scan_vuforia";
 NSString * const ORCSchemeScanner = @"Orchextra://scanner";
 NSString * const ORCSchemeImageRecognition = @"Orchextra://imageRecognition";
 
-#pragma mark - SDK
-    
-NSString * const ORCSDKVersion = @"3.0.0";
-
 #pragma mark - Network
 
 NSString * const ORCNetworkVersion = @"v1";

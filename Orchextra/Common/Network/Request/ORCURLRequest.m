@@ -10,6 +10,7 @@
 #import "ORCConstants.h"
 #import "ORCDevice.h"
 
+#import "NSBundle+ORCBundle.h"
 
 @implementation ORCURLRequest
 
