@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+#import "NSBundle+ORCBundle.h"
+
 #define LOG_LEVEL_DEF ddLogLevel
+
+#pragma mark - SDK
+
+#define ORCSDKVersion [[NSBundle bundleSDK] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 
 #pragma mark - Types Trigger
 
@@ -35,10 +41,6 @@ extern NSString * const ORCActionCustomSchemeID;
 
 extern NSString * const ORCSchemeScanner;
 extern NSString * const ORCSchemeImageRecognition;
-
-#pragma mark - SDK
-
-extern NSString * const ORCSDKVersion;
 
 #pragma mark - Network
 
