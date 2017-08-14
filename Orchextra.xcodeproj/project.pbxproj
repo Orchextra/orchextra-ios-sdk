@@ -691,6 +691,8 @@
 		A90FD1481BF36D650042F370 /* scanning-by@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanning-by@3x.png"; sourceTree = "<group>"; };
 		A90FD1491BF36D650042F370 /* Simple.fragsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.fragsh; sourceTree = "<group>"; };
 		A90FD14A1BF36D650042F370 /* Simple.vertsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.vertsh; sourceTree = "<group>"; };
+		A92646EE1F3D851F00ACEB4E /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		A92646EF1F3D851F00ACEB4E /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		A92C8DFF1CD2580700322000 /* torch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = torch.png; sourceTree = "<group>"; };
 		A92C8E001CD2580700322000 /* torch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "torch@2x.png"; sourceTree = "<group>"; };
 		A92C8E011CD2580700322000 /* torch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "torch@3x.png"; sourceTree = "<group>"; };
@@ -1928,6 +1930,8 @@
 		A9E596691B04DBC40040EAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A92646EE1F3D851F00ACEB4E /* Cartfile */,
+				A92646EF1F3D851F00ACEB4E /* Cartfile.private */,
 				8FFB61711F3B0D1F00D23780 /* GIGLibrary.framework */,
 				8F2884641D23D68D00BA5230 /* SafariServices.framework */,
 				A93950451D0016A70063A27A /* PassKit.framework */,
