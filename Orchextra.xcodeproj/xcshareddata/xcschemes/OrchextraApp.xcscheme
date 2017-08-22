@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9C54D961F41A6F100DF2074"
-               BuildableName = "Orchextra.framework"
-               BlueprintName = "Orchextra"
+               BlueprintIdentifier = "A9C54DC31F41A8E500DF2074"
+               BuildableName = "OrchextraApp.app"
+               BlueprintName = "OrchextraApp"
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,26 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9C54D9F1F41A6F100DF2074"
-               BuildableName = "OrchextraTests.xctest"
-               BlueprintName = "OrchextraTests"
-               ReferencedContainer = "container:Orchextra.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9C54D961F41A6F100DF2074"
-            BuildableName = "Orchextra.framework"
-            BlueprintName = "Orchextra"
+            BlueprintIdentifier = "A9C54DC31F41A8E500DF2074"
+            BuildableName = "OrchextraApp.app"
+            BlueprintName = "OrchextraApp"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9C54D961F41A6F100DF2074"
-            BuildableName = "Orchextra.framework"
-            BlueprintName = "Orchextra"
+            BlueprintIdentifier = "A9C54DC31F41A8E500DF2074"
+            BuildableName = "OrchextraApp.app"
+            BlueprintName = "OrchextraApp"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9C54D961F41A6F100DF2074"
-            BuildableName = "Orchextra.framework"
-            BlueprintName = "Orchextra"
+            BlueprintIdentifier = "A9C54DC31F41A8E500DF2074"
+            BuildableName = "OrchextraApp.app"
+            BlueprintName = "OrchextraApp"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

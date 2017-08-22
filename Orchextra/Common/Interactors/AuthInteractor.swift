@@ -1,0 +1,154 @@
+//
+//  AuthInteractor.swift
+//  Orchextra
+//
+//  Created by Judith Medina on 14/08/2017.
+//  Copyright © 2017 Gigigo Mobile Services S.L. All rights reserved.
+//
+
+import Foundation
+import GIGLibrary
+
+protocol AuthInteractorInput {
+    func authWithAccessToken(completion: @escaping (Result<String, Error>) -> Void)
+    func sendRequest(request: Request, completion: @escaping (Result<String, Error>) -> Void)
+}
+
+class AuthInteractor: AuthInteractorInput {
+    
+    let service: AuthenticationServiceInput
+    let session: Session
+    
+    // MARK: - INIT
+
+    init(service: AuthenticationServiceInput,
+         session: Session) {
+        self.service = service
+        self.session = session
+    }
+    
+    convenience init() {
+        let service = AuthenticationService()
+        let session = Session.shared
+        self.init(service: service, session: session)
+    }
+    
+    // MARK: - PUBLIC
+    
+    func authWithAccessToken(completion: @escaping (Result<String, Error>) -> Void) {
+        
+        guard let apikey = self.session.apiKey,
+            let apisecret = self.session.apiSecret else {
+                LogWarn("Can't get accesstoken - Apikey/Apisecret are nil")
+                return
+        }
+        
+        let accesstokenLoaded = self.session.loadAccesstoken()
+        
+        if let accesstoken = accesstokenLoaded {
+            completion(.success(accesstoken))
+            
+        } else {
+            // TODO: Review if we need to add the crmID
+            self.service.auth(with: apikey, apisecret: apisecret, crmId: nil) { result in
+                switch result {
+                case .success(let accesstoken):
+                    self.session.save(accessToken: accesstoken)
+                    completion(.success(accesstoken))
+                    break
+                case .error(let error):
+                    switch error {
+                    case ErrorService.refreshAccessToken:
+                        self.session.save(accessToken: nil)
+                        completion(.error(ErrorService.refreshAccessToken))
+                    case ErrorService.invalidCredentials:
+                        completion(.error(error))
+                    default:
+                        // TODO: Other cases
+                        break
+                    }
+                }
+            }
+        }
+    }
+
+    
+    
+    /// Method to authenticate the request
+    ///
+    /// - Parameters:
+    ///   - request: request that needs to be authenticated
+    ///   - completion: return the completion for the request
+    func sendRequest(request: Request, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        request.fetch { response in
+            
+            switch response.status {
+            case .success:
+                do {
+                    let json = try response.json()
+                    LogDebug(json.description)
+                    completion(.success(""))
+                    
+                } catch {
+                    let error = ErrorService.unknown
+                    LogError(error as NSError)
+                    completion(.error(error))
+                }
+                
+            default:
+                let error = ErrorServiceHandler.parseErrorService(with: response)
+                switch error {
+                case ErrorService.refreshAccessToken:
+                    self.handleRefreshAccessToken(request: request, completion: completion)
+                    break
+                default:
+                    completion(.error(error))
+                    break
+                }
+            }
+        }
+    }
+    
+    // MARK: - PRIVATE
+    
+    private func refreshAccessToken(completion: @escaping (Result<Bool, Error>) -> Void) {
+
+        self.session.save(accessToken: nil)
+        self.authWithAccessToken { result in
+            switch result {
+            case .success:
+                // TODO: Bind device and user
+                completion(.success(true))
+                break
+                
+            case .error(let error):
+                completion(.error(error))
+                break
+            }
+        }        
+    }
+
+    private func bind(device: Device) {
+        
+    }
+    
+    // MARK: - Authentication Request
+    
+    private func handleRefreshAccessToken(request: Request,
+                                          completion: @escaping (Result<String, Error>) -> Void) {
+        let authInteractor = AuthInteractor()
+        authInteractor.refreshAccessToken(completion: { result in
+            switch result {
+            case .success:
+                request.headers = Request.headers(endpoint: request.endpoint)
+                self.sendRequest(request: request, completion: completion)
+                break
+            case .error (let error):
+                completion(.error(error))
+                break
+            }
+        })
+    }
+
+}
