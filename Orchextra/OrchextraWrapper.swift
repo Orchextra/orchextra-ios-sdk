@@ -46,4 +46,23 @@ class OrchextraWrapper {
         
         self.triggerInteractor.trigger()
     }
+    
+    func setScanner(scanner: ModuleInput) {
+        scanner.start()
+    }
+    func openScanner<T: UIViewController>(vc: T) where T: ModuleInput {
+        self.topViewController()?.present(vc, animated: true, completion: nil)
+        vc.start()
+    }
+    
+    // MARK: - Private Helpers
+    
+    private func topViewController() -> UIViewController? {
+        var rootVC = UIApplication.shared.keyWindow?.rootViewController
+        
+        while let presentedController = rootVC?.presentedViewController {
+            rootVC = presentedController
+        }
+        return rootVC
+    }
 }

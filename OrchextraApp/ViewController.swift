@@ -35,5 +35,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func openScanner(_ sender: AnyObject) {
+            self.orchextra.openScanner()
+    }
 }
 

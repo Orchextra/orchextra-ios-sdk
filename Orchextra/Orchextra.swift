@@ -102,7 +102,10 @@ open class Orchextra {
     public func commitConfiguration() {}
     
     // MARK: Public trigger methods
-    public func openScanner() {}
+    public func openScanner() {
+        let scanner = ScannerVC()
+        OrchextraWrapper.shared.openScanner(vc: scanner)
+    }
     public func openImageRecognition() {}
     
 //    // MARK: Public CRM methods

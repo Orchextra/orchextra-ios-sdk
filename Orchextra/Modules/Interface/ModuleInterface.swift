@@ -9,8 +9,12 @@
 import Foundation
 
 protocol ModuleInput {
-    func open()
-    func stop()
+    
+    var outputModule: ModuleOutput { get set }
+    
+    func start()
+    func setConfig(config: [String: Any])
+    func finish()
 }
 
 protocol ModuleOutput {
