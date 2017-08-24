@@ -101,11 +101,20 @@ open class Orchextra {
     // MARK: Public submit SDK methods
     public func commitConfiguration() {}
     
+//    public func setScanner() {
+//    let defaultScanner = ScannerVC()
+//        OrchextraWrapper.shared.setScanner(vc: defaultScanner)
+//    }
+    
     // MARK: Public trigger methods
-    public func openScanner() {
-        let scanner = ScannerVC()
-        OrchextraWrapper.shared.openScanner(vc: scanner)
+    public func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
+        OrchextraWrapper.shared.setScanner(vc: vc)
     }
+    
+    public func openScanner() {
+        OrchextraWrapper.shared.openScanner()
+    }
+    
     public func openImageRecognition() {}
     
 //    // MARK: Public CRM methods

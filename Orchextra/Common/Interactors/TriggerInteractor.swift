@@ -21,8 +21,9 @@ class TriggerInteractor {
         self.init(service: service)
     }
     
-    func trigger() {
-        self.service.launchTrigger(values: [:]) { result in
+    
+    func trigger(values: [String: Any]) {
+        self.service.launchTrigger(values: values) { result in
             switch result {
             case .success:
                 print("Trigger launched")

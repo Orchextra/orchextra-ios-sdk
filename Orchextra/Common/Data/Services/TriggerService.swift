@@ -25,14 +25,11 @@ class TriggerService {
     
     func launchTrigger(values: [String: Any], completion: @escaping (Result<String, Error>) -> Void) {
         
-        let urlParams = ["type" : "barcode",
-                         "value" : "Hello :)"]
-        
         let request = Request.OrchextraRequest(
             method: "GET",
             baseUrl: Config.coreEndpoint,
             endpoint: endpointTrigger,
-            urlParams: urlParams)
+            urlParams: values)
         
         self.authInteractor.sendRequest(request: request, completion: completion)
     }

@@ -26,16 +26,18 @@ protocol ScannerInput {
 class ScannerPresenter: ScannerInput {
     
     var vc: ScannerUI?
+    var outputModule: ModuleOutput?
     
     // MARK: -
     
     func viewDidLoad() {
         self.vc?.showScanner()
     }
- 
-    
+
     func scannerDidFinishCapture(value: String, type: String) {
         LogInfo("Scanned: \(value) - \(type)")
+        self.outputModule?.triggerWasFire(with: ["value" : value,
+                                                 "type" : type])
     }
     
 }

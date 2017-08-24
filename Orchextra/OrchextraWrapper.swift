@@ -15,20 +15,27 @@ class OrchextraWrapper {
     
     private var session: Session
     private var configInteractor: ConfigInteractorInput
-    private let triggerInteractor = TriggerInteractor()
+    private var triggerManager: TriggerManager
+    lazy private var wireframe = Wireframe()
+    
     fileprivate var startCompletion: ((Result<Bool, Error>) -> Void)?
+
+    // Modules
+    var scanner: ModuleInput?
     
     convenience init() {
         let session = Session.shared
         let configInteractor = ConfigInteractor()
+        let triggerManager = TriggerManager()
         self.init(session: session,
-                  configInteractor: configInteractor)
-
+                  configInteractor: configInteractor,
+                  triggerManager: triggerManager)
     }
     
-    init(session: Session, configInteractor: ConfigInteractorInput) {
+    init(session: Session, configInteractor: ConfigInteractorInput, triggerManager: TriggerManager) {
         self.session = session
         self.configInteractor = configInteractor
+        self.triggerManager = triggerManager
     }
     
     func start(with apiKey: String, apiSecret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
@@ -43,16 +50,25 @@ class OrchextraWrapper {
                 
         // Start configuration
         self.configInteractor.loadCoreConfig(completion: completion)
-        
-        self.triggerInteractor.trigger()
     }
     
-    func setScanner(scanner: ModuleInput) {
-        scanner.start()
+    func openScanner() {
+
+        if self.scanner == nil {
+            self.scanner = self.wireframe.scannerOrx()
+        }
+        
+        guard let scannerVC = self.scanner as? UIViewController else {
+            return
+        }
+        
+        self.topViewController()?.present(scannerVC, animated: true, completion: nil)
+        self.scanner?.start()
     }
-    func openScanner<T: UIViewController>(vc: T) where T: ModuleInput {
-        self.topViewController()?.present(vc, animated: true, completion: nil)
-        vc.start()
+    
+    func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
+        self.scanner = vc
+        self.scanner?.outputModule = self.triggerManager
     }
     
     // MARK: - Private Helpers

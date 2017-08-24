@@ -17,7 +17,7 @@ public enum Environment {
 class Config {
 
     static var SDKVersion: String {
-        let bundle = Bundle.orchextraBundle()
+        let bundle = Bundle.OrxBundle()
         let sdkVersion: String? = bundle.infoDictionary?["CFBundleShortVersionString"] as? String
         let versionNumber = sdkVersion ?? "3.0.0"
         let version = "IOS_\(versionNumber)"

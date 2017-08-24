@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
+		A96670561F4ED7C700545B19 /* TriggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96670551F4ED7C700545B19 /* TriggerManager.swift */; };
+		A96670581F4EE03D00545B19 /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96670571F4EE03D00545B19 /* Wireframe.swift */; };
+		A966705A1F4EE06100545B19 /* ScannerOrx.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96670591F4EE06100545B19 /* ScannerOrx.storyboard */; };
 		A96C9CF31F4DA2BB008FA97A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96C9CF21F4DA2BB008FA97A /* AVFoundation.framework */; };
 		A96C9CF51F4DA2F6008FA97A /* GIGScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C9CF41F4DA2F6008FA97A /* GIGScannerVC.swift */; };
+		A96C9CF91F4EABC9008FA97A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A96C9CF81F4EABC9008FA97A /* Assets.xcassets */; };
+		A96C9CFB1F4EBC6B008FA97A /* CustomScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C9CFA1F4EBC6A008FA97A /* CustomScanner.swift */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
 		A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */; };
@@ -110,8 +115,13 @@
 /* Begin PBXFileReference section */
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
+		A96670551F4ED7C700545B19 /* TriggerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerManager.swift; sourceTree = "<group>"; };
+		A96670571F4EE03D00545B19 /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
+		A96670591F4EE06100545B19 /* ScannerOrx.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScannerOrx.storyboard; sourceTree = "<group>"; };
 		A96C9CF21F4DA2BB008FA97A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A96C9CF41F4DA2F6008FA97A /* GIGScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGScannerVC.swift; sourceTree = "<group>"; };
+		A96C9CF81F4EABC9008FA97A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		A96C9CFA1F4EBC6A008FA97A /* CustomScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScanner.swift; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
@@ -192,11 +202,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A96C9CF61F4EAB7C008FA97A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A96C9CF81F4EABC9008FA97A /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A96C9CF71F4EAB89008FA97A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9C54D9B1F41A6F100DF2074 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A974BE7A1F4B080100A355FD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A96670551F4ED7C700545B19 /* TriggerManager.swift */,
 				A974BE841F4B0DBF00A355FD /* Interface */,
 				A974BE7B1F4B080100A355FD /* Scanner */,
+				A96670571F4EE03D00545B19 /* Wireframe.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -207,6 +235,7 @@
 				A9A707911F4C50F600DCB137 /* ScannerVC.swift */,
 				A9A707931F4C5C1500DCB137 /* ScannerPresenter.swift */,
 				A96C9CF41F4DA2F6008FA97A /* GIGScannerVC.swift */,
+				A96670591F4EE06100545B19 /* ScannerOrx.storyboard */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -292,7 +321,8 @@
 				A9C54DE51F41ACA400DF2074 /* Global */,
 				A9C54DBC1F41A89700DF2074 /* Common */,
 				A974BE7A1F4B080100A355FD /* Modules */,
-				A9C54D9B1F41A6F100DF2074 /* Info.plist */,
+				A96C9CF61F4EAB7C008FA97A /* Resources */,
+				A96C9CF71F4EAB89008FA97A /* Supporting Files */,
 			);
 			path = Orchextra;
 			sourceTree = "<group>";
@@ -349,6 +379,7 @@
 				A9C54DCD1F41A8E500DF2074 /* Assets.xcassets */,
 				A9C54DCF1F41A8E500DF2074 /* LaunchScreen.storyboard */,
 				A9C54DD21F41A8E500DF2074 /* Info.plist */,
+				A96C9CFA1F4EBC6A008FA97A /* CustomScanner.swift */,
 			);
 			path = OrchextraApp;
 			sourceTree = "<group>";
@@ -587,7 +618,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C54DB41F41A81600DF2074 /* Cartfile in Resources */,
+				A96C9CF91F4EABC9008FA97A /* Assets.xcassets in Resources */,
 				A9C54DB51F41A81600DF2074 /* Cartfile.private in Resources */,
+				A966705A1F4EE06100545B19 /* ScannerOrx.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,6 +660,7 @@
 				A9C54DEA1F41AD5000DF2074 /* Session.swift in Sources */,
 				A9C6EB941F46FB24007AE036 /* Device.swift in Sources */,
 				A9C54DF21F41B22600DF2074 /* ConfigInteractor.swift in Sources */,
+				A96670561F4ED7C700545B19 /* TriggerManager.swift in Sources */,
 				A9C54DE81F41ACA400DF2074 /* Config.swift in Sources */,
 				A9C54DF41F41BD3300DF2074 /* AuthInteractor.swift in Sources */,
 				A9C54DB81F41A81E00DF2074 /* Orchextra.swift in Sources */,
@@ -635,6 +669,7 @@
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
 				A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */,
+				A96670581F4EE03D00545B19 /* Wireframe.swift in Sources */,
 				A9C54DBF1F41A8B400DF2074 /* Bundle+Extension.swift in Sources */,
 				A9C54DEF1F41B1EC00DF2074 /* AuthenticationService.swift in Sources */,
 				A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */,
@@ -656,6 +691,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96C9CFB1F4EBC6B008FA97A /* CustomScanner.swift in Sources */,
 				A9C54DC91F41A8E500DF2074 /* ViewController.swift in Sources */,
 				A9C54DC71F41A8E500DF2074 /* AppDelegate.swift in Sources */,
 			);

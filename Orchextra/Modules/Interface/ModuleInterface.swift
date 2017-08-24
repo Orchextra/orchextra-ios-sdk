@@ -8,15 +8,15 @@
 
 import Foundation
 
-protocol ModuleInput {
+public protocol ModuleInput {
     
-    var outputModule: ModuleOutput { get set }
+    var outputModule: ModuleOutput? { get set }
     
     func start()
     func setConfig(config: [String: Any])
     func finish()
 }
 
-protocol ModuleOutput {
-    func triggerWasFire(with values: [String: Any], completion:(Bool, Error) -> Void)
+public protocol ModuleOutput {
+    func triggerWasFire(with values: [String: Any])
 }

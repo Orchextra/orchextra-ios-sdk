@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oPM-Y1-4oU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ScannerVC-->
+        <scene sceneID="des-cf-lVI">
+            <objects>
+                <viewController storyboardIdentifier="ScannerVC" id="oPM-Y1-4oU" customClass="ScannerVC" customModule="Orchextra" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VMa-Ix-r2z"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fzf-UZ-LV6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Sz-AL-36Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame-scan" translatesAutoresizingMaskIntoConstraints="NO" id="dlr-M8-NVM">
+                                <rect key="frame" x="34" y="180" width="306" height="306"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanning-by" translatesAutoresizingMaskIntoConstraints="NO" id="2np-Jm-uO3">
+                                <rect key="frame" x="288" y="494" width="52" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5Qj-iX-HkY"/>
+                                    <constraint firstAttribute="width" constant="52" id="Udb-cF-pSX"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qoQ-QT-yhT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <items>
+                                    <navigationItem title="&lt;Scanner&gt;" id="FBD-B7-5jg">
+                                        <barButtonItem key="leftBarButtonItem" title="Close" id="wAi-k0-xJb">
+                                            <connections>
+                                                <action selector="closeScannerTapped:" destination="oPM-Y1-4oU" id="lz8-4S-E8u"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="torch" id="7Zl-Cp-pzI">
+                                            <connections>
+                                                <action selector="torchTapped:" destination="oPM-Y1-4oU" id="nzB-UD-ViP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="oPM-Y1-4oU" id="DwL-Ri-qyX"/>
+                                </connections>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qoQ-QT-yhT" firstAttribute="leading" secondItem="1Sz-AL-36Z" secondAttribute="leading" id="2RQ-qa-xNe"/>
+                            <constraint firstItem="qoQ-QT-yhT" firstAttribute="top" secondItem="1Sz-AL-36Z" secondAttribute="top" constant="20" id="6xw-g0-xRR"/>
+                            <constraint firstItem="2np-Jm-uO3" firstAttribute="top" secondItem="dlr-M8-NVM" secondAttribute="bottom" constant="8" id="cFp-bG-5sn"/>
+                            <constraint firstItem="2np-Jm-uO3" firstAttribute="trailing" secondItem="dlr-M8-NVM" secondAttribute="trailing" id="fVG-Vo-mNM"/>
+                            <constraint firstItem="dlr-M8-NVM" firstAttribute="centerY" secondItem="1Sz-AL-36Z" secondAttribute="centerY" id="ksP-R5-Lw8"/>
+                            <constraint firstAttribute="trailing" secondItem="qoQ-QT-yhT" secondAttribute="trailing" id="nUf-F2-oua"/>
+                            <constraint firstItem="dlr-M8-NVM" firstAttribute="centerX" secondItem="1Sz-AL-36Z" secondAttribute="centerX" id="tYv-LF-1Dc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="17m-I1-WuC">
+                        <barButtonItem key="rightBarButtonItem" image="torch" id="QMW-7V-qi3"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="frameScan" destination="dlr-M8-NVM" id="1ZT-Qq-86x"/>
+                        <outlet property="navBarOrx" destination="qoQ-QT-yhT" id="uRL-w7-D56"/>
+                        <outlet property="scanningBy" destination="2np-Jm-uO3" id="qeY-De-Qq2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="diw-VC-34w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="88.605697151424295"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="frame-scan" width="306" height="306"/>
+        <image name="scanning-by" width="52" height="20"/>
+        <image name="torch" width="28" height="28"/>
+    </resources>
+</document>

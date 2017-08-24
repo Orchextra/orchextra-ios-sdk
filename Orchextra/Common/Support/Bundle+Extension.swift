@@ -10,7 +10,7 @@ import Foundation
 
 extension Bundle {
     
-    class func orchextraBundle() -> Bundle {
+    class func OrxBundle() -> Bundle {
         return Bundle(for: Orchextra.self)
     }
     
@@ -23,6 +23,6 @@ extension Bundle {
     }
     
     class func localizeBundle(key: String) -> String {
-        return NSLocalizedString(key, tableName: nil, bundle: Bundle.orchextraBundle(), comment: "")
+        return NSLocalizedString(key, tableName: nil, bundle: Bundle.OrxBundle(), comment: "")
     }
 }

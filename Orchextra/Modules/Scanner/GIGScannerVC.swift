@@ -15,16 +15,16 @@ public protocol GIGScannerOutput {
     func didSuccessfullyScan(_ scannedValue: String, type: String)
 }
 
-public class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    var scannerOutput: GIGScannerOutput?
+    open var scannerOutput: GIGScannerOutput?
     var captureSession: AVCaptureSession?
     var previewLayer: AVCaptureVideoPreviewLayer?
     var codeFrameView: UIView?
     var captureDevice: AVCaptureDevice!
 
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
 
@@ -49,7 +49,7 @@ public class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDeleg
         }
     }
     
-    override public func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
