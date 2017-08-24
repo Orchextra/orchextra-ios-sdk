@@ -9,16 +9,17 @@
 import UIKit
 import GIGLibrary
 
-class ScannerVC: GIGScannerVC, ScannerUI, ModuleInput, GIGScannerOutput {
+class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     
     @IBOutlet weak var frameScan: UIImageView!
     @IBOutlet weak var scanningBy: UIImageView!
     @IBOutlet weak var navBarOrx: UINavigationBar!
     
-    
-    var presenter = ScannerPresenter()
+    // Protocol
     var outputModule: ModuleOutput?
     
+    // Private
+    fileprivate var presenter = ScannerPresenter()
     private var enableTorchScanner: Bool = false
 
     //MARK: - 
@@ -27,6 +28,7 @@ class ScannerVC: GIGScannerVC, ScannerUI, ModuleInput, GIGScannerOutput {
         
         super.viewDidLoad()
         self.scannerOutput = self
+        self.presenter.vc = self
         self.presenter.outputModule = self.outputModule
         self.presenter.viewDidLoad()
         
@@ -53,7 +55,7 @@ class ScannerVC: GIGScannerVC, ScannerUI, ModuleInput, GIGScannerOutput {
     }
     
     @IBAction func closeScannerTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismissScanner()
     }
     
     //MARK: - ScannerUI
@@ -67,6 +69,7 @@ class ScannerVC: GIGScannerVC, ScannerUI, ModuleInput, GIGScannerOutput {
     }
     
     func dismissScanner() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func show(scannedValue: String, message: String) {
@@ -80,10 +83,19 @@ class ScannerVC: GIGScannerVC, ScannerUI, ModuleInput, GIGScannerOutput {
         
     }
     
-    // MARK: - ModuleInput
+    //MARK: - GIGScannerDelegate
+    
+    func didSuccessfullyScan(_ scannedValue: String, type: String) {
+        self.presenter.scannerDidFinishCapture(value: scannedValue, type: type)
+    }
+}
+
+// MARK: - ModuleInput
+
+extension ScannerVC: ModuleInput {
     
     func start() {
-        self.startScanning()
+        self.showScanner()
     }
     
     func setConfig(config: [String : Any]) {
@@ -92,14 +104,12 @@ class ScannerVC: GIGScannerVC, ScannerUI, ModuleInput, GIGScannerOutput {
     
     func finish() {
         self.stopScanner()
-    }
-
-    //MARK: - GIGScannerDelegate
-    
-    func didSuccessfullyScan(_ scannedValue: String, type: String) {
-        self.presenter.scannerDidFinishCapture(value: scannedValue, type: type)
+        self.presenter.resetValueScanned()
+        self.dismissScanner()
     }
 }
+
+// MARK: - UINavigationBarDelegate
 
 extension ScannerVC: UINavigationBarDelegate {
     func position(for bar: UIBarPositioning) -> UIBarPosition {

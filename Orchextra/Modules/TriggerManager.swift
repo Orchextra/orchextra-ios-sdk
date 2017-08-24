@@ -9,9 +9,10 @@
 import UIKit
 import GIGLibrary
 
-class TriggerManager: ModuleOutput {
+class TriggerManager: ModuleOutput, TriggerInteractorOutput {
     
     var interactor: TriggerInteractor
+    var module: ModuleInput?
     
     convenience init() {
         let interactor = TriggerInteractor()
@@ -20,12 +21,13 @@ class TriggerManager: ModuleOutput {
     
     init(interactor: TriggerInteractor) {
         self.interactor = interactor
+        self.interactor.output = self
     }
     
     // MARK: - ModuleOutput
     
-    func triggerWasFire(with values: [String : Any]) {
-        
+    func triggerWasFire(with values: [String : Any], module: ModuleInput) {
+        self.module = module
         let params = ["type" : "barcode",
                          "value" : values["value"]!]
         
@@ -33,4 +35,9 @@ class TriggerManager: ModuleOutput {
         LogDebug("TRIGGER WAS FIRE: \(params)")
     }
     
+    func triggerDidFinishSuccessfully() {
+        self.module?.finish()
+    }
+    
 }
+

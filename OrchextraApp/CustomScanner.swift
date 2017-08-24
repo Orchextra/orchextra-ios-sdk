@@ -36,7 +36,8 @@ class CustomScanner: GIGScannerVC, ModuleInput, GIGScannerOutput {
     
     func didSuccessfullyScan(_ scannedValue: String, type: String) {
         self.outputModule?.triggerWasFire(with: ["value" : scannedValue,
-                                                 "type" : type])
+                                                 "type" : type],
+                                          module: self)
     }
 
 }
