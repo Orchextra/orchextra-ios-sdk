@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scanner-->
+        <scene sceneID="Sc6-Ch-jqs">
+            <objects>
+                <viewController storyboardIdentifier="ScannerVC" title="Scanner" id="gsQ-2e-k38" customClass="ScannerVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ca4-Nc-sMf"/>
+                        <viewControllerLayoutGuide type="bottom" id="oFf-Yh-SSr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Ux-Bh-JV9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scanner/IR" id="6sy-fP-HNc"/>
+                    <navigationItem key="navigationItem" id="GWU-Wp-YbC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bN-kn-LIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-358" y="417"/>
+        </scene>
+        <!--TriggeringVC-->
+        <scene sceneID="nya-RB-Eno">
+            <objects>
+                <tabBarController storyboardIdentifier="TriggeringVC" automaticallyAdjustsScrollViewInsets="NO" id="ngu-wH-RIO" customClass="TriggeringVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="yMf-4x-ilM">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gsQ-2e-k38" kind="relationship" relationship="viewControllers" id="0jg-zx-9Mb"/>
+                        <segue destination="NWC-Iv-fwm" kind="relationship" relationship="viewControllers" id="ACF-2b-t4K"/>
+                        <segue destination="Jfp-81-Ckf" kind="relationship" relationship="viewControllers" id="eXN-II-Vf0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gly-By-WcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="-422"/>
+        </scene>
+        <!--Geofences-->
+        <scene sceneID="5Ky-A5-dxg">
+            <objects>
+                <viewController storyboardIdentifier="GeofencesVC" title="Geofences" id="NWC-Iv-fwm" customClass="GeofencesVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JNY-II-GKZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="S2V-3a-Rpq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XQP-xM-8Fq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Geofences" id="2du-DH-QSH"/>
+                    <navigationItem key="navigationItem" id="moN-Pl-YHB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ws8-sA-m73" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="-422"/>
+        </scene>
+        <!--Logs-->
+        <scene sceneID="DLa-ib-22P">
+            <objects>
+                <viewController storyboardIdentifier="LogsVC" title="Logs" id="Jfp-81-Ckf" customClass="LogsVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eoJ-ff-0W9"/>
+                        <viewControllerLayoutGuide type="bottom" id="A7Y-uX-48S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D0e-fh-Y1U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Logs" id="Olf-75-cBi"/>
+                    <navigationItem key="navigationItem" id="Mbd-YI-Qrg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0A-p3-1Kt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="-1069"/>
+        </scene>
+    </scenes>
+</document>

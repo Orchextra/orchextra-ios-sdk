@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="97D-mz-bNN">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="8qq-Je-HCr">
+            <objects>
+                <navigationController storyboardIdentifier="HomeNC" id="97D-mz-bNN" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PsJ-S0-kjM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Eqc-Ur-2qs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="se7-0y-uQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-422" y="111"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" id="BYZ-38-t0r" customClass="HomeVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOk-xB-lTD">
+                                <rect key="frame" x="100" y="418" width="214" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="xSz-SB-YMw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonTappedWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E58-Xt-HTA"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orchextra_logo" translatesAutoresizingMaskIntoConstraints="NO" id="aUx-mC-gQC">
+                                <rect key="frame" x="100" y="125" width="214" height="235"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="cOk-xB-lTD" secondAttribute="trailing" constant="80" id="1E5-e3-fia"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cOk-xB-lTD" secondAttribute="bottom" constant="273" id="5vD-F6-uec"/>
+                            <constraint firstItem="cOk-xB-lTD" firstAttribute="top" secondItem="aUx-mC-gQC" secondAttribute="bottom" constant="58" id="HVV-LC-fe8"/>
+                            <constraint firstItem="aUx-mC-gQC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="61" id="KXi-ae-AyC"/>
+                            <constraint firstItem="aUx-mC-gQC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="TRX-oY-z6H"/>
+                            <constraint firstItem="cOk-xB-lTD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="c4i-1f-hks"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aUx-mC-gQC" secondAttribute="trailing" constant="80" id="mPJ-XS-NMx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="ut3-7R-Wrd">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="cno-u4-r0V">
+                            <connections>
+                                <action selector="settingsButtonTappedWith_sender:" destination="BYZ-38-t0r" id="Utz-MA-URK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="settingsBarButton" destination="cno-u4-r0V" id="oAD-mm-m1K"/>
+                        <outlet property="startButton" destination="cOk-xB-lTD" id="5zN-qm-eZN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="664.79999999999995" y="76.911544227886068"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="orchextra_logo" width="183" height="167"/>
+    </resources>
+</document>
