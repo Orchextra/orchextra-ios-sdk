@@ -19,7 +19,8 @@ protocol SettingsInteractorOutput {
 
 struct SettingsInteractor {
     
-     // MARK: - Properties
+     // MARK: - Attributes
+    
     var output: SettingsInteractorOutput?
     let orchextra = Orchextra.shared
 }

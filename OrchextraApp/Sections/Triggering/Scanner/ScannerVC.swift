@@ -10,6 +10,12 @@ import UIKit
 import GIGLibrary
 
 class ScannerVC: UIViewController, ScannerUI {
+    // MARK: - IBOutlets
+    @IBOutlet weak var orchextraScannerButton: UIButton!
+    
+    @IBOutlet weak var customScannerButton: UIButton!
+
+    @IBOutlet weak var imageRecognitionButton: UIButton!
     
     // MARK: - Attributtes
     
@@ -20,7 +26,22 @@ class ScannerVC: UIViewController, ScannerUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
-        self.view.backgroundColor = UIColor.yellow
+        
+        //TODO: Show or hide image recognition using Vuforia if it is not available
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func orchextraScannerTapped(_sender: Any) {
+        self.presenter?.userDidTapOrchextraScanner()
+    }
+    
+    @IBAction func customScannerTapped(_sender: Any) {
+        self.presenter?.userDidTapCustomScanner()
+    }
+    
+    @IBAction func imageRecognitionTapped(_sender: Any) {
+        self.presenter?.userDidTapImageRecognition()
     }
 }
 

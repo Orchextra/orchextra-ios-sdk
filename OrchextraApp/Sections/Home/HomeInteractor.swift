@@ -19,7 +19,8 @@ protocol HomeInteractorOutput {
 }
 
 class HomeInteractor {
-     // MARK: - Properties
+     // MARK: - Attributes
+    
     var output: HomeInteractorOutput?
     let orchextra = Orchextra.shared
 }

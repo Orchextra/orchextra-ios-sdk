@@ -16,10 +16,9 @@ struct LogsWireframe {
     /// - Returns: Logs View Controller with all dependencies
     func showLogs() -> LogsVC? {
         guard let viewController = try? Instantiator<LogsVC>().viewController() else { return nil }
-        let wireframe = LogsWireframe()
         let presenter = LogsPresenter(
             view: viewController,
-            wireframe: wireframe
+            wireframe: self
         )
         viewController.presenter = presenter
         return viewController

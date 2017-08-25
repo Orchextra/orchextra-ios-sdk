@@ -10,6 +10,9 @@ import Foundation
 
 protocol ScannerPresenterInput {
     func viewDidLoad()
+    func userDidTapOrchextraScanner()
+    func userDidTapCustomScanner()
+    func userDidTapImageRecognition()
 }
 
 protocol ScannerUI: class {
@@ -22,10 +25,26 @@ struct ScannerPresenter {
     
     weak var view: ScannerUI?
     let wireframe: ScannerWireframe
+    
+    // MARK: - Interactors
+    
+    let interactor: ScannerInteractorInput
 }
 
 extension ScannerPresenter: ScannerPresenterInput {
     func viewDidLoad() {
         
+    }
+    
+    func userDidTapOrchextraScanner() {
+        self.interactor.openOrchextraScanner()
+    }
+    
+    func userDidTapCustomScanner() {
+        self.interactor.openCustomScanner()
+    }
+    
+    func userDidTapImageRecognition() {
+        self.interactor.openImageRecognition()
     }
 }

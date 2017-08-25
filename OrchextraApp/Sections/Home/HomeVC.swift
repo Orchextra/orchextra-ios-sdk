@@ -28,6 +28,8 @@ class HomeVC: UIViewController {
         self.presenter?.viewDidLoad()
     }
     
+    // MARK: - Actions
+    
     @IBAction func startButtonTapped(_sender: Any) {
         self.presenter?.userDidTapStart()
     }

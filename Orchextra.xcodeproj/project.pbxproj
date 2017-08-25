@@ -24,6 +24,7 @@
 		8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B11F4EE2A200C328DC /* ScannerPresenter.swift */; };
 		8F2080B51F4EE2A200C328DC /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B21F4EE2A200C328DC /* ScannerVC.swift */; };
 		8F2080B61F4EE2A200C328DC /* ScannerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */; };
+		8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */; };
 		8F5F7A171F4C60E700E62E57 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */; };
 		8F5F7A181F4C60E700E62E57 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A141F4C60E700E62E57 /* HomeVC.swift */; };
 		8F5F7A191F4C60E700E62E57 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A151F4C60E700E62E57 /* HomeWireframe.swift */; };
@@ -146,6 +147,7 @@
 		8F2080B11F4EE2A200C328DC /* ScannerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerPresenter.swift; sourceTree = "<group>"; };
 		8F2080B21F4EE2A200C328DC /* ScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerWireframe.swift; sourceTree = "<group>"; };
+		8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerInteractor.swift; sourceTree = "<group>"; };
 		8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		8F5F7A141F4C60E700E62E57 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8F5F7A151F4C60E700E62E57 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				8F2080B11F4EE2A200C328DC /* ScannerPresenter.swift */,
 				8F2080B21F4EE2A200C328DC /* ScannerVC.swift */,
 				8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */,
+				8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				8F7F58ED1F4D84BD00271FC7 /* SettingsPresenter.swift in Sources */,
 				8F7F58EC1F4D84BD00271FC7 /* SettingsInteractor.swift in Sources */,
 				8F20808F1F4EA59600C328DC /* Constants.swift in Sources */,
+				8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */,
 				8F2080A81F4EE28000C328DC /* GeofencesPresenter.swift in Sources */,
 				8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */,
 				8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */,
