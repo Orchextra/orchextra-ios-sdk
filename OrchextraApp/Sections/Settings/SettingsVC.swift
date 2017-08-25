@@ -13,7 +13,13 @@ class SettingsVC: UIViewController, SettingsUI {
     
     // MARK: - IBOutlets
     
+    @IBOutlet weak var projectLabel: UILabel!
+    @IBOutlet weak var apikeyTextfield: UITextField!
+    @IBOutlet weak var apisecretTextfield: UITextField!
+    @IBOutlet weak var userView: UITableViewCell!
+    @IBOutlet weak var deviceView: UITableViewCell!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     // MARK: - Attributtes
     
@@ -26,8 +32,14 @@ class SettingsVC: UIViewController, SettingsUI {
         self.presenter?.viewDidLoad()
     }
     
+    // MARK: - IBActions
+    
     @IBAction func stopButtonTapped(_sender: Any) {
         self.presenter?.userDidTapStop()
+    }
+    
+    @IBAction func saveButtonTapped(_sender: Any) {
+        self.presenter?.userDidTapSave()
     }
 }
 

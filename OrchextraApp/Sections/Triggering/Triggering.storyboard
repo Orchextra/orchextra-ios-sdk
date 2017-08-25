@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rak-MJ-URN">
-                                <rect key="frame" x="36" y="52" width="248" height="45"/>
+                                <rect key="frame" x="36" y="96" width="248" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hdG-GJ-BV9"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qv-iU-trr">
-                                <rect key="frame" x="36" y="117" width="248" height="45"/>
+                                <rect key="frame" x="36" y="161" width="248" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="zgR-41-fu1"/>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch3-Hh-pYz">
-                                <rect key="frame" x="36" y="182" width="248" height="45"/>
+                                <rect key="frame" x="36" y="226" width="248" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="MNl-q7-uQu"/>
@@ -97,12 +97,28 @@
             <objects>
                 <tabBarController storyboardIdentifier="TriggeringVC" automaticallyAdjustsScrollViewInsets="NO" id="ngu-wH-RIO" customClass="TriggeringVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="bR3-UD-dCu">
+                        <barButtonItem key="rightBarButtonItem" id="XOD-Oq-mwK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pHC-FW-sad">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="ngu-wH-RIO" eventType="touchUpInside" id="bYr-gc-rPV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <connections>
+                            <outlet property="rightBarButtonItem" destination="XOD-Oq-mwK" id="YJI-ah-WaJ"/>
+                        </connections>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="yMf-4x-ilM">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <outlet property="settingsButton" destination="XOD-Oq-mwK" id="Xyq-x7-vWo"/>
                         <segue destination="gsQ-2e-k38" kind="relationship" relationship="viewControllers" id="0jg-zx-9Mb"/>
                         <segue destination="NWC-Iv-fwm" kind="relationship" relationship="viewControllers" id="ACF-2b-t4K"/>
                         <segue destination="Jfp-81-Ckf" kind="relationship" relationship="viewControllers" id="eXN-II-Vf0"/>
@@ -110,7 +126,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gly-By-WcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-329" y="-422"/>
+            <point key="canvasLocation" x="-493" y="-905"/>
         </scene>
         <!--Geofences-->
         <scene sceneID="5Ky-A5-dxg">

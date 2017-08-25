@@ -11,6 +11,7 @@ import Foundation
 protocol SettingsPresenterInput {
     func viewDidLoad()
     func userDidTapStop()
+    func userDidTapSave()
 }
 
 protocol SettingsUI: class {
@@ -37,5 +38,9 @@ extension SettingsPresenter: SettingsPresenterInput {
     func userDidTapStop() {
         self.interactor.stopOrchextra()
         self.wireframe.dismissSettings()
+    }
+    
+    func userDidTapSave() {
+        // TODO: Save credentials and user informations
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 protocol TriggeringPresenterInput {
     func viewDidLoad()
+    func userDidTapSettings()
 }
 
 protocol TriggeringUI: class {
@@ -31,6 +32,10 @@ struct TriggeringPresenter {
 extension TriggeringPresenter: TriggeringPresenterInput {
     func viewDidLoad() {
         
+    }
+    
+    func userDidTapSettings() {
+        AppController.shared.appWireframe?.showSettings()
     }
 
 }

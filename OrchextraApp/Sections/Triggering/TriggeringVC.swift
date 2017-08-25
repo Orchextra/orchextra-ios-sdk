@@ -11,6 +11,10 @@ import GIGLibrary
 
 class TriggeringVC: UITabBarController, TriggeringUI {
     
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    
     // MARK: - Attributtes
     
     var presenter: TriggeringPresenterInput?
@@ -20,6 +24,12 @@ class TriggeringVC: UITabBarController, TriggeringUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        self.presenter?.userDidTapSettings()
     }
 }
 
