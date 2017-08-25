@@ -20,10 +20,10 @@ protocol ScannerUI {
 
 protocol ScannerInput {
     func viewDidLoad()
+    func userDidCloseScanner()
     func resetValueScanned()
     func scannerDidFinishCapture(value: String, type: String)
 }
-
 
 enum ScannerType: String {
     case Barcode = "barcode"
@@ -37,7 +37,7 @@ class ScannerPresenter: ScannerInput {
     
     private var waitingUntilResponseFromOrx: Bool = false
     
-    // MARK: -
+    // MARK: - ScannerInput
     
     func viewDidLoad() {
         self.vc?.showScanner()
@@ -74,7 +74,7 @@ class ScannerPresenter: ScannerInput {
                                                      "type" : type.rawValue],
                                               module: moduleInput)
             
-            LogDebug("Scanned: \(value) - \(type)")
+            LogDebug("Module Scan - has trigger: \(value) - \(type)")
         }
     }
 }

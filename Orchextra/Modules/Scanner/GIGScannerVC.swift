@@ -23,7 +23,6 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     var codeFrameView: UIView?
     var captureDevice: AVCaptureDevice!
 
-    
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -37,9 +36,16 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
             captureSession?.addOutput(captureMetadataOutput)
             
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
-                                                         AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
-                                                         AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeAztecCode, AVMetadataObjectTypeQRCode]
+            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeUPCECode,
+                                                         AVMetadataObjectTypeCode39Code,
+                                                         AVMetadataObjectTypeCode39Mod43Code,
+                                                         AVMetadataObjectTypeEAN13Code,
+                                                         AVMetadataObjectTypeEAN8Code,
+                                                         AVMetadataObjectTypeCode93Code,
+                                                         AVMetadataObjectTypeCode128Code,
+                                                         AVMetadataObjectTypePDF417Code,
+                                                         AVMetadataObjectTypeAztecCode,
+                                                         AVMetadataObjectTypeQRCode]
             
             self.addPreviewLayer()
             
@@ -62,7 +68,6 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     public func stopScanning() {
         self.captureSession?.stopRunning()
     }
-    
     
     public func enableTorch(_ enable: Bool) {
         

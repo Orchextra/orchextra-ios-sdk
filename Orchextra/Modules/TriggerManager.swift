@@ -9,7 +9,7 @@
 import UIKit
 import GIGLibrary
 
-class TriggerManager: ModuleOutput, TriggerInteractorOutput {
+class TriggerManager: ModuleOutput {
     
     var interactor: TriggerInteractor
     var module: ModuleInput?
@@ -24,6 +24,8 @@ class TriggerManager: ModuleOutput, TriggerInteractorOutput {
         self.interactor.output = self
     }
     
+    // MARK: - PRIVATE
+    
     // MARK: - ModuleOutput
     
     func triggerWasFire(with values: [String : Any], module: ModuleInput) {
@@ -34,10 +36,14 @@ class TriggerManager: ModuleOutput, TriggerInteractorOutput {
         self.interactor.trigger(values: params)
         LogDebug("TRIGGER WAS FIRE: \(params)")
     }
+
+}
+
+// MARK: - TriggerInteractorOutput
+
+extension TriggerManager: TriggerInteractorOutput {
     
     func triggerDidFinishSuccessfully() {
         self.module?.finish()
     }
-    
 }
-

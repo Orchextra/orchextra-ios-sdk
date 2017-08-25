@@ -12,7 +12,6 @@ public protocol ModuleInput {
     
     var outputModule: ModuleOutput? { get set }
     
-    
     /// Start module
     func start()
     

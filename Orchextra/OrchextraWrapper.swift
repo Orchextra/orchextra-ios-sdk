@@ -47,9 +47,10 @@ class OrchextraWrapper {
         self.session.apiKey = apiKey
         self.session.apiSecret = apiSecret
         self.startCompletion = completion
-                
+        
+        completion(.success(true))
         // Start configuration
-        self.configInteractor.loadCoreConfig(completion: completion)
+//        self.configInteractor.loadCoreConfig(completion: completion)
     }
     
     func openScanner() {

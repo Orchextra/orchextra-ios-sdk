@@ -54,6 +54,10 @@
 		A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */; };
 		A99885F11F5010DC00EED42E /* TriggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885EF1F5010DC00EED42E /* TriggerManager.swift */; };
 		A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F01F5010DC00EED42E /* Wireframe.swift */; };
+		A99885F71F502E1800EED42E /* GIGScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F31F502E1800EED42E /* GIGScannerVC.swift */; };
+		A99885F81F502E1800EED42E /* ScannerOrx.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99885F41F502E1800EED42E /* ScannerOrx.storyboard */; };
+		A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F51F502E1800EED42E /* ScannerPresenter.swift */; };
+		A99885FA1F502E1800EED42E /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F61F502E1800EED42E /* ScannerVC.swift */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB41F41A81600DF2074 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB21F41A81600DF2074 /* Cartfile */; };
@@ -171,6 +175,10 @@
 		A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
 		A99885EF1F5010DC00EED42E /* TriggerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerManager.swift; sourceTree = "<group>"; };
 		A99885F01F5010DC00EED42E /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
+		A99885F31F502E1800EED42E /* GIGScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGScannerVC.swift; sourceTree = "<group>"; };
+		A99885F41F502E1800EED42E /* ScannerOrx.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScannerOrx.storyboard; sourceTree = "<group>"; };
+		A99885F51F502E1800EED42E /* ScannerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerPresenter.swift; sourceTree = "<group>"; };
+		A99885F61F502E1800EED42E /* ScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		A9C54D971F41A6F100DF2074 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C54D9A1F41A6F100DF2074 /* Orchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A9C54D9B1F41A6F100DF2074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -359,6 +367,10 @@
 		A974BE7B1F4B080100A355FD /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
+				A99885F31F502E1800EED42E /* GIGScannerVC.swift */,
+				A99885F41F502E1800EED42E /* ScannerOrx.storyboard */,
+				A99885F51F502E1800EED42E /* ScannerPresenter.swift */,
+				A99885F61F502E1800EED42E /* ScannerVC.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -739,6 +751,7 @@
 			files = (
 				A9C54DB41F41A81600DF2074 /* Cartfile in Resources */,
 				A9C54DB51F41A81600DF2074 /* Cartfile.private in Resources */,
+				A99885F81F502E1800EED42E /* ScannerOrx.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,7 +783,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */,
+				A99885F71F502E1800EED42E /* GIGScannerVC.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
+				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
 				A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */,
 				A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */,
 				A9C54DE21F41ABE200DF2074 /* Request.swift in Sources */,
@@ -788,6 +803,7 @@
 				A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */,
 				A9C54DBF1F41A8B400DF2074 /* Bundle+Extension.swift in Sources */,
 				A9C54DEF1F41B1EC00DF2074 /* AuthenticationService.swift in Sources */,
+				A99885FA1F502E1800EED42E /* ScannerVC.swift in Sources */,
 				A99885F11F5010DC00EED42E /* TriggerManager.swift in Sources */,
 				A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */,
 			);
