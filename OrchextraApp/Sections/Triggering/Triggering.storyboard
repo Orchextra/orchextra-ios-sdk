@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scanner-->
+        <scene sceneID="Sc6-Ch-jqs">
+            <objects>
+                <viewController storyboardIdentifier="ScannerVC" title="Scanner" id="gsQ-2e-k38" customClass="ScannerVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ca4-Nc-sMf"/>
+                        <viewControllerLayoutGuide type="bottom" id="oFf-Yh-SSr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Ux-Bh-JV9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rak-MJ-URN">
+                                <rect key="frame" x="36" y="52" width="248" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="hdG-GJ-BV9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Scanner Orchextra">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="orchextraScannerTappedWith_sender:" destination="gsQ-2e-k38" eventType="touchUpInside" id="rCq-61-jZE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qv-iU-trr">
+                                <rect key="frame" x="36" y="117" width="248" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="zgR-41-fu1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Custom Scanner">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="customScannerTappedWith_sender:" destination="gsQ-2e-k38" eventType="touchUpInside" id="uF5-IF-RaC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch3-Hh-pYz">
+                                <rect key="frame" x="36" y="182" width="248" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="MNl-q7-uQu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Image recognition">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="imageRecognitionTappedWith_sender:" destination="gsQ-2e-k38" eventType="touchUpInside" id="O0v-NC-SIZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rak-MJ-URN" secondAttribute="trailing" constant="20" id="DH6-Rn-khB"/>
+                            <constraint firstItem="8Qv-iU-trr" firstAttribute="top" secondItem="rak-MJ-URN" secondAttribute="bottom" constant="20" id="DJE-nh-TJ1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ch3-Hh-pYz" secondAttribute="trailing" constant="20" id="L5F-AV-MwM"/>
+                            <constraint firstItem="rak-MJ-URN" firstAttribute="leading" secondItem="4Ux-Bh-JV9" secondAttribute="leadingMargin" constant="20" id="OiB-VO-uwA"/>
+                            <constraint firstItem="ch3-Hh-pYz" firstAttribute="top" secondItem="8Qv-iU-trr" secondAttribute="bottom" constant="20" id="Toq-ue-sV5"/>
+                            <constraint firstItem="rak-MJ-URN" firstAttribute="top" secondItem="ca4-Nc-sMf" secondAttribute="bottom" constant="32" id="fAf-oe-20Y"/>
+                            <constraint firstItem="8Qv-iU-trr" firstAttribute="leading" secondItem="4Ux-Bh-JV9" secondAttribute="leadingMargin" constant="20" id="mat-OT-qfa"/>
+                            <constraint firstItem="ch3-Hh-pYz" firstAttribute="leading" secondItem="4Ux-Bh-JV9" secondAttribute="leadingMargin" constant="20" id="yjR-od-2l5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Qv-iU-trr" secondAttribute="trailing" constant="20" id="zcy-pq-WOs"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scanner/IR" id="6sy-fP-HNc"/>
+                    <navigationItem key="navigationItem" id="GWU-Wp-YbC"/>
+                    <connections>
+                        <outlet property="customScannerButton" destination="8Qv-iU-trr" id="dmu-Ry-jpo"/>
+                        <outlet property="imageRecognitionButton" destination="ch3-Hh-pYz" id="W5u-el-S3S"/>
+                        <outlet property="orchextraScannerButton" destination="rak-MJ-URN" id="rbD-zC-anm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bN-kn-LIH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-358" y="417"/>
+        </scene>
+        <!--TriggeringVC-->
+        <scene sceneID="nya-RB-Eno">
+            <objects>
+                <tabBarController storyboardIdentifier="TriggeringVC" automaticallyAdjustsScrollViewInsets="NO" id="ngu-wH-RIO" customClass="TriggeringVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="yMf-4x-ilM">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gsQ-2e-k38" kind="relationship" relationship="viewControllers" id="0jg-zx-9Mb"/>
+                        <segue destination="NWC-Iv-fwm" kind="relationship" relationship="viewControllers" id="ACF-2b-t4K"/>
+                        <segue destination="Jfp-81-Ckf" kind="relationship" relationship="viewControllers" id="eXN-II-Vf0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gly-By-WcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="-422"/>
+        </scene>
+        <!--Geofences-->
+        <scene sceneID="5Ky-A5-dxg">
+            <objects>
+                <viewController storyboardIdentifier="GeofencesVC" title="Geofences" id="NWC-Iv-fwm" customClass="GeofencesVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JNY-II-GKZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="S2V-3a-Rpq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XQP-xM-8Fq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Geofences" id="2du-DH-QSH"/>
+                    <navigationItem key="navigationItem" id="moN-Pl-YHB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ws8-sA-m73" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="-422"/>
+        </scene>
+        <!--Logs-->
+        <scene sceneID="DLa-ib-22P">
+            <objects>
+                <viewController storyboardIdentifier="LogsVC" title="Logs" id="Jfp-81-Ckf" customClass="LogsVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eoJ-ff-0W9"/>
+                        <viewControllerLayoutGuide type="bottom" id="A7Y-uX-48S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D0e-fh-Y1U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Logs" id="Olf-75-cBi"/>
+                    <navigationItem key="navigationItem" id="Mbd-YI-Qrg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0A-p3-1Kt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="-1069"/>
+        </scene>
+    </scenes>
+</document>
