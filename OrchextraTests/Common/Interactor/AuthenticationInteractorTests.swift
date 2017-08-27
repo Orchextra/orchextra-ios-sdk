@@ -38,21 +38,25 @@ class AuthenticationInteractorTests: XCTestCase {
         // ARRANGE
         self.sessionMock.apiKey = "key"
         self.sessionMock.apiSecret = "secret"
-        self.sessionMock.accesstoken = nil
         
-        let _ = stub(condition: isPath("/security/token"), response: { _ in
+        let expectWait = expectation(description: "waitForAccessToken")
+        
+        let _ = stub(condition: isPath("/v1/security/token"), response: { _ in
             return StubResponse.stubResponse(with: "accesstoken_ok.json")
         })
         
         // ACT
-        waitUntil(timeout: 10) { done in
-            self.interactor.accessToken { accesstoken in
-                expect(accesstoken).to(equal("1.rgSvvqbebGdJN0lzANM53+YwI7kMgDCeOfMqCQh37cGOZVkI8ewsrXevwm+J9b2Lf0O/xc0+IK9tSGLP4Za3JmWDugFizSIW+ve23UGorB9an87hND9idw5plt4Pa807PvjbA5G8v89ZzNTsBPaEniQSz3f0GUqF/GDLHx5sbd1AKZNkE0th1ca5NvUZJblL"))
-                done()
+        self.interactor.authWithAccessToken(completion: { result in
+            switch result {
+            case .success(let accesstoken):            expect(accesstoken).to(equal("1.YxoLHTGQP6yG80tPl1eGg61mFTX5XZGbMjpKms5Yk4xYN4iRaa1s4vMmuBDYvdzkMyAtbsUI0FmuTcxD0mVV3wWcVeq6S88kPZ6lWJzAI97wAHx/+nStelKQ23PPSaA0DAiN4PYIICRWujZoaSlUQnOE86WUgWtTQBdkhphOlKcdjsySJyQVp2lVTvb5I7YM"))
+            case .error: break
             }
-        }
-        
+            expectWait.fulfill()
+        })
         // ASSERT
+        waitForExpectations(timeout: 10) { error in
+            
+        }
     }
     
     func test_accessToken_whenAPIWhenResponseBadCredentials() {

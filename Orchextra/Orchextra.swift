@@ -45,6 +45,7 @@ open class Orchextra {
      */
     public static let shared: Orchextra = Orchextra()
     
+    
     /**
      Type of Orchextra logs you want displayed in the debug console
      

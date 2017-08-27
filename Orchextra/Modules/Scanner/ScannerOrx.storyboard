@@ -51,16 +51,29 @@
                                     <outlet property="delegate" destination="oPM-Y1-4oU" id="DwL-Ri-qyX"/>
                                 </connections>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-nd-a4a">
+                                <rect key="frame" x="20" y="110" width="335" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" placeholder="YES" id="wnO-s3-8VP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qoQ-QT-yhT" firstAttribute="leading" secondItem="1Sz-AL-36Z" secondAttribute="leading" id="2RQ-qa-xNe"/>
                             <constraint firstItem="qoQ-QT-yhT" firstAttribute="top" secondItem="1Sz-AL-36Z" secondAttribute="top" constant="20" id="6xw-g0-xRR"/>
+                            <constraint firstItem="dlr-M8-NVM" firstAttribute="top" secondItem="fFs-nd-a4a" secondAttribute="bottom" constant="40" id="RQ5-Cs-m7g"/>
                             <constraint firstItem="2np-Jm-uO3" firstAttribute="top" secondItem="dlr-M8-NVM" secondAttribute="bottom" constant="8" id="cFp-bG-5sn"/>
                             <constraint firstItem="2np-Jm-uO3" firstAttribute="trailing" secondItem="dlr-M8-NVM" secondAttribute="trailing" id="fVG-Vo-mNM"/>
                             <constraint firstItem="dlr-M8-NVM" firstAttribute="centerY" secondItem="1Sz-AL-36Z" secondAttribute="centerY" id="ksP-R5-Lw8"/>
                             <constraint firstAttribute="trailing" secondItem="qoQ-QT-yhT" secondAttribute="trailing" id="nUf-F2-oua"/>
+                            <constraint firstAttribute="trailing" secondItem="fFs-nd-a4a" secondAttribute="trailing" constant="20" id="skc-bB-kO2"/>
                             <constraint firstItem="dlr-M8-NVM" firstAttribute="centerX" secondItem="1Sz-AL-36Z" secondAttribute="centerX" id="tYv-LF-1Dc"/>
+                            <constraint firstItem="fFs-nd-a4a" firstAttribute="leading" secondItem="1Sz-AL-36Z" secondAttribute="leading" constant="20" id="vAH-8S-TvG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="17m-I1-WuC">
@@ -68,6 +81,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="frameScan" destination="dlr-M8-NVM" id="1ZT-Qq-86x"/>
+                        <outlet property="infoLabel" destination="fFs-nd-a4a" id="Lp4-Fz-7JA"/>
                         <outlet property="navBarOrx" destination="qoQ-QT-yhT" id="uRL-w7-D56"/>
                         <outlet property="scanningBy" destination="2np-Jm-uO3" id="qeY-De-Qq2"/>
                     </connections>

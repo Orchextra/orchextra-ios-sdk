@@ -7,11 +7,11 @@
 //
 
 import Foundation
-
+import GIGLibrary
 
 protocol TriggerInteractorOutput {
-//    func triggerDidFinishSuccessfully(action: Action)
-    func triggerDidFinishSuccessfully()
+    func triggerDidFinishWithoutAction(triggerId: String)
+    func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String)
 }
 
 class TriggerInteractor {
@@ -27,17 +27,18 @@ class TriggerInteractor {
         let service = TriggerService()
         self.init(service: service)
     }
-    
-    func trigger(values: [String: Any]) {
-        self.service.launchTrigger(values: values) { result in
-            switch result {
-            case .success:
-                self.output?.triggerDidFinishSuccessfully()
-                print("Trigger launched")
+
+    func triggerFired(trigger: Trigger) {
+    let values = trigger.urlParams()
+        self.service.launchTrigger(values: values) { response in
+            switch response {
+            case .success(let json):
+                self.output?.triggerDidFinishSuccessfully(with: json, triggerId: trigger.triggerId)
+                LogDebug("Found action: \(json.description)")
                 break
             case .error (let error):
+                self.output?.triggerDidFinishWithoutAction(triggerId: trigger.triggerId)
                 print("Trigger error: \(error.localizedDescription)")
-
                 break
             }
         }

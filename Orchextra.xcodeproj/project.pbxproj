@@ -38,6 +38,8 @@
 		8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58F01F4D87D800271FC7 /* AppController.swift */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
+		A94580D51F52C0930039A70D /* accesstoken_fail_credential.json in Resources */ = {isa = PBXBuildFile; fileRef = A94580D41F52C0930039A70D /* accesstoken_fail_credential.json */; };
+		A94580D71F52C2AE0039A70D /* action_webview_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A94580D61F52C2AE0039A70D /* action_webview_notification.json */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
 		A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */; };
@@ -58,6 +60,12 @@
 		A99885F81F502E1800EED42E /* ScannerOrx.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99885F41F502E1800EED42E /* ScannerOrx.storyboard */; };
 		A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F51F502E1800EED42E /* ScannerPresenter.swift */; };
 		A99885FA1F502E1800EED42E /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F61F502E1800EED42E /* ScannerVC.swift */; };
+		A99885FD1F50353D00EED42E /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885FC1F50353D00EED42E /* Action.swift */; };
+		A99885FF1F50363C00EED42E /* ActionWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885FE1F50363C00EED42E /* ActionWebview.swift */; };
+		A99886011F5037E900EED42E /* ActionDoNothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99886001F5037E900EED42E /* ActionDoNothing.swift */; };
+		A99886041F50450F00EED42E /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99886031F50450F00EED42E /* Trigger.swift */; };
+		A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99886051F5045DB00EED42E /* TriggerQR.swift */; };
+		A99886081F504AB800EED42E /* TriggerBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99886071F504AB800EED42E /* TriggerBarcode.swift */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB41F41A81600DF2074 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB21F41A81600DF2074 /* Cartfile */; };
@@ -167,6 +175,8 @@
 		8F7F58F01F4D87D800271FC7 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
+		A94580D41F52C0930039A70D /* accesstoken_fail_credential.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accesstoken_fail_credential.json; sourceTree = "<group>"; };
+		A94580D61F52C2AE0039A70D /* action_webview_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_webview_notification.json; path = Mocks/Json/action_webview_notification.json; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
@@ -179,6 +189,12 @@
 		A99885F41F502E1800EED42E /* ScannerOrx.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScannerOrx.storyboard; sourceTree = "<group>"; };
 		A99885F51F502E1800EED42E /* ScannerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerPresenter.swift; sourceTree = "<group>"; };
 		A99885F61F502E1800EED42E /* ScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
+		A99885FC1F50353D00EED42E /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Action.swift; path = Common/Model/Actions/Action.swift; sourceTree = "<group>"; };
+		A99885FE1F50363C00EED42E /* ActionWebview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionWebview.swift; path = Common/Model/Actions/ActionWebview.swift; sourceTree = "<group>"; };
+		A99886001F5037E900EED42E /* ActionDoNothing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionDoNothing.swift; path = Common/Model/Actions/ActionDoNothing.swift; sourceTree = "<group>"; };
+		A99886031F50450F00EED42E /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Common/Model/Triggers/Trigger.swift; sourceTree = "<group>"; };
+		A99886051F5045DB00EED42E /* TriggerQR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerQR.swift; path = Common/Model/Triggers/TriggerQR.swift; sourceTree = "<group>"; };
+		A99886071F504AB800EED42E /* TriggerBarcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerBarcode.swift; path = Common/Model/Triggers/TriggerBarcode.swift; sourceTree = "<group>"; };
 		A9C54D971F41A6F100DF2074 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C54D9A1F41A6F100DF2074 /* Orchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A9C54D9B1F41A6F100DF2074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -353,11 +369,19 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		A974BE7A1F4B080100A355FD /* Modules */ = {
+		A94580D11F50981B0039A70D /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				A99885EF1F5010DC00EED42E /* TriggerManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		A974BE7A1F4B080100A355FD /* Modules */ = {
+			isa = PBXGroup;
+			children = (
 				A99885F01F5010DC00EED42E /* Wireframe.swift */,
+				A94580D11F50981B0039A70D /* Manager */,
 				A974BE841F4B0DBF00A355FD /* Interface */,
 				A974BE7B1F4B080100A355FD /* Scanner */,
 			);
@@ -424,6 +448,26 @@
 				A978C5DB1F45A43900F5DFFD /* SessionMock.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A99885FB1F50352200EED42E /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				A99885FC1F50353D00EED42E /* Action.swift */,
+				A99885FE1F50363C00EED42E /* ActionWebview.swift */,
+				A99886001F5037E900EED42E /* ActionDoNothing.swift */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		A99886021F5044F300EED42E /* Triggers */ = {
+			isa = PBXGroup;
+			children = (
+				A99886031F50450F00EED42E /* Trigger.swift */,
+				A99886051F5045DB00EED42E /* TriggerQR.swift */,
+				A99886071F504AB800EED42E /* TriggerBarcode.swift */,
+			);
+			name = Triggers;
 			sourceTree = "<group>";
 		};
 		A9C54D8D1F41A6F100DF2074 = {
@@ -575,6 +619,8 @@
 		A9C54DF71F44318E00DF2074 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A99886021F5044F300EED42E /* Triggers */,
+				A99885FB1F50352200EED42E /* Actions */,
 				A9C6EB901F46FAF3007AE036 /* Config */,
 			);
 			name = Model;
@@ -603,6 +649,8 @@
 			isa = PBXGroup;
 			children = (
 				A9C54E061F446E5200DF2074 /* accesstoken_ok.json */,
+				A94580D41F52C0930039A70D /* accesstoken_fail_credential.json */,
+				A94580D61F52C2AE0039A70D /* action_webview_notification.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -759,7 +807,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A94580D71F52C2AE0039A70D /* action_webview_notification.json in Resources */,
 				A9C54E071F446E5200DF2074 /* accesstoken_ok.json in Resources */,
+				A94580D51F52C0930039A70D /* accesstoken_fail_credential.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,14 +835,18 @@
 				A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */,
 				A99885F71F502E1800EED42E /* GIGScannerVC.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
+				A99886011F5037E900EED42E /* ActionDoNothing.swift in Sources */,
+				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
 				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
 				A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */,
 				A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */,
 				A9C54DE21F41ABE200DF2074 /* Request.swift in Sources */,
+				A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */,
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,
 				A9C54DEA1F41AD5000DF2074 /* Session.swift in Sources */,
 				A9C6EB941F46FB24007AE036 /* Device.swift in Sources */,
 				A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */,
+				A99885FF1F50363C00EED42E /* ActionWebview.swift in Sources */,
 				A9C54DF21F41B22600DF2074 /* ConfigInteractor.swift in Sources */,
 				A9C54DE81F41ACA400DF2074 /* Config.swift in Sources */,
 				A9C54DF41F41BD3300DF2074 /* AuthInteractor.swift in Sources */,
@@ -800,8 +854,10 @@
 				A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */,
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
+				A99885FD1F50353D00EED42E /* Action.swift in Sources */,
 				A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */,
 				A9C54DBF1F41A8B400DF2074 /* Bundle+Extension.swift in Sources */,
+				A99886081F504AB800EED42E /* TriggerBarcode.swift in Sources */,
 				A9C54DEF1F41B1EC00DF2074 /* AuthenticationService.swift in Sources */,
 				A99885FA1F502E1800EED42E /* ScannerVC.swift in Sources */,
 				A99885F11F5010DC00EED42E /* TriggerManager.swift in Sources */,
