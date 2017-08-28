@@ -136,11 +136,7 @@ open class Orchextra {
     
     // MARK: Public submit SDK methods
     public func commitConfiguration() {}
-    
-//    public func setScanner() {
-//    let defaultScanner = ScannerVC()
-//        OrchextraWrapper.shared.setScanner(vc: defaultScanner)
-//    }
+
     
     // MARK: Public trigger methods
     public func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {

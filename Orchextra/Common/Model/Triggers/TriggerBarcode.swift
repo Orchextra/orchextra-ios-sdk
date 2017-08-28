@@ -28,7 +28,7 @@ class TriggerBarcode: Trigger {
         let params = ["type" : TriggerType.triggerBarcode,
                       "value" : value]
         
-        return TriggerQR(params: params)
+        return TriggerBarcode(params: params)
     }
     
     func urlParams() -> [String: Any] {

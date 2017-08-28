@@ -61,11 +61,11 @@ class OrchextraWrapper {
 
         if self.scanner == nil {
             self.scanner = self.wireframe.scannerOrx()
-            self.scanner?.outputModule = self.triggerManager
         }
         guard let scannerVC = self.scanner as? UIViewController else {
             return
         }
+        self.scanner?.outputModule = self.triggerManager
         self.wireframe.openScanner(scanner: scannerVC)
         self.scanner?.start()
     }

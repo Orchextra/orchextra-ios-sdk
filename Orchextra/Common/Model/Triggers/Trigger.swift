@@ -24,6 +24,7 @@ public protocol Trigger {
     
     static func trigger(from
         externalValues: [String: Any]) -> Trigger?
+    
     func urlParams() -> [String: Any]
 }
 
