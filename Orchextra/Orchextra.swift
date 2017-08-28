@@ -34,6 +34,33 @@ import GIGLibrary
  - Copyright: Gigigo S.L.
  */
 
+
+
+/**
+ This protocol is used to comunicate Orchextra with integrative application.
+ 
+ - Since: 1.0
+ */
+public protocol ORXDelegate {
+    
+    /**
+     Use this method to execute a custom action associated to a scheme.
+     
+     - parameter scheme: The scheme to be executed.
+     - Since: 3.0
+     */
+    func customScheme(_ scheme: String)
+    
+    /**
+     Use this method to inform the integrative app about all trigger that have been fired.
+     
+     - parameter trigger: Trigger fired by the system.
+     - Since: 3.0
+     */
+    func triggerFired(_ trigger: Trigger)
+
+}
+
 open class Orchextra {
     
     // MARK: Public properties
@@ -44,6 +71,14 @@ open class Orchextra {
      - Since: 3.0
      */
     public static let shared: Orchextra = Orchextra()
+    
+    
+    /**
+     The ORX delegate. Use it to communicate with integrative application.
+     
+     - Since: 1.0
+     */
+    public var delegate: ORXDelegate?
     
     
     /**

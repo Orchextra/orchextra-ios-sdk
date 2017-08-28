@@ -36,6 +36,9 @@ class TriggerManager: ModuleOutput {
         
         self.module = module
         self.interactor.triggerFired(trigger: trigger)
+        
+        // Inform the integrative app about the trigger
+        Orchextra.shared.delegate?.triggerFired(trigger)
         LogDebug("Params: \(trigger.urlParams())")
     }
 }

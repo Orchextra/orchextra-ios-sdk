@@ -392,9 +392,9 @@
 			isa = PBXGroup;
 			children = (
 				A99885F31F502E1800EED42E /* GIGScannerVC.swift */,
-				A99885F41F502E1800EED42E /* ScannerOrx.storyboard */,
-				A99885F51F502E1800EED42E /* ScannerPresenter.swift */,
 				A99885F61F502E1800EED42E /* ScannerVC.swift */,
+				A99885F51F502E1800EED42E /* ScannerPresenter.swift */,
+				A99885F41F502E1800EED42E /* ScannerOrx.storyboard */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";

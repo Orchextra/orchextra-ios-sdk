@@ -18,7 +18,7 @@ struct TriggerType {
     static let triggerIR = "vuforia"
 }
 
-protocol Trigger {
+public protocol Trigger {
     
     var triggerId: String {get set}
     
