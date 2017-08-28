@@ -17,8 +17,7 @@ class ScannerVC: UIViewController, ScannerUI {
 
     @IBOutlet weak var imageRecognitionButton: UIButton!
     
-    // MARK: - Attributtes
-    
+    // MARK: - Attributtes    
     var presenter: ScannerPresenterInput?
     
     // MARK: - View life cycle

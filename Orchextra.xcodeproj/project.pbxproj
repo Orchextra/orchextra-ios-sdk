@@ -69,6 +69,11 @@
 		A9AC210D1F54345300095EC5 /* accesstoken_fail_credential.json in Resources */ = {isa = PBXBuildFile; fileRef = A9AC210B1F54345300095EC5 /* accesstoken_fail_credential.json */; };
 		A9AC210E1F54345300095EC5 /* accesstoken_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = A9AC210C1F54345300095EC5 /* accesstoken_ok.json */; };
 		A9AC21101F54347100095EC5 /* action_scanner_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A9AC210F1F54347100095EC5 /* action_scanner_notification.json */; };
+		A9AC21201F543D9600095EC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9AC21121F543D9600095EC5 /* Assets.xcassets */; };
+		A9AC21221F543D9600095EC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9AC21151F543D9600095EC5 /* Localizable.strings */; };
+		A9AC21231F543D9600095EC5 /* LocalizableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC211C1F543D9600095EC5 /* LocalizableConstants.swift */; };
+		A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */; };
+		A9AC21281F5443E600095EC5 /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21271F5443E600095EC5 /* Label+Extension.swift */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB41F41A81600DF2074 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB21F41A81600DF2074 /* Cartfile */; };
@@ -200,6 +205,18 @@
 		A9AC210B1F54345300095EC5 /* accesstoken_fail_credential.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_fail_credential.json; path = Mocks/Json/accesstoken_fail_credential.json; sourceTree = "<group>"; };
 		A9AC210C1F54345300095EC5 /* accesstoken_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_ok.json; path = Mocks/Json/accesstoken_ok.json; sourceTree = "<group>"; };
 		A9AC210F1F54347100095EC5 /* action_scanner_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_scanner_notification.json; sourceTree = "<group>"; };
+		A9AC21121F543D9600095EC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9AC21161F543D9600095EC5 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9AC21171F543D9600095EC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9AC21181F543D9600095EC5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9AC21191F543D9600095EC5 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9AC211A1F543D9600095EC5 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9AC211B1F543D9600095EC5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9AC211C1F543D9600095EC5 /* LocalizableConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableConstants.swift; sourceTree = "<group>"; };
+		A9AC211E1F543D9600095EC5 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9AC211F1F543D9600095EC5 /* pt-br */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-br"; path = "pt-br.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dispatch+Extension.swift"; path = "Common/Support/Dispatch+Extension.swift"; sourceTree = "<group>"; };
+		A9AC21271F5443E600095EC5 /* Label+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Label+Extension.swift"; path = "Common/Support/Label+Extension.swift"; sourceTree = "<group>"; };
 		A9C54D971F41A6F100DF2074 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C54D9A1F41A6F100DF2074 /* Orchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A9C54D9B1F41A6F100DF2074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -475,6 +492,24 @@
 			name = Triggers;
 			sourceTree = "<group>";
 		};
+		A9AC21111F543D9600095EC5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC21121F543D9600095EC5 /* Assets.xcassets */,
+				A9AC21131F543D9600095EC5 /* Localizables */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A9AC21131F543D9600095EC5 /* Localizables */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC21151F543D9600095EC5 /* Localizable.strings */,
+				A9AC211C1F543D9600095EC5 /* LocalizableConstants.swift */,
+			);
+			path = Localizables;
+			sourceTree = "<group>";
+		};
 		A9C54D8D1F41A6F100DF2074 = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +540,7 @@
 				A9C54DE51F41ACA400DF2074 /* Global */,
 				A9C54DBC1F41A89700DF2074 /* Common */,
 				A974BE7A1F4B080100A355FD /* Modules */,
+				A9AC21111F543D9600095EC5 /* Resources */,
 				A9C54D9B1F41A6F100DF2074 /* Info.plist */,
 			);
 			path = Orchextra;
@@ -548,6 +584,8 @@
 			children = (
 				A9C54DBE1F41A8B400DF2074 /* Bundle+Extension.swift */,
 				A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */,
+				A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */,
+				A9AC21271F5443E600095EC5 /* Label+Extension.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -785,6 +823,13 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				es,
+				fr,
+				hu,
+				it,
+				pl,
+				"pt-br",
 			);
 			mainGroup = A9C54D8D1F41A6F100DF2074;
 			productRefGroup = A9C54D981F41A6F100DF2074 /* Products */;
@@ -804,7 +849,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C54DB41F41A81600DF2074 /* Cartfile in Resources */,
+				A9AC21221F543D9600095EC5 /* Localizable.strings in Resources */,
 				A9C54DB51F41A81600DF2074 /* Cartfile.private in Resources */,
+				A9AC21201F543D9600095EC5 /* Assets.xcassets in Resources */,
 				A99885F81F502E1800EED42E /* ScannerOrx.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -843,6 +890,7 @@
 				A99885F71F502E1800EED42E /* GIGScannerVC.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
 				A99886011F5037E900EED42E /* ActionDoNothing.swift in Sources */,
+				A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */,
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
 				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
 				A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */,
@@ -859,10 +907,12 @@
 				A9C54DE81F41ACA400DF2074 /* Config.swift in Sources */,
 				A9C54DF41F41BD3300DF2074 /* AuthInteractor.swift in Sources */,
 				A9C54DB81F41A81E00DF2074 /* Orchextra.swift in Sources */,
+				A9AC21231F543D9600095EC5 /* LocalizableConstants.swift in Sources */,
 				A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */,
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
 				A99885FD1F50353D00EED42E /* Action.swift in Sources */,
+				A9AC21281F5443E600095EC5 /* Label+Extension.swift in Sources */,
 				A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */,
 				A9C54DBF1F41A8B400DF2074 /* Bundle+Extension.swift in Sources */,
 				A99886081F504AB800EED42E /* TriggerBarcode.swift in Sources */,
@@ -933,6 +983,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		A9AC21151F543D9600095EC5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A9AC21161F543D9600095EC5 /* de */,
+				A9AC21171F543D9600095EC5 /* en */,
+				A9AC21181F543D9600095EC5 /* es */,
+				A9AC21191F543D9600095EC5 /* fr */,
+				A9AC211A1F543D9600095EC5 /* hu */,
+				A9AC211B1F543D9600095EC5 /* it */,
+				A9AC211E1F543D9600095EC5 /* pl */,
+				A9AC211F1F543D9600095EC5 /* pt-br */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A9C54DCF1F41A8E500DF2074 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

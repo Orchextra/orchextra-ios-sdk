@@ -65,18 +65,19 @@ class ScannerPresenter: ScannerInput {
             // Track activity statistics
             
             // Show in the view the scanned value
-            self.vc?.show(scannedValue: value, message: "<Scanning>")
+            self.vc?.show(scannedValue: value, message: kLocaleOrcScanningMessage)
             guard let moduleInput = self.vc else {
                 LogWarn("Scanner ")
                 return
             }
-            
-            self.outputModule?.triggerWasFire(with: ["value" : value,
-                                                     "type" : typeValue.rawValue],
-                                              module: moduleInput)
             self.vc?.stopScanner()
+            DispatchQueue.background(delay: 0.8, completion:{
+                self.outputModule?.triggerWasFire(with: ["value" : value,
+                                                         "type" : typeValue.rawValue],
+                                                  module: moduleInput)
+                LogDebug("Module Scan - has trigger: \(value) - \(type)")
+            })
             
-            LogDebug("Module Scan - has trigger: \(value) - \(type)")
         }
     }
 }
