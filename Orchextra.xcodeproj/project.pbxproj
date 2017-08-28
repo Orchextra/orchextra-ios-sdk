@@ -38,7 +38,6 @@
 		8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58F01F4D87D800271FC7 /* AppController.swift */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
-		A94580D51F52C0930039A70D /* accesstoken_fail_credential.json in Resources */ = {isa = PBXBuildFile; fileRef = A94580D41F52C0930039A70D /* accesstoken_fail_credential.json */; };
 		A94580D71F52C2AE0039A70D /* action_webview_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A94580D61F52C2AE0039A70D /* action_webview_notification.json */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
@@ -66,6 +65,10 @@
 		A99886041F50450F00EED42E /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99886031F50450F00EED42E /* Trigger.swift */; };
 		A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99886051F5045DB00EED42E /* TriggerQR.swift */; };
 		A99886081F504AB800EED42E /* TriggerBarcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99886071F504AB800EED42E /* TriggerBarcode.swift */; };
+		A9AC210A1F542E7C00095EC5 /* ActionScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21091F542E7C00095EC5 /* ActionScanner.swift */; };
+		A9AC210D1F54345300095EC5 /* accesstoken_fail_credential.json in Resources */ = {isa = PBXBuildFile; fileRef = A9AC210B1F54345300095EC5 /* accesstoken_fail_credential.json */; };
+		A9AC210E1F54345300095EC5 /* accesstoken_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = A9AC210C1F54345300095EC5 /* accesstoken_ok.json */; };
+		A9AC21101F54347100095EC5 /* action_scanner_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A9AC210F1F54347100095EC5 /* action_scanner_notification.json */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB41F41A81600DF2074 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB21F41A81600DF2074 /* Cartfile */; };
@@ -89,7 +92,6 @@
 		A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DF51F44284200DF2074 /* ErrorServiceHandler.swift */; };
 		A9C54DFB1F4433D300DF2074 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DFA1F4433D300DF2074 /* AdSupport.framework */; };
 		A9C54E041F446B0400DF2074 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54E031F446B0400DF2074 /* OHHTTPStubs.framework */; };
-		A9C54E071F446E5200DF2074 /* accesstoken_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = A9C54E061F446E5200DF2074 /* accesstoken_ok.json */; };
 		A9C54E0A1F446FC000DF2074 /* StubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54E091F446FC000DF2074 /* StubResponse.swift */; };
 		A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB911F46FB12007AE036 /* Tag.swift */; };
 		A9C6EB941F46FB24007AE036 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB931F46FB24007AE036 /* Device.swift */; };
@@ -175,7 +177,6 @@
 		8F7F58F01F4D87D800271FC7 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
-		A94580D41F52C0930039A70D /* accesstoken_fail_credential.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accesstoken_fail_credential.json; sourceTree = "<group>"; };
 		A94580D61F52C2AE0039A70D /* action_webview_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_webview_notification.json; path = Mocks/Json/action_webview_notification.json; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
@@ -195,6 +196,10 @@
 		A99886031F50450F00EED42E /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Common/Model/Triggers/Trigger.swift; sourceTree = "<group>"; };
 		A99886051F5045DB00EED42E /* TriggerQR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerQR.swift; path = Common/Model/Triggers/TriggerQR.swift; sourceTree = "<group>"; };
 		A99886071F504AB800EED42E /* TriggerBarcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerBarcode.swift; path = Common/Model/Triggers/TriggerBarcode.swift; sourceTree = "<group>"; };
+		A9AC21091F542E7C00095EC5 /* ActionScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionScanner.swift; path = Common/Model/Actions/ActionScanner.swift; sourceTree = "<group>"; };
+		A9AC210B1F54345300095EC5 /* accesstoken_fail_credential.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_fail_credential.json; path = Mocks/Json/accesstoken_fail_credential.json; sourceTree = "<group>"; };
+		A9AC210C1F54345300095EC5 /* accesstoken_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_ok.json; path = Mocks/Json/accesstoken_ok.json; sourceTree = "<group>"; };
+		A9AC210F1F54347100095EC5 /* action_scanner_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = action_scanner_notification.json; sourceTree = "<group>"; };
 		A9C54D971F41A6F100DF2074 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C54D9A1F41A6F100DF2074 /* Orchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A9C54D9B1F41A6F100DF2074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,7 +226,6 @@
 		A9C54DFE1F44684A00DF2074 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		A9C54DFF1F44684A00DF2074 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		A9C54E031F446B0400DF2074 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
-		A9C54E061F446E5200DF2074 /* accesstoken_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accesstoken_ok.json; sourceTree = "<group>"; };
 		A9C54E091F446FC000DF2074 /* StubResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StubResponse.swift; path = Helpers/StubResponse.swift; sourceTree = "<group>"; };
 		A9C6EB911F46FB12007AE036 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = Common/Model/Config/Tag.swift; sourceTree = "<group>"; };
 		A9C6EB931F46FB24007AE036 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Common/Model/Config/Device.swift; sourceTree = "<group>"; };
@@ -455,6 +459,7 @@
 			children = (
 				A99885FC1F50353D00EED42E /* Action.swift */,
 				A99885FE1F50363C00EED42E /* ActionWebview.swift */,
+				A9AC21091F542E7C00095EC5 /* ActionScanner.swift */,
 				A99886001F5037E900EED42E /* ActionDoNothing.swift */,
 			);
 			name = Actions;
@@ -648,9 +653,10 @@
 		A9C54E051F446E1B00DF2074 /* Json */ = {
 			isa = PBXGroup;
 			children = (
-				A9C54E061F446E5200DF2074 /* accesstoken_ok.json */,
-				A94580D41F52C0930039A70D /* accesstoken_fail_credential.json */,
+				A9AC210B1F54345300095EC5 /* accesstoken_fail_credential.json */,
+				A9AC210C1F54345300095EC5 /* accesstoken_ok.json */,
 				A94580D61F52C2AE0039A70D /* action_webview_notification.json */,
+				A9AC210F1F54347100095EC5 /* action_scanner_notification.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -807,9 +813,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AC210D1F54345300095EC5 /* accesstoken_fail_credential.json in Resources */,
 				A94580D71F52C2AE0039A70D /* action_webview_notification.json in Resources */,
-				A9C54E071F446E5200DF2074 /* accesstoken_ok.json in Resources */,
-				A94580D51F52C0930039A70D /* accesstoken_fail_credential.json in Resources */,
+				A9AC21101F54347100095EC5 /* action_scanner_notification.json in Resources */,
+				A9AC210E1F54345300095EC5 /* accesstoken_ok.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,6 +852,7 @@
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,
 				A9C54DEA1F41AD5000DF2074 /* Session.swift in Sources */,
 				A9C6EB941F46FB24007AE036 /* Device.swift in Sources */,
+				A9AC210A1F542E7C00095EC5 /* ActionScanner.swift in Sources */,
 				A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */,
 				A99885FF1F50363C00EED42E /* ActionWebview.swift in Sources */,
 				A9C54DF21F41B22600DF2074 /* ConfigInteractor.swift in Sources */,
