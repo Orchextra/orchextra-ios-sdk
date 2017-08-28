@@ -16,7 +16,6 @@
 		8F20809F1F4EAD2C00C328DC /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F20809E1F4EAD2C00C328DC /* Home.storyboard */; };
 		8F2080A11F4EAD3A00C328DC /* Triggering.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080A01F4EAD3A00C328DC /* Triggering.storyboard */; };
 		8F2080A81F4EE28000C328DC /* GeofencesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080A51F4EE28000C328DC /* GeofencesPresenter.swift */; };
-		8F2080A91F4EE28000C328DC /* GeofencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080A61F4EE28000C328DC /* GeofencesVC.swift */; };
 		8F2080AA1F4EE28000C328DC /* GeofencesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080A71F4EE28000C328DC /* GeofencesWireframe.swift */; };
 		8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080AB1F4EE29000C328DC /* LogsPresenter.swift */; };
 		8F2080AF1F4EE29000C328DC /* LogsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080AC1F4EE29000C328DC /* LogsVC.swift */; };
@@ -36,6 +35,9 @@
 		8F7F58EE1F4D84BD00271FC7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58EA1F4D84BD00271FC7 /* SettingsVC.swift */; };
 		8F7F58EF1F4D84BD00271FC7 /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58EB1F4D84BD00271FC7 /* SettingsWireframe.swift */; };
 		8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58F01F4D87D800271FC7 /* AppController.swift */; };
+		8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE6FAE1F504CC80098A325 /* MapKit.framework */; };
+		8FCE6FB31F504F070098A325 /* GeofencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE6FB21F504F070098A325 /* GeofencesVC.swift */; };
+		8FCE6FB51F504F480098A325 /* RegionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE6FB41F504F480098A325 /* RegionAnnotation.swift */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
 		A94580D51F52C0930039A70D /* accesstoken_fail_credential.json in Resources */ = {isa = PBXBuildFile; fileRef = A94580D41F52C0930039A70D /* accesstoken_fail_credential.json */; };
@@ -153,7 +155,6 @@
 		8F20809E1F4EAD2C00C328DC /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		8F2080A01F4EAD3A00C328DC /* Triggering.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Triggering.storyboard; sourceTree = "<group>"; };
 		8F2080A51F4EE28000C328DC /* GeofencesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesPresenter.swift; sourceTree = "<group>"; };
-		8F2080A61F4EE28000C328DC /* GeofencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesVC.swift; sourceTree = "<group>"; };
 		8F2080A71F4EE28000C328DC /* GeofencesWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesWireframe.swift; sourceTree = "<group>"; };
 		8F2080AB1F4EE29000C328DC /* LogsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsPresenter.swift; sourceTree = "<group>"; };
 		8F2080AC1F4EE29000C328DC /* LogsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsVC.swift; sourceTree = "<group>"; };
@@ -173,6 +174,9 @@
 		8F7F58EA1F4D84BD00271FC7 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		8F7F58EB1F4D84BD00271FC7 /* SettingsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWireframe.swift; sourceTree = "<group>"; };
 		8F7F58F01F4D87D800271FC7 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		8FCE6FAE1F504CC80098A325 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8FCE6FB21F504F070098A325 /* GeofencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesVC.swift; sourceTree = "<group>"; };
+		8FCE6FB41F504F480098A325 /* RegionAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionAnnotation.swift; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
 		A94580D41F52C0930039A70D /* accesstoken_fail_credential.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accesstoken_fail_credential.json; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */,
 				A9C54DDC1F41A9F500DF2074 /* GIGLibrary.framework in Frameworks */,
 				A9C54DD71F41A99700DF2074 /* Orchextra.framework in Frameworks */,
 			);
@@ -297,8 +302,8 @@
 		8F2080A21F4EE1FA00C328DC /* Geofences */ = {
 			isa = PBXGroup;
 			children = (
+				8FCE6FB11F504F070098A325 /* View */,
 				8F2080A51F4EE28000C328DC /* GeofencesPresenter.swift */,
-				8F2080A61F4EE28000C328DC /* GeofencesVC.swift */,
 				8F2080A71F4EE28000C328DC /* GeofencesWireframe.swift */,
 			);
 			path = Geofences;
@@ -345,6 +350,23 @@
 				8F7F58EB1F4D84BD00271FC7 /* SettingsWireframe.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		8FCE6FB01F504CE40098A325 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				8FCE6FAE1F504CC80098A325 /* MapKit.framework */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		8FCE6FB11F504F070098A325 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8FCE6FB21F504F070098A325 /* GeofencesVC.swift */,
+				8FCE6FB41F504F480098A325 /* RegionAnnotation.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8FD275A01F4C4E3F00ADAB58 /* Sections */ = {
@@ -519,6 +541,7 @@
 		A9C54DB11F41A80500DF2074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FCE6FB01F504CE40098A325 /* System */,
 				A9C54DFD1F4433E500DF2074 /* External */,
 				A9C54DFC1F4433DB00DF2074 /* Internal */,
 				A9C54DB21F41A81600DF2074 /* Cartfile */,
@@ -886,13 +909,14 @@
 				8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */,
 				8F5F7A191F4C60E700E62E57 /* HomeWireframe.swift in Sources */,
 				8F2080971F4EAAAB00C328DC /* TriggeringWireframe.swift in Sources */,
+				8FCE6FB51F504F480098A325 /* RegionAnnotation.swift in Sources */,
 				8F5F7A1A1F4C60E700E62E57 /* HomeInteractor.swift in Sources */,
-				8F2080A91F4EE28000C328DC /* GeofencesVC.swift in Sources */,
 				8F7F58ED1F4D84BD00271FC7 /* SettingsPresenter.swift in Sources */,
 				8F7F58EC1F4D84BD00271FC7 /* SettingsInteractor.swift in Sources */,
 				8F20808F1F4EA59600C328DC /* Constants.swift in Sources */,
 				8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */,
 				8F2080A81F4EE28000C328DC /* GeofencesPresenter.swift in Sources */,
+				8FCE6FB31F504F070098A325 /* GeofencesVC.swift in Sources */,
 				8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */,
 				8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */,
 				8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */,

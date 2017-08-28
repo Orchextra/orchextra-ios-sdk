@@ -10,6 +10,8 @@ import Foundation
 
 protocol GeofencesPresenterInput {
     func viewDidLoad()
+    func userDidTapRegionSelected()
+    func userDidChooseRegion(with identifier: String)
 }
 
 protocol GeofencesUI: class {
@@ -29,5 +31,11 @@ struct GeofencesPresenter {
 extension GeofencesPresenter: GeofencesPresenterInput {
     func viewDidLoad() {
         
+    }
+    
+    func userDidTapRegionSelected(){
+    }
+    
+    func userDidChooseRegion(with identifier: String) {
     }
 }

@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rak-MJ-URN">
-                                <rect key="frame" x="36" y="96" width="248" height="45"/>
+                                <rect key="frame" x="36" y="52" width="248" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hdG-GJ-BV9"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qv-iU-trr">
-                                <rect key="frame" x="36" y="161" width="248" height="45"/>
+                                <rect key="frame" x="36" y="117" width="248" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="zgR-41-fu1"/>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ch3-Hh-pYz">
-                                <rect key="frame" x="36" y="226" width="248" height="45"/>
+                                <rect key="frame" x="36" y="182" width="248" height="45"/>
                                 <color key="backgroundColor" red="0.0" green="0.50588235290000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="MNl-q7-uQu"/>
@@ -139,14 +139,28 @@
                     <view key="view" contentMode="scaleToFill" id="XQP-xM-8Fq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9hg-wD-6IA">
+                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S2V-3a-Rpq" firstAttribute="top" secondItem="9hg-wD-6IA" secondAttribute="bottom" id="48R-oJ-jl3"/>
+                            <constraint firstAttribute="trailing" secondItem="9hg-wD-6IA" secondAttribute="trailing" id="Ghc-Hj-lEV"/>
+                            <constraint firstItem="9hg-wD-6IA" firstAttribute="top" secondItem="JNY-II-GKZ" secondAttribute="bottom" id="RXS-QQ-UHF"/>
+                            <constraint firstAttribute="leading" secondItem="9hg-wD-6IA" secondAttribute="leading" id="wDL-cY-WH6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Geofences" id="2du-DH-QSH"/>
                     <navigationItem key="navigationItem" id="moN-Pl-YHB"/>
+                    <connections>
+                        <outlet property="mapView" destination="9hg-wD-6IA" id="Uzj-LC-Qop"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ws8-sA-m73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="-422"/>
+            <point key="canvasLocation" x="1023.75" y="-422.53521126760563"/>
         </scene>
         <!--Logs-->
         <scene sceneID="DLa-ib-22P">
