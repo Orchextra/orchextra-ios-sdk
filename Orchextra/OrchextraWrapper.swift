@@ -16,12 +16,16 @@ class OrchextraWrapper {
     private var session: Session
     private var configInteractor: ConfigInteractorInput
     private var triggerManager: TriggerManager
-    lazy private var wireframe = Wireframe()
     
     fileprivate var startCompletion: ((Result<Bool, Error>) -> Void)?
+    
+    internal let wireframe = Wireframe(
+        application: Application()
+    )
 
     // Modules
     var scanner: ModuleInput?
+    
     
     convenience init() {
         let session = Session.shared
@@ -59,28 +63,15 @@ class OrchextraWrapper {
             self.scanner = self.wireframe.scannerOrx()
             self.scanner?.outputModule = self.triggerManager
         }
-        
         guard let scannerVC = self.scanner as? UIViewController else {
             return
         }
-        
-        self.topViewController()?.present(scannerVC, animated: true, completion: nil)
+        self.wireframe.openScanner(scanner: scannerVC)
         self.scanner?.start()
     }
     
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         self.scanner = vc
         self.scanner?.outputModule = self.triggerManager
-    }
-    
-    // MARK: - Private Helpers
-    
-    private func topViewController() -> UIViewController? {
-        var rootVC = UIApplication.shared.keyWindow?.rootViewController
-        
-        while let presentedController = rootVC?.presentedViewController {
-            rootVC = presentedController
-        }
-        return rootVC
     }
 }

@@ -29,21 +29,43 @@ class TriggerManager: ModuleOutput {
     // MARK: - ModuleOutput
     
     func triggerWasFire(with values: [String : Any], module: ModuleInput) {
-        self.module = module
-        let params = ["type" : "barcode",
-                         "value" : values["value"]!]
+        guard let trigger = TriggerFactory.trigger(from: values) else {
+            LogWarn("We can't match the trigger fired")
+            return
+        }
         
-        self.interactor.trigger(values: params)
-        LogDebug("TRIGGER WAS FIRE: \(params)")
+        self.module = module
+        self.interactor.triggerFired(trigger: trigger)
+        
+        // Inform the integrative app about the trigger
+        Orchextra.shared.delegate?.triggerFired(trigger)
+        LogDebug("Params: \(trigger.urlParams())")
     }
-
 }
 
 // MARK: - TriggerInteractorOutput
 
 extension TriggerManager: TriggerInteractorOutput {
-    
-    func triggerDidFinishSuccessfully() {
+        
+    func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String) {
+        let action = ActionFactory.action(from: actionJSON)
         self.module?.finish()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            action?.executable()
+        }
+    }
+    
+    func triggerDidFinishWithoutAction(triggerId: String) {
+        
+        if  triggerId == TriggerType.triggerBarcode ||
+            triggerId == TriggerType.triggerQR {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.module?.start()
+            }
+        } else {
+            self.module?.start()
+        }
     }
 }

@@ -31,8 +31,8 @@ struct Device {
         self.handset = device.type.rawValue
         self.language = Locale.current.identifier
         self.bundleId = Bundle.main.bundleIdentifier
-        self.appVersion = Bundle.version()
-        self.buildVersion = Bundle.build()
+        self.appVersion = Bundle.OrxVersion()
+        self.buildVersion = Bundle.OrxBuildVersion()
     }
     
     func deviceParams() -> [String: Any] {

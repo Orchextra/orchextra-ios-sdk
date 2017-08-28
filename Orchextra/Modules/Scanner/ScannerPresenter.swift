@@ -14,7 +14,7 @@ protocol ScannerUI {
     func stopScanner()
     func dismissScanner()
     func show(scannedValue: String, message: String)
-    func showImage(status: String, message: String)
+    func hideInfo()
     func showCameraPermissionAlert()
 }
 
@@ -49,14 +49,15 @@ class ScannerPresenter: ScannerInput {
     
     func resetValueScanned() {
         self.waitingUntilResponseFromOrx = false
+        self.vc?.hideInfo()
     }
 
     func scannerDidFinishCapture(value: String, type: String) {
         
-        var type = ScannerType.Barcode
+        var typeValue = ScannerType.Barcode
 
-        if type.rawValue == "org.iso.QRCode" {
-            type = ScannerType.QR
+        if type == "org.iso.QRCode" {
+            typeValue = ScannerType.QR
         }
 
         if !self.waitingUntilResponseFromOrx {
@@ -71,8 +72,9 @@ class ScannerPresenter: ScannerInput {
             }
             
             self.outputModule?.triggerWasFire(with: ["value" : value,
-                                                     "type" : type.rawValue],
+                                                     "type" : typeValue.rawValue],
                                               module: moduleInput)
+            self.vc?.stopScanner()
             
             LogDebug("Module Scan - has trigger: \(value) - \(type)")
         }

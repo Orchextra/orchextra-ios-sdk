@@ -14,7 +14,8 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     @IBOutlet weak var frameScan: UIImageView!
     @IBOutlet weak var scanningBy: UIImageView!
     @IBOutlet weak var navBarOrx: UINavigationBar!
-    
+    @IBOutlet weak var infoLabel: UILabel!
+
     // Protocol
     var outputModule: ModuleOutput?
     
@@ -31,7 +32,6 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.presenter.vc = self
         self.presenter.outputModule = self.outputModule
         self.presenter.viewDidLoad()
-        
         self.initializeOrxScanner()
     }
 
@@ -47,6 +47,9 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.view.bringSubview(toFront: self.frameScan)
         self.view.bringSubview(toFront: self.scanningBy)
         self.view.bringSubview(toFront: self.navBarOrx)
+        
+        self.infoLabel.alpha = 0
+        self.view.bringSubview(toFront: self.infoLabel)
     }
     
     @IBAction func torchTapped(_ sender: Any) {
@@ -73,12 +76,18 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     }
     
     func show(scannedValue: String, message: String) {
+        self.infoLabel.text = "\(message) \n \(scannedValue)"
+        UIView.animate(withDuration: 0.2) {
+            self.infoLabel.alpha = 0.8
+        }
     }
     
-    func showImage(status: String, message: String) {
-        
+    func hideInfo() {
+        UIView.animate(withDuration: 0.2) {
+            self.infoLabel.alpha = 0
+        }
     }
-    
+
     func showCameraPermissionAlert() {
         
     }
@@ -95,6 +104,7 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
 extension ScannerVC: ModuleInput {
     
     func start() {
+        self.presenter.resetValueScanned()
         self.showScanner()
     }
     

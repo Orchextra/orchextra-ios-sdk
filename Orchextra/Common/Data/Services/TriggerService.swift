@@ -23,7 +23,7 @@ class TriggerService {
         self.init(auth: auth)
     }
     
-    func launchTrigger(values: [String: Any], completion: @escaping (Result<String, Error>) -> Void) {
+    func launchTrigger(values: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
         
         let request = Request.OrchextraRequest(
             method: "GET",

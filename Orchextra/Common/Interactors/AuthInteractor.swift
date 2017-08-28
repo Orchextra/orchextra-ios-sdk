@@ -11,7 +11,7 @@ import GIGLibrary
 
 protocol AuthInteractorInput {
     func authWithAccessToken(completion: @escaping (Result<String, Error>) -> Void)
-    func sendRequest(request: Request, completion: @escaping (Result<String, Error>) -> Void)
+    func sendRequest(request: Request, completion: @escaping (Result<JSON, Error>) -> Void)
 }
 
 class AuthInteractor: AuthInteractorInput {
@@ -79,7 +79,7 @@ class AuthInteractor: AuthInteractorInput {
     /// - Parameters:
     ///   - request: request that needs to be authenticated
     ///   - completion: return the completion for the request
-    func sendRequest(request: Request, completion: @escaping (Result<String, Error>) -> Void) {
+    func sendRequest(request: Request, completion: @escaping (Result<JSON, Error>) -> Void) {
         
         request.fetch { response in
             
@@ -88,7 +88,7 @@ class AuthInteractor: AuthInteractorInput {
                 do {
                     let json = try response.json()
                     LogDebug(json.description)
-                    completion(.success(""))
+                    completion(.success(json))
                     
                 } catch {
                     let error = ErrorService.unknown
@@ -136,7 +136,7 @@ class AuthInteractor: AuthInteractorInput {
     // MARK: - Authentication Request
     
     private func handleRefreshAccessToken(request: Request,
-                                          completion: @escaping (Result<String, Error>) -> Void) {
+                                          completion: @escaping (Result<JSON, Error>) -> Void) {
         let authInteractor = AuthInteractor()
         authInteractor.refreshAccessToken(completion: { result in
             switch result {
