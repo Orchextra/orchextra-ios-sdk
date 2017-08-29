@@ -479,6 +479,7 @@
 		A95373BF1BFDD77500AEFE2E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A2C8021B25B21E008E5912 /* AVFoundation.framework */; };
 		A95373C01BFDD78000AEFE2E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0051BC6BDD900341A37 /* CoreMotion.framework */; };
 		A95373C81BFDD94800AEFE2E /* libVuforia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A90FCF211BF362080042F370 /* libVuforia.a */; };
+		A9AC212A1F5541DF00095EC5 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AC21291F5541DF00095EC5 /* UserNotifications.framework */; };
 		A9C188A51BFCC75F0073EE33 /* VuforiaOrchextra.h in Copy Files */ = {isa = PBXBuildFile; fileRef = A9C188A41BFCC75F0073EE33 /* VuforiaOrchextra.h */; };
 		A9C188A71BFCC75F0073EE33 /* VuforiaOrchextra.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C188A61BFCC75F0073EE33 /* VuforiaOrchextra.m */; };
 		A9C188B01BFCC7AB0073EE33 /* VuforiaOrchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C188A41BFCC75F0073EE33 /* VuforiaOrchextra.h */; };
@@ -922,6 +923,7 @@
 		A9A0065D1CF8380300175922 /* ORCTagTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCTagTests.m; sourceTree = "<group>"; };
 		A9A2C7FB1B25AD95008E5912 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A9A2C8021B25B21E008E5912 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A9AC21291F5541DF00095EC5 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		A9AD5BA71C5FAC7A009C02D3 /* ORCProximityFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCProximityFormatter.h; sourceTree = "<group>"; };
 		A9AD5BA81C5FAC7A009C02D3 /* ORCProximityFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCProximityFormatter.m; sourceTree = "<group>"; };
 		A9B17B081C566C6C00D2BCB1 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "MD%/NSString+MD5.h"; sourceTree = "<group>"; };
@@ -978,6 +980,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AC212A1F5541DF00095EC5 /* UserNotifications.framework in Frameworks */,
 				8FA9F56B1DA2E628009A6E87 /* CoreLocation.framework in Frameworks */,
 				8FA9F56A1DA2E620009A6E87 /* SystemConfiguration.framework in Frameworks */,
 				8FA9F5691DA2E618009A6E87 /* AdSupport.framework in Frameworks */,
@@ -2335,6 +2338,7 @@
 		A9E596691B04DBC40040EAD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9AC21291F5541DF00095EC5 /* UserNotifications.framework */,
 				8F2884641D23D68D00BA5230 /* SafariServices.framework */,
 				A93950451D0016A70063A27A /* PassKit.framework */,
 				A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */,
