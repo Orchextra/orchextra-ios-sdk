@@ -81,7 +81,9 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     //MARK: - ScannerUI
     
     func showScanner() {
-        self.startScanning()
+        if self.isCameraAvailable() {
+            self.startScanning()
+        }
     }
     
     func stopScanner() {
@@ -114,16 +116,20 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     // MARK: - Private
     
     internal func showCameraPermissionAlert() {
-        let alert = AlertController(title: kLocaleOrcCameraPermissionOffTitle,
-                          message: kLocaleOrcCameraPermissionOffMessage)
-        alert.addDefaultButton(kLocaleOrcGlobalSettingsButton, usingAction: { _ in
+        let alert = Alert(
+            title: kLocaleOrcCameraPermissionOffTitle,
+            message: kLocaleOrcCameraPermissionOffMessage)
+        
+        alert.addCancelButton(kLocaleOrcGlobalCancelButton, usingAction: nil)
+        alert.addDefaultButton(kLocaleOrcGlobalSettingsButton) { _ in
             self.settingTapped()
-        })
+        }
         alert.show()
     }
     
     private func settingTapped() {
-        guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {return}
+        guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
+            else {return}
         UIApplication.shared.openURL(settingsURL)
     }
 }

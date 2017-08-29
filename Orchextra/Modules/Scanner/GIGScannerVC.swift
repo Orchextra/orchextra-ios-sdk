@@ -70,7 +70,7 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     }
     
     public func enableTorch(_ enable: Bool) {
-        
+
         try! self.captureDevice.lockForConfiguration()
         
         if self.captureDevice.hasTorch {
@@ -82,7 +82,6 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                 self.captureDevice.torchMode = .off
             }
         }
-        
         self.captureDevice.unlockForConfiguration()
     }
     
