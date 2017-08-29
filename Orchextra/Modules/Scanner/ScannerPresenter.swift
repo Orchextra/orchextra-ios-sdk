@@ -70,7 +70,6 @@ class ScannerPresenter: ScannerInput {
                 LogWarn("Scanner ")
                 return
             }
-            self.vc?.stopScanner()
             DispatchQueue.background(delay: 0.8, completion:{
                 self.outputModule?.triggerWasFire(with: ["value" : value,
                                                          "type" : typeValue.rawValue],

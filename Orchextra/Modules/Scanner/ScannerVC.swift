@@ -36,6 +36,14 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.presenter.viewDidLoad()
         self.initializeOrxScanner()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !self.isCameraAvailable() {
+            self.showCameraPermissionAlert()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,15 +104,27 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
             self.infoLabel.alpha = 0
         }
     }
-
-    func showCameraPermissionAlert() {
-        
-    }
     
     //MARK: - GIGScannerDelegate
     
     func didSuccessfullyScan(_ scannedValue: String, type: String) {
         self.presenter.scannerDidFinishCapture(value: scannedValue, type: type)
+    }
+    
+    // MARK: - Private
+    
+    internal func showCameraPermissionAlert() {
+        let alert = AlertController(title: kLocaleOrcCameraPermissionOffTitle,
+                          message: kLocaleOrcCameraPermissionOffMessage)
+        alert.addDefaultButton(kLocaleOrcGlobalSettingsButton, usingAction: { _ in
+            self.settingTapped()
+        })
+        alert.show()
+    }
+    
+    private func settingTapped() {
+        guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {return}
+        UIApplication.shared.openURL(settingsURL)
     }
 }
 
@@ -117,9 +137,7 @@ extension ScannerVC: ModuleInput {
         self.showScanner()
     }
     
-    func setConfig(config: [String : Any]) {
-        
-    }
+    func setConfig(config: [String : Any]) { }
     
     func finish() {
         self.stopScanner()

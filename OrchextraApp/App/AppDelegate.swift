@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         prepareAppController()
         appController.appDidLaunch()
+        self.setNavBarAppearance()
         
         return true
     }
@@ -31,5 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appController.appWireframe = AppWireframe()
         appController.appWireframe?.window = self.window
     }
+    
+    func setNavBarAppearance() {
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.isTranslucent = false
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = UIColor.ORXApp.coral
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    }
 }
+
 

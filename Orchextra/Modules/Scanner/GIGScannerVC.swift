@@ -99,6 +99,19 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         }
     }
     
+    public func isCameraAvailable() -> Bool {
+        let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        switch authStatus {
+        case .authorized:
+            return true
+        case .denied, .restricted:
+            return false
+        case .notDetermined:
+            self.requestCameraAccess()
+            return false
+        }
+    }
+    
     // MARK: - PRIVATE
     
     private func addPreviewLayer() {
@@ -109,6 +122,12 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
             LogWarn("We couldn't add preview layer in the view")
             return }
         self.view.layer.addSublayer(preview)
+    }
+    
+    private func requestCameraAccess() {
+        AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { success in
+            
+        })
     }
     
     // MARK: - AVCaptureMetadataOutputObjectsDelegate
