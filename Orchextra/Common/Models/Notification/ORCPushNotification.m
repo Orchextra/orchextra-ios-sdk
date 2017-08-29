@@ -40,6 +40,34 @@
     return self;
 }
 
+- (instancetype)initWithNotification:(UNNotification *)notification
+{
+    self = [super init];
+    
+    if (self)
+    {
+        NSDictionary *notificionDic = notification.request.content.userInfo;
+        _type = [notificionDic stringForKey:@"type"];
+        
+        if ([_type isEqualToString:ORCTypeGeofence])
+        {
+            _code = [notificionDic stringForKey:@"launchedById"];
+            _event = [notificionDic stringForKey:@"event"];
+            _distance = [notificionDic stringForKey:@"distance"];
+        }
+        else
+        {
+            _trackerId = [notificionDic stringForKey:@"trackId"];
+            _title = notification.request.content.title;
+            _body = notification.request.content.body;
+            _url = [notificionDic stringForKey:@"url"];
+            _launchedBy = [notificionDic stringForKey:@"launchedById"];
+        }
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithRemoteNotification:(NSDictionary *)notification
 {
     self = [super init];
