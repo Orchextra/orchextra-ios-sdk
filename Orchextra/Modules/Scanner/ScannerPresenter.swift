@@ -55,7 +55,6 @@ class ScannerPresenter: ScannerInput {
     func scannerDidFinishCapture(value: String, type: String) {
         
         var typeValue = ScannerType.Barcode
-
         if type == "org.iso.QRCode" {
             typeValue = ScannerType.QR
         }

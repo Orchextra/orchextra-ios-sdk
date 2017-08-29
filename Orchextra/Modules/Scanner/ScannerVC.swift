@@ -14,7 +14,7 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     @IBOutlet weak var frameScan: UIImageView!
     @IBOutlet weak var scanningBy: UIImageView!
     @IBOutlet weak var navBarOrx: UINavigationBar!
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var infoLabel: PaddingLabel!
     @IBOutlet weak var titleNav: UINavigationItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
 
@@ -59,7 +59,7 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.cancelBarButton.title = kLocaleOrcGlobalCancelButton
         
         self.infoLabel.layer.cornerRadius = 5
-        self.infoLabel.padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        self.infoLabel.contentInset = UIEdgeInsets(top: 5, left: 12, bottom: 5, right: 12)
 
         self.view.bringSubview(toFront: self.frameScan)
         self.view.bringSubview(toFront: self.scanningBy)

@@ -73,8 +73,9 @@
 		A9AC21221F543D9600095EC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9AC21151F543D9600095EC5 /* Localizable.strings */; };
 		A9AC21231F543D9600095EC5 /* LocalizableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC211C1F543D9600095EC5 /* LocalizableConstants.swift */; };
 		A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */; };
-		A9AC21281F5443E600095EC5 /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21271F5443E600095EC5 /* Label+Extension.swift */; };
+		A9AC21281F5443E600095EC5 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21271F5443E600095EC5 /* PaddingLabel.swift */; };
 		A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */; };
+		A9AC212F1F5580EC00095EC5 /* ScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB41F41A81600DF2074 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB21F41A81600DF2074 /* Cartfile */; };
@@ -217,8 +218,9 @@
 		A9AC211E1F543D9600095EC5 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A9AC211F1F543D9600095EC5 /* pt-br */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-br"; path = "pt-br.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dispatch+Extension.swift"; path = "Common/Support/Dispatch+Extension.swift"; sourceTree = "<group>"; };
-		A9AC21271F5443E600095EC5 /* Label+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Label+Extension.swift"; path = "Common/Support/Label+Extension.swift"; sourceTree = "<group>"; };
+		A9AC21271F5443E600095EC5 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddingLabel.swift; path = Common/Support/PaddingLabel.swift; sourceTree = "<group>"; };
 		A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerTests.swift; path = Common/Modules/ScannerTests.swift; sourceTree = "<group>"; };
 		A9C54D971F41A6F100DF2074 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C54D9A1F41A6F100DF2074 /* Orchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A9C54D9B1F41A6F100DF2074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 		A978C5C91F4572F300F5DFFD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A9AC212D1F5580C000095EC5 /* Modules */,
 				A978C5D61F457AD400F5DFFD /* Interactor */,
 				A978C5CA1F4572FF00F5DFFD /* Support */,
 			);
@@ -513,6 +516,14 @@
 			path = Localizables;
 			sourceTree = "<group>";
 		};
+		A9AC212D1F5580C000095EC5 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
 		A9C54D8D1F41A6F100DF2074 = {
 			isa = PBXGroup;
 			children = (
@@ -588,7 +599,7 @@
 				A9C54DBE1F41A8B400DF2074 /* Bundle+Extension.swift */,
 				A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */,
 				A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */,
-				A9AC21271F5443E600095EC5 /* Label+Extension.swift */,
+				A9AC21271F5443E600095EC5 /* PaddingLabel.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -915,7 +926,7 @@
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
 				A99885FD1F50353D00EED42E /* Action.swift in Sources */,
-				A9AC21281F5443E600095EC5 /* Label+Extension.swift in Sources */,
+				A9AC21281F5443E600095EC5 /* PaddingLabel.swift in Sources */,
 				A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */,
 				A9C54DBF1F41A8B400DF2074 /* Bundle+Extension.swift in Sources */,
 				A99886081F504AB800EED42E /* TriggerBarcode.swift in Sources */,
@@ -931,6 +942,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */,
+				A9AC212F1F5580EC00095EC5 /* ScannerTests.swift in Sources */,
 				A9C54E0A1F446FC000DF2074 /* StubResponse.swift in Sources */,
 				A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */,
