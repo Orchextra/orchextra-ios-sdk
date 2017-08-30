@@ -64,7 +64,9 @@ class ActionFactory {
     
     class func action(from json: JSON) -> Action? {
         let actions = [
-            ActionWebview.action(from: json)
+            ActionBrowser.action(from: json),
+            ActionWebView.action(from: json),
+            ActionScanner.action(from: json)
         ]
         
         // Returns the last action that is not nil, or custom scheme is there is no actions

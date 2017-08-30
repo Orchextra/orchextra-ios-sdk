@@ -16,11 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         
         prepareAppController()
         appController.appDidLaunch()
+        self.setNavBarAppearance()
         
         return true
     }
@@ -31,5 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appController.appWireframe = AppWireframe()
         appController.appWireframe?.window = self.window
     }
+    
+    func setNavBarAppearance() {
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.isTranslucent = false
+        navigationBarAppearace.tintColor = UIColor.white
+        navigationBarAppearace.barTintColor = UIColor.ORXApp.coral
+        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    }
 }
+
 

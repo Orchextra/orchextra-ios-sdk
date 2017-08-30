@@ -40,6 +40,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera needs</string>
+	<string>You need to get permission to use the camera to scan QR and barcodes.</string>
 </dict>
 </plist>

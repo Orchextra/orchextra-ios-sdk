@@ -29,6 +29,7 @@ class TriggerManager: ModuleOutput {
     // MARK: - ModuleOutput
     
     func triggerWasFire(with values: [String : Any], module: ModuleInput) {
+        
         guard let trigger = TriggerFactory.trigger(from: values) else {
             LogWarn("We can't match the trigger fired")
             return
@@ -39,6 +40,7 @@ class TriggerManager: ModuleOutput {
         
         // Inform the integrative app about the trigger
         Orchextra.shared.delegate?.triggerFired(trigger)
+        
         LogDebug("Params: \(trigger.urlParams())")
     }
 }
@@ -50,7 +52,7 @@ extension TriggerManager: TriggerInteractorOutput {
     func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String) {
         let action = ActionFactory.action(from: actionJSON)
         self.module?.finish()
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             action?.executable()
         }
@@ -60,10 +62,7 @@ extension TriggerManager: TriggerInteractorOutput {
         
         if  triggerId == TriggerType.triggerBarcode ||
             triggerId == TriggerType.triggerQR {
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.module?.start()
-            }
+            self.module?.start()
         } else {
             self.module?.start()
         }

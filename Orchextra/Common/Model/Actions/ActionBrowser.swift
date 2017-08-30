@@ -9,7 +9,7 @@
 import Foundation
 import GIGLibrary
 
-class ActionWebview: Action {
+class ActionBrowser: Action {
 
     var id: String?
     var trackId: String?
@@ -35,14 +35,14 @@ class ActionWebview: Action {
     
     static func action(from json: JSON) -> Action? {
         
-        guard let type = json["type"]?.toString(), type == ActionType.actionWebview,
+        guard let type = json["type"]?.toString(), type == ActionType.actionBrowser,
             let urlString = json["url"]?.toString(),
             let id = json["id"]?.toString(),
             let trackId = json["trackId"]?.toString() else {
             return nil
         }
         
-        return ActionWebview(
+        return ActionBrowser(
             id: id,
             trackId: trackId,
             urlString: urlString,
