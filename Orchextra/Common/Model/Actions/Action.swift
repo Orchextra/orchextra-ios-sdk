@@ -13,6 +13,7 @@ import GIGLibrary
 struct ActionType {
     static let actionWebview = "webview"
     static let actionBrowser = "browser"
+    static let actionBrowserExternal = "browser_external"
     static let actionScanner = "scan"
     static let actionIR = "scan_vuforia"
     static let actionCustomScheme = "custom_scheme"
@@ -66,7 +67,8 @@ class ActionFactory {
         let actions = [
             ActionBrowser.action(from: json),
             ActionWebView.action(from: json),
-            ActionScanner.action(from: json)
+            ActionScanner.action(from: json),
+            ActionBrowserExternal.action(from: json)
         ]
         
         // Returns the last action that is not nil, or custom scheme is there is no actions

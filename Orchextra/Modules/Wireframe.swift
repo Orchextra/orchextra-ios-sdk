@@ -43,7 +43,7 @@ class Wireframe {
     ///
     /// - Parameter url:
     func openWebView(url: URL) {
-          guard let webVC = try? Instantiator<WebVC>().viewController() else { return }
+        guard let webVC = try? Instantiator<WebVC>().viewController() else { return }
         
         let presenter = WebPresenter(webView: webVC)
         webVC.presenter = presenter
@@ -59,6 +59,15 @@ class Wireframe {
     /// - Parameter scanner:
     func openScanner(scanner: UIViewController) {
         self.application.presentModal(scanner)
+    }
+    
+    /// Open Browser External
+    ///
+    /// - Parameter url:
+    func openBrowserExternal(url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
     }
 }
 
