@@ -1,0 +1,14 @@
+{
+    "status": true,
+    "data": {
+        "id": "59a6661153c7c0fd018b4580",
+        "type": "browser_external",
+        "url": "https:\/\/www.wikipedia.org",
+        "notification" : {
+            "title" : "Action External browser",
+            "body" : "Action external browser triggered"
+        },
+        "schedule" : null,
+        "trackId": "59a6661153c7c0fd018b4580"
+    }
+}

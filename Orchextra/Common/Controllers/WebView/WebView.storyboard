@@ -23,13 +23,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q2-PB-LpP" userLabel="controlBar">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem image="back_button" id="tLL-ef-JLL">
+                                    <barButtonItem image="previous-blue" id="tLL-ef-JLL">
                                         <connections>
                                             <action selector="onBackButtonTap:" destination="cJE-op-Dsb" id="O3V-Jh-ms5"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="C6A-ye-F3n"/>
-                                    <barButtonItem image="forward_button" id="a05-AG-2Jk">
+                                    <barButtonItem image="next-blue" id="a05-AG-2Jk">
                                         <connections>
                                             <action selector="onForwardButtonTap:" destination="cJE-op-Dsb" id="6U1-bB-g4b"/>
                                         </connections>
@@ -97,7 +97,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back_button" width="12" height="21"/>
-        <image name="forward_button" width="12" height="21"/>
+        <image name="next-blue" width="28" height="28"/>
+        <image name="previous-blue" width="28" height="28"/>
     </resources>
 </document>
