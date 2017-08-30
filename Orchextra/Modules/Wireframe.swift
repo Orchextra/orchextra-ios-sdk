@@ -39,6 +39,21 @@ class Wireframe {
         self.application.presentModal(safariVC)
     }
     
+    /// Open WebView
+    ///
+    /// - Parameter url:
+    func openWebView(url: URL) {
+          guard let webVC = try? Instantiator<WebVC>().viewController() else { return }
+        
+        let presenter = WebPresenter(webView: webVC)
+        webVC.presenter = presenter
+        webVC.url = url
+
+        let navigationController = UINavigationController(rootViewController: webVC)
+        self.application.presentModal(navigationController)
+    }
+
+    
     /// Open Scanner
     ///
     /// - Parameter scanner:

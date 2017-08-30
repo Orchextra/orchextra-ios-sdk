@@ -58,7 +58,6 @@ class OrchextraWrapper {
     }
     
     func openScanner() {
-
         if self.scanner == nil {
             self.scanner = self.wireframe.scannerOrx()
         }

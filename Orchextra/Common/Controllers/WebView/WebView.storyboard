@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0ll-fb-6iX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--WebVC-->
+        <scene sceneID="oLp-1P-60c">
+            <objects>
+                <viewController storyboardIdentifier="WebVC" id="cJE-op-Dsb" customClass="WebVC" customModule="Orchextra" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GyA-oD-u0K"/>
+                        <viewControllerLayoutGuide type="bottom" id="jHU-Ry-dK9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k88-OC-A6e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q2-PB-LpP" userLabel="controlBar">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem image="back_button" id="tLL-ef-JLL">
+                                        <connections>
+                                            <action selector="onBackButtonTap:" destination="cJE-op-Dsb" id="O3V-Jh-ms5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="C6A-ye-F3n"/>
+                                    <barButtonItem image="forward_button" id="a05-AG-2Jk">
+                                        <connections>
+                                            <action selector="onForwardButtonTap:" destination="cJE-op-Dsb" id="6U1-bB-g4b"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="QNV-nw-sqb"/>
+                                    <barButtonItem systemItem="refresh" id="EiV-Xb-gHs">
+                                        <connections>
+                                            <action selector="onReloadButtonTap:" destination="cJE-op-Dsb" id="C5S-iI-WsX"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Iy-uX-voE" userLabel="webViewContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Q2-PB-LpP" firstAttribute="leading" secondItem="k88-OC-A6e" secondAttribute="leading" id="5wT-Nx-UJd"/>
+                            <constraint firstItem="6Q2-PB-LpP" firstAttribute="top" secondItem="0Iy-uX-voE" secondAttribute="bottom" id="Bbz-bA-pgH"/>
+                            <constraint firstAttribute="trailing" secondItem="6Q2-PB-LpP" secondAttribute="trailing" id="SNw-Q0-tVl"/>
+                            <constraint firstItem="0Iy-uX-voE" firstAttribute="top" secondItem="k88-OC-A6e" secondAttribute="top" id="YG5-mh-1x3"/>
+                            <constraint firstItem="jHU-Ry-dK9" firstAttribute="top" secondItem="6Q2-PB-LpP" secondAttribute="bottom" id="nvg-cx-dJn"/>
+                            <constraint firstAttribute="trailing" secondItem="0Iy-uX-voE" secondAttribute="trailing" id="uuu-N0-Rea"/>
+                            <constraint firstItem="0Iy-uX-voE" firstAttribute="leading" secondItem="k88-OC-A6e" secondAttribute="leading" id="zOf-7v-d5m"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3tc-pN-oqu">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bGO-YU-ATc">
+                            <connections>
+                                <action selector="onButtonCancelTap:" destination="cJE-op-Dsb" id="8k4-Ek-Cyv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buttonBack" destination="tLL-ef-JLL" id="z9D-Cc-iW9"/>
+                        <outlet property="buttonClose" destination="bGO-YU-ATc" id="LBV-p8-vhB"/>
+                        <outlet property="buttonForward" destination="a05-AG-2Jk" id="OGH-Ne-rkb"/>
+                        <outlet property="buttonReload" destination="EiV-Xb-gHs" id="3ZH-5Y-17F"/>
+                        <outlet property="controlBar" destination="6Q2-PB-LpP" id="pXO-Yq-Emk"/>
+                        <outlet property="webViewContainer" destination="0Iy-uX-voE" id="jNR-kR-w0U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v0A-zj-eir" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175.1999999999998" y="455.62218890554726"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IHP-za-Gax">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0ll-fb-6iX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fFf-8K-iv4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cJE-op-Dsb" kind="relationship" relationship="rootViewController" id="NZh-pD-iJn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LCk-BI-KCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="455.62218890554726"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back_button" width="12" height="21"/>
+        <image name="forward_button" width="12" height="21"/>
+    </resources>
+</document>
