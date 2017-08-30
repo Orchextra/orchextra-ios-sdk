@@ -56,7 +56,7 @@ class ScannerTests: XCTestCase {
         self.presenter.userDidCloseScanner()
         
         // ASSERT
-        expect(self.scannerViewMock.spyDismissScannerCalled).toEventually(equal(true))
+        expect(self.scannerViewMock.spyDismissScanner.called).toEventually(equal(true))
     }
     
     func test_moduleDidFinish_withoutAction() {
@@ -69,6 +69,7 @@ class ScannerTests: XCTestCase {
         expect(self.scannerViewMock.spyShowimage.called).toEventually(equal(true))
         expect(self.scannerViewMock.spyShowimage.image).toEventually(equal("Fail_cross"))
         expect(self.scannerViewMock.spyShowimage.message).toEventually(equal("Match not found"))
+        expect(self.scannerViewMock.spyDismissScanner.completion).toEventually(beNil())
 
     }
     
@@ -77,11 +78,13 @@ class ScannerTests: XCTestCase {
         let action = ActionScanner()
         
         // ACT
-        self.presenter.moduleDidFinish(action: action, completionHandler: nil)
-        
+        self.presenter.moduleDidFinish(action: action) { }
+
         // ASSERT
         expect(self.scannerViewMock.spyStopScannerCalled).toEventually(equal(true))
-        expect(self.scannerViewMock.spyDismissScannerCalled).toEventually(equal(true))
+        expect(self.scannerViewMock.spyDismissScanner.called).toEventually(equal(true))
+        XCTAssertNotNil(self.scannerViewMock.spyDismissScanner.completion)
+
     }
 
     func test_resetValueScanned() {
@@ -92,5 +95,15 @@ class ScannerTests: XCTestCase {
         // ASSERT
         expect(self.scannerViewMock.spyHideInfoCalled).toEventually(equal(true))
     }
+    
+    func test_scannerDidFinishCapture_barcode() {
+        // TODO:
+        // ACT
+        self.presenter.scannerDidFinishCapture(value: "97870980", type: "ios.Barcode")
+        
+    }
 
+    func test_scannerDidFinishCapture_qr() {
+
+    }
 }
