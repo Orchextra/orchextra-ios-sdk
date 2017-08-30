@@ -9,8 +9,10 @@
 import UIKit
 import GIGLibrary
 
-class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
+class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     
+    @IBOutlet weak var viewStatus: UIView!
+    @IBOutlet weak var infoStatusLabel: UILabel!
     @IBOutlet weak var frameScan: UIImageView!
     @IBOutlet weak var scanningBy: UIImageView!
     @IBOutlet weak var navBarOrx: UINavigationBar!
@@ -67,6 +69,10 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         
         self.infoLabel.alpha = 0
         self.view.bringSubview(toFront: self.infoLabel)
+        
+        self.viewStatus.alpha = 0
+        self.viewStatus.layer.cornerRadius = 5
+        self.view.bringSubview(toFront: self.viewStatus)
     }
     
     @IBAction func torchTapped(_ sender: Any) {
@@ -105,6 +111,22 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         }
     }
     
+    func show(image: String, message: String) {
+        self.infoStatusLabel.text = message
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.5,
+                       options: .curveEaseInOut, animations: {
+            self.viewStatus.alpha = 0.8
+            
+        }) { _ in
+            UIView.animate(withDuration: 0.1,
+                           delay: 0.6,
+                           options: .curveEaseInOut, animations: { 
+                            self.viewStatus.alpha = 0
+            }, completion:nil)
+        }
+    }
+
     func hideInfo() {
         UIView.animate(withDuration: 0.1) {
             self.infoLabel.alpha = 0
@@ -140,7 +162,7 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
 
 // MARK: - ModuleInput
 
-extension ScannerVC: ModuleInput {
+extension ScannerOrxVC: ModuleInput {
     
     func start() {
         self.presenter.resetValueScanned()
@@ -154,8 +176,9 @@ extension ScannerVC: ModuleInput {
                 completionHandler()
             }
         } else {
-            self.show(scannedValue: "", message: "NOT MATCH")
-            DispatchQueue.background(delay: 0.8, completion:{
+            self.hideInfo()
+            self.presenter.moduleNotFoundMatch()
+            DispatchQueue.background(delay: 1.5, completion:{
                 completionHandler()
             })
         }
@@ -164,7 +187,7 @@ extension ScannerVC: ModuleInput {
 
 // MARK: - UINavigationBarDelegate
 
-extension ScannerVC: UINavigationBarDelegate {
+extension ScannerOrxVC: UINavigationBarDelegate {
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.topAttached
     }

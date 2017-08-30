@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ScannerVC-->
+        <!--Scanner OrxVC-->
         <scene sceneID="des-cf-lVI">
             <objects>
-                <viewController storyboardIdentifier="ScannerVC" id="oPM-Y1-4oU" customClass="ScannerVC" customModule="Orchextra" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScannerOrxVC" id="oPM-Y1-4oU" customClass="ScannerOrxVC" customModule="Orchextra" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VMa-Ix-r2z"/>
                         <viewControllerLayoutGuide type="bottom" id="Fzf-UZ-LV6"/>
@@ -51,14 +51,14 @@
                                     <outlet property="delegate" destination="oPM-Y1-4oU" id="DwL-Ri-qyX"/>
                                 </connections>
                             </navigationBar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label \n 90809809345" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-nd-a4a" customClass="PaddingLabel" customModule="Orchextra" customModuleProvider="target">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Scanning&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-nd-a4a" customClass="PaddingLabel" customModule="Orchextra" customModuleProvider="target">
                                 <rect key="frame" x="112.5" y="110" width="150" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" placeholder="YES" id="dm2-lo-Al9"/>
                                     <constraint firstAttribute="height" constant="30" placeholder="YES" id="wnO-s3-8VP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -70,6 +70,35 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <view clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGd-Og-OA5" userLabel="ViewStatus">
+                                <rect key="frame" x="137" y="290.5" width="101" height="85"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fail_cross" translatesAutoresizingMaskIntoConstraints="NO" id="9Zz-y2-LKp">
+                                        <rect key="frame" x="32.5" y="15" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="9EH-QD-i1G"/>
+                                            <constraint firstAttribute="width" constant="37" id="fwo-Uf-LF2"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Not match&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5q-ww-hQV">
+                                        <rect key="frame" x="8" y="58" width="85" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" placeholder="YES" id="0k3-gV-Gq5"/>
+                                    <constraint firstAttribute="bottom" secondItem="d5q-ww-hQV" secondAttribute="bottom" constant="6" id="2zt-rn-dox"/>
+                                    <constraint firstAttribute="trailing" secondItem="d5q-ww-hQV" secondAttribute="trailing" constant="8" id="BBN-sh-tdM"/>
+                                    <constraint firstItem="d5q-ww-hQV" firstAttribute="leading" secondItem="OGd-Og-OA5" secondAttribute="leading" constant="8" id="BxV-cM-wju"/>
+                                    <constraint firstItem="9Zz-y2-LKp" firstAttribute="top" secondItem="OGd-Og-OA5" secondAttribute="top" constant="15" id="KKH-8b-4Rs"/>
+                                    <constraint firstItem="9Zz-y2-LKp" firstAttribute="centerX" secondItem="OGd-Og-OA5" secondAttribute="centerX" id="Mrc-Jp-LH3"/>
+                                    <constraint firstAttribute="width" constant="101" placeholder="YES" id="V0d-g6-0ht"/>
+                                    <constraint firstItem="d5q-ww-hQV" firstAttribute="top" secondItem="9Zz-y2-LKp" secondAttribute="bottom" constant="6" id="qtt-Ht-aJg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -77,9 +106,11 @@
                             <constraint firstItem="qoQ-QT-yhT" firstAttribute="top" secondItem="1Sz-AL-36Z" secondAttribute="top" constant="20" id="6xw-g0-xRR"/>
                             <constraint firstItem="fFs-nd-a4a" firstAttribute="centerX" secondItem="1Sz-AL-36Z" secondAttribute="centerX" id="Poa-Uy-5vo"/>
                             <constraint firstItem="dlr-M8-NVM" firstAttribute="top" secondItem="fFs-nd-a4a" secondAttribute="bottom" constant="40" id="RQ5-Cs-m7g"/>
+                            <constraint firstItem="OGd-Og-OA5" firstAttribute="centerX" secondItem="1Sz-AL-36Z" secondAttribute="centerX" id="Yjz-5v-Kke"/>
                             <constraint firstItem="2np-Jm-uO3" firstAttribute="top" secondItem="dlr-M8-NVM" secondAttribute="bottom" constant="8" id="cFp-bG-5sn"/>
                             <constraint firstItem="2np-Jm-uO3" firstAttribute="trailing" secondItem="dlr-M8-NVM" secondAttribute="trailing" id="fVG-Vo-mNM"/>
                             <constraint firstItem="dlr-M8-NVM" firstAttribute="centerY" secondItem="1Sz-AL-36Z" secondAttribute="centerY" id="ksP-R5-Lw8"/>
+                            <constraint firstItem="OGd-Og-OA5" firstAttribute="centerY" secondItem="1Sz-AL-36Z" secondAttribute="centerY" id="mB9-1w-LeS"/>
                             <constraint firstAttribute="trailing" secondItem="qoQ-QT-yhT" secondAttribute="trailing" id="nUf-F2-oua"/>
                             <constraint firstItem="dlr-M8-NVM" firstAttribute="centerX" secondItem="1Sz-AL-36Z" secondAttribute="centerX" id="tYv-LF-1Dc"/>
                         </constraints>
@@ -91,9 +122,11 @@
                         <outlet property="cancelBarButton" destination="wAi-k0-xJb" id="Yu9-PC-zpS"/>
                         <outlet property="frameScan" destination="dlr-M8-NVM" id="1ZT-Qq-86x"/>
                         <outlet property="infoLabel" destination="fFs-nd-a4a" id="Lp4-Fz-7JA"/>
+                        <outlet property="infoStatusLabel" destination="d5q-ww-hQV" id="TbE-cB-y8X"/>
                         <outlet property="navBarOrx" destination="qoQ-QT-yhT" id="uRL-w7-D56"/>
                         <outlet property="scanningBy" destination="2np-Jm-uO3" id="qeY-De-Qq2"/>
                         <outlet property="titleNav" destination="FBD-B7-5jg" id="lRh-eE-TPB"/>
+                        <outlet property="viewStatus" destination="OGd-Og-OA5" id="nu2-kE-XDb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diw-VC-34w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -102,6 +135,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Fail_cross" width="37" height="37"/>
         <image name="frame-scan" width="306" height="306"/>
         <image name="scanning-by" width="52" height="20"/>
         <image name="torch" width="28" height="28"/>

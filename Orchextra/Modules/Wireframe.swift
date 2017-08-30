@@ -20,7 +20,7 @@ class Wireframe {
     
     func scannerOrx() -> ModuleInput? {
         let storyboard = UIStoryboard.init(name: "ScannerOrx", bundle: Bundle.OrxBundle())
-        guard let scannerOrxVC = storyboard.instantiateViewController(withIdentifier: "ScannerVC") as? ModuleInput
+        guard let scannerOrxVC = storyboard.instantiateViewController(withIdentifier: "ScannerOrxVC") as? ModuleInput
             else {
                 LogWarn("Couldn't instantiate ScannerOrxVC")
                 return nil
@@ -52,7 +52,6 @@ class Wireframe {
         let navigationController = UINavigationController(rootViewController: webVC)
         self.application.presentModal(navigationController)
     }
-
     
     /// Open Scanner
     ///

@@ -14,6 +14,7 @@ protocol ScannerUI {
     func stopScanner()
     func dismissScanner(completion: (() -> Void)?)
     func show(scannedValue: String, message: String)
+    func show(image: String, message: String)
     func hideInfo()
     func showCameraPermissionAlert()
 }
@@ -45,6 +46,10 @@ class ScannerPresenter: ScannerInput {
     
     func userDidCloseScanner() {
         self.vc?.dismissScanner(completion: nil)
+    }
+    
+    func moduleNotFoundMatch() {
+        self.vc?.show(image: "Fail_cross", message: kLocaleOrcMatchNotFoundMessage)
     }
     
     func resetValueScanned() {
