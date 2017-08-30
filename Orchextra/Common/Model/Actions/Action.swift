@@ -20,7 +20,7 @@ struct ActionType {
     static let actionLocalNotification = "notification"
 }
 
-protocol Action {
+public protocol Action {
     
     var id: String? {get set}
     var trackId: String? {get set}
@@ -79,14 +79,14 @@ class ActionFactory {
 
 // MARK: - Action Notification
 
-struct ActionNotification {
+public struct ActionNotification {
     var title: String
     var body: String
 }
 
 // MARK: - Action Schedule
 
-struct ActionSchedule {
+public struct ActionSchedule {
     var seconds: Int
     var cancelable: Bool
 }
