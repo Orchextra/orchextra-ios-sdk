@@ -14,7 +14,9 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     @IBOutlet weak var frameScan: UIImageView!
     @IBOutlet weak var scanningBy: UIImageView!
     @IBOutlet weak var navBarOrx: UINavigationBar!
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var infoLabel: PaddingLabel!
+    @IBOutlet weak var titleNav: UINavigationItem!
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
 
     // Protocol
     var outputModule: ModuleOutput?
@@ -34,6 +36,14 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.presenter.viewDidLoad()
         self.initializeOrxScanner()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !self.isCameraAvailable() {
+            self.showCameraPermissionAlert()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -44,6 +54,13 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     }
     
     func initializeOrxScanner() {
+        
+        self.titleNav.title = kLocaleOrcScannerTitle
+        self.cancelBarButton.title = kLocaleOrcGlobalCancelButton
+        
+        self.infoLabel.layer.cornerRadius = 5
+        self.infoLabel.contentInset = UIEdgeInsets(top: 5, left: 12, bottom: 5, right: 12)
+
         self.view.bringSubview(toFront: self.frameScan)
         self.view.bringSubview(toFront: self.scanningBy)
         self.view.bringSubview(toFront: self.navBarOrx)
@@ -64,7 +81,9 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     //MARK: - ScannerUI
     
     func showScanner() {
-        self.startScanning()
+        if self.isCameraAvailable() {
+            self.startScanning()
+        }
     }
     
     func stopScanner() {
@@ -76,26 +95,42 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     }
     
     func show(scannedValue: String, message: String) {
-        self.infoLabel.text = "\(message) \n \(scannedValue)"
-        UIView.animate(withDuration: 0.2) {
+        self.infoLabel.text = "\(message)  \n  \(scannedValue)"
+        UIView.animate(withDuration: 0.05) {
             self.infoLabel.alpha = 0.8
         }
     }
     
     func hideInfo() {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.1) {
             self.infoLabel.alpha = 0
         }
-    }
-
-    func showCameraPermissionAlert() {
-        
     }
     
     //MARK: - GIGScannerDelegate
     
     func didSuccessfullyScan(_ scannedValue: String, type: String) {
         self.presenter.scannerDidFinishCapture(value: scannedValue, type: type)
+    }
+    
+    // MARK: - Private
+    
+    internal func showCameraPermissionAlert() {
+        let alert = Alert(
+            title: kLocaleOrcCameraPermissionOffTitle,
+            message: kLocaleOrcCameraPermissionOffMessage)
+        
+        alert.addCancelButton(kLocaleOrcGlobalCancelButton, usingAction: nil)
+        alert.addDefaultButton(kLocaleOrcGlobalSettingsButton) { _ in
+            self.settingTapped()
+        }
+        alert.show()
+    }
+    
+    private func settingTapped() {
+        guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
+            else {return}
+        UIApplication.shared.openURL(settingsURL)
     }
 }
 
@@ -108,9 +143,7 @@ extension ScannerVC: ModuleInput {
         self.showScanner()
     }
     
-    func setConfig(config: [String : Any]) {
-        
-    }
+    func setConfig(config: [String : Any]) { }
     
     func finish() {
         self.stopScanner()

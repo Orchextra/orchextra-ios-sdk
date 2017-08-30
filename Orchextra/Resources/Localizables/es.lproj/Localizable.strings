@@ -1,0 +1,96 @@
+/*
+Localizable.strings
+
+GENERATED - DO NOT MODIFY - use the localio gem instead.
+
+Created by localio.
+*/
+
+
+
+// Global
+
+"orc_global_cancel_button" = "Cancelar";
+"orc_global_ok_button" = "Ok";
+"orc_global_ok_uppercased_button" = "OK";
+"orc_global_settings_button" = "Ajustes";
+
+// Location
+
+"orc_location_service_off_alert_title" = "La localización está desactivada.";
+"orc_background_location_off_alert_title" = "La localización en segundo plano no está activada.";
+"orc_background_location_alert_message" = "La aplicación necesita tener activada la localización en segundo plano para ofrecer información personalizada en función de tu posición. Debes seleccionar la opción 'Siempre' en Ajustes Servicios de Localización";
+
+// Notification
+
+"orc_default_local_notification_title" = "Echa un vistazo!";
+"orc_default_local_notification_message" = "Entra y descubre las novedades.";
+
+// Scanner
+
+"orc_scanner_title" = "Escaner";
+"orc_scanning_message" = "Escaneando...";
+"orc_match_not_found_message" = "No hay coincidencias";
+"orc_match_found_message" = "Coincidencia encontrada";
+"orc_camera_permission_off_title" = "Uso de cámara no permitido";
+"orc_camera_permission_off_message" = "No tienes activado el permiso para usar la cámara. Debes activarlo desde 'Ajustes'";
+
+// Browser
+
+"orc_browser_title" = "Browser";
+
+// Error
+
+"orc_unexpected_error" = "Ha ocurrido un error.";
+
+// Vuforia
+
+"orc_vuforia_title" = "Reconocimiento de Imágenes";
+"orc_vuforia_button_start" = "Comenzar";
+"orc_vuforia_activities_list_title" = "Vuforia Samples";
+"orc_vuforia_activities_list_empty" = "Vacio";
+"orc_vuforia_button_ok" = "OK";
+"orc_vuforia_content_desc_camera_button" = "Botón de Cámara";
+"orc_vuforia_overlay_build_target_help" = "Mantén la cámara en paralelo al objeto";
+"orc_vuforia_target_quality_error_title" = "Mala calidad de Imagen";
+"orc_vuforia_target_quality_error_desc" = "Servicio no disponible";
+"orc_vuforia_menu_back" = "Escaner de Imagen";
+"orc_vuforia_menu_extended_tracking" = "tracking de imagen";
+"orc_vuforia_menu_character_mode" = "Modo de texto";
+"orc_vuforia_menu_flash" = "Flash";
+"orc_vuforia_menu_flash_error_on" = "No es posible encender el flash";
+"orc_vuforia_menu_flash_error_off" = "No es posible apagar el flash";
+"orc_vuforia_menu_contautofocus" = "Autofocus";
+"orc_vuforia_menu_contautofocus_error_on" = "No es posible activar el enfoque automático continuo";
+"orc_vuforia_menu_contautofocus_error_off" = "No es posible desactivar el enfoque automático continuo";
+"orc_vuforia_menu_datasets" = "DATASETS";
+"orc_vuforia_menu_camera" = "CAMERA";
+"orc_vuforia_menu_camera_front" = "Frontal";
+"orc_vuforia_menu_camera_back" = "Posterior";
+"orc_vuforia_menu_button_red" = "Rojo";
+"orc_vuforia_menu_button_blue" = "Azul";
+"orc_vuforia_menu_button_yellow" = "Amarillo";
+"orc_vuforia_menu_button_green" = "Verde";
+"orc_vuforia_splash_screen_description" = "Escarner de Imagen Splash";
+
+// Vuforia Errors
+
+"orc_vuforia_error_missing_vuforia_credentials" = "❌❌ERROR: Las credenciales de vuforia no están añadidas en el proyecto, porfavor añade las credenciales en 'Orchextra Dashboard'->'Proyectos'->'Ajustes'->'Proveedores'";
+"orc_vuforia_update_error_authorization_failed_title" = "Error de autorización";
+"orc_vuforia_update_error_project_suspended_title" = "Error de autorización";
+"orc_vuforia_update_error_no_network_connection_title" = "Sin conexión";
+"orc_vuforia_update_error_service_not_available_title" = "Servicio no disponible";
+"orc_vuforia_update_error_update_sdk_title" = "Versión no Soportada";
+"orc_vuforia_update_error_timestamp_out_of_range_title" = "Error de Sincronía";
+"orc_vuforia_update_error_request_timeout_title" = "Timeout";
+"orc_vuforia_update_error_bad_frame_quality_title" = "Mala calidad de Imagen";
+"orc_vuforia_update_error_unknown_title" = "Servicio no disponible";
+"orc_vuforia_update_error_authorization_failed_desc" = "Licencia caducada o erronea.";
+"orc_vuforia_update_error_project_suspended_desc" = "Servicio de reconocimiento de Imagen no disponible.";
+"orc_vuforia_update_error_no_network_connection_desc" = "Comprueba tu conexión a internet e intenta nuevamente.";
+"orc_vuforia_update_error_service_not_available_desc" = "Servicio no disponible; por favor intenta nuevamente.";
+"orc_vuforia_update_error_update_sdk_desc" = "Versión antigua de Vuforia.";
+"orc_vuforia_update_error_timestamp_out_of_range_desc" = "Por favor comprueba que tu fecha y hora estén correctos.";
+"orc_vuforia_update_error_request_timeout_desc" = "Timeout; Comprueba tu conexión a internet e intenta nuevamente.";
+"orc_vuforia_update_error_bad_frame_quality_desc" = "La camara utilizada no tiene suficiente calidad; por favor intenta nuevamente.";
+"orc_vuforia_update_error_unknown_desc" = "Servicio no disponible; por favor intenta nuevamente.";

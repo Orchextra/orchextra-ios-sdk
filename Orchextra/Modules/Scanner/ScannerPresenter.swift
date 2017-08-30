@@ -55,7 +55,6 @@ class ScannerPresenter: ScannerInput {
     func scannerDidFinishCapture(value: String, type: String) {
         
         var typeValue = ScannerType.Barcode
-
         if type == "org.iso.QRCode" {
             typeValue = ScannerType.QR
         }
@@ -65,18 +64,18 @@ class ScannerPresenter: ScannerInput {
             // Track activity statistics
             
             // Show in the view the scanned value
-            self.vc?.show(scannedValue: value, message: "<Scanning>")
+            self.vc?.show(scannedValue: value, message: kLocaleOrcScanningMessage)
             guard let moduleInput = self.vc else {
                 LogWarn("Scanner ")
                 return
             }
+            DispatchQueue.background(delay: 0.8, completion:{
+                self.outputModule?.triggerWasFire(with: ["value" : value,
+                                                         "type" : typeValue.rawValue],
+                                                  module: moduleInput)
+                LogDebug("Module Scan - has trigger: \(value) - \(type)")
+            })
             
-            self.outputModule?.triggerWasFire(with: ["value" : value,
-                                                     "type" : typeValue.rawValue],
-                                              module: moduleInput)
-            self.vc?.stopScanner()
-            
-            LogDebug("Module Scan - has trigger: \(value) - \(type)")
         }
     }
 }

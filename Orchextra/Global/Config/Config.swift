@@ -35,7 +35,17 @@ class Config {
             return "https://sdk.orchextra.io/v1"
         }
     }
-    
 }
 
+func localize(_ key: String, comment: String) -> String {
+    return localizeFromSDK(key: localizeMainBundle(key: key))
+}
+
+func localizeMainBundle(key: String) -> String {
+    return NSLocalizedString(key, tableName: nil, bundle: Bundle.main, comment: "")
+}
+
+func localizeFromSDK(key: String) -> String {
+    return NSLocalizedString(key, tableName: nil, bundle: Bundle.OrxBundle(), comment: "")
+}
 

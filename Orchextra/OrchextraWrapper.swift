@@ -15,7 +15,7 @@ class OrchextraWrapper {
     
     private var session: Session
     private var configInteractor: ConfigInteractorInput
-    private var triggerManager: TriggerManager
+    internal var triggerManager: TriggerManager
     
     fileprivate var startCompletion: ((Result<Bool, Error>) -> Void)?
     
@@ -58,15 +58,8 @@ class OrchextraWrapper {
     }
     
     func openScanner() {
-        if self.scanner == nil {
-            self.scanner = self.wireframe.scannerOrx()
-        }
-        guard let scannerVC = self.scanner as? UIViewController else {
-            return
-        }
-        self.scanner?.outputModule = self.triggerManager
-        self.wireframe.openScanner(scanner: scannerVC)
-        self.scanner?.start()
+        let action = ActionScanner()
+        action.executable()
     }
     
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
