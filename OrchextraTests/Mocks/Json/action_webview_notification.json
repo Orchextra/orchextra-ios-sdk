@@ -1,17 +1,14 @@
 {
     "status": true,
     "data": {
-        "id": "599ea2209c309558028b4567",
+        "id": "59a6661153c7c0fd018b4580",
         "type": "webview",
-        "url": "http://www.imdb.com/title/tt4877122/",
-        "notification": {
-            "title": "Emoji found it",
-            "body": "Hi! \nYou found one of our emojis."
+        "url": "https:\/\/www.google.es",
+        "notification" : {
+            "title" : "Action WebView",
+            "body" : "Action web view triggered"
         },
-        "schedule": {
-            "seconds": 300,
-            "cancelable": false
-        },
-        "trackId": "59a28afadb48a784038b4570"
+       "schedule" : null,
+        "trackId": "59a6661153c7c0fd018b4580"
     }
 }

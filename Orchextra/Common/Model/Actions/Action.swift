@@ -13,13 +13,14 @@ import GIGLibrary
 struct ActionType {
     static let actionWebview = "webview"
     static let actionBrowser = "browser"
+    static let actionBrowserExternal = "browser_external"
     static let actionScanner = "scan"
     static let actionIR = "scan_vuforia"
     static let actionCustomScheme = "custom_scheme"
     static let actionLocalNotification = "notification"
 }
 
-protocol Action {
+public protocol Action {
     
     var id: String? {get set}
     var trackId: String? {get set}
@@ -66,7 +67,8 @@ class ActionFactory {
         let actions = [
             ActionBrowser.action(from: json),
             ActionWebView.action(from: json),
-            ActionScanner.action(from: json)
+            ActionScanner.action(from: json),
+            ActionBrowserExternal.action(from: json)
         ]
         
         // Returns the last action that is not nil, or custom scheme is there is no actions
@@ -77,14 +79,14 @@ class ActionFactory {
 
 // MARK: - Action Notification
 
-struct ActionNotification {
+public struct ActionNotification {
     var title: String
     var body: String
 }
 
 // MARK: - Action Schedule
 
-struct ActionSchedule {
+public struct ActionSchedule {
     var seconds: Int
     var cancelable: Bool
 }

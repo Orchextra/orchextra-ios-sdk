@@ -51,18 +51,18 @@ extension TriggerManager: TriggerInteractorOutput {
         
     func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String) {
         let action = ActionFactory.action(from: actionJSON)
-        self.module?.finish()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        self.module?.finish(action: action, completionHandler: { 
             action?.executable()
-        }
+        })
     }
     
     func triggerDidFinishWithoutAction(triggerId: String) {
         
         if  triggerId == TriggerType.triggerBarcode ||
             triggerId == TriggerType.triggerQR {
-            self.module?.start()
+            self.module?.finish(action: nil, completionHandler: {
+                self.module?.start()
+            })
         } else {
             self.module?.start()
         }

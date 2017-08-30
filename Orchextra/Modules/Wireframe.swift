@@ -20,7 +20,7 @@ class Wireframe {
     
     func scannerOrx() -> ModuleInput? {
         let storyboard = UIStoryboard.init(name: "ScannerOrx", bundle: Bundle.OrxBundle())
-        guard let scannerOrxVC = storyboard.instantiateViewController(withIdentifier: "ScannerVC") as? ModuleInput
+        guard let scannerOrxVC = storyboard.instantiateViewController(withIdentifier: "ScannerOrxVC") as? ModuleInput
             else {
                 LogWarn("Couldn't instantiate ScannerOrxVC")
                 return nil
@@ -43,7 +43,7 @@ class Wireframe {
     ///
     /// - Parameter url:
     func openWebView(url: URL) {
-          guard let webVC = try? Instantiator<WebVC>().viewController() else { return }
+        guard let webVC = try? Instantiator<WebVC>().viewController() else { return }
         
         let presenter = WebPresenter(webView: webVC)
         webVC.presenter = presenter
@@ -52,13 +52,21 @@ class Wireframe {
         let navigationController = UINavigationController(rootViewController: webVC)
         self.application.presentModal(navigationController)
     }
-
     
     /// Open Scanner
     ///
     /// - Parameter scanner:
     func openScanner(scanner: UIViewController) {
         self.application.presentModal(scanner)
+    }
+    
+    /// Open Browser External
+    ///
+    /// - Parameter url:
+    func openBrowserExternal(url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
     }
 }
 
