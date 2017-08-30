@@ -75,7 +75,7 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     }
     
     @IBAction func closeScannerTapped(_ sender: Any) {
-        self.dismissScanner()
+        self.dismissScanner(completion: nil)
     }
     
     //MARK: - ScannerUI
@@ -90,8 +90,12 @@ class ScannerVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.stopScanning()
     }
     
-    func dismissScanner() {
-        self.dismiss(animated: true, completion: nil)
+    func dismissScanner(completion: (() -> Void)?) {
+        self.dismiss(animated: true) { 
+            if let completion = completion {
+                completion()
+            }
+        }
     }
     
     func show(scannedValue: String, message: String) {
@@ -143,12 +147,18 @@ extension ScannerVC: ModuleInput {
         self.showScanner()
     }
     
-    func setConfig(config: [String : Any]) { }
-    
-    func finish() {
-        self.stopScanner()
-        self.presenter.resetValueScanned()
-        self.dismissScanner()
+    func finish(action: Action?, completionHandler: @escaping () -> Void) {
+        if let _ = action {
+            self.stopScanner()
+            self.dismissScanner {
+                completionHandler()
+            }
+        } else {
+            self.show(scannedValue: "", message: "NOT MATCH")
+            DispatchQueue.background(delay: 0.8, completion:{
+                completionHandler()
+            })
+        }
     }
 }
 

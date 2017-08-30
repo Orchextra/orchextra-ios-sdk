@@ -15,13 +15,22 @@ public protocol ModuleInput {
     /// Start module
     func start()
     
+    /// Finish module
+    ///
+    /// - Parameters:
+    ///   - action: send action if ORX found it
+    ///   - completionHandler: wait until module finish
+    func finish(action: Action?, completionHandler: @escaping () -> Void)
+    
     /// Set config
     ///
     /// - Parameter config: dictionary with all configuration settings
     func setConfig(config: [String: Any])
+}
+
+extension ModuleInput {
     
-    /// Finish module
-    func finish()
+    func setConfig(config: [String: Any]) {}
 }
 
 public protocol ModuleOutput {

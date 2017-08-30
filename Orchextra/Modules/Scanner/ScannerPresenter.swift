@@ -12,7 +12,7 @@ import GIGLibrary
 protocol ScannerUI {
     func showScanner()
     func stopScanner()
-    func dismissScanner()
+    func dismissScanner(completion: (() -> Void)?)
     func show(scannedValue: String, message: String)
     func hideInfo()
     func showCameraPermissionAlert()
@@ -44,7 +44,7 @@ class ScannerPresenter: ScannerInput {
     }
     
     func userDidCloseScanner() {
-        self.vc?.dismissScanner()
+        self.vc?.dismissScanner(completion: nil)
     }
     
     func resetValueScanned() {
