@@ -7,9 +7,10 @@
 //
 
 import XCTest
-import OHHTTPStubs
 import Nimble
+import Foundation
 import GIGLibrary
+import OHHTTPStubs
 @testable import Orchextra
 
 class AuthenticationInteractorTests: XCTestCase {
@@ -48,7 +49,9 @@ class AuthenticationInteractorTests: XCTestCase {
         // ACT
         self.interactor.authWithAccessToken(completion: { result in
             switch result {
-            case .success(let accesstoken):            expect(accesstoken).to(equal("1.YxoLHTGQP6yG80tPl1eGg61mFTX5XZGbMjpKms5Yk4xYN4iRaa1s4vMmuBDYvdzkMyAtbsUI0FmuTcxD0mVV3wWcVeq6S88kPZ6lWJzAI97wAHx/+nStelKQ23PPSaA0DAiN4PYIICRWujZoaSlUQnOE86WUgWtTQBdkhphOlKcdjsySJyQVp2lVTvb5I7YM"))
+                
+            case .success(let accesstoken):
+                expect(accesstoken).to(equal("1.sZN3vT+995NsQWgJ2uRqQbxTgvVMNZrOp50tR6/JlPVZwH0Tr1kkzpQLquIfUPnOdcSuVmqo2C1zhKXyGlSHq8N7WwfzT8Vc60sLkpWTl1tcjHdWXuK03C5v/PbTLp4bi/t/UptKTfY5PELd5xIfiA=="))
             case .error: break
             }
             expectWait.fulfill()
