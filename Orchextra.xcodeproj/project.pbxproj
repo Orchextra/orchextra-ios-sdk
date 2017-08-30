@@ -47,6 +47,7 @@
 		8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D8A1F569525000A1056 /* action_webview_notification.json */; };
 		8FFD3D901F569525000A1056 /* accesstoken_fail_credential.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D8B1F569525000A1056 /* accesstoken_fail_credential.json */; };
 		8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D8C1F569525000A1056 /* accesstoken_ok.json */; };
+		8FFD3D931F5698F5000A1056 /* ActionWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD3D921F5698F5000A1056 /* ActionWebView.swift */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
@@ -200,6 +201,7 @@
 		8FFD3D8A1F569525000A1056 /* action_webview_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_webview_notification.json; path = Mocks/Json/action_webview_notification.json; sourceTree = "<group>"; };
 		8FFD3D8B1F569525000A1056 /* accesstoken_fail_credential.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_fail_credential.json; path = Mocks/Json/accesstoken_fail_credential.json; sourceTree = "<group>"; };
 		8FFD3D8C1F569525000A1056 /* accesstoken_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_ok.json; path = Mocks/Json/accesstoken_ok.json; sourceTree = "<group>"; };
+		8FFD3D921F5698F5000A1056 /* ActionWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionWebView.swift; path = Common/Model/Actions/ActionWebView.swift; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 		A99885FB1F50352200EED42E /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				8FFD3D921F5698F5000A1056 /* ActionWebView.swift */,
 				A99885FC1F50353D00EED42E /* Action.swift */,
 				A9AC21091F542E7C00095EC5 /* ActionScanner.swift */,
 				A99885FE1F50363C00EED42E /* ActionBrowser.swift */,
@@ -972,6 +975,7 @@
 				A9C54DF41F41BD3300DF2074 /* AuthInteractor.swift in Sources */,
 				A9C54DB81F41A81E00DF2074 /* Orchextra.swift in Sources */,
 				A9AC21231F543D9600095EC5 /* LocalizableConstants.swift in Sources */,
+				8FFD3D931F5698F5000A1056 /* ActionWebView.swift in Sources */,
 				A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */,
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
