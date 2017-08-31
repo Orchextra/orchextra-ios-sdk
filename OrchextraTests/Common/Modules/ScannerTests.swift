@@ -20,20 +20,23 @@ class ScannerTests: XCTestCase {
     
     var presenter: ScannerPresenter!
     var scannerViewMock: ScannerVCMock!
+    var moduleOutputMock: ModuleOutputMock!
     
     // MARK: - Setup methods
     
     override func setUp() {
         super.setUp()
         self.scannerViewMock = ScannerVCMock()
+        self.moduleOutputMock = ModuleOutputMock()
         self.presenter = ScannerPresenter()
         self.presenter.vc = self.scannerViewMock
-        self.presenter.outputModule = ModuleOutputMock()
+        self.presenter.outputModule = self.moduleOutputMock
     }
     
     override func tearDown() {
         self.scannerViewMock = nil
         self.presenter = nil
+        self.moduleOutputMock = nil
         OHHTTPStubs.removeAllStubs()
         super.tearDown()
     }
@@ -97,13 +100,51 @@ class ScannerTests: XCTestCase {
     }
     
     func test_scannerDidFinishCapture_barcode() {
-        // TODO:
+        
+        // ARRANGE
+        self.moduleOutputMock.expectation = self.expectation(description: "triggerWasFire_barcode")
+        
         // ACT
         self.presenter.scannerDidFinishCapture(value: "97870980", type: "ios.Barcode")
+        
+        // ASSERT
+        expect(self.scannerViewMock.spyShow.called).toEventually(equal(true))
+        expect(self.scannerViewMock.spyShow.message).toEventually(equal(kLocaleOrcScanningMessage))
+        expect(self.scannerViewMock.spyShow.scannedValue).toEventually(equal("97870980"))
+        expect(self.moduleOutputMock.spyTriggerWasFire.called).toEventually(equal(true))
+        
+        // Values send it to the Orx
+        let type = self.moduleOutputMock.spyTriggerWasFire.values["type"] as? String
+        expect(type).toEventually(equal("barcode"))
+        
+        let value = self.moduleOutputMock.spyTriggerWasFire.values["value"] as? String
+        expect(value).toEventually(equal("97870980"))
+        
+        self.waitForExpectations(timeout: 1.0, handler: nil)
         
     }
 
     func test_scannerDidFinishCapture_qr() {
+        
+        // ARRANGE
+        self.moduleOutputMock.expectation = self.expectation(description: "triggerWasFire_qr")
+        
+        // ACT
+        self.presenter.scannerDidFinishCapture(value: "Hi world", type: "org.iso.QRCode")
+        
+        // ASSERT
+        expect(self.scannerViewMock.spyShow.called).toEventually(equal(true))
+        expect(self.scannerViewMock.spyShow.message).toEventually(equal(kLocaleOrcScanningMessage))
+        expect(self.scannerViewMock.spyShow.scannedValue).toEventually(equal("Hi world"))
+        expect(self.moduleOutputMock.spyTriggerWasFire.called).toEventually(equal(true))
+        
+        // Values send it to the Orx
+        let type = self.moduleOutputMock.spyTriggerWasFire.values["type"] as? String
+        expect(type).toEventually(equal("qr"))
+        
+        let value = self.moduleOutputMock.spyTriggerWasFire.values["value"] as? String
+        expect(value).toEventually(equal("Hi world"))
 
+        self.waitForExpectations(timeout: 1.0, handler: nil)
     }
 }
