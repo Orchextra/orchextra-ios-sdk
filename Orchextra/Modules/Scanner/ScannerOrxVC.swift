@@ -35,7 +35,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.scannerOutput = self
         self.presenter.vc = self
         self.presenter.outputModule = self.outputModule
-        self.presenter.viewDidLoad()
+        self.presenter.startModule()
         self.initializeOrxScanner()
     }
     
@@ -165,23 +165,11 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
 extension ScannerOrxVC: ModuleInput {
     
     func start() {
-        self.presenter.resetValueScanned()
-        self.showScanner()
+        self.presenter.startModule()
     }
     
-    func finish(action: Action?, completionHandler: @escaping () -> Void) {
-        if let _ = action {
-            self.stopScanner()
-            self.dismissScanner {
-                completionHandler()
-            }
-        } else {
-            self.hideInfo()
-            self.presenter.moduleNotFoundMatch()
-            DispatchQueue.background(delay: 1.5, completion:{
-                completionHandler()
-            })
-        }
+    func finish(action: Action?, completionHandler: (() -> Void)?) {
+        self.presenter.moduleDidFinish(action: action, completionHandler: completionHandler)
     }
 }
 

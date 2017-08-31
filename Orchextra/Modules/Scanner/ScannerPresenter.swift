@@ -20,10 +20,11 @@ protocol ScannerUI {
 }
 
 protocol ScannerInput {
-    func viewDidLoad()
+    func startModule()
     func userDidCloseScanner()
     func resetValueScanned()
     func scannerDidFinishCapture(value: String, type: String)
+    func moduleDidFinish(action: Action?, completionHandler: (() -> Void)?)
 }
 
 enum ScannerType: String {
@@ -40,7 +41,8 @@ class ScannerPresenter: ScannerInput {
     
     // MARK: - ScannerInput
     
-    func viewDidLoad() {
+    func startModule() {
+        self.resetValueScanned()
         self.vc?.showScanner()
     }
     
@@ -48,10 +50,25 @@ class ScannerPresenter: ScannerInput {
         self.vc?.dismissScanner(completion: nil)
     }
     
-    func moduleNotFoundMatch() {
-        self.vc?.show(image: "Fail_cross", message: kLocaleOrcMatchNotFoundMessage)
+    func moduleDidFinish(action: Action?, completionHandler: (() -> Void)?) {
+        if let _ = action {
+            self.vc?.stopScanner()
+            self.vc?.dismissScanner {
+                if let completion = completionHandler {
+                    completion()
+                }
+            }
+        } else {
+            self.vc?.hideInfo()
+            self.vc?.show(image: "Fail_cross", message: kLocaleOrcMatchNotFoundMessage)
+            DispatchQueue.background(delay: 1.5, completion:{
+                if let completion = completionHandler {
+                    completion()
+                }
+            })
+        }
     }
-    
+
     func resetValueScanned() {
         self.waitingUntilResponseFromOrx = false
         self.vc?.hideInfo()

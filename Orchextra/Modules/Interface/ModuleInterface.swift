@@ -20,7 +20,7 @@ public protocol ModuleInput {
     /// - Parameters:
     ///   - action: send action if ORX found it
     ///   - completionHandler: wait until module finish
-    func finish(action: Action?, completionHandler: @escaping () -> Void)
+    func finish(action: Action?, completionHandler: (() -> Void)?)
     
     /// Set config
     ///

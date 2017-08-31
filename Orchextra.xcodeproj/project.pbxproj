@@ -114,6 +114,8 @@
 		A9C6EB941F46FB24007AE036 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB931F46FB24007AE036 /* Device.swift */; };
 		A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB951F47035D007AE036 /* BusinessUnit.swift */; };
 		A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB971F4703A3007AE036 /* CustomField.swift */; };
+		A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */; };
+		A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,6 +274,8 @@
 		A9C6EB931F46FB24007AE036 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Common/Model/Config/Device.swift; sourceTree = "<group>"; };
 		A9C6EB951F47035D007AE036 /* BusinessUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusinessUnit.swift; path = Common/Model/Config/BusinessUnit.swift; sourceTree = "<group>"; };
 		A9C6EB971F4703A3007AE036 /* CustomField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomField.swift; path = Common/Model/Config/CustomField.swift; sourceTree = "<group>"; };
+		A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerVCMock.swift; path = Mocks/Modules/ScannerMocks/ScannerVCMock.swift; sourceTree = "<group>"; };
+		A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputMock.swift; path = Mocks/Modules/ScannerMocks/ModuleOutputMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -502,7 +506,6 @@
 		A978C5C91F4572F300F5DFFD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A9AC212D1F5580C000095EC5 /* Modules */,
 				A978C5D61F457AD400F5DFFD /* Interactor */,
 				A978C5CA1F4572FF00F5DFFD /* Support */,
 			);
@@ -529,6 +532,7 @@
 		A978C5D91F45A40F00F5DFFD /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				A9D0FC331F56C1E700596CF3 /* Modules */,
 				A978C5DA1F45A41F00F5DFFD /* Model */,
 				A9C54E051F446E1B00DF2074 /* Json */,
 			);
@@ -631,6 +635,7 @@
 		A9C54DA41F41A6F100DF2074 /* OrchextraTests */ = {
 			isa = PBXGroup;
 			children = (
+				A9AC212D1F5580C000095EC5 /* Modules */,
 				A978C5C91F4572F300F5DFFD /* Common */,
 				A9C54E081F446FAC00DF2074 /* Helpers */,
 				A978C5D91F45A40F00F5DFFD /* Mocks */,
@@ -802,6 +807,23 @@
 				A9C6EB971F4703A3007AE036 /* CustomField.swift */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		A9D0FC331F56C1E700596CF3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A9D0FC341F56C1FC00596CF3 /* ScannerMocks */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		A9D0FC341F56C1FC00596CF3 /* ScannerMocks */ = {
+			isa = PBXGroup;
+			children = (
+				A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */,
+				A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */,
+			);
+			name = ScannerMocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1025,6 +1047,8 @@
 				A9C54E0A1F446FC000DF2074 /* StubResponse.swift in Sources */,
 				A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */,
+				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
+				A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
