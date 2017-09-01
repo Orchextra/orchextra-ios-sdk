@@ -11,10 +11,11 @@ import Foundation
 protocol TriggeringPresenterInput {
     func viewDidLoad()
     func userDidTapSettings()
+    func userDidTapTabBarItem()
 }
 
 protocol TriggeringUI: class {
-    
+    func setTitleForSelectedItem()
 }
 
 struct TriggeringPresenter {
@@ -31,11 +32,15 @@ struct TriggeringPresenter {
 
 extension TriggeringPresenter: TriggeringPresenterInput {
     func viewDidLoad() {
-        
+        self.view?.setTitleForSelectedItem()
     }
     
     func userDidTapSettings() {
-        AppController.shared.appWireframe?.showSettings()
+        self.wireframe.showSettings()
+    }
+    
+    func userDidTapTabBarItem() {
+        self.view?.setTitleForSelectedItem()
     }
 
 }
