@@ -3,7 +3,7 @@
 @Library('github.com/pedroamador/jenkins-pipeline-library') _
 
 // Initialize global config
-cfg = jplConfig('sdk','ios')
+cfg = jplConfig('sdk', 'ios', '', [hipchat: '', slack: '#integrations', email: 'qa+orchextra@gigigo.com'])
 def develop = 'feature/orchextra_3.0'
 
 pipeline {
@@ -43,50 +43,41 @@ pipeline {
                 echo "ToDo: SonarQube Scanner"
             }
         }
-        stage ('Confirm Release') {
-            agent none
-            when { branch 'release/*' }
-            steps {
-                timeout(time: 1, unit: 'DAYS') {
-                    input(message: 'Waiting for approval - Upload to Play Store?')
-                }
-            }
-        }
-        stage ('Close release') {
-            when { branch 'release/*' }
-            steps {
-                // ToDo: Release to Play Store
-                jplCheckoutSCM(cfg)
-                jplCloseRelease()
-                jplNotify('Jenkins QA','','qa+orchextra@gigigo.com')
-            }
-        }
-        stage ('Clean') {
-            when { branch 'PR-' }
-            steps {
-                deleteDir();
-            }
-        }
+        // stage ('Confirm Release') {
+        //     agent none
+        //     when { branch 'release/*' }
+        //     steps {
+        //         timeout(time: 1, unit: 'DAYS') {
+        //             input(message: 'Waiting for approval - Upload to Play Store?')
+        //         }
+        //     }
+        // }
+        // stage ('Close release') {
+        //     when { branch 'release/*' }
+        //     steps {
+        //         // ToDo: Release to Play Store
+        //         jplCheckoutSCM(cfg)
+        //         jplCloseRelease()
+        //     }
+        // }
+        // stage ('Clean') {
+        //     when { branch 'PR-' }
+        //     steps {
+        //         deleteDir();
+        //     }
+        // }
     }
 
     post {
         always {
-            echo 'Pipeline finished'
-        }
-        success {
-            echo 'Build OK'
-            jplNotify('Jenkins QA','','')
-        }
-        failure {
-            echo 'Build failed!'
-            jplNotify('Jenkins QA','','qa+orchextra@gigigo.com')
+            jplPostBuild(cfg)
         }
     }
 
-    options {
-        buildDiscarder(logRotator(artifactNumToKeepStr: '5'))
+   options {
+        buildDiscarder(logRotator(artifactNumToKeepStr: ‘20’,artifactDaysToKeepStr: ‘30’))
         disableConcurrentBuilds()
         skipDefaultCheckout()
-        timeout(time: 2, unit: 'DAYS')
+        timeout(time: 1, unit: ‘DAYS’)
     }
 }
