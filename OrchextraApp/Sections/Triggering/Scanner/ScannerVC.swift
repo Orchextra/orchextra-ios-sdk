@@ -12,9 +12,7 @@ import GIGLibrary
 class ScannerVC: UIViewController, ScannerUI {
     // MARK: - IBOutlets
     @IBOutlet weak var orchextraScannerButton: UIButton!
-    
     @IBOutlet weak var customScannerButton: UIButton!
-
     @IBOutlet weak var imageRecognitionButton: UIButton!
     
     // MARK: - Attributtes    
@@ -24,9 +22,18 @@ class ScannerVC: UIViewController, ScannerUI {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initializeSubViews()
         self.presenter?.viewDidLoad()
         
         //TODO: Show or hide image recognition using Vuforia if it is not available
+    }
+    
+    // MARK: Utils
+    
+    private func initializeSubViews() {
+        self.orchextraScannerButton.layer.cornerRadius = 6.0
+        self.customScannerButton.layer.cornerRadius = 6.0
+        self.imageRecognitionButton.layer.cornerRadius = 6.0
     }
     
     // MARK: - Actions

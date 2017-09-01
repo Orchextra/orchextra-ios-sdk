@@ -9,17 +9,17 @@
 import UIKit
 import GIGLibrary
 
-class SettingsVC: UIViewController, SettingsUI {
+class SettingsVC: UIViewController {
     
     // MARK: - IBOutlets
-    
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var projectLabel: UILabel!
-    @IBOutlet weak var apikeyTextfield: UITextField!
-    @IBOutlet weak var apisecretTextfield: UITextField!
-    @IBOutlet weak var userView: UITableViewCell!
-    @IBOutlet weak var deviceView: UITableViewCell!
-    @IBOutlet weak var stopButton: UIButton!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var projectTextfield: UITextField!
+    @IBOutlet weak var apiKeyLabel: UILabel!
+    @IBOutlet weak var apiKeyTextfield: UITextField!
+    @IBOutlet weak var apiSecretLabel: UILabel!
+    @IBOutlet weak var apiSecretTextfield: UITextField!
+    @IBOutlet weak var logOutButton: UIButton!
     
     // MARK: - Attributtes
     
@@ -30,16 +30,39 @@ class SettingsVC: UIViewController, SettingsUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
     }
     
     // MARK: - IBActions
     
-    @IBAction func stopButtonTapped(_sender: Any) {
-        self.presenter?.userDidTapStop()
+    @IBAction func logOutButtonTapped(_sender: Any) {
+        self.presenter?.userDidTapLogOut()
     }
     
-    @IBAction func saveButtonTapped(_sender: Any) {
-        self.presenter?.userDidTapSave()
+    @IBAction func editButtonTapped(_sender: Any) {
+        self.presenter?.userDidTapEdit()
+    }
+}
+
+extension SettingsVC: SettingsUI {
+    func initializeSubviews(with projectName: String, apiKey: String, apiSecret: String, editable: Bool) {
+        self.title = "Settings"
+        
+        self.projectTextfield.text = projectName
+        self.apiKeyTextfield.text = apiKey
+        self.apiSecretTextfield.text = apiSecret
+
+        self.projectTextfield.isUserInteractionEnabled = editable
+        self.apiKeyTextfield.isUserInteractionEnabled = editable
+        self.apiSecretTextfield.isUserInteractionEnabled = editable
+    }
+    
+    func updateEditableState(_ state: Bool, title: String) {
+        self.projectTextfield.isUserInteractionEnabled = state
+        self.apiKeyTextfield.isUserInteractionEnabled = state
+        self.apiSecretTextfield.isUserInteractionEnabled = state
+        
+        self.editButton.title = title
     }
 }
 

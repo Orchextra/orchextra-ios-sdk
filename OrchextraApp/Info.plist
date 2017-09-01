@@ -41,5 +41,10 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>You need to get permission to use the camera to scan QR and barcodes.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>pt-sans.bold.ttf</string>
+		<string>pt-sans.regular.ttf</string>
+	</array>
 </dict>
 </plist>

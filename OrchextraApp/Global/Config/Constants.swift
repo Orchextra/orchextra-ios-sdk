@@ -11,4 +11,5 @@ import Foundation
 struct Constants {
     static let apiKey       = "key"
     static let apiSecret    = "secret"
+    static let projectName  = "[ES] Demo Project"
 }

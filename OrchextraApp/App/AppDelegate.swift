@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         prepareAppController()
         appController.appDidLaunch()
         self.setNavBarAppearance()
+        self.setTabBarAppearance()
         
         return true
     }
@@ -45,7 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appController.appWireframe?.window = self.window
     }
     
-    fileprivate func setNavBarAppearance() {
+    func setTabBarAppearance() {
+        let selectedColor = UIColor.ORXApp.coral
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedColor as Any], for: .selected)
+    }
+    
+    func setNavBarAppearance() {
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.isTranslucent = false
         navigationBarAppearace.tintColor = UIColor.white

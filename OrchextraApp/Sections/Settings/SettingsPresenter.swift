@@ -10,37 +10,59 @@ import Foundation
 
 protocol SettingsPresenterInput {
     func viewDidLoad()
-    func userDidTapStop()
-    func userDidTapSave()
+    func userDidTapLogOut()
+    func userDidTapEdit()
 }
 
 protocol SettingsUI: class {
-    
+    func initializeSubviews(with projectName: String, apiKey: String, apiSecret: String, editable: Bool)
+    func updateEditableState(_ state: Bool, title: String)
 }
 
-struct SettingsPresenter {
+class SettingsPresenter {
         
     // MARK: - Public attributes
     
     weak var view: SettingsUI?
     let wireframe: SettingsWireframe
+    var isEditable: Bool
     
     // MARK: - Interactors
     
     let interactor: SettingsInteractorInput
+    
+    init(view: SettingsUI, wireframe: SettingsWireframe, interactor: SettingsInteractorInput) {
+        self.view = view
+        self.wireframe = wireframe
+        self.interactor = interactor
+        self.isEditable = false
+    }
 }
 
 extension SettingsPresenter: SettingsPresenterInput {
     func viewDidLoad() {
-        
+        let projectName = self.interactor.loadProjectName() ?? Constants.projectName
+        let apiKey = self.interactor.loadApiKey() ?? Constants.apiKey
+        let apiSecret = self.interactor.loadApiSecret() ?? Constants.apiSecret
+        self.view?.initializeSubviews(
+            with: projectName,
+            apiKey: apiKey,
+            apiSecret: apiSecret,
+            editable: self.isEditable)
     }
     
-    func userDidTapStop() {
+    func userDidTapLogOut() {
         self.interactor.stopOrchextra()
         self.wireframe.dismissSettings()
     }
     
-    func userDidTapSave() {
-        // TODO: Save credentials and user informations
+    func userDidTapEdit() {
+        let currentState = self.isEditable
+        self.isEditable = !currentState
+        var title = "Edit"
+        if self.isEditable {
+            title = "Save"
+        }
+        self.view?.updateEditableState(self.isEditable, title: title)
     }
 }

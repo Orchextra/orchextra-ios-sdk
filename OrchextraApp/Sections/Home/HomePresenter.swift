@@ -11,12 +11,12 @@ import GIGLibrary
 
 protocol HomeUI: class {
      func showAlert(message: String)
+     func initializeTextFieldTextsByDefault()
 }
 
 protocol HomePresenterInput {
     func viewDidLoad()
-    func userDidTapStart()
-    func userDidTapSettings()
+    func userDidTapStart(with apiKey: String?, apiSecret: String?)
 }
 
 struct HomePresenter {
@@ -33,15 +33,11 @@ struct HomePresenter {
 
 extension HomePresenter: HomePresenterInput {
     func viewDidLoad() {
-        
+        self.view?.initializeTextFieldTextsByDefault()
     }
     
-    func userDidTapStart() {
-        self.interactor.startOrchextra()
-    }
-    
-    func userDidTapSettings() {
-        AppController.shared.appWireframe?.showSettings()
+    func userDidTapStart(with apiKey: String?, apiSecret: String?) {
+        self.interactor.startOrchextra(with: apiKey, apiSecret: apiSecret)
     }
 }
 
@@ -55,6 +51,5 @@ extension HomePresenter: HomeInteractorOutput {
         case .error(let error):
             self.view?.showAlert(message: error.localizedDescription)
         }
-        
     }
 }

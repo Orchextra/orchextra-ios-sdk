@@ -28,10 +28,10 @@ struct SettingsWireframe {
     }
     
     func dismissSettings() {
-        guard let topViewController = self.navigationController.topViewController,
-            topViewController.isKind(of: SettingsVC.self) else { return }
+//        guard let topViewController = self.navigationController.topViewController,
+//            topViewController.isKind(of: SettingsVC.self) else { return }
         
-        self.navigationController.popViewController(animated: true)
+        self.navigationController.popToRootViewController(animated: true)
     }
 
 }

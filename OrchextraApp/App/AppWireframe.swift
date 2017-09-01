@@ -22,29 +22,23 @@ class AppWireframe {
         }
         
         self.navigationController.setViewControllers([homeVC], animated: false)
-        
-        window?.rootViewController = self.navigationController
-    }
-    
-    /// Method to show the Settings wireframe
-    func showSettings()  {
-        let settingsWireframe = SettingsWireframe(navigationController: self.navigationController)
-        guard let settingsVC = settingsWireframe.showSettings() else {
-            LogWarn("SettingsVC not found")
-            return
-        }
-        
-        self.navigationController.show(settingsVC, sender: nil)
+        self.window?.rootViewController = self.navigationController
     }
     
     /// Method to show the Triggering wireframe
     func showTriggering()  {
-        let triggeringWireframe = TriggeringWireframe(navigationController: self.navigationController)
+        let triggeringWireframe = TriggeringWireframe()
         guard let triggeringVC = triggeringWireframe.showTriggering() else {
             LogWarn("TriggeringVC not found")
             return
         }
         
+//        let navController = UINavigationController(rootViewController: triggeringVC)
         self.navigationController.show(triggeringVC, sender: nil)
+        triggeringWireframe.navigationController = self.navigationController
+    }
+    
+    func show(viewController: UIViewController) {
+        self.navigationController.show(viewController, sender: nil)
     }
 }
