@@ -119,6 +119,8 @@
 		A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB971F4703A3007AE036 /* CustomField.swift */; };
 		A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */; };
 		A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */; };
+		A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */; };
+		A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC3D1F57F09200596CF3 /* JSONHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +284,8 @@
 		A9C6EB971F4703A3007AE036 /* CustomField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomField.swift; path = Common/Model/Config/CustomField.swift; sourceTree = "<group>"; };
 		A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerVCMock.swift; path = Mocks/Modules/ScannerMocks/ScannerVCMock.swift; sourceTree = "<group>"; };
 		A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputMock.swift; path = Mocks/Modules/ScannerMocks/ModuleOutputMock.swift; sourceTree = "<group>"; };
+		A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionFactoryTest.swift; path = Common/Model/Actions/ActionFactoryTest.swift; sourceTree = "<group>"; };
+		A9D0FC3D1F57F09200596CF3 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONHandler.swift; path = Helpers/JSONHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,6 +533,7 @@
 		A978C5C91F4572F300F5DFFD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A9D0FC391F57EFBE00596CF3 /* Model */,
 				A978C5D61F457AD400F5DFFD /* Interactor */,
 				A978C5CA1F4572FF00F5DFFD /* Support */,
 			);
@@ -819,6 +824,7 @@
 			isa = PBXGroup;
 			children = (
 				A9C54E091F446FC000DF2074 /* StubResponse.swift */,
+				A9D0FC3D1F57F09200596CF3 /* JSONHandler.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -849,6 +855,22 @@
 				A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */,
 			);
 			name = ScannerMocks;
+			sourceTree = "<group>";
+		};
+		A9D0FC391F57EFBE00596CF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9D0FC3A1F57EFD100596CF3 /* Actions */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A9D0FC3A1F57EFD100596CF3 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */,
+			);
+			name = Actions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1073,6 +1095,8 @@
 				A9AC212F1F5580EC00095EC5 /* ScannerTests.swift in Sources */,
 				A9C54E0A1F446FC000DF2074 /* StubResponse.swift in Sources */,
 				A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */,
+				A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */,
+				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */,
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
 				A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */,
