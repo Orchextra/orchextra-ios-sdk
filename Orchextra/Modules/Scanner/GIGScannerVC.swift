@@ -98,7 +98,7 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         }
     }
     
-    public func isCameraAvailable() -> Bool {
+    public func isCameraAvailable() -> Bool? {
         let authStatus: AVAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
         switch authStatus {
         case .authorized:
@@ -107,7 +107,7 @@ open class GIGScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
             return false
         case .notDetermined:
             self.requestCameraAccess()
-            return false
+            return nil
         }
     }
     

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import UserNotifications
+import Orchextra
+import GIGLibrary
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setTabBarAppearance()
         
         return true
+    }
+    
+    // MARK: - Handler notification
+
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        guard let userInfo = notification.userInfo as? [String : Any] else {
+            LogWarn("Notification does not have userinfo")
+            return }
+        Orchextra.shared.handleNotification(userInfo: userInfo)
     }
 
     // MARK: - Private Helpers
@@ -48,4 +60,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate  {
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+    }
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+    }
+}
 

@@ -10,16 +10,18 @@ import UIKit
 import GIGLibrary
 
 class TriggerManager: ModuleOutput {
-    
     var interactor: TriggerInteractor
+    var actionManager: ActionManager
     var module: ModuleInput?
     
     convenience init() {
         let interactor = TriggerInteractor()
-        self.init(interactor: interactor)
+        let actionManager = ActionManager()
+        self.init(interactor: interactor, actionManager: actionManager)
     }
     
-    init(interactor: TriggerInteractor) {
+    init(interactor: TriggerInteractor, actionManager: ActionManager) {
+        self.actionManager = actionManager
         self.interactor = interactor
         self.interactor.output = self
     }
@@ -50,9 +52,12 @@ class TriggerManager: ModuleOutput {
 extension TriggerManager: TriggerInteractorOutput {
         
     func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String) {
-        let action = ActionFactory.action(from: actionJSON)
-        self.module?.finish(action: action, completionHandler: { 
-            action?.executable()
+        guard let action = ActionFactory.action(from: actionJSON) else {
+            LogWarn("Action can't be created")
+            return
+        }
+        self.module?.finish(action: action, completionHandler: {
+            self.actionManager.handler(action: action)
         })
     }
     

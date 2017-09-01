@@ -61,14 +61,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="leftInset">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rightInset">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </label>
                             <view clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGd-Og-OA5" userLabel="ViewStatus">
                                 <rect key="frame" x="137" y="290.5" width="101" height="85"/>
@@ -121,7 +113,7 @@
                     <connections>
                         <outlet property="cancelBarButton" destination="wAi-k0-xJb" id="Yu9-PC-zpS"/>
                         <outlet property="frameScan" destination="dlr-M8-NVM" id="1ZT-Qq-86x"/>
-                        <outlet property="infoLabel" destination="fFs-nd-a4a" id="Lp4-Fz-7JA"/>
+                        <outlet property="infoLabel" destination="fFs-nd-a4a" id="HdY-7t-DIR"/>
                         <outlet property="infoStatusLabel" destination="d5q-ww-hQV" id="TbE-cB-y8X"/>
                         <outlet property="navBarOrx" destination="qoQ-QT-yhT" id="uRL-w7-D56"/>
                         <outlet property="scanningBy" destination="2np-Jm-uO3" id="qeY-De-Qq2"/>
