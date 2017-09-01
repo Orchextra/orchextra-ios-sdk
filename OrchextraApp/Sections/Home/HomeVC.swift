@@ -40,6 +40,7 @@ class HomeVC: UIViewController {
         self.presenter?.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.addNotificationObserver()
+        self.projectTextfield.isUserInteractionEnabled = false
     }
     
     deinit {
