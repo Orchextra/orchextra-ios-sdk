@@ -80,19 +80,19 @@ class AuthenticationService: AuthenticationServiceInput {
                         let error = ErrorService.errorParsingJson(element: "clienToken")
                         completion(.error(error))
                         LogWarn("ClientToken is nil")
-                        return }
+                        return
+                    }
                     completion(.success(clientToken))
                     
                 } catch {
                     let error = ErrorService.unknown
-                    LogError(error as NSError)
                     completion(.error(error))
+                    LogError(error as NSError)
                 }
             default:
                 let error = ErrorServiceHandler.parseErrorService(with: response)
-                LogError(response.error)
                 completion(.error(error))
-                break
+                LogError(response.error)
             }
         }
     }

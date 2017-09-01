@@ -11,12 +11,14 @@ import GIGLibrary
 
 class OrchextraWrapper {
     
+    // Attributtes
+
     static let shared = OrchextraWrapper()
     
     private var session: Session
     private var configInteractor: ConfigInteractorInput
     internal var triggerManager: TriggerManager
-    
+
     fileprivate var startCompletion: ((Result<Bool, Error>) -> Void)?
     
     internal let wireframe = Wireframe(
@@ -24,19 +26,24 @@ class OrchextraWrapper {
     )
 
     // Modules
+    
     var scanner: ModuleInput?
     
+    // MARK: - Methods Wrapper
     
     convenience init() {
         let session = Session.shared
         let configInteractor = ConfigInteractor()
         let triggerManager = TriggerManager()
+
         self.init(session: session,
                   configInteractor: configInteractor,
                   triggerManager: triggerManager)
     }
     
-    init(session: Session, configInteractor: ConfigInteractorInput, triggerManager: TriggerManager) {
+    init(session: Session,
+         configInteractor: ConfigInteractorInput,
+         triggerManager: TriggerManager) {
         self.session = session
         self.configInteractor = configInteractor
         self.triggerManager = triggerManager

@@ -42,7 +42,11 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !self.isCameraAvailable() {
+        guard let granted = self.isCameraAvailable() else {
+            return
+        }
+        
+        if !granted {
             self.showCameraPermissionAlert()
         }
     }
@@ -87,7 +91,12 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     //MARK: - ScannerUI
     
     func showScanner() {
-        if self.isCameraAvailable() {
+        guard let granted = self.isCameraAvailable() else {
+            LogWarn("Camera is not enable")
+            return
+        }
+        
+        if granted {
             self.startScanning()
         }
     }

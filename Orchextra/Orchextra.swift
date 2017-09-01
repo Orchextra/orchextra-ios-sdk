@@ -154,4 +154,11 @@ open class Orchextra {
 //    public func unbindUser() {}
 //    public func currentUser() -> ORCUser { return ORCUser() }
     
+    // MARK: - Public method to handle Notification
+    
+    public func handleNotification(userInfo: [String: Any]) {
+        PushOrxManager.shared.handleNotification(userInfo: userInfo)
+    }
+
+    
 }

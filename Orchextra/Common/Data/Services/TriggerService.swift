@@ -14,7 +14,7 @@ class TriggerService {
     let endpointTrigger = "/action"
     let authInteractor: AuthInteractorInput
     
-    init(auth: AuthInteractor) {
+    init(auth: AuthInteractorInput) {
         self.authInteractor = auth
     }
 
@@ -24,7 +24,6 @@ class TriggerService {
     }
     
     func launchTrigger(values: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
-        
         let request = Request.OrchextraRequest(
             method: "GET",
             baseUrl: Config.coreEndpoint,
@@ -32,5 +31,5 @@ class TriggerService {
             urlParams: values)
         
         self.authInteractor.sendRequest(request: request, completion: completion)
-    }
+    }    
 }
