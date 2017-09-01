@@ -3,7 +3,7 @@
 @Library('github.com/pedroamador/jenkins-pipeline-library') _
 
 // Initialize global config
-cfg = jplConfig('orchextra_core','ios')
+cfg = jplConfig('sdk','ios')
 def develop = 'feature/orchextra_3.0'
 
 pipeline {
@@ -11,7 +11,7 @@ pipeline {
 
     stages {
         stage ('Test') {
-            when { branch develop }
+            when { branch 'feature/orchextra_3.0' }
             steps  {
                 timestamps {
                     ansiColor('xterm') {
@@ -24,7 +24,7 @@ pipeline {
             }
         }
         // stage ('Deploy to Staging') {
-        //     when { branch develop }
+        //     when { branch 'feature/orchextra_3.0' }
         //     steps  {
         //         timestamps {
         //             ansiColor('xterm') {
@@ -37,7 +37,7 @@ pipeline {
         //     }
         // }
         stage('SonarQube Analysis') {
-            when { expression { (env.BRANCH_NAME == develop) || env.BRANCH_NAME.startsWith('PR-') } }
+            when { expression { (env.BRANCH_NAME == 'feature/orchextra_3.0') || env.BRANCH_NAME.startsWith('PR-') } }
             steps {
                 //jplSonarScanner ('SonarQube')
                 echo "ToDo: SonarQube Scanner"
