@@ -76,8 +76,6 @@ class TriggeringWireframe {
             LogWarn("SettingsVC not found")
             return
         }
-        
-        let navController = UINavigationController(rootViewController: settingsVC)
-        AppController.shared.appWireframe?.show(viewController: navController)
+        navigationController.show(settingsVC, sender: nil)
     }
 }

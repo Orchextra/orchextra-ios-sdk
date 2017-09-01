@@ -66,7 +66,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rak-MJ-URN" secondAttribute="trailing" constant="16" id="DH6-Rn-khB"/>
                             <constraint firstItem="8Qv-iU-trr" firstAttribute="top" secondItem="rak-MJ-URN" secondAttribute="bottom" constant="20" id="DJE-nh-TJ1"/>
@@ -98,6 +98,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1iJ-eg-Vga">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.93333333330000001" green="0.32156862749999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="ngu-wH-RIO" kind="relationship" relationship="rootViewController" id="NpX-xq-NxG"/>

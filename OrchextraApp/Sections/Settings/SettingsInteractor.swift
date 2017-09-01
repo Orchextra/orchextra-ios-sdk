@@ -11,6 +11,9 @@ import Orchextra
 
 protocol SettingsInteractorInput {
     func stopOrchextra()
+    func loadProjectName() -> String?
+    func loadApiKey() -> String?
+    func loadApiSecret() -> String?
 }
 
 protocol SettingsInteractorOutput {
@@ -23,10 +26,24 @@ struct SettingsInteractor {
     
     var output: SettingsInteractorOutput?
     let orchextra = Orchextra.shared
+    
+    
 }
 
 extension SettingsInteractor: SettingsInteractorInput {
     func stopOrchextra() {
         self.orchextra.stop()
+    }
+    
+    func loadProjectName() -> String? {
+        return nil // TODO: it could be provided by Backend?
+    }
+    
+    func loadApiKey() -> String? {
+        return nil //TODO: Provide a method in Core SDK to return it
+    }
+    
+    func loadApiSecret() -> String? {
+        return nil //TODO: Provide a method in Core SDK to return it
     }
 }

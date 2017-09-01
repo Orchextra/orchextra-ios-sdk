@@ -33,9 +33,8 @@ class AppWireframe {
             return
         }
         
-        let navController = UINavigationController(rootViewController: triggeringVC)
-        
-        self.navigationController.show(navController, sender: nil)
+//        let navController = UINavigationController(rootViewController: triggeringVC)
+        self.navigationController.show(triggeringVC, sender: nil)
         triggeringWireframe.navigationController = self.navigationController
     }
     
