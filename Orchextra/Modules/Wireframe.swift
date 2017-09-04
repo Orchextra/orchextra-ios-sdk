@@ -57,7 +57,11 @@ class Wireframe {
     ///
     /// - Parameter scanner:
     func openScanner(scanner: UIViewController) {
-        self.application.presentModal(scanner)
+        let topVC = UIApplication.topViewController()
+        
+        if let topVCKindScanner = topVC.self, topVCKindScanner != scanner.self  {
+            self.application.presentModal(scanner)
+        }
     }
     
     /// Open Browser External

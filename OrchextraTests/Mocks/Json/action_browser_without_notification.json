@@ -1,0 +1,11 @@
+{
+    "status": true,
+    "data": {
+        "trackId" : "59a3fcbc53c7dasc0fc018b4578",
+        "id" : "599ea2209c309558028asdfab4567",
+        "schedule" : null,
+        "type" : "browser",
+        "url" : "http://www.google.es",
+        "notification" : null
+    }
+}

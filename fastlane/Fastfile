@@ -12,6 +12,7 @@
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
 fastlane_version "2.54.3"
+import "FastlaneHelpers"
 
 default_platform :ios
 

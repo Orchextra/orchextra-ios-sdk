@@ -35,6 +35,11 @@ xcode-select --install
 fastlane ios test
 ```
 Runs all the tests
+### ios staging
+```
+fastlane ios staging
+```
+Upload to Applivery Staging
 
 ----
 

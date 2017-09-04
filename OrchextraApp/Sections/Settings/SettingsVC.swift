@@ -58,7 +58,6 @@ extension SettingsVC: SettingsUI {
     }
     
     func updateEditableState(_ state: Bool, title: String) {
-        self.projectTextfield.isUserInteractionEnabled = state
         self.apiKeyTextfield.isUserInteractionEnabled = state
         self.apiSecretTextfield.isUserInteractionEnabled = state
         

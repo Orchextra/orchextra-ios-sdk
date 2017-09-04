@@ -41,9 +41,14 @@ class SettingsPresenter {
 
 extension SettingsPresenter: SettingsPresenterInput {
     func viewDidLoad() {
-        let projectName = self.interactor.loadProjectName() ?? Constants.projectName
+        var projectName = ""
         let apiKey = self.interactor.loadApiKey() ?? Constants.apiKey
         let apiSecret = self.interactor.loadApiSecret() ?? Constants.apiSecret
+        
+        if apiKey == Constants.apiKey,
+            apiSecret == Constants.apiSecret {
+             projectName = Constants.projectName
+        }
         self.view?.initializeSubviews(
             with: projectName,
             apiKey: apiKey,
