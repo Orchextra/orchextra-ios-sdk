@@ -12,11 +12,13 @@ import GIGLibrary
 protocol HomeUI: class {
      func showAlert(message: String)
      func initializeTextFieldTextsByDefault()
+     func clearProjectNameInformation()
 }
 
 protocol HomePresenterInput {
     func viewDidLoad()
     func userDidTapStart(with apiKey: String?, apiSecret: String?)
+    func userDidChangedCredentials()
 }
 
 struct HomePresenter {
@@ -38,6 +40,10 @@ extension HomePresenter: HomePresenterInput {
     
     func userDidTapStart(with apiKey: String?, apiSecret: String?) {
         self.interactor.startOrchextra(with: apiKey, apiSecret: apiSecret)
+    }
+    
+    func userDidChangedCredentials() {
+         self.view?.clearProjectNameInformation()
     }
 }
 

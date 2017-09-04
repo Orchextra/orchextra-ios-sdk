@@ -15,6 +15,7 @@ extension UIColor {
         static let blue = UIColor(fromRed: 51, green: 235, blue: 255)
         
         // MARK: Gray scale
+        static let backgroundGray = UIColor(fromRed: 242, green: 242, blue: 242)
         static let lightGray = UIColor(fromRed: 249, green: 249, blue: 249)
         static let mediumGray = UIColor(fromRed: 205, green: 205, blue: 211)
         static let gray = UIColor(fromRed: 157, green: 157, blue: 163)

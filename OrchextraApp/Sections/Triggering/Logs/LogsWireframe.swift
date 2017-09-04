@@ -18,7 +18,8 @@ struct LogsWireframe {
         guard let viewController = try? Instantiator<LogsVC>().viewController() else { return nil }
         let presenter = LogsPresenter(
             view: viewController,
-            wireframe: self
+            wireframe: self,
+            interactor: LogsInteractor()
         )
         viewController.presenter = presenter
         return viewController

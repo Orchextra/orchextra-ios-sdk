@@ -1,38 +1,37 @@
 //
-//  LogsVC.swift
+//  FilterVC.swift
 //  Orchextra
 //
-//  Created by Carlos Vicente on 24/8/17.
+//  Created by Carlos Vicente on 3/9/17.
 //  Copyright © 2017 Gigigo Mobile Services S.L. All rights reserved.
 //
 
 import UIKit
 import GIGLibrary
 
-class LogsVC: UIViewController, LogsUI {
+class FilterVC: UIViewController, FilterUI {
     
     // MARK: - Attributtes
     
-    var presenter: LogsPresenterInput?
+    var presenter: FilterPresenter?
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
-        self.view.backgroundColor = UIColor.green
     }
 }
 
-extension LogsVC: Instantiable {
+extension FilterVC: Instantiable {
     
     // MARK: - Instantiable
     
     public static func storyboard() -> String {
-        return "Triggering"
+        return ""
     }
     
     public static func identifier() -> String? {
-        return "LogsVC"
+        return "FilterVC"
     }
 }
