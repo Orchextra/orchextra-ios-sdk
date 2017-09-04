@@ -12,6 +12,8 @@ import GIGLibrary
 struct TriggerType {
     static let triggerBeacon = "beacon"
     static let triggerBeaconRegion = "beacon_region"
+    static let triggerEddystone = "eddystone"
+    static let triggerEddystoneRegion = "eddystone_region"
     static let triggerGeofence = "geofence"
     static let triggerQR = "qr"
     static let triggerBarcode = "barcode"

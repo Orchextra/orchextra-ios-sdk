@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Orchextra
 
 protocol SettingsInteractorInput {
     func stopOrchextra()
@@ -25,14 +24,11 @@ struct SettingsInteractor {
      // MARK: - Attributes
     
     var output: SettingsInteractorOutput?
-    let orchextra = Orchextra.shared
-    
-    
 }
 
 extension SettingsInteractor: SettingsInteractorInput {
     func stopOrchextra() {
-        self.orchextra.stop()
+        OrchextraWrapper.shared.stop()
     }
     
     func loadProjectName() -> String? {

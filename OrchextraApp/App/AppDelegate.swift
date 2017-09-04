@@ -8,7 +8,6 @@
 
 import UIKit
 import UserNotifications
-import Orchextra
 import GIGLibrary
 
 @UIApplicationMain
@@ -36,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let userInfo = notification.userInfo as? [String : Any] else {
             LogWarn("Notification does not have userinfo")
             return }
-        Orchextra.shared.handleNotification(userInfo: userInfo)
+       OrchextraWrapper.shared.handleNotification(userInfo: userInfo)
     }
 
     // MARK: - Private Helpers

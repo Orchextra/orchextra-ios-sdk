@@ -8,7 +8,6 @@
 
 import Foundation
 import GIGLibrary
-import Orchextra
 
 enum StartError: Error {
     case credentialsNil
@@ -26,7 +25,7 @@ class HomeInteractor {
      // MARK: - Attributes
     
     var output: HomeInteractorOutput?
-    let orchextra = Orchextra.shared
+    let orchextraWrapper = OrchextraWrapper.shared
 }
 
 extension HomeInteractor: HomeInteractorInput {
@@ -40,14 +39,9 @@ extension HomeInteractor: HomeInteractorInput {
             return
         }
         
-        self.orchextra.logLevel = .debug
-        self.orchextra.logStyle = .funny
-        self.orchextra.environment = .quality
-        
-        // TODO: get data from SDK and if it is nil set default project credentials
-        
-        self.orchextra.start(with: key, apiSecret: secret) { result in
+        self.orchextraWrapper.start(with: key, secret: secret) { result in
             self.output?.startDidFinish(with: result)
         }
+        
     }
 }

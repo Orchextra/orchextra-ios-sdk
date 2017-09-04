@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Orchextra
 
 protocol ScannerInteractorInput {
     func openOrchextraScanner()
@@ -24,13 +23,13 @@ struct ScannerInteractor {
     // MARK: - Attributes
     
     var output: TriggeringInteractorOutput?
-    let orchextra = Orchextra.shared
+    let orchextraWrapper = OrchextraWrapper.shared
 }
 
 extension ScannerInteractor: ScannerInteractorInput {
     
     func openOrchextraScanner() {
-        self.orchextra.openScanner()
+        self.orchextraWrapper.openOrchextraScanner()
     }
     
     func openCustomScanner() {
@@ -38,7 +37,7 @@ extension ScannerInteractor: ScannerInteractorInput {
     }
     
     func openImageRecognition() {
-        self.orchextra.openImageRecognition()
+        self.orchextraWrapper.openImageRecognition()
     }
 
 }

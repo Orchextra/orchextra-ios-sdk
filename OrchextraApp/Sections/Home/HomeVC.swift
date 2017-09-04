@@ -91,6 +91,15 @@ extension HomeVC: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let projectName = projectTextfield.text
+        if let projectCharacters = projectName?.characters.count,
+            projectCharacters > 0 {
+            self.presenter?.userDidChangedCredentials()
+        }
+        return true
+    }
 }
 
 extension HomeVC: HomeUI {
@@ -104,6 +113,10 @@ extension HomeVC: HomeUI {
         self.projectTextfield.text = Constants.projectName
         self.apiKeyTextfield.text = Constants.apiKey
         self.apiSecretTextfield.text = Constants.apiSecret
+    }
+    
+    func clearProjectNameInformation() {
+        self.projectTextfield.text = nil
     }
 }
 

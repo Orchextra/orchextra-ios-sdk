@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961321F5BFFA900FD03F4 /* LogsInteractor.swift */; };
+		8F0961391F5C089500FD03F4 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961351F5C089500FD03F4 /* FilterPresenter.swift */; };
+		8F09613A1F5C089500FD03F4 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961361F5C089500FD03F4 /* FilterVC.swift */; };
+		8F09613B1F5C089500FD03F4 /* FilterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961371F5C089500FD03F4 /* FilterWireframe.swift */; };
+		8F09613C1F5C089500FD03F4 /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961381F5C089500FD03F4 /* FilterInteractor.swift */; };
+		8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */; };
 		8F0C4B4F1F57F0A700056910 /* pt-sans.bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F0C4B4E1F57F0A700056910 /* pt-sans.bold.ttf */; };
 		8F0C4B531F57FCC700056910 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C4B521F57FCC700056910 /* ViewController.swift */; };
 		8F0D4F7E1F558F9C003F3B39 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0D4F7D1F558F9C003F3B39 /* WebKit.framework */; };
+		8F13F0E11F5B0AC50028B1FF /* LogsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */; };
+		8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */; };
 		8F20808F1F4EA59600C328DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F20808E1F4EA59600C328DC /* Constants.swift */; };
 		8F2080951F4EAAAB00C328DC /* TriggeringPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080911F4EAAAB00C328DC /* TriggeringPresenter.swift */; };
 		8F2080961F4EAAAB00C328DC /* TriggeringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080921F4EAAAB00C328DC /* TriggeringVC.swift */; };
@@ -21,12 +29,13 @@
 		8F2080A81F4EE28000C328DC /* GeofencesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080A51F4EE28000C328DC /* GeofencesPresenter.swift */; };
 		8F2080AA1F4EE28000C328DC /* GeofencesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080A71F4EE28000C328DC /* GeofencesWireframe.swift */; };
 		8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080AB1F4EE29000C328DC /* LogsPresenter.swift */; };
-		8F2080AF1F4EE29000C328DC /* LogsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080AC1F4EE29000C328DC /* LogsVC.swift */; };
 		8F2080B01F4EE29000C328DC /* LogsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080AD1F4EE29000C328DC /* LogsWireframe.swift */; };
 		8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B11F4EE2A200C328DC /* ScannerPresenter.swift */; };
 		8F2080B51F4EE2A200C328DC /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B21F4EE2A200C328DC /* ScannerVC.swift */; };
 		8F2080B61F4EE2A200C328DC /* ScannerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */; };
 		8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */; };
+		8F4A27B31F5D2419003B440D /* TriggersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B21F5D2419003B440D /* TriggersManager.swift */; };
+		8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */; };
 		8F5F7A171F4C60E700E62E57 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */; };
 		8F5F7A181F4C60E700E62E57 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A141F4C60E700E62E57 /* HomeVC.swift */; };
 		8F5F7A191F4C60E700E62E57 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A151F4C60E700E62E57 /* HomeWireframe.swift */; };
@@ -175,9 +184,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F0961321F5BFFA900FD03F4 /* LogsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsInteractor.swift; sourceTree = "<group>"; };
+		8F0961351F5C089500FD03F4 /* FilterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
+		8F0961361F5C089500FD03F4 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		8F0961371F5C089500FD03F4 /* FilterWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWireframe.swift; sourceTree = "<group>"; };
+		8F0961381F5C089500FD03F4 /* FilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterInteractor.swift; sourceTree = "<group>"; };
+		8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerViewModelFactory.swift; sourceTree = "<group>"; };
 		8F0C4B4E1F57F0A700056910 /* pt-sans.bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pt-sans.bold.ttf"; sourceTree = "<group>"; };
 		8F0C4B521F57FCC700056910 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8F0D4F7D1F558F9C003F3B39 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsVC.swift; sourceTree = "<group>"; };
+		8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
 		8F20808E1F4EA59600C328DC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F2080911F4EAAAB00C328DC /* TriggeringPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggeringPresenter.swift; sourceTree = "<group>"; };
 		8F2080921F4EAAAB00C328DC /* TriggeringVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggeringVC.swift; sourceTree = "<group>"; };
@@ -189,12 +206,13 @@
 		8F2080A51F4EE28000C328DC /* GeofencesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesPresenter.swift; sourceTree = "<group>"; };
 		8F2080A71F4EE28000C328DC /* GeofencesWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesWireframe.swift; sourceTree = "<group>"; };
 		8F2080AB1F4EE29000C328DC /* LogsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsPresenter.swift; sourceTree = "<group>"; };
-		8F2080AC1F4EE29000C328DC /* LogsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsVC.swift; sourceTree = "<group>"; };
 		8F2080AD1F4EE29000C328DC /* LogsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsWireframe.swift; sourceTree = "<group>"; };
 		8F2080B11F4EE2A200C328DC /* ScannerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerPresenter.swift; sourceTree = "<group>"; };
 		8F2080B21F4EE2A200C328DC /* ScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerWireframe.swift; sourceTree = "<group>"; };
 		8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerInteractor.swift; sourceTree = "<group>"; };
+		8F4A27B21F5D2419003B440D /* TriggersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggersManager.swift; sourceTree = "<group>"; };
+		8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchextraWrapper.swift; sourceTree = "<group>"; };
 		8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		8F5F7A141F4C60E700E62E57 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8F5F7A151F4C60E700E62E57 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
@@ -334,6 +352,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F0961341F5C083C00FD03F4 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				8F0961351F5C089500FD03F4 /* FilterPresenter.swift */,
+				8F0961361F5C089500FD03F4 /* FilterVC.swift */,
+				8F0961371F5C089500FD03F4 /* FilterWireframe.swift */,
+				8F0961381F5C089500FD03F4 /* FilterInteractor.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		8F0C4B4C1F57F0A700056910 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,9 +383,20 @@
 		8F0C4B511F57FCB800056910 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8F4A27B61F5D25DD003B440D /* Wrappers */,
 				8F0C4B521F57FCC700056910 /* ViewController.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8F13F0DF1F5B0AC50028B1FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */,
+				8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */,
+				8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8F20808C1F4EA56900C328DC /* Global */ = {
@@ -404,9 +444,12 @@
 		8F2080A31F4EE1FA00C328DC /* Logs */ = {
 			isa = PBXGroup;
 			children = (
+				8F0961341F5C083C00FD03F4 /* Filter */,
+				8F13F0DF1F5B0AC50028B1FF /* Views */,
 				8F2080AB1F4EE29000C328DC /* LogsPresenter.swift */,
-				8F2080AC1F4EE29000C328DC /* LogsVC.swift */,
 				8F2080AD1F4EE29000C328DC /* LogsWireframe.swift */,
+				8F0961321F5BFFA900FD03F4 /* LogsInteractor.swift */,
+				8F4A27B21F5D2419003B440D /* TriggersManager.swift */,
 			);
 			path = Logs;
 			sourceTree = "<group>";
@@ -420,6 +463,14 @@
 				8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */,
 			);
 			path = Scanner;
+			sourceTree = "<group>";
+		};
+		8F4A27B61F5D25DD003B440D /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */,
+			);
+			path = Wrappers;
 			sourceTree = "<group>";
 		};
 		8F689D1A1F54348D002046FE /* Controllers */ = {
@@ -1139,31 +1190,40 @@
 				8F2080951F4EAAAB00C328DC /* TriggeringPresenter.swift in Sources */,
 				8F2080981F4EAAAB00C328DC /* TriggeringInteractor.swift in Sources */,
 				A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */,
+				8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */,
+				8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */,
+				8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */,
 				8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */,
 				8F5F7A191F4C60E700E62E57 /* HomeWireframe.swift in Sources */,
 				8F2080971F4EAAAB00C328DC /* TriggeringWireframe.swift in Sources */,
 				8FCE6FB51F504F480098A325 /* RegionAnnotation.swift in Sources */,
+				8F09613A1F5C089500FD03F4 /* FilterVC.swift in Sources */,
 				8F5F7A1A1F4C60E700E62E57 /* HomeInteractor.swift in Sources */,
 				8F7F58ED1F4D84BD00271FC7 /* SettingsPresenter.swift in Sources */,
 				8F7F58EC1F4D84BD00271FC7 /* SettingsInteractor.swift in Sources */,
 				8F20808F1F4EA59600C328DC /* Constants.swift in Sources */,
 				8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */,
+				8F4A27B31F5D2419003B440D /* TriggersManager.swift in Sources */,
+				8F0961391F5C089500FD03F4 /* FilterPresenter.swift in Sources */,
+				8F13F0E11F5B0AC50028B1FF /* LogsVC.swift in Sources */,
 				8F2080A81F4EE28000C328DC /* GeofencesPresenter.swift in Sources */,
 				8FCE6FB31F504F070098A325 /* GeofencesVC.swift in Sources */,
 				8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */,
 				8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */,
+				8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */,
 				8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */,
+				8F09613C1F5C089500FD03F4 /* FilterInteractor.swift in Sources */,
 				8F2080B61F4EE2A200C328DC /* ScannerWireframe.swift in Sources */,
 				8F7F58DE1F4D822000271FC7 /* AppWireframe.swift in Sources */,
 				8F0C4B531F57FCC700056910 /* ViewController.swift in Sources */,
 				8F2080AA1F4EE28000C328DC /* GeofencesWireframe.swift in Sources */,
 				8F2080961F4EAAAB00C328DC /* TriggeringVC.swift in Sources */,
+				8F09613B1F5C089500FD03F4 /* FilterWireframe.swift in Sources */,
 				8F7F58EF1F4D84BD00271FC7 /* SettingsWireframe.swift in Sources */,
 				8F5F7A171F4C60E700E62E57 /* HomePresenter.swift in Sources */,
 				8F2080B01F4EE29000C328DC /* LogsWireframe.swift in Sources */,
 				8F2080B51F4EE2A200C328DC /* ScannerVC.swift in Sources */,
 				8F7F58EE1F4D84BD00271FC7 /* SettingsVC.swift in Sources */,
-				8F2080AF1F4EE29000C328DC /* LogsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
