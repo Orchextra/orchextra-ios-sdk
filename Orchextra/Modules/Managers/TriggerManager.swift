@@ -51,7 +51,7 @@ class TriggerManager: ModuleOutput {
 
 extension TriggerManager: TriggerInteractorOutput {
         
-    func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String) {
+    func triggerDidFinishSuccessfully(with actionJSON: JSON) {
         guard let action = ActionFactory.action(from: actionJSON) else {
             LogWarn("Action can't be created")
             return

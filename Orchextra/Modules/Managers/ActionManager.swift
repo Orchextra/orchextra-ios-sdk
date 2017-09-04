@@ -11,8 +11,8 @@ import GIGLibrary
 
 class ActionManager {
 
-    let pushManager: PushOrxManager
-    let service: ActionService
+    let pushManager: PushOrxInput
+    let service: ActionServicesInput
     
     convenience init() {
         let pushManager = PushOrxManager.shared
@@ -20,7 +20,7 @@ class ActionManager {
         self.init(service: service, pushManager: pushManager)
     }
     
-    init(service: ActionService, pushManager: PushOrxManager) {
+    init(service: ActionServicesInput, pushManager: PushOrxInput) {
         self.service = service
         self.pushManager = pushManager
         self.pushManager.configure()
@@ -47,7 +47,6 @@ class ActionManager {
     }
 
     private func prepareNotificationFor(action: Action) {
-        
         switch UIApplication.shared.applicationState {
         case .active, .inactive:
             if let _ = action.schedule {
