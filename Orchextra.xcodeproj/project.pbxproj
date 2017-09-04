@@ -1541,6 +1541,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1551,7 +1552,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bfda7ed5-fc37-40ae-b96f-c23147fe5355";
+				PROVISIONING_PROFILE = "ae107793-d04d-43ef-8b11-a750e85861c7";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1562,7 +1563,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gigigo Mobile Services S.L.";
 				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
