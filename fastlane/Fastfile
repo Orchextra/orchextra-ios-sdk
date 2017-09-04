@@ -31,6 +31,11 @@ platform :ios do
       code_coverage: true)
   end
 
+  desc "Upload to Applivery Staging"
+  lane :staging do
+    deploy_to_applivery(app_id: "59a69f14b143c2640ffb5418")
+  end
+
   after_all do |lane|
     # This block is called, only if the executed lane was successful
 
