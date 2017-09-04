@@ -78,7 +78,6 @@
 		A9986B321F5976B600F2CC65 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B311F5976B600F2CC65 /* LocalNotification.swift */; };
 		A9986B341F5976D200F2CC65 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B331F5976D200F2CC65 /* Date+Extension.swift */; };
 		A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F01F5010DC00EED42E /* Wireframe.swift */; };
-		A99885F71F502E1800EED42E /* GIGScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F31F502E1800EED42E /* GIGScannerVC.swift */; };
 		A99885F81F502E1800EED42E /* ScannerOrx.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99885F41F502E1800EED42E /* ScannerOrx.storyboard */; };
 		A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F51F502E1800EED42E /* ScannerPresenter.swift */; };
 		A99885FA1F502E1800EED42E /* ScannerOrxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F61F502E1800EED42E /* ScannerOrxVC.swift */; };
@@ -236,7 +235,6 @@
 		A9986B311F5976B600F2CC65 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		A9986B331F5976D200F2CC65 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Extension.swift"; path = "Common/Support/Date+Extension.swift"; sourceTree = "<group>"; };
 		A99885F01F5010DC00EED42E /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
-		A99885F31F502E1800EED42E /* GIGScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGScannerVC.swift; sourceTree = "<group>"; };
 		A99885F41F502E1800EED42E /* ScannerOrx.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScannerOrx.storyboard; sourceTree = "<group>"; };
 		A99885F51F502E1800EED42E /* ScannerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerPresenter.swift; sourceTree = "<group>"; };
 		A99885F61F502E1800EED42E /* ScannerOrxVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerOrxVC.swift; sourceTree = "<group>"; };
@@ -527,7 +525,6 @@
 		A974BE7B1F4B080100A355FD /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
-				A99885F31F502E1800EED42E /* GIGScannerVC.swift */,
 				A99885F61F502E1800EED42E /* ScannerOrxVC.swift */,
 				A99885F51F502E1800EED42E /* ScannerPresenter.swift */,
 				A99885F41F502E1800EED42E /* ScannerOrx.storyboard */,
@@ -599,8 +596,8 @@
 		A99885FB1F50352200EED42E /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				A9986B2C1F59766600F2CC65 /* ActionBrowserExternal.swift */,
 				A99885FC1F50353D00EED42E /* Action.swift */,
+				A9986B2C1F59766600F2CC65 /* ActionBrowserExternal.swift */,
 				A99885FE1F50363C00EED42E /* ActionBrowser.swift */,
 				A99886001F5037E900EED42E /* ActionDoNothing.swift */,
 				A9AC21091F542E7C00095EC5 /* ActionScanner.swift */,
@@ -1071,7 +1068,6 @@
 			files = (
 				A9986B2A1F59764E00F2CC65 /* PushOrxManager.swift in Sources */,
 				A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */,
-				A99885F71F502E1800EED42E /* GIGScannerVC.swift in Sources */,
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
 				8F689D1F1F5434C6002046FE /* WebPresenter.swift in Sources */,
