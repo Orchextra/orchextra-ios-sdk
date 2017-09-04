@@ -9,7 +9,11 @@
 import Foundation
 import GIGLibrary
 
-class ActionService {
+protocol ActionServicesInput {
+    func confirmAction(action: Action, completion: @escaping (Result<Bool, Error>) -> Void)
+}
+
+class ActionService: ActionServicesInput {
 
     let endpointConfirmAction = "/action/confirm/"
     
@@ -36,7 +40,5 @@ class ActionService {
                 LogError(response.error)
             }
         }
-
     }
-
 }

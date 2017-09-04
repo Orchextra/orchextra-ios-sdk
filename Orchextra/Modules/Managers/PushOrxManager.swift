@@ -10,7 +10,13 @@ import Foundation
 import UserNotifications
 import GIGLibrary
 
-class PushOrxManager: NSObject {
+protocol PushOrxInput {
+    func configure()
+    func dispatchNotification(with action: Action)
+    func handleNotification(userInfo: [String: Any])
+}
+
+class PushOrxManager: NSObject, PushOrxInput {
     
     /// Singleton
     static var shared = PushOrxManager()
@@ -20,6 +26,10 @@ class PushOrxManager: NSObject {
     let application = UIApplication.shared
     
     // MARK: - Public
+    
+    func configure() {
+        self.requestForNotifications()
+    }
     
     func handleNotification(userInfo: [String: Any]) {
         let jsonNotification = JSON(from: userInfo)
@@ -33,12 +43,17 @@ class PushOrxManager: NSObject {
         actionManager.handler(action: action)
     }
 
+    func dispatchNotification(with action: Action) {
+        guard let seconds = action.schedule?.seconds else { return }
+        let minutes: Int = seconds/60
+        let payload = self.payloadLocalNotification(action: action)
+        LocalNotification.dispatchlocalNotification(with: action.notification?.title ?? "",
+                                                    body: action.notification?.body ?? "",
+                                                    userInfo: payload,
+                                                    at: Date().addedBy(minutes: minutes))
+    }
     
     // MARK: - Internal
-    
-    internal func configure() {
-        self.requestForNotifications()
-    }
     
     internal func requestForNotifications() {
         if #available(iOS 10.0, *) {
@@ -57,17 +72,6 @@ class PushOrxManager: NSObject {
         }
         
         self.application.registerForRemoteNotifications()
-    }
-    
-    
-    internal func dispatchNotification(with action: Action) {
-        guard let seconds = action.schedule?.seconds else { return }
-        let minutes: Int = seconds/60
-        let payload = self.payloadLocalNotification(action: action)
-        LocalNotification.dispatchlocalNotification(with: action.notification?.title ?? "",
-                                                    body: action.notification?.body ?? "",
-                                                    userInfo: payload,
-                                                    at: Date().addedBy(minutes: minutes))
     }
     
     // MARK: - Private

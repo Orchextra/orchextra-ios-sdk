@@ -65,6 +65,15 @@
 		8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
+		A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */; };
+		A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67DE1F5D5AFA001D8B19 /* TriggerFactoryTests.swift */; };
+		A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */; };
+		A95E67E61F5D71BE001D8B19 /* ActionServicesMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67E51F5D71BE001D8B19 /* ActionServicesMock.swift */; };
+		A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67E81F5D730D001D8B19 /* PushOrxManagerMock.swift */; };
+		A95E67EB1F5D84D2001D8B19 /* action_scanner_without_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A95E67EA1F5D84D2001D8B19 /* action_scanner_without_schedule.json */; };
+		A95E67ED1F5D850E001D8B19 /* action_scanner_without_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */; };
+		A95E67F11F5D8FFA001D8B19 /* action_webview_without_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */; };
+		A95E67F31F5D912C001D8B19 /* action_browser_without_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
 		A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */; };
@@ -87,7 +96,6 @@
 		A9986B321F5976B600F2CC65 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B311F5976B600F2CC65 /* LocalNotification.swift */; };
 		A9986B341F5976D200F2CC65 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B331F5976D200F2CC65 /* Date+Extension.swift */; };
 		A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F01F5010DC00EED42E /* Wireframe.swift */; };
-		A99885F71F502E1800EED42E /* GIGScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F31F502E1800EED42E /* GIGScannerVC.swift */; };
 		A99885F81F502E1800EED42E /* ScannerOrx.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99885F41F502E1800EED42E /* ScannerOrx.storyboard */; };
 		A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F51F502E1800EED42E /* ScannerPresenter.swift */; };
 		A99885FA1F502E1800EED42E /* ScannerOrxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99885F61F502E1800EED42E /* ScannerOrxVC.swift */; };
@@ -138,6 +146,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A95E67E21F5D6DF2001D8B19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9C54DC31F41A8E500DF2074;
+			remoteInfo = OrchextraApp;
+		};
 		A9C54DA21F41A6F100DF2074 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
@@ -240,6 +255,15 @@
 		8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_external_browser_notification.json; path = Mocks/Json/action_external_browser_notification.json; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
+		A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerManagerTests.swift; path = Modules/Manager/TriggerManagerTests.swift; sourceTree = "<group>"; };
+		A95E67DE1F5D5AFA001D8B19 /* TriggerFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerFactoryTests.swift; sourceTree = "<group>"; };
+		A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInputMock.swift; path = Mocks/Modules/ScannerMocks/ModuleInputMock.swift; sourceTree = "<group>"; };
+		A95E67E51F5D71BE001D8B19 /* ActionServicesMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionServicesMock.swift; path = Mocks/Services/ActionServicesMock.swift; sourceTree = "<group>"; };
+		A95E67E81F5D730D001D8B19 /* PushOrxManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushOrxManagerMock.swift; path = Mocks/Modules/Manager/PushOrxManagerMock.swift; sourceTree = "<group>"; };
+		A95E67EA1F5D84D2001D8B19 /* action_scanner_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_scanner_without_schedule.json; path = Mocks/Json/action_scanner_without_schedule.json; sourceTree = "<group>"; };
+		A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_scanner_without_notification.json; path = Mocks/Json/action_scanner_without_notification.json; sourceTree = "<group>"; };
+		A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_webview_without_notification.json; path = Mocks/Json/action_webview_without_notification.json; sourceTree = "<group>"; };
+		A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_browser_without_notification.json; path = Mocks/Json/action_browser_without_notification.json; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
@@ -254,7 +278,6 @@
 		A9986B311F5976B600F2CC65 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		A9986B331F5976D200F2CC65 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Extension.swift"; path = "Common/Support/Date+Extension.swift"; sourceTree = "<group>"; };
 		A99885F01F5010DC00EED42E /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wireframe.swift; sourceTree = "<group>"; };
-		A99885F31F502E1800EED42E /* GIGScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIGScannerVC.swift; sourceTree = "<group>"; };
 		A99885F41F502E1800EED42E /* ScannerOrx.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScannerOrx.storyboard; sourceTree = "<group>"; };
 		A99885F51F502E1800EED42E /* ScannerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerPresenter.swift; sourceTree = "<group>"; };
 		A99885F61F502E1800EED42E /* ScannerOrxVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerOrxVC.swift; sourceTree = "<group>"; };
@@ -563,6 +586,39 @@
 			name = Manager;
 			sourceTree = "<group>";
 		};
+		A95E67D81F5D50B3001D8B19 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		A95E67DD1F5D5AFA001D8B19 /* Trigger */ = {
+			isa = PBXGroup;
+			children = (
+				A95E67DE1F5D5AFA001D8B19 /* TriggerFactoryTests.swift */,
+			);
+			name = Trigger;
+			path = Common/Model/Trigger;
+			sourceTree = "<group>";
+		};
+		A95E67E41F5D719C001D8B19 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A95E67E51F5D71BE001D8B19 /* ActionServicesMock.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		A95E67E71F5D72E8001D8B19 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				A95E67E81F5D730D001D8B19 /* PushOrxManagerMock.swift */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
 		A974BE7A1F4B080100A355FD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,7 +634,6 @@
 		A974BE7B1F4B080100A355FD /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
-				A99885F31F502E1800EED42E /* GIGScannerVC.swift */,
 				A99885F61F502E1800EED42E /* ScannerOrxVC.swift */,
 				A99885F51F502E1800EED42E /* ScannerPresenter.swift */,
 				A99885F41F502E1800EED42E /* ScannerOrx.storyboard */,
@@ -624,6 +679,7 @@
 		A978C5D91F45A40F00F5DFFD /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				A95E67E41F5D719C001D8B19 /* Services */,
 				A9D0FC331F56C1E700596CF3 /* Modules */,
 				A978C5DA1F45A41F00F5DFFD /* Model */,
 				A9C54E051F446E1B00DF2074 /* Json */,
@@ -650,8 +706,8 @@
 		A99885FB1F50352200EED42E /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				A9986B2C1F59766600F2CC65 /* ActionBrowserExternal.swift */,
 				A99885FC1F50353D00EED42E /* Action.swift */,
+				A9986B2C1F59766600F2CC65 /* ActionBrowserExternal.swift */,
 				A99885FE1F50363C00EED42E /* ActionBrowser.swift */,
 				A99886001F5037E900EED42E /* ActionDoNothing.swift */,
 				A9AC21091F542E7C00095EC5 /* ActionScanner.swift */,
@@ -691,6 +747,7 @@
 		A9AC212D1F5580C000095EC5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A95E67D81F5D50B3001D8B19 /* Manager */,
 				A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */,
 			);
 			name = Modules;
@@ -890,6 +947,10 @@
 				8FFD3D8A1F569525000A1056 /* action_webview_notification.json */,
 				8FFD3D8B1F569525000A1056 /* accesstoken_fail_credential.json */,
 				8FFD3D8C1F569525000A1056 /* accesstoken_ok.json */,
+				A95E67EA1F5D84D2001D8B19 /* action_scanner_without_schedule.json */,
+				A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */,
+				A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */,
+				A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -917,6 +978,7 @@
 		A9D0FC331F56C1E700596CF3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A95E67E71F5D72E8001D8B19 /* Notification */,
 				A9D0FC341F56C1FC00596CF3 /* ScannerMocks */,
 			);
 			name = Modules;
@@ -927,6 +989,7 @@
 			children = (
 				A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */,
 				A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */,
+				A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */,
 			);
 			name = ScannerMocks;
 			sourceTree = "<group>";
@@ -934,6 +997,7 @@
 		A9D0FC391F57EFBE00596CF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A95E67DD1F5D5AFA001D8B19 /* Trigger */,
 				A9D0FC3A1F57EFD100596CF3 /* Actions */,
 			);
 			name = Model;
@@ -992,6 +1056,7 @@
 			);
 			dependencies = (
 				A9C54DA31F41A6F100DF2074 /* PBXTargetDependency */,
+				A95E67E31F5D6DF2001D8B19 /* PBXTargetDependency */,
 			);
 			name = OrchextraTests;
 			productName = OrchextraTests;
@@ -1037,6 +1102,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = SU5BA5HAQK;
 						ProvisioningStyle = Automatic;
+						TestTargetID = A9C54DC31F41A8E500DF2074;
 					};
 					A9C54DC31F41A8E500DF2074 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1090,9 +1156,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95E67ED1F5D850E001D8B19 /* action_scanner_without_notification.json in Resources */,
+				A95E67EB1F5D84D2001D8B19 /* action_scanner_without_schedule.json in Resources */,
+				A95E67F11F5D8FFA001D8B19 /* action_webview_without_notification.json in Resources */,
 				8FFD3D901F569525000A1056 /* accesstoken_fail_credential.json in Resources */,
 				8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */,
 				8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */,
+				A95E67F31F5D912C001D8B19 /* action_browser_without_notification.json in Resources */,
 				8FFD3D8E1F569525000A1056 /* action_scanner_notification.json in Resources */,
 				8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */,
 				8FFD3D8D1F569525000A1056 /* action_browser_notification.json in Resources */,
@@ -1122,7 +1192,6 @@
 			files = (
 				A9986B2A1F59764E00F2CC65 /* PushOrxManager.swift in Sources */,
 				A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */,
-				A99885F71F502E1800EED42E /* GIGScannerVC.swift in Sources */,
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
 				8F689D1F1F5434C6002046FE /* WebPresenter.swift in Sources */,
@@ -1176,8 +1245,13 @@
 				A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */,
 				A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */,
 				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
+				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
+				A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */,
+				A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */,
+				A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */,
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
+				A95E67E61F5D71BE001D8B19 /* ActionServicesMock.swift in Sources */,
 				A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1230,6 +1304,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A95E67E31F5D6DF2001D8B19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9C54DC31F41A8E500DF2074 /* OrchextraApp */;
+			targetProxy = A95E67E21F5D6DF2001D8B19 /* PBXContainerItemProxy */;
+		};
 		A9C54DA31F41A6F100DF2074 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9C54D961F41A6F100DF2074 /* Orchextra */;
@@ -1435,6 +1514,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchextraApp.app/OrchextraApp";
 			};
 			name = Debug;
 		};
@@ -1452,6 +1532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchextraApp.app/OrchextraApp";
 			};
 			name = Release;
 		};
