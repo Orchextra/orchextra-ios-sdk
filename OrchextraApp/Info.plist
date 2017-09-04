@@ -41,6 +41,10 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>You need to get permission to use the camera to scan QR and barcodes.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need access to your location to show you relevant information. </string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need access to your location to show you relevant information. </string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>pt-sans.bold.ttf</string>
