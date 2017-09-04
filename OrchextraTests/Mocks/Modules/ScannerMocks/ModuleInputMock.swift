@@ -23,7 +23,9 @@ class ModuleInputMock: ModuleInput {
     }
     
     func finish(action: Action?, completionHandler: (() -> Void)?) {
-        completionHandler!()
+        if let completion = completionHandler {
+            completion()
+        }
     }
     
     func setConfig(config: [String : Any]) {

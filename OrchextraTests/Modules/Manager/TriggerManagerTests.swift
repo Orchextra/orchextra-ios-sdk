@@ -56,7 +56,6 @@ class TriggerManagerTests: XCTestCase {
         expect(self.pushorxManagerMock.spyDispatchNotification.called).to(equal(true))
     }
     
-    
     func test_triggerDidFinish_withActionScanWithoutNotification() {
         
         // ARRANGE
@@ -73,5 +72,41 @@ class TriggerManagerTests: XCTestCase {
         expect(self.actionServicesMock.spyConfirmAction.action.trackId).to(equal("59a3fcbc53c7c0fc018b4578"))
         expect(self.actionServicesMock.spyConfirmAction.action.id).to(equal("599ea2209c309558028b4567"))
         expect(self.actionServicesMock.spyConfirmAction.action.urlString).to(equal("orchextra://scanner"))
+    }
+    
+    func test_triggerDidFinish_withActionWebviewWithoutNotification() {
+        
+        // ARRANGE
+        let actionFile = JSONHandler().jsonFrom(filename: "action_webview_without_notification")!
+        let jsonData = actionFile["data"]
+        let json = JSON(from: jsonData!)
+        
+        // ACT
+        self.triggerManager.triggerDidFinishSuccessfully(with: json)
+        
+        // ASSERT
+        expect(self.actionServicesMock.spyConfirmAction.called).to(equal(true))
+        expect(self.actionServicesMock.spyConfirmAction.action.type).to(equal("webview"))
+        expect(self.actionServicesMock.spyConfirmAction.action.trackId).to(equal("59a3fcbc53c7c0fc018b4578"))
+        expect(self.actionServicesMock.spyConfirmAction.action.id).to(equal("599ea2209c309558028b4567"))
+        expect(self.actionServicesMock.spyConfirmAction.action.urlString).to(equal("www.google.es"))
+    }
+    
+    func test_triggerDidFinish_withActionBrowserWithoutNotification() {
+        
+        // ARRANGE
+        let actionFile = JSONHandler().jsonFrom(filename: "action_browser_without_notification")!
+        let jsonData = actionFile["data"]
+        let json = JSON(from: jsonData!)
+        
+        // ACT
+        self.triggerManager.triggerDidFinishSuccessfully(with: json)
+        
+        // ASSERT
+        expect(self.actionServicesMock.spyConfirmAction.called).to(equal(true))
+        expect(self.actionServicesMock.spyConfirmAction.action.type).to(equal("browser"))
+        expect(self.actionServicesMock.spyConfirmAction.action.trackId).to(equal("59a3fcbc53c7dasc0fc018b4578"))
+        expect(self.actionServicesMock.spyConfirmAction.action.id).to(equal("599ea2209c309558028asdfab4567"))
+        expect(self.actionServicesMock.spyConfirmAction.action.urlString).to(equal("http://www.google.es"))
     }
 }

@@ -63,6 +63,8 @@
 		A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67E81F5D730D001D8B19 /* PushOrxManagerMock.swift */; };
 		A95E67EB1F5D84D2001D8B19 /* action_scanner_without_schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = A95E67EA1F5D84D2001D8B19 /* action_scanner_without_schedule.json */; };
 		A95E67ED1F5D850E001D8B19 /* action_scanner_without_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */; };
+		A95E67F11F5D8FFA001D8B19 /* action_webview_without_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */; };
+		A95E67F31F5D912C001D8B19 /* action_browser_without_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
 		A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */; };
@@ -242,6 +244,8 @@
 		A95E67E81F5D730D001D8B19 /* PushOrxManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushOrxManagerMock.swift; path = Mocks/Modules/Manager/PushOrxManagerMock.swift; sourceTree = "<group>"; };
 		A95E67EA1F5D84D2001D8B19 /* action_scanner_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_scanner_without_schedule.json; path = Mocks/Json/action_scanner_without_schedule.json; sourceTree = "<group>"; };
 		A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_scanner_without_notification.json; path = Mocks/Json/action_scanner_without_notification.json; sourceTree = "<group>"; };
+		A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_webview_without_notification.json; path = Mocks/Json/action_webview_without_notification.json; sourceTree = "<group>"; };
+		A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_browser_without_notification.json; path = Mocks/Json/action_browser_without_notification.json; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
@@ -894,6 +898,8 @@
 				8FFD3D8C1F569525000A1056 /* accesstoken_ok.json */,
 				A95E67EA1F5D84D2001D8B19 /* action_scanner_without_schedule.json */,
 				A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */,
+				A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */,
+				A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -1101,9 +1107,11 @@
 			files = (
 				A95E67ED1F5D850E001D8B19 /* action_scanner_without_notification.json in Resources */,
 				A95E67EB1F5D84D2001D8B19 /* action_scanner_without_schedule.json in Resources */,
+				A95E67F11F5D8FFA001D8B19 /* action_webview_without_notification.json in Resources */,
 				8FFD3D901F569525000A1056 /* accesstoken_fail_credential.json in Resources */,
 				8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */,
 				8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */,
+				A95E67F31F5D912C001D8B19 /* action_browser_without_notification.json in Resources */,
 				8FFD3D8E1F569525000A1056 /* action_scanner_notification.json in Resources */,
 				8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */,
 				8FFD3D8D1F569525000A1056 /* action_browser_notification.json in Resources */,
