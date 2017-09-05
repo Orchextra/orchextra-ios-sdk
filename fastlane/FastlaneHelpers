@@ -9,17 +9,31 @@ private_lane :deploy_to_applivery do |options|
   version_number = get_version_number
   shield = "v#{version_number}-#{build_number}-blue"
   commit_hash = "#{get_build_number_repository}"
+  applivery_api_key = ENV["APPLIVERY_TOKEN"]
+  applivery_app_id = options[:app_id]
 
+  set_info_plist_value(
+    path: "./OrchextraApp/Info.plist",
+    key: "APPLIVERY_API_KEY",
+    value: applivery_api_key
+  )
+  set_info_plist_value(
+    path: "./OrchextraApp/Info.plist",
+    key: "APPLIVERY_APP_ID",
+    value: applivery_app_id
+  )
   gym(
     scheme: scheme,
-    export_method: 'enterprise')
+    export_method: 'enterprise'
+  )
   applivery(
-    app_id: options[:app_id],
-    api_key: ENV["APPLIVERY_TOKEN"],
+    app_id: applivery_app_id,
+    api_key: applivery_api_key,
     name: app_name,
     notify: false,
-    autoremove: true)
-  puts "Submitted #{scheme} v#{version_number} #{build_number}"
+    autoremove: true
+  )
+  puts "Submitted #{scheme} v#{version_number}-#{build_number}"
   clean_build_artifacts
   clean_icons
 end

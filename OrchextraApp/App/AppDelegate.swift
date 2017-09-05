@@ -9,66 +9,81 @@
 import UIKit
 import UserNotifications
 import GIGLibrary
+import Applivery
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-    let appController = AppController.shared
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.makeKeyAndVisible()
-        
-        prepareAppController()
-        appController.appDidLaunch()
-        self.setNavBarAppearance()
-        self.setTabBarAppearance()
-        
-        return true
-    }
-    
-    // MARK: - Handler notification
-
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        guard let userInfo = notification.userInfo as? [String : Any] else {
-            LogWarn("Notification does not have userinfo")
-            return }
-       OrchextraWrapper.shared.handleNotification(userInfo: userInfo)
-    }
-
-    // MARK: - Private Helpers
-    
-    fileprivate func prepareAppController() {
-        appController.appWireframe = AppWireframe()
-        appController.appWireframe?.window = self.window
-    }
-    
-    func setTabBarAppearance() {
-        let selectedColor = UIColor.ORXApp.coral
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedColor as Any], for: .selected)
-    }
-    
-    func setNavBarAppearance() {
-        let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.isTranslucent = false
-        navigationBarAppearace.tintColor = UIColor.white
-        navigationBarAppearace.barTintColor = UIColor.ORXApp.coral
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-    }
+	
+	var window: UIWindow?
+	let appController = AppController.shared
+	
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		
+		//        self.window = UIWindow(frame: UIScreen.main.bounds)
+		self.window?.makeKeyAndVisible()
+		
+		prepareAppController()
+		appController.appDidLaunch()
+		self.setNavBarAppearance()
+		self.setTabBarAppearance()
+		
+		self.setupApplivery()
+		
+		return true
+	}
+	
+	// MARK: - Handler notification
+	
+	func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+		guard let userInfo = notification.userInfo as? [String : Any] else {
+			LogWarn("Notification does not have userinfo")
+			return }
+		OrchextraWrapper.shared.handleNotification(userInfo: userInfo)
+	}
+	
+	// MARK: - Private Helpers
+	
+	fileprivate func prepareAppController() {
+		appController.appWireframe = AppWireframe()
+		appController.appWireframe?.window = self.window
+	}
+	
+	func setTabBarAppearance() {
+		let selectedColor = UIColor.ORXApp.coral
+		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedColor as Any], for: .selected)
+	}
+	
+	func setNavBarAppearance() {
+		let navigationBarAppearace = UINavigationBar.appearance()
+		navigationBarAppearace.isTranslucent = false
+		navigationBarAppearace.tintColor = UIColor.white
+		navigationBarAppearace.barTintColor = UIColor.ORXApp.coral
+		navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+	}
+	
+	private func setupApplivery() {
+		#if !DEBUG
+			let apiKey = InfoDictionary("APPLIVERY_API_KEY")
+			let appID = InfoDictionary("APPLIVERY_APP_ID")
+			
+			let applivery = Applivery.shared
+			applivery.logLevel = .debug
+			applivery.start(apiKey: apiKey, appId: appID, appStoreRelease: false)
+		#endif
+	}
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate  {
-    
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-    }
-    
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-    }
+	
+	@available(iOS 10.0, *)
+	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+		
+	}
+	
+	@available(iOS 10.0, *)
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		
+	}
 }
 

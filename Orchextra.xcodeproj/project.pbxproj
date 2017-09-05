@@ -144,6 +144,8 @@
 		A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */; };
 		A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */; };
 		A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC3D1F57F09200596CF3 /* JSONHandler.swift */; };
+		FA1916211F5EB4CE00F344EC /* Applivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1916201F5EB4CE00F344EC /* Applivery.framework */; };
+		FA1916221F5EB4CE00F344EC /* Applivery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA1916201F5EB4CE00F344EC /* Applivery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,6 +194,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A9C54DDD1F41A9F600DF2074 /* GIGLibrary.framework in Embed Frameworks */,
+				FA1916221F5EB4CE00F344EC /* Applivery.framework in Embed Frameworks */,
 				A9C54DD81F41A99700DF2074 /* Orchextra.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -339,6 +342,7 @@
 		A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputMock.swift; path = Mocks/Modules/ScannerMocks/ModuleOutputMock.swift; sourceTree = "<group>"; };
 		A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionFactoryTest.swift; path = Common/Model/Actions/ActionFactoryTest.swift; sourceTree = "<group>"; };
 		A9D0FC3D1F57F09200596CF3 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONHandler.swift; path = Helpers/JSONHandler.swift; sourceTree = "<group>"; };
+		FA1916201F5EB4CE00F344EC /* Applivery.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Applivery.framework; path = Carthage/Build/iOS/Applivery.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +371,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1916211F5EB4CE00F344EC /* Applivery.framework in Frameworks */,
 				8F0D4F7E1F558F9C003F3B39 /* WebKit.framework in Frameworks */,
 				8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */,
 				A9C54DDC1F41A9F500DF2074 /* GIGLibrary.framework in Frameworks */,
@@ -551,6 +556,7 @@
 		8FCE6FB01F504CE40098A325 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				A9C54DFA1F4433D300DF2074 /* AdSupport.framework */,
 				8FCE6FAE1F504CC80098A325 /* MapKit.framework */,
 			);
 			name = System;
@@ -815,11 +821,11 @@
 		A9C54DB11F41A80500DF2074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8FCE6FB01F504CE40098A325 /* System */,
-				A9C54DFD1F4433E500DF2074 /* External */,
-				A9C54DFC1F4433DB00DF2074 /* Internal */,
 				A9C54DB21F41A81600DF2074 /* Cartfile */,
 				A9C54DB31F41A81600DF2074 /* Cartfile.private */,
+				A9C54DFC1F4433DB00DF2074 /* Internal */,
+				A9C54DFD1F4433E500DF2074 /* External */,
+				8FCE6FB01F504CE40098A325 /* System */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -851,10 +857,10 @@
 		A9C54DC51F41A8E500DF2074 /* OrchextraApp */ = {
 			isa = PBXGroup;
 			children = (
-				8F0C4B511F57FCB800056910 /* Common */,
 				8F20808C1F4EA56900C328DC /* Global */,
 				8F7F58DA1F4D81FB00271FC7 /* App */,
 				8FD275A01F4C4E3F00ADAB58 /* Sections */,
+				8F0C4B511F57FCB800056910 /* Common */,
 				A9C54DCD1F41A8E500DF2074 /* Assets.xcassets */,
 				8F0C4B4C1F57F0A700056910 /* Resources */,
 				A9C54DCF1F41A8E500DF2074 /* LaunchScreen.storyboard */,
@@ -934,7 +940,6 @@
 			isa = PBXGroup;
 			children = (
 				A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */,
-				A9C54DFA1F4433D300DF2074 /* AdSupport.framework */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -942,6 +947,7 @@
 		A9C54DFD1F4433E500DF2074 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				FA1916201F5EB4CE00F344EC /* Applivery.framework */,
 				A9C54E031F446B0400DF2074 /* OHHTTPStubs.framework */,
 				A9C54DFE1F44684A00DF2074 /* Nimble.framework */,
 				A9C54DFF1F44684A00DF2074 /* Quick.framework */,
@@ -1553,7 +1559,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1564,7 +1570,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ae107793-d04d-43ef-8b11-a750e85861c7";
+				PROVISIONING_PROFILE = "bfda7ed5-fc37-40ae-b96f-c23147fe5355";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
 				SWIFT_VERSION = 3.0;
 			};
@@ -1576,7 +1582,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Gigigo Mobile Services S.L.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Gigigo Mobile Services S.L.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
