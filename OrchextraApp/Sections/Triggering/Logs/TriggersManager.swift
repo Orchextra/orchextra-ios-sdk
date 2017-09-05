@@ -7,25 +7,24 @@
 //
 
 import Foundation
-import Orchextra
 
 class TriggersManager {
     //MARK: - Attributes
     
     static let shared: TriggersManager = TriggersManager()
-    var triggersFired: [Trigger]
+    var triggersFired: [TriggerFired]
     var triggerListMustBeUpdated = false
     
     init() {
-        self.triggersFired = [Trigger]()
+        self.triggersFired = [TriggerFired]()
     }
     
-    func add(trigger: Trigger) {
+    func add(trigger: TriggerFired) {
         self.triggersFired.append(trigger)
         self.triggerListMustBeUpdated = true
     }
     
-    func retrieveTriggersFired() -> [Trigger] {
+    func retrieveTriggersFired() -> [TriggerFired] {
         return self.triggersFired
     }
 }

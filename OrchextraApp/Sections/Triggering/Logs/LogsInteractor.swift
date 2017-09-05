@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import Orchextra
 
 protocol LogsInteractorInput {
-    func fetchTriggersLaunched() -> [Trigger]
+    func fetchTriggersLaunched() -> [TriggerFired]
 }
 
 protocol LogsInteractorOutput {
@@ -25,7 +24,7 @@ struct LogsInteractor {
 }
 
 extension LogsInteractor: LogsInteractorInput {
-    func fetchTriggersLaunched() -> [Trigger] {
+    func fetchTriggersLaunched() -> [TriggerFired] {
         return TriggersManager.shared.retrieveTriggersFired()
     }
 }

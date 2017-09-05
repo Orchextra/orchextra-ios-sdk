@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import Orchextra
 
 protocol LogsPresenterInput {
     func viewDidLoad()
     func viewWillAppear()
     func triggerListHasBeenUpdated()
     func tableViewNumberOfElements() -> Int
-    func tableViewElements() -> [Trigger]
+    func tableViewElements() -> [TriggerFired]
 }
 
 protocol LogsUI: class {
@@ -54,7 +53,7 @@ extension LogsPresenter: LogsPresenterInput {
         return elements.count
     }
     
-    func tableViewElements() -> [Trigger] {
+    func tableViewElements() -> [TriggerFired] {
         let triggers = TriggersManager.shared.triggersFired
         return triggers
     }
