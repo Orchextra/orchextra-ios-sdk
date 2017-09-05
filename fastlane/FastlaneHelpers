@@ -1,0 +1,41 @@
+
+private_lane :deploy_to_applivery do |options|
+  ensure_git_status_clean
+  update_build_number
+
+  scheme = "OrchextraApp"
+  app_name = "OrchextraApp"
+  build_number = get_build_number
+  version_number = get_version_number
+  shield = "v#{version_number}-#{build_number}-blue"
+  commit_hash = "#{get_build_number_repository}"
+
+  gym(
+    scheme: scheme,
+    export_method: 'enterprise')
+  applivery(
+    app_id: options[:app_id],
+    api_key: ENV["APPLIVERY_TOKEN"],
+    name: app_name,
+    notify: false,
+    autoremove: true)
+  puts "Submitted #{scheme} v#{version_number} #{build_number}"
+  clean_build_artifacts
+  clean_icons
+end
+
+  error do |lane, exception|
+    if lane_context[SharedValues::GIT_REPO_WAS_CLEAN_ON_START] == true  
+      clean_build_artifacts
+      clean_icons
+    end
+  end
+
+private_lane :clean_icons do
+  app_icon_files = Dir["./**/Icon*.png"]
+  reset_git_repo(files: app_icon_files)
+end
+
+private_lane :update_build_number do
+  increment_build_number(build_number: number_of_commits)
+end
