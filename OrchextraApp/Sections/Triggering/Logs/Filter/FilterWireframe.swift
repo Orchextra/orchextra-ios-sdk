@@ -9,20 +9,35 @@
 import Foundation
 import GIGLibrary
 
-struct FilterWireframe {
+class FilterWireframe {
+    // MARK: - Attributes
+    var navigationController: UINavigationController
+    
+    // MARK: - Initializer
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     /// Method to show the Filter section
     ///
+    /// - Parameter interactor: The filter interactor needed to filter logs.
     /// - Returns: Filter View Controller with all dependencies
-    func showFilter() -> FilterVC? {
+    func showFilter(with interactor: FilterInteractor) -> FilterVC? {
         guard let viewController = try? Instantiator<FilterVC>().viewController() else { return nil }
-        let wireframe = FilterWireframe()
+        
         let presenter = FilterPresenter(
             view: viewController,
-            wireframe: wireframe,
-            interactor: FilterInteractor()
+            wireframe: self,
+            interactor: interactor
         )
+        
+        interactor.output = presenter
         viewController.presenter = presenter
+        
         return viewController
+    }
+    
+    func dismissFilterVC() {
+        self.navigationController.dismiss(animated: true, completion: nil)
     }
 }

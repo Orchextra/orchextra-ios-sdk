@@ -10,8 +10,13 @@ import Foundation
 import GIGLibrary
 
 class TriggeringWireframe {
-    
+    // MARK: - Attributes
     var navigationController: UINavigationController?
+    
+    // MARK: - Initializer
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     /// Method to show the Triggering section
     ///
@@ -57,8 +62,10 @@ class TriggeringWireframe {
     ///
     /// - Returns: Scanner View Controller with all dependencies
     func showLogs() -> LogsVC? {
-        let logsWireframe = LogsWireframe()
-        guard let logsVC = logsWireframe.showLogs() else { return nil }
+        let logsWireframe = LogsWireframe(navigationController: self.navigationController!)
+        guard let logsVC = logsWireframe.showLogs() else {
+            return nil
+        }
         
         return logsVC
     }

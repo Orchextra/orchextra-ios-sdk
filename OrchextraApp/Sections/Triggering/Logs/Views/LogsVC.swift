@@ -21,20 +21,19 @@ class LogsVC: UIViewController {
     @IBOutlet weak var triggersTableView: UITableView!
     
     // MARK: - View life cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.presenter?.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter?.viewWillAppear()
-    }    
+    }
+    
+    // MARK: - IBActions
+    @IBAction func filterButtonTapped(_ sender: Any) {
+        self.presenter?.userDidTapFilters()
+    }
+    
+    @IBAction func clearFiltersTapped(_ sender: Any) {
+        self.presenter?.userDidTapClearFilters()
+    }
 }
 
 extension LogsVC: LogsUI {
@@ -42,10 +41,19 @@ extension LogsVC: LogsUI {
         self.triggersTableView.reloadData()
         self.presenter?.triggerListHasBeenUpdated()
     }
+    
+    func showFilterInformation() {
+        self.filterCheckmark.isHidden = false
+        self.clearFiltersButton.isHidden = false
+    }
+    
+    func hideFilterInformation() {
+        self.filterCheckmark.isHidden = true
+        self.clearFiltersButton.isHidden = true
+    }
 }
 
 extension LogsVC: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -68,7 +76,6 @@ extension LogsVC: UITableViewDataSource {
 }
 
 extension LogsVC: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }

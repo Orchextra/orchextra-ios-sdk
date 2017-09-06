@@ -9,19 +9,36 @@
 import Foundation
 import GIGLibrary
 
-struct LogsWireframe {
+class LogsWireframe {
+    // MARK: - Attributes
+    var navigationController: UINavigationController
+    
+    // MARK: - Initializer
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
     /// Method to show the Logs section
     ///
     /// - Returns: Logs View Controller with all dependencies
     func showLogs() -> LogsVC? {
         guard let viewController = try? Instantiator<LogsVC>().viewController() else { return nil }
+        let filterInteractor = FilterInteractor()
+        let interactor = LogsInteractor(filterInteractor: filterInteractor)
         let presenter = LogsPresenter(
             view: viewController,
             wireframe: self,
-            interactor: LogsInteractor()
+            interactor: interactor
         )
+        interactor.output = presenter
         viewController.presenter = presenter
         return viewController
+    }
+    
+    func showFilterVC(with interactor: FilterInteractor) {
+        guard let filtersVC = FilterWireframe(navigationController: self.navigationController).showFilter(with: interactor) else { return }
+        let navigationController = UINavigationController(rootViewController: filtersVC)
+        self.navigationController.present(navigationController, animated: true, completion: nil)
+    
     }
 }

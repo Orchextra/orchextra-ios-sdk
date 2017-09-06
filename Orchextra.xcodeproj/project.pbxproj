@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961321F5BFFA900FD03F4 /* LogsInteractor.swift */; };
 		8F0961391F5C089500FD03F4 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961351F5C089500FD03F4 /* FilterPresenter.swift */; };
-		8F09613A1F5C089500FD03F4 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961361F5C089500FD03F4 /* FilterVC.swift */; };
 		8F09613B1F5C089500FD03F4 /* FilterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961371F5C089500FD03F4 /* FilterWireframe.swift */; };
 		8F09613C1F5C089500FD03F4 /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961381F5C089500FD03F4 /* FilterInteractor.swift */; };
 		8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */; };
@@ -19,6 +18,10 @@
 		8F13F0E11F5B0AC50028B1FF /* LogsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */; };
 		8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */; };
 		8F2042421F5E73BE00782D63 /* TriggerFired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042411F5E73BE00782D63 /* TriggerFired.swift */; };
+		8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042441F5E90AF00782D63 /* FilterVC.swift */; };
+		8F2042471F5E90C500782D63 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */; };
+		8F2042491F5EA1AB00782D63 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042481F5EA1AB00782D63 /* Filter.swift */; };
+		8F20424B1F5EB1CB00782D63 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F20424A1F5EB1CB00782D63 /* Filter.storyboard */; };
 		8F20808F1F4EA59600C328DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F20808E1F4EA59600C328DC /* Constants.swift */; };
 		8F2080951F4EAAAB00C328DC /* TriggeringPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080911F4EAAAB00C328DC /* TriggeringPresenter.swift */; };
 		8F2080961F4EAAAB00C328DC /* TriggeringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080921F4EAAAB00C328DC /* TriggeringVC.swift */; };
@@ -202,7 +205,6 @@
 /* Begin PBXFileReference section */
 		8F0961321F5BFFA900FD03F4 /* LogsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsInteractor.swift; sourceTree = "<group>"; };
 		8F0961351F5C089500FD03F4 /* FilterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
-		8F0961361F5C089500FD03F4 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
 		8F0961371F5C089500FD03F4 /* FilterWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWireframe.swift; sourceTree = "<group>"; };
 		8F0961381F5C089500FD03F4 /* FilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterInteractor.swift; sourceTree = "<group>"; };
 		8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerViewModelFactory.swift; sourceTree = "<group>"; };
@@ -212,6 +214,10 @@
 		8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsVC.swift; sourceTree = "<group>"; };
 		8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
 		8F2042411F5E73BE00782D63 /* TriggerFired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerFired.swift; sourceTree = "<group>"; };
+		8F2042441F5E90AF00782D63 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterVC.swift; path = OrchextraApp/Sections/Triggering/Logs/Filter/FilterVC.swift; sourceTree = SOURCE_ROOT; };
+		8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		8F2042481F5EA1AB00782D63 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		8F20424A1F5EB1CB00782D63 /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		8F20808E1F4EA59600C328DC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8F2080911F4EAAAB00C328DC /* TriggeringPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggeringPresenter.swift; sourceTree = "<group>"; };
 		8F2080921F4EAAAB00C328DC /* TriggeringVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggeringVC.swift; sourceTree = "<group>"; };
@@ -380,10 +386,12 @@
 		8F0961341F5C083C00FD03F4 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				8F2042431F5E8A5A00782D63 /* Views */,
 				8F0961351F5C089500FD03F4 /* FilterPresenter.swift */,
-				8F0961361F5C089500FD03F4 /* FilterVC.swift */,
 				8F0961371F5C089500FD03F4 /* FilterWireframe.swift */,
 				8F0961381F5C089500FD03F4 /* FilterInteractor.swift */,
+				8F2042481F5EA1AB00782D63 /* Filter.swift */,
+				8F20424A1F5EB1CB00782D63 /* Filter.storyboard */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -431,6 +439,15 @@
 				8F2042411F5E73BE00782D63 /* TriggerFired.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8F2042431F5E8A5A00782D63 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F2042441F5E90AF00782D63 /* FilterVC.swift */,
+				8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8F20808C1F4EA56900C328DC /* Global */ = {
@@ -1190,6 +1207,7 @@
 				A9C54DD11F41A8E500DF2074 /* LaunchScreen.storyboard in Resources */,
 				8F0C4B4F1F57F0A700056910 /* pt-sans.bold.ttf in Resources */,
 				8F20809D1F4EACF300C328DC /* Settings.storyboard in Resources */,
+				8F20424B1F5EB1CB00782D63 /* Filter.storyboard in Resources */,
 				8F20809F1F4EAD2C00C328DC /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1277,12 +1295,13 @@
 				A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */,
 				8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */,
 				8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */,
+				8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */,
+				8F2042491F5EA1AB00782D63 /* Filter.swift in Sources */,
 				8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */,
 				8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */,
 				8F5F7A191F4C60E700E62E57 /* HomeWireframe.swift in Sources */,
 				8F2080971F4EAAAB00C328DC /* TriggeringWireframe.swift in Sources */,
 				8FCE6FB51F504F480098A325 /* RegionAnnotation.swift in Sources */,
-				8F09613A1F5C089500FD03F4 /* FilterVC.swift in Sources */,
 				8F5F7A1A1F4C60E700E62E57 /* HomeInteractor.swift in Sources */,
 				8F7F58ED1F4D84BD00271FC7 /* SettingsPresenter.swift in Sources */,
 				8F7F58EC1F4D84BD00271FC7 /* SettingsInteractor.swift in Sources */,
@@ -1300,6 +1319,7 @@
 				8F09613C1F5C089500FD03F4 /* FilterInteractor.swift in Sources */,
 				8F2080B61F4EE2A200C328DC /* ScannerWireframe.swift in Sources */,
 				8F7F58DE1F4D822000271FC7 /* AppWireframe.swift in Sources */,
+				8F2042471F5E90C500782D63 /* FilterTableViewCell.swift in Sources */,
 				8F0C4B531F57FCC700056910 /* ViewController.swift in Sources */,
 				8F2080AA1F4EE28000C328DC /* GeofencesWireframe.swift in Sources */,
 				8F2080961F4EAAAB00C328DC /* TriggeringVC.swift in Sources */,
