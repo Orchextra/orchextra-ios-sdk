@@ -11,6 +11,7 @@ import Foundation
 protocol FilterPresenterInput {
     func viewDidLoad()
     func userDidTap(filter: Filter, at position: Int)
+    func userDidTapFilter(at index: Int)
     func userDidTapCancel()
     func userDidTapSave()
     func tableViewNumberOfElements() -> Int
@@ -39,6 +40,13 @@ extension FilterPresenter: FilterPresenterInput {
     func userDidTap(filter: Filter, at position: Int) {
        self.interactor.update(filter: filter, at: position)
        self.view?.reloadFilter(at: position)
+    }
+    
+    func userDidTapFilter(at index: Int) {
+        let filters = self.interactor.retrieveFilters()
+        let filter = filters[index]
+        self.interactor.update(filter: filter, at: index)
+        self.view?.reloadFilter(at: index)
     }
     
     func userDidTapCancel() {

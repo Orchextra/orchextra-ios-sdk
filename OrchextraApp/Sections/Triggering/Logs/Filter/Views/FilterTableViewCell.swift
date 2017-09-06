@@ -13,6 +13,9 @@ import UIKit
     @IBInspectable @IBOutlet weak var filterNameLabel: UILabel!
     @IBInspectable @IBOutlet weak var filterButton: UIButton!
     
+    // MARK: - Attributes
+    var presenter: FilterPresenterInput?
+    
     // MARK: - Binding
     func bind(name: String, selected: Bool) {
         self.filterNameLabel.text = name
@@ -23,4 +26,11 @@ import UIKit
     static func identifier() -> String {
         return "FilterTableViewCell"
     }
+    
+    // MARK: - IBActions 
+    
+    @IBAction func filterButtonTapped(_ sender: Any) {
+        self.presenter?.userDidTapFilter(at: self.tag)
+    }
+
 }

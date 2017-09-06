@@ -61,6 +61,9 @@ extension FilterVC: UITableViewDataSource {
             let filter = filters?[indexPath.row] else {
                 return UITableViewCell()
         }
+        
+        cell.tag = indexPath.row
+        cell.presenter = self.presenter
         cell.bind(name: filter.name, selected: filter.selected)
         
         return cell

@@ -28,7 +28,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9H-sN-EWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="359" y="-5034"/>
+            <point key="canvasLocation" x="-2333" y="-5520"/>
         </scene>
         <!--FilterVC-->
         <scene sceneID="2L8-II-dTS">
@@ -61,6 +61,9 @@
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <state key="selected" image="checked"/>
+                                                    <connections>
+                                                        <action selector="filterButtonTapped:" destination="zeC-lF-Uhy" eventType="touchUpInside" id="wkM-Nr-p5V"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trigger name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxJ-Bn-C1D">
                                                     <rect key="frame" x="24" y="22" width="102" height="21"/>
@@ -129,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwY-np-yVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="-5034"/>
+            <point key="canvasLocation" x="-1545" y="-5520"/>
         </scene>
     </scenes>
     <resources>
