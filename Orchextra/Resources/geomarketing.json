@@ -1,0 +1,432 @@
+{
+    "geoMarketing": [
+                 {
+                 "id": "56ebd3bfbbafcd61528b4686",
+                 "foreignId": null,
+                 "code": "56ebd3bfbbafcd61528b4685",
+                 "name": "Paseo Conde de los Gaitanes, 9",
+                 "point": {
+                 "lat": 40.514638743077,
+                 "lng": -3.6461958772833
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-18T10:09:03Z",
+                 "updatedAt": "2016-03-18T10:09:03Z",
+                 "radius": 1021,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d6fa4abbafcd4e028b4697",
+                 "foreignId": null,
+                 "code": "56d6fa4abbafcd4e028b4696",
+                 "name": "Santiago Bernabéu Stadium",
+                 "point": {
+                 "lat": 40.4530541,
+                 "lng": -3.6883445
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-02T14:35:54Z",
+                 "updatedAt": "2016-03-02T14:35:54Z",
+                 "radius": 131,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d6fa97bbafcdcf7f8b46ad",
+                 "foreignId": null,
+                 "code": "56d6fa97bbafcdcf7f8b46ac",
+                 "name": "Gran Via Madrid",
+                 "point": {
+                 "lat": 40.4210148,
+                 "lng": -3.7073402
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-02T14:37:11Z",
+                 "updatedAt": "2016-03-02T14:37:11Z",
+                 "radius": 262,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d6fc81bbafcd200a8b464c",
+                 "foreignId": null,
+                 "code": "56d6fc81bbafcd200a8b464b",
+                 "name": "Nike store",
+                 "point": {
+                 "lat": 40.4259524,
+                 "lng": -3.6879727
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-02T14:45:21Z",
+                 "updatedAt": "2016-03-02T14:45:21Z",
+                 "radius": 131,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d551cebbafcde9048b457d",
+                 "foreignId": null,
+                 "code": "56d551cebbafcde9048b457c",
+                 "name": "Plaza de Nueva Orleans",
+                 "point": {
+                 "lat": 40.443405140952,
+                 "lng": -3.6531053033763
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-01T08:24:46Z",
+                 "updatedAt": "2016-03-01T08:24:46Z",
+                 "radius": 431,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56e6e31cbbafcdcb5a8b4611",
+                 "foreignId": null,
+                 "code": "56e6e31bbbafcdcb5a8b4610",
+                 "name": "Plaza de López de la Plata, 1",
+                 "point": {
+                 "lat": 40.458075508578,
+                 "lng": -3.6248653757754
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-14T16:13:15Z",
+                 "updatedAt": "2016-03-14T16:13:15Z",
+                 "radius": 271,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56e7e3afbbafcd9b0f8b46ae",
+                 "foreignId": null,
+                 "code": "56e7e3afbbafcd9b0f8b46ad",
+                 "name": "Place not found",
+                 "point": {
+                 "lat": 40.44924663619,
+                 "lng": -3.6327259886607
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-15T10:27:59Z",
+                 "updatedAt": "2016-03-15T10:27:59Z",
+                 "radius": 385,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56f8e743bbafcd79288b457e",
+                 "foreignId": null,
+                 "code": "56f8e743bbafcd79288b457d",
+                 "name": "Calle de Suárez García, 60",
+                 "point": {
+                 "lat": 40.448504647457,
+                 "lng": -3.6322693368815
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-28T08:11:47Z",
+                 "updatedAt": "2016-03-28T08:11:47Z",
+                 "radius": 271,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "571de0b7bbafcdbc348b4568",
+                 "foreignId": null,
+                 "code": "571de0b7bbafcdbc348b4567",
+                 "name": "Av Donostierra, 15 -",
+                 "point": {
+                 "lat": 40.435358238371,
+                 "lng": -3.6562806436236
+                 },
+                 "tags": [
+                          "56cc860bbbafcdf65c8b457f"
+                          ],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-04-25T09:17:43Z",
+                 "updatedAt": "2016-04-25T09:18:00Z",
+                 "radius": 221,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56e7e39ebbafcd9b0f8b46a7",
+                 "foreignId": null,
+                 "code": "56e7e39ebbafcd9b0f8b46a6",
+                 "name": "Puente Felipe Juvara",
+                 "point": {
+                 "lat": 40.449710006348,
+                 "lng": -3.6262807201385
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-15T10:27:42Z",
+                 "updatedAt": "2016-03-15T10:27:42Z",
+                 "radius": 109,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d54c31bbafcdea048b4574",
+                 "foreignId": null,
+                 "code": "56d54c31bbafcdea048b4573",
+                 "name": "Calle del Doctor Zamenhof, 24",
+                 "point": {
+                 "lat": 40.446430913166,
+                 "lng": -3.627352585531
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-01T08:00:49Z",
+                 "updatedAt": "2016-03-01T08:00:49Z",
+                 "radius": 271,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56cc860bbbafcdf65c8b45a4",
+                 "foreignId": null,
+                 "code": "56cc860bbbafcdf65c8b45a3",
+                 "name": "El Retiro",
+                 "point": {
+                 "lat": 40.415055,
+                 "lng": -3.685271
+                 },
+                 "tags": [
+                          "56cc860bbbafcdf65c8b458c"
+                          ],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-02-23T16:17:15Z",
+                 "updatedAt": "2016-02-23T16:17:15Z",
+                 "radius": 200,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": false,
+                 "stayTime": 5
+                 },
+                 {
+                 "id": "56cc860bbbafcdf65c8b45a0",
+                 "foreignId": null,
+                 "code": "56cc860bbbafcdf65c8b459f",
+                 "name": "Gigigo",
+                 "point": {
+                 "lat": 40.44583,
+                 "lng": -3.627889
+                 },
+                 "tags": [
+                          "56cc860bbbafcdf65c8b458c"
+                          ],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-02-23T16:17:15Z",
+                 "updatedAt": "2016-02-23T16:17:15Z",
+                 "radius": 200,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56ebd39abbafcde4048b4691",
+                 "foreignId": null,
+                 "code": "56ebd39abbafcde4048b4690",
+                 "name": "Calle de Guadalajara, 5",
+                 "point": {
+                 "lat": 40.451617964369,
+                 "lng": -3.6150463982287
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-18T10:08:26Z",
+                 "updatedAt": "2016-03-18T10:08:26Z",
+                 "radius": 271,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56cc860bbbafcdf65c8b45aa",
+                 "foreignId": null,
+                 "code": "56cc860bbbafcdf65c8b45a9",
+                 "name": "Ginos - Calle de Alcalá",
+                 "point": {
+                 "lat": 40.440400422152,
+                 "lng": -3.6284404616858
+                 },
+                 "tags": [
+                          "56cc860bbbafcdf65c8b458d"
+                          ],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-02-23T16:17:15Z",
+                 "updatedAt": "2016-02-23T16:17:15Z",
+                 "radius": 242,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": false,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d5522cbbafcdea048b4599",
+                 "foreignId": null,
+                 "code": "56d5522cbbafcdea048b4598",
+                 "name": "Calle Rodríguez Ayuso, 3",
+                 "point": {
+                 "lat": 40.445435757808,
+                 "lng": -3.6178504998949
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-01T08:26:20Z",
+                 "updatedAt": "2016-03-01T08:26:20Z",
+                 "radius": 57,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d55251bbafcdea048b459e",
+                 "foreignId": null,
+                 "code": "56d55251bbafcdea048b459d",
+                 "name": "Calle de Alcalá, 626",
+                 "point": {
+                 "lat": 40.448184085883,
+                 "lng": -3.6093068060926
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-01T08:26:57Z",
+                 "updatedAt": "2016-03-01T08:26:57Z",
+                 "radius": 271,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56e7e374bbafcd89108b4572",
+                 "foreignId": null,
+                 "code": "56e7e374bbafcd89108b4571",
+                 "name": "Calle de Francisco Rioja, 19",
+                 "point": {
+                 "lat": 40.430521548728,
+                 "lng": -3.6377578237053
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-15T10:27:00Z",
+                 "updatedAt": "2016-03-15T10:27:00Z",
+                 "radius": 129,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d55210bbafcde9048b4582",
+                 "foreignId": null,
+                 "code": "56d55210bbafcde9048b4581",
+                 "name": "Plaza de Cronos, 1",
+                 "point": {
+                 "lat": 40.440059335324,
+                 "lng": -3.6189350615389
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-01T08:25:52Z",
+                 "updatedAt": "2016-03-01T08:25:52Z",
+                 "radius": 272,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 },
+                 {
+                 "id": "56d55000bbafcdea048b458b",
+                 "foreignId": null,
+                 "code": "56d55000bbafcdea048b458a",
+                 "name": "Calle de Albarracín, 39",
+                 "point": {
+                 "lat": 40.431544719232,
+                 "lng": -3.6300321117158
+                 },
+                 "tags": [],
+                 "businessUnits": [],
+                 "type": "geofence",
+                 "active": true,
+                 "customFields": null,
+                 "createdAt": "2016-03-01T08:17:04Z",
+                 "updatedAt": "2016-03-01T08:17:04Z",
+                 "radius": 272,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 0
+                 }
+                 ]
+}

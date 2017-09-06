@@ -28,6 +28,7 @@ class OrchextraWrapper {
     // Modules
     
     var scanner: ModuleInput?
+    var proximity: ModuleInput?
     
     // MARK: - Methods Wrapper
     
@@ -58,10 +59,13 @@ class OrchextraWrapper {
         self.session.apiKey = apiKey
         self.session.apiSecret = apiSecret
         self.startCompletion = completion
-        
+
+        self.openProximity()
+
         completion(.success(true))
+    
         // Start configuration
-//        self.configInteractor.loadCoreConfig(completion: completion)
+        // self.configInteractor.loadCoreConfig(completion: completion)
     }
     
     func openScanner() {
@@ -69,8 +73,57 @@ class OrchextraWrapper {
         action.executable()
     }
     
+    func openProximity() {
+        if self.proximity == nil {
+            self.proximity = ProximityModule()
+        }
+        self.proximity?.outputModule = self.triggerManager
+        
+        let proximityConfig = self.getProximity()
+        self.proximity?.setConfig(config: proximityConfig)
+        self.proximity?.start()
+    }
+    
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         self.scanner = vc
         self.scanner?.outputModule = self.triggerManager
+    }
+    
+    func setProximity(proximityModule: ModuleInput) {
+        self.proximity = proximityModule
+        self.proximity?.outputModule = self.triggerManager
+    }
+    
+    func getProximity() -> [String: Any] {
+        let geomarketingFile = self.jsonFrom(
+            filename: "geomarketing")!
+        return geomarketingFile as! [String: Any]
+    }
+}
+
+extension OrchextraWrapper {
+    
+    func jsonFrom(filename: String) -> [String: Any]? {
+        
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: filename, ofType: "json") else {
+            LogWarn("\(filename) not found")
+            return nil
+        }
+        
+        guard let jsonString = try? NSString(contentsOfFile: pathString, encoding: String.Encoding.utf8.rawValue) else {
+            LogWarn("Unable to convert \(filename) to String")
+            return nil
+        }
+        
+        guard let jsonData = jsonString.data(using: String.Encoding.utf8.rawValue) else {
+            LogWarn("Unable to convert \(filename) to NSData")
+            return nil
+        }
+        
+        guard let jsonDictionary = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
+            LogWarn("Unable to convert \(filename) to JSON dictionary")
+            return nil
+        }
+        return jsonDictionary
     }
 }

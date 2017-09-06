@@ -91,6 +91,9 @@
 		A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5D71F457AE200F5DFFD /* AuthenticationInteractorTests.swift */; };
 		A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DB1F45A43900F5DFFD /* SessionMock.swift */; };
 		A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */; };
+		A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */ = {isa = PBXBuildFile; fileRef = A98B52D21F5E92100082BB2F /* geomarketing.json */; };
+		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
+		A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */; };
 		A9986B291F59764E00F2CC65 /* ActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B261F59764E00F2CC65 /* ActionManager.swift */; };
 		A9986B2A1F59764E00F2CC65 /* PushOrxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B271F59764E00F2CC65 /* PushOrxManager.swift */; };
 		A9986B2B1F59764E00F2CC65 /* TriggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B281F59764E00F2CC65 /* TriggerManager.swift */; };
@@ -276,6 +279,9 @@
 		A978C5D71F457AE200F5DFFD /* AuthenticationInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractorTests.swift; sourceTree = "<group>"; };
 		A978C5DB1F45A43900F5DFFD /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionMock.swift; path = Mocks/Model/SessionMock.swift; sourceTree = "<group>"; };
 		A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
+		A98B52D21F5E92100082BB2F /* geomarketing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geomarketing.json; sourceTree = "<group>"; };
+		A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationWrapper.swift; path = Proximity/LocationWrapper.swift; sourceTree = "<group>"; };
+		A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityModule.swift; path = Proximity/ProximityModule.swift; sourceTree = "<group>"; };
 		A9986B261F59764E00F2CC65 /* ActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionManager.swift; path = Managers/ActionManager.swift; sourceTree = "<group>"; };
 		A9986B271F59764E00F2CC65 /* PushOrxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushOrxManager.swift; path = Managers/PushOrxManager.swift; sourceTree = "<group>"; };
 		A9986B281F59764E00F2CC65 /* TriggerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerManager.swift; path = Managers/TriggerManager.swift; sourceTree = "<group>"; };
@@ -630,6 +636,8 @@
 			children = (
 				A95E67F71F5D9E9B001D8B19 /* Model */,
 				A95E67F51F5D96BB001D8B19 /* ProximityWrapper.swift */,
+				A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */,
+				A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */,
 			);
 			name = Proximity;
 			sourceTree = "<group>";
@@ -756,6 +764,7 @@
 			children = (
 				A9AC21121F543D9600095EC5 /* Assets.xcassets */,
 				A9AC21131F543D9600095EC5 /* Localizables */,
+				A98B52D21F5E92100082BB2F /* geomarketing.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1170,6 +1179,7 @@
 			files = (
 				8FAB227E1F56C2A3005A6A91 /* Assets.xcassets in Resources */,
 				A9C54DB41F41A81600DF2074 /* Cartfile in Resources */,
+				A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */,
 				A9AC21221F543D9600095EC5 /* Localizable.strings in Resources */,
 				A9C54DB51F41A81600DF2074 /* Cartfile.private in Resources */,
 				8F689D231F544364002046FE /* WebView.storyboard in Resources */,
@@ -1227,6 +1237,7 @@
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
 				A9986B2F1F59767C00F2CC65 /* ActionService.swift in Sources */,
 				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
+				A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */,
 				A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */,
 				A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */,
 				A9C54DE21F41ABE200DF2074 /* Request.swift in Sources */,
@@ -1237,6 +1248,7 @@
 				A9AC210A1F542E7C00095EC5 /* ActionScanner.swift in Sources */,
 				A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */,
 				A99885FF1F50363C00EED42E /* ActionBrowser.swift in Sources */,
+				A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */,
 				A9C54DF21F41B22600DF2074 /* ConfigInteractor.swift in Sources */,
 				A9C54DE81F41ACA400DF2074 /* Config.swift in Sources */,
 				A9C54DF41F41BD3300DF2074 /* AuthInteractor.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 protocol Region {
     
@@ -15,7 +16,7 @@ protocol Region {
     var notifyOnExit: Bool? {get set}
     
     static func region(from config: [String: Any]) -> Region?
-    
+    func prepareCLRegion() -> CLRegion?
 }
 
 class RegionFactory {

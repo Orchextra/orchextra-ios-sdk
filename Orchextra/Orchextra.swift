@@ -139,8 +139,17 @@ open class Orchextra {
 
     
     // MARK: Public trigger methods
+    
+    
+    /// Method to set up a custom scanner with ModuleInput interface
+    ///
+    /// - Parameter vc: the scanner has to be a viewcontroller
     public func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         OrchextraWrapper.shared.setScanner(vc: vc)
+    }
+    
+    public func setProximity(proximityModule: ModuleInput) {
+        OrchextraWrapper.shared.proximity = proximityModule
     }
     
     public func openScanner() {

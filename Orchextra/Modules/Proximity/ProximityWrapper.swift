@@ -7,31 +7,43 @@
 //
 
 import Foundation
+import GIGLibrary
 
-class ProximityWrapper: ModuleInput {
+class ProximityWrapper {
     
     var outputModule: ModuleOutput?
     
-    // MARK: - Module Input methods
+    // Attributes module
     
-    // Start monitoring the regions
-    func start() {
-        
+    var regions: [Region]?
+    lazy var locationWrapper = LocationWrapper()
+    
+    
+    func register(regions: [Region]) {
+        self.regions = regions
     }
     
-    /// Finish monitoring services
-    ///
-    /// - Parameters:
-    ///   - action: which has started the finish flow.
-    ///   - completionHandler: let know the integrative app that the services is finished.
-    func finish(action: Action?, completionHandler: (() -> Void)?) {
+    func startMonitoring() {
+       
+        guard let regions = self.regions else {
+            LogWarn("No regions to monitoring")
+            return }
         
+        if !self.locationWrapper.needRequestAuthorization() {
+            self.locationWrapper.monitoring(regions: regions)
+        }
     }
+}
+
+extension ProximityWrapper: LocationOutput {
     
-    /// Set regions for the proximity module
-    ///
-    /// - Parameter config: 
-    func setConfig(config: [String : Any]) {
-        
+    func didChangeAuthorization(status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways:
+            self.startMonitoring()
+            
+        default:
+            break
+        }
     }
 }
