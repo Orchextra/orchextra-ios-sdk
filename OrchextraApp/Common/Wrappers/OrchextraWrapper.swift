@@ -60,6 +60,8 @@ extension OrchextraWrapper: ORXDelegate {
     }
     
     func triggerFired(_ trigger: Trigger) {
-        TriggersManager.shared.add(trigger: trigger)
+        let timestamp: Int = Int(Date().timeIntervalSince1970 * 1000)
+        let triggerFired = TriggerFired(trigger: trigger, timestamp: timestamp)
+        TriggersManager.shared.add(trigger: triggerFired)
     }
 }

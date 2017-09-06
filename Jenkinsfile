@@ -23,6 +23,19 @@ pipeline {
                 }
             }
         }
+
+        stage ('Applivery Staging') {
+            when { branch 'feature/orchextra_3.0' }
+            steps  {
+                timestamps {
+                    ansiColor('xterm') {
+                        sh 'git clean -f'
+                        sh 'fastlane staging'
+                        sh 'git checkout .'
+                    }
+                }
+            }
+        }
     }
 
     post {

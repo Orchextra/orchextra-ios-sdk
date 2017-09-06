@@ -7,25 +7,57 @@
 //
 
 import Foundation
-import Orchextra
 
 protocol LogsInteractorInput {
-    func fetchTriggersLaunched() -> [Trigger]
+    func retrieveTriggersLaunched() -> [TriggerFired]
+    func retrieveFiltersSelected() -> [Filter]
+    func clearFiltersSelected()
+    func retrieveFiltersInteractor() -> FilterInteractor
 }
 
 protocol LogsInteractorOutput {
-    
+    func filterInformationChanged()
 }
 
-struct LogsInteractor {
+class LogsInteractor {
     // MARK: - Attributes
-    
     var output: LogsInteractorOutput?
-    let orchextraWrapper = OrchextraWrapper.shared
+    var filterInteractor: FilterInteractor
+    
+    // MARK: - Initializer
+    init(filterInteractor: FilterInteractor) {
+        self.filterInteractor = filterInteractor
+    }
 }
 
 extension LogsInteractor: LogsInteractorInput {
-    func fetchTriggersLaunched() -> [Trigger] {
-        return TriggersManager.shared.retrieveTriggersFired()
+    func retrieveTriggersLaunched() -> [TriggerFired] {
+        let filtersSelected = self.retrieveFiltersSelected()
+        let triggersFired = TriggersManager.shared.retrieveTriggersFired()
+        var triggersFiltered: [TriggerFired] = triggersFired
+        
+        filtersSelected.forEach { (filter) in
+            triggersFiltered = triggersFired.filter { (trigger) in
+                return (trigger.trigger.triggerId == filter.id)
+            }
+        }
+        
+        return triggersFiltered
+    }
+    
+    func retrieveFiltersSelected() -> [Filter] {
+        let filters = self.filterInteractor.retrieveFilters()
+        let filtersSelected: [Filter] = (filters.filter { ($0.selected == true)
+            })
+        
+        return filtersSelected
+    }
+    
+    func clearFiltersSelected() {
+       self.filterInteractor.clearSelectedFilters()
+    }
+    
+    func retrieveFiltersInteractor() -> FilterInteractor {
+        return self.filterInteractor
     }
 }

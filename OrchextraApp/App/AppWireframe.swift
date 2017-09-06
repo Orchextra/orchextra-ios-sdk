@@ -10,8 +10,9 @@ import Foundation
 import GIGLibrary
 
 class AppWireframe {
+    // MARK: - Attributes
     var window: UIWindow?
-    private var navigationController = UINavigationController()
+    fileprivate var navigationController = UINavigationController()
  
     /// Method to show the Home wireframe
     func showHomeWireframe()  {
@@ -27,15 +28,12 @@ class AppWireframe {
     
     /// Method to show the Triggering wireframe
     func showTriggering()  {
-        let triggeringWireframe = TriggeringWireframe()
+        let triggeringWireframe = TriggeringWireframe(navigationController: self.navigationController)
         guard let triggeringVC = triggeringWireframe.showTriggering() else {
             LogWarn("TriggeringVC not found")
             return
-        }
-        
-//        let navController = UINavigationController(rootViewController: triggeringVC)
+        }        
         self.navigationController.show(triggeringVC, sender: nil)
-        triggeringWireframe.navigationController = self.navigationController
     }
     
     func show(viewController: UIViewController) {

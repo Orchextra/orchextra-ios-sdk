@@ -7,30 +7,38 @@
 //
 
 import Foundation
-import Orchextra
 
 protocol LogsPresenterInput {
-    func viewDidLoad()
     func viewWillAppear()
     func triggerListHasBeenUpdated()
     func tableViewNumberOfElements() -> Int
-    func tableViewElements() -> [Trigger]
+    func tableViewElements() -> [TriggerFired]
+    func userDidTapFilters()
+    func userDidTapClearFilters()
 }
 
 protocol LogsUI: class {
     func updateTriggerList()
+    func showFilterInformation()
+    func hideFilterInformation()
 }
 
-struct LogsPresenter {
+class LogsPresenter {
     
     // MARK: - Public attributes
-    
     weak var view: LogsUI?
     let wireframe: LogsWireframe
     
     // MARK: - Interactors
+    var interactor: LogsInteractorInput
     
-    let interactor: LogsInteractorInput
+    init(view: LogsUI,
+         wireframe: LogsWireframe,
+         interactor: LogsInteractorInput) {
+        self.view = view
+        self.wireframe = wireframe
+        self.interactor = interactor
+    }
     
     // MARK: Private methods
     fileprivate func updateTriggerList() {
@@ -39,27 +47,55 @@ struct LogsPresenter {
             self.view?.updateTriggerList()
         }
     }
+    
+    fileprivate func updateFilterView() {
+        let filtersSelected = self.interactor.retrieveFiltersSelected()
+        if filtersSelected.count > 0 {
+            self.view?.showFilterInformation()
+        } else {
+            self.view?.hideFilterInformation()
+        }
+    }
+    
+    fileprivate func updateLogsView() {
+        self.updateFilterView()
+        self.updateTriggerList()
+    }
 }
 
 extension LogsPresenter: LogsPresenterInput {
-    func viewDidLoad() {
-    }
-    
     func viewWillAppear() {
-        self.updateTriggerList()
+        self.updateLogsView()
     }
     
     func tableViewNumberOfElements() -> Int {
-        let elements = self.interactor.fetchTriggersLaunched()
+        let elements = self.interactor.retrieveTriggersLaunched()
         return elements.count
     }
     
-    func tableViewElements() -> [Trigger] {
+    func tableViewElements() -> [TriggerFired] {
         let triggers = TriggersManager.shared.triggersFired
         return triggers
     }
     
     func triggerListHasBeenUpdated() {
         TriggersManager.shared.triggerListMustBeUpdated = false
+    }
+    
+    func userDidTapFilters() {
+        let filterInteractor = self.interactor.retrieveFiltersInteractor()
+        self.wireframe.showFilterVC(with: filterInteractor)
+    }
+    
+    func userDidTapClearFilters() {
+        TriggersManager.shared.triggerListMustBeUpdated = true
+        self.interactor.clearFiltersSelected()
+        self.updateLogsView()
+    }
+}
+
+extension LogsPresenter: LogsInteractorOutput {
+    func filterInformationChanged() {
+        self.updateLogsView()
     }
 }
