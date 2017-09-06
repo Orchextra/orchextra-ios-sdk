@@ -46,5 +46,9 @@
 		<string>pt-sans.bold.ttf</string>
 		<string>pt-sans.regular.ttf</string>
 	</array>
+	<key>APPLIVERY_API_KEY</key>
+	<string>NOT_SET</string>
+	<key>APPLIVERY_APP_ID</key>
+	<string>NOT_SET</string>
 </dict>
 </plist>
