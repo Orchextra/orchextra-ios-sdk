@@ -12,31 +12,28 @@ import GIGLibrary
 class AppWireframe {
     // MARK: - Attributes
     var window: UIWindow?
-    fileprivate var navigationController = UINavigationController()
  
     /// Method to show the Home wireframe
     func showHomeWireframe()  {
-        let homeWireframe = HomeWireframe(navigationController: self.navigationController)
+        let homeWireframe = HomeWireframe()
         guard let homeVC = homeWireframe.showHome() else {
             LogWarn("HomeVC not found")
             return
         }
         
-        self.navigationController.setViewControllers([homeVC], animated: false)
-        self.window?.rootViewController = self.navigationController
+        self.window?.rootViewController = homeVC
     }
     
     /// Method to show the Triggering wireframe
     func showTriggering()  {
-        let triggeringWireframe = TriggeringWireframe(navigationController: self.navigationController)
+        let triggeringWireframe = TriggeringWireframe()
         guard let triggeringVC = triggeringWireframe.showTriggering() else {
             LogWarn("TriggeringVC not found")
             return
-        }        
-        self.navigationController.show(triggeringVC, sender: nil)
+        }
+        let navigationController = UINavigationController(rootViewController: triggeringVC)
+        triggeringWireframe.navigationController = navigationController
+        self.window?.rootViewController = navigationController
     }
-    
-    func show(viewController: UIViewController) {
-        self.navigationController.show(viewController, sender: nil)
-    }
+
 }
