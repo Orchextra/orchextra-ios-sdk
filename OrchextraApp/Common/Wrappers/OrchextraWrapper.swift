@@ -23,7 +23,7 @@ class OrchextraWrapper {
     func start(with key: String, secret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         self.orchextra.logLevel = .debug
         self.orchextra.logStyle = .funny
-        self.orchextra.environment = .quality
+        self.orchextra.environment = .staging
         
         // TODO: get data from SDK and if it is nil set default project credentials
         self.orchextra.start(with: key, apiSecret: secret, completion: completion)

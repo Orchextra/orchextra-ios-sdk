@@ -60,7 +60,7 @@ class ProximityModule: ModuleInput {
         
         var geofencesInModule = [Region]()
         for geofence in geofences {
-            if let region = RegionFactory.region(from: geofence) {
+            if let region = RegionFactory.geofences(from: geofence){
                 geofencesInModule.append(region)
             }
         }

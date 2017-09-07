@@ -18,7 +18,7 @@ enum RegionType: String {
 
 protocol Region {
     
-    var identifier: String? {get set}
+    var code: String {get set}
     var notifyOnEntry: Bool? {get set}
     var notifyOnExit: Bool? {get set}
     
@@ -28,11 +28,18 @@ protocol Region {
 
 class RegionFactory {
     
+    
+    class func geofences(from config: [String: Any]) -> Region? {
+        guard let trigger = Geofence.region(from: config) else {
+            return nil
+        }
+        return trigger
+    }
+    
     class func region(from config: [String: Any]) -> Region? {
         let triggers = [
             Geofence.region(from: config)]
         
         return triggers.reduce(nil) { $1 ?? $0 }
-        
     }
 }
