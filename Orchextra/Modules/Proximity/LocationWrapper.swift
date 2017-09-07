@@ -11,17 +11,27 @@ import CoreLocation
 import GIGLibrary
 
 protocol LocationInput {
+    
+    var output: LocationOutput? {get set}
+
+    func needRequestAuthorization() -> Bool
     func monitoring(regions: [Region])
+    func stopAllMonitoredRegions()
+    func showLocationPermissionAlert()
 }
 
 protocol LocationOutput {
     func didChangeAuthorization(status: CLAuthorizationStatus)
+    func didEnterRegion(code: String, type: RegionType)
+    func didExitRegion(code: String, type: RegionType)
 }
 
 class LocationWrapper: NSObject, LocationInput {
     
     var locationManager: CLLocationManager
     var output: LocationOutput?
+    
+    fileprivate var authorizationStatus: CLAuthorizationStatus
     
     override convenience init() {
         let locationManager = CLLocationManager()
@@ -30,6 +40,7 @@ class LocationWrapper: NSObject, LocationInput {
     
     init(locationManager: CLLocationManager) {
         self.locationManager = locationManager
+        self.authorizationStatus = CLLocationManager.authorizationStatus()
         super.init()
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -38,7 +49,7 @@ class LocationWrapper: NSObject, LocationInput {
     }
     
     func needRequestAuthorization() -> Bool {
-        let status = CLLocationManager.authorizationStatus()
+        let status = self.authorizationStatus
         switch status {
         case .authorizedAlways:
             return false
@@ -56,7 +67,9 @@ class LocationWrapper: NSObject, LocationInput {
     func monitoring(regions: [Region]) {
         for region in regions {
             self.startMonitoring(region: region)
+            LogDebug("start: \(region.identifier!)")
         }
+        
     }
     
     // MARK: - Private monitoring methods
@@ -75,9 +88,18 @@ class LocationWrapper: NSObject, LocationInput {
         }
     }
     
+    func stopAllMonitoredRegions() {
+        
+        let monitoredRegions = self.locationManager.monitoredRegions
+        for monitoredRegion in monitoredRegions {
+            self.locationManager.stopMonitoring(for: monitoredRegion)
+            LogDebug("stop: \(monitoredRegion.identifier)")
+        }
+    }
+    
     // MARK: - Private 
     
-    private func showLocationPermissionAlert() {
+    func showLocationPermissionAlert() {
         let alert = Alert(
             title: kLocaleOrcLocationServiceOffAlertTitle,
             message: kLocaleOrcBackgroundLocationAlertMessage)
@@ -89,7 +111,7 @@ class LocationWrapper: NSObject, LocationInput {
         alert.show()
     }
 
-    private func settingTapped() {
+    func settingTapped() {
         guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
             else {return}
         UIApplication.shared.openURL(settingsURL)
@@ -98,12 +120,36 @@ class LocationWrapper: NSObject, LocationInput {
 
 extension LocationWrapper: CLLocationManagerDelegate {
     
+    /// Start monitoring
+    
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
-        LogDebug("didStartMonitoringFor: \(region.identifier)")
+        LogDebug("for : \(region.identifier)")
     }
     
+    /// Enter Region
+    
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        LogDebug("didEnterRegion: \(region.identifier)")
+       
+        self.output?.didEnterRegion(
+            code: region.identifier,
+            type: self.typeRegion(region: region))
+        
+        LogDebug("for: \(region.identifier)")
+    }
+    
+    /// Exit Region
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
+        self.output?.didExitRegion(
+            code: region.identifier,
+            type: self.typeRegion(region: region))
+        
+        LogDebug("for : \(region.identifier)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        LogError(error as NSError)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -111,7 +157,21 @@ extension LocationWrapper: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        self.output?.didChangeAuthorization(status: status)
-        LogDebug("didChangeAuthorization: \(status.rawValue)")
+        if self.authorizationStatus != status {
+            self.authorizationStatus = status
+            self.output?.didChangeAuthorization(status: status)
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    func typeRegion(region: CLRegion) -> RegionType {
+        var type: RegionType = .none
+        if region is CLCircularRegion {
+            type = .geofence
+        } else if region is CLBeaconRegion {
+            type = .beacon_region
+        }
+        return type
     }
 }

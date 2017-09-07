@@ -9,41 +9,101 @@
 import Foundation
 import GIGLibrary
 
-class ProximityWrapper {
+protocol ProximityInput {
+
+    var output: ProximityOutput? {get set}
+
+    func register(regions: [Region])
+    func startMonitoring()
+    func stopMonitoringAllRegions()
+}
+
+protocol ProximityOutput {
+    func sendTriggerToCoreWithValues(values: [String: Any])
+}
+
+class ProximityWrapper: ProximityInput {
     
-    var outputModule: ModuleOutput?
+    var output: ProximityOutput?
     
     // Attributes module
     
     var regions: [Region]?
-    lazy var locationWrapper = LocationWrapper()
+    var locationWrapper: LocationInput
     
+    // MARK: - 
+    
+    convenience init() {
+        let locationWrapper = LocationWrapper()
+        self.init(locationWrapper: locationWrapper)
+    }
+    
+    init(locationWrapper: LocationInput) {
+        self.locationWrapper = locationWrapper
+        self.locationWrapper.output = self
+    }
+    
+    // MARK: - Public
     
     func register(regions: [Region]) {
         self.regions = regions
+        self.stopMonitoringAllRegions()
     }
     
     func startMonitoring() {
-       
-        guard let regions = self.regions else {
-            LogWarn("No regions to monitoring")
-            return }
         
-        if !self.locationWrapper.needRequestAuthorization() {
-            self.locationWrapper.monitoring(regions: regions)
+        DispatchQueue.background(delay: 0, background: {
+            self.stopMonitoringAllRegions()
+            
+        }) {
+            LogDebug("Finish Stop monitoring")
+
+            guard let regions = self.regions else {
+                LogWarn("No regions to monitoring")
+                return }
+            
+            if !self.locationWrapper.needRequestAuthorization() {
+                self.locationWrapper.monitoring(regions: regions)
+            }
+            LogDebug("Finish start monitoring")
         }
+    }
+    
+    func stopMonitoringAllRegions() {
+        self.locationWrapper.stopAllMonitoredRegions()
     }
 }
 
 extension ProximityWrapper: LocationOutput {
     
+    func didEnterRegion(code: String, type: RegionType) {
+        let outputDic = handleOutputRegion(type: type, code: code, event: "enter")
+        self.output?.sendTriggerToCoreWithValues(values: outputDic)
+    }
+    
+    func didExitRegion(code: String, type: RegionType) {
+        let outputDic = handleOutputRegion(type: type, code: code, event: "exit")
+        self.output?.sendTriggerToCoreWithValues(values: outputDic)
+    }
+    
     func didChangeAuthorization(status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways:
             self.startMonitoring()
-            
+        case .denied:
+            self.locationWrapper.showLocationPermissionAlert()
         default:
             break
         }
+    }
+    
+    // MARK: - Method to generate output
+    
+    func handleOutputRegion(type: RegionType, code: String, event: String) -> [String: Any]{
+        let outputDic = ["type" : type.rawValue,
+                         "value" : code,
+                         "event": event]
+        
+        return outputDic
     }
 }

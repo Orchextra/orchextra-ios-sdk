@@ -149,6 +149,7 @@
 		A9C6EB941F46FB24007AE036 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB931F46FB24007AE036 /* Device.swift */; };
 		A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB951F47035D007AE036 /* BusinessUnit.swift */; };
 		A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB971F4703A3007AE036 /* CustomField.swift */; };
+		A9CF47321F6032F300B918C8 /* TriggerGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */; };
 		A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */; };
 		A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */; };
 		A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */; };
@@ -356,6 +357,8 @@
 		A9C6EB931F46FB24007AE036 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Common/Model/Config/Device.swift; sourceTree = "<group>"; };
 		A9C6EB951F47035D007AE036 /* BusinessUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusinessUnit.swift; path = Common/Model/Config/BusinessUnit.swift; sourceTree = "<group>"; };
 		A9C6EB971F4703A3007AE036 /* CustomField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomField.swift; path = Common/Model/Config/CustomField.swift; sourceTree = "<group>"; };
+		A9CF47301F60209400B918C8 /* Gigigo_Office.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Gigigo_Office.gpx; path = Geopoints/Gigigo_Office.gpx; sourceTree = "<group>"; };
+		A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerGeofence.swift; path = Common/Model/Triggers/TriggerGeofence.swift; sourceTree = "<group>"; };
 		A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerVCMock.swift; path = Mocks/Modules/ScannerMocks/ScannerVCMock.swift; sourceTree = "<group>"; };
 		A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputMock.swift; path = Mocks/Modules/ScannerMocks/ModuleOutputMock.swift; sourceTree = "<group>"; };
 		A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionFactoryTest.swift; path = Common/Model/Actions/ActionFactoryTest.swift; sourceTree = "<group>"; };
@@ -416,6 +419,7 @@
 		8F0C4B4C1F57F0A700056910 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9CF472F1F601FF500B918C8 /* Geopoints */,
 				8F0C4B4D1F57F0A700056910 /* Fonts */,
 			);
 			path = Resources;
@@ -789,6 +793,7 @@
 				A99886031F50450F00EED42E /* Trigger.swift */,
 				A99886051F5045DB00EED42E /* TriggerQR.swift */,
 				A99886071F504AB800EED42E /* TriggerBarcode.swift */,
+				A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */,
 			);
 			name = Triggers;
 			sourceTree = "<group>";
@@ -1041,6 +1046,14 @@
 				A9C6EB971F4703A3007AE036 /* CustomField.swift */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		A9CF472F1F601FF500B918C8 /* Geopoints */ = {
+			isa = PBXGroup;
+			children = (
+				A9CF47301F60209400B918C8 /* Gigigo_Office.gpx */,
+			);
+			name = Geopoints;
 			sourceTree = "<group>";
 		};
 		A9D0FC331F56C1E700596CF3 /* Modules */ = {
@@ -1297,6 +1310,7 @@
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
 				A99885FD1F50353D00EED42E /* Action.swift in Sources */,
+				A9CF47321F6032F300B918C8 /* TriggerGeofence.swift in Sources */,
 				A9986B321F5976B600F2CC65 /* LocalNotification.swift in Sources */,
 				A9AC21281F5443E600095EC5 /* PaddingLabel.swift in Sources */,
 				A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */,

@@ -9,6 +9,13 @@
 import Foundation
 import CoreLocation
 
+enum RegionType: String {
+    case none
+    case beacon_region = "beacon_region"
+    case geofence = "geofence"
+}
+
+
 protocol Region {
     
     var identifier: String? {get set}

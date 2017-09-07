@@ -28,7 +28,7 @@ class LocalNotification: NSObject {
             content.sound = UNNotificationSound.default()
             
             let comp = Calendar.current.dateComponents([.hour, .minute], from: date)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: comp, repeats: true)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: comp, repeats: false)
             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
             center.add(request)
             

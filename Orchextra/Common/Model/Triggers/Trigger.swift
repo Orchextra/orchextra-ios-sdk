@@ -28,6 +28,20 @@ public protocol Trigger {
         externalValues: [String: Any]) -> Trigger?
     
     func urlParams() -> [String: Any]
+    
+    static func applicationState() -> String
+}
+
+extension Trigger {
+    
+    static func applicationState() -> String {
+        let state = UIApplication.shared.applicationState
+        switch state {
+            case .active: return "foreground"
+            case .background: return "background"
+            case .inactive: return "inactive"
+        }
+    }
 }
 
 class TriggerFactory {
@@ -35,9 +49,9 @@ class TriggerFactory {
     class func trigger(from externalValues: [String: Any]) -> Trigger? {
          let triggers = [
             TriggerQR.trigger(from: externalValues),
-            TriggerBarcode.trigger(from: externalValues)]
+            TriggerBarcode.trigger(from: externalValues),
+            TriggerGeofence.trigger(from: externalValues)]
         
         return triggers.reduce(nil) { $1 ?? $0 }
-
     }
 }

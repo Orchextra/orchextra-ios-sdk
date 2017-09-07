@@ -15,9 +15,21 @@ class ProximityModule: ModuleInput {
     
     // Attributes
     
-    lazy var proximityWrapper = ProximityWrapper()
+    var proximityWrapper: ProximityInput
     
-    // MARK: - Module Input methods
+    // MARK: - Init
+    
+    convenience init() {
+        let proximity = ProximityWrapper()
+        self.init(proximityWrapper: proximity)
+    }
+    
+    init(proximityWrapper: ProximityInput) {
+        self.proximityWrapper = proximityWrapper
+        self.proximityWrapper.output = self
+    }
+    
+    // MARK: - ModuleInput methods
     
     // Start monitoring the regions
     func start() {
@@ -30,7 +42,10 @@ class ProximityModule: ModuleInput {
     ///   - action: which has started the finish flow.
     ///   - completionHandler: let know the integrative app that the services is finished.
     func finish(action: Action?, completionHandler: (() -> Void)?) {
-        
+        self.proximityWrapper.stopMonitoringAllRegions()
+        if let completion = completionHandler {
+            completion()
+        }
     }
     
     /// Set regions for the proximity module
@@ -52,5 +67,10 @@ class ProximityModule: ModuleInput {
         
         self.proximityWrapper.register(regions: geofencesInModule)
     }
+}
 
+extension ProximityModule: ProximityOutput {
+    func sendTriggerToCoreWithValues(values: [String: Any]) {
+        self.outputModule?.triggerWasFire(with: values, module: self)
+    }
 }

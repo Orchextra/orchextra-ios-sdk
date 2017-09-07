@@ -59,6 +59,7 @@ class ActionManager {
     }
     
     private func delayDeliveryNotification(action: Action) {
+        LogDebug("action has been delay")
         self.pushManager.dispatchNotification(with: action)
     }
     

@@ -92,7 +92,7 @@ class AuthInteractor: AuthInteractorInput {
                     
                 } catch {
                     let error = ErrorService.unknown
-                    LogError(error as NSError)
+                    LogWarn("There is not data with the response for request: \(request.endpoint)")
                     completion(.error(error))
                 }
                 
