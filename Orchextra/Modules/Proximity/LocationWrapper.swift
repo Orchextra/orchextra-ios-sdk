@@ -67,7 +67,7 @@ class LocationWrapper: NSObject, LocationInput {
     func monitoring(regions: [Region]) {
         for region in regions {
             self.startMonitoring(region: region)
-            LogDebug("start: \(region.identifier!)")
+            LogDebug("start: \(region.code)")
         }
         
     }

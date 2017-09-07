@@ -69,6 +69,7 @@ extension TriggerManager: TriggerInteractorOutput {
                 self.module?.start()
             })
         } else {
+            
         }
     }
 }
