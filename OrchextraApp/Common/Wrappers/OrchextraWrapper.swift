@@ -45,8 +45,8 @@ class OrchextraWrapper {
         self.orchextra.openScanner()
     }
     
-    func openCustomScanner() {
-        // TODO: Implement
+    func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
+        self.orchextra.setScanner(vc: vc)
     }
     
     func openImageRecognition() {

@@ -28,8 +28,7 @@ public protocol ModuleInput {
     func setConfig(config: [String: Any])
 }
 
-extension ModuleInput {
-    
+public extension ModuleInput {
     func setConfig(config: [String: Any]) {}
 }
 

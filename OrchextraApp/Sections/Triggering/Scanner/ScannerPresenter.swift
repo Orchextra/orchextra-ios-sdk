@@ -9,7 +9,6 @@
 import Foundation
 
 protocol ScannerPresenterInput {
-    func viewDidLoad()
     func userDidTapOrchextraScanner()
     func userDidTapCustomScanner()
     func userDidTapImageRecognition()
@@ -20,7 +19,6 @@ protocol ScannerUI: class {
 }
 
 struct ScannerPresenter {
-    
     // MARK: - Public attributes
     
     weak var view: ScannerUI?
@@ -32,16 +30,12 @@ struct ScannerPresenter {
 }
 
 extension ScannerPresenter: ScannerPresenterInput {
-    func viewDidLoad() {
-        
-    }
-    
     func userDidTapOrchextraScanner() {
         self.interactor.openOrchextraScanner()
     }
     
     func userDidTapCustomScanner() {
-        self.interactor.openCustomScanner()
+        self.wireframe.openCustomScanner()
     }
     
     func userDidTapImageRecognition() {
