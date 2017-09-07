@@ -51,10 +51,16 @@ extension SettingsVC: SettingsUI {
         self.projectTextfield.text = projectName
         self.apiKeyTextfield.text = apiKey
         self.apiSecretTextfield.text = apiSecret
-
+        
         self.projectTextfield.isUserInteractionEnabled = editable
         self.apiKeyTextfield.isUserInteractionEnabled = editable
         self.apiSecretTextfield.isUserInteractionEnabled = editable
+        
+        self.apiKeyTextfield.adjustsFontSizeToFitWidth = true
+        self.apiSecretTextfield.adjustsFontSizeToFitWidth = true
+        
+        self.apiKeyTextfield.minimumFontSize = 8.0
+        self.apiSecretTextfield.minimumFontSize = 8.0
     }
     
     func updateEditableState(_ state: Bool, title: String) {

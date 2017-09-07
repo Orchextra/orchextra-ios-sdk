@@ -50,13 +50,13 @@
                                             <constraint firstAttribute="height" constant="1" id="nB5-TC-nRy"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Api Key " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeE-dO-mf5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Api Key " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeE-dO-mf5">
                                         <rect key="frame" x="50" y="70" width="58" height="22"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                         <color key="textColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Api key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r0T-pl-a2z">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Api key" textAlignment="natural" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="r0T-pl-a2z">
                                         <rect key="frame" x="119" y="73" width="189" height="19"/>
                                         <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
@@ -69,14 +69,14 @@
                                             <constraint firstAttribute="height" constant="1" id="E57-L0-KTN"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Api Secret " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcL-uO-PRg">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Api Secret " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcL-uO-PRg">
                                         <rect key="frame" x="50" y="123" width="78.5" height="22"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                         <color key="textColor" red="0.22745098039215686" green="0.22745098039215686" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Api secret" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSE-WF-nL4">
-                                        <rect key="frame" x="139.5" y="126" width="180.5" height="19"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Api secret" textAlignment="natural" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="cSE-WF-nL4">
+                                        <rect key="frame" x="139.5" y="126" width="168.5" height="19"/>
                                         <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -104,7 +104,7 @@
                                     <constraint firstItem="kuR-gw-0of" firstAttribute="leading" secondItem="HUh-4Z-IAs" secondAttribute="trailing" constant="28" id="qIp-oQ-X0W"/>
                                     <constraint firstAttribute="trailing" secondItem="1Cs-iW-Dye" secondAttribute="trailing" id="tll-J0-9wI"/>
                                     <constraint firstItem="UcL-uO-PRg" firstAttribute="top" secondItem="1Cs-iW-Dye" secondAttribute="bottom" constant="15" id="wSP-ak-stO"/>
-                                    <constraint firstAttribute="trailing" secondItem="cSE-WF-nL4" secondAttribute="trailing" id="zjR-q9-r42"/>
+                                    <constraint firstAttribute="trailing" secondItem="cSE-WF-nL4" secondAttribute="trailing" constant="12" id="zjR-q9-r42"/>
                                     <constraint firstItem="r0T-pl-a2z" firstAttribute="leading" secondItem="qeE-dO-mf5" secondAttribute="trailing" constant="11" id="zui-NM-Ld2"/>
                                 </constraints>
                             </view>

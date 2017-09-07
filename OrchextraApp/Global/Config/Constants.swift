@@ -9,7 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let apiKey       = "key"
-    static let apiSecret    = "secret"
-    static let projectName  = "[ES] Demo Project"
+    static let apiKey       = "b7be821b6b8183d4c5c203f46107abb324f7e656"
+    static let apiSecret    = "5c6f929395742948a013456fcee2877132907bad"
+    static let projectName  = "[Internal] Orchextra Demo"
 }
