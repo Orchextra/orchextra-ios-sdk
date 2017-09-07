@@ -101,9 +101,6 @@ class ScannerTests: XCTestCase {
     
     func test_scannerDidFinishCapture_barcode() {
         
-        // ARRANGE
-        self.moduleOutputMock.expectation = self.expectation(description: "triggerWasFire_barcode")
-        
         // ACT
         self.presenter.scannerDidFinishCapture(value: "97870980", type: "ios.Barcode")
         
@@ -119,16 +116,10 @@ class ScannerTests: XCTestCase {
         
         let value = self.moduleOutputMock.spyTriggerWasFire.values["value"] as? String
         expect(value).toEventually(equal("97870980"))
-        
-        self.waitForExpectations(timeout: 1.0, handler: nil)
-        
     }
 
     func test_scannerDidFinishCapture_qr() {
-        
-        // ARRANGE
-        self.moduleOutputMock.expectation = self.expectation(description: "triggerWasFire_qr")
-        
+                
         // ACT
         self.presenter.scannerDidFinishCapture(value: "Hi world", type: "org.iso.QRCode")
         
@@ -144,7 +135,5 @@ class ScannerTests: XCTestCase {
         
         let value = self.moduleOutputMock.spyTriggerWasFire.values["value"] as? String
         expect(value).toEventually(equal("Hi world"))
-
-        self.waitForExpectations(timeout: 1.0, handler: nil)
     }
 }

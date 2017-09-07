@@ -54,7 +54,6 @@ class ProximityWrapper: ProximityInput {
         
         DispatchQueue.background(delay: 0, background: {
             self.stopMonitoringAllRegions()
-            
         }) {
             LogDebug("Finish Stop monitoring")
 

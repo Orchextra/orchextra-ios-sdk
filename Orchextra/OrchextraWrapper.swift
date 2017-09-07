@@ -79,7 +79,10 @@ class OrchextraWrapper {
         }
         self.proximity?.outputModule = self.triggerManager
         
-        let proximityConfig = self.getProximity()
+        guard let proximityConfig = self.getProximity() else {
+            return
+        }
+        
         self.proximity?.setConfig(config: proximityConfig)
         self.proximity?.start()
     }
@@ -94,10 +97,12 @@ class OrchextraWrapper {
         self.proximity?.outputModule = self.triggerManager
     }
     
-    func getProximity() -> [String: Any] {
-        let geomarketingFile = self.jsonFrom(
-            filename: "geomarketing")!
-        return geomarketingFile as! [String: Any]
+    func getProximity() -> [String: Any]? {
+        guard let geomarketingFile = self.jsonFrom(
+            filename: "geomarketing")else {
+                return nil
+        }
+        return geomarketingFile
     }
 }
 
