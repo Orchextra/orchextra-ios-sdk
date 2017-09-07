@@ -10,6 +10,7 @@ import Foundation
 import GIGLibrary
 
 struct ScannerWireframe {
+    let navigationController: UINavigationController
     
     /// Method to show the Scanner section
     ///
@@ -24,5 +25,14 @@ struct ScannerWireframe {
         )
         viewController.presenter = presenter
         return viewController
+    }
+    
+    func openCustomScanner() {
+        let customScannerWireframe = CustomScannerWireframe(navigationController: self.navigationController)
+        guard let customScanerVC = customScannerWireframe.showCustomScanner() else { return }
+        
+        OrchextraWrapper.shared.setScanner(vc: customScanerVC)
+        let navigationController = UINavigationController(rootViewController: customScanerVC)
+        self.navigationController.present(navigationController, animated: true, completion: nil)
     }
 }

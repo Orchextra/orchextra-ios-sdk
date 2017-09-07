@@ -57,6 +57,12 @@ class ActionScanner: Action {
     }
     
     func executable() {
+        let scannerSet = OrchextraWrapper.shared.scanner
+        if scannerSet != nil {
+            OrchextraWrapper.shared.scanner?.outputModule = nil
+            OrchextraWrapper.shared.scanner = nil
+        }
+        
         var scanner = OrchextraWrapper.shared.scanner
         let wireframe = OrchextraWrapper.shared.wireframe
         let triggerManager = OrchextraWrapper.shared.triggerManager

@@ -42,7 +42,8 @@ class TriggeringWireframe {
     ///
     /// - Returns: Scanner View Controller with all dependencies
     func showScanner() -> ScannerVC? {
-        let scannerWireframe = ScannerWireframe()
+        guard let navigationController = self.navigationController else { return nil }
+        let scannerWireframe = ScannerWireframe(navigationController: navigationController)
         guard let scannerVC = scannerWireframe.showScanner() else { return nil }
         
         return scannerVC
@@ -62,7 +63,8 @@ class TriggeringWireframe {
     ///
     /// - Returns: Scanner View Controller with all dependencies
     func showLogs() -> LogsVC? {
-        let logsWireframe = LogsWireframe(navigationController: self.navigationController!)
+        guard let navigationController = self.navigationController else { return nil }
+        let logsWireframe = LogsWireframe(navigationController: navigationController)
         guard let logsVC = logsWireframe.showLogs() else {
             return nil
         }

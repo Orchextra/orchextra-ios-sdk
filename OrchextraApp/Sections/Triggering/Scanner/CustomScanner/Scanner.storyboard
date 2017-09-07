@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wkW-OU-XwH">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="kss-Qn-TfT">
+            <objects>
+                <navigationController id="wkW-OU-XwH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nue-Cq-Fho">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.93333333330000001" green="0.32156862749999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="19"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QbN-J2-fyw" kind="relationship" relationship="rootViewController" id="eNJ-Cu-0n0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKN-fs-pml" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-303" y="87"/>
+        </scene>
+        <!--Custom ScannerVC-->
+        <scene sceneID="TeB-ns-KFo">
+            <objects>
+                <viewController storyboardIdentifier="CustomScannerVC" id="QbN-J2-fyw" customClass="CustomScannerVC" customModule="OrchextraApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lsg-61-rbH"/>
+                        <viewControllerLayoutGuide type="bottom" id="y8T-QS-nPj"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.59999999999999998" contentMode="scaleToFill" id="nLF-F6-Q0b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanner" translatesAutoresizingMaskIntoConstraints="NO" id="uXG-pb-eHD">
+                                <rect key="frame" x="15" y="147" width="290" height="345"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="345" id="YFr-If-YUd"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-op-acj">
+                                <rect key="frame" x="85" y="157" width="150" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" placeholder="YES" id="9xp-5l-RKL"/>
+                                    <constraint firstAttribute="width" constant="150" placeholder="YES" id="OES-1l-J8p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view clipsSubviews="YES" alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ID-4w-oFR" userLabel="ViewStatus">
+                                <rect key="frame" x="109.5" y="241.5" width="101" height="85"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="custom_fail_cross" translatesAutoresizingMaskIntoConstraints="NO" id="41j-ug-kTh">
+                                        <rect key="frame" x="32.5" y="15" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="37" id="hp8-ru-sJ2"/>
+                                            <constraint firstAttribute="height" constant="37" id="sqC-7T-Dih"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoA-Kv-0OI">
+                                        <rect key="frame" x="8" y="58" width="85" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" placeholder="YES" id="5Gh-EK-Tjf"/>
+                                    <constraint firstItem="41j-ug-kTh" firstAttribute="centerX" secondItem="6ID-4w-oFR" secondAttribute="centerX" id="62r-bq-VLx"/>
+                                    <constraint firstAttribute="width" constant="101" placeholder="YES" id="HIQ-s1-Gio"/>
+                                    <constraint firstAttribute="trailing" secondItem="hoA-Kv-0OI" secondAttribute="trailing" constant="8" id="R9v-tW-veX"/>
+                                    <constraint firstItem="hoA-Kv-0OI" firstAttribute="top" secondItem="41j-ug-kTh" secondAttribute="bottom" constant="6" id="bEk-Q8-P6Z"/>
+                                    <constraint firstItem="41j-ug-kTh" firstAttribute="top" secondItem="6ID-4w-oFR" secondAttribute="top" constant="15" id="fg9-O4-whu"/>
+                                    <constraint firstItem="hoA-Kv-0OI" firstAttribute="leading" secondItem="6ID-4w-oFR" secondAttribute="leading" constant="8" id="lWu-ue-KHS"/>
+                                    <constraint firstAttribute="bottom" secondItem="hoA-Kv-0OI" secondAttribute="bottom" constant="6" id="xxh-Hh-5lN"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="customScanExample" translatesAutoresizingMaskIntoConstraints="NO" id="GHW-5s-Ajx">
+                                <rect key="frame" x="253" y="494" width="52" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="C2s-sa-fjO"/>
+                                    <constraint firstAttribute="width" constant="52" id="NlK-Lt-hQ5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GHW-5s-Ajx" firstAttribute="top" secondItem="uXG-pb-eHD" secondAttribute="bottom" constant="2" id="5A0-vh-OuS"/>
+                            <constraint firstItem="6ID-4w-oFR" firstAttribute="centerY" secondItem="nLF-F6-Q0b" secondAttribute="centerY" id="CRG-rh-MKJ"/>
+                            <constraint firstItem="uXG-pb-eHD" firstAttribute="leading" secondItem="nLF-F6-Q0b" secondAttribute="leading" constant="15" id="M9P-nY-5tg"/>
+                            <constraint firstItem="uXG-pb-eHD" firstAttribute="top" secondItem="lsg-61-rbH" secondAttribute="bottom" constant="83" id="XfZ-kZ-BjH"/>
+                            <constraint firstItem="hK2-op-acj" firstAttribute="centerX" secondItem="nLF-F6-Q0b" secondAttribute="centerX" id="gcy-Jo-2kh"/>
+                            <constraint firstAttribute="trailing" secondItem="uXG-pb-eHD" secondAttribute="trailing" constant="15" id="mRu-iQ-UvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="GHW-5s-Ajx" secondAttribute="trailing" constant="15" id="u7r-Ex-k0a"/>
+                            <constraint firstItem="hK2-op-acj" firstAttribute="top" secondItem="lsg-61-rbH" secondAttribute="bottom" constant="93" id="xyX-Ut-cdB"/>
+                            <constraint firstItem="6ID-4w-oFR" firstAttribute="centerX" secondItem="nLF-F6-Q0b" secondAttribute="centerX" id="zmp-Tq-cfa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SO9-Wl-pLv">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9jx-eh-O57">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButtonDidTapped:" destination="QbN-J2-fyw" id="OUv-cG-fpN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="infoLabel" destination="hK2-op-acj" id="xVk-2X-kjD"/>
+                        <outlet property="infoStatusLabel" destination="hoA-Kv-0OI" id="PMW-Ys-Tfa"/>
+                        <outlet property="scannedByImageView" destination="GHW-5s-Ajx" id="n3U-JB-SxV"/>
+                        <outlet property="scannerFrameImageView" destination="uXG-pb-eHD" id="v3F-Wc-pHZ"/>
+                        <outlet property="viewStatus" destination="6ID-4w-oFR" id="MAy-66-vRq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cUE-6F-16o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="614" y="78"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="customScanExample" width="60" height="25"/>
+        <image name="custom_fail_cross" width="37" height="37"/>
+        <image name="scanner" width="345" height="345"/>
+    </resources>
+</document>

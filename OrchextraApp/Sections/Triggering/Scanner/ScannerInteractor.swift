@@ -10,12 +10,7 @@ import Foundation
 
 protocol ScannerInteractorInput {
     func openOrchextraScanner()
-    func openCustomScanner()
     func openImageRecognition()
-}
-
-protocol ScannerInteractorOutput {
-    
 }
 
 struct ScannerInteractor {
@@ -30,10 +25,6 @@ extension ScannerInteractor: ScannerInteractorInput {
     
     func openOrchextraScanner() {
         self.orchextraWrapper.openOrchextraScanner()
-    }
-    
-    func openCustomScanner() {
-        // TODO: Implement
     }
     
     func openImageRecognition() {

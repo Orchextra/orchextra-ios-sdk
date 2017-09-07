@@ -205,14 +205,14 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="Bix-WL-fgH">
-                                        <rect key="frame" x="68" y="13" width="15" height="15"/>
+                                        <rect key="frame" x="69" y="13" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="QAQ-7I-w3u"/>
                                             <constraint firstAttribute="width" constant="15" id="kUQ-60-ujI"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmZ-AQ-yAh">
-                                        <rect key="frame" x="226" y="6" width="86" height="32"/>
+                                        <rect key="frame" x="228" y="5" width="84" height="34"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                         <state key="normal" title="Clear filters">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -222,7 +222,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6v-jA-9fD">
-                                        <rect key="frame" x="15" y="6" width="38" height="32"/>
+                                        <rect key="frame" x="15" y="5" width="39" height="34"/>
                                         <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
                                         <state key="normal" title="Filter">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -286,13 +286,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6E-ZE-zEE" userLabel="SecondView">
                                                             <rect key="frame" x="0.0" y="52" width="253" height="19"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gn-gh-3ly">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Timestamp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gn-gh-3ly">
                                                                     <rect key="frame" x="0.0" y="2" width="70" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xx:xx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeC-Ot-UAF">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="xx:xx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeC-Ot-UAF">
                                                                     <rect key="frame" x="72" y="2" width="31.5" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <nil key="textColor"/>
@@ -313,13 +313,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCp-I4-kzy" userLabel="ThirdView">
                                                             <rect key="frame" x="0.0" y="73" width="253" height="19"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrB-S9-yuu">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrB-S9-yuu">
                                                                     <rect key="frame" x="0.0" y="2" width="30.5" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crg-PZ-FPZ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crg-PZ-FPZ">
                                                                     <rect key="frame" x="32.5" y="2" width="75" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <nil key="textColor"/>
@@ -339,13 +339,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1w-Bx-4Ks" userLabel="FourthView">
                                                             <rect key="frame" x="0.0" y="94" width="253" height="19"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTO-bd-rdz">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTO-bd-rdz">
                                                                     <rect key="frame" x="0.0" y="2" width="36.5" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="j9283301032-cjenq-n1827173" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-YP-5sK">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="j9283301032-cjenq-n1827173" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-YP-5sK">
                                                                     <rect key="frame" x="38.5" y="2" width="184" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <nil key="textColor"/>
@@ -365,13 +365,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btX-zL-OlF" userLabel="FifthView">
                                                             <rect key="frame" x="0.0" y="115" width="253" height="19"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLt-6J-4jW">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="UUID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLt-6J-4jW">
                                                                     <rect key="frame" x="27" y="2" width="35" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ic-hL-8Dv">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ic-hL-8Dv">
                                                                     <rect key="frame" x="64" y="2" width="75" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <nil key="textColor"/>
@@ -391,13 +391,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ly1-ke-QIh" userLabel="SixthView">
                                                             <rect key="frame" x="0.0" y="136" width="253" height="19"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Major:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUh-SN-WKb">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Major:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUh-SN-WKb">
                                                                     <rect key="frame" x="27" y="2" width="37.5" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="II3-kT-Cdo">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="II3-kT-Cdo">
                                                                     <rect key="frame" x="66.5" y="2" width="75" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <nil key="textColor"/>
@@ -417,7 +417,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-bS-VMO" userLabel="SeventhView">
                                                             <rect key="frame" x="0.0" y="157" width="253" height="19"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minor:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-WP-K69">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Minor:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-WP-K69">
                                                                     <rect key="frame" x="27" y="2" width="38" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -443,13 +443,13 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KoW-qh-ppC" userLabel="EightthView">
                                                             <rect key="frame" x="0.0" y="178" width="253" height="19"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Z1-m9-m9u">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Event:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Z1-m9-m9u">
                                                                     <rect key="frame" x="0.0" y="2" width="37" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-XK-5aG">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="lorem ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ov3-XK-5aG">
                                                                     <rect key="frame" x="39" y="2" width="75" height="18.5"/>
                                                                     <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="14"/>
                                                                     <nil key="textColor"/>
