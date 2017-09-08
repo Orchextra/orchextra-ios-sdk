@@ -16,7 +16,8 @@ protocol SettingsPresenterInput {
 
 protocol SettingsUI: class {
     func initializeSubviews(with projectName: String, apiKey: String, apiSecret: String, editable: Bool)
-    func updateEditableState(_ state: Bool, title: String)
+    func updateEditableState(title: String)
+    func updateNotEditableState(title: String)
 }
 
 class SettingsPresenter {
@@ -64,10 +65,10 @@ extension SettingsPresenter: SettingsPresenterInput {
     func userDidTapEdit() {
         let currentState = self.isEditable
         self.isEditable = !currentState
-        var title = "Edit"
         if self.isEditable {
-            title = "Save"
+            self.view?.updateEditableState(title: "Save")
+        } else {
+            self.view?.updateNotEditableState(title: "Edit")
         }
-        self.view?.updateEditableState(self.isEditable, title: title)
     }
 }
