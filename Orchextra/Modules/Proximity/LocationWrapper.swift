@@ -10,6 +10,10 @@ import Foundation
 import CoreLocation
 import GIGLibrary
 
+typealias CompletionCurrentLocation = ((_ location: CLLocation, _ placemark: CLPlacemark?) -> Void)
+
+// LocationInput
+
 protocol LocationInput {
     
     var output: LocationOutput? {get set}
@@ -18,7 +22,10 @@ protocol LocationInput {
     func monitoring(regions: [Region])
     func stopAllMonitoredRegions()
     func showLocationPermissionAlert()
+    func currentUserLocation(completion: @escaping CompletionCurrentLocation)
 }
+
+// LocationOutput
 
 protocol LocationOutput {
     func didChangeAuthorization(status: CLAuthorizationStatus)
@@ -28,10 +35,14 @@ protocol LocationOutput {
 
 class LocationWrapper: NSObject, LocationInput {
     
+
     var locationManager: CLLocationManager
     var output: LocationOutput?
     
+    fileprivate var completionCurrentLocation: CompletionCurrentLocation?
     fileprivate var authorizationStatus: CLAuthorizationStatus
+    fileprivate var isLocationUpdated: Bool
+    fileprivate var geocoder: CLGeocoder
     
     override convenience init() {
         let locationManager = CLLocationManager()
@@ -41,6 +52,8 @@ class LocationWrapper: NSObject, LocationInput {
     init(locationManager: CLLocationManager) {
         self.locationManager = locationManager
         self.authorizationStatus = CLLocationManager.authorizationStatus()
+        self.isLocationUpdated = false
+        self.geocoder = CLGeocoder()
         super.init()
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -69,7 +82,13 @@ class LocationWrapper: NSObject, LocationInput {
             self.startMonitoring(region: region)
             LogDebug("start: \(region.code)")
         }
-        
+    }
+    
+    func currentUserLocation(completion: @escaping CompletionCurrentLocation) {
+        self.completionCurrentLocation = completion
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
     }
     
     // MARK: - Private monitoring methods
@@ -140,7 +159,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
     /// Exit Region
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        
+
         self.output?.didExitRegion(
             code: region.identifier,
             type: self.typeRegion(region: region))
@@ -157,9 +176,29 @@ extension LocationWrapper: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
         if self.authorizationStatus != status {
             self.authorizationStatus = status
             self.output?.didChangeAuthorization(status: status)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if !self.isLocationUpdated {
+            self.isLocationUpdated = !self.isLocationUpdated
+            self.locationManager.stopUpdatingLocation()
+            
+            guard let location = locations.last else {
+                LogDebug("User can't update location")
+                return
+            }
+            
+            self.geocoder.reverseGeocodeLocation(location, completionHandler: { placemark, error in
+                if let completion = self.completionCurrentLocation{
+                    completion(location, placemark?.first)
+                }
+            })
         }
     }
     

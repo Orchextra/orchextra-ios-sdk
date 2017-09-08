@@ -33,7 +33,11 @@ class ProximityModule: ModuleInput {
     
     // Start monitoring the regions
     func start() {
-        self.proximityWrapper.startMonitoring()
+        self.proximityWrapper.paramsCurrentUserLocation { params in
+            self.outputModule?.setConfig(config: params, completion: { config in
+                self.parseGeoMarketing(params: config)
+            })
+        }
     }
     
     /// Finish monitoring services
@@ -48,12 +52,8 @@ class ProximityModule: ModuleInput {
         }
     }
     
-    /// Set regions for the proximity module
-    ///
-    /// - Parameter config:
-    func setConfig(config: [String : Any]) {
-        
-        guard let geofences = config["geoMarketing"] as? Array<[String: Any]> else {
+    func parseGeoMarketing(params: [String : Any]) {
+        guard let geofences = params["geoMarketing"] as? Array<[String: Any]> else {
             LogWarn("There aren't geofence to configure in proximity module")
             return
         }
@@ -64,8 +64,9 @@ class ProximityModule: ModuleInput {
                 geofencesInModule.append(region)
             }
         }
-        
         self.proximityWrapper.register(regions: geofencesInModule)
+        self.proximityWrapper.startMonitoring()
+
     }
 }
 

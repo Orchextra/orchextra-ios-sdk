@@ -50,7 +50,7 @@ class TriggerManagerTests: XCTestCase {
         let json = JSON(from: jsonData!)
         
         // ACT
-        self.triggerManager.triggerDidFinishSuccessfully(with: json)
+        self.triggerManager.triggerDidFinishSuccessfully(with: json, triggerId: "")
         
         // ASSERT
         expect(self.pushorxManagerMock.spyDispatchNotification.called).to(equal(true))
@@ -64,7 +64,7 @@ class TriggerManagerTests: XCTestCase {
         let json = JSON(from: jsonData!)
         
         // ACT
-        self.triggerManager.triggerDidFinishSuccessfully(with: json)
+        self.triggerManager.triggerDidFinishSuccessfully(with: json, triggerId: "")
         
         // ASSERT
         expect(self.actionServicesMock.spyConfirmAction.called).to(equal(true))
@@ -82,7 +82,7 @@ class TriggerManagerTests: XCTestCase {
         let json = JSON(from: jsonData!)
         
         // ACT
-        self.triggerManager.triggerDidFinishSuccessfully(with: json)
+        self.triggerManager.triggerDidFinishSuccessfully(with: json, triggerId: "")
         
         // ASSERT
         expect(self.actionServicesMock.spyConfirmAction.called).to(equal(true))
@@ -100,7 +100,7 @@ class TriggerManagerTests: XCTestCase {
         let json = JSON(from: jsonData!)
         
         // ACT
-        self.triggerManager.triggerDidFinishSuccessfully(with: json)
+        self.triggerManager.triggerDidFinishSuccessfully(with: json, triggerId: "")
         
         // ASSERT
         expect(self.actionServicesMock.spyConfirmAction.called).to(equal(true))

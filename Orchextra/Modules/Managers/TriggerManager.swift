@@ -45,20 +45,71 @@ class TriggerManager: ModuleOutput {
         
         LogDebug("Params: \(trigger.urlParams())")
     }
+    
+    func setConfig(config: [String : Any], completion: (([String : Any]) -> Void)) {
+        guard let proximity = self.getProximity() else { return }
+        completion(proximity)
+    }
+
+    // TODO: REMOVE
+    func getProximity() -> [String: Any]? {
+        guard let geomarketingFile = self.jsonFrom(
+            filename: "geomarketing")else {
+                return nil
+        }
+        
+        return geomarketingFile
+    }
+
+}
+
+// TODO: REMOVE
+extension TriggerManager {
+    
+    func jsonFrom(filename: String) -> [String: Any]? {
+        
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: filename, ofType: "json") else {
+            LogWarn("\(filename) not found")
+            return nil
+        }
+        
+        guard let jsonString = try? NSString(contentsOfFile: pathString, encoding: String.Encoding.utf8.rawValue) else {
+            LogWarn("Unable to convert \(filename) to String")
+            return nil
+        }
+        
+        guard let jsonData = jsonString.data(using: String.Encoding.utf8.rawValue) else {
+            LogWarn("Unable to convert \(filename) to NSData")
+            return nil
+        }
+        
+        guard let jsonDictionary = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
+            LogWarn("Unable to convert \(filename) to JSON dictionary")
+            return nil
+        }
+        return jsonDictionary
+    }
 }
 
 // MARK: - TriggerInteractorOutput
 
 extension TriggerManager: TriggerInteractorOutput {
         
-    func triggerDidFinishSuccessfully(with actionJSON: JSON) {
+    func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String) {
+        
         guard let action = ActionFactory.action(from: actionJSON) else {
             LogWarn("Action can't be created")
             return
         }
-        self.module?.finish(action: action, completionHandler: {
+        
+        if  triggerId == TriggerType.triggerBarcode ||
+            triggerId == TriggerType.triggerQR {
+            self.module?.finish(action: action, completionHandler: {
+                self.actionManager.handler(action: action)
+            })
+        } else {
             self.actionManager.handler(action: action)
-        })
+        }
     }
     
     func triggerDidFinishWithoutAction(triggerId: String) {

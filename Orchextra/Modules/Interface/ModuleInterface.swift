@@ -21,15 +21,6 @@ public protocol ModuleInput {
     ///   - action: send action if ORX found it
     ///   - completionHandler: wait until module finish
     func finish(action: Action?, completionHandler: (() -> Void)?)
-    
-    /// Set config
-    ///
-    /// - Parameter config: dictionary with all configuration settings
-    func setConfig(config: [String: Any])
-}
-
-public extension ModuleInput {
-    func setConfig(config: [String: Any]) {}
 }
 
 public protocol ModuleOutput {
@@ -41,4 +32,12 @@ public protocol ModuleOutput {
     ///   - values: values to start the trigger against orx
     ///   - module: the own module
     func triggerWasFire(with values: [String: Any], module: ModuleInput)
+    
+    
+    /// Set Config
+    ///
+    /// - Parameters:
+    ///   - config: params to get the config from the core
+    ///   - completion: the configuration response for the module
+    func setConfig(config: [String: Any], completion:(([String: Any]) -> Void))
 }

@@ -13,6 +13,7 @@ protocol ProximityInput {
 
     var output: ProximityOutput? {get set}
 
+    func paramsCurrentUserLocation(completion: @escaping ([String: Any]) -> Void)
     func register(regions: [Region])
     func startMonitoring()
     func stopMonitoringAllRegions()
@@ -44,6 +45,15 @@ class ProximityWrapper: ProximityInput {
     }
     
     // MARK: - Public
+    
+    func paramsCurrentUserLocation(completion: @escaping ([String : Any]) -> Void) {
+        self.locationWrapper.currentUserLocation { location, placemark in
+            let geoLocation = GeoLocation(location: location, placemark: placemark)
+            let params = geoLocation.paramsGeoLocation()
+            completion(params)
+            LogDebug("\(params)")
+        }
+    }
     
     func register(regions: [Region]) {
         self.regions = regions

@@ -62,10 +62,9 @@ class OrchextraWrapper {
 
         self.openProximity()
 
-        completion(.success(true))
     
         // Start configuration
-        // self.configInteractor.loadCoreConfig(completion: completion)
+         self.configInteractor.loadCoreConfig(completion: completion)
     }
     
     func openScanner() {
@@ -78,12 +77,6 @@ class OrchextraWrapper {
             self.proximity = ProximityModule()
         }
         self.proximity?.outputModule = self.triggerManager
-        
-        guard let proximityConfig = self.getProximity() else {
-            return
-        }
-        
-        self.proximity?.setConfig(config: proximityConfig)
         self.proximity?.start()
     }
     
@@ -97,39 +90,4 @@ class OrchextraWrapper {
         self.proximity?.outputModule = self.triggerManager
     }
     
-    func getProximity() -> [String: Any]? {
-        guard let geomarketingFile = self.jsonFrom(
-            filename: "geomarketing")else {
-                return nil
-        }
-        
-        return geomarketingFile
-    }
-}
-
-extension OrchextraWrapper {
-    
-    func jsonFrom(filename: String) -> [String: Any]? {
-        
-        guard let pathString = Bundle(for: type(of: self)).path(forResource: filename, ofType: "json") else {
-            LogWarn("\(filename) not found")
-            return nil
-        }
-        
-        guard let jsonString = try? NSString(contentsOfFile: pathString, encoding: String.Encoding.utf8.rawValue) else {
-            LogWarn("Unable to convert \(filename) to String")
-            return nil
-        }
-        
-        guard let jsonData = jsonString.data(using: String.Encoding.utf8.rawValue) else {
-            LogWarn("Unable to convert \(filename) to NSData")
-            return nil
-        }
-        
-        guard let jsonDictionary = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
-            LogWarn("Unable to convert \(filename) to JSON dictionary")
-            return nil
-        }
-        return jsonDictionary
-    }
 }

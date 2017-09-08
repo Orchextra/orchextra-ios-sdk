@@ -73,6 +73,7 @@
 		8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
+		A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EC1F6279ED006EADBB /* GeoLocation.swift */; };
 		A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */; };
 		A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67DE1F5D5AFA001D8B19 /* TriggerFactoryTests.swift */; };
 		A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */; };
@@ -281,6 +282,7 @@
 		8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_external_browser_notification.json; path = Mocks/Json/action_external_browser_notification.json; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
+		A95A60EC1F6279ED006EADBB /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerManagerTests.swift; path = Modules/Manager/TriggerManagerTests.swift; sourceTree = "<group>"; };
 		A95E67DE1F5D5AFA001D8B19 /* TriggerFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerFactoryTests.swift; sourceTree = "<group>"; };
 		A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInputMock.swift; path = Mocks/Modules/ScannerMocks/ModuleInputMock.swift; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 			children = (
 				A95E67F81F5D9EB3001D8B19 /* Region.swift */,
 				A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */,
+				A95A60EC1F6279ED006EADBB /* GeoLocation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1312,6 +1315,7 @@
 				A9C54DE21F41ABE200DF2074 /* Request.swift in Sources */,
 				A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */,
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,
+				A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */,
 				A9C54DEA1F41AD5000DF2074 /* Session.swift in Sources */,
 				A9C6EB941F46FB24007AE036 /* Device.swift in Sources */,
 				A9AC210A1F542E7C00095EC5 /* ActionScanner.swift in Sources */,

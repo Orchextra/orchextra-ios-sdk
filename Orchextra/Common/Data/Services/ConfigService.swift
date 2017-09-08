@@ -19,10 +19,24 @@ class ConfigService: ConfigServiceInput {
 
     func configCore(completion: @escaping (Result<String, Error>) -> Void) {
         
+        let geoPosition = [
+            "geoLocation" : [
+                "country" : "España",
+                "countryCode" : "ES",
+                "locality" : "Getafe",
+                "zip": 28027,
+                "street" : "Calle Doctor Zamehoff",
+                "point" :   [
+                "lat" : "43.445811",
+                "lng" : "-6.627472"]
+            ]
+        ]
+        
         let request = Request.OrchextraRequest(
-            method: "GET",
+            method: "POST",
             baseUrl: Config.coreEndpoint,
-            endpoint: endpointConfig)
+            endpoint: endpointConfig,
+            bodyParams: geoPosition)
      
         request.fetch { response in
             switch response.status {

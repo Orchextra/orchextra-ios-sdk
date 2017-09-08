@@ -11,7 +11,7 @@ import GIGLibrary
 
 protocol TriggerInteractorOutput {
     func triggerDidFinishWithoutAction(triggerId: String)
-    func triggerDidFinishSuccessfully(with actionJSON: JSON)
+    func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String)
 }
 
 class TriggerInteractor {
@@ -33,7 +33,8 @@ class TriggerInteractor {
         self.service.launchTrigger(values: values) { response in
             switch response {
             case .success(let json):
-                self.output?.triggerDidFinishSuccessfully(with: json)
+                self.output?.triggerDidFinishSuccessfully(with: json,
+                                                          triggerId: trigger.triggerId)
                 LogDebug("Found action: \(json.description)")
                 break
             case .error (let error):
