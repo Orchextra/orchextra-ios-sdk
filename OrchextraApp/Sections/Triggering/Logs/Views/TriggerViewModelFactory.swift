@@ -75,15 +75,15 @@ class TriggerViewModelFactory {
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
-        let timestamp = "\(triggerFired.timestamp)"
+        let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "Barcode",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: "Type: ",
-            thirdLabelRightText: trigger.triggerId,
+            thirdLabelLeftText: nil,
+            thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
             fifthLabelLeftText: nil,
@@ -101,15 +101,15 @@ class TriggerViewModelFactory {
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
-        let timestamp = "\(triggerFired.timestamp)"
+        let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "Qr",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: "Type: ",
-            thirdLabelRightText: trigger.triggerId,
+            thirdLabelLeftText: nil,
+            thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
             fifthLabelLeftText: nil,
@@ -127,15 +127,15 @@ class TriggerViewModelFactory {
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
-        let timestamp = "\(triggerFired.timestamp)"
+        let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "iBeacon",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: "Type: ",
-            thirdLabelRightText: trigger.triggerId,
+            thirdLabelLeftText: nil,
+            thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
             fifthLabelLeftText: nil,
@@ -154,15 +154,15 @@ class TriggerViewModelFactory {
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
-        let timestamp = "\(triggerFired.timestamp)"
+        let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "iBeacon region",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: "Type: ",
-            thirdLabelRightText: trigger.triggerId,
+            thirdLabelLeftText: nil,
+            thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
             fifthLabelLeftText: nil,
@@ -181,15 +181,15 @@ class TriggerViewModelFactory {
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
-        let timestamp = "\(triggerFired.timestamp)"
+        let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "Eddystone",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: "Type: ",
-            thirdLabelRightText: trigger.triggerId,
+            thirdLabelLeftText: nil,
+            thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
             fifthLabelLeftText: nil,
@@ -208,15 +208,15 @@ class TriggerViewModelFactory {
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
-        let timestamp = "\(triggerFired.timestamp)"
+        let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "Eddystone region",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: "Type: ",
-            thirdLabelRightText: trigger.triggerId,
+            thirdLabelLeftText: nil,
+            thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
             fifthLabelLeftText: nil,
@@ -234,15 +234,15 @@ class TriggerViewModelFactory {
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
-        let timestamp = "\(triggerFired.timestamp)"
+        let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "Geofence",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: "Type: ",
-            thirdLabelRightText: trigger.triggerId,
+            thirdLabelLeftText: nil,
+            thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
             fifthLabelLeftText: nil,
@@ -260,15 +260,15 @@ class TriggerViewModelFactory {
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
-        let timestamp = "\(triggerFired.timestamp)"
+        let timestamp = "\(triggerFired.date)"
 
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "Image recognition",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: "Type: ",
-            thirdLabelRightText: trigger.triggerId,
+            thirdLabelLeftText: nil,
+            thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
             fifthLabelLeftText: nil,

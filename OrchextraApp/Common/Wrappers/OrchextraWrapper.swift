@@ -60,8 +60,13 @@ extension OrchextraWrapper: ORXDelegate {
     }
     
     func triggerFired(_ trigger: Trigger) {
-        let timestamp: Int = Int(Date().timeIntervalSince1970 * 1000)
-        let triggerFired = TriggerFired(trigger: trigger, timestamp: timestamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        let dateWithoutFormat = Date()
+        let dateString = dateWithoutFormat.description
+        let dateFormatted: Date = dateFormatter.date(from: dateString) ?? Date()
+        let dateFormatedString = dateFormatter.string(from: dateFormatted)
+        let triggerFired = TriggerFired(trigger: trigger, date: dateFormatedString)
         TriggersManager.shared.add(trigger: triggerFired)
     }
 }

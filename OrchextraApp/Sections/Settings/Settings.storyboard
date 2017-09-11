@@ -203,16 +203,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ndV-bP-iB6">
-                        <barButtonItem key="rightBarButtonItem" id="71o-nI-5zz">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SdK-Ze-zUR">
-                                <rect key="frame" x="221" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="17"/>
-                                <state key="normal" title="Edit"/>
-                                <connections>
-                                    <action selector="editButtonTappedWith_sender:" destination="pK0-dN-VXv" eventType="touchUpInside" id="dne-oE-hjf"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="5yV-PZ-Xyx">
+                            <connections>
+                                <action selector="editButtonTappedWith_sender:" destination="pK0-dN-VXv" id="04X-Vj-al0"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -220,7 +214,7 @@
                         <outlet property="apiKeyTextfield" destination="r0T-pl-a2z" id="mfS-2O-M56"/>
                         <outlet property="apiSecretLabel" destination="UcL-uO-PRg" id="0Pr-nb-Id9"/>
                         <outlet property="apiSecretTextfield" destination="cSE-WF-nL4" id="caG-BW-dKe"/>
-                        <outlet property="editButton" destination="71o-nI-5zz" id="IBo-4K-Tkx"/>
+                        <outlet property="editButton" destination="5yV-PZ-Xyx" id="g83-y7-cLl"/>
                         <outlet property="logOutButton" destination="oHQ-Yl-AJY" id="NDf-X1-kMe"/>
                         <outlet property="projectLabel" destination="HUh-4Z-IAs" id="VQ5-tW-jSX"/>
                         <outlet property="projectTextfield" destination="kuR-gw-0of" id="wqL-7b-IYm"/>
