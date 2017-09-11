@@ -11,32 +11,29 @@ import GIGLibrary
 
 protocol ConfigServiceInput {
     func configCore(completion: @escaping (Result<String, Error>) -> Void)
+    func configProximity(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
 }
 
 class ConfigService: ConfigServiceInput {
     
     let endpointConfig = "/configuration"
-
+    let authInteractor: AuthInteractorInput
+    
+    init(auth: AuthInteractorInput) {
+        self.authInteractor = auth
+    }
+    
+    convenience init() {
+        let auth = AuthInteractor()
+        self.init(auth: auth)
+    }
+    
     func configCore(completion: @escaping (Result<String, Error>) -> Void) {
         
-        let geoPosition = [
-            "geoLocation" : [
-                "country" : "España",
-                "countryCode" : "ES",
-                "locality" : "Getafe",
-                "zip": 28027,
-                "street" : "Calle Doctor Zamehoff",
-                "point" :   [
-                "lat" : "43.445811",
-                "lng" : "-6.627472"]
-            ]
-        ]
-        
         let request = Request.OrchextraRequest(
-            method: "POST",
+            method: "GET",
             baseUrl: Config.coreEndpoint,
-            endpoint: endpointConfig,
-            bodyParams: geoPosition)
+            endpoint: endpointConfig)
      
         request.fetch { response in
             switch response.status {
@@ -60,4 +57,29 @@ class ConfigService: ConfigServiceInput {
             }
         }
     }
+    
+    func configProximity(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
+
+        let request = Request.OrchextraRequest(
+            method: "POST",
+            baseUrl: Config.coreEndpoint,
+            endpoint: endpointConfig,
+            bodyParams: geoLocation)
+        
+        self.authInteractor.sendRequest(request: request) { response in
+            switch response {
+            case .success(let json):
+                guard let geoMarketing = json["geoMarketing"] else {return}
+                completion(.success(geoMarketing))
+
+            case .error(let error):
+                LogError(error as NSError)
+                completion(.error(error))
+                break
+            }
+
+        }
+    }
+    
+    
 }

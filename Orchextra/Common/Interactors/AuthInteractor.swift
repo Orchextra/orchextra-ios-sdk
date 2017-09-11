@@ -81,30 +81,34 @@ class AuthInteractor: AuthInteractorInput {
     ///   - completion: return the completion for the request
     func sendRequest(request: Request, completion: @escaping (Result<JSON, Error>) -> Void) {
         
-        request.fetch { response in
-            
-            switch response.status {
-            case .success:
-                do {
-                    let json = try response.json()
-                    LogDebug(json.description)
-                    completion(.success(json))
-                    
-                } catch {
-                    let error = ErrorService.unknown
-                    LogWarn("There is not data with the response for request: \(request.endpoint)")
-                    completion(.error(error))
-                }
+        if request.headers?["Authorization"] == nil {
+            self.handleRefreshAccessToken(request: request, completion: completion)
+        } else {
+            request.fetch { response in
                 
-            default:
-                let error = ErrorServiceHandler.parseErrorService(with: response)
-                switch error {
-                case ErrorService.refreshAccessToken:
-                    self.handleRefreshAccessToken(request: request, completion: completion)
-                    break
+                switch response.status {
+                case .success:
+                    do {
+                        let json = try response.json()
+                        LogDebug(json.description)
+                        completion(.success(json))
+                        
+                    } catch {
+                        let error = ErrorService.unknown
+                        LogWarn("There is not data with the response for request: \(request.endpoint)")
+                        completion(.error(error))
+                    }
+                    
                 default:
-                    completion(.error(error))
-                    break
+                    let error = ErrorServiceHandler.parseErrorService(with: response)
+                    switch error {
+                    case ErrorService.refreshAccessToken:
+                        self.handleRefreshAccessToken(request: request, completion: completion)
+                        break
+                    default:
+                        completion(.error(error))
+                        break
+                    }
                 }
             }
         }

@@ -42,6 +42,7 @@ class ProximityWrapper: ProximityInput {
     init(locationWrapper: LocationInput) {
         self.locationWrapper = locationWrapper
         self.locationWrapper.output = self
+        _ = self.locationWrapper.needRequestAuthorization()
     }
     
     // MARK: - Public

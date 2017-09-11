@@ -11,6 +11,7 @@ import GIGLibrary
 
 protocol ConfigInteractorInput {
     func loadCoreConfig(completion: @escaping (Result<Bool, Error>) -> Void)
+    func loadProximityConfig(geolocation: [String: Any], completion: @escaping (([String : Any]) -> Void))
 }
 
 class ConfigInteractor: ConfigInteractorInput {
@@ -41,6 +42,22 @@ class ConfigInteractor: ConfigInteractorInput {
                 LogDebug("Received config core")
             case .error(let error):
                 completion(.error(error))
+            }
+        }
+    }
+    
+    func loadProximityConfig(geolocation: [String: Any], completion: @escaping (([String : Any]) -> Void)) {
+        self.configService.configProximity(geoLocation: geolocation) { result in
+            switch result {
+                case .success(let json):
+                    guard let geomarketingResult = json.toArray() else {
+                        completion([ "geoMarketing": [] ])
+                        return
+                    }
+                    let geomarketing = ["geoMarketing" : geomarketingResult]
+                    completion(geomarketing)
+                
+                case .error: break
             }
         }
     }

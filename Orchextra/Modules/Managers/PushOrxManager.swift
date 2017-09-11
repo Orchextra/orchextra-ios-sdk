@@ -44,13 +44,17 @@ class PushOrxManager: NSObject, PushOrxInput {
     }
 
     func dispatchNotification(with action: Action) {
-        guard let seconds = action.schedule?.seconds else { return }
-        let minutes: Int = seconds/60
+        
+        var date: Date?
+        if let seconds = action.schedule?.seconds {
+            let minutes = seconds/60
+            date = Date().addedBy(minutes: minutes)
+        }
         let payload = self.payloadLocalNotification(action: action)
         LocalNotification.dispatchlocalNotification(with: action.notification?.title ?? "",
                                                     body: action.notification?.body ?? "",
                                                     userInfo: payload,
-                                                    at: Date().addedBy(minutes: minutes))
+                                                    at: date)
     }
     
     // MARK: - Internal

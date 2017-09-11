@@ -65,7 +65,7 @@ class ActionScanner: Action {
         
         var scanner = OrchextraWrapper.shared.scanner
         let wireframe = OrchextraWrapper.shared.wireframe
-        let triggerManager = OrchextraWrapper.shared.triggerManager
+        let moduleOutputWrapper = OrchextraWrapper.shared.moduleOutputWrapper
 
         if scanner == nil {
             scanner = wireframe.scannerOrx()
@@ -74,7 +74,7 @@ class ActionScanner: Action {
         guard let scannerVC = scanner as? UIViewController else {
             return
         }
-        scanner?.outputModule = triggerManager
+        scanner?.outputModule = moduleOutputWrapper
         wireframe.openScanner(scanner: scannerVC)
         scanner?.start()
     }

@@ -17,7 +17,7 @@ class OrchextraWrapper {
     
     private var session: Session
     private var configInteractor: ConfigInteractorInput
-    internal var triggerManager: TriggerManager
+    internal var moduleOutputWrapper: ModuleOutputWrapper
 
     fileprivate var startCompletion: ((Result<Bool, Error>) -> Void)?
     
@@ -35,19 +35,19 @@ class OrchextraWrapper {
     convenience init() {
         let session = Session.shared
         let configInteractor = ConfigInteractor()
-        let triggerManager = TriggerManager()
+        let moduleOutputWrapper = ModuleOutputWrapper()
         
         self.init(session: session,
                   configInteractor: configInteractor,
-                  triggerManager: triggerManager)
+                  moduleOutputWrapper: moduleOutputWrapper)
     }
     
     init(session: Session,
          configInteractor: ConfigInteractorInput,
-         triggerManager: TriggerManager) {
+         moduleOutputWrapper: ModuleOutputWrapper) {
         self.session = session
         self.configInteractor = configInteractor
-        self.triggerManager = triggerManager
+        self.moduleOutputWrapper = moduleOutputWrapper
     }
     
     func start(with apiKey: String, apiSecret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
@@ -63,75 +63,39 @@ class OrchextraWrapper {
         //TODO: Handle apikey y apisecret
         self.session.save(accessToken: nil)
         
-//        self.openProximity()
+        self.openProximity()
         completion(.success(true))
     
         // Start configuration
         // self.configInteractor.loadCoreConfig(completion: completion)
     }
     
+    // MARK: - Modules
+    
+    // MARK: - Scan
+    
     func openScanner() {
         let action = ActionScanner()
         action.executable()
     }
     
+    func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
+        self.scanner = vc
+        self.scanner?.outputModule = self.moduleOutputWrapper
+    }
+    
+    // MARK: - Proximity
+    
     func openProximity() {
         if self.proximity == nil {
             self.proximity = ProximityModule()
         }
-        self.proximity?.outputModule = self.triggerManager
-        
-        guard let proximityConfig = self.getProximity() else {
-            return
-        }
-        
-        self.proximity?.setConfig(config: proximityConfig)
+        self.proximity?.outputModule = self.moduleOutputWrapper
         self.proximity?.start()
     }
-    
-    func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
-        self.scanner = vc
-        self.scanner?.outputModule = self.triggerManager
-    }
-    
+
     func setProximity(proximityModule: ModuleInput) {
         self.proximity = proximityModule
-        self.proximity?.outputModule = self.triggerManager
-    }
-    
-    func getProximity() -> [String: Any]? {
-        guard let geomarketingFile = self.jsonFrom(
-            filename: "geomarketing")else {
-                return nil
-        }
-        
-        return geomarketingFile
-    }
-}
-
-extension OrchextraWrapper {
-    
-    func jsonFrom(filename: String) -> [String: Any]? {
-        
-        guard let pathString = Bundle(for: type(of: self)).path(forResource: filename, ofType: "json") else {
-            LogWarn("\(filename) not found")
-            return nil
-        }
-        
-        guard let jsonString = try? NSString(contentsOfFile: pathString, encoding: String.Encoding.utf8.rawValue) else {
-            LogWarn("Unable to convert \(filename) to String")
-            return nil
-        }
-        
-        guard let jsonData = jsonString.data(using: String.Encoding.utf8.rawValue) else {
-            LogWarn("Unable to convert \(filename) to NSData")
-            return nil
-        }
-        
-        guard let jsonDictionary = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] else {
-            LogWarn("Unable to convert \(filename) to JSON dictionary")
-            return nil
-        }
-        return jsonDictionary
+        self.proximity?.outputModule = self.moduleOutputWrapper
     }
 }

@@ -27,6 +27,7 @@ class ActionManager {
     }
     
     func handler(action: Action) {
+        LogDebug("Handler action: \(String(describing: action.type))")
         if let _ = action.notification {
             self.prepareNotificationFor(action: action)
         } else {
@@ -54,7 +55,8 @@ class ActionManager {
             } else {
                 self.deliveryNotification(with: action)
             }
-        case .background: break
+        case .background:
+            self.delayDeliveryNotification(action: action)
         }
     }
     
