@@ -54,5 +54,9 @@
 	<string>NOT_SET</string>
 	<key>APPLIVERY_APP_ID</key>
 	<string>NOT_SET</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+	</array>
 </dict>
 </plist>

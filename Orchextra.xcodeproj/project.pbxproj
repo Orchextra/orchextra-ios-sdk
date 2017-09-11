@@ -42,6 +42,21 @@
 		8F2080B51F4EE2A200C328DC /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B21F4EE2A200C328DC /* ScannerVC.swift */; };
 		8F2080B61F4EE2A200C328DC /* ScannerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */; };
 		8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */; };
+		8F299C561F6691060023F69D /* EddystoneModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C491F6691060023F69D /* EddystoneModule.swift */; };
+		8F299C571F6691060023F69D /* EddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4B1F6691060023F69D /* EddystoneBeacon.swift */; };
+		8F299C581F6691060023F69D /* EddystoneConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4C1F6691060023F69D /* EddystoneConstants.swift */; };
+		8F299C591F6691060023F69D /* EddystoneDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4D1F6691060023F69D /* EddystoneDecoder.swift */; };
+		8F299C5A1F6691060023F69D /* EddystoneRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4E1F6691060023F69D /* EddystoneRegion.swift */; };
+		8F299C5B1F6691060023F69D /* EddystoneRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4F1F6691060023F69D /* EddystoneRegionManager.swift */; };
+		8F299C5C1F6691060023F69D /* EddystoneTelemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C501F6691060023F69D /* EddystoneTelemetry.swift */; };
+		8F299C5D1F6691060023F69D /* EddystoneUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C511F6691060023F69D /* EddystoneUID.swift */; };
+		8F299C5E1F6691060023F69D /* EddystoneProtocolParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C531F6691060023F69D /* EddystoneProtocolParser.swift */; };
+		8F299C5F1F6691060023F69D /* CBCentralWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C551F6691060023F69D /* CBCentralWrapper.swift */; };
+		8F299C761F66A76F0023F69D /* eddystone.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F299C751F66A76F0023F69D /* eddystone.json */; };
+		8F299C7C1F66A9A50023F69D /* CBCentralWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C781F66A9A50023F69D /* CBCentralWrapperMock.swift */; };
+		8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C791F66A9A50023F69D /* EddystoneBeaconTests.swift */; };
+		8F299C7E1F66A9A50023F69D /* EddystoneDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C7A1F66A9A50023F69D /* EddystoneDecoderTests.swift */; };
+		8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C7B1F66A9A50023F69D /* EddystoneProtocolParserTests.swift */; };
 		8F4A27B31F5D2419003B440D /* TriggersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B21F5D2419003B440D /* TriggersManager.swift */; };
 		8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */; };
 		8F5F7A171F4C60E700E62E57 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */; };
@@ -252,6 +267,21 @@
 		8F2080B21F4EE2A200C328DC /* ScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerWireframe.swift; sourceTree = "<group>"; };
 		8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerInteractor.swift; sourceTree = "<group>"; };
+		8F299C491F6691060023F69D /* EddystoneModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneModule.swift; sourceTree = "<group>"; };
+		8F299C4B1F6691060023F69D /* EddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneBeacon.swift; sourceTree = "<group>"; };
+		8F299C4C1F6691060023F69D /* EddystoneConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneConstants.swift; sourceTree = "<group>"; };
+		8F299C4D1F6691060023F69D /* EddystoneDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneDecoder.swift; sourceTree = "<group>"; };
+		8F299C4E1F6691060023F69D /* EddystoneRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneRegion.swift; sourceTree = "<group>"; };
+		8F299C4F1F6691060023F69D /* EddystoneRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneRegionManager.swift; sourceTree = "<group>"; };
+		8F299C501F6691060023F69D /* EddystoneTelemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneTelemetry.swift; sourceTree = "<group>"; };
+		8F299C511F6691060023F69D /* EddystoneUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneUID.swift; sourceTree = "<group>"; };
+		8F299C531F6691060023F69D /* EddystoneProtocolParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneProtocolParser.swift; sourceTree = "<group>"; };
+		8F299C551F6691060023F69D /* CBCentralWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBCentralWrapper.swift; sourceTree = "<group>"; };
+		8F299C751F66A76F0023F69D /* eddystone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eddystone.json; sourceTree = "<group>"; };
+		8F299C781F66A9A50023F69D /* CBCentralWrapperMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBCentralWrapperMock.swift; sourceTree = "<group>"; };
+		8F299C791F66A9A50023F69D /* EddystoneBeaconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneBeaconTests.swift; sourceTree = "<group>"; };
+		8F299C7A1F66A9A50023F69D /* EddystoneDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneDecoderTests.swift; sourceTree = "<group>"; };
+		8F299C7B1F66A9A50023F69D /* EddystoneProtocolParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneProtocolParserTests.swift; sourceTree = "<group>"; };
 		8F4A27B21F5D2419003B440D /* TriggersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggersManager.swift; sourceTree = "<group>"; };
 		8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchextraWrapper.swift; sourceTree = "<group>"; };
 		8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -557,6 +587,59 @@
 			path = Scanner;
 			sourceTree = "<group>";
 		};
+		8F299C481F6691060023F69D /* Eddystone */ = {
+			isa = PBXGroup;
+			children = (
+				8F299C491F6691060023F69D /* EddystoneModule.swift */,
+				8F299C4A1F6691060023F69D /* Model */,
+				8F299C521F6691060023F69D /* Parser */,
+				8F299C541F6691060023F69D /* Wrapper */,
+			);
+			path = Eddystone;
+			sourceTree = "<group>";
+		};
+		8F299C4A1F6691060023F69D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F299C4B1F6691060023F69D /* EddystoneBeacon.swift */,
+				8F299C4C1F6691060023F69D /* EddystoneConstants.swift */,
+				8F299C4D1F6691060023F69D /* EddystoneDecoder.swift */,
+				8F299C4E1F6691060023F69D /* EddystoneRegion.swift */,
+				8F299C4F1F6691060023F69D /* EddystoneRegionManager.swift */,
+				8F299C501F6691060023F69D /* EddystoneTelemetry.swift */,
+				8F299C511F6691060023F69D /* EddystoneUID.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8F299C521F6691060023F69D /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				8F299C531F6691060023F69D /* EddystoneProtocolParser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		8F299C541F6691060023F69D /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				8F299C551F6691060023F69D /* CBCentralWrapper.swift */,
+			);
+			path = Wrapper;
+			sourceTree = "<group>";
+		};
+		8F299C771F66A9A50023F69D /* Eddystone */ = {
+			isa = PBXGroup;
+			children = (
+				8F299C781F66A9A50023F69D /* CBCentralWrapperMock.swift */,
+				8F299C791F66A9A50023F69D /* EddystoneBeaconTests.swift */,
+				8F299C7A1F66A9A50023F69D /* EddystoneDecoderTests.swift */,
+				8F299C7B1F66A9A50023F69D /* EddystoneProtocolParserTests.swift */,
+			);
+			name = Eddystone;
+			path = Modules/Eddystone;
+			sourceTree = "<group>";
+		};
 		8F4A27B61F5D25DD003B440D /* Wrappers */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,12 +795,13 @@
 		A974BE7A1F4B080100A355FD /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A99885F01F5010DC00EED42E /* Wireframe.swift */,
+				8F299C481F6691060023F69D /* Eddystone */,
 				A974BE841F4B0DBF00A355FD /* Interface */,
 				A94580D11F50981B0039A70D /* Manager */,
-				A974BE7B1F4B080100A355FD /* Scanner */,
-				A95E67F41F5D9596001D8B19 /* Proximity */,
 				A9986B301F5976B600F2CC65 /* Notification */,
+				A95E67F41F5D9596001D8B19 /* Proximity */,
+				A974BE7B1F4B080100A355FD /* Scanner */,
+				A99885F01F5010DC00EED42E /* Wireframe.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -824,6 +908,7 @@
 				A9AC21121F543D9600095EC5 /* Assets.xcassets */,
 				A9AC21131F543D9600095EC5 /* Localizables */,
 				A98B52D21F5E92100082BB2F /* geomarketing.json */,
+				8F299C751F66A76F0023F69D /* eddystone.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -840,6 +925,7 @@
 		A9AC212D1F5580C000095EC5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8F299C771F66A9A50023F69D /* Eddystone */,
 				A95E67D81F5D50B3001D8B19 /* Manager */,
 				A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */,
 			);
@@ -1249,6 +1335,7 @@
 				A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */,
 				A9AC21221F543D9600095EC5 /* Localizable.strings in Resources */,
 				A9C54DB51F41A81600DF2074 /* Cartfile.private in Resources */,
+				8F299C761F66A76F0023F69D /* eddystone.json in Resources */,
 				8F689D231F544364002046FE /* WebView.storyboard in Resources */,
 				A99885F81F502E1800EED42E /* ScannerOrx.storyboard in Resources */,
 			);
@@ -1294,18 +1381,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F299C5C1F6691060023F69D /* EddystoneTelemetry.swift in Sources */,
 				A9986B2A1F59764E00F2CC65 /* PushOrxManager.swift in Sources */,
 				A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */,
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
+				8F299C5B1F6691060023F69D /* EddystoneRegionManager.swift in Sources */,
 				A95E67F61F5D96BB001D8B19 /* ProximityWrapper.swift in Sources */,
 				8F689D1F1F5434C6002046FE /* WebPresenter.swift in Sources */,
 				A99886011F5037E900EED42E /* ActionDoNothing.swift in Sources */,
 				A95E67F91F5D9EB3001D8B19 /* Region.swift in Sources */,
 				A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */,
+				8F299C5E1F6691060023F69D /* EddystoneProtocolParser.swift in Sources */,
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
+				8F299C5A1F6691060023F69D /* EddystoneRegion.swift in Sources */,
 				A9986B2F1F59767C00F2CC65 /* ActionService.swift in Sources */,
 				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
+				8F299C561F6691060023F69D /* EddystoneModule.swift in Sources */,
 				A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */,
 				A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */,
 				A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */,
@@ -1313,10 +1405,12 @@
 				A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */,
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,
 				A9C54DEA1F41AD5000DF2074 /* Session.swift in Sources */,
+				8F299C571F6691060023F69D /* EddystoneBeacon.swift in Sources */,
 				A9C6EB941F46FB24007AE036 /* Device.swift in Sources */,
 				A9AC210A1F542E7C00095EC5 /* ActionScanner.swift in Sources */,
 				A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */,
 				A99885FF1F50363C00EED42E /* ActionBrowser.swift in Sources */,
+				8F299C591F6691060023F69D /* EddystoneDecoder.swift in Sources */,
 				A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */,
 				A9C54DF21F41B22600DF2074 /* ConfigInteractor.swift in Sources */,
 				A9C54DE81F41ACA400DF2074 /* Config.swift in Sources */,
@@ -1325,12 +1419,14 @@
 				A9986B291F59764E00F2CC65 /* ActionManager.swift in Sources */,
 				A95E67FB1F5D9FEC001D8B19 /* Geofence.swift in Sources */,
 				A9AC21231F543D9600095EC5 /* LocalizableConstants.swift in Sources */,
+				8F299C5D1F6691060023F69D /* EddystoneUID.swift in Sources */,
 				A9986B341F5976D200F2CC65 /* Date+Extension.swift in Sources */,
 				8FFD3D931F5698F5000A1056 /* ActionWebView.swift in Sources */,
 				A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */,
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
 				A99885FD1F50353D00EED42E /* Action.swift in Sources */,
+				8F299C5F1F6691060023F69D /* CBCentralWrapper.swift in Sources */,
 				A9CF47321F6032F300B918C8 /* TriggerGeofence.swift in Sources */,
 				A9986B321F5976B600F2CC65 /* LocalNotification.swift in Sources */,
 				A9AC21281F5443E600095EC5 /* PaddingLabel.swift in Sources */,
@@ -1341,6 +1437,7 @@
 				A99885FA1F502E1800EED42E /* ScannerOrxVC.swift in Sources */,
 				8F689D1E1F5434C6002046FE /* WebVC.swift in Sources */,
 				A9986B2B1F59764E00F2CC65 /* TriggerManager.swift in Sources */,
+				8F299C581F6691060023F69D /* EddystoneConstants.swift in Sources */,
 				A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1349,14 +1446,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F299C7E1F66A9A50023F69D /* EddystoneDecoderTests.swift in Sources */,
 				A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */,
 				A9AC212F1F5580EC00095EC5 /* ScannerTests.swift in Sources */,
 				A9C54E0A1F446FC000DF2074 /* StubResponse.swift in Sources */,
 				A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */,
+				8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */,
 				A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */,
 				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
+				8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */,
 				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
 				A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */,
+				8F299C7C1F66A9A50023F69D /* CBCentralWrapperMock.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */,
 				A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */,
 				A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */,

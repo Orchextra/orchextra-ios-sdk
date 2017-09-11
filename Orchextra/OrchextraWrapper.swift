@@ -29,6 +29,7 @@ class OrchextraWrapper {
     
     var scanner: ModuleInput?
     var proximity: ModuleInput?
+    var eddystone: ModuleInput?
     
     // MARK: - Methods Wrapper
     
@@ -61,6 +62,7 @@ class OrchextraWrapper {
         self.startCompletion = completion
 
         self.openProximity()
+        self.openEddystone()
 
         completion(.success(true))
     
@@ -87,6 +89,20 @@ class OrchextraWrapper {
         self.proximity?.start()
     }
     
+    func openEddystone() {
+        if self.eddystone == nil {
+            self.eddystone = EddystoneModule()
+        }
+        self.eddystone?.outputModule = self.triggerManager
+        
+        guard let eddystoneConfig = self.getEddystone() else {
+            return
+        }
+        
+        self.eddystone?.setConfig(config: eddystoneConfig)
+        self.eddystone?.start()
+    }
+    
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         self.scanner = vc
         self.scanner?.outputModule = self.triggerManager
@@ -104,6 +120,20 @@ class OrchextraWrapper {
         }
         
         return geomarketingFile
+    }
+    
+    func getEddystone() -> [String: Any]? {
+        guard let eddystoneFile = self.jsonFrom(
+            filename: "eddystone")else {
+                return nil
+        }
+        
+        return eddystoneFile
+    }
+    
+    func setEddystone(eddystoneModule: ModuleInput) {
+        self.eddystone = eddystoneModule
+        self.eddystone?.outputModule = self.triggerManager
     }
 }
 
