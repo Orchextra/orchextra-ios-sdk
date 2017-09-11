@@ -10,9 +10,7 @@ import Foundation
 import GIGLibrary
 
 struct HomeWireframe {
-    
-    var navigationController: UINavigationController
-    
+        
     /// Method to show the Home section
     ///
     /// - Returns: Home View Controller with all dependencies

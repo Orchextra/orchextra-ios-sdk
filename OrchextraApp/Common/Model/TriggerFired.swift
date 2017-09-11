@@ -11,6 +11,6 @@ import Orchextra
 
 struct TriggerFired {
     let trigger: Trigger
-    let timestamp: Int
+    let date: String
 }
 

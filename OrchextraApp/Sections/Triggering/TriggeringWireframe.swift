@@ -13,11 +13,6 @@ class TriggeringWireframe {
     // MARK: - Attributes
     var navigationController: UINavigationController?
     
-    // MARK: - Initializer
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
     /// Method to show the Triggering section
     ///
     /// - Returns: Triggering View Controller with all dependencies
@@ -30,10 +25,6 @@ class TriggeringWireframe {
         )
         
         viewController.presenter = presenter
-        guard let scannerVC = self.showScanner(),
-            let geofencesVC = self.showGeofences(),
-            let logsVC = self.showLogs() else { return viewController }
-        viewController.viewControllers = [scannerVC, geofencesVC, logsVC]
         
         return viewController
     }
@@ -85,6 +76,17 @@ class TriggeringWireframe {
             LogWarn("SettingsVC not found")
             return
         }
-        navigationController.show(settingsVC, sender: nil)
+        navigationController.show(settingsVC, sender: self)
     }
+    
+    /// Method to show the Triggering sections
+    ///
+    /// - Returns: Settings View Controller with all dependencies
+    func showTriggeringViewControllers() -> [UIViewController] {
+        guard let scannerVC = self.showScanner(),
+            let geofencesVC = self.showGeofences(),
+            let logsVC = self.showLogs() else { return [UIViewController]() }
+        
+            return [scannerVC, geofencesVC, logsVC]
+        }
 }

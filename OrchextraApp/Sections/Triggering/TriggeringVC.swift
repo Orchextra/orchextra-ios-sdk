@@ -52,6 +52,11 @@ class TriggeringVC: UITabBarController {
 }
 
 extension TriggeringVC: TriggeringUI {
+    func initializeTabBarItems(with items: [UIViewController]) {
+        self.viewControllers = items
+        self.setTitleForSelectedItem()
+    }
+    
     func setTitleForSelectedItem() {
         let tabBarItems = self.tabBar.items
         let firstItem = tabBarItems?[0]

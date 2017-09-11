@@ -63,10 +63,19 @@ extension SettingsVC: SettingsUI {
         self.apiSecretTextfield.minimumFontSize = 8.0
     }
     
-    func updateEditableState(_ state: Bool, title: String) {
-        self.apiKeyTextfield.isUserInteractionEnabled = state
-        self.apiSecretTextfield.isUserInteractionEnabled = state
-        
+    func updateEditableState(title: String) {
+        self.apiKeyTextfield.isUserInteractionEnabled = true
+        self.apiSecretTextfield.isUserInteractionEnabled = true
+        self.apiKeyTextfield.textColor = UIColor.black
+        self.apiSecretTextfield.textColor = UIColor.black
+        self.editButton.title = title
+    }
+    
+    func updateNotEditableState(title: String) {
+        self.apiKeyTextfield.isUserInteractionEnabled = false
+        self.apiSecretTextfield.isUserInteractionEnabled = false
+        self.apiKeyTextfield.textColor = UIColor.ORXApp.gray
+        self.apiSecretTextfield.textColor = UIColor.ORXApp.gray
         self.editButton.title = title
     }
 }

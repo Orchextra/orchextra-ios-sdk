@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TriggeringPresenterInput {
     func viewDidLoad()
@@ -15,6 +16,7 @@ protocol TriggeringPresenterInput {
 }
 
 protocol TriggeringUI: class {
+    func initializeTabBarItems(with items: [UIViewController])
     func setTitleForSelectedItem()
 }
 
@@ -32,7 +34,8 @@ struct TriggeringPresenter {
 
 extension TriggeringPresenter: TriggeringPresenterInput {
     func viewDidLoad() {
-        self.view?.setTitleForSelectedItem()
+        let viewControllers = self.wireframe.showTriggeringViewControllers()
+        self.view?.initializeTabBarItems(with: viewControllers)
     }
     
     func userDidTapSettings() {
