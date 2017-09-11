@@ -37,7 +37,7 @@ class OrchextraWrapper {
         let session = Session.shared
         let configInteractor = ConfigInteractor()
         let triggerManager = TriggerManager()
-
+        
         self.init(session: session,
                   configInteractor: configInteractor,
                   triggerManager: triggerManager)
@@ -61,9 +61,10 @@ class OrchextraWrapper {
         self.session.apiSecret = apiSecret
         self.startCompletion = completion
 
-        self.openProximity()
-        self.openEddystone()
-
+        //TODO: Handle apikey y apisecret
+        self.session.save(accessToken: nil)
+        
+//        self.openProximity()
         completion(.success(true))
     
         // Start configuration
