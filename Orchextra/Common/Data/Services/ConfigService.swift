@@ -68,9 +68,7 @@ class ConfigService: ConfigServiceInput {
         self.authInteractor.sendRequest(request: request) { response in
             switch response {
             case .success(let json):
-                guard let geoMarketing = json["geoMarketing"] else {return}
-                
-                completion(.success(geoMarketing))
+                completion(.success(json))
 
             case .error(let error):
                 LogError(error as NSError)

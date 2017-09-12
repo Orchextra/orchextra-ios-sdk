@@ -29,6 +29,7 @@ class OrchextraWrapper {
     
     var scanner: ModuleInput?
     var proximity: ModuleInput?
+    var eddystone: ModuleInput?
     
     // MARK: - Methods Wrapper
     
@@ -63,7 +64,8 @@ class OrchextraWrapper {
         //TODO: Handle apikey y apisecret
         self.session.save(accessToken: nil)
         
-        self.openProximity()
+//        self.openProximity()
+        self.openEddystone()
         completion(.success(true))
     
         // Start configuration
@@ -93,9 +95,45 @@ class OrchextraWrapper {
         self.proximity?.outputModule = self.moduleOutputWrapper
         self.proximity?.start()
     }
-
+    
     func setProximity(proximityModule: ModuleInput) {
         self.proximity = proximityModule
         self.proximity?.outputModule = self.moduleOutputWrapper
     }
+    
+    // MARK: - Eddystone
+
+    func openEddystone() {
+        if self.eddystone == nil {
+            self.eddystone = EddystoneModule()
+        }
+        self.eddystone?.outputModule = self.moduleOutputWrapper
+        self.eddystone?.start()
+    }
+    
+    func setEddystone(eddystoneModule: ModuleInput) {
+        self.eddystone = eddystoneModule
+        self.eddystone?.outputModule = self.moduleOutputWrapper
+    }
+    
+    
+//    func getProximity() -> [String: Any]? {
+//        guard let geomarketingFile = self.jsonFrom(
+//            filename: "geomarketing")else {
+//                return nil
+//        }
+//        
+//        return geomarketingFile
+//    }
+//    
+//    func getEddystone() -> [String: Any]? {
+//        guard let eddystoneFile = self.jsonFrom(
+//            filename: "eddystone")else {
+//                return nil
+//        }
+//        
+//        return eddystoneFile
+//    }
+    
+
 }

@@ -50,13 +50,11 @@ class ConfigInteractor: ConfigInteractorInput {
         self.configService.configProximity(geoLocation: geolocation) { result in
             switch result {
                 case .success(let json):
-                    guard let geomarketingResult = json.toArray() else {
-                        completion([ "geoMarketing": [] ])
+                    guard let proximityResult = json.toDictionary() else {
+                        completion([ : ])
                         return
                     }
-                    let geomarketing = ["geoMarketing" : geomarketingResult]
-                    completion(geomarketing)
-                
+                    completion(proximityResult)
                 case .error: break
             }
         }

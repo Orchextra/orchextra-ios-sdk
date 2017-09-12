@@ -39,5 +39,5 @@ public protocol ModuleOutput {
     /// - Parameters:
     ///   - config: params to get the config from the core
     ///   - completion: the configuration response for the module
-    func setConfig(config: [String : Any], completion: @escaping (([String : Any]) -> Void))
+    func setConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void))
 }

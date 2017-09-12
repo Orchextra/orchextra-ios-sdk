@@ -22,4 +22,8 @@ class ModuleOutputMock: ModuleOutput {
         self.spyTriggerWasFireModuleInput = module
         self.expectation?.fulfill()
     }
+    
+    func setConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void)) {
+        
+    }
 }

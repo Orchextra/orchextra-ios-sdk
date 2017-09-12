@@ -33,7 +33,7 @@ class TriggerManagerTests: XCTestCase {
         self.triggerManager = TriggerManager(interactor: TriggerInteractor(),
                                              actionManager: self.actionManager)
         self.triggerManager.module = self.moduleInput
-        self.moduleInput.outputModule = self.triggerManager
+        self.moduleInput.outputModule = ModuleOutputMock()
     }
     
     override func tearDown() {
