@@ -56,9 +56,11 @@ class OrchextraWrapper {
         LogInfo(" ---  LOADED PROJECT WITH: ---")
         LogInfo(" ---  Apikey: \(apiKey)")
         LogInfo(" ---  Apisecret: \(apiSecret)")
+        
+        self.session.credentials(apiKey: apiKey, apiSecret: apiSecret)
 
-        self.session.apiKey = apiKey
-        self.session.apiSecret = apiSecret
+//        self.session.apiKey = apiKey
+//        self.session.apiSecret = apiSecret
         self.startCompletion = completion
 
         //TODO: Handle apikey y apisecret
