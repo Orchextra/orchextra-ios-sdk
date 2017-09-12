@@ -52,7 +52,9 @@ class ProximityModule: ModuleInput {
         }
     }
     
-    func parseGeoMarketing(params: [String : Any]) {
+    // MARK: - Private
+   
+    private func parseGeoMarketing(params: [String : Any]) {
         guard let geofences = params["geoMarketing"] as? Array<[String: Any]> else {
             LogWarn("There aren't geofence to configure in proximity module")
             return

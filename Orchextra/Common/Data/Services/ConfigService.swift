@@ -53,7 +53,6 @@ class ConfigService: ConfigServiceInput {
                 LogError(response.error)
                 completion(.error(error))
                 break
-                
             }
         }
     }
@@ -70,6 +69,7 @@ class ConfigService: ConfigServiceInput {
             switch response {
             case .success(let json):
                 guard let geoMarketing = json["geoMarketing"] else {return}
+                
                 completion(.success(geoMarketing))
 
             case .error(let error):

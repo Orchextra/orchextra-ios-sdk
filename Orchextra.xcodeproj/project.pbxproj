@@ -285,6 +285,7 @@
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
 		A95A60EC1F6279ED006EADBB /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapper.swift; path = Managers/ModuleOutputWrapper.swift; sourceTree = "<group>"; };
+		A95A60F01F66EAF6006EADBB /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Home.gpx; path = Geopoints/Home.gpx; sourceTree = "<group>"; };
 		A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerManagerTests.swift; path = Modules/Manager/TriggerManagerTests.swift; sourceTree = "<group>"; };
 		A95E67DE1F5D5AFA001D8B19 /* TriggerFactoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerFactoryTests.swift; sourceTree = "<group>"; };
 		A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInputMock.swift; path = Mocks/Modules/ScannerMocks/ModuleInputMock.swift; sourceTree = "<group>"; };
@@ -1078,6 +1079,7 @@
 			isa = PBXGroup;
 			children = (
 				A9CF47301F60209400B918C8 /* Gigigo_Office.gpx */,
+				A95A60F01F66EAF6006EADBB /* Home.gpx */,
 			);
 			name = Geopoints;
 			sourceTree = "<group>";
