@@ -25,11 +25,13 @@ class EddystoneProtocolParser {
     
     init(
         requestWaitTime: Int,
-        availableRegions: [EddystoneRegion]
+        availableRegions: [EddystoneRegion],
+        output: EddystoneOutput?
         ) {
         self.requestWaitTime = requestWaitTime
         self.regionManager = EddystoneRegionManager(
-            availableRegions: availableRegions
+            availableRegions: availableRegions,
+            output: output
         )
     }
     

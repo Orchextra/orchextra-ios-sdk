@@ -50,7 +50,10 @@ class TriggerFactory {
          let triggers = [
             TriggerQR.trigger(from: externalValues),
             TriggerBarcode.trigger(from: externalValues),
-            TriggerGeofence.trigger(from: externalValues)]
+            TriggerGeofence.trigger(from: externalValues),
+            TriggerEddystoneRegion.trigger(from: externalValues),
+            TriggerEddystoneBeacon.trigger(from: externalValues)
+        ]
         
         return triggers.reduce(nil) { $1 ?? $0 }
     }
