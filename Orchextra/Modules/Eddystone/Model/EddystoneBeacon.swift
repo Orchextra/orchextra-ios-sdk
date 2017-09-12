@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum proximity: Int {
-    case unknown
-    case inmediate
-    case near
-    case far
+enum proximity: String {
+    case unknown = "unknown"
+    case inmediate = "inmediate"
+    case near = "near"
+    case far = "far"
 }
 
 class EddystoneBeacon: NSObject {
@@ -54,8 +54,6 @@ class EddystoneBeacon: NSObject {
     init(peripheralId:UUID, requestWaitTime: Int) {
         self.peripheralId = peripheralId
         self.requestWaitTime = requestWaitTime
-        
-        super.init()
     }
     
     func updateRssiBuffer(rssi: Int8) {

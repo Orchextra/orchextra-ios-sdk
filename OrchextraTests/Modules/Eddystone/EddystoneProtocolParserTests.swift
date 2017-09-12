@@ -16,9 +16,6 @@ class EddystoneProtocolParserTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
-//        let validatorActionInteractor = ORCValidatorActionInterator()
-//        let actionInterface = ORCACtionInterfaceMock()
         let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
         let eddystoneRegion: EddystoneRegion = EddystoneRegion(
             uid: uid,
@@ -30,9 +27,8 @@ class EddystoneProtocolParserTests: XCTestCase {
         let availableRegions = [eddystoneRegion]
         self.eddystoneProtocolParser = EddystoneProtocolParser(
             requestWaitTime: 120,
-//            validatorInteractor: validatorActionInteractor,
-            availableRegions: availableRegions/*,
-            actionInterface: actionInterface*/
+            availableRegions: availableRegions,
+            output: nil // TODO: Mock this moduleOutput
         )
         peripheralId = UUID(uuidString:"4B9F9513-2877-77B1-5B9F-A198CCF814DF")
         rssi = -32

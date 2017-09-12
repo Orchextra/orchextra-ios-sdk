@@ -33,7 +33,6 @@ class EddystoneModule: ModuleInput {
     func start() {
         self.outputModule?.setConfig(config: nil, completion: { config in
             self.parseEddystone(params: config)
-            self.eddystoneWrapper.startEddystoneScanner()
         })
     }
     

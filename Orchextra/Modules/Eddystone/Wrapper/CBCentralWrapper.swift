@@ -49,20 +49,23 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     var startScannerBackgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     var stopScannerBackgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
     
+    // MARK: - EddystoneInput protocol methods
     func register(regions: [EddystoneRegion], with requestWaitTime: Int) {
-        
+        self.requestWaitTime = requestWaitTime
+        self.availableRegions = regions
+        self.startEddystoneScanner()
     }
     
     func startEddystoneScanner() {
-        
+        self.startScanner()
     }
     
     func stopEddystoneScanner() {
+        self.stopScanner()
     }
-
     
     // MARK: Public methods
-     override init() {
+    override init() {
         let centralManagerQueue = DispatchQueue(label:"centralManagerQueue", qos: .userInitiated)
         self.centralManagerQueue = centralManagerQueue
         self.scannerStarted = false
@@ -70,7 +73,6 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         self.availableRegions = [EddystoneRegion]()
         self.requestWaitTime = EddystoneConstants.defaultRequestWaitTime
         super.init()
-        
         self.initializeCentralManager()
         
         NotificationCenter.default.addObserver(
@@ -138,7 +140,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         let timeToStartScanner = self.timeToStartScanner()
         self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
             
-           LogDebug("---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
+            LogDebug("---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
             self.endStopScannerTask()
         })
         
@@ -148,7 +150,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
                 Thread.sleep(forTimeInterval: 1)
                 secondsToStartScanner+=1
                 
-               LogDebug("Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+                LogDebug("Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
             }
             
             self.endStopScannerTask()
@@ -193,19 +195,41 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     }
     
     private func validateAction(beacon: EddystoneBeacon) {
-        DispatchQueue.main.async {
-//            self.validatorInteractor.validateProximity(with: beacon, completion: {(action, error) in
-//                guard let actionNotNil = action else { return }
-//                
-//                actionNotNil.launchedByTriggerCode = beacon.uid?.uidCompossed
-//                self.actionInterface.didFireTrigger(with: action)
-//            })
+        DispatchQueue.global().async {
+            guard let outputBeaconValues = self.handleOutputBeacon(for: beacon) else { return }
+            self.output?.sendTriggerToCoreWithValues(values: outputBeaconValues)
         }
     }
     
+    // MARK: - Method to generate beacon output
+    private func handleOutputBeacon(for beacon: EddystoneBeacon) -> [String: Any]? {
+        guard let uid = beacon.uid,
+            let instance = uid.instance,
+            let url = beacon.url else  { return nil }
+        
+        LogDebug("\(String(describing: beacon.uid?.uidCompossed)) \(beacon.proximity.rawValue)")
+        var outputDic: [String: Any] = ["type" : "eddystone",
+                                        "value" : uid.uidCompossed,
+                                        "namespace" : uid.namespace,
+                                        "instance" : instance,
+                                        "distance" : beacon.proximity.rawValue,
+                                        "url" : url.description]
+        
+        if let batteryPercentage = beacon.telemetry?.batteryPercentage {
+            outputDic["battery"] = batteryPercentage.description
+        }
+        
+        if let temperature = beacon.telemetry?.temperature {
+            outputDic["temperature"] = temperature.description
+        }
+        
+        return outputDic
+    }
+    
+    
     fileprivate func sendInfoForBeaconsDetected() {
-         _ = self.beaconList.filter(self.beaconIsValidToSentAction)
-                            .map(self.validateAction)
+        _ = self.beaconList.filter(self.beaconIsValidToSentAction)
+            .map(self.validateAction)
     }
     
     // MARK: Private scan methods
@@ -219,7 +243,8 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         if self.eddystoneParser == nil {
             self.eddystoneParser = EddystoneProtocolParser(
                 requestWaitTime: self.requestWaitTime,
-                availableRegions: self.availableRegions)
+                availableRegions: self.availableRegions,
+                output: self.output)
         }
         self.centralManager?.scanForPeripherals(withServices: services, options: options)
     }
@@ -257,7 +282,7 @@ extension CBCentralWrapper: CBCentralManagerDelegate {
             self.stopScanner()
         } else if !self.scannerStarted,
             centralManager.state == .poweredOn {
-            self.startScanner()
+            self.startEddystoneScanner()
         }
     }
     

@@ -11,22 +11,16 @@ import GIGLibrary
 
 class EddystoneRegionManager {
     // MARK: Properties
-//    let actionInterface: ORCActionInterface
+    let output: EddystoneOutput?
     let availableRegions: [EddystoneRegion]
-//    let validatorInteractor: ORCValidatorActionInterator
     var regionsEntered: [EddystoneRegion]
     var regionsExited: [EddystoneRegion]
     var beaconsDetected: [EddystoneBeacon]
     
     // MARK: Initializer
-    init(
-        availableRegions: [EddystoneRegion]//,
-//        validatorInteractor: ORCValidatorActionInterator,
-//        actionInterface: ORCActionInterface
-        ) {
+    init(availableRegions: [EddystoneRegion], output: EddystoneOutput?) {
+        self.output = output
         self.availableRegions = availableRegions
-//        self.validatorInteractor = validatorInteractor
-//        self.actionInterface = actionInterface
         self.regionsEntered = [EddystoneRegion]()
         self.regionsExited = [EddystoneRegion]()
         self.beaconsDetected = [EddystoneBeacon]()
@@ -93,13 +87,20 @@ class EddystoneRegionManager {
     
     private func validateAction(for region: EddystoneRegion, event: String) {
         DispatchQueue.main.async {
-//            self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
-//                guard let actionNotNil = action else { return }
-//                LogInfo("\(event) \(region.uid.namespace)")
-//                actionNotNil.launchedByTriggerCode = region.code
-//                self.actionInterface.didFireTrigger(with: actionNotNil)
-//            })
+            let outputRegionValues = self.handleOutputRegion(for: region, event: event)
+            self.output?.sendTriggerToCoreWithValues(values: outputRegionValues)
         }
+    }
+    
+    // MARK: - Method to generate region output
+    private func handleOutputRegion(for region: EddystoneRegion, event: String) -> [String: Any] {
+        LogDebug("\(event) \(region.uid.namespace)")
+        let outputDic = ["type" : "eddystone_region",
+                         "value" : region.code,
+                         "namespace" : region.uid.namespace,
+                         "event" : region.regionEvent.rawValue]
+        
+        return outputDic
     }
     
     private func updateRegions() {
@@ -113,6 +114,7 @@ class EddystoneRegionManager {
     }
     
     private func isNotDetected(region: EddystoneRegion) -> Bool {
+        // TODO: convert to functional
         var isNotDetected = true
         for beacon in self.beaconsDetected {
             if beacon.uid?.namespace == region.uid.namespace {

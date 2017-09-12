@@ -146,7 +146,6 @@ class TriggerViewModelFactory {
             seventhLabelRightText: nil,
             eighthLabelLeftText: nil,
             eighthLabelRightText: nil)
-
     }
     
     static func beaconRegionTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
@@ -173,7 +172,6 @@ class TriggerViewModelFactory {
             seventhLabelRightText: nil,
             eighthLabelLeftText: nil,
             eighthLabelRightText: nil)
-
     }
     
     static func eddystoneBeaconTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
@@ -182,6 +180,9 @@ class TriggerViewModelFactory {
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
+        let namespace =  trigger.urlParams()["namespace"] as? String
+        let instance =  trigger.urlParams()["instance"] as? String
+        let event =  trigger.urlParams()["distance"] as? String
         
         return TriggerViewModel(
             imageData: imageData,
@@ -192,14 +193,14 @@ class TriggerViewModelFactory {
             thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
-            fifthLabelLeftText: nil,
-            fifthLabelRightText: nil,
-            sixthLabelLeftText: nil,
-            sixthLabelRightText: nil,
+            fifthLabelLeftText: "Namespace :",
+            fifthLabelRightText: namespace,
+            sixthLabelLeftText: "Instance :",
+            sixthLabelRightText: instance,
             seventhLabelLeftText: nil,
             seventhLabelRightText: nil,
-            eighthLabelLeftText: nil,
-            eighthLabelRightText: nil)
+            eighthLabelLeftText: "Event :",
+            eighthLabelRightText: event)
         
     }
     
@@ -209,6 +210,8 @@ class TriggerViewModelFactory {
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
+        let namespace =  trigger.urlParams()["namespace"] as? String
+        let event =  trigger.urlParams()["event"] as? String
         
         return TriggerViewModel(
             imageData: imageData,
@@ -219,14 +222,14 @@ class TriggerViewModelFactory {
             thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
-            fifthLabelLeftText: nil,
-            fifthLabelRightText: nil,
+            fifthLabelLeftText: "Namespace: ",
+            fifthLabelRightText: namespace,
             sixthLabelLeftText: nil,
             sixthLabelRightText: nil,
             seventhLabelLeftText: nil,
             seventhLabelRightText: nil,
-            eighthLabelLeftText: nil,
-            eighthLabelRightText: nil)
+            eighthLabelLeftText: "Event :",
+            eighthLabelRightText: event)
     }
     
     static func geofenceTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
