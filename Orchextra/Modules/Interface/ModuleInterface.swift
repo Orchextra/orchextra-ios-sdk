@@ -41,3 +41,14 @@ public protocol ModuleOutput {
     ///   - completion: the configuration response for the module
     func setConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void))
 }
+
+
+extension ModuleOutput {
+    
+    /// Set Config
+    ///
+    /// - Parameters:
+    ///   - config: params to get the config from the core
+    ///   - completion: the configuration response for the module
+    func setConfig(config: [String : Any]? = nil, completion: @escaping (([String : Any]) -> Void)) { }
+}

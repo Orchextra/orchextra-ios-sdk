@@ -32,8 +32,10 @@ class LocalNotification: NSObject {
                 let comp = Calendar.current.dateComponents([.hour, .minute], from: deliveryDate)
                 trigger = UNCalendarNotificationTrigger(dateMatching: comp, repeats: false)
             }
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-            center.add(request)
+            if let id = userInfo?["id"] as? String {
+                let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+                center.add(request)
+            }
             
         } else {
             
@@ -48,9 +50,17 @@ class LocalNotification: NSObject {
             
             notification.soundName = UILocalNotificationDefaultSoundName
             UIApplication.shared.scheduleLocalNotification(notification)
-            
         }
         
         LogDebug("Will dispatch notification at \(String(describing: date))")
+    }
+    
+    func removeLocalNotification(id: String) {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.removePendingNotificationRequests(withIdentifiers: [id])
+        } else {
+   
+        }
     }
 }

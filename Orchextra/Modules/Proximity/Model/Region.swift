@@ -15,7 +15,6 @@ enum RegionType: String {
     case geofence = "geofence"
 }
 
-
 protocol Region {
     
     var code: String {get set}
@@ -36,10 +35,10 @@ class RegionFactory {
         return trigger
     }
     
-    class func region(from config: [String: Any]) -> Region? {
-        let triggers = [
-            Geofence.region(from: config)]
-        
-        return triggers.reduce(nil) { $1 ?? $0 }
+    class func beacon(from config: [String: Any]) -> Region? {
+        guard let trigger = Beacon.region(from: config) else {
+            return nil
+        }
+        return trigger
     }
 }

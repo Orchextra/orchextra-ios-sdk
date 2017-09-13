@@ -102,8 +102,15 @@ class LocationWrapper: NSObject, LocationInput {
                 
                 if  monitoringAvailable && !monitored {
                     self.locationManager.startMonitoring(for: clRegion)
+                    self.isRangingAvailable(beacon: clRegion)
                 }
             }
+        }
+    }
+    
+    private func isRangingAvailable(beacon: CLRegion) {
+        if CLLocationManager.isRangingAvailable(), let beaconRegion = beacon as? CLBeaconRegion{
+            self.locationManager.startRangingBeacons(in: beaconRegion)
         }
     }
     

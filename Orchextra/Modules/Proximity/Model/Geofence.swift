@@ -48,7 +48,13 @@ struct Geofence: Region {
     }
     
     func prepareCLRegion() -> CLRegion? {
-        return CLCircularRegion(center: self.center, radius: self.radius, identifier: self.code)
+        
+        let region = CLCircularRegion(center: self.center, radius: self.radius, identifier: self.code)
+        
+        if let notifyOnExit = self.notifyOnExit { region.notifyOnExit = notifyOnExit }
+        if let notifyOnEntry = self.notifyOnEntry { region.notifyOnEntry = notifyOnEntry }
+        
+        return region
     }
 }
 

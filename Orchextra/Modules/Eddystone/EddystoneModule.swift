@@ -31,7 +31,7 @@ class EddystoneModule: ModuleInput {
     
     // Start monitoring the regions
     func start() {
-        self.outputModule?.setConfig(config: nil, completion: { config in
+        self.outputModule?.setConfig( completion: { config in
             self.parseEddystone(params: config)
             self.eddystoneWrapper.startEddystoneScanner()
         })
