@@ -87,7 +87,7 @@ class FilterInteractor {
 
 extension FilterInteractor: FilterInteractorInput {
     func retrieveFilters() -> [Filter] {
-        return self.filters
+        return self.filters.sorted { $0.index < $1.index }
     }
     
     func update(filter: Filter, at position: Int) {

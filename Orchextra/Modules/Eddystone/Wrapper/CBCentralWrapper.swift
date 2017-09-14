@@ -120,18 +120,17 @@ class CBCentralWrapper: NSObject, EddystoneInput {
                 self.endStartScannerTask()
             })
             
-            DispatchQueue.global().async(execute: {
+            DispatchQueue.global(qos: .background).async {
                 self.performStartScanner()
-                
                 while secondsToStopScanner < EddystoneConstants.timeToStopScanner {
                     Thread.sleep(forTimeInterval: 1)
                     secondsToStopScanner+=1
                     
-                    LogDebug("Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+//                    LogDebug("Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
                 }
                 
                 self.endStartScannerTask()
-            })
+            }
         }
     }
     
@@ -139,22 +138,20 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         var secondsToStartScanner: Int = 0
         let timeToStartScanner = self.timeToStartScanner()
         self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
-            
             LogDebug("---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
             self.endStopScannerTask()
         })
         
-        DispatchQueue.global().async(execute: {
+        DispatchQueue.global(qos: .background).async {
             self.performStopScanner()
             while secondsToStartScanner < timeToStartScanner {
                 Thread.sleep(forTimeInterval: 1)
                 secondsToStartScanner+=1
-                
-                LogDebug("Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+//                LogDebug("Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
             }
             
             self.endStopScannerTask()
-        })
+        }
     }
     
     // MARK: Private utilities
@@ -195,7 +192,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     }
     
     private func validateAction(beacon: EddystoneBeacon) {
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos: .background).async {
             guard let outputBeaconValues = self.handleOutputBeacon(for: beacon) else { return }
             self.output?.sendTriggerToCoreWithValues(values: outputBeaconValues)
         }
@@ -274,7 +271,6 @@ class CBCentralWrapper: NSObject, EddystoneInput {
 }
 
 extension CBCentralWrapper: CBCentralManagerDelegate {
-    
     // MARK: CBCentralManagerDelegate methods
     func centralManagerDidUpdateState(_ centralManager: CBCentralManager) -> Void {
         if self.scannerStarted,
@@ -291,7 +287,6 @@ extension CBCentralWrapper: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        
         guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [AnyHashable : Any] else { return }
         
         let serviceUUID:String = EddystoneConstants.serviceUUID
@@ -306,9 +301,9 @@ extension CBCentralWrapper: CBCentralManagerDelegate {
                               peripheralId: peripheralId,
                               rssi: rssi)
         self.beaconList = eddystoneParser.parseServiceInformation()
-        
-        DispatchQueue.global().async(execute: {
+                
+        DispatchQueue.global(qos: .background).async {
             self.sendInfoForBeaconsDetected()
-        })
+        }
     }
 }
