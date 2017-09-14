@@ -41,7 +41,7 @@ NSString * const ORCCoreBluetoothStop = @"core_bluetooth_stop";
 
 #pragma mark - SDK
     
-NSString * const ORCSDKVersion = @"2.1.5";
+NSString * const ORCSDKVersion = @"2.1.7";
 
 #pragma mark - Network
 
@@ -50,9 +50,7 @@ NSString * const ORCNetworkVersion = @"v1";
 BOOL ORCUseFixtures = NO;
 BOOL ORCShowLogs = NO;
 
-//NSString * const ORCNetworkHost = @"https://sdk.orchextra.io";
-
-NSString * const ORCNetworkHost = @"https://sdk-demo-1.s.orchextra.io";
+NSString * const ORCNetworkHost = @"https://sdk.orchextra.io";
 
 #pragma mark 
 
