@@ -38,7 +38,8 @@ extension LogsInteractor: LogsInteractorInput {
         
         filtersSelected.forEach { (filter) in
             triggersFiltered = triggersFired.filter { (trigger) in
-                return (trigger.trigger.triggerId == filter.id)
+                let filterFound = (trigger.trigger.triggerId == filter.id)
+                return filterFound
             }
         }
         

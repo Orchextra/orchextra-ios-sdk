@@ -74,8 +74,8 @@ extension LogsPresenter: LogsPresenterInput {
     }
     
     func tableViewElements() -> [TriggerFired] {
-        let triggers = TriggersManager.shared.triggersFired
-        return triggers
+        let elements = self.interactor.retrieveTriggersLaunched()
+        return elements
     }
     
     func triggerListHasBeenUpdated() {

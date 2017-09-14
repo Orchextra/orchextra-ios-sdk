@@ -15,7 +15,7 @@ enum proximity: String {
     case far = "far"
 }
 
-class EddystoneBeacon: NSObject {
+class EddystoneBeacon {
     // MARK: Public properties
     var peripheralId: UUID?
     var rangingData: Int8? // Calibrated Tx power at 0 m
@@ -89,7 +89,7 @@ class EddystoneBeacon: NSObject {
         let timerTimeInterval = TimeInterval(self.requestWaitTime)
         self.proximityTimer = Timer.scheduledTimer(timeInterval: timerTimeInterval,
                                                    target: self,
-                                                   selector: #selector(resetProximityTimer),
+                                                   selector: #selector(self.resetProximityTimer),
                                                    userInfo: nil,
                                                    repeats: false)
         
@@ -98,7 +98,7 @@ class EddystoneBeacon: NSObject {
         RunLoop.current.run()
     }
     
-    func resetProximityTimer() {
+    @objc func resetProximityTimer() {
         self.proximityTimer?.invalidate()
         self.proximityTimer = nil
     }

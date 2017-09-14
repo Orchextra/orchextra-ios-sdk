@@ -121,5 +121,5 @@ struct EddystoneConstants {
     static let coreBluetoothStop:                        String = "core_bluetooth_stop"
     
     // REQUEST WAIT TIME
-    static let defaultRequestWaitTime:                   Int    = 120
+    static let defaultRequestWaitTime:                   Int    = 0
 }

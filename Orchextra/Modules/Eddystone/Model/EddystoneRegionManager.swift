@@ -31,7 +31,7 @@ class EddystoneRegionManager {
         //TODO: Convert to functional
         for region in availableRegions {
             if region.uid.namespace == beacon.uid?.namespace {
-                if !self.beaconsDetected.contains(beacon) {
+                if !self.beaconsDetected.contains { $0.uid?.uidCompossed == beacon.uid?.uidCompossed } {
                     self.beaconsDetected.append(beacon)
                 }
                 self.regionDidEnter(region: region)
@@ -86,7 +86,7 @@ class EddystoneRegionManager {
     }
     
     private func validateAction(for region: EddystoneRegion, event: String) {
-        DispatchQueue.main.async {
+        DispatchQueue.global(qos: .background).async {
             let outputRegionValues = self.handleOutputRegion(for: region, event: event)
             self.output?.sendTriggerToCoreWithValues(values: outputRegionValues)
         }

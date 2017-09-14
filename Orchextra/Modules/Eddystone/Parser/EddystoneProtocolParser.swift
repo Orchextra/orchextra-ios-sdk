@@ -66,7 +66,7 @@ class EddystoneProtocolParser {
         self.currentBeacon?.updateRssiBuffer(rssi: Int8(rssi))
         self.currentFrameType = EddystoneDecoder.frameType(frameBytes)
         self.parseInformationForFrameType()
-        
+    
         return self.regionManager.beaconsDetected
     }
     
@@ -124,7 +124,6 @@ class EddystoneProtocolParser {
         default:
             assert(true, "Invalid frame type")
         }
-        
         self.addBeaconIfNeeded()
     }
     
