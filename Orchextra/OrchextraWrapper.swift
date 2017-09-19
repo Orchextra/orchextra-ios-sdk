@@ -102,7 +102,6 @@ class OrchextraWrapper {
     }
     
     // MARK: - Eddystone
-
     func openEddystone() {
         if self.eddystone == nil {
             self.eddystone = EddystoneModule()
@@ -116,6 +115,10 @@ class OrchextraWrapper {
         self.eddystone?.outputModule = self.moduleOutputWrapper
     }
     
+    public func openEddystone(with completionHandler: (UIBackgroundFetchResult) -> Void) {
+        self.openEddystone()
+        completionHandler(.newData)
+    }
     
 //    func getProximity() -> [String: Any]? {
 //        guard let geomarketingFile = self.jsonFrom(

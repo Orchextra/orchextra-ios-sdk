@@ -52,6 +52,11 @@ class OrchextraWrapper {
     func openImageRecognition() {
         self.orchextra.openImageRecognition()
     }
+    
+     // MARK: - Eddystone
+    func openEddystone(with completionHandler: (UIBackgroundFetchResult) -> Void) {
+        self.orchextra.openEddystone(with: completionHandler)
+    }
 }
 
 extension OrchextraWrapper: ORXDelegate {

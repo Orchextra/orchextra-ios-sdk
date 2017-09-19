@@ -57,6 +57,8 @@ class ActionWebView: Action {
                 LogWarn("Url malformatted, we can't create action webview.")
                 return
         }
-        OrchextraWrapper.shared.wireframe.openWebView(url: url)
+        DispatchQueue.global().sync {
+            OrchextraWrapper.shared.wireframe.openWebView(url: url)
+        }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GIGLibrary
 
 enum proximity: String {
     case unknown = "unknown"
@@ -76,13 +77,22 @@ class EddystoneBeacon {
             let _ = self.uid?.instance,
             let _ = self.url,
             self.proximity != .unknown,
-            let _ = self.proximityTimer  else { return false }
+            (self.proximityTimer == nil) else { return false }
         return true
     }
     
-    func updateProximity(currentProximity: proximity) {
-        self.resetProximityTimer()
-        self.updateProximityTimer()
+    func updateProximity(currentProximity: proximity) -> EddystoneBeacon {
+        if self.proximity == .unknown && currentProximity != .unknown {
+           self.resetProximityTimer()
+        } else {
+            if (currentProximity != .unknown &&
+                (currentProximity != self.proximity || (self.proximityTimer == nil))) {
+                self.resetProximityTimer()
+                self.updateProximityTimer()
+            }
+        }
+        
+        return self
     }
     
     func updateProximityTimer() {
@@ -92,10 +102,6 @@ class EddystoneBeacon {
                                                    selector: #selector(self.resetProximityTimer),
                                                    userInfo: nil,
                                                    repeats: false)
-        
-        guard let timer = self.proximityTimer else { return }
-        RunLoop.current.add(timer, forMode: .commonModes)
-        RunLoop.current.run()
     }
     
     @objc func resetProximityTimer() {
