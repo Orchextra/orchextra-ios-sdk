@@ -39,7 +39,7 @@ class TriggerInteractor {
                 break
             case .error (let error):
                 self.output?.triggerDidFinishWithoutAction(triggerId: trigger.triggerId)
-                print("Trigger error: \(error.localizedDescription)")
+                LogDebug("Trigger error: \(error.localizedDescription)")
                 break
             }
         }

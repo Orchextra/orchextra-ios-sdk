@@ -58,6 +58,8 @@ class ActionBrowser: Action {
             LogWarn("Url malformatted, we can't create action webview.")
             return
         }
-        OrchextraWrapper.shared.wireframe.openBrowser(url: url)
+        DispatchQueue.global().sync {
+            OrchextraWrapper.shared.wireframe.openBrowser(url: url)
+        }
     }
 }
