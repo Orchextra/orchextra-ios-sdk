@@ -136,7 +136,11 @@ open class Orchextra {
     
     // MARK: Public submit SDK methods
     public func commitConfiguration() {}
-
+    
+     // MARK: Public fetch new eddystone information
+    public func openEddystone(with completionHandler: (UIBackgroundFetchResult) -> Void) {
+        OrchextraWrapper.shared.openEddystone(with: completionHandler)
+    }
     
     // MARK: Public trigger methods
     
@@ -168,6 +172,4 @@ open class Orchextra {
     public func handleNotification(userInfo: [String: Any]) {
         PushOrxManager.shared.handleNotification(userInfo: userInfo)
     }
-
-    
 }

@@ -25,11 +25,13 @@ class EddystoneProtocolParser {
     
     init(
         requestWaitTime: Int,
-        availableRegions: [EddystoneRegion]
+        availableRegions: [EddystoneRegion],
+        output: EddystoneOutput?
         ) {
         self.requestWaitTime = requestWaitTime
         self.regionManager = EddystoneRegionManager(
-            availableRegions: availableRegions
+            availableRegions: availableRegions,
+            output: output
         )
     }
     
@@ -64,7 +66,7 @@ class EddystoneProtocolParser {
         self.currentBeacon?.updateRssiBuffer(rssi: Int8(rssi))
         self.currentFrameType = EddystoneDecoder.frameType(frameBytes)
         self.parseInformationForFrameType()
-        
+    
         return self.regionManager.beaconsDetected
     }
     
@@ -107,26 +109,25 @@ class EddystoneProtocolParser {
         case .uid:
             guard let eddystoneUID = parseUIDInformation() else { return }
             self.currentBeacon?.uid = eddystoneUID
-            self.updateRangingData()
+            self.parseRangingData()
         case .url:
             guard let url = parseURLInformation() else { return }
             self.currentBeacon?.url = url
-            self.updateRangingData()
+            self.parseRangingData()
         case .telemetry:
             let telemetry = parseTelemetryInformation()
             self.currentBeacon?.telemetry = telemetry
         case .eid:
             guard let eid = parseEIDInformation() else { return }
             self.currentBeacon?.eid = eid
-            self.updateRangingData()
+            self.parseRangingData()
         default:
             assert(true, "Invalid frame type")
         }
-        
-        self.addBeaconIfNeeded()
+        self.updateBeaconList()
     }
     
-    private func updateRangingData() {
+    private func parseRangingData() {
         guard let serviceBytes = self.serviceBytes,
             let rangingData = parseRangingDataInformation(serviceBytes) else { return }
         self.currentBeacon?.rangingData = Int8(bitPattern: rangingData)
@@ -298,24 +299,21 @@ class EddystoneProtocolParser {
     }
     
     // MARK: Private (BeaconList)
-    fileprivate func addBeaconIfNeeded() -> Void {
-        // TODO: Convert to functional
-        var beaconUpdated: Bool = false
-        for beacon in self.regionManager.beaconsDetected {
-            if beacon.peripheralId == currentBeacon?.peripheralId ||
-                beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed {
-                
-                self.updateRssiBuffer(with: beacon)
-                self.updateRangingData(with: beacon)
-                self.updateProximity(with: beacon)
-                beaconUpdated = self.updateFrameTypeInformation(with: beacon)
+    fileprivate func updateBeaconList() -> Void {
+        var beaconsDetected: [EddystoneBeacon] = self.regionManager.beaconsDetected
+            .filter(self.isCurrentBeaconAlreadyDetected)
+            .map(self.updateRssiBuffer)
+            .map(self.updateRangingData)
+            .map(self.updateProximity)
+            .map(self.updateFrameTypeInformation)
+        
+        if beaconsDetected.count == 0 {
+            if let currentBeacon = self.currentBeacon {
+                beaconsDetected.append(currentBeacon)
             }
         }
         
-        guard let currentBeacon = self.currentBeacon,
-            beaconUpdated == false else { return }
-        
-        self.regionManager.addDetectedBeacon(beacon: currentBeacon)
+        self.regionManager.updateBeaconsDetected(with: beaconsDetected)
     }
     
     private func isCurrentBeaconAlreadyDetected(beacon: EddystoneBeacon) -> Bool {
@@ -323,66 +321,50 @@ class EddystoneProtocolParser {
             beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed
     }
     
-    private func updateDetectedBeacon(beacon: EddystoneBeacon) -> Bool {
-        self.updateRssiBuffer(with: beacon)
-        self.updateRangingData(with: beacon)
-        self.updateProximity(with: beacon)
-        return self.updateFrameTypeInformation(with: beacon)
-    }
-    
-    private func updateRangingData(with beacon: EddystoneBeacon) {
-        guard let rangingData = currentBeacon?.rangingData else { return }
+    private func updateRangingData(with beacon: EddystoneBeacon) -> EddystoneBeacon {
+        guard let rangingData = currentBeacon?.rangingData else { return beacon }
         beacon.rangingData = rangingData
+        return beacon
     }
     
-    private func updateRssiBuffer(with beacon: EddystoneBeacon) {
-        guard let rssiBuffer = currentBeacon?.rssiBuffer else { return }
+    private func updateRssiBuffer(with beacon: EddystoneBeacon) -> EddystoneBeacon {
+        guard let rssiBuffer = currentBeacon?.rssiBuffer else { return beacon }
         _ = rssiBuffer.map { _ in beacon.updateRssiBuffer }
+        return beacon
     }
     
-    private func updateProximity(with beacon: EddystoneBeacon) {
+    private func updateProximity(with beacon: EddystoneBeacon) -> EddystoneBeacon {
         guard let currentBeaconProximity = currentBeacon?.proximity,
-            currentBeaconProximity != .unknown else {
-                beacon.updateProximity(currentProximity: .unknown)
-                return
-        }
+            currentBeaconProximity != .unknown else { return beacon }
         
+        var beaconUpdated = beacon
         let beaconProximity = beacon.proximity
-        if currentBeaconProximity != beaconProximity {
-            beacon.updateProximity(currentProximity: currentBeaconProximity)
+        beaconUpdated = beaconUpdated.updateProximity(currentProximity: beaconProximity)
+        if currentBeaconProximity == beaconProximity {
+            guard let proximityTimer = currentBeacon?.proximityTimer else { return beaconUpdated }
+            beaconUpdated.proximityTimer = proximityTimer
+            if proximityTimer.fireDate <= Date() {
+                beaconUpdated.proximityTimer?.fire()
+            }
         }
-        
-        guard let currentBeaconProximityTimer = currentBeacon?.proximityTimer else {
-            beacon.updateProximity(currentProximity: currentBeaconProximity)
-            return
-        }
-        
-        beacon.proximityTimer = currentBeaconProximityTimer
-        if currentBeaconProximityTimer.fireDate <= Date() {
-            beacon.proximityTimer?.fire()
-        }
+    
+        return beaconUpdated
     }
     
-    private func updateFrameTypeInformation(with beacon: EddystoneBeacon) -> Bool {
-        var beaconUpdated: Bool = false
-        guard let type = currentFrameType else { return beaconUpdated }
+    private func updateFrameTypeInformation(with beacon: EddystoneBeacon) -> EddystoneBeacon {
+        guard let type = currentFrameType else { return beacon }
         switch type {
         case .unknown:
             assert(true, "Update not allowed")
         case .uid:
             beacon.uid = currentBeacon?.uid
-            beaconUpdated = true
         case .url:
             beacon.url = currentBeacon?.url
-            beaconUpdated = true
         case .telemetry:
             beacon.telemetry = currentBeacon?.telemetry
-            beaconUpdated = true
         case .eid:
             beacon.eid = currentBeacon?.eid
-            beaconUpdated = true
         }
-        
-        return beaconUpdated
+        return beacon
     }
 }

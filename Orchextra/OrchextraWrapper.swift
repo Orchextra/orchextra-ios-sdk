@@ -104,7 +104,6 @@ class OrchextraWrapper {
     }
     
     // MARK: - Eddystone
-
     func openEddystone() {
         if self.eddystone == nil {
             self.eddystone = EddystoneModule()

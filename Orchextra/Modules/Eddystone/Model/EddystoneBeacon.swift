@@ -7,15 +7,16 @@
 //
 
 import Foundation
+import GIGLibrary
 
-enum proximity: Int {
-    case unknown
-    case inmediate
-    case near
-    case far
+enum proximity: String {
+    case unknown = "unknown"
+    case inmediate = "inmediate"
+    case near = "near"
+    case far = "far"
 }
 
-class EddystoneBeacon: NSObject {
+class EddystoneBeacon {
     // MARK: Public properties
     var peripheralId: UUID?
     var rangingData: Int8? // Calibrated Tx power at 0 m
@@ -54,8 +55,6 @@ class EddystoneBeacon: NSObject {
     init(peripheralId:UUID, requestWaitTime: Int) {
         self.peripheralId = peripheralId
         self.requestWaitTime = requestWaitTime
-        
-        super.init()
     }
     
     func updateRssiBuffer(rssi: Int8) {
@@ -78,29 +77,34 @@ class EddystoneBeacon: NSObject {
             let _ = self.uid?.instance,
             let _ = self.url,
             self.proximity != .unknown,
-            let _ = self.proximityTimer  else { return false }
+            (self.proximityTimer == nil) else { return false }
         return true
     }
     
-    func updateProximity(currentProximity: proximity) {
-        self.resetProximityTimer()
-        self.updateProximityTimer()
+    func updateProximity(currentProximity: proximity) -> EddystoneBeacon {
+        if self.proximity == .unknown && currentProximity != .unknown {
+           self.resetProximityTimer()
+        } else {
+            if (currentProximity != .unknown &&
+                (currentProximity != self.proximity || (self.proximityTimer == nil))) {
+                self.resetProximityTimer()
+                self.updateProximityTimer()
+            }
+        }
+        
+        return self
     }
     
     func updateProximityTimer() {
         let timerTimeInterval = TimeInterval(self.requestWaitTime)
         self.proximityTimer = Timer.scheduledTimer(timeInterval: timerTimeInterval,
                                                    target: self,
-                                                   selector: #selector(resetProximityTimer),
+                                                   selector: #selector(self.resetProximityTimer),
                                                    userInfo: nil,
                                                    repeats: false)
-        
-        guard let timer = self.proximityTimer else { return }
-        RunLoop.current.add(timer, forMode: .commonModes)
-        RunLoop.current.run()
     }
     
-    func resetProximityTimer() {
+    @objc func resetProximityTimer() {
         self.proximityTimer?.invalidate()
         self.proximityTimer = nil
     }

@@ -21,6 +21,8 @@
 		8F1124021F5FE43C00609B4A /* CustomScannerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1123FF1F5FE43C00609B4A /* CustomScannerWireframe.swift */; };
 		8F13F0E11F5B0AC50028B1FF /* LogsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */; };
 		8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */; };
+		8F1CF3F01F67ECF000439F88 /* TriggerEddystoneRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */; };
+		8F1CF3F21F67ED0900439F88 /* TriggerEddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */; };
 		8F2042421F5E73BE00782D63 /* TriggerFired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042411F5E73BE00782D63 /* TriggerFired.swift */; };
 		8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042441F5E90AF00782D63 /* FilterVC.swift */; };
 		8F2042471F5E90C500782D63 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */; };
@@ -250,6 +252,8 @@
 		8F1123FF1F5FE43C00609B4A /* CustomScannerWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScannerWireframe.swift; sourceTree = "<group>"; };
 		8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsVC.swift; sourceTree = "<group>"; };
 		8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
+		8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEddystoneRegion.swift; sourceTree = "<group>"; };
+		8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEddystoneBeacon.swift; sourceTree = "<group>"; };
 		8F2042411F5E73BE00782D63 /* TriggerFired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerFired.swift; sourceTree = "<group>"; };
 		8F2042441F5E90AF00782D63 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterVC.swift; path = OrchextraApp/Sections/Triggering/Logs/Filter/FilterVC.swift; sourceTree = SOURCE_ROOT; };
 		8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
@@ -510,6 +514,14 @@
 				8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8F1542241F6BEE6F006E3F7A /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				8F0D4F7D1F558F9C003F3B39 /* WebKit.framework */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		8F2042401F5E73AC00782D63 /* Model */ = {
@@ -916,9 +928,11 @@
 			isa = PBXGroup;
 			children = (
 				A99886031F50450F00EED42E /* Trigger.swift */,
-				A99886051F5045DB00EED42E /* TriggerQR.swift */,
 				A99886071F504AB800EED42E /* TriggerBarcode.swift */,
+				8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */,
+				8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */,
 				A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */,
+				A99886051F5045DB00EED42E /* TriggerQR.swift */,
 			);
 			name = Triggers;
 			sourceTree = "<group>";
@@ -961,6 +975,7 @@
 				A9C54DC51F41A8E500DF2074 /* OrchextraApp */,
 				A9C54D981F41A6F100DF2074 /* Products */,
 				A9C54DB11F41A80500DF2074 /* Frameworks */,
+				8F1542241F6BEE6F006E3F7A /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1417,6 +1432,7 @@
 				8F299C5E1F6691060023F69D /* EddystoneProtocolParser.swift in Sources */,
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
 				8F299C5A1F6691060023F69D /* EddystoneRegion.swift in Sources */,
+				8F1CF3F21F67ED0900439F88 /* TriggerEddystoneBeacon.swift in Sources */,
 				A9986B2F1F59767C00F2CC65 /* ActionService.swift in Sources */,
 				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
 				8F299C561F6691060023F69D /* EddystoneModule.swift in Sources */,
@@ -1452,6 +1468,7 @@
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
 				A99885FD1F50353D00EED42E /* Action.swift in Sources */,
+				8F1CF3F01F67ECF000439F88 /* TriggerEddystoneRegion.swift in Sources */,
 				8F299C5F1F6691060023F69D /* CBCentralWrapper.swift in Sources */,
 				A9CF47321F6032F300B918C8 /* TriggerGeofence.swift in Sources */,
 				A9986B321F5976B600F2CC65 /* LocalNotification.swift in Sources */,

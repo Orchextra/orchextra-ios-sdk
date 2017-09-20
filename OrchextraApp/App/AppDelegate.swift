@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.setTabBarAppearance()
 		
 		self.setupApplivery()
+        UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
 		
 		return true
 	}
@@ -70,6 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			applivery.start(apiKey: apiKey, appId: appID, appStoreRelease: false)
 		#endif
 	}
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        OrchextraWrapper.shared.openEddystone(with: completionHandler)
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate  {

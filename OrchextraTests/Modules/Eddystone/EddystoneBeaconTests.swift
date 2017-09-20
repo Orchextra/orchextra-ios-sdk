@@ -68,7 +68,7 @@ class EddystoneBeaconTests: XCTestCase {
         self.updateBeaconWithUrl()
         self.updateBeaconWithRSSI()
         guard let canBeSentToValidateAction = self.beacon?.canBeSentToValidateAction() else { return }
-        XCTAssertFalse(canBeSentToValidateAction)
+        XCTAssertTrue(canBeSentToValidateAction)
     }
     
     func testcanBeSentToValidateActionUpdatingProximityTimer() {
@@ -83,7 +83,7 @@ class EddystoneBeaconTests: XCTestCase {
         self.updateBeaconWithRSSI()
         self.updateProximityTimer()
         guard let canBeSentToValidateAction = self.beacon?.canBeSentToValidateAction() else { return }
-        XCTAssertTrue(canBeSentToValidateAction)
+        XCTAssertFalse(canBeSentToValidateAction)
     }
     
     func testcanBeSentToValidateActionUpdatingTelemetry() {
@@ -99,7 +99,7 @@ class EddystoneBeaconTests: XCTestCase {
         self.updateProximityTimer()
         self.updateBeaconWithTelemetry()
         guard let canBeSentToValidateAction = self.beacon?.canBeSentToValidateAction() else { return }
-        XCTAssertTrue(canBeSentToValidateAction)
+        XCTAssertFalse(canBeSentToValidateAction)
     }
 
     
