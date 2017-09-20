@@ -35,7 +35,7 @@ class ProximityModule: ModuleInput {
     func start() {
         self.proximityWrapper.paramsCurrentUserLocation { params in
             self.outputModule?.setConfig(config: params, completion: { config in
-                self.parseGeoMarketing(params: config)
+                self.parseProximity(params: config)
             })
         }
     }
@@ -53,12 +53,27 @@ class ProximityModule: ModuleInput {
     }
     
     // MARK: - Private
-   
-    private func parseGeoMarketing(params: [String : Any]) {
-        guard let geofences = params["geoMarketing"] as? Array<[String: Any]> else {
-            LogWarn("There aren't geofence to configure in proximity module")
+    
+    private func parseProximity(params: [String : Any]) { 
+        guard
+            let geofences = params["geoMarketing"] as? Array<[String: Any]>,
+            let beacons = params["proximity"] as? Array<[String: Any]> else {
+            LogWarn("There aren't beacons or geofences to configure in proximity module")
             return
         }
+        var regionsInModule = [Region]()
+        
+        let geofencesModule = self.parseGeoMarketing(geofences: geofences)
+        let beaconsModule = self.parseBeacons(beacons: beacons)
+
+        regionsInModule.append(contentsOf: geofencesModule)
+        regionsInModule.append(contentsOf: beaconsModule)
+
+        self.proximityWrapper.register(regions: regionsInModule)
+        self.proximityWrapper.startMonitoring()
+    }
+   
+    private func parseGeoMarketing(geofences: Array<[String: Any]>) ->  [Region] {
         
         var geofencesInModule = [Region]()
         for geofence in geofences {
@@ -66,24 +81,18 @@ class ProximityModule: ModuleInput {
                 geofencesInModule.append(region)
             }
         }
-        self.proximityWrapper.register(regions: geofencesInModule)
-        self.proximityWrapper.startMonitoring()
+        return geofencesInModule
     }
     
-    private func parseBeacons(params: [String : Any]) {
-        guard let beacons = params["proximity"] as? Array<[String: Any]> else {
-            LogWarn("There aren't beacons to configure in proximity module")
-            return
-        }
-        
+    private func parseBeacons(beacons: Array<[String: Any]>) ->  [Region]  {
+
         var beaconsInModule = [Region]()
         for beacon in beacons {
             if let region = RegionFactory.beacon(from: beacon){
                 beaconsInModule.append(region)
             }
         }
-        self.proximityWrapper.register(regions: beaconsInModule)
-        self.proximityWrapper.startMonitoring()
+        return beaconsInModule
     }
 }
 

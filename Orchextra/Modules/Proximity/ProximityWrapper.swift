@@ -31,15 +31,18 @@ class ProximityWrapper: ProximityInput {
     
     var regions: [Region]?
     var locationWrapper: LocationInput
+    var storage: StorageProximity
     
     // MARK: - 
     
     convenience init() {
         let locationWrapper = LocationWrapper()
-        self.init(locationWrapper: locationWrapper)
+        let storage = StorageProximity()
+        self.init(locationWrapper: locationWrapper, storage: storage)
     }
     
-    init(locationWrapper: LocationInput) {
+    init(locationWrapper: LocationInput, storage: StorageProximity) {
+        self.storage = storage
         self.locationWrapper = locationWrapper
         self.locationWrapper.output = self
         _ = self.locationWrapper.needRequestAuthorization()
@@ -63,6 +66,8 @@ class ProximityWrapper: ProximityInput {
     
     func startMonitoring() {
         
+        let regions = self.storage.loadRegions()
+        
         DispatchQueue.background(delay: 0, background: {
             self.stopMonitoringAllRegions()
         }) {
@@ -75,6 +80,7 @@ class ProximityWrapper: ProximityInput {
             if !self.locationWrapper.needRequestAuthorization() {
                 self.locationWrapper.monitoring(regions: regions)
             }
+            self.storage.saveRegions(regions: self.regions)
             LogDebug("Finish start monitoring")
         }
     }

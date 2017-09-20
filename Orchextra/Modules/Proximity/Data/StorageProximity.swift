@@ -12,18 +12,24 @@ struct StorageProximity {
     
     private let keyGeomarketing = "keyGeomarketing"
     private let keyProximity = "keyProximity"
+    private let keyRegions = "keyRegions"
 
- 
     let userDefault: UserDefaults
-    
-    var listGeofences: [Geofence]?
-    var listBeacons: [Beacon]?
     
     init(userDefault: UserDefaults = UserDefaults()) {
         self.userDefault = userDefault
     }
     
     // MARK: - Geofences
+    
+    func saveRegions(regions: [Region]?) {
+        self.userDefault.archiveObject(regions, forKey: keyRegions)
+    }
+    
+    func loadRegions() -> [Region]? {
+        let regions = self.userDefault.unarchiveObject(forKey: keyRegions) as? [Region]
+        return regions
+    }
     
     func saveListGeofences(geofences: [Geofence]) {
         self.userDefault.archiveObject(geofences, forKey: keyGeomarketing)
@@ -42,5 +48,4 @@ struct StorageProximity {
     func loadListBeacons() -> [Beacon]? {
         return self.userDefault.unarchiveObject(forKey: keyProximity) as? [Beacon]
     }
-    
 }
