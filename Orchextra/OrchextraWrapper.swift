@@ -116,4 +116,9 @@ class OrchextraWrapper {
         self.eddystone = eddystoneModule
         self.eddystone?.outputModule = self.moduleOutputWrapper
     }
+    
+    public func openEddystone(with completionHandler: (UIBackgroundFetchResult) -> Void) {
+        self.openEddystone()
+        completionHandler(.newData)
+    }
 }
