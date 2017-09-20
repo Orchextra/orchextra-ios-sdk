@@ -116,29 +116,45 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     @objc func startScanner() -> Void {
         var secondsToStopScanner: Int = 0
         if self.isAvailableScanner() {
-            self.startScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
-                self.endStartScannerTask()
-            })
-            
-            DispatchQueue.global(qos: .background).async {
-                self.performStartScanner()
-                while secondsToStopScanner < EddystoneConstants.timeToStopScanner {
-                    Thread.sleep(forTimeInterval: 1)
-                    secondsToStopScanner+=1
-                    LogDebug("Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
-                }
-                
-                self.endStartScannerTask()
+            if self.startScannerBackgroundTask != UIBackgroundTaskInvalid {
+                UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
+                self.startScannerBackgroundTask = UIBackgroundTaskInvalid
             }
-        }
+            
+            UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
+            self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
+                self.startScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
+                    UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
+                    self.startScannerBackgroundTask = UIBackgroundTaskInvalid
+                })
+                
+                DispatchQueue.global(qos: .background).async {
+                    self.performStartScanner()
+                    while secondsToStopScanner < EddystoneConstants.timeToStopScanner {
+                        Thread.sleep(forTimeInterval: 1)
+                        secondsToStopScanner+=1
+                        LogDebug("Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+                    }
+                    
+                    self.endStartScannerTask()
+                }
+            }
     }
     
     @objc func stopScanner() -> Void {
+        UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
+        self.startScannerBackgroundTask = UIBackgroundTaskInvalid
+        
+        if self.stopScannerBackgroundTask != UIBackgroundTaskInvalid {
+            UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
+            self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
+        }
         var secondsToStartScanner: Int = 0
         let timeToStartScanner = self.timeToStartScanner()
-        self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
+        self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_stop_scanner, expirationHandler: {
             LogDebug("---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
-            self.endStopScannerTask()
+            UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
+            self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
         })
         
         DispatchQueue.global(qos: .background).async {
