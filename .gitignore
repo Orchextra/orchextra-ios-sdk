@@ -1,7 +1,9 @@
 # Xcode
 .DS_Store
+
 #build file
 build/
+
 #personal settings
 *.pbxuser
 !default.pbxuser
@@ -9,6 +11,7 @@ build/
 !default.mode1v3
 *.mode2v3
 !default.mode2v3
+
 #xcode state
 *.perspectivev3
 !default.perspectivev3
@@ -25,5 +28,10 @@ Carthage/Build/
 Carthage/Checkouts
 *.bcsymbolmap
 *.framework.dSYM*
+
+# Fastlane
 fastlane/test_output
 report.xml
+
+# Jenkins
+ci-scripts/
