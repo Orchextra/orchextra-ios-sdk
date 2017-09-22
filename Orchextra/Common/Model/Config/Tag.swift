@@ -109,24 +109,31 @@ extension String {
     /// Returns a substring with the given `NSRange`,
     /// or `nil` if the range can't be converted.
     func substring(with nsrange: NSRange) -> String? {
-        guard let range = nsrange.toRange()
-            else { return nil }
-        let start = UTF16Index(range.lowerBound)
-        let end = UTF16Index(range.upperBound)
-        return String(utf16[start..<end])
+        guard let range = Range(nsrange, in: self) else { return nil }
+        return self[range]
     }
     
     /// Returns a range equivalent to the given `NSRange`,
     /// or `nil` if the range can't be converted.
-    func range(from nsrange: NSRange) -> Range<Index>? {
-        guard let range = nsrange.toRange() else { return nil }
-        let utf16Start = UTF16Index(range.lowerBound)
-        let utf16End = UTF16Index(range.upperBound)
-        
-        guard let start = Index(utf16Start, within: self),
-            let end = Index(utf16End, within: self)
+//    func range(from nsrange: NSRange) -> Range<Index>? {
+//        guard let range = nsrange.toRange() else { return nil }
+//        let utf16Start = UTF16Index(range.lowerBound)
+//        let utf16End = UTF16Index(range.upperBound)
+//
+//        guard let start = Index(utf16Start, within: self),
+//            let end = Index(utf16End, within: self)
+//            else { return nil }
+//
+//        return start..<end
+//    }
+
+    func range(from nsRange: NSRange) -> Range<String.Index>? {
+        guard
+            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
+            let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
+            let from = String.Index(from16, within: self),
+            let to = String.Index(to16, within: self)
             else { return nil }
-        
-        return start..<end
+        return from ..< to
     }
 }

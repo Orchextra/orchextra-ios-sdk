@@ -30,8 +30,18 @@ class ProximityModule: ModuleInput {
     }
     
     // MARK: - ModuleInput methods
-    
-    // Start monitoring the regions
+
+    /**
+     Start monitoring the regions
+     
+     Proximity module requires location permission being enable by
+     the user to get the geomarketing triggers
+     
+     To enable location your app must include
+     NSLocationWhenInUseUsageDescription & NSLocationAlwaysAndWhenInUsageDescription keys in your app's Info.plist
+     
+     If your app supports iOS 10 and earlier, the NSLocationAlwaysUsageDescription key is also required
+     */
     func start() {
         self.proximityWrapper.paramsCurrentUserLocation { params in
             self.outputModule?.setConfig(config: params, completion: { config in
@@ -61,8 +71,8 @@ class ProximityModule: ModuleInput {
             LogWarn("There aren't beacons or geofences to configure in proximity module")
             return
         }
-        var regionsInModule = [Region]()
         
+        var regionsInModule = [Region]()
         let geofencesModule = self.parseGeoMarketing(geofences: geofences)
         let beaconsModule = self.parseBeacons(beacons: beacons)
 

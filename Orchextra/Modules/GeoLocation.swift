@@ -34,13 +34,14 @@ struct GeoLocation {
         let point = ["lat" : self.lat,
                      "lng" : self.lng]
         
-        let params: [String: Any] = ["country" : self.country ?? "",
-                      "countryCode" : self.countryCode ?? "",
-                      "locality" : self.locality ?? "",
-                      "zip" : self.zip ?? "",
-                      "street" : self.street ?? "",
-                      "point" : point]
-        
+        var params: [String: Any] = [String: Any]()
+        if let country = self.country { params["country"] = country }
+        if let countryCode = self.countryCode { params["countryCode"] = countryCode }
+        if let locality = self.locality { params["locality"] = locality }
+        if let zip = self.zip { params["zip"] = zip }
+        if let street = self.street { params["street"] = street }
+        params["point"] = point
+
         return ["geoLocation" : params]
     }
 }
