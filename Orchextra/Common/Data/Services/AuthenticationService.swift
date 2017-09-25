@@ -31,11 +31,12 @@ class AuthenticationService: AuthenticationServiceInput {
         let params: [String: Any] = ["apiKey": apikey,
                                      "apiSecret": apisecret]
         
-        let request = Request.orchextraRequest(
+        let request = Request(
             method: "POST",
             baseUrl: Config.coreEndpoint,
             endpoint: "/token",
-            bodyParams: params)
+            bodyParams: params,
+            verbose: Orchextra.shared.logLevel == .debug)
         
         request.fetch { response in
             switch response.status {
