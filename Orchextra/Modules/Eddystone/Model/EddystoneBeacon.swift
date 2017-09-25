@@ -83,8 +83,8 @@ class EddystoneBeacon {
         if self.proximity == .unknown && currentProximity != .unknown {
            self.resetProximityTimer()
         } else {
-            if (currentProximity != .unknown &&
-                (currentProximity != self.proximity || (self.proximityTimer == nil))) {
+            if currentProximity != .unknown &&
+                (currentProximity != self.proximity || (self.proximityTimer == nil)) {
                 if self.hasBeenSent {
                     self.resetProximityTimer()
                     self.updateProximityTimer()
