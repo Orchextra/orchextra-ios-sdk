@@ -133,7 +133,9 @@ class CBCentralWrapper: NSObject, EddystoneInput {
                     while secondsToStopScanner < EddystoneConstants.timeToStopScanner {
                         Thread.sleep(forTimeInterval: 1)
                         secondsToStopScanner+=1
-                        LogDebug("Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+                        DispatchQueue.main.async {
+                            LogDebug("Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+                        }
                     }
                     
                     self.endStartScannerTask()
@@ -162,7 +164,9 @@ class CBCentralWrapper: NSObject, EddystoneInput {
             while secondsToStartScanner < timeToStartScanner {
                 Thread.sleep(forTimeInterval: 1)
                 secondsToStartScanner+=1
-                LogDebug("Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+                DispatchQueue.main.async {
+                    LogDebug("Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+                }
             }
             
             self.endStopScannerTask()
