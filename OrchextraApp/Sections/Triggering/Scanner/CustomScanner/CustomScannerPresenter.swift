@@ -31,8 +31,8 @@ protocol CustomScannerUI: class {
 }
 
 enum ScannerType: String {
-    case barcode = "barcode"
-    case qr = "qr"
+    case barcode
+    case qr
 }
 
 class CustomScannerPresenter {
@@ -90,9 +90,9 @@ extension CustomScannerPresenter: CustomScannerPresenterInput {
     }
     
     func moduleDidFinish(action: Action?, completionHandler: (() -> Void)?) {
-        if let _ = action {
+        if action != nil {
             self.view?.stopScanner()
-            self.wireframe.dismissCustomScanner() {
+            self.wireframe.dismissCustomScanner {
                 if let completion = completionHandler {
                     completion()
                 }
