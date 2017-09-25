@@ -43,7 +43,7 @@ class EddystoneProtocolParserTests: XCTestCase {
     }
     
     func testFrameTypeParser() {
-        var frameType: frameType = EddystoneDecoder.frameType(0x00)
+        var frameType: FrameType = EddystoneDecoder.frameType(0x00)
         XCTAssertTrue(frameType == .uid)
         
         frameType = EddystoneDecoder.frameType(0x10)
