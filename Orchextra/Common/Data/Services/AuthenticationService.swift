@@ -12,13 +12,14 @@ import GIGLibrary
 protocol AuthenticationServiceInput {
     func newToken(with apikey: String, apisecret: String,
                   completion: @escaping (Result<String, Error>) -> Void)
-    func auth(with apikey: String, apisecret: String, crmId: String?,
+    func bind(params: [String: Any],
               completion: @escaping (Result<String, Error>) -> Void)
-    func bind(values: [String: Any])
 }
 
 class AuthenticationService: AuthenticationServiceInput {
     
+    // MARK: - PUBLIC
+
     /// New token from Orx to enable request
     /// that need authentication
     /// - Parameters:
@@ -66,7 +67,29 @@ class AuthenticationService: AuthenticationServiceInput {
     }
     
     
-    // MARK: - PUBLIC
+    func bind(params: [String: Any], completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let request = Request.orchextraRequest(
+            method: "POST",
+            baseUrl: Config.coreEndpoint,
+            endpoint: "/token/data",
+            bodyParams: params)
+        
+        request.fetch { response in
+            switch response.status {
+            case .success:
+                do {
+                    let json = try response.json()
+                    LogDebug("\(json)")
+                } catch {
+                    
+                }
+            default:
+                break
+            }
+        }
+    }
+    
     
     /// Method to get Accesstoken to auth against Orchextra
     ///
@@ -91,11 +114,7 @@ class AuthenticationService: AuthenticationServiceInput {
             }
         }
     }
-    
-    
-    func bind(values: [String: Any]) {
-        
-    }
+
  
     // MARK: - PRIVATE
     

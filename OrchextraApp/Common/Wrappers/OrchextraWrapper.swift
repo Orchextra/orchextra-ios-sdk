@@ -35,6 +35,10 @@ class OrchextraWrapper {
     
     // MARK: - Notifications
     
+    func remote(apnsToken: Data) {
+        self.orchextra.remote(apnsToken: apnsToken)
+    }
+    
     func handleNotification(userInfo: [String: Any]) {
         self.orchextra.handleNotification(userInfo: userInfo)
     }

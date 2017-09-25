@@ -121,4 +121,11 @@ class OrchextraWrapper {
         self.openEddystone()
         completionHandler(.newData)
     }
+    
+    // MARK: - Device & User
+    
+    public func remote(apnsToken: Data) {
+        let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
+        LogDebug("APNS Token:" + token)
+    }
 }

@@ -119,6 +119,7 @@
 		A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5D71F457AE200F5DFFD /* AuthenticationInteractorTests.swift */; };
 		A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DB1F45A43900F5DFFD /* SessionMock.swift */; };
 		A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */; };
+		A987246F1F793F9500A7017F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987246E1F793F9500A7017F /* User.swift */; };
 		A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */ = {isa = PBXBuildFile; fileRef = A98B52D21F5E92100082BB2F /* geomarketing.json */; };
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
 		A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */; };
@@ -341,6 +342,7 @@
 		A978C5D71F457AE200F5DFFD /* AuthenticationInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractorTests.swift; sourceTree = "<group>"; };
 		A978C5DB1F45A43900F5DFFD /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionMock.swift; path = Mocks/Model/SessionMock.swift; sourceTree = "<group>"; };
 		A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
+		A987246E1F793F9500A7017F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Common/Model/Config/User.swift; sourceTree = "<group>"; };
 		A98B52D21F5E92100082BB2F /* geomarketing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geomarketing.json; sourceTree = "<group>"; };
 		A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationWrapper.swift; path = Proximity/LocationWrapper.swift; sourceTree = "<group>"; };
 		A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityModule.swift; path = Proximity/ProximityModule.swift; sourceTree = "<group>"; };
@@ -1186,6 +1188,7 @@
 				A9C6EB911F46FB12007AE036 /* Tag.swift */,
 				A9C6EB951F47035D007AE036 /* BusinessUnit.swift */,
 				A9C6EB971F4703A3007AE036 /* CustomField.swift */,
+				A987246E1F793F9500A7017F /* User.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -1451,6 +1454,7 @@
 				A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */,
 				8F299C5E1F6691060023F69D /* EddystoneProtocolParser.swift in Sources */,
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
+				A987246F1F793F9500A7017F /* User.swift in Sources */,
 				8F299C5A1F6691060023F69D /* EddystoneRegion.swift in Sources */,
 				8F1CF3F21F67ED0900439F88 /* TriggerEddystoneBeacon.swift in Sources */,
 				A9986B2F1F59767C00F2CC65 /* ActionService.swift in Sources */,
