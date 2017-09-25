@@ -33,7 +33,7 @@ extension GeofencesPresenter: GeofencesPresenterInput {
         
     }
     
-    func userDidTapRegionSelected(){
+    func userDidTapRegionSelected() {
     }
     
     func userDidChooseRegion(with identifier: String) {

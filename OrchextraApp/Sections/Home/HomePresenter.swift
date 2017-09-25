@@ -48,7 +48,7 @@ extension HomePresenter: HomePresenterInput {
 }
 
 extension HomePresenter: HomeInteractorOutput {
-    func startDidFinish(with result: Result<Bool, Error>)  {
+    func startDidFinish(with result: Result<Bool, Error>) {
         switch result {
         case .success:
             print("Orchextra has been initialized correctly")

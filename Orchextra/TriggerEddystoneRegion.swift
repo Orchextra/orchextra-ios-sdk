@@ -27,10 +27,10 @@ class TriggerEddystoneRegion: Trigger {
                 return nil
         }
         
-        let params = ["type"       : TriggerType.triggerEddystoneRegion,
-                      "value"      : value,
-                      "namespace"  : namespace,
-                      "event"      : event,
+        let params = ["type": TriggerType.triggerEddystoneRegion,
+                      "value": value,
+                      "namespace": namespace,
+                      "event": event,
                       "phoneStatus": self.applicationState()]
         
         return TriggerEddystoneRegion(params: params)

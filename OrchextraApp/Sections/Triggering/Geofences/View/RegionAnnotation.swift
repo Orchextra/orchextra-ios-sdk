@@ -10,11 +10,11 @@ import Foundation
 import MapKit
 
 class RegionAnnotation: NSObject, MKAnnotation {
-    //MARK: - Attributes
+    // MARK: - Attributes
     var title: String?
     let coordinate: CLLocationCoordinate2D
     
-    //MARK: - Initializers
+    // MARK: - Initializers
     init(title: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
         self.coordinate = coordinate
