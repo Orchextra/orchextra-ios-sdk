@@ -10,12 +10,60 @@ import Foundation
 import GIGLibrary
 
 protocol AuthenticationServiceInput {
+    func newToken(with apikey: String, apisecret: String,
+                  completion: @escaping (Result<String, Error>) -> Void)
     func auth(with apikey: String, apisecret: String, crmId: String?,
               completion: @escaping (Result<String, Error>) -> Void)
     func bind(values: [String: Any])
 }
 
 class AuthenticationService: AuthenticationServiceInput {
+    
+    /// New token from Orx to enable request
+    /// that need authentication
+    /// - Parameters:
+    ///   - apikey: apikey from orchextra settings
+    ///   - apisecret: apisecret from orchextra settings
+    ///   - completion: return .success(accesstoken) .error(error)
+    func newToken(with apikey: String, apisecret: String,
+                  completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let params: [String: Any] = ["apiKey": apikey,
+                                     "apiSecret": apisecret]
+        
+        let request = Request.orchextraRequest(
+            method: "POST",
+            baseUrl: Config.coreEndpoint,
+            endpoint: "/token",
+            bodyParams: params)
+        
+        request.fetch { response in
+            switch response.status {
+            case .success:
+                do {
+                    let json = try response.json()
+                    guard let accesstoken = json["token"]?.toString() else {
+                        let error = ErrorService.errorParsingJson(element: "accesstoken")
+                        completion(.error(error))
+                        LogWarn("AccessToken is nil")
+                        return }
+                    completion(.success(accesstoken))
+                    
+                } catch {
+                    let error = ErrorService.unknown
+                    LogError(error as NSError)
+                    completion(.error(error))
+                }
+            default:
+                let error = ErrorServiceHandler.parseErrorService(with: response)
+                LogError(response.error)
+                completion(.error(error))
+                break
+                
+            }
+        }
+    }
+    
     
     // MARK: - PUBLIC
     

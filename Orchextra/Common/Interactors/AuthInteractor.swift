@@ -49,8 +49,8 @@ class AuthInteractor: AuthInteractorInput {
             completion(.success(accesstoken))
             
         } else {
-            // TODO: Review if we need to add the crmID
-            self.service.auth(with: apikey, apisecret: apisecret, crmId: nil) { result in
+            
+            self.service.newToken(with: apikey, apisecret: apisecret, completion: { result in
                 switch result {
                 case .success(let accesstoken):
                     self.session.save(accessToken: accesstoken)
@@ -68,7 +68,28 @@ class AuthInteractor: AuthInteractorInput {
                         break
                     }
                 }
-            }
+            })
+            
+//            // TODO: Review if we need to add the crmID
+//            self.service.auth(with: apikey, apisecret: apisecret, crmId: nil) { result in
+//                switch result {
+//                case .success(let accesstoken):
+//                    self.session.save(accessToken: accesstoken)
+//                    completion(.success(accesstoken))
+//                    break
+//                case .error(let error):
+//                    switch error {
+//                    case ErrorService.refreshAccessToken:
+//                        self.session.save(accessToken: nil)
+//                        completion(.error(ErrorService.refreshAccessToken))
+//                    case ErrorService.invalidCredentials:
+//                        completion(.error(error))
+//                    default:
+//                        // TODO: Other cases
+//                        break
+//                    }
+//                }
+//            }
         }
     }
 

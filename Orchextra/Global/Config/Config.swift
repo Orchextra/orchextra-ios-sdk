@@ -28,7 +28,7 @@ class Config {
     static var coreEndpoint: String {
         switch Orchextra.shared.environment {
         case .staging:
-            return "https://sdk.s.orchextra.io/v1"
+            return "https://core.s.orchextra.io"
         case .quality:
             return "https://sdk.q.orchextra.io/v1"
         case .production:
