@@ -57,6 +57,7 @@ struct EddystoneDecoder {
     }
     
     // MARK: Public (Url Decoded)
+    //swiftlint:disable cyclomatic_complexity
     static func urlDecoded(_ fromBytes: UInt8) -> String {
         var urlDecoded = ""
         switch fromBytes {
@@ -91,8 +92,8 @@ struct EddystoneDecoder {
         default:
             urlDecoded = ""
         }
-        
+
         return urlDecoded
     }
-
+    // swiftlint:enable cyclomatic_complexity
 }
