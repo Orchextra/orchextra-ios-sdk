@@ -29,13 +29,13 @@ class TriggerEddystoneBeacon: Trigger {
                 return nil
         }
         
-        var params = ["type"        : TriggerType.triggerEddystone,
-                      "value"       : value,
-                      "namespace"   : namespace,
-                      "instance"    : instance,
-                      "distance"    : distance,
-                      "url"         : url,
-                      "phoneStatus" : self.applicationState()
+        var params = ["type": TriggerType.triggerEddystone,
+                      "value": value,
+                      "namespace": namespace,
+                      "instance": instance,
+                      "distance": distance,
+                      "url": url,
+                      "phoneStatus": self.applicationState()
         ]
         
         if let batteryPercentage = externalValues["battery"] {

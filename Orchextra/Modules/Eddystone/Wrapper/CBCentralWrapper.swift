@@ -107,13 +107,13 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     func initializeCentralManager() {
         let centralManager = CBCentralManager(delegate: self,
                                               queue: self.centralManagerQueue,
-                                              options: [CBCentralManagerOptionRestoreIdentifierKey : "CentralManagerIdentifier"])
+                                              options: [CBCentralManagerOptionRestoreIdentifierKey: "CentralManagerIdentifier"])
         
         self.centralManager = centralManager
     }
     
     // MARK: Public scan methods
-    @objc func startScanner() -> Void {
+    @objc func startScanner() {
         var secondsToStopScanner: Int = 0
         if self.isAvailableScanner() {
             if self.startScannerBackgroundTask != UIBackgroundTaskInvalid {
@@ -141,7 +141,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
             }
     }
     
-    @objc func stopScanner() -> Void {
+    @objc func stopScanner() {
         UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
         self.startScannerBackgroundTask = UIBackgroundTaskInvalid
         
@@ -248,9 +248,9 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     private func performStartScanner() {
         LogDebug("--- START SCANNER ---")
         self.scannerStarted = true
-        let serviceUUID:String = EddystoneConstants.serviceUUID
+        let serviceUUID: String = EddystoneConstants.serviceUUID
         let services: [CBUUID] = [CBUUID (string:serviceUUID)]
-        let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey : true]
+        let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey: true]
         
         if self.eddystoneParser == nil {
             self.eddystoneParser = EddystoneProtocolParser(
@@ -288,7 +288,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
 
 extension CBCentralWrapper: CBCentralManagerDelegate {
     // MARK: CBCentralManagerDelegate methods
-    func centralManagerDidUpdateState(_ centralManager: CBCentralManager) -> Void {
+    func centralManagerDidUpdateState(_ centralManager: CBCentralManager) {
         if self.scannerStarted,
             centralManager.state != .poweredOn {
             self.stopScanner()
@@ -305,12 +305,12 @@ extension CBCentralWrapper: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [AnyHashable : Any] else { return }
         
-        let serviceUUID:String = EddystoneConstants.serviceUUID
+        let serviceUUID: String = EddystoneConstants.serviceUUID
         let serviceCBUUID = CBUUID(string: serviceUUID)
-        let peripheralId:UUID = peripheral.identifier as UUID
-        let rssi:Int = RSSI.intValue
+        let peripheralId: UUID = peripheral.identifier as UUID
+        let rssi: Int = RSSI.intValue
         
-        guard let beaconServiceData:Data = (serviceData[serviceCBUUID] as? Data),
+        guard let beaconServiceData: Data = (serviceData[serviceCBUUID] as? Data),
             let eddystoneParser = self.eddystoneParser else { return }
         
         eddystoneParser.parse(beaconServiceData,

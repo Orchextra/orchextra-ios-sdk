@@ -275,7 +275,7 @@ class EddystoneProtocolParser {
     
     fileprivate func parseTelemetryAdvertisingPDUCount(_ serviceData: Data) -> String {
         let advertisingPDUCountRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmAdvertisingPDUCountInitialPosition, EddystoneConstants.tlmAdvertisingPDUCountEndPosition))
-        let advertisingPDUCountSubdata:Data = serviceData.subdata(in: advertisingPDUCountRange)
+        let advertisingPDUCountSubdata: Data = serviceData.subdata(in: advertisingPDUCountRange)
         
         let advertisingPDUCount = advertisingPDUCountSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
             let result: UInt32 = UInt32(bigEndian: pointer.pointee)
@@ -285,9 +285,9 @@ class EddystoneProtocolParser {
         return String(advertisingPDUCount)
     }
     
-    fileprivate func parseTelemetryUptime(_ serviceData:Data) -> TimeInterval {
+    fileprivate func parseTelemetryUptime(_ serviceData: Data) -> TimeInterval {
         let timeOnSincePowerOnRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTimeOnSincePowerOnInitialPosition, EddystoneConstants.tlmTimeOnSincePowerOnEndPosition))
-        let timeOnSincePowerOnSubdata:Data = serviceData.subdata(in: timeOnSincePowerOnRange)
+        let timeOnSincePowerOnSubdata: Data = serviceData.subdata(in: timeOnSincePowerOnRange)
         
         let timeOnSincePowerOn = timeOnSincePowerOnSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
             let result: UInt32 = UInt32(bigEndian: pointer.pointee)
