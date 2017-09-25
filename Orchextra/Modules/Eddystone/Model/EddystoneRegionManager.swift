@@ -120,11 +120,9 @@ class EddystoneRegionManager {
     private func isNotDetected(region: EddystoneRegion) -> Bool {
         // TODO: convert to functional
         var isNotDetected = true
-        for beacon in self.beaconsDetected {
-            if beacon.uid?.namespace == region.uid.namespace {
-                isNotDetected = false
-                break
-            }
+        for beacon in self.beaconsDetected where beacon.uid?.namespace == region.uid.namespace {
+            isNotDetected = false
+            break
         }
         return isNotDetected
     }

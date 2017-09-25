@@ -10,41 +10,41 @@ import UIKit
 
 @IBDesignable class LogTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
-    @IBInspectable @IBOutlet weak var cellStackView: UIStackView!
+    @IBOutlet weak var cellStackView: UIStackView!
     
-    @IBInspectable @IBOutlet weak var firstView: UIView!
-    @IBInspectable @IBOutlet weak var typeImageView: UIImageView!
-    @IBInspectable @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var typeImageView: UIImageView!
+    @IBOutlet weak var firstLabel: UILabel!
     
-    @IBInspectable @IBOutlet weak var secondView: UIView!
-    @IBInspectable @IBOutlet weak var secondLeftLabel: UILabel!
-    @IBInspectable @IBOutlet weak var secondRightLabel: UILabel!
+    @IBOutlet weak var secondView: UIView!
+    @IBOutlet weak var secondLeftLabel: UILabel!
+    @IBOutlet weak var secondRightLabel: UILabel!
     
-    @IBInspectable @IBOutlet weak var thirdView: UIView!
-    @IBInspectable @IBOutlet weak var thirdLeftLabel: UILabel!
-    @IBInspectable @IBOutlet weak var thirdRightLabel: UILabel!
+    @IBOutlet weak var thirdView: UIView!
+    @IBOutlet weak var thirdLeftLabel: UILabel!
+    @IBOutlet weak var thirdRightLabel: UILabel!
     
-    @IBInspectable @IBOutlet weak var fourthView: UIView!
-    @IBInspectable @IBOutlet weak var fourthLeftLabel: UILabel!
-    @IBInspectable @IBOutlet weak var fourthRightLabel: UILabel!
+    @IBOutlet weak var fourthView: UIView!
+    @IBOutlet weak var fourthLeftLabel: UILabel!
+    @IBOutlet weak var fourthRightLabel: UILabel!
     
-    @IBInspectable @IBOutlet weak var fifthView: UIView!
-    @IBInspectable @IBOutlet weak var fifthLeftLabel: UILabel!
-    @IBInspectable @IBOutlet weak var fifthRightLabel: UILabel!
+    @IBOutlet weak var fifthView: UIView!
+    @IBOutlet weak var fifthLeftLabel: UILabel!
+    @IBOutlet weak var fifthRightLabel: UILabel!
     
-    @IBInspectable @IBOutlet weak var sixthView: UIView!
-    @IBInspectable @IBOutlet weak var sixthLeftLabel: UILabel!
-    @IBInspectable @IBOutlet weak var sixthRightLabel: UILabel!
+    @IBOutlet weak var sixthView: UIView!
+    @IBOutlet weak var sixthLeftLabel: UILabel!
+    @IBOutlet weak var sixthRightLabel: UILabel!
     
-    @IBInspectable @IBOutlet weak var seventhView: UIView!
-    @IBInspectable @IBOutlet weak var seventhLeftLabel: UILabel!
-    @IBInspectable @IBOutlet weak var seventhRightLabel: UILabel!
+    @IBOutlet weak var seventhView: UIView!
+    @IBOutlet weak var seventhLeftLabel: UILabel!
+    @IBOutlet weak var seventhRightLabel: UILabel!
     
-    @IBInspectable @IBOutlet weak var eightthView: UIView!
-    @IBInspectable @IBOutlet weak var eightthLeftLabel: UILabel!
-    @IBInspectable @IBOutlet weak var eightthRightLabel: UILabel!
+    @IBOutlet weak var eightthView: UIView!
+    @IBOutlet weak var eightthLeftLabel: UILabel!
+    @IBOutlet weak var eightthRightLabel: UILabel!
     
-    @IBInspectable @IBOutlet weak var separatorContainerView: UIView!
+    @IBOutlet weak var separatorContainerView: UIView!
     
     // MARK: - Binding
     func bindTriggerViewModel(_ model: TriggerViewModel) {
