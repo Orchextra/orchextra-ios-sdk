@@ -202,7 +202,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
                 return
             }
             
-            self.geocoder.reverseGeocodeLocation(location, completionHandler: { placemark, error in
+            self.geocoder.reverseGeocodeLocation(location, completionHandler: { placemark, _ in
                 if let completion = self.completionCurrentLocation {
                     completion(location, placemark?.first)
                 }

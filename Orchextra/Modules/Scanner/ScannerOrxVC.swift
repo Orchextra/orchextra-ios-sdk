@@ -128,12 +128,16 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
             self.viewStatus.alpha = 0.8
             
         }) { _ in
-            UIView.animate(withDuration: 0.1,
-                           delay: 0.6,
-                           options: .curveEaseInOut, animations: { 
-                            self.viewStatus.alpha = 0
-            }, completion:nil)
+            self.animateRemoveViewStatus()
         }
+    }
+    
+    func animateRemoveViewStatus() {
+        UIView.animate(withDuration: 0.1,
+                       delay: 0.6,
+                       options: .curveEaseInOut, animations: {
+                        self.viewStatus.alpha = 0
+        }, completion:nil)
     }
 
     func hideInfo() {
