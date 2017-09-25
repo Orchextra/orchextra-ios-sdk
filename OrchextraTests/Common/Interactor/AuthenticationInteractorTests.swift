@@ -42,7 +42,7 @@ class AuthenticationInteractorTests: XCTestCase {
         
         let expectWait = expectation(description: "waitForAccessToken")
         
-        let _ = stub(condition: isPath("/v1/security/token"), response: { _ in
+        stub(condition: isPath("/v1/security/token"), response: { _ in
             return StubResponse.stubResponse(with: "accesstoken_ok.json")
         })
         
@@ -57,7 +57,7 @@ class AuthenticationInteractorTests: XCTestCase {
             expectWait.fulfill()
         })
         // ASSERT
-        waitForExpectations(timeout: 10) { error in
+        waitForExpectations(timeout: 10) { _ in
             
         }
     }

@@ -109,7 +109,7 @@ class LocationWrapper: NSObject, LocationInput {
     }
     
     private func isRangingAvailable(beacon: CLRegion) {
-        if CLLocationManager.isRangingAvailable(), let beaconRegion = beacon as? CLBeaconRegion{
+        if CLLocationManager.isRangingAvailable(), let beaconRegion = beacon as? CLBeaconRegion {
             self.locationManager.startRangingBeacons(in: beaconRegion)
         }
     }
@@ -203,7 +203,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
             }
             
             self.geocoder.reverseGeocodeLocation(location, completionHandler: { placemark, error in
-                if let completion = self.completionCurrentLocation{
+                if let completion = self.completionCurrentLocation {
                     completion(location, placemark?.first)
                 }
             })

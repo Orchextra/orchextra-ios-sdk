@@ -11,7 +11,7 @@ import GIGLibrary
 
 extension Request {
     
-    class func OrchextraRequest(
+    class func orchextraRequest(
         method: String,
         baseUrl: String,
         endpoint: String,

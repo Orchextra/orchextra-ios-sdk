@@ -112,9 +112,9 @@ extension ProximityWrapper: LocationOutput {
     
     // MARK: - Method to generate output
     
-    func handleOutputRegion(type: RegionType, code: String, event: String) -> [String: Any]{
-        let outputDic = ["type" : type.rawValue,
-                         "value" : code,
+    func handleOutputRegion(type: RegionType, code: String, event: String) -> [String: Any] {
+        let outputDic = ["type": type.rawValue,
+                         "value": code,
                          "event": event]
         
         return outputDic

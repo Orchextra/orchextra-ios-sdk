@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: UNUserNotificationCenterDelegate  {
+extension AppDelegate: UNUserNotificationCenterDelegate {
 	
 	@available(iOS 10.0, *)
 	func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

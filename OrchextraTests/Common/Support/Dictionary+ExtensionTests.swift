@@ -44,9 +44,9 @@ class DictionaryExtensionTests: XCTestCase {
     func test_combineThreeDictionaries() {
 
         // ARRANGE
-        let dicOne = ["1" : 1]
-        let dicTwo = ["2" : 2]
-        let dicThree = ["3" : 3]
+        let dicOne = ["1": 1]
+        let dicTwo = ["2": 2]
+        let dicThree = ["3": 3]
 
         // ACT
         let result = dicOne + dicTwo + dicThree

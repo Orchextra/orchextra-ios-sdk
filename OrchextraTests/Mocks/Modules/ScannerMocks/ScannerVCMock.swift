@@ -16,7 +16,7 @@ class ScannerVCMock: ScannerUI, ModuleInput {
     var expectation: XCTestExpectation?
     var spyShowScannerCalled = false
     var spyStopScannerCalled = false
-    var spyDismissScanner: (called: Bool, completion: (()->Void)?) = (called: false, completion: nil)
+    var spyDismissScanner: (called: Bool, completion: (() -> Void)?) = (called: false, completion: nil)
     var spyHideInfoCalled = false
     var spyShowCameraPermissionAlertCalled = false
     var spyShow = (called: false, scannedValue: "", message: "")

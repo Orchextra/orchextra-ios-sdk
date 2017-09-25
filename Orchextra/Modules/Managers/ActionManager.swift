@@ -28,7 +28,7 @@ class ActionManager {
     
     func handler(action: Action) {
         LogDebug("Handler action: \(String(describing: action.type))")
-        if let _ = action.notification {
+        if action.notification != nil {
             self.prepareNotificationFor(action: action)
         } else {
             self.executeAndConfirm(action: action)
@@ -50,7 +50,7 @@ class ActionManager {
     private func prepareNotificationFor(action: Action) {
         switch UIApplication.shared.applicationState {
         case .active, .inactive:
-            if let _ = action.schedule {
+            if action.schedule != nil {
                 self.delayDeliveryNotification(action: action)
             } else {
                 self.deliveryNotification(with: action)

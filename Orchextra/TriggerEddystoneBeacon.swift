@@ -53,4 +53,3 @@ class TriggerEddystoneBeacon: Trigger {
         return self.params
     }
 }
-

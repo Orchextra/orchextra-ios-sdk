@@ -9,7 +9,7 @@
 import Foundation
 
 class TriggersManager {
-    //MARK: - Attributes
+    // MARK: - Attributes
     
     static let shared: TriggersManager = TriggersManager()
     var triggersFired: [TriggerFired]

@@ -25,7 +25,7 @@ class ActionService: ActionServicesInput {
         
         let endPoint = endpointConfirmAction + trackId
         
-        let request = Request.OrchextraRequest(
+        let request = Request.orchextraRequest(
             method: "POST",
             baseUrl: Config.coreEndpoint,
             endpoint: endPoint)

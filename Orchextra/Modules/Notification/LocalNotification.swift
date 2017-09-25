@@ -12,7 +12,7 @@ import GIGLibrary
 
 class LocalNotification: NSObject {
     
-    class func dispatchlocalNotification(with title: String, body: String, userInfo: [AnyHashable: Any]? = nil, at date:Date?) {
+    class func dispatchlocalNotification(with title: String, body: String, userInfo: [AnyHashable: Any]? = nil, at date: Date?) {
         
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
@@ -27,7 +27,7 @@ class LocalNotification: NSObject {
             
             content.sound = UNNotificationSound.default()
             
-            var trigger : UNNotificationTrigger?
+            var trigger: UNNotificationTrigger?
             if let deliveryDate = date {
                 let comp = Calendar.current.dateComponents([.hour, .minute], from: deliveryDate)
                 trigger = UNCalendarNotificationTrigger(dateMatching: comp, repeats: false)

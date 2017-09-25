@@ -51,7 +51,7 @@ class ScannerPresenter: ScannerInput {
     }
     
     func moduleDidFinish(action: Action?, completionHandler: (() -> Void)?) {
-        if let _ = action {
+        if action != nil {
             self.vc?.stopScanner()
             self.vc?.dismissScanner {
                 if let completion = completionHandler {
@@ -61,7 +61,7 @@ class ScannerPresenter: ScannerInput {
         } else {
             self.vc?.hideInfo()
             self.vc?.show(image: "Fail_cross", message: kLocaleOrcMatchNotFoundMessage)
-            DispatchQueue.background(delay: 1.5, completion:{
+            DispatchQueue.background(delay: 1.5, completion: {
                 if let completion = completionHandler {
                     completion()
                 }
@@ -91,9 +91,9 @@ class ScannerPresenter: ScannerInput {
                 LogWarn("Scanner ")
                 return
             }
-            DispatchQueue.background(delay: 0.8, completion:{
-                self.outputModule?.triggerWasFire(with: ["value" : value,
-                                                         "type" : typeValue.rawValue],
+            DispatchQueue.background(delay: 0.8, completion: {
+                self.outputModule?.triggerWasFire(with: ["value": value,
+                                                         "type": typeValue.rawValue],
                                                   module: moduleInput)
                 LogDebug("Module Scan - has trigger: \(value) - \(type)")
             })
