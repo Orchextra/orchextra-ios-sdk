@@ -65,7 +65,7 @@ class AuthenticationService: AuthenticationServiceInput {
                         "apiKey": apikey,
                         "apiSecret": apisecret] ]
         
-        let request = Request.OrchextraRequest(
+        let request = Request.orchextraRequest(
             method: "POST",
             baseUrl: Config.coreEndpoint,
             endpoint: "/security/token",
@@ -121,7 +121,7 @@ class AuthenticationService: AuthenticationServiceInput {
             params["credentials"] = credentials
         }
         
-        let request = Request.OrchextraRequest(
+        let request = Request.orchextraRequest(
             method: "POST",
             baseUrl: Config.coreEndpoint,
             endpoint: "/security/token",

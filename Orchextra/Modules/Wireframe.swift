@@ -19,7 +19,7 @@ class Wireframe {
     }
     
     func scannerOrx() -> ModuleInput? {
-        let storyboard = UIStoryboard.init(name: "ScannerOrx", bundle: Bundle.OrxBundle())
+        let storyboard = UIStoryboard.init(name: "ScannerOrx", bundle: Bundle.orxBundle())
         guard let scannerOrxVC = storyboard.instantiateViewController(withIdentifier: "ScannerOrxVC") as? ModuleInput
             else {
                 LogWarn("Couldn't instantiate ScannerOrxVC")
@@ -59,7 +59,7 @@ class Wireframe {
     func openScanner(scanner: UIViewController) {
         let topVC = UIApplication.topViewController()
         
-        if let topVCKindScanner = topVC.self, topVCKindScanner != scanner.self  {
+        if let topVCKindScanner = topVC.self, topVCKindScanner != scanner.self {
             self.application.presentModal(scanner)
         }
     }

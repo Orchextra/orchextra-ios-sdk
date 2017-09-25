@@ -49,7 +49,7 @@ class EddystoneRegionManager {
     }
     
     // MARK: Regions management
-    private func regionDidEnter(region: EddystoneRegion)  {
+    private func regionDidEnter(region: EddystoneRegion) {
         if self.isAvailable(region) &&
             (!(self.regionsEntered.contains(region))) {
             region.regionEvent = .enter
@@ -99,10 +99,10 @@ class EddystoneRegionManager {
     // MARK: - Method to generate region output
     private func handleOutputRegion(for region: EddystoneRegion, event: String) -> [String: Any] {
         LogDebug("\(event) \(region.uid.namespace)")
-        let outputDic = ["type" : "eddystone_region",
-                         "value" : region.code,
-                         "namespace" : region.uid.namespace,
-                         "event" : region.regionEvent.rawValue]
+        let outputDic = ["type": "eddystone_region",
+                         "value": region.code,
+                         "namespace": region.uid.namespace,
+                         "event": region.regionEvent.rawValue]
         
         return outputDic
     }

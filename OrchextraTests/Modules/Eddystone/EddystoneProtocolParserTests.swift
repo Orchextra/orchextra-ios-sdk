@@ -11,7 +11,7 @@ import XCTest
 
 class EddystoneProtocolParserTests: XCTestCase {
     var eddystoneProtocolParser: EddystoneProtocolParser?
-    var peripheralId:UUID?
+    var peripheralId: UUID?
     var rssi: Int?
     
     override func setUp() {
@@ -43,7 +43,7 @@ class EddystoneProtocolParserTests: XCTestCase {
     }
     
     func testFrameTypeParser() {
-        var frameType:frameType = EddystoneDecoder.frameType(0x00)
+        var frameType: FrameType = EddystoneDecoder.frameType(0x00)
         XCTAssertTrue(frameType == .uid)
         
         frameType = EddystoneDecoder.frameType(0x10)
@@ -127,8 +127,8 @@ class EddystoneProtocolParserTests: XCTestCase {
     }
     
     func testEddystoneUrlFrame() {
-        let beaconServiceBytesArray:[UInt8] = [16, 0, 2, 50, 97,  5, 99,  99, 109, 51, 54, 49]
-        let beaconServiceData:Data = Data(bytes: beaconServiceBytesArray, count:beaconServiceBytesArray.count)
+        let beaconServiceBytesArray: [UInt8] = [16, 0, 2, 50, 97, 5, 99, 99, 109, 51, 54, 49]
+        let beaconServiceData: Data = Data(bytes: beaconServiceBytesArray, count:beaconServiceBytesArray.count)
         guard let peripheralId = self.peripheralId,
             let eddystoneProtocolParser = self.eddystoneProtocolParser,
             let rssi = self.rssi else {
@@ -144,13 +144,13 @@ class EddystoneProtocolParserTests: XCTestCase {
         let uid = EddystoneUID(namespace: "636f6b65634063656575", instance: "")
         currentBeacon.uid = uid
         eddystoneProtocolParser.currentBeacon = currentBeacon
-        let beaconList:[EddystoneBeacon] = (eddystoneProtocolParser.parseServiceInformation())
+        let beaconList: [EddystoneBeacon] = (eddystoneProtocolParser.parseServiceInformation())
         XCTAssert(beaconList.count == 1)
-        let beacon:EddystoneBeacon = beaconList[0]
+        let beacon: EddystoneBeacon = beaconList[0]
         
         XCTAssertTrue(beacon.peripheralId == self.peripheralId)
         
-        guard let url:URL = beacon.url else {
+        guard let url: URL = beacon.url else {
             XCTAssertNotNil("Url information is nil")
             return
         }
@@ -158,9 +158,9 @@ class EddystoneProtocolParserTests: XCTestCase {
     }
     
     func testEddystoneUIDFrame() {
-        let beaconServiceBytesArray:[UInt8] = [0, 195, 99, 111, 107,  101, 99,  64, 99, 101, 101, 117, 16, 0, 0, 48, 57, 118, 0, 0]
+        let beaconServiceBytesArray: [UInt8] = [0, 195, 99, 111, 107, 101, 99, 64, 99, 101, 101, 117, 16, 0, 0, 48, 57, 118, 0, 0]
         
-        let beaconServiceData:Data = Data(bytes: beaconServiceBytesArray, count:beaconServiceBytesArray.count)
+        let beaconServiceData: Data = Data(bytes: beaconServiceBytesArray, count:beaconServiceBytesArray.count)
         guard let peripheralId = self.peripheralId,
             let eddystoneProtocolParser = self.eddystoneProtocolParser,
             let rssi = self.rssi else {
@@ -171,9 +171,9 @@ class EddystoneProtocolParserTests: XCTestCase {
                                       peripheralId: peripheralId,
                                       rssi: rssi)
         
-        let beaconList:[EddystoneBeacon] = (eddystoneProtocolParser.parseServiceInformation())
+        let beaconList: [EddystoneBeacon] = (eddystoneProtocolParser.parseServiceInformation())
         XCTAssert(beaconList.count == 1)
-        let beacon:EddystoneBeacon = beaconList[0]
+        let beacon: EddystoneBeacon = beaconList[0]
         
         XCTAssertTrue(beacon.peripheralId == self.peripheralId)
         
@@ -190,8 +190,8 @@ class EddystoneProtocolParserTests: XCTestCase {
     }
     
     func testEddystoneTLMFrame() {
-        let beaconServiceBytesArray:[UInt8] = [32, 0, 14, 48, 28, 48, 10, 122, 107, 56, 11, 247, 229, 149]
-        let beaconServiceData:Data = Data(bytes: beaconServiceBytesArray, count:beaconServiceBytesArray.count)
+        let beaconServiceBytesArray: [UInt8] = [32, 0, 14, 48, 28, 48, 10, 122, 107, 56, 11, 247, 229, 149]
+        let beaconServiceData: Data = Data(bytes: beaconServiceBytesArray, count:beaconServiceBytesArray.count)
         guard let peripheralId = self.peripheralId,
             let eddystoneProtocolParser = self.eddystoneProtocolParser,
             let rssi = self.rssi else {
@@ -208,14 +208,14 @@ class EddystoneProtocolParserTests: XCTestCase {
                                       peripheralId: peripheralId,
                                       rssi: rssi)
         
-        let beaconList:[EddystoneBeacon] = eddystoneProtocolParser.parseServiceInformation()
+        let beaconList: [EddystoneBeacon] = eddystoneProtocolParser.parseServiceInformation()
         XCTAssert(beaconList.count == 1)
         
-        let beacon:EddystoneBeacon = beaconList[0]
+        let beacon: EddystoneBeacon = beaconList[0]
         
         XCTAssertTrue(beacon.peripheralId == self.peripheralId)
         
-        guard let telemetry:EddystoneTelemetry = beacon.telemetry else {
+        guard let telemetry: EddystoneTelemetry = beacon.telemetry else {
             XCTAssertNotNil("TelEddystoneTelemetryemetry is nil")
             return
         }

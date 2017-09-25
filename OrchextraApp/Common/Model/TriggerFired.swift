@@ -13,4 +13,3 @@ struct TriggerFired {
     let trigger: Trigger
     let date: String
 }
-

@@ -11,7 +11,7 @@ import Quick
 import Nimble
 @testable import Orchextra
 
-class Dictionary_ExtensionTests: XCTestCase {
+class DictionaryExtensionTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -44,9 +44,9 @@ class Dictionary_ExtensionTests: XCTestCase {
     func test_combineThreeDictionaries() {
 
         // ARRANGE
-        let dicOne = ["1" : 1]
-        let dicTwo = ["2" : 2]
-        let dicThree = ["3" : 3]
+        let dicOne = ["1": 1]
+        let dicTwo = ["2": 2]
+        let dicThree = ["3": 3]
 
         // ACT
         let result = dicOne + dicTwo + dicThree

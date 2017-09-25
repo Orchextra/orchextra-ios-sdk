@@ -25,8 +25,8 @@ class TriggerQR: Trigger {
                 return nil
         }
     
-        let params = ["type" : TriggerType.triggerQR,
-                      "value" : value]
+        let params = ["type": TriggerType.triggerQR,
+                      "value": value]
         
         return TriggerQR(params: params)
     }

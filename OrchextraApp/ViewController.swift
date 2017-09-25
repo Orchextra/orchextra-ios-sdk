@@ -39,4 +39,3 @@ class ViewController: UIViewController {
             self.orchextra.openScanner()
     }
 }
-

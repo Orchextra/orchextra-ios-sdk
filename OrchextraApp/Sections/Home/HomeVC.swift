@@ -60,15 +60,16 @@ class HomeVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: Notification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: Notification.Name.UIKeyboardWillHide, object: nil)
     }
-    // MARK :  NotificationCenter methods
+    
+    // MARK: - NotificationCenter methods
     
     @objc fileprivate func keyboardWillShow(_ notification: Notification) {
         guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
-        UIView.animate(withDuration: 0.25, animations: {
-            self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.size.height, 0);
+        UIView.animate(withDuration: 0.25) {
+            self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.size.height, 0)
             self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
-        })
+        }
     }
     
     @objc fileprivate func keyboardWillHide(_ notification: Notification) {

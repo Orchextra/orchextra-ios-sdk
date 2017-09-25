@@ -14,7 +14,7 @@ class AppWireframe {
     var window: UIWindow?
  
     /// Method to show the Home wireframe
-    func showHomeWireframe()  {
+    func showHomeWireframe() {
         let homeWireframe = HomeWireframe()
         guard let homeVC = homeWireframe.showHome() else {
             LogWarn("HomeVC not found")
@@ -25,7 +25,7 @@ class AppWireframe {
     }
     
     /// Method to show the Triggering wireframe
-    func showTriggering()  {
+    func showTriggering() {
         let triggeringWireframe = TriggeringWireframe()
         guard let triggeringVC = triggeringWireframe.showTriggering() else {
             LogWarn("TriggeringVC not found")

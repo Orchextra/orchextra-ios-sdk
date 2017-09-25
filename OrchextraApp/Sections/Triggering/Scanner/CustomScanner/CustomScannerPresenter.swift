@@ -31,8 +31,8 @@ protocol CustomScannerUI: class {
 }
 
 enum ScannerType: String {
-    case Barcode = "barcode"
-    case QR = "qr"
+    case barcode
+    case qr
 }
 
 class CustomScannerPresenter {
@@ -66,9 +66,9 @@ extension CustomScannerPresenter: CustomScannerPresenterInput {
     }
     
     func scannerDidFinishCapture(value: String, type: String) {
-        var typeValue = ScannerType.Barcode
+        var typeValue = ScannerType.barcode
         if type == "org.iso.QRCode" {
-            typeValue = ScannerType.QR
+            typeValue = ScannerType.qr
         }
         
         if !self.waitingUntilResponseFromOrx {
@@ -80,8 +80,8 @@ extension CustomScannerPresenter: CustomScannerPresenterInput {
                 return
             }
             DispatchQueue.global(qos: .background).async {
-                self.outputModule?.triggerWasFire(with: ["value" : value,
-                                                         "type" : typeValue.rawValue],
+                self.outputModule?.triggerWasFire(with: ["value": value,
+                                                         "type": typeValue.rawValue],
                                                   module: moduleInput)
                 LogDebug("Module Scan - has trigger: \(value) - \(type)")
             }
@@ -90,9 +90,9 @@ extension CustomScannerPresenter: CustomScannerPresenterInput {
     }
     
     func moduleDidFinish(action: Action?, completionHandler: (() -> Void)?) {
-        if let _ = action {
+        if action != nil {
             self.view?.stopScanner()
-            self.wireframe.dismissCustomScanner() {
+            self.wireframe.dismissCustomScanner {
                 if let completion = completionHandler {
                     completion()
                 }

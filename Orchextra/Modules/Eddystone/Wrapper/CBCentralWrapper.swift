@@ -26,7 +26,7 @@ protocol EddystoneOutput {
 }
 
 /// CoreBluetooth levels are used to define the time to scan out for eddystone beacons.
-enum coreBluetoothScanLevel {
+enum CoreBluetoothScanLevel {
     /// Core bluetooth scanner always active searching for peripherals.
     case always
     /// Core bluetooth scanner searaching for peripherals from time to time.
@@ -36,7 +36,7 @@ enum coreBluetoothScanLevel {
 class CBCentralWrapper: NSObject, EddystoneInput {
     
     // MARK: Public properties
-    static var scanLevel: coreBluetoothScanLevel = .byIntervals
+    static var scanLevel: CoreBluetoothScanLevel = .byIntervals
     var output: EddystoneOutput?
     var eddystoneParser: EddystoneProtocolParser?
     var availableRegions: [EddystoneRegion]
@@ -107,13 +107,13 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     func initializeCentralManager() {
         let centralManager = CBCentralManager(delegate: self,
                                               queue: self.centralManagerQueue,
-                                              options: [CBCentralManagerOptionRestoreIdentifierKey : "CentralManagerIdentifier"])
+                                              options: [CBCentralManagerOptionRestoreIdentifierKey: "CentralManagerIdentifier"])
         
         self.centralManager = centralManager
     }
     
     // MARK: Public scan methods
-    @objc func startScanner() -> Void {
+    @objc func startScanner() {
         var secondsToStopScanner: Int = 0
         if self.isAvailableScanner() {
             if self.startScannerBackgroundTask != UIBackgroundTaskInvalid {
@@ -143,7 +143,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
             }
     }
     
-    @objc func stopScanner() -> Void {
+    @objc func stopScanner() {
         UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
         self.startScannerBackgroundTask = UIBackgroundTaskInvalid
         
@@ -221,15 +221,15 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     private func handleOutputBeacon(for beacon: EddystoneBeacon) -> [String: Any]? {
         guard let uid = beacon.uid,
             let instance = uid.instance,
-            let url = beacon.url else  { return nil }
+            let url = beacon.url else { return nil }
         
         LogDebug("\(String(describing: beacon.uid?.uidCompossed)) \(beacon.proximity.rawValue)")
-        var outputDic: [String: Any] = ["type" : "eddystone",
-                                        "value" : uid.uidCompossed,
-                                        "namespace" : uid.namespace,
-                                        "instance" : instance,
-                                        "distance" : beacon.proximity.rawValue,
-                                        "url" : url.description]
+        var outputDic: [String: Any] = ["type": "eddystone",
+                                        "value": uid.uidCompossed,
+                                        "namespace": uid.namespace,
+                                        "instance": instance,
+                                        "distance": beacon.proximity.rawValue,
+                                        "url": url.description]
         
         if let batteryPercentage = beacon.telemetry?.batteryPercentage {
             outputDic["battery"] = batteryPercentage.description
@@ -252,9 +252,9 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     private func performStartScanner() {
         LogDebug("--- START SCANNER ---")
         self.scannerStarted = true
-        let serviceUUID:String = EddystoneConstants.serviceUUID
+        let serviceUUID: String = EddystoneConstants.serviceUUID
         let services: [CBUUID] = [CBUUID (string:serviceUUID)]
-        let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey : true]
+        let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey: true]
         
         if self.eddystoneParser == nil {
             self.eddystoneParser = EddystoneProtocolParser(
@@ -272,10 +272,10 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         self.eddystoneParser?.cleanDetectedBeaconList()
     }
     
-    //MARK: Private finish task methods
+    // MARK: Private finish task methods
     private func endStartScannerTask() {
         LogInfo("Number of beacons detected before stopping \(self.beaconList.count)")
-        if (self.isAvailableStopTool()) {
+        if self.isAvailableStopTool() {
             UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
             self.startScannerBackgroundTask = UIBackgroundTaskInvalid
             self.stopScanner()
@@ -292,7 +292,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
 
 extension CBCentralWrapper: CBCentralManagerDelegate {
     // MARK: CBCentralManagerDelegate methods
-    func centralManagerDidUpdateState(_ centralManager: CBCentralManager) -> Void {
+    func centralManagerDidUpdateState(_ centralManager: CBCentralManager) {
         if self.scannerStarted,
             centralManager.state != .poweredOn {
             self.stopScanner()
@@ -309,12 +309,12 @@ extension CBCentralWrapper: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [AnyHashable : Any] else { return }
         
-        let serviceUUID:String = EddystoneConstants.serviceUUID
+        let serviceUUID: String = EddystoneConstants.serviceUUID
         let serviceCBUUID = CBUUID(string: serviceUUID)
-        let peripheralId:UUID = peripheral.identifier as UUID
-        let rssi:Int = RSSI.intValue
+        let peripheralId: UUID = peripheral.identifier as UUID
+        let rssi: Int = RSSI.intValue
         
-        guard let beaconServiceData:Data = (serviceData[serviceCBUUID] as? Data),
+        guard let beaconServiceData: Data = (serviceData[serviceCBUUID] as? Data),
             let eddystoneParser = self.eddystoneParser else { return }
         
         eddystoneParser.parse(beaconServiceData,

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable class LogTableViewCell: UITableViewCell {
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     @IBInspectable @IBOutlet weak var cellStackView: UIStackView!
     
     @IBInspectable @IBOutlet weak var firstView: UIView!

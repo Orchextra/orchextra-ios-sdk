@@ -65,7 +65,7 @@ class PushOrxManager: NSObject, PushOrxInput {
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
-                completionHandler: { granted, _ in
+                completionHandler: { _, _ in
                     // Granted to use remote notification
             })
         } else {

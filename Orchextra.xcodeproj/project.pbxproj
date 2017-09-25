@@ -104,6 +104,7 @@
 		A95E67F61F5D96BB001D8B19 /* ProximityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67F51F5D96BB001D8B19 /* ProximityWrapper.swift */; };
 		A95E67F91F5D9EB3001D8B19 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67F81F5D9EB3001D8B19 /* Region.swift */; };
 		A95E67FB1F5D9FEC001D8B19 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */; };
+		A96C0E8E1F6985EB00338B1B /* StorageProximity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
 		A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */; };
@@ -177,6 +178,7 @@
 		A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */; };
 		A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */; };
 		A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC3D1F57F09200596CF3 /* JSONHandler.swift */; };
+		A9E8D7A71F68237A005A8DDC /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E8D7A61F68237A005A8DDC /* Beacon.swift */; };
 		FA1916211F5EB4CE00F344EC /* Applivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1916201F5EB4CE00F344EC /* Applivery.framework */; };
 		FA1916221F5EB4CE00F344EC /* Applivery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA1916201F5EB4CE00F344EC /* Applivery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -332,6 +334,7 @@
 		A95E67F51F5D96BB001D8B19 /* ProximityWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityWrapper.swift; path = Proximity/ProximityWrapper.swift; sourceTree = "<group>"; };
 		A95E67F81F5D9EB3001D8B19 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = Proximity/Model/Region.swift; sourceTree = "<group>"; };
 		A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geofence.swift; path = Proximity/Model/Geofence.swift; sourceTree = "<group>"; };
+		A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageProximity.swift; path = Proximity/Data/StorageProximity.swift; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
@@ -410,6 +413,7 @@
 		A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputMock.swift; path = Mocks/Modules/ScannerMocks/ModuleOutputMock.swift; sourceTree = "<group>"; };
 		A9D0FC3B1F57F00400596CF3 /* ActionFactoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionFactoryTest.swift; path = Common/Model/Actions/ActionFactoryTest.swift; sourceTree = "<group>"; };
 		A9D0FC3D1F57F09200596CF3 /* JSONHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONHandler.swift; path = Helpers/JSONHandler.swift; sourceTree = "<group>"; };
+		A9E8D7A61F68237A005A8DDC /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Beacon.swift; path = Proximity/Model/Beacon.swift; sourceTree = "<group>"; };
 		FA1916201F5EB4CE00F344EC /* Applivery.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Applivery.framework; path = Carthage/Build/iOS/Applivery.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -793,6 +797,7 @@
 		A95E67F41F5D9596001D8B19 /* Proximity */ = {
 			isa = PBXGroup;
 			children = (
+				A96C0E8F1F6987EC00338B1B /* Data */,
 				A95E67F71F5D9E9B001D8B19 /* Model */,
 				A95E67F51F5D96BB001D8B19 /* ProximityWrapper.swift */,
 				A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */,
@@ -806,9 +811,18 @@
 			children = (
 				A95E67F81F5D9EB3001D8B19 /* Region.swift */,
 				A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */,
+				A9E8D7A61F68237A005A8DDC /* Beacon.swift */,
 				A95A60EC1F6279ED006EADBB /* GeoLocation.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A96C0E8F1F6987EC00338B1B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		A974BE7A1F4B080100A355FD /* Modules */ = {
@@ -1243,6 +1257,7 @@
 				A9C54D931F41A6F100DF2074 /* Frameworks */,
 				A9C54D941F41A6F100DF2074 /* Headers */,
 				A9C54D951F41A6F100DF2074 /* Resources */,
+				A98783BE1F752A0100A9A7F4 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -1299,24 +1314,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Gigigo Mobile Services S.L.";
 				TargetAttributes = {
 					A9C54D961F41A6F100DF2074 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = SU5BA5HAQK;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					A9C54D9F1F41A6F100DF2074 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = SU5BA5HAQK;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A9C54DC31F41A8E500DF2074;
 					};
 					A9C54DC31F41A8E500DF2074 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = SU5BA5HAQK;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -1399,6 +1416,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A98783BE1F752A0100A9A7F4 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"/usr/local/bin:$PATH\"\nif [ \"${CONFIGURATION}\" != \"Release\" ]; then\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A9C54D921F41A6F100DF2074 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1425,6 +1459,7 @@
 				A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */,
 				A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */,
 				A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */,
+				A9E8D7A71F68237A005A8DDC /* Beacon.swift in Sources */,
 				A9C54DE21F41ABE200DF2074 /* Request.swift in Sources */,
 				A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */,
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,
@@ -1445,6 +1480,7 @@
 				A9986B291F59764E00F2CC65 /* ActionManager.swift in Sources */,
 				A95E67FB1F5D9FEC001D8B19 /* Geofence.swift in Sources */,
 				A9AC21231F543D9600095EC5 /* LocalizableConstants.swift in Sources */,
+				A96C0E8E1F6985EB00338B1B /* StorageProximity.swift in Sources */,
 				8F299C5D1F6691060023F69D /* EddystoneUID.swift in Sources */,
 				A9986B341F5976D200F2CC65 /* Date+Extension.swift in Sources */,
 				8FFD3D931F5698F5000A1056 /* ActionWebView.swift in Sources */,
@@ -1596,13 +1632,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1610,7 +1649,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1650,13 +1693,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1664,7 +1710,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1715,7 +1765,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1740,7 +1791,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.Orchextra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1757,7 +1809,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchextraApp.app/OrchextraApp";
 			};
 			name = Debug;
@@ -1775,7 +1828,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchextraApp.app/OrchextraApp";
 			};
 			name = Release;
@@ -1798,7 +1852,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bfda7ed5-fc37-40ae-b96f-c23147fe5355";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1821,7 +1876,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1f6ea78e-ce60-40d4-9811-c19e70f0ea11";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Universal;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

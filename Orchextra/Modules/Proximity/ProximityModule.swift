@@ -30,12 +30,22 @@ class ProximityModule: ModuleInput {
     }
     
     // MARK: - ModuleInput methods
-    
-    // Start monitoring the regions
+
+    /**
+     Start monitoring the regions
+     
+     Proximity module requires location permission being enable by
+     the user to get the geomarketing triggers
+     
+     To enable location your app must include
+     NSLocationWhenInUseUsageDescription & NSLocationAlwaysAndWhenInUsageDescription keys in your app's Info.plist
+     
+     If your app supports iOS 10 and earlier, the NSLocationAlwaysUsageDescription key is also required
+     */
     func start() {
         self.proximityWrapper.paramsCurrentUserLocation { params in
             self.outputModule?.setConfig(config: params, completion: { config in
-                self.parseGeoMarketing(params: config)
+                self.parseProximity(params: config)
             })
         }
     }
@@ -53,22 +63,46 @@ class ProximityModule: ModuleInput {
     }
     
     // MARK: - Private
-   
-    private func parseGeoMarketing(params: [String : Any]) {
-        guard let geofences = params["geoMarketing"] as? Array<[String: Any]> else {
-            LogWarn("There aren't geofence to configure in proximity module")
+    
+    private func parseProximity(params: [String : Any]) { 
+        guard
+            let geofences = params["geoMarketing"] as? [[String: Any]],
+            let beacons = params["proximity"] as? [[String: Any]] else {
+            LogWarn("There aren't beacons or geofences to configure in proximity module")
             return
         }
         
+        var regionsInModule = [Region]()
+        let geofencesModule = self.parseGeoMarketing(geofences: geofences)
+        let beaconsModule = self.parseBeacons(beacons: beacons)
+
+        regionsInModule.append(contentsOf: geofencesModule)
+        regionsInModule.append(contentsOf: beaconsModule)
+
+        self.proximityWrapper.register(regions: regionsInModule)
+        self.proximityWrapper.startMonitoring()
+    }
+   
+    private func parseGeoMarketing(geofences: [[String: Any]]) -> [Region] {
+        
         var geofencesInModule = [Region]()
         for geofence in geofences {
-            if let region = RegionFactory.geofences(from: geofence){
+            if let region = RegionFactory.geofences(from: geofence) {
                 geofencesInModule.append(region)
             }
         }
-        self.proximityWrapper.register(regions: geofencesInModule)
-        self.proximityWrapper.startMonitoring()
+        return geofencesInModule
+    }
+    
+    private func parseBeacons(beacons: [[String: Any]]) -> [Region] {
 
+        var beaconsInModule = [Region]()
+        for beacon in beacons {
+            if let region = RegionFactory.beacon(from: beacon) {
+                beaconsInModule.append(region)
+            }
+        }
+        return beaconsInModule
     }
 }
 

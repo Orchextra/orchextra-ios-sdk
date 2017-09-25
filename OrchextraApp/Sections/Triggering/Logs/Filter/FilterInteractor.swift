@@ -92,7 +92,7 @@ extension FilterInteractor: FilterInteractorInput {
     
     func update(filter: Filter, at position: Int) {
         let filtersUpdated: [Filter] = self.filters.map { (currentFilter) in
-            if (currentFilter.id == filter.id) {
+            if currentFilter.id == filter.id {
                 currentFilter.selected = !filter.selected
             }
             
@@ -107,5 +107,3 @@ extension FilterInteractor: FilterInteractorInput {
         self.filters = self.initializeFilters()
     }
 }
-
-

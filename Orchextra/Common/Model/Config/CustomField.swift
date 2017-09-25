@@ -9,7 +9,7 @@
 import Foundation
 import GIGLibrary
 
-enum CustomFieldType{
+enum CustomFieldType {
     
 }
 

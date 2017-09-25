@@ -8,16 +8,16 @@
 
 import Foundation
 
-enum regionEvent: String {
-    case undetected = "undetected"
-    case enter = "enter"
-    case exit = "exit"
+enum RegionEvent: String {
+    case undetected
+    case enter
+    case exit
 }
 
 class EddystoneRegion: NSObject, NSCoding {
     // MARK: Public properties
-    let uid:EddystoneUID
-    var regionEvent: regionEvent
+    let uid: EddystoneUID
+    var regionEvent: RegionEvent
     let code: String
     
     // MARK: Private properties

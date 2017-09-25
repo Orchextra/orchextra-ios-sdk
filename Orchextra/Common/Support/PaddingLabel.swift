@@ -11,7 +11,7 @@ import UIKit
 
 class PaddingLabel: UILabel {
     
-    var contentInset:UIEdgeInsets = .zero {
+    var contentInset: UIEdgeInsets = .zero {
         didSet {
             setNeedsDisplay()
         }

@@ -25,8 +25,8 @@ class TriggerBarcode: Trigger {
                 return nil
         }
         
-        let params = ["type" : TriggerType.triggerBarcode,
-                      "value" : value]
+        let params = ["type": TriggerType.triggerBarcode,
+                      "value": value]
         
         return TriggerBarcode(params: params)
     }

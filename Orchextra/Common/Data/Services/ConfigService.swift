@@ -30,7 +30,7 @@ class ConfigService: ConfigServiceInput {
     
     func configCore(completion: @escaping (Result<String, Error>) -> Void) {
         
-        let request = Request.OrchextraRequest(
+        let request = Request.orchextraRequest(
             method: "GET",
             baseUrl: Config.coreEndpoint,
             endpoint: endpointConfig)
@@ -59,7 +59,7 @@ class ConfigService: ConfigServiceInput {
     
     func configProximity(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
 
-        let request = Request.OrchextraRequest(
+        let request = Request.orchextraRequest(
             method: "POST",
             baseUrl: Config.coreEndpoint,
             endpoint: endpointConfig,

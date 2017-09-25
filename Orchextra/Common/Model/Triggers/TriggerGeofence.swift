@@ -26,8 +26,8 @@ class TriggerGeofence: Trigger {
                 return nil
         }
         
-        let params = ["type" : type,
-                      "value" : value,
+        let params = ["type": type,
+                      "value": value,
                       "event": event,
                       "phoneStatus": self.applicationState()]
         

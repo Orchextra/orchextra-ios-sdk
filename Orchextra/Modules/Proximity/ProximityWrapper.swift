@@ -31,18 +31,21 @@ class ProximityWrapper: ProximityInput {
     
     var regions: [Region]?
     var locationWrapper: LocationInput
+    var storage: StorageProximity
     
     // MARK: - 
     
     convenience init() {
         let locationWrapper = LocationWrapper()
-        self.init(locationWrapper: locationWrapper)
+        let storage = StorageProximity()
+        self.init(locationWrapper: locationWrapper, storage: storage)
     }
     
-    init(locationWrapper: LocationInput) {
+    init(locationWrapper: LocationInput, storage: StorageProximity) {
+        self.storage = storage
         self.locationWrapper = locationWrapper
         self.locationWrapper.output = self
-        _ = self.locationWrapper.needRequestAuthorization()
+        _ = self.locationWrapper.enableLocationServices()
     }
     
     // MARK: - Public
@@ -72,7 +75,7 @@ class ProximityWrapper: ProximityInput {
                 LogWarn("No regions to monitoring")
                 return }
             
-            if !self.locationWrapper.needRequestAuthorization() {
+            if self.locationWrapper.enableLocationServices() {
                 self.locationWrapper.monitoring(regions: regions)
             }
             LogDebug("Finish start monitoring")
@@ -109,9 +112,9 @@ extension ProximityWrapper: LocationOutput {
     
     // MARK: - Method to generate output
     
-    func handleOutputRegion(type: RegionType, code: String, event: String) -> [String: Any]{
-        let outputDic = ["type" : type.rawValue,
-                         "value" : code,
+    func handleOutputRegion(type: RegionType, code: String, event: String) -> [String: Any] {
+        let outputDic = ["type": type.rawValue,
+                         "value": code,
                          "event": event]
         
         return outputDic

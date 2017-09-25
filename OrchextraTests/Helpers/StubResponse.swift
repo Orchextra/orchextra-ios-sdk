@@ -15,6 +15,6 @@ class StubResponse {
         return OHHTTPStubsResponse(
             fileAtPath: OHPathForFile(json, StubResponse.self)!,
             statusCode: 200,
-            headers: ["Content-Type" : "application/json"])
+            headers: ["Content-Type": "application/json"])
     }
 }

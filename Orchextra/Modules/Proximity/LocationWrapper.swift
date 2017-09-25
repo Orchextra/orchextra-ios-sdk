@@ -18,7 +18,7 @@ protocol LocationInput {
     
     var output: LocationOutput? {get set}
 
-    func needRequestAuthorization() -> Bool
+    func enableLocationServices() -> Bool
     func monitoring(regions: [Region])
     func stopAllMonitoredRegions()
     func showLocationPermissionAlert()
@@ -61,18 +61,16 @@ class LocationWrapper: NSObject, LocationInput {
         self.locationManager.activityType = CLActivityType.other
     }
     
-    func needRequestAuthorization() -> Bool {
+    func enableLocationServices() -> Bool {
         let status = self.authorizationStatus
         switch status {
         case .authorizedAlways:
-            return false
-        case .authorizedWhenInUse, .denied:
-            self.showLocationPermissionAlert()
             return true
+        case .authorizedWhenInUse, .denied, .restricted:
+            self.showLocationPermissionAlert()
+            return false
         case .notDetermined:
             self.locationManager.requestAlwaysAuthorization()
-            return false
-        case .restricted:
             return false
         }
     }
@@ -88,6 +86,8 @@ class LocationWrapper: NSObject, LocationInput {
         self.completionCurrentLocation = completion
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
+        } else {
+            completion(CLLocation(latitude: 0, longitude: 0), nil)
         }
     }
     
@@ -102,8 +102,15 @@ class LocationWrapper: NSObject, LocationInput {
                 
                 if  monitoringAvailable && !monitored {
                     self.locationManager.startMonitoring(for: clRegion)
+                    self.isRangingAvailable(beacon: clRegion)
                 }
             }
+        }
+    }
+    
+    private func isRangingAvailable(beacon: CLRegion) {
+        if CLLocationManager.isRangingAvailable(), let beaconRegion = beacon as? CLBeaconRegion {
+            self.locationManager.startRangingBeacons(in: beaconRegion)
         }
     }
     
@@ -172,6 +179,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        self.completionCurrentLocation?(CLLocation(latitude: 0, longitude: 0), nil)
         LogError(error as NSError)
     }
     
@@ -194,8 +202,8 @@ extension LocationWrapper: CLLocationManagerDelegate {
                 return
             }
             
-            self.geocoder.reverseGeocodeLocation(location, completionHandler: { placemark, error in
-                if let completion = self.completionCurrentLocation{
+            self.geocoder.reverseGeocodeLocation(location, completionHandler: { placemark, _ in
+                if let completion = self.completionCurrentLocation {
                     completion(location, placemark?.first)
                 }
             })

@@ -27,7 +27,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     fileprivate var presenter = ScannerPresenter()
     private var enableTorchScanner: Bool = false
 
-    //MARK: - 
+    // MARK: -
     
     override func viewDidLoad() {
         
@@ -88,7 +88,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.dismissScanner(completion: nil)
     }
     
-    //MARK: - ScannerUI
+    // MARK: - ScannerUI
     
     func showScanner() {
         guard let granted = self.isCameraAvailable() else {
@@ -128,12 +128,16 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
             self.viewStatus.alpha = 0.8
             
         }) { _ in
-            UIView.animate(withDuration: 0.1,
-                           delay: 0.6,
-                           options: .curveEaseInOut, animations: { 
-                            self.viewStatus.alpha = 0
-            }, completion:nil)
+            self.animateRemoveViewStatus()
         }
+    }
+    
+    func animateRemoveViewStatus() {
+        UIView.animate(withDuration: 0.1,
+                       delay: 0.6,
+                       options: .curveEaseInOut, animations: {
+                        self.viewStatus.alpha = 0
+        }, completion:nil)
     }
 
     func hideInfo() {
@@ -142,7 +146,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         }
     }
     
-    //MARK: - GIGScannerDelegate
+    // MARK: - GIGScannerDelegate
     
     func didSuccessfullyScan(_ scannedValue: String, type: String) {
         self.presenter.scannerDidFinishCapture(value: scannedValue, type: type)
@@ -189,4 +193,3 @@ extension ScannerOrxVC: UINavigationBarDelegate {
         return UIBarPosition.topAttached
     }
 }
-

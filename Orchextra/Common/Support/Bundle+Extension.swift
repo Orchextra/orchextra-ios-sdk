@@ -10,7 +10,7 @@ import Foundation
 
 extension Bundle {
     
-    class func OrxBundle() -> Bundle {
+    class func orxBundle() -> Bundle {
         return Bundle(for: Orchextra.self)
     }
     
@@ -23,18 +23,18 @@ extension Bundle {
     }
     
     class func localizeBundle(key: String) -> String {
-        return NSLocalizedString(key, tableName: nil, bundle: Bundle.OrxBundle(), comment: "")
+        return NSLocalizedString(key, tableName: nil, bundle: Bundle.orxBundle(), comment: "")
     }
     
-    class func OrxVersion() -> String {
-        guard let version = Bundle.OrxBundle().infoDictionary!["CFBundleShortVersionString"]! as? String else {
+    class func orxVersion() -> String {
+        guard let version = Bundle.orxBundle().infoDictionary!["CFBundleShortVersionString"]! as? String else {
             return "3.0.0"
         }
         return version
     }
     
-    class func OrxBuildVersion() -> String {
-        guard let version = Bundle.OrxBundle().infoDictionary!["CFBundleVersion"]! as? String else {
+    class func orxBuildVersion() -> String {
+        guard let version = Bundle.orxBundle().infoDictionary!["CFBundleVersion"]! as? String else {
             return "1"
         }
         return version

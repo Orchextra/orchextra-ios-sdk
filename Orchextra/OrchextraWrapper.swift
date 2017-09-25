@@ -56,16 +56,18 @@ class OrchextraWrapper {
         LogInfo(" ---  LOADED PROJECT WITH: ---")
         LogInfo(" ---  Apikey: \(apiKey)")
         LogInfo(" ---  Apisecret: \(apiSecret)")
+        
+        self.session.credentials(apiKey: apiKey, apiSecret: apiSecret)
 
-        self.session.apiKey = apiKey
-        self.session.apiSecret = apiSecret
+//        self.session.apiKey = apiKey
+//        self.session.apiSecret = apiSecret
         self.startCompletion = completion
 
         //TODO: Handle apikey y apisecret
         self.session.save(accessToken: nil)
         
-//        self.openProximity()
-        self.openEddystone()
+        self.openProximity()
+//        self.openEddystone()
         completion(.success(true))
     
         // Start configuration
@@ -119,24 +121,4 @@ class OrchextraWrapper {
         self.openEddystone()
         completionHandler(.newData)
     }
-    
-//    func getProximity() -> [String: Any]? {
-//        guard let geomarketingFile = self.jsonFrom(
-//            filename: "geomarketing")else {
-//                return nil
-//        }
-//        
-//        return geomarketingFile
-//    }
-//    
-//    func getEddystone() -> [String: Any]? {
-//        guard let eddystoneFile = self.jsonFrom(
-//            filename: "eddystone")else {
-//                return nil
-//        }
-//        
-//        return eddystoneFile
-//    }
-    
-
 }

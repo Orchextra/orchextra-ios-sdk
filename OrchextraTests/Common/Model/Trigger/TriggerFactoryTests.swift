@@ -23,8 +23,8 @@ class TriggerFactoryTests: XCTestCase {
     func test_triggerFactory_returnTriggerNil() {
         
         // ARRANGE
-        let triggerValues = ["type" : "codeIncorrect",
-                             "value" : "1234567"]
+        let triggerValues = ["type": "codeIncorrect",
+                             "value": "1234567"]
         
         // ACT
         let trigger = TriggerFactory.trigger(from: triggerValues)
@@ -36,8 +36,8 @@ class TriggerFactoryTests: XCTestCase {
     func test_triggerFactory_returnTriggerBarcode() {
         
         // ARRANGE
-        let triggerValues = ["type" : "barcode",
-                             "value" : "1234567"]
+        let triggerValues = ["type": "barcode",
+                             "value": "1234567"]
         
         // ACT
         let trigger = TriggerFactory.trigger(from: triggerValues)
@@ -53,8 +53,8 @@ class TriggerFactoryTests: XCTestCase {
     func test_triggerFactory_returnTriggerQR() {
         
         // ARRANGE
-        let triggerValues = ["type" : "qr",
-                             "value" : "hello world"]
+        let triggerValues = ["type": "qr",
+                             "value": "hello world"]
         
         // ACT
         let trigger = TriggerFactory.trigger(from: triggerValues)

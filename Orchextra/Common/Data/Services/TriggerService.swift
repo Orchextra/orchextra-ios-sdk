@@ -24,7 +24,7 @@ class TriggerService {
     }
     
     func launchTrigger(values: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
-        let request = Request.OrchextraRequest(
+        let request = Request.orchextraRequest(
             method: "GET",
             baseUrl: Config.coreEndpoint,
             endpoint: endpointTrigger,
