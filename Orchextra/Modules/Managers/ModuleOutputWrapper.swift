@@ -31,7 +31,7 @@ struct ModuleOutputWrapper: ModuleOutput {
     
     func setConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void)) {
         
-        var configDefault: [String : Any] = ["geoLocation" : ""]
+        var configDefault: [String : Any] = ["geoLocation": ""]
         if let configModule = config {
             configDefault = configModule
         }

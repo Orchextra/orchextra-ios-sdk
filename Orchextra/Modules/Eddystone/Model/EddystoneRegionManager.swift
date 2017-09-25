@@ -49,7 +49,7 @@ class EddystoneRegionManager {
     }
     
     // MARK: Regions management
-    private func regionDidEnter(region: EddystoneRegion)  {
+    private func regionDidEnter(region: EddystoneRegion) {
         if self.isAvailable(region) &&
             (!(self.regionsEntered.contains(region))) {
             region.regionEvent = .enter

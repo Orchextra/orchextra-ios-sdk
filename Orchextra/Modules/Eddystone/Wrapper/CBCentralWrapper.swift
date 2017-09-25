@@ -217,15 +217,15 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     private func handleOutputBeacon(for beacon: EddystoneBeacon) -> [String: Any]? {
         guard let uid = beacon.uid,
             let instance = uid.instance,
-            let url = beacon.url else  { return nil }
+            let url = beacon.url else { return nil }
         
         LogDebug("\(String(describing: beacon.uid?.uidCompossed)) \(beacon.proximity.rawValue)")
-        var outputDic: [String: Any] = ["type" : "eddystone",
-                                        "value" : uid.uidCompossed,
-                                        "namespace" : uid.namespace,
-                                        "instance" : instance,
-                                        "distance" : beacon.proximity.rawValue,
-                                        "url" : url.description]
+        var outputDic: [String: Any] = ["type": "eddystone",
+                                        "value": uid.uidCompossed,
+                                        "namespace": uid.namespace,
+                                        "instance": instance,
+                                        "distance": beacon.proximity.rawValue,
+                                        "url": url.description]
         
         if let batteryPercentage = beacon.telemetry?.batteryPercentage {
             outputDic["battery"] = batteryPercentage.description
@@ -268,10 +268,10 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         self.eddystoneParser?.cleanDetectedBeaconList()
     }
     
-    //MARK: Private finish task methods
+    // MARK: Private finish task methods
     private func endStartScannerTask() {
         LogInfo("Number of beacons detected before stopping \(self.beaconList.count)")
-        if (self.isAvailableStopTool()) {
+        if self.isAvailableStopTool() {
             UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
             self.startScannerBackgroundTask = UIBackgroundTaskInvalid
             self.stopScanner()

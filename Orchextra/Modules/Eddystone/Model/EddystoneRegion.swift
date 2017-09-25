@@ -9,9 +9,9 @@
 import Foundation
 
 enum RegionEvent: String {
-    case undetected = "undetected"
-    case enter = "enter"
-    case exit = "exit"
+    case undetected
+    case enter
+    case exit
 }
 
 class EddystoneRegion: NSObject, NSCoding {
