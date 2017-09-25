@@ -91,12 +91,14 @@ class Tag {
     }
     
     func matchestTex(text: String, regexString: String) -> Int {
-        let regexp: NSRegularExpression = try! NSRegularExpression(pattern: regexString)
-        let matches = regexp.matches(in: text, options: [], range: text.nsrange)
-    
-        return matches.count
+        do {
+            let regexp: NSRegularExpression = try NSRegularExpression(pattern: regexString)
+            let matches = regexp.matches(in: text, options: [], range: text.nsrange)
+            return matches.count
+        } catch {
+            return 0
+        }
     }
-
 }
 
 
@@ -110,7 +112,7 @@ extension String {
     /// or `nil` if the range can't be converted.
     func substring(with nsrange: NSRange) -> String? {
         guard let range = Range(nsrange, in: self) else { return nil }
-        return self[range]
+        return String(self[range])
     }
     
     /// Returns a range equivalent to the given `NSRange`,

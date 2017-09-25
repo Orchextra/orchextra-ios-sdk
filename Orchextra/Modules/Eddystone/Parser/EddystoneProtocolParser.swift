@@ -19,7 +19,7 @@ class EddystoneProtocolParser {
     var peripheralId:UUID?
     var requestWaitTime: Int
     var rssi:Int?
-    var currentFrameType: frameType?
+    var currentFrameType: FrameType?
     var currentBeacon: EddystoneBeacon?
     var regionManager: EddystoneRegionManager
     
@@ -36,11 +36,11 @@ class EddystoneProtocolParser {
     }
     
     // MARK: Public
-    func cleanDetectedBeaconList()  {
+    func cleanDetectedBeaconList() {
         self.regionManager.cleanDetectedBeaconList()
     }
     
-    func parse(_ serviceDataInformation:Data, peripheralId:UUID, rssi:Int) -> Void {
+    func parse(_ serviceDataInformation: Data, peripheralId: UUID, rssi: Int) {
         self.peripheralId = peripheralId
         self.rssi = rssi
         self.serviceDataInformation = serviceDataInformation
@@ -53,7 +53,7 @@ class EddystoneProtocolParser {
     
     func parseServiceInformation() -> [EddystoneBeacon] {
         guard let serviceBytesInformation = self.serviceBytes else { return self.regionManager.beaconsDetected }
-        let frameBytes:UInt8 = serviceBytesInformation[EddystoneConstants.frameTypePosition]
+        let frameBytes: UInt8 = serviceBytesInformation[EddystoneConstants.frameTypePosition]
         
         guard let peripheralId = self.peripheralId,
             let rssi = self.rssi else { return self.regionManager.beaconsDetected }
@@ -72,7 +72,7 @@ class EddystoneProtocolParser {
     
     // MARK: Public (Telemetry Parsing)
     func parseTelemetryInformation() -> EddystoneTelemetry {
-        guard let serviceData:Data = self.serviceDataInformation else {
+        guard let serviceData: Data = self.serviceDataInformation else {
             return EddystoneTelemetry(tlmVersion: "",
                                          batteryVoltage: 0,
                                          batteryPercentage: 0,
@@ -99,11 +99,11 @@ class EddystoneProtocolParser {
     
     // MARK: Private methods
     fileprivate func parseRangingDataInformation(_ serviceBytesInformation: [UInt8]) -> UInt8? {
-        let rangingData:UInt8 = serviceBytesInformation[EddystoneConstants.rangingDataPosition]
+        let rangingData: UInt8 = serviceBytesInformation[EddystoneConstants.rangingDataPosition]
         return UInt8(rangingData)
     }
     
-    fileprivate func parseInformationForFrameType() -> Void {
+    fileprivate func parseInformationForFrameType() {
         guard let type = self.currentFrameType else { return }
         switch type {
         case .uid:
@@ -138,8 +138,8 @@ class EddystoneProtocolParser {
         guard let serviceBytes = self.serviceBytes,
             serviceBytes.count >= EddystoneConstants.uidMinimiumSize else { return nil }
         
-        let namespace:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidNamespaceEndPosition, EddystoneConstants.uidNamespaceInitialPosition)))
-        let instance:String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidInstanceEndPosition, EddystoneConstants.uidInstanceInitialPosition)))
+        let namespace: String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidNamespaceEndPosition, EddystoneConstants.uidNamespaceInitialPosition)))
+        let instance: String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidInstanceEndPosition, EddystoneConstants.uidInstanceInitialPosition)))
         
         let eddystoneUID = EddystoneUID(namespace: namespace, instance: instance)
         
@@ -151,16 +151,16 @@ class EddystoneProtocolParser {
         var urlString: String = ""
         guard let serviceBytes = self.serviceBytes else { return URL(string: "") }
         
-        let urlSchemeBytes:UInt8 = serviceBytes[EddystoneConstants.urlSchemePrefixPosition]
-        let urlScheme:String = EddystoneDecoder.urlSchemePrefix(urlSchemeBytes)
+        let urlSchemeBytes: UInt8 = serviceBytes[EddystoneConstants.urlSchemePrefixPosition]
+        let urlScheme: String = EddystoneDecoder.urlSchemePrefix(urlSchemeBytes)
         
         urlString.append(urlScheme)
         
         for i in EddystoneConstants.urlHostInitialPosition..<serviceBytes.count {
-            let bytesToBeDecoded:UInt8 = serviceBytes[i]
-            let urlDecoded:String = EddystoneDecoder.urlDecoded(bytesToBeDecoded)
+            let bytesToBeDecoded: UInt8 = serviceBytes[i]
+            let urlDecoded: String = EddystoneDecoder.urlDecoded(bytesToBeDecoded)
             
-            if urlDecoded.characters.count > 0  {
+            if urlDecoded.characters.count > 0 {
                 urlString.append(urlDecoded)
             } else {
                 guard let urlDecoded = String(data: Data(bytes:[bytesToBeDecoded], count: 1) as Data,
@@ -172,11 +172,11 @@ class EddystoneProtocolParser {
         return URL(string: urlString)
     }
     
-    fileprivate func parseRangeOfBytes(_ serviceBytes:[UInt8], range:Range<Int>) -> String {
-        var result:String = ""
+    fileprivate func parseRangeOfBytes(_ serviceBytes: [UInt8], range: Range<Int>) -> String {
+        var result: String = ""
         for i in range.upperBound..<range.lowerBound {
-            let bytesToBeDecoded:UInt8 = serviceBytes[i]
-            let byteDecoded:String = String(bytesToBeDecoded,
+            let bytesToBeDecoded: UInt8 = serviceBytes[i]
+            let byteDecoded: String = String(bytesToBeDecoded,
                                             radix:EddystoneConstants.bytesToStringConverterRadix,
                                             uppercase: false)
             
@@ -223,15 +223,15 @@ class EddystoneProtocolParser {
     
     fileprivate func parseBatteryPercentage(_ batteryVolts: Double) -> Double {
         var batteryLevel: Double = 0
-        if (batteryVolts >= 3000) {
+        if batteryVolts >= 3000 {
             batteryLevel = 100
-        } else if (batteryVolts > 2900) {
+        } else if batteryVolts > 2900 {
             batteryLevel = 100 - ((3000 - batteryVolts) * 58) / 100
-        } else if (batteryVolts > 2740) {
+        } else if batteryVolts > 2740 {
             batteryLevel = 42 - ((2900 - batteryVolts) * 24) / 160
-        } else if (batteryVolts > 2440) {
+        } else if batteryVolts > 2440 {
             batteryLevel = 18 - ((2740 - batteryVolts) * 12) / 300
-        } else if (batteryVolts > 2100) {
+        } else if batteryVolts > 2100 {
             batteryLevel = 6 - ((2440 - batteryVolts) * 6) / 340
         } else {
             batteryLevel = 0
@@ -299,7 +299,7 @@ class EddystoneProtocolParser {
     }
     
     // MARK: Private (BeaconList)
-    fileprivate func updateBeaconList() -> Void {
+    fileprivate func updateBeaconList() {
         var beaconsDetected: [EddystoneBeacon] = self.regionManager.beaconsDetected
             .filter(self.isCurrentBeaconAlreadyDetected)
             .map(self.updateRssiBuffer)

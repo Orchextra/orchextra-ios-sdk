@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum frameType {
+enum FrameType {
     case unknown
     case uid
     case url
@@ -19,8 +19,8 @@ enum frameType {
 struct EddystoneDecoder {
     
     // MARK: Public (FrameType)
-    static func frameType(_ fromBytes: UInt8) -> frameType {
-        var frameType: frameType = .unknown
+    static func frameType(_ fromBytes: UInt8) -> FrameType {
+        var frameType: FrameType = .unknown
         switch fromBytes {
         case EddystoneConstants.frameUID:
             frameType = .uid

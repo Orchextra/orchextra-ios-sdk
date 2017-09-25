@@ -26,7 +26,7 @@ protocol EddystoneOutput {
 }
 
 /// CoreBluetooth levels are used to define the time to scan out for eddystone beacons.
-enum coreBluetoothScanLevel {
+enum CoreBluetoothScanLevel {
     /// Core bluetooth scanner always active searching for peripherals.
     case always
     /// Core bluetooth scanner searaching for peripherals from time to time.
@@ -36,7 +36,7 @@ enum coreBluetoothScanLevel {
 class CBCentralWrapper: NSObject, EddystoneInput {
     
     // MARK: Public properties
-    static var scanLevel: coreBluetoothScanLevel = .byIntervals
+    static var scanLevel: CoreBluetoothScanLevel = .byIntervals
     var output: EddystoneOutput?
     var eddystoneParser: EddystoneProtocolParser?
     var availableRegions: [EddystoneRegion]

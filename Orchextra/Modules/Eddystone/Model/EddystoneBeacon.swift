@@ -9,7 +9,7 @@
 import Foundation
 import GIGLibrary
 
-enum proximity: String {
+enum Proximity: String {
     case unknown = "unknown"
     case inmediate = "inmediate"
     case near = "near"
@@ -23,13 +23,13 @@ class EddystoneBeacon {
     var rssiBuffer: [Int8]?
     var url: URL?
     var uid: EddystoneUID?
-    var eid:String?
+    var eid: String?
     var telemetry: EddystoneTelemetry?
     var proximityTimer: Timer?
     var requestWaitTime: Int
     
     // MARK: Public computed properties
-    var rssi:Double {
+    var rssi: Double {
         get {
             var totalRssi: Double = 0
             guard let rssiBuffer = self.rssiBuffer else {
@@ -44,7 +44,7 @@ class EddystoneBeacon {
         }
     }
     
-    var proximity: proximity {
+    var proximity: Proximity {
         get {
             let rangingDataUnWrapped = (self.rangingData != nil) ? self.rangingData! : 0
             return self.convertRSSIToProximity(self.rssi, rangingData:rangingDataUnWrapped)
@@ -52,7 +52,7 @@ class EddystoneBeacon {
     }
     
     // MARK: Public methods
-    init(peripheralId:UUID, requestWaitTime: Int) {
+    init(peripheralId: UUID, requestWaitTime: Int) {
         self.peripheralId = peripheralId
         self.requestWaitTime = requestWaitTime
     }
@@ -73,20 +73,20 @@ class EddystoneBeacon {
     }
     
     func canBeSentToValidateAction() -> Bool {
-        guard let _ = self.uid?.namespace,
-            let _ = self.uid?.instance,
-            let _ = self.url,
+        guard self.uid?.namespace != nil,
+            self.uid?.instance != nil,
+            self.url != nil,
             self.proximity != .unknown,
             (self.proximityTimer == nil) else { return false }
         return true
     }
     
-    func updateProximity(currentProximity: proximity) -> EddystoneBeacon {
+    func updateProximity(currentProximity: Proximity) -> EddystoneBeacon {
         if self.proximity == .unknown && currentProximity != .unknown {
            self.resetProximityTimer()
         } else {
-            if (currentProximity != .unknown &&
-                (currentProximity != self.proximity || (self.proximityTimer == nil))) {
+            if currentProximity != .unknown &&
+                (currentProximity != self.proximity || (self.proximityTimer == nil)) {
                 self.resetProximityTimer()
                 self.updateProximityTimer()
             }
@@ -110,7 +110,7 @@ class EddystoneBeacon {
     }
     
     // MARK: Private methods
-    private func convertRSSIToProximity(_ rssi: Double, rangingData: Int8) -> proximity {
+    private func convertRSSIToProximity(_ rssi: Double, rangingData: Int8) -> Proximity {
         var rangingDataUpdated = rangingData
         
         if rangingData == 0 {
@@ -118,7 +118,7 @@ class EddystoneBeacon {
         }
         
         let distance: Double = self.calculateDistanceFromRSSI(rssi, rangingData: rangingDataUpdated)
-        let proximity:proximity  = self.convertDistanceFromRSSI(distance)
+        let proximity: Proximity  = self.convertDistanceFromRSSI(distance)
         
         return proximity
     }
@@ -141,8 +141,8 @@ class EddystoneBeacon {
         return distance
     }
     
-    private func convertDistanceFromRSSI(_ distance: Double) -> proximity {
-        var proximity: proximity = .unknown
+    private func convertDistanceFromRSSI(_ distance: Double) -> Proximity {
+        var proximity: Proximity = .unknown
         if distance > 0,
             distance <= 1 {
             proximity = .inmediate

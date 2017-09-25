@@ -10,7 +10,7 @@ import Foundation
 
 
 extension Date {
-    func addedBy(minutes:Int) -> Date {
+    func addedBy(minutes: Int) -> Date {
         return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
     }
 }

@@ -52,7 +52,7 @@ class EddystoneModule: ModuleInput {
     ///
     /// - Parameter config:
     private func parseEddystone(params: [String : Any]) {
-        guard let regions = params["eddystoneRegions"] as? Array<[String: Any]> else {
+        guard let regions = params["eddystoneRegions"] as? [[String: Any]] else {
             LogWarn("There aren't regions available to configure in eddystone module")
             return
         }

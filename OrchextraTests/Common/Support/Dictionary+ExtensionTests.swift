@@ -11,7 +11,7 @@ import Quick
 import Nimble
 @testable import Orchextra
 
-class Dictionary_ExtensionTests: XCTestCase {
+class DictionaryExtensionTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

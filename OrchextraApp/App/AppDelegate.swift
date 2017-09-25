@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func setTabBarAppearance() {
 		let selectedColor = UIColor.ORXApp.coral
-		UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: selectedColor as Any], for: .selected)
+		UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: selectedColor as Any], for: .selected)
 	}
 	
 	func setNavBarAppearance() {
@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		navigationBarAppearace.isTranslucent = false
 		navigationBarAppearace.tintColor = UIColor.white
 		navigationBarAppearace.barTintColor = UIColor.ORXApp.coral
-		navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+		navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 	}
 	
 	private func setupApplivery() {

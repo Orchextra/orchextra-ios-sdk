@@ -17,11 +17,11 @@ class EddystoneTelemetry: NSObject {
     var uptime: TimeInterval
     
     init(tlmVersion: String,
-                batteryVoltage: Double,
-                batteryPercentage: Double,
-                temperature: Float,
-                advertisingPDUcount:String,
-                uptime: TimeInterval) {
+         batteryVoltage: Double,
+         batteryPercentage: Double,
+         temperature: Float,
+         advertisingPDUcount: String,
+         uptime: TimeInterval) {
         
         self.tlmVersion = tlmVersion
         self.batteryVoltage = batteryVoltage
