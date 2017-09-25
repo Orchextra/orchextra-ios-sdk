@@ -31,8 +31,8 @@ struct GeoLocation {
     }
     
     func paramsGeoLocation() -> [String: Any] {
-        let point = ["lat" : self.lat,
-                     "lng" : self.lng]
+        let point = ["lat": self.lat,
+                     "lng": self.lng]
         
         var params: [String: Any] = [String: Any]()
         if let country = self.country { params["country"] = country }
@@ -42,6 +42,6 @@ struct GeoLocation {
         if let street = self.street { params["street"] = street }
         params["point"] = point
 
-        return ["geoLocation" : params]
+        return ["geoLocation": params]
     }
 }

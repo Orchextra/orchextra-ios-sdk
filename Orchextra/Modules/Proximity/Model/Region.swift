@@ -11,8 +11,8 @@ import CoreLocation
 
 enum RegionType: String {
     case none
-    case beacon_region = "beacon_region"
-    case geofence = "geofence"
+    case beacon_region
+    case geofence
 }
 
 protocol Region {
