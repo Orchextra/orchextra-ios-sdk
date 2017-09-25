@@ -10,8 +10,8 @@ import UIKit
 
 @IBDesignable class FilterTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
-    @IBInspectable @IBOutlet weak var filterNameLabel: UILabel!
-    @IBInspectable @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var filterNameLabel: UILabel!
+    @IBOutlet weak var filterButton: UIButton!
     
     // MARK: - Attributes
     var presenter: FilterPresenterInput?
