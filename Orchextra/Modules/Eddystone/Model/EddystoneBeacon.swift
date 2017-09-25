@@ -10,10 +10,10 @@ import Foundation
 import GIGLibrary
 
 enum Proximity: String {
-    case unknown = "unknown"
-    case inmediate = "inmediate"
-    case near = "near"
-    case far = "far"
+    case unknown
+    case inmediate
+    case near
+    case far
 }
 
 class EddystoneBeacon {
@@ -30,25 +30,21 @@ class EddystoneBeacon {
     
     // MARK: Public computed properties
     var rssi: Double {
-        get {
-            var totalRssi: Double = 0
-            guard let rssiBuffer = self.rssiBuffer else {
-                return 0
-            }
-            
-            for rssi in rssiBuffer {
-                totalRssi += Double(rssi)
-            }
-            
-            return totalRssi / Double(rssiBuffer.count)
+        var totalRssi: Double = 0
+        guard let rssiBuffer = self.rssiBuffer else {
+            return 0
         }
+        
+        for rssi in rssiBuffer {
+            totalRssi += Double(rssi)
+        }
+        
+        return totalRssi / Double(rssiBuffer.count)
     }
     
     var proximity: Proximity {
-        get {
-            let rangingDataUnWrapped = (self.rangingData != nil) ? self.rangingData! : 0
-            return self.convertRSSIToProximity(self.rssi, rangingData:rangingDataUnWrapped)
-        }
+        let rangingDataUnWrapped = (self.rangingData != nil) ? self.rangingData! : 0
+        return self.convertRSSIToProximity(self.rssi, rangingData:rangingDataUnWrapped)
     }
     
     // MARK: Public methods

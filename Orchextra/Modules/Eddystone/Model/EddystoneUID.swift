@@ -10,15 +10,13 @@ import Foundation
 
 class EddystoneUID: NSObject {
     // MARK: Public properties
-    var namespace:String
-    var instance:String?
+    var namespace: String
+    var instance: String?
     
     // MARK: Public computed properties
     var uidCompossed: String {
-        get {
-            let instance = self.instance ?? ""
-            return namespace + instance
-        }
+        let instance = self.instance ?? ""
+        return namespace + instance
     }
     
     // MARK: Public methods

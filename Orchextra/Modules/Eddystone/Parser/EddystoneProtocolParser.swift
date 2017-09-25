@@ -16,9 +16,9 @@ class EddystoneProtocolParser {
     // MARK: Properties
     var serviceDataInformation: Data?
     var serviceBytes: [UInt8]?
-    var peripheralId:UUID?
+    var peripheralId: UUID?
     var requestWaitTime: Int
-    var rssi:Int?
+    var rssi: Int?
     var currentFrameType: FrameType?
     var currentBeacon: EddystoneBeacon?
     var regionManager: EddystoneRegionManager
@@ -209,15 +209,15 @@ class EddystoneProtocolParser {
         return String(tlmVersion)
     }
     
-    fileprivate func parseTelemetryBatteryVoltage(_ serviceData:Data) -> Double {
+    fileprivate func parseTelemetryBatteryVoltage(_ serviceData: Data) -> Double {
         let batteryRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmBatteryInitialPosition, EddystoneConstants.tlmBatteryEndPosition))
-        let batterySubdata:Data = serviceData.subdata(in: batteryRange)
+        let batterySubdata: Data = serviceData.subdata(in: batteryRange)
         let batteryVoltage = batterySubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt16>) -> UInt16 in
             let result: UInt16 = UInt16(bigEndian: pointer.pointee)
             return result
         }
         
-        let batteryVoltageInMiliVolts:Double = Double(batteryVoltage)
+        let batteryVoltageInMiliVolts: Double = Double(batteryVoltage)
         return batteryVoltageInMiliVolts
     }
     
@@ -242,7 +242,7 @@ class EddystoneProtocolParser {
     
     fileprivate func parseTelemetryTemperatureFixed(_ serviceData: Data) -> Float {
         let temperatureFixedRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTemperatureFixedInitialPosition, EddystoneConstants.tlmTemperatureFixedEndPosition))
-        let beaconTemperatureFixedSubdata:Data = serviceData.subdata(in: temperatureFixedRange)
+        let beaconTemperatureFixedSubdata: Data = serviceData.subdata(in: temperatureFixedRange)
         
         // This is in 8.8 fixed point. Just have to divide by 256 to get the actual number.
         let beaconTemperatureFixed = beaconTemperatureFixedSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) -> UInt8 in
@@ -254,7 +254,7 @@ class EddystoneProtocolParser {
     
     fileprivate func parseTelemetryTemperatureFractional(_ serviceData: Data) -> Float {
         let temperatureFractionalRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTemperatureFractionalInitialPosition, EddystoneConstants.tlmTemperatureFractionalEndPosition))
-        let beaconTemperatureFractionalSubdata:Data = serviceData.subdata(in: temperatureFractionalRange)
+        let beaconTemperatureFractionalSubdata: Data = serviceData.subdata(in: temperatureFractionalRange)
         
         // This is in 8.8 fixed point. Just have to divide by 256 to get the actual number.
         let beaconTemperatureFractional = beaconTemperatureFractionalSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) -> UInt8 in
@@ -264,7 +264,7 @@ class EddystoneProtocolParser {
         return Float(beaconTemperatureFractional)
     }
     
-    fileprivate func parseTelemetryTemperature(_ serviceData:Data) -> Float {
+    fileprivate func parseTelemetryTemperature(_ serviceData: Data) -> Float {
         let temperatureFixed = parseTelemetryTemperatureFixed(serviceData)
         let temperatureFractional = parseTelemetryTemperatureFractional(serviceData)
         
