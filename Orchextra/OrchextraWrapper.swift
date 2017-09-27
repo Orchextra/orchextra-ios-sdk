@@ -79,7 +79,7 @@ class OrchextraWrapper {
             self.configInteractor.loadCoreConfig(completion: completion)
         }
         
-//        self.openProximity()
+        self.openProximity()
 //        self.openEddystone()
     }
     

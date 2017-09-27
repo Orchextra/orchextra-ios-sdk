@@ -35,10 +35,12 @@ class ConfigService: ConfigServiceInput {
         }
         
         let endPoint = endpointConfig + "/\(apiKey)"
-        let request = Request.orchextraRequest(
+        
+        let request = Request(
             method: "GET",
             baseUrl: Config.coreEndpoint,
-            endpoint: endPoint)
+            endpoint: endPoint,
+            verbose: Orchextra.shared.logLevel == .debug)
      
         request.fetch { response in
             switch response.status {

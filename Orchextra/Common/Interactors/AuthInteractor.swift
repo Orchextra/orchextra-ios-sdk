@@ -53,8 +53,15 @@ class AuthInteractor: AuthInteractorInput {
                 switch result {
                 case .success(let accesstoken):
                     self.session.save(accessToken: accesstoken)
-                    self.bind(user: nil)
-                    completion(.success(accesstoken))
+                    self.bind(user: nil, completion: { result in
+                        switch result {
+                        case .success:
+                            completion(.success(accesstoken))
+                        case .error(let error):
+                            _ = self.session.credentials(apiKey: "", apiSecret: "")
+                            completion(.error(error))
+                        }
+                    })
                     
                 case .error(let error):
                     switch error {
@@ -72,12 +79,10 @@ class AuthInteractor: AuthInteractorInput {
         }
     }
     
-    func bind(user: User?) {
+    func bind(user: User?, completion: @escaping (Result<Bool, Error>) -> Void) {
         let device = Device()
         let params = device.deviceParams()
-        self.service.bind(params: params) { result in
-            
-        }
+        self.service.bind(params: params, completion: completion)
     }
     
     /// Method to authenticate the request
@@ -86,7 +91,6 @@ class AuthInteractor: AuthInteractorInput {
     ///   - request: request that needs to be authenticated
     ///   - completion: return the completion for the request
     func sendRequest(request: Request, completion: @escaping (Result<JSON, Error>) -> Void) {
-        
         if request.headers?["Authorization"] == nil {
             self.handleRefreshAccessToken(request: request, completion: completion)
         } else {

@@ -13,7 +13,7 @@ protocol AuthenticationServiceInput {
     func newToken(with apikey: String, apisecret: String,
                   completion: @escaping (Result<String, Error>) -> Void)
     func bind(params: [String: Any],
-              completion: @escaping (Result<String, Error>) -> Void)
+              completion: @escaping (Result<Bool, Error>) -> Void)
 }
 
 class AuthenticationService: AuthenticationServiceInput {
@@ -67,10 +67,10 @@ class AuthenticationService: AuthenticationServiceInput {
     }
     
     
-    func bind(params: [String: Any], completion: @escaping (Result<String, Error>) -> Void) {
+    func bind(params: [String: Any], completion: @escaping (Result<Bool, Error>) -> Void) {
         
         let request = Request.orchextraRequest(
-            method: "POST",
+            method: "PUT",
             baseUrl: Config.coreEndpoint,
             endpoint: "/token/data",
             bodyParams: params)
@@ -81,11 +81,15 @@ class AuthenticationService: AuthenticationServiceInput {
                 do {
                     let json = try response.json()
                     LogDebug("\(json)")
+                    completion(.success(true))
                 } catch {
-                    
+                    completion(.error(ErrorService.invalidJSON))
                 }
             default:
-                break
+                var error = ErrorServiceHandler.parseErrorService(with: response)
+                if (error as? ErrorService) == ErrorService.unknown { error = ErrorService.ErrorBinding}
+                LogError(response.error)
+                completion(.error(error))
             }
         }
     }

@@ -27,6 +27,9 @@ public enum ErrorService: Error {
     case unauthorized                   //(_401_)
     case invalidJSON                    //(_400_)
     case validationError                //(_400_)
+    
+    case ErrorBinding
+    
     case unknown
 }
 
