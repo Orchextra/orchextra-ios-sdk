@@ -45,7 +45,7 @@ class AuthenticationService: AuthenticationServiceInput {
                 do {
                     let json = try response.json()
                     guard let accesstoken = json["token"]?.toString() else {
-                        let error = ErrorService.errorParsingJson(element: "accesstoken")
+                        let error = ErrorService.invalidJSON
                         completion(.error(error))
                         LogWarn("AccessToken is nil")
                         return }
@@ -145,7 +145,7 @@ class AuthenticationService: AuthenticationServiceInput {
                 do {
                     let json = try response.json()
                     guard let clientToken = json["value"]?.toString() else {
-                        let error = ErrorService.errorParsingJson(element: "clienToken")
+                        let error = ErrorService.invalidJSON
                         completion(.error(error))
                         LogWarn("ClientToken is nil")
                         return
@@ -201,7 +201,7 @@ class AuthenticationService: AuthenticationServiceInput {
                 do {
                     let json = try response.json()
                     guard let accesstoken = json["value"]?.toString() else {
-                        let error = ErrorService.errorParsingJson(element: "accesstoken")
+                        let error = ErrorService.invalidJSON
                         completion(.error(error))
                         LogWarn("AccessToken is nil")
                         return }

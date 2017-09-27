@@ -53,18 +53,16 @@ class AuthInteractor: AuthInteractorInput {
                 switch result {
                 case .success(let accesstoken):
                     self.session.save(accessToken: accesstoken)
-                    
                     self.bind(user: nil)
-                    
                     completion(.success(accesstoken))
-                    
                     
                 case .error(let error):
                     switch error {
-                    case ErrorService.refreshAccessToken:
+                    case ErrorService.unauthorized:
                         self.session.save(accessToken: nil)
-                        completion(.error(ErrorService.refreshAccessToken))
+                        completion(.error(ErrorService.unauthorized))
                     case ErrorService.invalidCredentials:
+                        _ = self.session.credentials(apiKey: "", apiSecret: "")
                         completion(.error(error))
                     default:
                         break
@@ -110,7 +108,7 @@ class AuthInteractor: AuthInteractorInput {
                 default:
                     let error = ErrorServiceHandler.parseErrorService(with: response)
                     switch error {
-                    case ErrorService.refreshAccessToken:
+                    case ErrorService.unauthorized:
                         self.handleRefreshAccessToken(request: request, completion: completion)
                         break
                     default:

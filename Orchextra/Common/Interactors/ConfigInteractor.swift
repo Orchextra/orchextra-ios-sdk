@@ -39,7 +39,7 @@ class ConfigInteractor: ConfigInteractorInput {
             switch result {
             case .success:
                 completion(.success(true))
-                LogDebug("Received config core")
+                LogDebug("Orx has updated core configuration")
             case .error(let error):
                 completion(.error(error))
             }

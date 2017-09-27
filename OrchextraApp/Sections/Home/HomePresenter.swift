@@ -8,6 +8,7 @@
 
 import Foundation
 import GIGLibrary
+import Orchextra
 
 protocol HomeUI: class {
      func showAlert(message: String)
@@ -55,7 +56,14 @@ extension HomePresenter: HomeInteractorOutput {
             AppController.shared.appWireframe?.showTriggering()
             
         case .error(let error):
-            self.view?.showAlert(message: error.localizedDescription)
+            var message = ""
+            switch error {
+                case ErrorService.invalidCredentials:
+                message = "Invalid Credentials"
+                default:
+                message = error.localizedDescription
+            }
+            self.view?.showAlert(message: message)
         }
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import GIGLibrary
 
 protocol ConfigServiceInput {
-    func configCore(completion: @escaping (Result<String, Error>) -> Void)
+    func configCore(completion: @escaping (Result<Bool, Error>) -> Void)
     func configProximity(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
 }
 
@@ -28,12 +28,17 @@ class ConfigService: ConfigServiceInput {
         self.init(auth: auth)
     }
     
-    func configCore(completion: @escaping (Result<String, Error>) -> Void) {
+    func configCore(completion: @escaping (Result<Bool, Error>) -> Void) {
+        guard let apiKey = Session.shared.apiKey else {
+            completion(.error(ErrorService.invalidCredentials))
+            return
+        }
         
+        let endPoint = endpointConfig + "/\(apiKey)"
         let request = Request.orchextraRequest(
             method: "GET",
             baseUrl: Config.coreEndpoint,
-            endpoint: endpointConfig)
+            endpoint: endPoint)
      
         request.fetch { response in
             switch response.status {
@@ -41,12 +46,11 @@ class ConfigService: ConfigServiceInput {
                 do {
                     let json = try response.json()
                     LogDebug(json.description)
-                    completion(.success(""))
+                    completion(.success(true))
                     
                 } catch {
-                    let error = ErrorService.unknown
-                    LogError(error as NSError)
-                    completion(.error(error))
+                    completion(.error(ErrorService.invalidJSON))
+                    LogError(ErrorService.invalidJSON as NSError)
                 }
             default:
                 let error = ErrorServiceHandler.parseErrorService(with: response)
