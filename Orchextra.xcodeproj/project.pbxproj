@@ -116,7 +116,7 @@
 		A978C5D31F45782700F5DFFD /* Orchextra.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A978C5D41F45783C00F5DFFD /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; };
 		A978C5D51F45784300F5DFFD /* GIGLibrary.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5D71F457AE200F5DFFD /* AuthenticationInteractorTests.swift */; };
+		A978C5D81F457AE200F5DFFD /* AuthenticationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5D71F457AE200F5DFFD /* AuthenticationSpec.swift */; };
 		A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DB1F45A43900F5DFFD /* SessionMock.swift */; };
 		A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */; };
 		A987246F1F793F9500A7017F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987246E1F793F9500A7017F /* User.swift */; };
@@ -339,7 +339,7 @@
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
-		A978C5D71F457AE200F5DFFD /* AuthenticationInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractorTests.swift; sourceTree = "<group>"; };
+		A978C5D71F457AE200F5DFFD /* AuthenticationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationSpec.swift; sourceTree = "<group>"; };
 		A978C5DB1F45A43900F5DFFD /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionMock.swift; path = Mocks/Model/SessionMock.swift; sourceTree = "<group>"; };
 		A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
 		A987246E1F793F9500A7017F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Common/Model/Config/User.swift; sourceTree = "<group>"; };
@@ -880,7 +880,7 @@
 		A978C5D61F457AD400F5DFFD /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				A978C5D71F457AE200F5DFFD /* AuthenticationInteractorTests.swift */,
+				A978C5D71F457AE200F5DFFD /* AuthenticationSpec.swift */,
 			);
 			name = Interactor;
 			path = Common/Interactor;
@@ -1525,7 +1525,7 @@
 				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
 				A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */,
 				8F299C7C1F66A9A50023F69D /* CBCentralWrapperMock.swift in Sources */,
-				A978C5D81F457AE200F5DFFD /* AuthenticationInteractorTests.swift in Sources */,
+				A978C5D81F457AE200F5DFFD /* AuthenticationSpec.swift in Sources */,
 				A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */,
 				A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */,
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
