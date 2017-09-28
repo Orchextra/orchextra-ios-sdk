@@ -100,7 +100,6 @@ class AuthInteractor: AuthInteractorInput {
                 case .success:
                     do {
                         let json = try response.json()
-                        LogDebug(json.description)
                         completion(.success(json))
                         
                     } catch {

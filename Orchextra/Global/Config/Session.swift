@@ -45,6 +45,7 @@ class Session {
     ///     - false: if credentials have stored already and haven't changed since last time.
 
     func credentials(apiKey: String, apiSecret: String) -> Bool {
+        
         guard let credentials = self.loadCredentials() else {
             self.saveCredentials(apiKey: apiKey, apiSecret: apiSecret)
             return true
