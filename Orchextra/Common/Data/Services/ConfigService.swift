@@ -11,12 +11,14 @@ import GIGLibrary
 
 protocol ConfigServiceInput {
     func configCore(completion: @escaping (Result<Bool, Error>) -> Void)
-    func configProximity(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
+    func configTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
 }
 
 class ConfigService: ConfigServiceInput {
     
     let endpointConfig = "/configuration"
+    let endpointList = "/list"
+    
     let authInteractor: AuthInteractorInput
     
     init(auth: AuthInteractorInput) {
@@ -63,12 +65,12 @@ class ConfigService: ConfigServiceInput {
         }
     }
     
-    func configProximity(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
+    func configTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
 
         let request = Request.orchextraRequest(
             method: "POST",
-            baseUrl: Config.coreEndpoint,
-            endpoint: endpointConfig,
+            baseUrl: Config.triggeringEndpoint,
+            endpoint: endpointList,
             bodyParams: geoLocation)
         
         self.authInteractor.sendRequest(request: request) { response in

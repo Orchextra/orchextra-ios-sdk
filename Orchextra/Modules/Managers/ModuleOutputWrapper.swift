@@ -29,13 +29,13 @@ struct ModuleOutputWrapper: ModuleOutput {
         self.triggerManager.triggerWasFire(with: values, module: module)
     }
     
-    func setConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void)) {
+    func setConfig(config: [String : Any]? = nil, completion: @escaping (([String : Any]) -> Void)) {
         
         var configDefault: [String : Any] = ["geoLocation": ""]
         if let configModule = config {
             configDefault = configModule
         }
-        self.configInteractor.loadProximityConfig(geolocation: configDefault) { result in
+        self.configInteractor.loadTriggeringList(geolocation: configDefault) { result in
             completion(result)
         }
     }

@@ -11,7 +11,7 @@ import GIGLibrary
 
 protocol ConfigInteractorInput {
     func loadCoreConfig(completion: @escaping (Result<Bool, Error>) -> Void)
-    func loadProximityConfig(geolocation: [String: Any], completion: @escaping (([String : Any]) -> Void))
+    func loadTriggeringList(geolocation: [String: Any], completion: @escaping (([String : Any]) -> Void))
 }
 
 class ConfigInteractor: ConfigInteractorInput {
@@ -46,8 +46,8 @@ class ConfigInteractor: ConfigInteractorInput {
         }
     }
     
-    func loadProximityConfig(geolocation: [String: Any], completion: @escaping (([String : Any]) -> Void)) {
-        self.configService.configProximity(geoLocation: geolocation) { result in
+    func loadTriggeringList(geolocation: [String: Any], completion: @escaping (([String : Any]) -> Void)) {
+        self.configService.configTriggering(geoLocation: geolocation) { result in
             switch result {
                 case .success(let json):
                     guard let proximityResult = json.toDictionary() else {
@@ -55,7 +55,9 @@ class ConfigInteractor: ConfigInteractorInput {
                         return
                     }
                     completion(proximityResult)
-                case .error: break
+                case .error:
+                    // TODO: Handle Error
+                break
             }
         }
     }

@@ -33,6 +33,12 @@ public protocol ModuleOutput {
     ///   - module: the own module
     func triggerWasFire(with values: [String: Any], module: ModuleInput)
     
+    /// Set Config
+    ///
+    /// - Parameters:
+    ///   - config: params to get the config from the core
+    ///   - completion: the configuration response for the module
+    func setConfig(completion: @escaping (([String : Any]) -> Void))
     
     /// Set Config
     ///
@@ -54,6 +60,11 @@ extension ModuleOutput {
     /// - Parameters:
     ///   - config: params to get the config from the core
     ///   - completion: the configuration response for the module
+
+    func setConfig(completion: @escaping (([String : Any]) -> Void)) {
+        self.setConfig(config: nil, completion: completion)
+    }
+
     func setConfig(config: [String : Any]? = nil, completion: @escaping (([String : Any]) -> Void)) { }
     
     func sendRequest(request: URLRequest) {}

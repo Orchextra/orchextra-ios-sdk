@@ -79,8 +79,8 @@ class OrchextraWrapper {
             self.configInteractor.loadCoreConfig(completion: completion)
         }
         
-        self.openProximity()
-//        self.openEddystone()
+//        self.openProximity()
+        self.openEddystone()
     }
     
     // MARK: - Modules
