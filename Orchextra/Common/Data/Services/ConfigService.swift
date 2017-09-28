@@ -10,13 +10,15 @@ import Foundation
 import GIGLibrary
 
 protocol ConfigServiceInput {
-    func configCore(completion: @escaping (Result<String, Error>) -> Void)
-    func configProximity(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
+    func configCore(completion: @escaping (Result<Bool, Error>) -> Void)
+    func configTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
 }
 
 class ConfigService: ConfigServiceInput {
     
     let endpointConfig = "/configuration"
+    let endpointList = "/list"
+    
     let authInteractor: AuthInteractorInput
     
     init(auth: AuthInteractorInput) {
@@ -28,12 +30,19 @@ class ConfigService: ConfigServiceInput {
         self.init(auth: auth)
     }
     
-    func configCore(completion: @escaping (Result<String, Error>) -> Void) {
+    func configCore(completion: @escaping (Result<Bool, Error>) -> Void) {
+        guard let apiKey = Session.shared.apiKey else {
+            completion(.error(ErrorService.invalidCredentials))
+            return
+        }
         
-        let request = Request.orchextraRequest(
+        let endPoint = endpointConfig + "/\(apiKey)"
+        
+        let request = Request(
             method: "GET",
             baseUrl: Config.coreEndpoint,
-            endpoint: endpointConfig)
+            endpoint: endPoint,
+            verbose: Orchextra.shared.logLevel == .debug)
      
         request.fetch { response in
             switch response.status {
@@ -41,12 +50,11 @@ class ConfigService: ConfigServiceInput {
                 do {
                     let json = try response.json()
                     LogDebug(json.description)
-                    completion(.success(""))
+                    completion(.success(true))
                     
                 } catch {
-                    let error = ErrorService.unknown
-                    LogError(error as NSError)
-                    completion(.error(error))
+                    completion(.error(ErrorService.invalidJSON))
+                    LogError(ErrorService.invalidJSON as NSError)
                 }
             default:
                 let error = ErrorServiceHandler.parseErrorService(with: response)
@@ -57,12 +65,12 @@ class ConfigService: ConfigServiceInput {
         }
     }
     
-    func configProximity(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
+    func configTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
 
         let request = Request.orchextraRequest(
             method: "POST",
-            baseUrl: Config.coreEndpoint,
-            endpoint: endpointConfig,
+            baseUrl: Config.triggeringEndpoint,
+            endpoint: endpointList,
             bodyParams: geoLocation)
         
         self.authInteractor.sendRequest(request: request) { response in

@@ -34,17 +34,29 @@ class Session {
         return self.userDefault.unarchiveObject(forKey: keyAccessToken) as? String
     }
     
-    func credentials(apiKey: String, apiSecret: String) {
+    
+    /// Method to store apikey and apisecret
+    ///
+    /// - Parameters:
+    ///   - apiKey: apikey orx project
+    ///   - apiSecret: apisecret orx project
+    /// - Returns:
+    ///     - true: if credentials have been changed
+    ///     - false: if credentials have stored already and haven't changed since last time.
+
+    func credentials(apiKey: String, apiSecret: String) -> Bool {
         guard let credentials = self.loadCredentials() else {
             self.saveCredentials(apiKey: apiKey, apiSecret: apiSecret)
-            return
+            return true
         }
         
         if  apiKey != credentials.apiKey ||
             apiSecret != credentials.apiSecret {
             self.save(accessToken: nil)
             self.saveCredentials(apiKey: apiKey, apiSecret: apiSecret)
+            return true
         }
+        return false
     }
     
     // MARK: - Private

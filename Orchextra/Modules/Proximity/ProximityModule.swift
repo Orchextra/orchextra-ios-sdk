@@ -66,8 +66,8 @@ class ProximityModule: ModuleInput {
     
     private func parseProximity(params: [String : Any]) { 
         guard
-            let geofences = params["geoMarketing"] as? [[String: Any]],
-            let beacons = params["proximity"] as? [[String: Any]] else {
+            let geofences = params["geofences"] as? [[String: Any]],
+            let beacons = params["beaconRegions"] as? [[String: Any]] else {
             LogWarn("There aren't beacons or geofences to configure in proximity module")
             return
         }

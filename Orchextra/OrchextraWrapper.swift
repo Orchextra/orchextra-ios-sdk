@@ -15,11 +15,13 @@ class OrchextraWrapper {
 
     static let shared = OrchextraWrapper()
     
+    // Private Attributes
     private var session: Session
     private var configInteractor: ConfigInteractorInput
+    private var authInteractor: AuthInteractorInput
     internal var moduleOutputWrapper: ModuleOutputWrapper
-
     fileprivate var startCompletion: ((Result<Bool, Error>) -> Void)?
+    
     
     internal let wireframe = Wireframe(
         application: Application()
@@ -36,18 +38,22 @@ class OrchextraWrapper {
     convenience init() {
         let session = Session.shared
         let configInteractor = ConfigInteractor()
+        let authInteractor = AuthInteractor()
         let moduleOutputWrapper = ModuleOutputWrapper()
         
         self.init(session: session,
                   configInteractor: configInteractor,
+                  authInteractor: authInteractor,
                   moduleOutputWrapper: moduleOutputWrapper)
     }
     
     init(session: Session,
          configInteractor: ConfigInteractorInput,
+         authInteractor: AuthInteractorInput,
          moduleOutputWrapper: ModuleOutputWrapper) {
         self.session = session
         self.configInteractor = configInteractor
+        self.authInteractor = authInteractor
         self.moduleOutputWrapper = moduleOutputWrapper
     }
     
@@ -56,22 +62,25 @@ class OrchextraWrapper {
         LogInfo(" ---  LOADED PROJECT WITH: ---")
         LogInfo(" ---  Apikey: \(apiKey)")
         LogInfo(" ---  Apisecret: \(apiSecret)")
-        
-        self.session.credentials(apiKey: apiKey, apiSecret: apiSecret)
-
-//        self.session.apiKey = apiKey
-//        self.session.apiSecret = apiSecret
         self.startCompletion = completion
 
-        //TODO: Handle apikey y apisecret
-        self.session.save(accessToken: nil)
+        if self.session.credentials(
+            apiKey: apiKey,
+            apiSecret: apiSecret) {
+            self.authInteractor.authWithAccessToken(completion: { result in
+                switch result {
+                case .success:
+                    self.coreConfiguration(completion: completion)
+                case .error(let error):
+                    completion(.error(error))
+                }
+            })
+        } else {
+            self.configInteractor.loadCoreConfig(completion: completion)
+        }
         
-        self.openProximity()
-//        self.openEddystone()
-        completion(.success(true))
-    
-        // Start configuration
-        // self.configInteractor.loadCoreConfig(completion: completion)
+//        self.openProximity()
+        self.openEddystone()
     }
     
     // MARK: - Modules
@@ -104,7 +113,7 @@ class OrchextraWrapper {
     }
     
     // MARK: - Eddystone
-    func openEddystone() {
+    public func openEddystone() {
         if self.eddystone == nil {
             self.eddystone = EddystoneModule()
         }
@@ -112,7 +121,7 @@ class OrchextraWrapper {
         self.eddystone?.start()
     }
     
-    func setEddystone(eddystoneModule: ModuleInput) {
+    public func setEddystone(eddystoneModule: ModuleInput) {
         self.eddystone = eddystoneModule
         self.eddystone?.outputModule = self.moduleOutputWrapper
     }
@@ -120,5 +129,19 @@ class OrchextraWrapper {
     public func openEddystone(with completionHandler: (UIBackgroundFetchResult) -> Void) {
         self.openEddystone()
         completionHandler(.newData)
+    }
+    
+    // MARK: - Device & User
+    
+    public func remote(apnsToken: Data) {
+        let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
+        LogDebug("APNS Token:" + token)
+    }
+}
+
+extension OrchextraWrapper {
+    
+    func coreConfiguration(completion: @escaping (Result<Bool, Error>) -> Void) {
+        self.configInteractor.loadCoreConfig(completion: completion)
     }
 }

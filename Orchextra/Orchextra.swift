@@ -162,6 +162,10 @@ open class Orchextra {
     
     public func openImageRecognition() {}
     
+    public func remote(apnsToken: Data) {
+    
+    }
+    
 //    // MARK: Public CRM methods
 //    public func bindUser(_ user: ORCUser) {}
 //    public func unbindUser() {}

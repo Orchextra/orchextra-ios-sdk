@@ -36,15 +36,30 @@ struct Device {
     }
     
     func deviceParams() -> [String: Any] {
+        
+        let clientApp =
+            ["bundleId": self.bundleId,
+                 "buildVersion": self.buildVersion,
+                 "appVersion": self.appVersion,
+                 "sdkVersion": Bundle.orxVersion()]
+        
+        let device =
+            ["osVersion": self.versionIOS,
+             "languaje": self.language,
+             "handset": self.handset,
+             "type": "IOS",
+             "timeZone": "TODO"]
+        
+        let notificationPush =
+            ["token": "<NOTIFICATION TOKEN>"]
+        
         let params =
             ["device":
-                ["osVersion": self.versionIOS,
-                 "handset": self.handset,
-                 "languaje": self.language,
-                 "os": self.deviceOS,
-                 "timeZone": "TODO",
-                 "advertiserId": self.advertiserId,
-                 "vendorId": self.vendorId]]
+                ["advertiserId": self.advertiserId,
+                 "vendorId": self.vendorId ?? "",
+                 "notificationPush": notificationPush,
+                 "clientApp": clientApp,
+                 "device": device]]
         
         return params
     }

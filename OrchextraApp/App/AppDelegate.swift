@@ -75,6 +75,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         OrchextraWrapper.shared.openEddystone(with: completionHandler)
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        OrchextraWrapper.shared.remote(apnsToken: deviceToken)
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
