@@ -55,7 +55,7 @@ class ConfigInteractor: ConfigInteractorInput {
                         return
                     }
                     completion(proximityResult)
-                case .error(let error):
+                case .error:
                     // TODO: Handle Error
                 break
             }
