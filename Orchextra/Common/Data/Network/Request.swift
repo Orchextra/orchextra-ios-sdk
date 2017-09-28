@@ -54,7 +54,7 @@ extension Request {
         guard let accesstoken: String = Session.shared.loadAccesstoken() else {
             return nil
         }
-        return ["Authorization": "Bearer \(accesstoken)"]
+        return ["Authorization": "JWT \(accesstoken)"]
     }
     
 }

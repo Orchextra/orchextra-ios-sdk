@@ -49,30 +49,41 @@ class AuthInteractor: AuthInteractorInput {
             completion(.success(accesstoken))
             
         } else {
-            // TODO: Review if we need to add the crmID
-            self.service.auth(with: apikey, apisecret: apisecret, crmId: nil) { result in
+            self.service.newToken(with: apikey, apisecret: apisecret, completion: { result in
                 switch result {
                 case .success(let accesstoken):
                     self.session.save(accessToken: accesstoken)
-                    completion(.success(accesstoken))
-                    break
+                    self.bind(user: nil, completion: { result in
+                        switch result {
+                        case .success:
+                            completion(.success(accesstoken))
+                        case .error(let error):
+                            _ = self.session.credentials(apiKey: "", apiSecret: "")
+                            completion(.error(error))
+                        }
+                    })
+                    
                 case .error(let error):
                     switch error {
-                    case ErrorService.refreshAccessToken:
+                    case ErrorService.unauthorized:
                         self.session.save(accessToken: nil)
-                        completion(.error(ErrorService.refreshAccessToken))
+                        completion(.error(ErrorService.unauthorized))
                     case ErrorService.invalidCredentials:
+                        _ = self.session.credentials(apiKey: "", apiSecret: "")
                         completion(.error(error))
                     default:
-                        // TODO: Other cases
                         break
                     }
                 }
-            }
+            })
         }
     }
-
     
+    func bind(user: User?, completion: @escaping (Result<Bool, Error>) -> Void) {
+        let device = Device()
+        let params = device.deviceParams()
+        self.service.bind(params: params, completion: completion)
+    }
     
     /// Method to authenticate the request
     ///
@@ -80,7 +91,6 @@ class AuthInteractor: AuthInteractorInput {
     ///   - request: request that needs to be authenticated
     ///   - completion: return the completion for the request
     func sendRequest(request: Request, completion: @escaping (Result<JSON, Error>) -> Void) {
-        
         if request.headers?["Authorization"] == nil {
             self.handleRefreshAccessToken(request: request, completion: completion)
         } else {
@@ -102,7 +112,7 @@ class AuthInteractor: AuthInteractorInput {
                 default:
                     let error = ErrorServiceHandler.parseErrorService(with: response)
                     switch error {
-                    case ErrorService.refreshAccessToken:
+                    case ErrorService.unauthorized:
                         self.handleRefreshAccessToken(request: request, completion: completion)
                         break
                     default:
@@ -117,7 +127,6 @@ class AuthInteractor: AuthInteractorInput {
     // MARK: - PRIVATE
     
     private func refreshAccessToken(completion: @escaping (Result<Bool, Error>) -> Void) {
-
         self.session.save(accessToken: nil)
         self.authWithAccessToken { result in
             switch result {
