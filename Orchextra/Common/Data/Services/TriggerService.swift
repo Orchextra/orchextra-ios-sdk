@@ -25,10 +25,10 @@ class TriggerService {
     
     func launchTrigger(values: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
         let request = Request.orchextraRequest(
-            method: "GET",
-            baseUrl: Config.coreEndpoint,
+            method: "POST",
+            baseUrl: Config.triggeringEndpoint,
             endpoint: endpointTrigger,
-            urlParams: values)
+            bodyParams: values)
         
         self.authInteractor.sendRequest(request: request, completion: completion)
     }    

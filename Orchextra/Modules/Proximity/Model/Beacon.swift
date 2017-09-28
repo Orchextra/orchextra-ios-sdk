@@ -18,7 +18,8 @@ struct Beacon: Region {
     var code: String
     var notifyOnEntry: Bool?
     var notifyOnExit: Bool?
-    
+    var name: String?
+
     var uuid: UUID
     var major: Int?
     var minor: Int?
@@ -29,7 +30,8 @@ struct Beacon: Region {
          notifyOnExit: Bool,
          uuid: UUID,
          major: Int?,
-         minor: Int?) {
+         minor: Int?,
+         name: String) {
      
         self.code = code
         self.notifyOnEntry = notifyOnEntry
@@ -37,13 +39,18 @@ struct Beacon: Region {
         self.uuid = uuid
         self.major = major
         self.minor = minor
+        self.name = name
     }
     
     static func region(from config: [String : Any]) -> Region? {
         
-        guard let code = config["code"] as? String,
+        guard
+            let type = config["type"] as? String,
+            type == RegionType.beacon_region.rawValue,
+            let code = config["code"] as? String,
             let notifyOnEntry = config["notifyOnEntry"] as? Bool,
             let notifyOnExit = config["notifyOnExit"] as? Bool,
+            let name = config["name"] as? String,
             let uuid = config["uuid"] as? String,
             let uuidRegion = UUID(uuidString: uuid)
             else { return nil }
@@ -53,7 +60,8 @@ struct Beacon: Region {
                         notifyOnExit: notifyOnExit,
                         uuid: uuidRegion,
                         major: config["major"] as? Int,
-                        minor: config["minor"] as? Int)
+                        minor: config["minor"] as? Int,
+                        name: name)
 
     }
     

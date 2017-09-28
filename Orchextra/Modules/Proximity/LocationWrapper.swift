@@ -78,7 +78,7 @@ class LocationWrapper: NSObject, LocationInput {
     func monitoring(regions: [Region]) {
         for region in regions {
             self.startMonitoring(region: region)
-            LogDebug("start: \(region.code)")
+            LogInfo("start: \(region.name ?? "\(region.code)" )")
         }
     }
     
@@ -115,7 +115,6 @@ class LocationWrapper: NSObject, LocationInput {
     }
     
     func stopAllMonitoredRegions() {
-        
         let monitoredRegions = self.locationManager.monitoredRegions
         for monitoredRegion in monitoredRegions {
             self.locationManager.stopMonitoring(for: monitoredRegion)

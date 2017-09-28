@@ -44,7 +44,6 @@ class AuthInteractor: AuthInteractorInput {
         }
         
         let accesstokenLoaded = self.session.loadAccesstoken()
-        
         if let accesstoken = accesstokenLoaded {
             completion(.success(accesstoken))
             
@@ -101,7 +100,6 @@ class AuthInteractor: AuthInteractorInput {
                     do {
                         let json = try response.json()
                         completion(.success(json))
-                        
                     } catch {
                         let error = ErrorService.unknown
                         LogWarn("There is not data with the response for request: \(request.endpoint)")
