@@ -31,17 +31,20 @@ class ORCEddystoneRegionManager {
         self.beaconsDetected = [ORCEddystoneBeacon]()
     }
     
-    // MARK: Public methods
-    func addDetectedBeacon(beacon: ORCEddystoneBeacon) {
-        //TODO: Convert to functional
-        for region in availableRegions {
-            if region.uid.namespace == beacon.uid?.namespace {
-                if !self.beaconsDetected.contains(beacon) {
+    func updateBeaconsDetected(with beaconsDetected: [ORCEddystoneBeacon]) {
+        self.availableRegions.forEach { (region) in
+            let availableBeaconsDetected = beaconsDetected.filter { (beaconDetected) in
+                return beaconDetected.uid?.namespace == region.uid.namespace
+            }
+            
+            availableBeaconsDetected.forEach { (beacon) in
+                if !self.beaconsDetected.contains { $0.uid?.uidCompossed == beacon.uid?.uidCompossed } {
                     self.beaconsDetected.append(beacon)
                 }
                 self.regionDidEnter(region: region)
             }
         }
+        
     }
     
     func cleanDetectedBeaconList() {

@@ -17,7 +17,7 @@ import Foundation
 
 @objc public class ORCEddystoneRegion: NSObject, NSCoding {
     // MARK: Public properties
-     public let uid:ORCEddystoneUID
+     @objc public let uid:ORCEddystoneUID
      @objc public var regionEvent: regionEvent
      @objc public let code: String
     

@@ -128,7 +128,7 @@ class ORCEddystoneProtocolParser {
             assert(true, "Invalid frame type")
         }
         
-        self.addBeaconIfNeeded()
+        self.updateBeaconList()
     }
     
     private func updateRangingData() {
@@ -303,24 +303,21 @@ class ORCEddystoneProtocolParser {
     }
     
     // MARK: Private (BeaconList)
-    fileprivate func addBeaconIfNeeded() -> Void {
-        // TODO: Convert to functional
-        var beaconUpdated: Bool = false
-        for beacon in self.regionManager.beaconsDetected {
-            if beacon.peripheralId == currentBeacon?.peripheralId ||
-                beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed {
-                
-                self.updateRssiBuffer(with: beacon)
-                self.updateRangingData(with: beacon)
-                self.updateProximity(with: beacon)
-                beaconUpdated = self.updateFrameTypeInformation(with: beacon)
+    fileprivate func updateBeaconList() {
+        var beaconsDetected: [ORCEddystoneBeacon] = self.regionManager.beaconsDetected
+            .filter(self.isCurrentBeaconAlreadyDetected)
+            .map(self.updateRssiBuffer)
+            .map(self.updateRangingData)
+            .map(self.updateProximity)
+            .map(self.updateFrameTypeInformation)
+        
+        if beaconsDetected.count == 0 {
+            if let currentBeacon = self.currentBeacon {
+                beaconsDetected.append(currentBeacon)
             }
         }
         
-        guard let currentBeacon = self.currentBeacon,
-            beaconUpdated == false else { return }
-        
-        self.regionManager.addDetectedBeacon(beacon: currentBeacon)
+        self.regionManager.updateBeaconsDetected(with: beaconsDetected)
     }
     
     private func isCurrentBeaconAlreadyDetected(beacon: ORCEddystoneBeacon) -> Bool {
@@ -328,66 +325,50 @@ class ORCEddystoneProtocolParser {
             beacon.uid?.uidCompossed == currentBeacon?.uid?.uidCompossed
     }
     
-    private func updateDetectedBeacon(beacon: ORCEddystoneBeacon) -> Bool {
-        self.updateRssiBuffer(with: beacon)
-        self.updateRangingData(with: beacon)
-        self.updateProximity(with: beacon)
-        return self.updateFrameTypeInformation(with: beacon)
-    }
-    
-    private func updateRangingData(with beacon: ORCEddystoneBeacon) {
-        guard let rangingData = currentBeacon?.rangingData else { return }
+    private func updateRangingData(with beacon: ORCEddystoneBeacon) -> ORCEddystoneBeacon {
+        guard let rangingData = currentBeacon?.rangingData else { return beacon }
         beacon.rangingData = rangingData
+        return beacon
     }
     
-    private func updateRssiBuffer(with beacon: ORCEddystoneBeacon) {
-        guard let rssiBuffer = currentBeacon?.rssiBuffer else { return }
+    private func updateRssiBuffer(with beacon: ORCEddystoneBeacon) -> ORCEddystoneBeacon {
+        guard let rssiBuffer = currentBeacon?.rssiBuffer else { return beacon }
         _ = rssiBuffer.map { _ in beacon.updateRssiBuffer }
+        return beacon
     }
     
-    private func updateProximity(with beacon: ORCEddystoneBeacon) {
+    private func updateProximity(with beacon: ORCEddystoneBeacon) -> ORCEddystoneBeacon {
         guard let currentBeaconProximity = currentBeacon?.proximity,
-            currentBeaconProximity != .unknown else {
-                beacon.updateProximity(currentProximity: .unknown)
-                return
-        }
+            currentBeaconProximity != .unknown else { return beacon }
         
+        var beaconUpdated = beacon
         let beaconProximity = beacon.proximity
-        if currentBeaconProximity != beaconProximity {
-            beacon.updateProximity(currentProximity: currentBeaconProximity)
+        beaconUpdated = beaconUpdated.updateProximity(currentProximity: beaconProximity)
+        if currentBeaconProximity == beaconProximity {
+            guard let proximityTimer = currentBeacon?.proximityTimer else { return beaconUpdated }
+            beaconUpdated.proximityTimer = proximityTimer
+            if proximityTimer.fireDate <= Date() {
+                beaconUpdated.proximityTimer?.fire()
+            }
         }
         
-        guard let currentBeaconProximityTimer = currentBeacon?.proximityTimer else {
-            beacon.updateProximity(currentProximity: currentBeaconProximity)
-            return
-        }
-        
-        beacon.proximityTimer = currentBeaconProximityTimer
-        if currentBeaconProximityTimer.fireDate <= Date() {
-            beacon.proximityTimer?.fire()
-        }
+        return beaconUpdated
     }
     
-    private func updateFrameTypeInformation(with beacon: ORCEddystoneBeacon) -> Bool {
-        var beaconUpdated: Bool = false
-        guard let type = currentFrameType else { return beaconUpdated }
+    private func updateFrameTypeInformation(with beacon: ORCEddystoneBeacon) -> ORCEddystoneBeacon {
+        guard let type = currentFrameType else { return beacon }
         switch type {
         case .unknown:
             assert(true, "Update not allowed")
         case .uid:
             beacon.uid = currentBeacon?.uid
-            beaconUpdated = true
         case .url:
             beacon.url = currentBeacon?.url
-            beaconUpdated = true
         case .telemetry:
             beacon.telemetry = currentBeacon?.telemetry
-            beaconUpdated = true
         case .eid:
             beacon.eid = currentBeacon?.eid
-            beaconUpdated = true
         }
-        
-        return beaconUpdated
+        return beacon
     }
 }

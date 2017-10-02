@@ -13,7 +13,7 @@ import UserNotifications
 @objc public class ORCCBCentralWrapper: NSObject {
     
     // MARK: Public properties
-    public static var scanLevel: CoreBluetoothScanLevel = .scanByIntervals
+    @objc public static var scanLevel: CoreBluetoothScanLevel = .scanByIntervals
     public var centralManager: CBCentralManager?
     
     @objc public var availableRegions: [ORCEddystoneRegion]
@@ -256,7 +256,7 @@ extension ORCCBCentralWrapper: CBCentralManagerDelegate {
                               rssi: rssi)
         self.beaconList = eddystoneParser.parseServiceInformation()
         
-        DispatchQueue.global().async(execute: {
+        DispatchQueue.global().sync(execute: {
             self.sendInfoForBeaconsDetected()
         })
     }

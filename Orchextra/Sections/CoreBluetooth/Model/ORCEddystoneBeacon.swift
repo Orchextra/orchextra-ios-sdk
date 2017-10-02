@@ -20,10 +20,10 @@ import Foundation
     public var peripheralId: UUID?
     public var rangingData: Int8? // Calibrated Tx power at 0 m
     public var rssiBuffer: [Int8]?
-    public var url: URL?
-    public var uid: ORCEddystoneUID?
+    @objc public var url: URL?
+    @objc public var uid: ORCEddystoneUID?
     public var eid:String?
-    public var telemetry: ORCEddystoneTelemetry?
+    @objc public var telemetry: ORCEddystoneTelemetry?
     public var proximityTimer: Timer?
     public var requestWaitTime: Int
     
@@ -43,7 +43,7 @@ import Foundation
         }
     }
     
-    public var proximity: proximity {
+    @objc public var proximity: proximity {
         get {
             let rangingDataUnWrapped = (self.rangingData != nil) ? self.rangingData! : 0
             return self.convertRSSIToProximity(self.rssi, rangingData:rangingDataUnWrapped)
@@ -75,17 +75,26 @@ import Foundation
     }
     
     public func canBeSentToValidateAction() -> Bool {
-        guard let _ = self.uid?.namespace,
-            let _ = self.uid?.instance,
-            let _ = self.url,
+        guard self.uid?.namespace != nil,
+            self.uid?.instance != nil,
+            self.url != nil,
             self.proximity != .unknown,
-            let _ = self.proximityTimer  else { return false }
+            (self.proximityTimer == nil) else { return false }
         return true
     }
     
-    public func updateProximity(currentProximity: proximity) {
-        self.resetProximityTimer()
-        self.updateProximityTimer()
+    public func updateProximity(currentProximity: proximity) -> ORCEddystoneBeacon {
+        if self.proximity == .unknown && currentProximity != .unknown {
+            self.resetProximityTimer()
+        } else {
+            if currentProximity != .unknown &&
+                (currentProximity != self.proximity || (self.proximityTimer == nil)) {
+                self.resetProximityTimer()
+                self.updateProximityTimer()
+            }
+        }
+        
+        return self
     }
     
     public func updateProximityTimer() {
@@ -95,13 +104,9 @@ import Foundation
                                                    selector: #selector(resetProximityTimer),
                                                    userInfo: nil,
                                                    repeats: false)
-        
-        guard let timer = self.proximityTimer else { return }
-        RunLoop.current.add(timer, forMode: .commonModes)
-        RunLoop.current.run()
     }
     
-    public func resetProximityTimer() {
+    @objc public func resetProximityTimer() {
         self.proximityTimer?.invalidate()
         self.proximityTimer = nil
     }

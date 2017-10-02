@@ -12,8 +12,8 @@ import Foundation
     
     public var tlmVersion: String
     public var batteryVoltage: Double
-    public var batteryPercentage: Double
-    public var temperature: Float
+    @objc public var batteryPercentage: Double
+    @objc public var temperature: Float
     public var advertisingPDUcount: String
     public var uptime: TimeInterval
     
