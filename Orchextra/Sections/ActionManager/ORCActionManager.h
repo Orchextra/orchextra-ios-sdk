@@ -19,6 +19,7 @@
 @class ORCRegion;
 @class ORCGeofence;
 @class ORCValidatorActionInterator;
+@class ORCCBCentralWrapper;
 
 @protocol ORCActionHandlerInterface <NSObject>
 
@@ -42,7 +43,8 @@
               notificationManager:(ORCPushManager *)notificationManager
              statisticsInteractor:(ORCStatisticsInteractor *)statisticsInteractor
               validatorInteractor:(ORCValidatorActionInterator *)validatorInteractor
-                        wireframe:(ORCWireframe *)wireframe;
+                        wireframe:(ORCWireframe *)wireframe
+                   centralWrapper:(ORCCBCentralWrapper *)centralWrapper;
 
 - (void)startWithAppConfiguration;
 - (void)stopMonitoringAndRanging;
@@ -54,5 +56,8 @@
 
 - (void)performUpdateUserLocation;
 - (void)updateMonitoringAndRangingOfRegions;
+
+- (void)startEddystoneBeaconsScanner;
+- (void)stopEddystoneBeaconsScanner;
 
 @end

@@ -15,6 +15,8 @@
 @class ORCAction;
 @class ORCActionCommunicator;
 @class ORCURLActionResponse;
+@class ORCEddystoneBeacon;
+@class ORCEddystoneRegion;
 
 
 typedef void(^CompletionActionValidated)(ORCAction *action, NSError *error);
@@ -29,7 +31,11 @@ typedef void(^CompletionActionValidated)(ORCAction *action, NSError *error);
 
 - (void)validateProximityWithBeacon:(ORCBeacon *)beacon completion:(CompletionActionValidated)completion;
 
+- (void)validateProximityWithEddystoneBeacon:(ORCEddystoneBeacon *)beacon completion:(CompletionActionValidated)completionAction;
+
 - (void)validateProximityWithRegion:(ORCRegion *)region completion:(CompletionActionValidated)completionAction;
+
+- (void)validateProximityWithEddystoneRegion:(ORCEddystoneRegion *)region completion:(CompletionActionValidated)completionAction;
 
 - (void)validateProximityWithGeofence:(ORCGeofence *)geofence completion:(CompletionActionValidated)completionAction;
 

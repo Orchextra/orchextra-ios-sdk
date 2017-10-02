@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		8F11F2411DB8B40300ABE81E /* ORCEddystoneUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11F2401DB8B40300ABE81E /* ORCEddystoneUID.swift */; };
+		8F1303CD1DB8A1320046C36B /* ORCEddystoneTelemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1303CC1DB8A1320046C36B /* ORCEddystoneTelemetry.swift */; };
 		8F1593AF1DA3B18B003257C2 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F660C8C1DA2B8D0007B9551 /* Orchextra.framework */; };
 		8F1593B51DA3B228003257C2 /* ORCGIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A93378981D7963B4001E1BA0 /* ORCGIGURLJSONResponseTests.m */; };
 		8F1593B61DA3B228003257C2 /* ORCUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFA91C6BA0EC005CEAA2 /* ORCUserTests.m */; };
@@ -46,7 +48,6 @@
 		8F1593C91DA3B2B3003257C2 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90FD0FB1BF36CD30042F370 /* OCHamcrestIOS.framework */; };
 		8F1593CA1DA3B2B3003257C2 /* OCMockitoIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A90FD0FC1BF36CD30042F370 /* OCMockitoIOS.framework */; };
 		8F1593CB1DA3B2DF003257C2 /* ORCStatisticsInteractorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */; };
-		8F1593CC1DA3B2DF003257C2 /* ORCSettingsInteractorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */; };
 		8F1593CD1DA3B2DF003257C2 /* ORCLocationManagerWrapperMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A94801201C6C92E9000573BD /* ORCLocationManagerWrapperMock.m */; };
 		8F1593CE1DA3B2DF003257C2 /* CLLocationManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFBB1C6BA900005CEAA2 /* CLLocationManagerMock.m */; };
 		8F1593CF1DA3B2DF003257C2 /* ORCPushManagerMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A99073881C6DCD6E00186C8D /* ORCPushManagerMock.m */; };
@@ -83,6 +84,9 @@
 		8F1593EF1DA3B461003257C2 /* scanning-by@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1481BF36D650042F370 /* scanning-by@3x.png */; };
 		8F1593F01DA3B461003257C2 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1491BF36D650042F370 /* Simple.fragsh */; };
 		8F1593F11DA3B461003257C2 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
+		8F1E222B1ECC880E00EA5F5E /* ORCEddystoneRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1E222A1ECC880E00EA5F5E /* ORCEddystoneRegion.swift */; };
+		8F256EC61F28E05C0089E23F /* POST_configuration_with_eddystone_regions.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F256EC51F28E05C0089E23F /* POST_configuration_with_eddystone_regions.json */; };
+		8F256EC81F28E2550089E23F /* POST_configuration_without_eddystone_regions.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F256EC71F28E2550089E23F /* POST_configuration_without_eddystone_regions.json */; };
 		8F4CFAD51E64158E00B7603A /* LocalizableConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4CFAD41E64158E00B7603A /* LocalizableConstants.swift */; };
 		8F4CFAD61E641CD400B7603A /* LocalizableConstants.swift in Headers */ = {isa = PBXBuildFile; fileRef = 8F4CFAD41E64158E00B7603A /* LocalizableConstants.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F4CFADA1E6446A200B7603A /* NSBundle+ORCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */; };
@@ -95,6 +99,8 @@
 		8F4CFAF11E64567500B7603A /* VFConfigurationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C188B41BFCC8F30073EE33 /* VFConfigurationInteractor.m */; };
 		8F4D3C021E49B0EF0050F4B1 /* POST_configuration_failure_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */; };
 		8F4D3C031E49B0EF0050F4B1 /* POST_configuration_failure_html.html in Resources */ = {isa = PBXBuildFile; fileRef = 8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */; };
+		8F55DD211F1F29F600789800 /* ORCActionInterfaceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F55DD201F1F29F600789800 /* ORCActionInterfaceMock.swift */; };
+		8F5996241F0D2433008204AC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5996231F0D2433008204AC /* CoreBluetooth.framework */; };
 		8F660CA31DA2BBBC007B9551 /* Orchextra.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFAA1BF362080042F370 /* Orchextra.m */; };
 		8F660CA41DA2BBBC007B9551 /* ORCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FD0EE1BF364BD0042F370 /* ORCConstants.m */; };
 		8F660CA51DA2BBBC007B9551 /* ORCSettingsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFA81BF362080042F370 /* ORCSettingsDataManager.m */; };
@@ -150,6 +156,12 @@
 		8F77E3131DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */; };
 		8F79D5D81E606ADC00AAB4CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F79D5CE1E606ADC00AAB4CA /* Localizable.strings */; };
 		8F79D5DB1E606ADC00AAB4CA /* Locfile in Resources */ = {isa = PBXBuildFile; fileRef = 8F79D5D41E606ADC00AAB4CA /* Locfile */; };
+		8F7BF5D51DAB674300D608F0 /* ORCEddystoneConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BF5D01DAB674300D608F0 /* ORCEddystoneConstants.swift */; };
+		8F7BF5D61DAB674300D608F0 /* ORCEddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BF5D11DAB674300D608F0 /* ORCEddystoneBeacon.swift */; };
+		8F7BF5D71DAB674300D608F0 /* ORCEddystoneProtocolParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BF5D31DAB674300D608F0 /* ORCEddystoneProtocolParser.swift */; };
+		8F7BF5D81DAB674300D608F0 /* ORCCBCentralWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BF5D41DAB674300D608F0 /* ORCCBCentralWrapper.swift */; };
+		8F8301DA1F29E62C005A2F41 /* ORCEddystoneDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8301D91F29E62C005A2F41 /* ORCEddystoneDecoderTests.swift */; };
+		8F89E97E1F29B6E100308A9A /* ORCEddystoneBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F89E97D1F29B6E100308A9A /* ORCEddystoneBeaconTests.swift */; };
 		8FA9F52A1DA2E3F0009A6E87 /* GIGScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF251BF362080042F370 /* GIGScannerViewController.m */; };
 		8FA9F52C1DA2E3F0009A6E87 /* ORCGIGGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF2D1BF362080042F370 /* ORCGIGGeolocation.m */; };
 		8FA9F52D1DA2E3F0009A6E87 /* GIGURLAuthCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF3C1BF362080042F370 /* GIGURLAuthCommunicator.m */; };
@@ -339,38 +351,12 @@
 		8FA9F6B81DA2F3B2009A6E87 /* ORCGIGRegexp.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF971BF362080042F370 /* ORCGIGRegexp.h */; };
 		8FA9F6B91DA2F3B2009A6E87 /* NSUserDefaults+ORCGIGArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF991BF362080042F370 /* NSUserDefaults+ORCGIGArchive.h */; };
 		8FA9F6BA1DA2F3B2009A6E87 /* ORCGIGConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF9B1BF362080042F370 /* ORCGIGConstants.h */; };
-		8FA9F6BB1DA2F794009A6E87 /* torch.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8DFF1CD2580700322000 /* torch.png */; };
-		8FA9F6BC1DA2F794009A6E87 /* torch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8E001CD2580700322000 /* torch@2x.png */; };
-		8FA9F6BD1DA2F794009A6E87 /* torch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A92C8E011CD2580700322000 /* torch@3x.png */; };
-		8FA9F6BE1DA2F794009A6E87 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1301BF36D650042F370 /* 37x-Checkmark.png */; };
-		8FA9F6BF1DA2F794009A6E87 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1311BF36D650042F370 /* 37x-Checkmark@2x.png */; };
-		8FA9F6C01DA2F794009A6E87 /* Fail_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1321BF36D650042F370 /* Fail_cross.png */; };
-		8FA9F6C11DA2F794009A6E87 /* Fail_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1331BF36D650042F370 /* Fail_cross@2x.png */; };
-		8FA9F6C21DA2F794009A6E87 /* frame-scan.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1341BF36D650042F370 /* frame-scan.png */; };
-		8FA9F6C31DA2F794009A6E87 /* frame-scan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1351BF36D650042F370 /* frame-scan@2x.png */; };
-		8FA9F6C41DA2F794009A6E87 /* frame-scan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1361BF36D650042F370 /* frame-scan@3x.png */; };
-		8FA9F6C61DA2F794009A6E87 /* Line.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1381BF36D650042F370 /* Line.fragsh */; };
-		8FA9F6C71DA2F794009A6E87 /* Line.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1391BF36D650042F370 /* Line.vertsh */; };
-		8FA9F6C81DA2F794009A6E87 /* next-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD13A1BF36D650042F370 /* next-blue.png */; };
-		8FA9F6C91DA2F794009A6E87 /* next-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD13B1BF36D650042F370 /* next-blue@2x.png */; };
-		8FA9F6CA1DA2F794009A6E87 /* next-blue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD13C1BF36D650042F370 /* next-blue@3x.png */; };
-		8FA9F6CB1DA2F794009A6E87 /* next-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD13D1BF36D650042F370 /* next-grey.png */; };
-		8FA9F6CC1DA2F794009A6E87 /* next-grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD13E1BF36D650042F370 /* next-grey@2x.png */; };
-		8FA9F6CD1DA2F794009A6E87 /* next-grey@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD13F1BF36D650042F370 /* next-grey@3x.png */; };
-		8FA9F6CE1DA2F794009A6E87 /* previous-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1401BF36D650042F370 /* previous-blue.png */; };
-		8FA9F6CF1DA2F794009A6E87 /* previous-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1411BF36D650042F370 /* previous-blue@2x.png */; };
-		8FA9F6D01DA2F794009A6E87 /* previous-blue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1421BF36D650042F370 /* previous-blue@3x.png */; };
-		8FA9F6D11DA2F794009A6E87 /* previous-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1431BF36D650042F370 /* previous-grey.png */; };
-		8FA9F6D21DA2F794009A6E87 /* previous-grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1441BF36D650042F370 /* previous-grey@2x.png */; };
-		8FA9F6D31DA2F794009A6E87 /* previous-grey@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1451BF36D650042F370 /* previous-grey@3x.png */; };
-		8FA9F6D41DA2F794009A6E87 /* scanning-by.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1461BF36D650042F370 /* scanning-by.png */; };
-		8FA9F6D51DA2F794009A6E87 /* scanning-by@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1471BF36D650042F370 /* scanning-by@2x.png */; };
-		8FA9F6D61DA2F794009A6E87 /* scanning-by@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1481BF36D650042F370 /* scanning-by@3x.png */; };
-		8FA9F6D71DA2F794009A6E87 /* Simple.fragsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD1491BF36D650042F370 /* Simple.fragsh */; };
-		8FA9F6D81DA2F794009A6E87 /* Simple.vertsh in Resources */ = {isa = PBXBuildFile; fileRef = A90FD14A1BF36D650042F370 /* Simple.vertsh */; };
 		8FA9F6D91DA2FA54009A6E87 /* ORCGIGLayoutGridHorizontal.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF341BF362080042F370 /* ORCGIGLayoutGridHorizontal.m */; };
 		8FA9F6DA1DA2FA54009A6E87 /* ORCGIGLayoutGridVertical.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF361BF362080042F370 /* ORCGIGLayoutGridVertical.m */; };
+		8FAE31771F1DF68F00685D74 /* ORCEddystoneDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE31761F1DF68F00685D74 /* ORCEddystoneDecoder.swift */; };
+		8FB1258D1ED8266600A4E654 /* ORCEddystoneRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1258C1ED8266600A4E654 /* ORCEddystoneRegionManager.swift */; };
 		8FBAE80D1DA3983A00BC6A22 /* ORCWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFBE1BF362080042F370 /* ORCWebViewController.h */; };
+		8FCBB6FA1DBE514300D916F7 /* ORCCBCentralWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCBB6F91DBE514300D916F7 /* ORCCBCentralWrapperMock.swift */; };
 		8FE765F21DA3C2EF0014500D /* region_beacon_major_minor_nil.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB71C6BA803005CEAA2 /* region_beacon_major_minor_nil.json */; };
 		8FE765F31DA3C2EF0014500D /* region_beacon.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB11C6BA26D005CEAA2 /* region_beacon.json */; };
 		8FE765F41DA3C2EF0014500D /* region_geofence.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AFB21C6BA26D005CEAA2 /* region_geofence.json */; };
@@ -389,6 +375,7 @@
 		8FE766011DA3C2EF0014500D /* POST_Configuration_Complex.json in Resources */ = {isa = PBXBuildFile; fileRef = A909AF9C1C6B5B5F005CEAA2 /* POST_Configuration_Complex.json */; };
 		8FE766021DA3C2EF0014500D /* POST_configuration_failure.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */; };
 		8FE766031DA3C2EF0014500D /* POST_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = A90FD10C1BF36CD30042F370 /* POST_configuration.json */; };
+		8FFE59D41EE06A2600E76AC0 /* ORCLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE59D31EE06A2600E76AC0 /* ORCLog.swift */; };
 		A9369B321C32A67100196491 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E4C0071BC6BDE100341A37 /* CoreMedia.framework */; };
 		A95373521BFDB01600AEFE2E /* ORCVuforiaPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCFD11BF362080042F370 /* ORCVuforiaPresenter.h */; };
 		A95373531BFDB01600AEFE2E /* ORCVuforiaPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCFD21BF362080042F370 /* ORCVuforiaPresenter.m */; };
@@ -505,6 +492,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8F5415A11DBE41710067E9C4 /* Embeded Binaries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embeded Binaries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9C188A01BFCC75F0073EE33 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,14 +516,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8F11F2401DB8B40300ABE81E /* ORCEddystoneUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneUID.swift; sourceTree = "<group>"; };
+		8F1303CC1DB8A1320046C36B /* ORCEddystoneTelemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneTelemetry.swift; sourceTree = "<group>"; };
 		8F1593AA1DA3B18A003257C2 /* OrchextraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrchextraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F15F61B1D13E0DD00B589E0 /* ORCBusinessUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCBusinessUnit.h; sourceTree = "<group>"; };
 		8F15F61C1D13E0DD00B589E0 /* ORCBusinessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBusinessUnit.m; sourceTree = "<group>"; };
+		8F1E222A1ECC880E00EA5F5E /* ORCEddystoneRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneRegion.swift; sourceTree = "<group>"; };
+		8F256EC51F28E05C0089E23F /* POST_configuration_with_eddystone_regions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_configuration_with_eddystone_regions.json; sourceTree = "<group>"; };
+		8F256EC71F28E2550089E23F /* POST_configuration_without_eddystone_regions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_configuration_without_eddystone_regions.json; sourceTree = "<group>"; };
 		8F2884641D23D68D00BA5230 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		8F2C3B0B1DBE0D8D0085527D /* ORCEddystoneProtocolParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneProtocolParserTests.swift; sourceTree = "<group>"; };
 		8F33A6F81D0AAC23007BC233 /* POST_confi_with_customfieldsAndTags.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_confi_with_customfieldsAndTags.json; sourceTree = "<group>"; };
 		8F4CFAD41E64158E00B7603A /* LocalizableConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableConstants.swift; sourceTree = "<group>"; };
 		8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = POST_configuration_failure_empty.json; sourceTree = "<group>"; };
 		8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = POST_configuration_failure_html.html; sourceTree = "<group>"; };
+		8F55DD201F1F29F600789800 /* ORCActionInterfaceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCActionInterfaceMock.swift; sourceTree = "<group>"; };
+		8F5996231F0D2433008204AC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		8F660C8C1DA2B8D0007B9551 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F77E3101DA3BB8D00B4FD97 /* NSBundle+ORCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+ORCBundle.h"; sourceTree = "<group>"; };
 		8F77E3111DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+ORCBundle.m"; sourceTree = "<group>"; };
@@ -537,11 +542,21 @@
 		8F79D5D41E606ADC00AAB4CA /* Locfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Locfile; sourceTree = "<group>"; };
 		8F79D5D51E606ADC00AAB4CA /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8F79D5D61E606ADC00AAB4CA /* pt-br */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-br"; path = "pt-br.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8F7BF5D01DAB674300D608F0 /* ORCEddystoneConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneConstants.swift; sourceTree = "<group>"; };
+		8F7BF5D11DAB674300D608F0 /* ORCEddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneBeacon.swift; sourceTree = "<group>"; };
+		8F7BF5D31DAB674300D608F0 /* ORCEddystoneProtocolParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneProtocolParser.swift; sourceTree = "<group>"; };
+		8F7BF5D41DAB674300D608F0 /* ORCCBCentralWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCCBCentralWrapper.swift; sourceTree = "<group>"; };
+		8F8301D91F29E62C005A2F41 /* ORCEddystoneDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneDecoderTests.swift; sourceTree = "<group>"; };
+		8F89E97D1F29B6E100308A9A /* ORCEddystoneBeaconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneBeaconTests.swift; sourceTree = "<group>"; };
+		8FAE31761F1DF68F00685D74 /* ORCEddystoneDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneDecoder.swift; sourceTree = "<group>"; };
+		8FB1258C1ED8266600A4E654 /* ORCEddystoneRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCEddystoneRegionManager.swift; sourceTree = "<group>"; };
+		8FCBB6F91DBE514300D916F7 /* ORCCBCentralWrapperMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCCBCentralWrapperMock.swift; sourceTree = "<group>"; };
 		8FE1DF851D082FC10015D2F1 /* ORCCustomField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCCustomField.h; sourceTree = "<group>"; };
 		8FE1DF861D082FC10015D2F1 /* ORCCustomField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCCustomField.m; sourceTree = "<group>"; };
 		8FE3B55C1EA8CCDC00C320FF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8FE3B55D1EA8CD4A00C320FF /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8FE3B55E1EA8CD9B00C320FF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8FFE59D31EE06A2600E76AC0 /* ORCLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORCLog.swift; sourceTree = "<group>"; };
 		A909AF691C6B48F7005CEAA2 /* OrchextraTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrchextraTests.m; sourceTree = "<group>"; };
 		A909AF6B1C6B48F7005CEAA2 /* ORCActionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionManagerTests.m; sourceTree = "<group>"; };
 		A909AF791C6B48F7005CEAA2 /* ORCScannerPresenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCScannerPresenterTests.m; sourceTree = "<group>"; };
@@ -908,8 +923,6 @@
 		A98360E31BFB82FF00413CB8 /* OrchextraOutputInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrchextraOutputInterface.h; sourceTree = "<group>"; };
 		A98A0EA51C71AFFF00EDA316 /* GET_action_webview_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_webview_without_schedule.json; sourceTree = "<group>"; };
 		A98A0EA71C71B0CC00EDA316 /* GET_action_vuforia_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_vuforia_without_schedule.json; sourceTree = "<group>"; };
-		A98F557A1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCSettingsInteractorMock.h; sourceTree = "<group>"; };
-		A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsInteractorMock.m; sourceTree = "<group>"; };
 		A98F557D1C6DEF63000E7C60 /* ORCActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCActionTests.m; sourceTree = "<group>"; };
 		A98F55811C6DF910000E7C60 /* GET_action_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_without_schedule.json; sourceTree = "<group>"; };
 		A98F55831C6DFE29000E7C60 /* GET_action_scanner_without_schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GET_action_scanner_without_schedule.json; sourceTree = "<group>"; };
@@ -981,6 +994,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9AC212A1F5541DF00095EC5 /* UserNotifications.framework in Frameworks */,
+				8F5996241F0D2433008204AC /* CoreBluetooth.framework in Frameworks */,
 				8FA9F56B1DA2E628009A6E87 /* CoreLocation.framework in Frameworks */,
 				8FA9F56A1DA2E620009A6E87 /* SystemConfiguration.framework in Frameworks */,
 				8FA9F5691DA2E618009A6E87 /* AdSupport.framework in Frameworks */,
@@ -1036,6 +1050,49 @@
 			path = Strings/Localizables/Localizables;
 			sourceTree = "<group>";
 		};
+		8F7BF5CE1DAB674300D608F0 /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8F7BF5CF1DAB674300D608F0 /* Model */,
+				8F7BF5D21DAB674300D608F0 /* Parser */,
+			);
+			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
+		8F7BF5CF1DAB674300D608F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F7BF5D01DAB674300D608F0 /* ORCEddystoneConstants.swift */,
+				8FAE31761F1DF68F00685D74 /* ORCEddystoneDecoder.swift */,
+				8FB1258C1ED8266600A4E654 /* ORCEddystoneRegionManager.swift */,
+				8F7BF5D11DAB674300D608F0 /* ORCEddystoneBeacon.swift */,
+				8F1E222A1ECC880E00EA5F5E /* ORCEddystoneRegion.swift */,
+				8F1303CC1DB8A1320046C36B /* ORCEddystoneTelemetry.swift */,
+				8F11F2401DB8B40300ABE81E /* ORCEddystoneUID.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8F7BF5D21DAB674300D608F0 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				8F7BF5D31DAB674300D608F0 /* ORCEddystoneProtocolParser.swift */,
+				8F7BF5D41DAB674300D608F0 /* ORCCBCentralWrapper.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		8F7BF5D91DAB955D00D608F0 /* CoreBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8FCBB6F91DBE514300D916F7 /* ORCCBCentralWrapperMock.swift */,
+				8F89E97D1F29B6E100308A9A /* ORCEddystoneBeaconTests.swift */,
+				8F8301D91F29E62C005A2F41 /* ORCEddystoneDecoderTests.swift */,
+				8F2C3B0B1DBE0D8D0085527D /* ORCEddystoneProtocolParserTests.swift */,
+			);
+			path = CoreBluetooth;
+			sourceTree = "<group>";
+		};
 		A909AF651C6B48F7005CEAA2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1064,6 +1121,7 @@
 		A909AF761C6B48F7005CEAA2 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				8F7BF5D91DAB955D00D608F0 /* CoreBluetooth */,
 				A909AF771C6B48F7005CEAA2 /* Proximity */,
 				A909AF781C6B48F7005CEAA2 /* Scanner */,
 			);
@@ -1888,18 +1946,18 @@
 		A90FCFA41BF362080042F370 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				A90FCFA91BF362080042F370 /* Orchextra.h */,
-				A90FCFAA1BF362080042F370 /* Orchextra.m */,
+				A98360E21BFB82FF00413CB8 /* Interfaces_InOut */,
 				A90FD0ED1BF364BD0042F370 /* ORCConstants.h */,
 				A90FD0EE1BF364BD0042F370 /* ORCConstants.m */,
+				A90FCFA91BF362080042F370 /* Orchextra.h */,
+				A90FCFAA1BF362080042F370 /* Orchextra.m */,
+				A9E535D81C75E71F0049DD54 /* ORCLog */,
+				A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */,
+				A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */,
 				A90FCFA71BF362080042F370 /* ORCSettingsDataManager.h */,
 				A90FCFA81BF362080042F370 /* ORCSettingsDataManager.m */,
 				A90FCFAB1BF362080042F370 /* ORCUser.h */,
 				A90FCFAC1BF362080042F370 /* ORCUser.m */,
-				A98360DE1BFB82FA00413CB8 /* ORCPushManager.h */,
-				A98360DF1BFB82FA00413CB8 /* ORCPushManager.m */,
-				A9E535D81C75E71F0049DD54 /* ORCLog */,
-				A98360E21BFB82FF00413CB8 /* Interfaces_InOut */,
 			);
 			path = SDK;
 			sourceTree = "<group>";
@@ -1907,12 +1965,13 @@
 		A90FCFB01BF362080042F370 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
-				A9C56A581C97FE940098C07E /* WebViewJavascript */,
 				A90FCFB11BF362080042F370 /* ActionManager */,
+				8F7BF5CE1DAB674300D608F0 /* CoreBluetooth */,
 				A90FCFBB1BF362080042F370 /* OpenURL */,
 				A90FCFC01BF362080042F370 /* Proximity */,
 				A90FCFC61BF362080042F370 /* Scanner */,
 				A90FCFCB1BF362080042F370 /* Vuforia */,
+				A9C56A581C97FE940098C07E /* WebViewJavascript */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -2084,6 +2143,8 @@
 				8F4D3C001E49B0EF0050F4B1 /* POST_configuration_failure_empty.json */,
 				8F4D3C011E49B0EF0050F4B1 /* POST_configuration_failure_html.html */,
 				A90FD10D1BF36CD30042F370 /* POST_configuration_failure.json */,
+				8F256EC51F28E05C0089E23F /* POST_configuration_with_eddystone_regions.json */,
+				8F256EC71F28E2550089E23F /* POST_configuration_without_eddystone_regions.json */,
 				A90FD10C1BF36CD30042F370 /* POST_configuration.json */,
 			);
 			path = Configuration;
@@ -2239,8 +2300,6 @@
 			children = (
 				A99073931C6DD26200186C8D /* ORCStatisticsInteractorMock.h */,
 				A99073941C6DD26200186C8D /* ORCStatisticsInteractorMock.m */,
-				A98F557A1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.h */,
-				A98F557B1C6DEC1F000E7C60 /* ORCSettingsInteractorMock.m */,
 			);
 			name = Interactor;
 			path = Mocks/Interactor;
@@ -2309,6 +2368,7 @@
 				A9E535DC1C75E71F0049DD54 /* ORCLog.m */,
 				A9E535D91C75E71F0049DD54 /* ORCFormatterLog.h */,
 				A9E535DA1C75E71F0049DD54 /* ORCFormatterLog.m */,
+				8FFE59D31EE06A2600E76AC0 /* ORCLog.swift */,
 			);
 			path = ORCLog;
 			sourceTree = "<group>";
@@ -2339,6 +2399,7 @@
 			isa = PBXGroup;
 			children = (
 				A9AC21291F5541DF00095EC5 /* UserNotifications.framework */,
+				8F5996231F0D2433008204AC /* CoreBluetooth.framework */,
 				8F2884641D23D68D00BA5230 /* SafariServices.framework */,
 				A93950451D0016A70063A27A /* PassKit.framework */,
 				A9801C5E1C9ADF2000A28CF5 /* WebKit.framework */,
@@ -2365,6 +2426,7 @@
 		A9E8A5501C71DE240033E203 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				8F55DD201F1F29F600789800 /* ORCActionInterfaceMock.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -2604,6 +2666,7 @@
 				8F1593A61DA3B18A003257C2 /* Sources */,
 				8F1593A71DA3B18A003257C2 /* Frameworks */,
 				8F1593A81DA3B18A003257C2 /* Resources */,
+				8F5415A11DBE41710067E9C4 /* Embeded Binaries */,
 			);
 			buildRules = (
 			);
@@ -2658,7 +2721,7 @@
 		A9E595701B04DA6F0040EAD4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Gigigo;
 				TargetAttributes = {
 					8F1593A91DA3B18A003257C2 = {
@@ -2668,7 +2731,7 @@
 					};
 					8F660C8B1DA2B8D0007B9551 = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
 					A9C188A11BFCC75F0073EE33 = {
@@ -2723,6 +2786,8 @@
 				8FE765F91DA3C2EF0014500D /* GET_action_browser_without_schedule.json in Resources */,
 				8FE765FA1DA3C2EF0014500D /* GET_action_scanner_without_schedule.json in Resources */,
 				8FE765FB1DA3C2EF0014500D /* GET_action_without_schedule.json in Resources */,
+				8F256EC81F28E2550089E23F /* POST_configuration_without_eddystone_regions.json in Resources */,
+				8F256EC61F28E05C0089E23F /* POST_configuration_with_eddystone_regions.json in Resources */,
 				8FE765FC1DA3C2EF0014500D /* GET_actionScanner.json in Resources */,
 				8FE765FD1DA3C2EF0014500D /* accessToken.json in Resources */,
 				8FE765FE1DA3C2EF0014500D /* clientToken.json in Resources */,
@@ -2768,37 +2833,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA9F6BB1DA2F794009A6E87 /* torch.png in Resources */,
-				8FA9F6BC1DA2F794009A6E87 /* torch@2x.png in Resources */,
-				8FA9F6BD1DA2F794009A6E87 /* torch@3x.png in Resources */,
-				8FA9F6BE1DA2F794009A6E87 /* 37x-Checkmark.png in Resources */,
-				8FA9F6BF1DA2F794009A6E87 /* 37x-Checkmark@2x.png in Resources */,
-				8FA9F6C01DA2F794009A6E87 /* Fail_cross.png in Resources */,
-				8FA9F6C11DA2F794009A6E87 /* Fail_cross@2x.png in Resources */,
-				8FA9F6C21DA2F794009A6E87 /* frame-scan.png in Resources */,
-				8FA9F6C31DA2F794009A6E87 /* frame-scan@2x.png in Resources */,
-				8FA9F6C41DA2F794009A6E87 /* frame-scan@3x.png in Resources */,
-				8FA9F6C61DA2F794009A6E87 /* Line.fragsh in Resources */,
-				8FA9F6C71DA2F794009A6E87 /* Line.vertsh in Resources */,
 				8F79D5DB1E606ADC00AAB4CA /* Locfile in Resources */,
-				8FA9F6C81DA2F794009A6E87 /* next-blue.png in Resources */,
-				8FA9F6C91DA2F794009A6E87 /* next-blue@2x.png in Resources */,
-				8FA9F6CA1DA2F794009A6E87 /* next-blue@3x.png in Resources */,
-				8FA9F6CB1DA2F794009A6E87 /* next-grey.png in Resources */,
 				8F79D5D81E606ADC00AAB4CA /* Localizable.strings in Resources */,
-				8FA9F6CC1DA2F794009A6E87 /* next-grey@2x.png in Resources */,
-				8FA9F6CD1DA2F794009A6E87 /* next-grey@3x.png in Resources */,
-				8FA9F6CE1DA2F794009A6E87 /* previous-blue.png in Resources */,
-				8FA9F6CF1DA2F794009A6E87 /* previous-blue@2x.png in Resources */,
-				8FA9F6D01DA2F794009A6E87 /* previous-blue@3x.png in Resources */,
-				8FA9F6D11DA2F794009A6E87 /* previous-grey.png in Resources */,
-				8FA9F6D21DA2F794009A6E87 /* previous-grey@2x.png in Resources */,
-				8FA9F6D31DA2F794009A6E87 /* previous-grey@3x.png in Resources */,
-				8FA9F6D41DA2F794009A6E87 /* scanning-by.png in Resources */,
-				8FA9F6D51DA2F794009A6E87 /* scanning-by@2x.png in Resources */,
-				8FA9F6D61DA2F794009A6E87 /* scanning-by@3x.png in Resources */,
-				8FA9F6D71DA2F794009A6E87 /* Simple.fragsh in Resources */,
-				8FA9F6D81DA2F794009A6E87 /* Simple.vertsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2840,10 +2876,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1593CB1DA3B2DF003257C2 /* ORCStatisticsInteractorMock.m in Sources */,
-				8F1593CC1DA3B2DF003257C2 /* ORCSettingsInteractorMock.m in Sources */,
 				8F1593CD1DA3B2DF003257C2 /* ORCLocationManagerWrapperMock.m in Sources */,
+				8F89E97E1F29B6E100308A9A /* ORCEddystoneBeaconTests.swift in Sources */,
 				8F1593CE1DA3B2DF003257C2 /* CLLocationManagerMock.m in Sources */,
 				8F1593CF1DA3B2DF003257C2 /* ORCPushManagerMock.m in Sources */,
+				8FCBB6FA1DBE514300D916F7 /* ORCCBCentralWrapperMock.swift in Sources */,
+				8F8301DA1F29E62C005A2F41 /* ORCEddystoneDecoderTests.swift in Sources */,
 				8F1593D01DA3B2DF003257C2 /* ORCFormatterParametersMock.m in Sources */,
 				8F1593D11DA3B2DF003257C2 /* ORCAppConfigCommunicatorMock.m in Sources */,
 				8F1593D21DA3B2DF003257C2 /* ORCSettingsPersisterMock.m in Sources */,
@@ -2858,6 +2896,7 @@
 				8F1593C21DA3B228003257C2 /* ORCScannerViewControllerTests.m in Sources */,
 				8F1593B91DA3B228003257C2 /* ORCGeofenceTests.m in Sources */,
 				8F1593BF1DA3B228003257C2 /* ORCActionManagerTests.m in Sources */,
+				8F55DD211F1F29F600789800 /* ORCActionInterfaceMock.swift in Sources */,
 				8F1593C41DA3B228003257C2 /* ORCValidatorActionInteractorTests.m in Sources */,
 				8F1593C11DA3B228003257C2 /* ORCScannerPresenterTests.m in Sources */,
 				8F1593C31DA3B228003257C2 /* ORCSettingsInteractorTests.m in Sources */,
@@ -2873,6 +2912,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FA9F6D91DA2FA54009A6E87 /* ORCGIGLayoutGridHorizontal.m in Sources */,
+				8FFE59D41EE06A2600E76AC0 /* ORCLog.swift in Sources */,
 				8FA9F6DA1DA2FA54009A6E87 /* ORCGIGLayoutGridVertical.m in Sources */,
 				8FA9F5511DA2E4BC009A6E87 /* CLIColor.m in Sources */,
 				8FA9F5521DA2E4BC009A6E87 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -2880,6 +2920,7 @@
 				8F4CFAF11E64567500B7603A /* VFConfigurationInteractor.m in Sources */,
 				8FA9F5541DA2E4BC009A6E87 /* DDASLLogger.m in Sources */,
 				8FA9F5551DA2E4BC009A6E87 /* DDFileLogger.m in Sources */,
+				8F7BF5D51DAB674300D608F0 /* ORCEddystoneConstants.swift in Sources */,
 				8FA9F5561DA2E4BC009A6E87 /* DDLog.m in Sources */,
 				8FA9F5571DA2E4BC009A6E87 /* DDTTYLogger.m in Sources */,
 				8FA9F5581DA2E4BC009A6E87 /* DDContextFilterLogFormatter.m in Sources */,
@@ -2899,7 +2940,9 @@
 				8FA9F5351DA2E3F0009A6E87 /* ORCGIGURLFixture.m in Sources */,
 				8FA9F5361DA2E3F0009A6E87 /* ORCGIGURLFixturesKeeper.m in Sources */,
 				8FA9F5371DA2E3F0009A6E87 /* ORCGIGURLFormatter.m in Sources */,
+				8F7BF5D81DAB674300D608F0 /* ORCCBCentralWrapper.swift in Sources */,
 				8FA9F5381DA2E3F0009A6E87 /* ORCGIGURLParametersFormatter.m in Sources */,
+				8F7BF5D71DAB674300D608F0 /* ORCEddystoneProtocolParser.swift in Sources */,
 				8FA9F5391DA2E3F0009A6E87 /* ORCGIGURLCommunicator.m in Sources */,
 				8FA9F53A1DA2E3F0009A6E87 /* ORCGIGURLFile.m in Sources */,
 				8FA9F53B1DA2E3F0009A6E87 /* ORCGIGURLManager.m in Sources */,
@@ -2918,11 +2961,13 @@
 				8FA9F5481DA2E3F0009A6E87 /* NSInvocation+ORCGIGExtension.m in Sources */,
 				8FA9F5491DA2E3F0009A6E87 /* NSArray+ORCGIGJSON.m in Sources */,
 				8FA9F54A1DA2E3F0009A6E87 /* NSData+ORCGIGJSON.m in Sources */,
+				8FB1258D1ED8266600A4E654 /* ORCEddystoneRegionManager.swift in Sources */,
 				8FA9F54B1DA2E3F0009A6E87 /* NSDictionary+ORCGIGJSON.m in Sources */,
 				8FA9F54C1DA2E3F0009A6E87 /* NSString+ORCGIGJSON.m in Sources */,
 				8FA9F54D1DA2E3F0009A6E87 /* ORCGIGLogManager.m in Sources */,
 				8FA9F54E1DA2E3F0009A6E87 /* NSRegularExpression+ORCGIGRegexp.m in Sources */,
 				8FA9F54F1DA2E3F0009A6E87 /* NSString+ORCGIGRegexp.m in Sources */,
+				8F11F2411DB8B40300ABE81E /* ORCEddystoneUID.swift in Sources */,
 				8FA9F5501DA2E3F0009A6E87 /* NSUserDefaults+ORCGIGArchive.m in Sources */,
 				8F660CA31DA2BBBC007B9551 /* Orchextra.m in Sources */,
 				8F660CA41DA2BBBC007B9551 /* ORCConstants.m in Sources */,
@@ -2931,6 +2976,7 @@
 				8F660CA71DA2BBBC007B9551 /* ORCPushManager.m in Sources */,
 				8F77E3131DA3BB8D00B4FD97 /* NSBundle+ORCBundle.m in Sources */,
 				8F660CA81DA2BBBC007B9551 /* ORCLog.m in Sources */,
+				8F7BF5D61DAB674300D608F0 /* ORCEddystoneBeacon.swift in Sources */,
 				8F660CA91DA2BBBC007B9551 /* ORCFormatterLog.m in Sources */,
 				8F660CAA1DA2BBBC007B9551 /* ORCApplicationCenter.m in Sources */,
 				8F4CFAEF1E64565300B7603A /* ORCVuforiaViewController.m in Sources */,
@@ -2951,6 +2997,7 @@
 				8F660CB81DA2BBBC007B9551 /* ORCScannerViewController.m in Sources */,
 				8F660CB91DA2BBBC007B9551 /* ORCErrorManager.m in Sources */,
 				8F660CBA1DA2BBBC007B9551 /* ORCSettingsPersister.m in Sources */,
+				8FAE31771F1DF68F00685D74 /* ORCEddystoneDecoder.swift in Sources */,
 				8F660CBB1DA2BBBC007B9551 /* ORCUserLocationPersister.m in Sources */,
 				8F660CBC1DA2BBBC007B9551 /* ORCStatisticsInteractor.m in Sources */,
 				8F660CBD1DA2BBBC007B9551 /* ORCSettingsInteractor.m in Sources */,
@@ -2958,6 +3005,7 @@
 				8F660CBF1DA2BBBC007B9551 /* ORCValidatorActionInterator.m in Sources */,
 				8F660CC01DA2BBBC007B9551 /* ORCActionBrowser.m in Sources */,
 				8F660CC11DA2BBBC007B9551 /* ORCActionScanner.m in Sources */,
+				8F1E222B1ECC880E00EA5F5E /* ORCEddystoneRegion.swift in Sources */,
 				8F660CC31DA2BBBC007B9551 /* ORCActionWebView.m in Sources */,
 				8F660CC41DA2BBBC007B9551 /* ORCAction.m in Sources */,
 				8F660CC51DA2BBBC007B9551 /* ORCBusinessUnit.m in Sources */,
@@ -2977,6 +3025,7 @@
 				8F660CD11DA2BBBC007B9551 /* ORCURLProvider.m in Sources */,
 				8F660CD21DA2BBBC007B9551 /* NSString+MD5.m in Sources */,
 				8F660CD31DA2BBBC007B9551 /* ORCFormatterParameters.m in Sources */,
+				8F1303CD1DB8A1320046C36B /* ORCEddystoneTelemetry.swift in Sources */,
 				8F660CD41DA2BBBC007B9551 /* ORCProximityFormatter.m in Sources */,
 				8F660CD51DA2BBBC007B9551 /* ORCBarButtonItem.m in Sources */,
 				8F660CD61DA2BBBC007B9551 /* ORCWireframe.m in Sources */,
@@ -3046,14 +3095,20 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -3086,12 +3141,15 @@
 				);
 				SDKROOT = iphoneos;
 				STRIP_STYLE = "non-global";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		8F4733221DA3EFA200190E90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
@@ -3126,7 +3184,8 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3178,11 +3237,16 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
 				);
+				HEADER_SEARCH_PATHS = $CONFIGURATION_TEMP_DIR/Orchextra.build/DerivedSources;
 				INFOPLIST_FILE = OrchextraTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 			};
 			name = Debug;
 		};
@@ -3196,14 +3260,20 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -3236,6 +3306,8 @@
 		8F4733271DA3EFB200190E90 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_MODULE_DEBUGGING = YES;
@@ -3268,7 +3340,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -3317,11 +3390,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/OrchextraTests/Libs",
 				);
+				HEADER_SEARCH_PATHS = $CONFIGURATION_TEMP_DIR/Orchextra.build/DerivedSources;
 				INFOPLIST_FILE = OrchextraTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 			};
 			name = Release;
 		};

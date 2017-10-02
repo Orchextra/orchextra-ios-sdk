@@ -30,12 +30,26 @@ FOUNDATION_EXPORT const unsigned char OrchextraVersionString[];
 #import <Orchextra/ORCVuforiaConfig.h>
 #import <Orchextra/ORCWebViewViewController.h>
 
-// In this header, you should import all the public headers of your framework using statements like #import <Orchextra/PublicHeader.h>
-
 @class ORCApplicationCenter;
 @class ORCSettingsInteractor;
 
 NS_ASSUME_NONNULL_BEGIN
+
+/**
+ *  CoreBluetooth levels are used to define the time to scan out for eddystone beacons.
+ */
+typedef NS_ENUM(NSUInteger, CoreBluetoothScanLevel)
+{
+    /**
+     *  Core bluetooth scanner always active searching for peripherals.
+     */
+    CoreBluetoothScanLevelAlways               = 0,
+    
+    /**
+     *  Core bluetooth scanner searaching for peripherals from time to time.
+     */
+    CoreBluetoothScanLevelScanByIntervals    = 1,
+};
 
 @protocol OrchextraCustomActionDelegate <NSObject>
 
@@ -128,10 +142,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray <ORCBusinessUnit *> *)getDeviceBusinessUnits;
 - (void)setDeviceBussinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits;
 
+// EDDYSTONE BEACONS
+
+- (void)startEddystoneBeaconsScanner;
+- (void)stopEddystoneBeaconsScanner;
+
 // DEBUG
 
 + (void)logLevel:(ORCLogLevel)logLevel;
 + (void)saveLogsToAFile;
++ (void)setCoreBluetoothScannerLevel:(CoreBluetoothScanLevel)scanLevel;
+
+// BACKGROUND FETCH
+
+- (void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 
 NS_ASSUME_NONNULL_END
 

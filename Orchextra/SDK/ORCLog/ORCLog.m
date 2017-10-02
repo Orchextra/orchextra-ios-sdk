@@ -91,11 +91,17 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     {
         va_list ap;
         va_start(ap, format);
-        NSString *output = [[NSString alloc] initWithFormat:format arguments:ap];
-        va_end(ap);
-        
-        DDLogError(@"%@", output);
+        [ORCLog logError:format args:ap];
     }
+}
+
++ (void)logError:(NSString *)format args:(va_list)args
+{
+    NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    
+    DDLogError(@"%@", output);
+
 }
 
 + (void)logWarning:(NSString *)format, ...
@@ -106,10 +112,15 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     {
         va_list ap;
         va_start(ap, format);
-        NSString *output = [[NSString alloc] initWithFormat:format arguments:ap];
-        va_end(ap);
-        DDLogWarn(@"%@", output);
+        [ORCLog logWarning:format args: ap];
     }
+}
+
++ (void)logWarning:(NSString *)format args:(va_list)args
+{
+    NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    DDLogWarn(@"%@", output);
 }
 
 + (void)logDebug:(NSString *)format, ...
@@ -120,11 +131,16 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     {
         va_list ap;
         va_start(ap, format);
-        NSString *output = [[NSString alloc] initWithFormat:format arguments:ap];
-        va_end(ap);
-        
-        DDLogDebug(@"%@", output);
+        [ORCLog logDebug:format args:ap];
     }
+}
+
++ (void)logDebug:(NSString *)format args:(va_list)args
+{
+    NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    
+    DDLogDebug(@"%@", output);
 }
 
 + (void)logVerbose:(NSString *)format, ...
@@ -135,12 +151,16 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     {
         va_list ap;
         va_start(ap, format);
-        NSString *output = [[NSString alloc] initWithFormat:format arguments:ap];
-        va_end(ap);
-        
-        DDLogVerbose(@"%@", output);
+        [ORCLog logVerbose:format args:ap];
     }
 }
 
++ (void)logVerbose:(NSString *)format args:(va_list)args
+{
+    NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    
+    DDLogVerbose(@"%@", output);
+}
 
 @end

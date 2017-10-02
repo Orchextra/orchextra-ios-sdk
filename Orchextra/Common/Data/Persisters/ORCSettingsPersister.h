@@ -10,6 +10,7 @@
 
 @class ORCBusinessUnit;
 @class ORCCustomField;
+@class ORCEddystoneRegion;
 @class ORCUser;
 @class ORCTag;
 @class ORCThemeSdk;

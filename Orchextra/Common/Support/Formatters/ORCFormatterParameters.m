@@ -95,8 +95,15 @@
 - (NSDictionary *)formattedCurrentUserLocation
 {
     CLLocation *lastLocation = [self.userLocationPersister loadLastLocation];
-    NSDictionary *dicPoint = @{   @"lat" : [NSNumber numberWithDouble:lastLocation.coordinate.latitude],
-                                  @"lng" : [NSNumber numberWithDouble:lastLocation.coordinate.longitude]};
+    NSNumber *latitude = [NSNumber numberWithDouble:lastLocation.coordinate.latitude];
+    NSNumber *longitude = [NSNumber numberWithDouble:lastLocation.coordinate.longitude];
+    NSDictionary *dicPoint = nil;
+    
+    if (latitude != nil && longitude != nil)
+    {
+       dicPoint = @{ @"lat" : latitude,
+                     @"lng" : longitude };
+    }
     
     return dicPoint;
 }
@@ -104,13 +111,19 @@
 
 - (NSDictionary *)formattedUserLocation:(CLLocation *)userLocation;
 {
-    NSDictionary *dicPoint = @{   @"lat" : [NSNumber numberWithDouble:userLocation.coordinate.latitude],
-                                  @"lng" : [NSNumber numberWithDouble:userLocation.coordinate.longitude]};
-    
-    if (dicPoint)
+    NSNumber *latitude = [NSNumber numberWithDouble:userLocation.coordinate.latitude];
+    NSNumber *longitude = [NSNumber numberWithDouble:userLocation.coordinate.longitude];
+    if (latitude != nil && longitude != nil)
     {
-        return @{@"point" : dicPoint};
+        NSDictionary *dicPoint = @{ @"lat" : latitude,
+                                    @"lng" : longitude };
+        
+        if (dicPoint)
+        {
+            return @{@"point" : dicPoint};
+        }
     }
+    
     
     return nil;
 }
@@ -198,7 +211,7 @@
     
     if (self.device.language)
     {
-        [deviceValues setValue:self.device.language forKey:@"languaje"];
+        [deviceValues setValue:self.device.language forKey:@"language"];
     }
     if (self.device.deviceOS)
     {

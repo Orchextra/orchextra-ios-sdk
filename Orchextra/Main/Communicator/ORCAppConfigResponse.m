@@ -28,6 +28,8 @@ NSString * const DEVICE_JSON                    = @"device";
 NSString * const CUSTOM_FIELDS_JSON             = @"customFields";
 NSString * const TAGS_JSON                      = @"tags";
 NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
+NSString * const EDDYSTONE_REGIONS_JSON         = @"eddystoneRegions";
+
 
 @implementation ORCAppConfigResponse
 
@@ -39,9 +41,9 @@ NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
     {
         if (self.success && [self.jsonData count])
         {
+            self.requestWaitTime = [self.jsonData integerForKey:REQUEST_WAIT_TIME];
             [self parseGeoMarketingResponse:self.jsonData];
             self.themeSDK = [self parseThemeWithJSON:self.jsonData];
-            self.requestWaitTime = [self.jsonData integerForKey:REQUEST_WAIT_TIME];
             self.vuforiaConfig = [self parseVuforiaCredentials:self.jsonData];
             self.availableCustomFields = [self parseAvailableCustomFieldsResponse:self.jsonData];
             self.userCustomFields = [self parseCustomFieldsResponse:self.jsonData];
@@ -64,11 +66,10 @@ NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
 
 - (void)parseGeoMarketingResponse:(NSDictionary *)json
 {
-    // Parse Beacons
+    // Parse iBeacons
     if ([json isKindOfClass:[NSDictionary class]] && json[PROXIMITY_JSON])
     {
         NSMutableArray *beaconRegions = [[NSMutableArray alloc] init];
-        
         for (NSDictionary *beaconObj in json[PROXIMITY_JSON])
         {
             ORCBeacon *beacon = [[ORCBeacon alloc] initWithJSON:beaconObj];
@@ -77,6 +78,20 @@ NSString * const BUSINESS_UNITS_JSON            = @"businessUnits";
         
         if (!self.beaconRegions) self.beaconRegions = [[NSArray alloc] init];
         self.beaconRegions = beaconRegions;
+    }
+    
+    // Parse Eddystone Beacons
+    if ([json isKindOfClass:[NSDictionary class]] && json[EDDYSTONE_REGIONS_JSON])
+    {
+        NSMutableArray *eddystoneRegions = [[NSMutableArray alloc] init];
+        for (NSDictionary *eddystoneObj in json[EDDYSTONE_REGIONS_JSON])
+        {
+            ORCEddystoneRegion *eddystoneRegion = [[ORCEddystoneRegion alloc] initWithJson: eddystoneObj];
+            [eddystoneRegions addObject:eddystoneRegion];
+        }
+        
+        if (!self.eddystoneRegions) self.eddystoneRegions = [[NSArray alloc] init];
+        self.eddystoneRegions = eddystoneRegions;
     }
     
     // Parse Geofences

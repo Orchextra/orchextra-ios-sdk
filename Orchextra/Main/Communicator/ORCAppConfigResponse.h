@@ -10,6 +10,8 @@
 
 @class ORCBusinessUnit;
 @class ORCCustomField;
+@class ORCEddystoneBeacon;
+@class ORCEddystoneRegion;
 @class ORCTag;
 @class ORCThemeSdk;
 @class ORCVuforiaConfig;
@@ -18,6 +20,7 @@
 
 @property (strong, nonatomic) NSArray *geoRegions;
 @property (strong, nonatomic) NSArray *beaconRegions;
+@property (strong, nonatomic) NSArray <ORCEddystoneRegion *> *eddystoneRegions;
 @property (strong, nonatomic) NSArray <ORCCustomField *> *availableCustomFields;
 @property (strong, nonatomic) NSArray <ORCCustomField *> *userCustomFields;
 @property (strong, nonatomic) NSArray <ORCBusinessUnit *> *userBusinessUnits;
