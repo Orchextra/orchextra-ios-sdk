@@ -85,6 +85,7 @@ class ProximityWrapper: ProximityInput {
             if self.locationWrapper.enableLocationServices() {
                 self.locationWrapper.monitoring(regions: regions)
             }
+            
             LogInfo("Finish start monitoring")
         }
     }
@@ -123,15 +124,15 @@ extension ProximityWrapper: LocationOutput {
     }
     
     private func handleStayTime(geofence: GeofenceOrx) {
+        
         if #available(iOS 10.0, *) {
-            let timer = Timer.scheduledTimer(withTimeInterval: Double(geofence.staytime), repeats: false, block: { _ in
+         _ = Timer.scheduledTimer(withTimeInterval: Double(geofence.staytime), repeats: false, block: { _ in
                 let outputDic = self.handleOutputRegion(type: RegionType.geofence, code: geofence.code, event: "stay")
                 self.output?.sendTriggerToCoreWithValues(values: outputDic)
             })
             
         } else {
             // Fallback on earlier versions
-            
         }
     }
     

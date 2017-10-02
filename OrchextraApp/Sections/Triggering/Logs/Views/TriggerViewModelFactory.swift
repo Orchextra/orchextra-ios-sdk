@@ -238,16 +238,17 @@ class TriggerViewModelFactory {
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
-        
+        let event = trigger.urlParams()["event"] as? String
+
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "Geofence",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: nil,
-            thirdLabelRightText: nil,
-            fourthLabelLeftText: "Value: ",
-            fourthLabelRightText: value,
+            thirdLabelLeftText: "Value: ",
+            thirdLabelRightText: value,
+            fourthLabelLeftText: "Event: ",
+            fourthLabelRightText: event,
             fifthLabelLeftText: nil,
             fifthLabelRightText: nil,
             sixthLabelLeftText: nil,
