@@ -14,7 +14,12 @@ class TriggerGeofence: Trigger {
     var triggerId: String = TriggerType.triggerGeofence
     let params: [String: Any]
     
-    init(params: [String: Any]) {
+    var name: String?
+    var staytime: Double?
+    
+    init(params: [String: Any], name: String?, staytime: Double?) {
+        self.name = name
+        self.staytime = staytime
         self.params = params
     }
     
@@ -31,7 +36,9 @@ class TriggerGeofence: Trigger {
                       "event": event,
                       "phoneStatus": self.applicationState()]
         
-        return TriggerGeofence(params: params)
+        return TriggerGeofence(params: params,
+                               name: externalValues["name"] as? String,
+                               staytime: externalValues["staytime"] as? Double)
     }
     
     func urlParams() -> [String: Any] {

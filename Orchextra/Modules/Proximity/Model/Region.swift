@@ -34,21 +34,7 @@ class RegionFactory {
             Beacon.region(from: config)
         ]
         
-        // Returns the last action that is not nil, or custom scheme is there is no actions
+        // Returns the last action that is not nil
         return regions.reduce(nil) { $1 ?? $0 }
     }
-    
-//    class func geofences(from config: [String: Any]) -> Region? {
-//        guard let trigger = Geofence.region(from: config) else {
-//            return nil
-//        }
-//        return trigger
-//    }
-//
-//    class func beacon(from config: [String: Any]) -> Region? {
-//        guard let trigger = Beacon.region(from: config) else {
-//            return nil
-//        }
-//        return trigger
-//    }
 }

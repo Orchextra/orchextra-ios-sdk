@@ -10,42 +10,69 @@ import Foundation
 
 struct StorageProximity {
     
-    private let keyGeomarketing = "keyGeomarketing"
-    private let keyProximity = "keyProximity"
-    private let keyRegions = "keyRegions"
+    private let keyGeofences = "keyGeofences"
 
-    let userDefault: UserDefaults
+    let userDefaults: UserDefaults
     
-    init(userDefault: UserDefaults = UserDefaults()) {
-        self.userDefault = userDefault
+    init() {
+        let userDefaults = UserDefaults.standard
+        self.init(userDefaults: userDefaults)
+    }
+    
+    init(userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
     }
     
     // MARK: - Geofences
     
-    func saveRegions(regions: [Region]?) {
-        self.userDefault.archiveObject(regions, forKey: keyRegions)
+    func saveGeofence(geofence: GeofenceOrx) {
+        var geofencesOrx = [GeofenceOrx]()
+        if let geofences = self.decode() {
+            geofencesOrx = geofences
+        }
+    
+        if !geofencesOrx.contains(where: { $0.code == geofence.code }) {
+            geofencesOrx.append(geofence)
+            self.encode(geofences: geofencesOrx)
+        }
     }
     
-    func loadRegions() -> [Region]? {
-        let regions = self.userDefault.unarchiveObject(forKey: keyRegions) as? [Region]
-        return regions
+    func removeGeofence(geofence: GeofenceOrx) {
+        var geofencesOrx = [GeofenceOrx]()
+        if let geofences = self.decode() {
+            geofencesOrx = geofences
+        }
+        if let indexGeofence = self.findIndex(
+            geofence: geofence, geofencesOrx: geofencesOrx) {
+            geofencesOrx.remove(at: indexGeofence)
+        }
     }
     
-    func saveListGeofences(geofences: [Geofence]) {
-        self.userDefault.archiveObject(geofences, forKey: keyGeomarketing)
+    func encode(geofences: [GeofenceOrx]) {
+        self.userDefaults.set(try? PropertyListEncoder().encode(geofences), forKey:keyGeofences)
     }
     
-    func loadListGeofences() -> [Geofence]? {
-        return self.userDefault.unarchiveObject(forKey: keyGeomarketing) as? [Geofence]
+    func decode() -> [GeofenceOrx]? {
+        if let data = self.userDefaults.value(forKey:keyGeofences) as? Data {
+            let geofences = try? PropertyListDecoder().decode([GeofenceOrx].self, from: data)
+            return geofences
+        }
+        return nil
     }
     
-    // MARK: - Beacons
-
-    func saveListBeacons(beacons: [Beacon]) {
-        self.userDefault.archiveObject(beacons, forKey: keyProximity)
+    func findElement(code: String) -> GeofenceOrx? {
+        if let geofences = self.decode() {
+            if let i = geofences.index(where: { $0.code == code }) {
+                return geofences[i]
+            }
+        }
+        return nil
     }
     
-    func loadListBeacons() -> [Beacon]? {
-        return self.userDefault.unarchiveObject(forKey: keyProximity) as? [Beacon]
+    func findIndex(geofence: GeofenceOrx, geofencesOrx: [GeofenceOrx]) -> Int? {
+        if let i = geofencesOrx.index(where: { $0.code == geofence.code }) {
+            return i
+        }
+        return nil
     }
 }

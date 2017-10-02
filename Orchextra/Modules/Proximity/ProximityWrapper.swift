@@ -32,8 +32,8 @@ class ProximityWrapper: ProximityInput {
     var regions: [Region]?
     var locationWrapper: LocationInput
     var storage: StorageProximity
-    
-    // MARK: - 
+        
+    // MARK: -
     
     convenience init() {
         let locationWrapper = LocationWrapper()
@@ -62,6 +62,13 @@ class ProximityWrapper: ProximityInput {
     func register(regions: [Region]) {
         self.regions = regions
         self.stopMonitoringAllRegions()
+        
+        for region in regions {
+            if let geofence = region as? Geofence {
+                let geofencesOrx = geofence.convertGeofenceOrx()
+                self.storage.saveGeofence(geofence: geofencesOrx)
+            }
+        }
     }
     
     func startMonitoring() {
@@ -69,7 +76,7 @@ class ProximityWrapper: ProximityInput {
         DispatchQueue.background(delay: 0, background: {
             self.stopMonitoringAllRegions()
         }) {
-            LogDebug("Finish Stop monitoring")
+            LogInfo("Finish Stop monitoring")
 
             guard let regions = self.regions else {
                 LogWarn("No regions to monitoring")
@@ -78,7 +85,7 @@ class ProximityWrapper: ProximityInput {
             if self.locationWrapper.enableLocationServices() {
                 self.locationWrapper.monitoring(regions: regions)
             }
-            LogDebug("Finish start monitoring")
+            LogInfo("Finish start monitoring")
         }
     }
     
@@ -90,6 +97,11 @@ class ProximityWrapper: ProximityInput {
 extension ProximityWrapper: LocationOutput {
     
     func didEnterRegion(code: String, type: RegionType) {
+        if let geofence = self.storage.findElement(code: code),
+            geofence.staytime > 0 {
+            self.handleStayTime(geofence: geofence)
+        }
+        
         let outputDic = handleOutputRegion(type: type, code: code, event: "enter")
         self.output?.sendTriggerToCoreWithValues(values: outputDic)
     }
@@ -110,12 +122,34 @@ extension ProximityWrapper: LocationOutput {
         }
     }
     
+    private func handleStayTime(geofence: GeofenceOrx) {
+        if #available(iOS 10.0, *) {
+            let timer = Timer.scheduledTimer(withTimeInterval: Double(geofence.staytime), repeats: false, block: { _ in
+                let outputDic = self.handleOutputRegion(type: RegionType.geofence, code: geofence.code, event: "stay")
+                self.output?.sendTriggerToCoreWithValues(values: outputDic)
+            })
+            
+        } else {
+            // Fallback on earlier versions
+            
+        }
+    }
+    
     // MARK: - Method to generate output
     
     func handleOutputRegion(type: RegionType, code: String, event: String) -> [String: Any] {
-        let outputDic = ["type": type.rawValue,
-                         "value": code,
-                         "event": event]
+        guard let geofence = self.storage.findElement(code: code) else {
+            return ["type": type.rawValue,
+                    "value": code,
+                    "event": event]
+        }
+        
+        let outputDic: [String : Any] =
+            ["type": type.rawValue,
+             "value": code,
+             "event": event,
+             "name": geofence.name ?? "",
+             "staytime": geofence.staytime]
         
         return outputDic
     }

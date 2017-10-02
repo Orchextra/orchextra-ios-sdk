@@ -90,28 +90,6 @@ class ProximityModule: ModuleInput {
         }
         return geofencesInModule
     }
-   
-//    private func parseGeoMarketing(geofences: [[String: Any]]) -> [Region] {
-//
-//        var geofencesInModule = [Region]()
-//        for geofence in geofences {
-//            if let region = RegionFactory.geofences(from: geofence) {
-//                geofencesInModule.append(region)
-//            }
-//        }
-//        return geofencesInModule
-//    }
-//
-//    private func parseBeacons(beacons: [[String: Any]]) -> [Region] {
-//
-//        var beaconsInModule = [Region]()
-//        for beacon in beacons {
-//            if let region = RegionFactory.beacon(from: beacon) {
-//                beaconsInModule.append(region)
-//            }
-//        }
-//        return beaconsInModule
-//    }
 }
 
 extension ProximityModule: ProximityOutput {

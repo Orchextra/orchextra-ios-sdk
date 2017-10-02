@@ -12,7 +12,7 @@ import CoreLocation
 import GIGLibrary
 
 struct Beacon: Region {
-
+    
     // Attribute Region
     
     var code: String
@@ -20,6 +20,8 @@ struct Beacon: Region {
     var notifyOnExit: Bool?
     var name: String?
 
+    // Attribute Beacon
+    
     var uuid: UUID
     var major: Int?
     var minor: Int?
@@ -41,6 +43,8 @@ struct Beacon: Region {
         self.minor = minor
         self.name = name
     }
+    
+    // MARK: -
     
     static func region(from config: [String : Any]) -> Region? {
         
@@ -68,7 +72,7 @@ struct Beacon: Region {
     func prepareCLRegion() -> CLRegion? {
         
         let beacon: CLBeaconRegion?
-        
+
         if let major = self.major, let minor = self.minor {
             beacon = CLBeaconRegion(proximityUUID: self.uuid,
                                   major: UInt16(major),

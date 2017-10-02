@@ -23,7 +23,7 @@ struct Geofence: Region {
     
     var center: CLLocationCoordinate2D
     var radius: CLLocationDistance
-    var staytime: Double
+    var staytime: Int
 
     static func region(from config: [String: Any]) -> Region? {
         guard
@@ -33,7 +33,7 @@ struct Geofence: Region {
             let notifyOnEntry = config["notifyOnEntry"] as? Bool,
             let notifyOnExit = config["notifyOnExit"] as? Bool,
             let radiusDouble = config["radius"] as? Double,
-            let stayTime = config["stayTime"] as? Double,
+            let stayTime = config["stayTime"] as? Int,
             let name = config["name"] as? String,
             let pointDic = config["point"] as? [String : Any],
             let point = Point(from: pointDic)
@@ -58,6 +58,10 @@ struct Geofence: Region {
         if let notifyOnEntry = self.notifyOnEntry { region.notifyOnEntry = notifyOnEntry }
         return region
     }
+    
+    func convertGeofenceOrx() -> GeofenceOrx {
+        return GeofenceOrx(name: self.name, staytime: self.staytime, code: self.code)
+    }
 }
 
 struct Point {
@@ -75,5 +79,10 @@ struct Point {
         self.longitud = lng
         self.latitud = lat
     }
-    
+}
+
+struct GeofenceOrx: Codable {
+    var name: String?
+    var staytime: Int
+    var code: String
 }

@@ -38,8 +38,14 @@ class TriggerInteractor {
                 LogDebug("Found action: \(json.description)")
                 break
             case .error (let error):
-                self.output?.triggerDidFinishWithoutAction(triggerId: trigger.triggerId)
-                LogDebug("Trigger error: \(error.localizedDescription)")
+                switch error {
+                case ErrorService.actionNotMatched:
+                    LogDebug("Action not matched")
+                    self.output?.triggerDidFinishWithoutAction(triggerId: trigger.triggerId)
+                default:
+                    LogDebug("Trigger error: \(error.localizedDescription)")
+                    break
+                }
                 break
             }
         }

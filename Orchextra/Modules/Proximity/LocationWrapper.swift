@@ -96,7 +96,6 @@ class LocationWrapper: NSObject, LocationInput {
     private func startMonitoring(region: Region) {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             if let clRegion = region.prepareCLRegion() {
-                
                 let monitored = self.locationManager.monitoredRegions.contains(clRegion)
                 let monitoringAvailable = CLLocationManager.isMonitoringAvailable(for: type(of: clRegion))
                 
