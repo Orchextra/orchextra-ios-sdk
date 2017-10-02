@@ -63,7 +63,12 @@ class OrchextraWrapper {
         LogInfo(" ---  Apikey: \(apiKey)")
         LogInfo(" ---  Apisecret: \(apiSecret)")
         self.startCompletion = completion
-
+        
+        if apiKey.isEmpty || apiSecret.isEmpty {
+            completion(.error(ErrorService.invalidCredentials))
+            return
+        }
+        
         if self.session.credentials(
             apiKey: apiKey,
             apiSecret: apiSecret) {
@@ -79,8 +84,8 @@ class OrchextraWrapper {
             self.configInteractor.loadCoreConfig(completion: completion)
         }
         
-//        self.openProximity()
-        self.openEddystone()
+        self.openProximity()
+//        self.openEddystone()
     }
     
     // MARK: - Modules
