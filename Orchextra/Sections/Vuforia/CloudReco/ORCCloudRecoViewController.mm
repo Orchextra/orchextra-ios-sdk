@@ -1,9 +1,9 @@
 /*===============================================================================
-Copyright (c) 2012-2015 Qualcomm Connected Experiences, Inc. All Rights Reserved.
-
-Vuforia is a trademark of QUALCOMM Incorporated, registered in the United States 
-and other countries. Trademarks of QUALCOMM Incorporated are used with permission.
-===============================================================================*/
+ Copyright (c) 2012-2015 Qualcomm Connected Experiences, Inc. All Rights Reserved.
+ 
+ Vuforia is a trademark of QUALCOMM Incorporated, registered in the United States
+ and other countries. Trademarks of QUALCOMM Incorporated are used with permission.
+ ===============================================================================*/
 
 #include "TargetConditionals.h"
 
@@ -87,7 +87,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     
     eaglView = [[ORCCloudRecoEAGLView alloc] initWithFrame:viewFrame appSession:vapp viewController:self];
     [self setView:eaglView];
-
+    
     // a single tap will trigger a single autofocus operation
     tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(autofocus:)];
     
@@ -113,7 +113,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     [vapp initAR:QCAR::GL_20 orientation:orientation];
-
+    
     // show loading animation while AR is being initialized
     [self showLoadingAnimation];
 }
@@ -141,7 +141,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     
     self.showingMenu = NO;
     
-    self.title = NSLocalizedString(@"Vuforia", nil);
+    self.title = [Bundle localize("Vuforia", comment: "")];
     
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:NO];
@@ -167,9 +167,9 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     [self finishOpenGLESCommands];
     
     // REMOVE: DEPENDENCY WITH APP DELEGATE
-//    id appDelegate = [[UIApplication sharedApplication] delegate];
-//    appDelegate.glResourceHandler = nil;
-//    
+    //    id appDelegate = [[UIApplication sharedApplication] delegate];
+    //    appDelegate.glResourceHandler = nil;
+    //
     [super viewWillDisappear:animated];
 }
 
@@ -210,43 +210,60 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     
     if (code == QCAR::TargetFinder::UPDATE_ERROR_NO_NETWORK_CONNECTION)
     {
-        title = NSLocalizedString(@"orc_vuforia_update_error_no_network_connection_title", nil);
-        message = NSLocalizedString(@"orc_vuforia_update_error_no_network_connection_desc", nil);
+        title = [NSBundle localize:@"orc_vuforia_update_error_no_network_connection_title"
+                           comment:""];
+        message = [NSBundle localize:@"orc_vuforia_update_error_no_network_connection_desc"
+                             comment:""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_REQUEST_TIMEOUT)
     {
-        title = NSLocalizedString(@"orc_vuforia_update_error_request_timeout_title", nil);
-        message = NSLocalizedString(@"orc_vuforia_update_error_request_timeout_desc", nil);
+        title = [NSBundle localize:@"orc_vuforia_update_error_request_timeout_title"
+                           comment:""];
+        
+        message = [NSBundle localize:@"orc_vuforia_update_error_request_timeout_desc"
+                             comment:""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_SERVICE_NOT_AVAILABLE)
     {
-        title = NSLocalizedString(@"orc_vuforia_update_error_service_not_available_title", nil);
-        message = NSLocalizedString(@"orc_vuforia_update_error_service_not_available_desc", nil);
+        title = [NSBundle localize:@"orc_vuforia_update_error_service_not_available_title"
+                           comment:""];
+        message = [NSBundle localize:@"orc_vuforia_update_error_service_not_available_desc"
+                             comment:""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_UPDATE_SDK)
     {
-        title = NSLocalizedString(@"orc_vuforia_update_error_update_sdk_title", nil);
-        message = NSLocalizedString(@"orc_vuforia_update_error_update_sdk_desc", nil);
+        title = [NSBundle localize:@"orc_vuforia_update_error_update_sdk_title"
+                           comment:""];
+        message = [NSBundle localize:@"orc_vuforia_update_error_update_sdk_desc"
+                             comment:""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_TIMESTAMP_OUT_OF_RANGE)
     {
-        title = NSLocalizedString(@"orc_vuforia_update_error_timestamp_out_of_range_title", nil);
-        message = NSLocalizedString(@"orc_vuforia_update_error_timestamp_out_of_range_desc", nil);
+        title = [NSBundle localize:@"orc_vuforia_update_error_timestamp_out_of_range_title"
+                           comment:""];
+        message = [NSBundle localize:@"orc_vuforia_update_error_timestamp_out_of_range_desc"
+                             comment:""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_AUTHORIZATION_FAILED)
     {
-        title = NSLocalizedString(@"orc_vuforia_update_error_authorization_failed_title", nil);
-        message = NSLocalizedString(@"orc_vuforia_update_error_authorization_failed_desc", nil);
+        title = [NSBundle localize:@"orc_vuforia_update_error_authorization_failed_title"
+                           comment:""];
+        message = [NSBundle localize:@"orc_vuforia_update_error_authorization_failed_desc"
+                             comment:""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_PROJECT_SUSPENDED)
     {
-        title = NSLocalizedString(@"orc_vuforia_update_error_project_suspended_title", nil);
-        message = NSLocalizedString(@"orc_vuforia_update_error_project_suspended_desc", nil);
+        title = [NSBundle localize:@"orc_vuforia_update_error_project_suspended_desc"
+                           comment:""];
+        message = [NSBundle localize:@"orc_vuforia_update_error_project_suspended_desc"
+                             comment:""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_BAD_FRAME_QUALITY)
     {
-        title = NSLocalizedString(@"orc_vuforia_update_error_bad_frame_quality_title", nil);
-        message = NSLocalizedString(@"orc_vuforia_update_error_bad_frame_quality_desc", nil);
+        title = [NSBundle localize:@"orc_vuforia_update_error_bad_frame_quality_title"
+                           comment:""];
+        message = [NSBundle localize:@"orc_vuforia_update_error_bad_frame_quality_desc"
+                             comment:""];
     }
     else
     {
@@ -287,7 +304,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     }
     
     UIActivityIndicatorView *loadingIndicator = [[UIActivityIndicatorView alloc]
-                                                  initWithFrame:indicatorBounds];
+                                                 initWithFrame:indicatorBounds];
     
     loadingIndicator.tag  = 1;
     loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
@@ -404,7 +421,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
 }
 
 - (void) onInitARDone:(NSError *)initError {
-
+    
     dispatch_async( dispatch_get_main_queue(), ^{
         UIActivityIndicatorView *loadingIndicator = (UIActivityIndicatorView *)[eaglView viewWithTag:1];
         [loadingIndicator removeFromSuperview];
@@ -504,7 +521,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
         NSString *const resultConstString = [NSString stringWithCString:value encoding:NSUTF8StringEncoding];
         self.imageUniqueId = resultConstString;
     }
-
+    
     UIColor *color = [UIColor colorWithRed:192.0/255.0 green:192.0/255.0 blue:192.0/255.0 alpha:1.0];
     const CGFloat* components = CGColorGetComponents(color.CGColor);
     
@@ -513,13 +530,13 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     CGFloat green = components[2];
     
     finder->setUIPointColor(red, blue, green);
-
-
+    
+    
     // Check if there are new results available:
     const int statusCode = finder->updateSearchResults();
     if (statusCode < 0)
     {
-
+        
         if (statusCode == QCAR::TargetFinder::UPDATE_ERROR_NO_NETWORK_CONNECTION) {
             [self showUIAlertFromErrorCode:statusCode];
         }
@@ -570,13 +587,13 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
     QCAR::TargetFinder* targetFinder = objectTracker->getTargetFinder();
     if (visualSearchOn == NO)
     {
-//        NSLog(@"Starting target finder");
+        //        NSLog(@"Starting target finder");
         targetFinder->startRecognition();
         isVisualSearchOn = YES;
     }
     else
     {
-//        NSLog(@"Stopping target finder");
+        //        NSLog(@"Stopping target finder");
         targetFinder->stop();
         isVisualSearchOn = NO;
     }
