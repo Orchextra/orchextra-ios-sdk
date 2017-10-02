@@ -68,7 +68,7 @@ class ORCEddystoneBeaconTests: XCTestCase {
         self.updateBeaconWithUrl()
         self.updateBeaconWithRSSI()
         guard let canBeSentToValidateAction = self.beacon?.canBeSentToValidateAction() else { return }
-        XCTAssertFalse(canBeSentToValidateAction)
+        XCTAssertTrue(canBeSentToValidateAction)
     }
     
     func testcanBeSentToValidateActionUpdatingProximityTimer() {
@@ -83,7 +83,7 @@ class ORCEddystoneBeaconTests: XCTestCase {
         self.updateBeaconWithRSSI()
         self.updateProximityTimer()
         guard let canBeSentToValidateAction = self.beacon?.canBeSentToValidateAction() else { return }
-        XCTAssertTrue(canBeSentToValidateAction)
+        XCTAssertFalse(canBeSentToValidateAction)
     }
     
     func testcanBeSentToValidateActionUpdatingTelemetry() {
@@ -99,9 +99,9 @@ class ORCEddystoneBeaconTests: XCTestCase {
         self.updateProximityTimer()
         self.updateBeaconWithTelemetry()
         guard let canBeSentToValidateAction = self.beacon?.canBeSentToValidateAction() else { return }
-        XCTAssertTrue(canBeSentToValidateAction)
+        XCTAssertFalse(canBeSentToValidateAction)
     }
-
+    
     
     // MARK: Utilities
     private func updateBeaconWithUIDWithoutInstance() {

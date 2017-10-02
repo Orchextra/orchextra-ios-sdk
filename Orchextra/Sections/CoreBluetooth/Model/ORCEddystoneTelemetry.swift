@@ -17,7 +17,7 @@ import Foundation
     public var advertisingPDUcount: String
     public var uptime: TimeInterval
     
-    public init(tlmVersion: String,
+    @objc public init(tlmVersion: String,
                 batteryVoltage: Double,
                 batteryPercentage: Double,
                 temperature: Float,

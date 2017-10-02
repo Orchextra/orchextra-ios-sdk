@@ -51,7 +51,7 @@ import Foundation
     }
     
     // MARK: Public methods
-    public init(peripheralId:UUID, requestWaitTime: Int) {
+    @objc public init(peripheralId:UUID, requestWaitTime: Int) {
         self.peripheralId = peripheralId
         self.requestWaitTime = requestWaitTime
         
