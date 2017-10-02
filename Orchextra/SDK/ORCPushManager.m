@@ -21,6 +21,8 @@
 #import "NSDictionary+ORCGIGJSON.h"
 #import "NSBundle+ORCBundle.h"
 
+#import <UserNotifications/UserNotifications.h>
+
 NSString * const NOTIFICATION_ACTION_ID = @"id";
 NSString * const NOTIFICATION_TITLE = @"title";
 NSString * const NOTIFICATION_BODY = @"body";
@@ -159,6 +161,10 @@ NSString * const NOTIFICATION_TYPE = @"type";
         if ([userInfo isKindOfClass:[UILocalNotification class]])
         {
             push = [[ORCPushNotification alloc] initWithLocalNotification:(UILocalNotification *)userInfo];
+        }
+        else if ([userInfo isKindOfClass:[UNNotification class]])
+        {
+            push = [[ORCPushNotification alloc] initWithNotification:(UNNotification *)userInfo];
         }
         else
         {

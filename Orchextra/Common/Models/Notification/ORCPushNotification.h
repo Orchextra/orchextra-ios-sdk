@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
 
 @interface ORCPushNotification : NSObject
 
@@ -27,5 +28,6 @@
 
 - (instancetype)initWithLocalNotification:(UILocalNotification *)notification;
 - (instancetype)initWithRemoteNotification:(NSDictionary *)notification;
+- (instancetype)initWithNotification:(UNNotification *)notification;
 
 @end

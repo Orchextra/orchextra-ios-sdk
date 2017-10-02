@@ -245,7 +245,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                                      request:(ORCURLRequest *)request
                                   completion:(ORCGIGURLRequestCompletion)completion
 {
-    if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
+    if (response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
     {
         [self.orchextraStorage storeAcessToken:nil];
         
@@ -260,6 +260,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     else
     {
         completion(response);
+        //[self cancelQueueRequest:request completion:completion response:response];
     }
 }
 
@@ -335,27 +336,26 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
                                          completion:(ORCGIGURLRequestCompletion)completion
                                            response:(ORCGIGURLJSONResponse *)response
 {
-    if(response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
+    if (response.error.code == ERROR_AUTHENTICATION_ACCESSTOKEN)
     {
         [self.orchextraStorage storeAcessToken:nil];
         
         if (self.numConnection < MAX_ATTEMPTS_CONNECTION)
         {
             [self send:request completion:completion];
+            self.numConnection++;
         }
         else
         {
             ORCGIGURLJSONResponse *errorResponse = [[ORCGIGURLJSONResponse alloc]
                                                     initWithError:[NSError errorWithDomain:@"com.gigigo.error"
                                                                                       code:401 userInfo:nil]];
-            completion(errorResponse);
+            [self cancelQueueRequest:request completion:completion response:errorResponse];
         }
-        
-        self.numConnection++;
     }
     else
     {
-        completion(response);
+        [self cancelQueueRequest:request completion:completion response:response];
     }
 }
 
@@ -376,5 +376,20 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     }
 }
 
+- (void)cancelQueueRequest:(ORCURLRequest *)request
+                completion:(ORCGIGURLRequestCompletion)completion
+                  response:(ORCGIGURLJSONResponse *)response
+{
+    for (NSDictionary *item in self.queueRequests)
+    {
+        ORCURLRequest *queueRequest = item[@"request"];
+        if (queueRequest != nil && queueRequest == request) {
+            [self.queueRequests removeObject:item];
+            break;
+        }
+    }
+    completion(response);
+    [self performQueueRequests:self.queueRequests];
+}
 
 @end

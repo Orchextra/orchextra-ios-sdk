@@ -39,7 +39,7 @@ NSString * const EDDYSTONE_REGIONS_JSON         = @"eddystoneRegions";
     
     if (self)
     {
-        if (self.success)
+        if (self.success && [self.jsonData count])
         {
             self.requestWaitTime = [self.jsonData integerForKey:REQUEST_WAIT_TIME];
             [self parseGeoMarketingResponse:self.jsonData];
@@ -54,6 +54,7 @@ NSString * const EDDYSTONE_REGIONS_JSON         = @"eddystoneRegions";
         }
         else
         {
+            self.success = NO;
             self.error = [ORCErrorManager errorWithResponse:self];
         }
     }
