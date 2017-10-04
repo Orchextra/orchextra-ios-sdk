@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GIGLibrary
 
 class TriggerBeacon: Trigger {
     
@@ -43,10 +44,14 @@ class TriggerBeacon: Trigger {
     
     func urlParams() -> [String: Any] {
         
-        
+        let plainCodeBeacon = "\(self.uuid)_\(self.major)_\(self.minor)"
+        guard let md5code = plainCodeBeacon.md5 else {
+            LogWarn("Error creating md5 code: \(plainCodeBeacon)")
+            return [:]
+        }
         
         let params = ["type": self.triggerId,
-                      "value": self.value,
+                      "value": md5code,
                       "distance": self.proximity,
                       "phoneStatus": TriggerBeaconRegion.applicationState()]
         
