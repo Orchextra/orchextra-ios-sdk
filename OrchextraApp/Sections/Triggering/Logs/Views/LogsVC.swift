@@ -26,6 +26,11 @@ class LogsVC: UIViewController {
         self.presenter?.viewWillAppear()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.presenter?.viewDidLoad()
+    }
+    
     // MARK: - IBActions
     @IBAction func filterButtonTapped(_ sender: Any) {
         self.presenter?.userDidTapFilters()

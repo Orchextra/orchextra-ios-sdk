@@ -74,7 +74,7 @@ class TriggerViewModelFactory {
         let image = #imageLiteral(resourceName: "barCode")
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
-        let value = trigger.urlParams()["value"] as? String
+        let value = trigger.logsParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
@@ -100,7 +100,7 @@ class TriggerViewModelFactory {
         let image = #imageLiteral(resourceName: "QR")
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
-        let value = trigger.urlParams()["value"] as? String
+        let value = trigger.logsParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
@@ -184,11 +184,12 @@ class TriggerViewModelFactory {
         let image = #imageLiteral(resourceName: "eddystone_beacon")
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
-        let value = trigger.urlParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
-        let namespace =  trigger.urlParams()["namespace"] as? String
-        let instance =  trigger.urlParams()["instance"] as? String
-        let event =  trigger.urlParams()["distance"] as? String
+        let params = trigger.logsParams()
+        let value = params["value"] as? String
+        let namespace = params["namespace"] as? String
+        let instance = params["instance"] as? String
+        let event = params["distance"] as? String
         
         return TriggerViewModel(
             imageData: imageData,
@@ -214,10 +215,11 @@ class TriggerViewModelFactory {
         let image = #imageLiteral(resourceName: "eddystone_region")
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
-        let value = trigger.urlParams()["value"] as? String
+        let params = trigger.logsParams()
+        let value = params["value"] as? String
         let timestamp = "\(triggerFired.date)"
-        let namespace =  trigger.urlParams()["namespace"] as? String
-        let event =  trigger.urlParams()["event"] as? String
+        let namespace = params["namespace"] as? String
+        let event = params["event"] as? String
         
         return TriggerViewModel(
             imageData: imageData,

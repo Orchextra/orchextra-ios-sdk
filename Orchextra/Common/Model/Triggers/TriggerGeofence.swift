@@ -12,40 +12,43 @@ import GIGLibrary
 class TriggerGeofence: Trigger {
     
     var triggerId: String = TriggerType.triggerGeofence
-    let params: [String: Any]
     
-    var name: String?
-    var staytime: Double?
+    var name: String
+    var event: String
+    var value: String
+    var staytime: Int
     
-    init(params: [String: Any], name: String?, staytime: Double?) {
+    init(name: String, value: String, staytime: Int, event: String) {
         self.name = name
         self.staytime = staytime
-        self.params = params
+        self.event = event
+        self.value = value
     }
     
     static func trigger(from externalValues: [String: Any]) -> Trigger? {
         
         guard let type = externalValues["type"] as? String, type == TriggerType.triggerGeofence,
-            let value = externalValues["value"],
-            let event = externalValues["event"] else {
-                return nil
-        }
-        
-        let params = ["type": type,
-                      "value": value,
-                      "event": event,
-                      "phoneStatus": self.applicationState()]
-        
-        return TriggerGeofence(params: params,
-                               name: externalValues["name"] as? String,
-                               staytime: externalValues["staytime"] as? Double)
+            let value = externalValues["value"] as? String,
+            let event = externalValues["event"] as? String,
+            let name = externalValues["name"] as? String,
+            let stayTime = externalValues["staytime"] as? Int
+            else { return nil }
+
+        return TriggerGeofence(name: name, value: value, staytime: stayTime, event: event)
     }
     
     func urlParams() -> [String: Any] {
-        return self.params
+        let params = ["type": self.triggerId,
+                      "value": self.value,
+                      "event": self.event,
+                      "phoneStatus": TriggerGeofence.applicationState()]
+        
+        return params
     }
     
     func logsParams() -> [String: Any] {
-        return self.params
+        return ["type": self.triggerId,
+                "value": self.name,
+                "event": self.event]
     }
 }

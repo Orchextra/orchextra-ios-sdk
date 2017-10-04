@@ -10,6 +10,7 @@ import Foundation
 
 protocol LogsPresenterInput {
     func viewWillAppear()
+    func viewDidLoad()
     func triggerListHasBeenUpdated()
     func tableViewNumberOfElements() -> Int
     func tableViewElements() -> [TriggerFired]
@@ -40,8 +41,12 @@ class LogsPresenter {
         self.interactor = interactor
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .logsTriggerNeedsTobeUpdated, object: nil)
+    }
+    
     // MARK: Private methods
-    fileprivate func updateTriggerList() {
+    @objc fileprivate func updateTriggerList() {
         let triggerListMustBeUpdated = TriggersManager.shared.triggerListMustBeUpdated
         if triggerListMustBeUpdated {
             self.view?.updateTriggerList()
@@ -66,6 +71,12 @@ class LogsPresenter {
 extension LogsPresenter: LogsPresenterInput {
     func viewWillAppear() {
         self.updateLogsView()
+    }
+    
+    func viewDidLoad() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.updateTriggerList),
+                                               name: .logsTriggerNeedsTobeUpdated, object: nil)
     }
     
     func tableViewNumberOfElements() -> Int {

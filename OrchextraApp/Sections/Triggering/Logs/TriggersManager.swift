@@ -22,6 +22,7 @@ class TriggersManager {
     func add(trigger: TriggerFired) {
         self.triggersFired.append(trigger)
         self.triggerListMustBeUpdated = true
+        NotificationCenter.default.post(name: .logsTriggerNeedsTobeUpdated, object: nil)
     }
     
     func retrieveTriggersFired() -> [TriggerFired] {

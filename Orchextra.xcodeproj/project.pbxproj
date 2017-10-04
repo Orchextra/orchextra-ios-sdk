@@ -99,6 +99,7 @@
 		A958CCAA1F84F9D9007074D5 /* TriggerBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA91F84F9D9007074D5 /* TriggerBeacon.swift */; };
 		A958CCAC1F85253A007074D5 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCAB1F85253A007074D5 /* String+MD5.swift */; };
 		A958CCB91F8528CB007074D5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A958CCB81F8528CB007074D5 /* Security.framework */; };
+		A958CCCA1F85322E007074D5 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCC91F85322E007074D5 /* NotificationCenter.swift */; };
 		A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EC1F6279ED006EADBB /* GeoLocation.swift */; };
 		A95A60EF1F66A1F0006EADBB /* ModuleOutputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */; };
 		A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */; };
@@ -337,6 +338,7 @@
 		A958CCA91F84F9D9007074D5 /* TriggerBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TriggerBeacon.swift; path = Common/Model/Triggers/TriggerBeacon.swift; sourceTree = "<group>"; };
 		A958CCAB1F85253A007074D5 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Common/Support/String+MD5.swift"; sourceTree = "<group>"; };
 		A958CCB81F8528CB007074D5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A958CCC91F85322E007074D5 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		A95A60EC1F6279ED006EADBB /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapper.swift; path = Managers/ModuleOutputWrapper.swift; sourceTree = "<group>"; };
 		A95A60F01F66EAF6006EADBB /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Home.gpx; path = Geopoints/Home.gpx; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 			children = (
 				8F20808E1F4EA59600C328DC /* Constants.swift */,
 				A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */,
+				A958CCC91F85322E007074D5 /* NotificationCenter.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1618,6 +1621,7 @@
 				8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */,
 				8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */,
 				8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */,
+				A958CCCA1F85322E007074D5 /* NotificationCenter.swift in Sources */,
 				8F2042491F5EA1AB00782D63 /* Filter.swift in Sources */,
 				8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */,
 				8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */,
