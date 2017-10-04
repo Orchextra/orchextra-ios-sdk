@@ -103,24 +103,24 @@ class Beacon: Region {
         return beacon
     }
     
-    func outputValues() -> [String: Any] {
-
-        // Output for beacon_region
-        guard
-                let minor = self.minor,
-                let major = self.major,
-                let proximity =  self.currentProximity?.name() else {
-                    return ["type": RegionType.beacon_region,
-                            "value": self.code]
-        }
+    func outputValues(type: RegionType, event: String?) -> [String: Any] {
+        
         // Output for beacons
-        let beacon: [String: Any] =
-            ["type": RegionType.beacon,
+        var beacon: [String: Any] =
+            [
              "value": self.code,
-             "uuid": self.uuid.uuidString,
-             "major": major,
-             "minor": minor,
-             "proximity": proximity]
+             "uuid": self.uuid.uuidString]
+        
+        if let major = self.major { beacon["major"] = major }
+        if let minor = self.minor { beacon["minor"] = minor }
+        
+        if type == .beacon {
+            beacon["type"] = RegionType.beacon.rawValue
+            if let proximity = self.currentProximity { beacon["proximity"] = proximity.name() }
+        } else {
+            beacon["type"] = RegionType.beacon_region.rawValue
+            beacon["event"] = event
+        }
         
         return beacon
     }

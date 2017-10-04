@@ -126,7 +126,12 @@ class TriggerViewModelFactory {
         let image = #imageLiteral(resourceName: "iBeacon")
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
-        let value = trigger.urlParams()["value"] as? String
+        let params = trigger.logsParams()
+        let value = params["value"] as? String
+        let uuid = params["uuid"] as? String
+        let major = params["major"] as? String
+        let minor = params["minor"] as? String
+        let proximity = params["proximity"] as? String
         let timestamp = "\(triggerFired.date)"
         
         return TriggerViewModel(
@@ -138,14 +143,14 @@ class TriggerViewModelFactory {
             thirdLabelRightText: nil,
             fourthLabelLeftText: "Value: ",
             fourthLabelRightText: value,
-            fifthLabelLeftText: nil,
-            fifthLabelRightText: nil,
-            sixthLabelLeftText: nil,
-            sixthLabelRightText: nil,
-            seventhLabelLeftText: nil,
-            seventhLabelRightText: nil,
-            eighthLabelLeftText: nil,
-            eighthLabelRightText: nil)
+            fifthLabelLeftText: "UUID: ",
+            fifthLabelRightText: uuid,
+            sixthLabelLeftText: "Major: ",
+            sixthLabelRightText: major,
+            seventhLabelLeftText: "Minor: ",
+            seventhLabelRightText: minor,
+            eighthLabelLeftText: "Proximity: ",
+            eighthLabelRightText: proximity)
     }
     
     static func beaconRegionTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
@@ -154,16 +159,17 @@ class TriggerViewModelFactory {
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
-        
+        let event = trigger.urlParams()["event"] as? String
+
         return TriggerViewModel(
             imageData: imageData,
             firstLabelText: "iBeacon region",
             secondLabelLeftText: "Timestamp: ",
             secondLabelRightText: timestamp,
-            thirdLabelLeftText: nil,
-            thirdLabelRightText: nil,
-            fourthLabelLeftText: "Value: ",
-            fourthLabelRightText: value,
+            thirdLabelLeftText: "Value: ",
+            thirdLabelRightText: value,
+            fourthLabelLeftText: "Event: ",
+            fourthLabelRightText: event,
             fifthLabelLeftText: nil,
             fifthLabelRightText: nil,
             sixthLabelLeftText: nil,
@@ -236,9 +242,10 @@ class TriggerViewModelFactory {
         let image = #imageLiteral(resourceName: "geofences_trigger")
         let imageData = UIImagePNGRepresentation(image)
         let trigger = triggerFired.trigger
-        let value = trigger.urlParams()["value"] as? String
+        let params = trigger.logsParams()
+        let value = params["value"] as? String
         let timestamp = "\(triggerFired.date)"
-        let event = trigger.urlParams()["event"] as? String
+        let event = params["event"] as? String
 
         return TriggerViewModel(
             imageData: imageData,

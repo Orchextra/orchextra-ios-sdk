@@ -45,4 +45,7 @@ class TriggerGeofence: Trigger {
         return self.params
     }
     
+    func logsParams() -> [String: Any] {
+        return self.params
+    }
 }

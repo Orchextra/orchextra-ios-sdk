@@ -112,7 +112,7 @@ extension ProximityWrapper: LocationOutput {
     }
     
     func didChangeProximity(beacon: Beacon) {
-        let outputDic = beacon.outputValues()
+        let outputDic = beacon.outputValues(type: .beacon, event: nil)
         self.output?.sendTriggerToCoreWithValues(values: outputDic)
     }
 

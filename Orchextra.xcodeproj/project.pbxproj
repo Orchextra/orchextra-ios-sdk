@@ -96,6 +96,9 @@
 		A958CCA41F84DA3D007074D5 /* TriggerBeaconRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */; };
 		A958CCA71F84DA65007074D5 /* TriggerEddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */; };
 		A958CCA81F84DA65007074D5 /* TriggerEddystoneRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */; };
+		A958CCAA1F84F9D9007074D5 /* TriggerBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA91F84F9D9007074D5 /* TriggerBeacon.swift */; };
+		A958CCAC1F85253A007074D5 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCAB1F85253A007074D5 /* String+MD5.swift */; };
+		A958CCB91F8528CB007074D5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A958CCB81F8528CB007074D5 /* Security.framework */; };
 		A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EC1F6279ED006EADBB /* GeoLocation.swift */; };
 		A95A60EF1F66A1F0006EADBB /* ModuleOutputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */; };
 		A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */; };
@@ -331,6 +334,9 @@
 		A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TriggerBeaconRegion.swift; path = Common/Model/Triggers/TriggerBeaconRegion.swift; sourceTree = "<group>"; };
 		A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerEddystoneBeacon.swift; path = Common/Model/Triggers/TriggerEddystoneBeacon.swift; sourceTree = "<group>"; };
 		A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerEddystoneRegion.swift; path = Common/Model/Triggers/TriggerEddystoneRegion.swift; sourceTree = "<group>"; };
+		A958CCA91F84F9D9007074D5 /* TriggerBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TriggerBeacon.swift; path = Common/Model/Triggers/TriggerBeacon.swift; sourceTree = "<group>"; };
+		A958CCAB1F85253A007074D5 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Common/Support/String+MD5.swift"; sourceTree = "<group>"; };
+		A958CCB81F8528CB007074D5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A95A60EC1F6279ED006EADBB /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapper.swift; path = Managers/ModuleOutputWrapper.swift; sourceTree = "<group>"; };
 		A95A60F01F66EAF6006EADBB /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Home.gpx; path = Geopoints/Home.gpx; sourceTree = "<group>"; };
@@ -434,6 +440,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A958CCB91F8528CB007074D5 /* Security.framework in Frameworks */,
 				A9C54DFB1F4433D300DF2074 /* AdSupport.framework in Frameworks */,
 				A9C54DBB1F41A84300DF2074 /* GIGLibrary.framework in Frameworks */,
 			);
@@ -986,6 +993,7 @@
 				A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */,
 				A99886051F5045DB00EED42E /* TriggerQR.swift */,
 				A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */,
+				A958CCA91F84F9D9007074D5 /* TriggerBeacon.swift */,
 				A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */,
 				A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */,
 			);
@@ -1076,6 +1084,7 @@
 		A9C54DB11F41A80500DF2074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A958CCB81F8528CB007074D5 /* Security.framework */,
 				A9C54DB21F41A81600DF2074 /* Cartfile */,
 				A9C54DB31F41A81600DF2074 /* Cartfile.private */,
 				A9C54DFC1F4433DB00DF2074 /* Internal */,
@@ -1105,6 +1114,7 @@
 				A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */,
 				A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */,
 				A9AC21271F5443E600095EC5 /* PaddingLabel.swift */,
+				A958CCAB1F85253A007074D5 /* String+MD5.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -1529,9 +1539,11 @@
 				8F299C571F6691060023F69D /* EddystoneBeacon.swift in Sources */,
 				A9C6EB941F46FB24007AE036 /* Device.swift in Sources */,
 				A9AC210A1F542E7C00095EC5 /* ActionScanner.swift in Sources */,
+				A958CCAA1F84F9D9007074D5 /* TriggerBeacon.swift in Sources */,
 				A95A60EF1F66A1F0006EADBB /* ModuleOutputWrapper.swift in Sources */,
 				A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */,
 				A99885FF1F50363C00EED42E /* ActionBrowser.swift in Sources */,
+				A958CCAC1F85253A007074D5 /* String+MD5.swift in Sources */,
 				8F299C591F6691060023F69D /* EddystoneDecoder.swift in Sources */,
 				A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */,
 				A9C54DF21F41B22600DF2074 /* ConfigInteractor.swift in Sources */,
@@ -1829,6 +1841,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.Orchextra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -1856,6 +1869,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.Orchextra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
