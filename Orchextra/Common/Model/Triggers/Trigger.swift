@@ -51,6 +51,7 @@ class TriggerFactory {
             TriggerQR.trigger(from: externalValues),
             TriggerBarcode.trigger(from: externalValues),
             TriggerGeofence.trigger(from: externalValues),
+            TriggerBeaconRegion.trigger(from: externalValues),
             TriggerEddystoneRegion.trigger(from: externalValues),
             TriggerEddystoneBeacon.trigger(from: externalValues)
         ]

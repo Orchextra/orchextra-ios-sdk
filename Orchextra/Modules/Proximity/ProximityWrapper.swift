@@ -111,6 +111,12 @@ extension ProximityWrapper: LocationOutput {
         self.output?.sendTriggerToCoreWithValues(values: outputDic)
     }
     
+    func didChangeProximity(beacon: Beacon) {
+        let outputDic = beacon.outputValues()
+        self.output?.sendTriggerToCoreWithValues(values: outputDic)
+    }
+
+    
     func didChangeAuthorization(status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways:
@@ -138,18 +144,25 @@ extension ProximityWrapper: LocationOutput {
     // MARK: - Method to generate output
     
     func handleOutputRegion(type: RegionType, code: String, event: String) -> [String: Any] {
-        guard let geofence = self.storage.findElement(code: code) else {
-            return ["type": type.rawValue,
-                    "value": code,
-                    "event": event]
-        }
+         var outputDic: [String: Any] = [String: Any]()
         
-        let outputDic: [String : Any] =
-            ["type": type.rawValue,
-             "value": code,
-             "event": event,
-             "name": geofence.name ?? "",
-             "staytime": geofence.staytime]
+        if type == RegionType.geofence {
+            guard let geofence = self.storage.findElement(code: code) else {
+                LogWarn("Geofence is not store in the system")
+                return outputDic
+            }
+            outputDic =
+                ["type": type.rawValue,
+                 "value": code,
+                 "event": event,
+                 "name": geofence.name ?? "",
+                 "staytime": geofence.staytime]
+        } else if type == RegionType.beacon_region {
+            outputDic =
+                ["type": type.rawValue,
+                 "value": code,
+                 "event": event]
+        }
         
         return outputDic
     }

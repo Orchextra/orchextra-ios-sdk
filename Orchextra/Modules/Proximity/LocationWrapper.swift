@@ -31,6 +31,7 @@ protocol LocationOutput {
     func didChangeAuthorization(status: CLAuthorizationStatus)
     func didEnterRegion(code: String, type: RegionType)
     func didExitRegion(code: String, type: RegionType)
+    func didChangeProximity(beacon: Beacon)
 }
 
 class LocationWrapper: NSObject, LocationInput {
@@ -162,10 +163,10 @@ extension LocationWrapper: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        
+
         for beacon in beacons {
-           
             let beaconRanged = self.beaconAlreadyRanged(beacon: beacon)
+            
             if let beaconAlreadyRanged = beaconRanged {
                 let changeProximity = beaconAlreadyRanged.newProximity(proximity: beacon.proximity)
                 if changeProximity {
@@ -182,6 +183,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
                     minor: Int(truncating: beacon.minor),
                     name: nil)
                 
+                _ = newBeacon.newProximity(proximity: beacon.proximity)
                 self.beaconsRanging.append(newBeacon)
                 self.notifyStateBeaconChanged(beacon: newBeacon)
             }
@@ -249,7 +251,8 @@ extension LocationWrapper: CLLocationManagerDelegate {
     }
     
     private func notifyStateBeaconChanged(beacon: Beacon) {
-        
+        self.output?.didChangeProximity(beacon: beacon)
+        LogDebug("beacon: \(beacon.name ?? beacon.code)) -> proximity: \(String(describing: beacon.currentProximity?.name())) ")
     }
     
     // MARK: - Helpers

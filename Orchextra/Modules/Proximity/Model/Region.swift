@@ -12,6 +12,7 @@ import CoreLocation
 enum RegionType: String {
     case none
     case beacon_region
+    case beacon
     case geofence
 }
 

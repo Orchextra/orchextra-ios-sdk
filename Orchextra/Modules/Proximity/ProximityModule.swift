@@ -70,7 +70,7 @@ class ProximityModule: ModuleInput {
         if  let geofences = params["geofences"] as? [[String: Any]] {
             let geofencesModule = self.parseProximity(regions: geofences)
             regionsInModule.append(contentsOf: geofencesModule)
-            
+    
         }
         
         if let beacons = params["beaconRegions"] as? [[String: Any]] {

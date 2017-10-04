@@ -21,8 +21,6 @@
 		8F1124021F5FE43C00609B4A /* CustomScannerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1123FF1F5FE43C00609B4A /* CustomScannerWireframe.swift */; };
 		8F13F0E11F5B0AC50028B1FF /* LogsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */; };
 		8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */; };
-		8F1CF3F01F67ECF000439F88 /* TriggerEddystoneRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */; };
-		8F1CF3F21F67ED0900439F88 /* TriggerEddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */; };
 		8F2042421F5E73BE00782D63 /* TriggerFired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042411F5E73BE00782D63 /* TriggerFired.swift */; };
 		8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042441F5E90AF00782D63 /* FilterVC.swift */; };
 		8F2042471F5E90C500782D63 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */; };
@@ -95,6 +93,9 @@
 		A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */; };
 		A94722011F823987001E2DE6 /* LocationWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94722001F823987001E2DE6 /* LocationWrapperMock.swift */; };
 		A94722031F823C70001E2DE6 /* StorageProximityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94722021F823C70001E2DE6 /* StorageProximityMock.swift */; };
+		A958CCA41F84DA3D007074D5 /* TriggerBeaconRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */; };
+		A958CCA71F84DA65007074D5 /* TriggerEddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */; };
+		A958CCA81F84DA65007074D5 /* TriggerEddystoneRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */; };
 		A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EC1F6279ED006EADBB /* GeoLocation.swift */; };
 		A95A60EF1F66A1F0006EADBB /* ModuleOutputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */; };
 		A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */; };
@@ -257,8 +258,6 @@
 		8F1123FF1F5FE43C00609B4A /* CustomScannerWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScannerWireframe.swift; sourceTree = "<group>"; };
 		8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsVC.swift; sourceTree = "<group>"; };
 		8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
-		8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEddystoneRegion.swift; sourceTree = "<group>"; };
-		8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEddystoneBeacon.swift; sourceTree = "<group>"; };
 		8F2042411F5E73BE00782D63 /* TriggerFired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerFired.swift; sourceTree = "<group>"; };
 		8F2042441F5E90AF00782D63 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterVC.swift; path = OrchextraApp/Sections/Triggering/Logs/Filter/FilterVC.swift; sourceTree = SOURCE_ROOT; };
 		8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
@@ -329,6 +328,9 @@
 		A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceSpec.swift; sourceTree = "<group>"; };
 		A94722001F823987001E2DE6 /* LocationWrapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationWrapperMock.swift; path = Mocks/Modules/ProximityMocks/LocationWrapperMock.swift; sourceTree = "<group>"; };
 		A94722021F823C70001E2DE6 /* StorageProximityMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageProximityMock.swift; path = Mocks/Modules/ProximityMocks/StorageProximityMock.swift; sourceTree = "<group>"; };
+		A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TriggerBeaconRegion.swift; path = Common/Model/Triggers/TriggerBeaconRegion.swift; sourceTree = "<group>"; };
+		A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerEddystoneBeacon.swift; path = Common/Model/Triggers/TriggerEddystoneBeacon.swift; sourceTree = "<group>"; };
+		A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerEddystoneRegion.swift; path = Common/Model/Triggers/TriggerEddystoneRegion.swift; sourceTree = "<group>"; };
 		A95A60EC1F6279ED006EADBB /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapper.swift; path = Managers/ModuleOutputWrapper.swift; sourceTree = "<group>"; };
 		A95A60F01F66EAF6006EADBB /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Home.gpx; path = Geopoints/Home.gpx; sourceTree = "<group>"; };
@@ -981,10 +983,11 @@
 			children = (
 				A99886031F50450F00EED42E /* Trigger.swift */,
 				A99886071F504AB800EED42E /* TriggerBarcode.swift */,
-				8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */,
-				8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */,
 				A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */,
 				A99886051F5045DB00EED42E /* TriggerQR.swift */,
+				A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */,
+				A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */,
+				A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */,
 			);
 			name = Triggers;
 			sourceTree = "<group>";
@@ -1510,7 +1513,6 @@
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
 				A987246F1F793F9500A7017F /* User.swift in Sources */,
 				8F299C5A1F6691060023F69D /* EddystoneRegion.swift in Sources */,
-				8F1CF3F21F67ED0900439F88 /* TriggerEddystoneBeacon.swift in Sources */,
 				A9986B2F1F59767C00F2CC65 /* ActionService.swift in Sources */,
 				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
 				8F299C561F6691060023F69D /* EddystoneModule.swift in Sources */,
@@ -1522,6 +1524,7 @@
 				A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */,
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,
 				A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */,
+				A958CCA71F84DA65007074D5 /* TriggerEddystoneBeacon.swift in Sources */,
 				A9C54DEA1F41AD5000DF2074 /* Session.swift in Sources */,
 				8F299C571F6691060023F69D /* EddystoneBeacon.swift in Sources */,
 				A9C6EB941F46FB24007AE036 /* Device.swift in Sources */,
@@ -1543,10 +1546,11 @@
 				A9986B341F5976D200F2CC65 /* Date+Extension.swift in Sources */,
 				8FFD3D931F5698F5000A1056 /* ActionWebView.swift in Sources */,
 				A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */,
+				A958CCA41F84DA3D007074D5 /* TriggerBeaconRegion.swift in Sources */,
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
+				A958CCA81F84DA65007074D5 /* TriggerEddystoneRegion.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
 				A99885FD1F50353D00EED42E /* Action.swift in Sources */,
-				8F1CF3F01F67ECF000439F88 /* TriggerEddystoneRegion.swift in Sources */,
 				8F299C5F1F6691060023F69D /* CBCentralWrapper.swift in Sources */,
 				A9CF47321F6032F300B918C8 /* TriggerGeofence.swift in Sources */,
 				A9986B321F5976B600F2CC65 /* LocalNotification.swift in Sources */,

@@ -29,9 +29,9 @@ class Beacon: Region {
     
     // Private attributes
     
-    fileprivate var canUseImmediate = false
-    fileprivate var canUseNear = false
-    fileprivate var canUseFar = false
+    fileprivate var canUseImmediate = true
+    fileprivate var canUseNear = true
+    fileprivate var canUseFar = true
     
     fileprivate var immediateTimer: Timer?
     fileprivate var nearTimer: Timer?
@@ -103,6 +103,28 @@ class Beacon: Region {
         return beacon
     }
     
+    func outputValues() -> [String: Any] {
+
+        // Output for beacon_region
+        guard
+                let minor = self.minor,
+                let major = self.major,
+                let proximity =  self.currentProximity?.name() else {
+                    return ["type": RegionType.beacon_region,
+                            "value": self.code]
+        }
+        // Output for beacons
+        let beacon: [String: Any] =
+            ["type": RegionType.beacon,
+             "value": self.code,
+             "uuid": self.uuid.uuidString,
+             "major": major,
+             "minor": minor,
+             "proximity": proximity]
+        
+        return beacon
+    }
+    
     func isEqualtoCLBeacon(clBeacon: CLBeacon) -> Bool {
         guard let major = self.major, NSNumber(value: major) == clBeacon.major,
             let minor = self.minor, NSNumber(value: minor) == clBeacon.minor,
@@ -119,7 +141,6 @@ extension Beacon {
     
     func newProximity(proximity: CLProximity) -> Bool {
         if canUseProximity(proximity: proximity) && proximity != .unknown {
-            LogDebug("New proximity: \(proximity.rawValue) for: \(self.name ?? self.code)")
             self.usingProximity(proximity: proximity)
             self.currentProximity = proximity
             return true
@@ -139,8 +160,6 @@ extension Beacon {
             return false
         }
     }
-    
-    
     
     func changeProximityState(proximity: CLProximity) {
         switch proximity {
@@ -189,5 +208,16 @@ extension Beacon {
     
     private func invalidateTimer(timer: Timer) {
         timer.invalidate()
+    }
+}
+
+extension CLProximity {
+    func name() -> String {
+        switch self {
+        case .immediate: return "immediate"
+        case .near:      return "near"
+        case .far:       return "far"
+        case .unknown:   return "unknown"
+        }
     }
 }

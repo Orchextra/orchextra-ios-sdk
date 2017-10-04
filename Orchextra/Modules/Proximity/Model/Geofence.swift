@@ -59,6 +59,13 @@ struct Geofence: Region {
         return region
     }
     
+    func outputValues(event: String) -> [String: Any] {
+        return ["type": RegionType.geofence,
+                "value": self.code,
+                "event": event]
+    }
+
+    
     func convertGeofenceOrx() -> GeofenceOrx {
         return GeofenceOrx(name: self.name, staytime: self.staytime, code: self.code)
     }
