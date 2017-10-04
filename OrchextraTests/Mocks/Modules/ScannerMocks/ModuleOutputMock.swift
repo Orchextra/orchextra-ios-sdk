@@ -12,18 +12,25 @@ import Foundation
 
 class ModuleOutputMock: ModuleOutput {
     
+    var completionConfigInput: [String : Any]?
+    
     var spyTriggerWasFire = (called: false, values: ["": "" as Any])
     var spyTriggerWasFireModuleInput: ModuleInput?
-    var expectation: XCTestExpectation?
+    var spySetConfig: (called: Bool, config: [String : Any]?) = (called: false, config: nil)
     
     func triggerWasFire(with values: [String: Any], module: ModuleInput) {
         self.spyTriggerWasFire.called = true
         self.spyTriggerWasFire.values = values
         self.spyTriggerWasFireModuleInput = module
-        self.expectation?.fulfill()
     }
     
     func setConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void)) {
+        self.spySetConfig.called = true
+        self.spySetConfig.config = config
         
+        guard let input = self.completionConfigInput else {
+            return
+        }
+        completion(input)
     }
 }

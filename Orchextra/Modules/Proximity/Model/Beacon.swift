@@ -11,7 +11,7 @@ import Foundation
 import CoreLocation
 import GIGLibrary
 
-struct Beacon: Region {
+class Beacon: Region {
     
     // Attribute Region
     
@@ -27,13 +27,23 @@ struct Beacon: Region {
     var minor: Int?
     var currentProximity: CLProximity?
     
+    // Private attributes
+    
+    fileprivate var canUseImmediate = false
+    fileprivate var canUseNear = false
+    fileprivate var canUseFar = false
+    
+    fileprivate var immediateTimer: Timer?
+    fileprivate var nearTimer: Timer?
+    fileprivate var farTimer: Timer?
+
     init(code: String,
          notifyOnEntry: Bool,
          notifyOnExit: Bool,
          uuid: UUID,
          major: Int?,
          minor: Int?,
-         name: String) {
+         name: String?) {
      
         self.code = code
         self.notifyOnEntry = notifyOnEntry
@@ -66,7 +76,6 @@ struct Beacon: Region {
                         major: config["major"] as? Int,
                         minor: config["minor"] as? Int,
                         name: name)
-
     }
     
     func prepareCLRegion() -> CLRegion? {
@@ -94,4 +103,91 @@ struct Beacon: Region {
         return beacon
     }
     
+    func isEqualtoCLBeacon(clBeacon: CLBeacon) -> Bool {
+        guard let major = self.major, NSNumber(value: major) == clBeacon.major,
+            let minor = self.minor, NSNumber(value: minor) == clBeacon.minor,
+            self.uuid ==  clBeacon.proximityUUID else {
+            return false
+        }
+        return true
+    }
+}
+
+// MARK: - Timer
+
+extension Beacon {
+    
+    func newProximity(proximity: CLProximity) -> Bool {
+        if canUseProximity(proximity: proximity) && proximity != .unknown {
+            LogDebug("New proximity: \(proximity.rawValue) for: \(self.name ?? self.code)")
+            self.usingProximity(proximity: proximity)
+            self.currentProximity = proximity
+            return true
+        }
+        return false
+    }
+    
+    func canUseProximity(proximity: CLProximity) -> Bool {
+        switch proximity {
+        case .immediate:
+            return self.canUseImmediate
+        case .near:
+            return self.canUseNear
+        case .far:
+            return self.canUseFar
+        case .unknown:
+            return false
+        }
+    }
+    
+    
+    
+    func changeProximityState(proximity: CLProximity) {
+        switch proximity {
+        case .immediate:
+            self.canUseImmediate = !self.canUseImmediate
+        case .near:
+            self.canUseNear = !self.canUseNear
+        case .far:
+            self.canUseFar = !self.canUseFar
+        case .unknown:
+            break
+        }
+    }
+    
+    func usingProximity(proximity: CLProximity) {
+        switch proximity {
+        case .immediate:
+            self.createTimerProximity(timer: self.immediateTimer, proximity: proximity)
+            break
+        case .near:
+            self.createTimerProximity(timer: self.nearTimer, proximity: proximity)
+            break
+        case .far:
+            self.createTimerProximity(timer: self.farTimer, proximity: proximity)
+            break
+        case .unknown:
+            break
+        }
+    }
+    
+    func createTimerProximity(timer: Timer?, proximity: CLProximity) {
+        if let proximityTimer = timer {
+            self.invalidateTimer(timer: proximityTimer)
+        }
+       
+        let requestWaitTime = 120.0
+        if #available(iOS 10.0, *) {
+            Timer.scheduledTimer(withTimeInterval: requestWaitTime, repeats: false, block: { _ in
+                self.changeProximityState(proximity: proximity)
+            })
+        } else {
+            // TODO: Fallback on earlier versions
+        }
+        self.changeProximityState(proximity: proximity)
+    }
+    
+    private func invalidateTimer(timer: Timer) {
+        timer.invalidate()
+    }
 }

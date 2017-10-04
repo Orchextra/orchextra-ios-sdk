@@ -27,8 +27,5 @@ class ModuleInputMock: ModuleInput {
             completion()
         }
     }
-    
-    func setConfig(config: [String : Any]) {
-        
-    }
+
 }

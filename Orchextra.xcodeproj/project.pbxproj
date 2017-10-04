@@ -90,6 +90,11 @@
 		8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
+		A9188AA61F82555100A5F5E2 /* triggering_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = A9188AA51F82555100A5F5E2 /* triggering_configuration.json */; };
+		A94721FB1F82368D001E2DE6 /* ScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FA1F82368D001E2DE6 /* ScannerTests.swift */; };
+		A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */; };
+		A94722011F823987001E2DE6 /* LocationWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94722001F823987001E2DE6 /* LocationWrapperMock.swift */; };
+		A94722031F823C70001E2DE6 /* StorageProximityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94722021F823C70001E2DE6 /* StorageProximityMock.swift */; };
 		A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EC1F6279ED006EADBB /* GeoLocation.swift */; };
 		A95A60EF1F66A1F0006EADBB /* ModuleOutputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */; };
 		A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */; };
@@ -146,7 +151,6 @@
 		A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */; };
 		A9AC21281F5443E600095EC5 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21271F5443E600095EC5 /* PaddingLabel.swift */; };
 		A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */; };
-		A9AC212F1F5580EC00095EC5 /* ScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB41F41A81600DF2074 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB21F41A81600DF2074 /* Cartfile */; };
@@ -320,6 +324,11 @@
 		8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_external_browser_notification.json; path = Mocks/Json/action_external_browser_notification.json; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
+		A9188AA51F82555100A5F5E2 /* triggering_configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = triggering_configuration.json; path = Mocks/Json/triggering_configuration.json; sourceTree = "<group>"; };
+		A94721FA1F82368D001E2DE6 /* ScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerTests.swift; sourceTree = "<group>"; };
+		A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceSpec.swift; sourceTree = "<group>"; };
+		A94722001F823987001E2DE6 /* LocationWrapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationWrapperMock.swift; path = Mocks/Modules/ProximityMocks/LocationWrapperMock.swift; sourceTree = "<group>"; };
+		A94722021F823C70001E2DE6 /* StorageProximityMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageProximityMock.swift; path = Mocks/Modules/ProximityMocks/StorageProximityMock.swift; sourceTree = "<group>"; };
 		A95A60EC1F6279ED006EADBB /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapper.swift; path = Managers/ModuleOutputWrapper.swift; sourceTree = "<group>"; };
 		A95A60F01F66EAF6006EADBB /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Home.gpx; path = Geopoints/Home.gpx; sourceTree = "<group>"; };
@@ -377,7 +386,6 @@
 		A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dispatch+Extension.swift"; path = "Common/Support/Dispatch+Extension.swift"; sourceTree = "<group>"; };
 		A9AC21271F5443E600095EC5 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddingLabel.swift; path = Common/Support/PaddingLabel.swift; sourceTree = "<group>"; };
 		A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerTests.swift; path = Common/Modules/ScannerTests.swift; sourceTree = "<group>"; };
 		A9C54D971F41A6F100DF2074 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C54D9A1F41A6F100DF2074 /* Orchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A9C54D9B1F41A6F100DF2074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -763,6 +771,41 @@
 			name = Manager;
 			sourceTree = "<group>";
 		};
+		A94721F91F82368D001E2DE6 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				A94721FA1F82368D001E2DE6 /* ScannerTests.swift */,
+			);
+			name = Scanner;
+			path = Modules/Scanner;
+			sourceTree = "<group>";
+		};
+		A94721FC1F8236A2001E2DE6 /* Proximity */ = {
+			isa = PBXGroup;
+			children = (
+				A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */,
+			);
+			path = Proximity;
+			sourceTree = "<group>";
+		};
+		A94721FF1F823952001E2DE6 /* ProximityMocks */ = {
+			isa = PBXGroup;
+			children = (
+				A94722001F823987001E2DE6 /* LocationWrapperMock.swift */,
+				A94722021F823C70001E2DE6 /* StorageProximityMock.swift */,
+			);
+			name = ProximityMocks;
+			sourceTree = "<group>";
+		};
+		A94722041F8243B9001E2DE6 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */,
+				A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */,
+			);
+			name = Interfaces;
+			sourceTree = "<group>";
+		};
 		A95E67D81F5D50B3001D8B19 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,9 +1012,10 @@
 		A9AC212D1F5580C000095EC5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A94721FC1F8236A2001E2DE6 /* Proximity */,
+				A94721F91F82368D001E2DE6 /* Scanner */,
 				8F299C771F66A9A50023F69D /* Eddystone */,
 				A95E67D81F5D50B3001D8B19 /* Manager */,
-				A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1176,6 +1220,7 @@
 				A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */,
 				A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */,
 				A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */,
+				A9188AA51F82555100A5F5E2 /* triggering_configuration.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -1213,6 +1258,8 @@
 		A9D0FC331F56C1E700596CF3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A94722041F8243B9001E2DE6 /* Interfaces */,
+				A94721FF1F823952001E2DE6 /* ProximityMocks */,
 				A95E67E71F5D72E8001D8B19 /* Notification */,
 				A9D0FC341F56C1FC00596CF3 /* ScannerMocks */,
 			);
@@ -1223,8 +1270,6 @@
 			isa = PBXGroup;
 			children = (
 				A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */,
-				A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */,
-				A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */,
 			);
 			name = ScannerMocks;
 			sourceTree = "<group>";
@@ -1399,6 +1444,7 @@
 				A95E67ED1F5D850E001D8B19 /* action_scanner_without_notification.json in Resources */,
 				A95E67EB1F5D84D2001D8B19 /* action_scanner_without_schedule.json in Resources */,
 				A95E67F11F5D8FFA001D8B19 /* action_webview_without_notification.json in Resources */,
+				A9188AA61F82555100A5F5E2 /* triggering_configuration.json in Resources */,
 				8FFD3D901F569525000A1056 /* accesstoken_fail_credential.json in Resources */,
 				8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */,
 				8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */,
@@ -1521,9 +1567,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A94722011F823987001E2DE6 /* LocationWrapperMock.swift in Sources */,
 				8F299C7E1F66A9A50023F69D /* EddystoneDecoderTests.swift in Sources */,
 				A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */,
-				A9AC212F1F5580EC00095EC5 /* ScannerTests.swift in Sources */,
 				A9C54E0A1F446FC000DF2074 /* StubResponse.swift in Sources */,
 				A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */,
 				8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */,
@@ -1531,9 +1577,12 @@
 				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
 				8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */,
 				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
+				A94722031F823C70001E2DE6 /* StorageProximityMock.swift in Sources */,
 				A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */,
 				8F299C7C1F66A9A50023F69D /* CBCentralWrapperMock.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* StartSDKSpec.swift in Sources */,
+				A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */,
+				A94721FB1F82368D001E2DE6 /* ScannerTests.swift in Sources */,
 				A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */,
 				A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */,
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,

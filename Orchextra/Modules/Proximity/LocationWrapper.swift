@@ -43,6 +43,7 @@ class LocationWrapper: NSObject, LocationInput {
     fileprivate var authorizationStatus: CLAuthorizationStatus
     fileprivate var isLocationUpdated: Bool
     fileprivate var geocoder: CLGeocoder
+    fileprivate lazy var beaconsRanging = [Beacon]()
     
     override convenience init() {
         let locationManager = CLLocationManager()
@@ -121,8 +122,6 @@ class LocationWrapper: NSObject, LocationInput {
         }
     }
     
-    // MARK: - Private 
-    
     func showLocationPermissionAlert() {
         let alert = Alert(
             title: kLocaleOrcLocationServiceOffAlertTitle,
@@ -140,6 +139,7 @@ class LocationWrapper: NSObject, LocationInput {
             else {return}
         UIApplication.shared.openURL(settingsURL)
     }
+    
 }
 
 extension LocationWrapper: CLLocationManagerDelegate {
@@ -159,6 +159,34 @@ extension LocationWrapper: CLLocationManagerDelegate {
             type: self.typeRegion(region: region))
         
         LogDebug("for: \(region.identifier)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        
+        for beacon in beacons {
+           
+            let beaconRanged = self.beaconAlreadyRanged(beacon: beacon)
+            if let beaconAlreadyRanged = beaconRanged {
+                let changeProximity = beaconAlreadyRanged.newProximity(proximity: beacon.proximity)
+                if changeProximity {
+                    self.notifyStateBeaconChanged(beacon: beaconAlreadyRanged)
+                }
+                
+            } else {
+                let newBeacon = Beacon(
+                    code: region.identifier,
+                    notifyOnEntry: region.notifyOnEntry,
+                    notifyOnExit: region.notifyOnExit,
+                    uuid: beacon.proximityUUID,
+                    major: Int(truncating: beacon.major),
+                    minor: Int(truncating: beacon.minor),
+                    name: nil)
+                
+                self.beaconsRanging.append(newBeacon)
+                self.notifyStateBeaconChanged(beacon: newBeacon)
+            }
+            
+        }
     }
     
     /// Exit Region
@@ -206,6 +234,22 @@ extension LocationWrapper: CLLocationManagerDelegate {
                 }
             })
         }
+    }
+    
+    // MARK: - Private
+
+    private func beaconAlreadyRanged(beacon: CLBeacon) -> Beacon? {
+        
+        for orxbeacon in self.beaconsRanging {
+            if orxbeacon.isEqualtoCLBeacon(clBeacon: beacon) {
+                return orxbeacon
+            }
+        }
+        return nil
+    }
+    
+    private func notifyStateBeaconChanged(beacon: Beacon) {
+        
     }
     
     // MARK: - Helpers

@@ -30,6 +30,8 @@
 	<string>We need access to your location to show you relevant information. </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need access to your location to show you relevant information. </string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need access to your location to show you relevant information. </string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>pt-sans.bold.ttf</string>
@@ -66,7 +68,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need access to your location to show you relevant information. </string>
 </dict>
 </plist>

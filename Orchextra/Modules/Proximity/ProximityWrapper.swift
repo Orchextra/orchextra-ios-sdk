@@ -31,7 +31,7 @@ class ProximityWrapper: ProximityInput {
     
     var regions: [Region]?
     var locationWrapper: LocationInput
-    var storage: StorageProximity
+    var storage: StorageProximityInput
         
     // MARK: -
     
@@ -41,7 +41,7 @@ class ProximityWrapper: ProximityInput {
         self.init(locationWrapper: locationWrapper, storage: storage)
     }
     
-    init(locationWrapper: LocationInput, storage: StorageProximity) {
+    init(locationWrapper: LocationInput, storage: StorageProximityInput) {
         self.storage = storage
         self.locationWrapper = locationWrapper
         self.locationWrapper.output = self
@@ -61,7 +61,6 @@ class ProximityWrapper: ProximityInput {
     
     func register(regions: [Region]) {
         self.regions = regions
-        self.stopMonitoringAllRegions()
         
         for region in regions {
             if let geofence = region as? Geofence {

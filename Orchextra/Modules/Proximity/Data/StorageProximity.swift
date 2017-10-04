@@ -8,7 +8,13 @@
 
 import Foundation
 
-struct StorageProximity {
+protocol StorageProximityInput {
+    func saveGeofence(geofence: GeofenceOrx)
+    func removeGeofence(geofence: GeofenceOrx)
+    func findElement(code: String) -> GeofenceOrx?
+}
+
+struct StorageProximity: StorageProximityInput {
     
     private let keyGeofences = "keyGeofences"
 
