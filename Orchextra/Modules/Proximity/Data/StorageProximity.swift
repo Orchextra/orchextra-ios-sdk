@@ -9,9 +9,9 @@
 import Foundation
 
 protocol StorageProximityInput {
-    func saveGeofence(geofence: GeofenceOrx)
-    func removeGeofence(geofence: GeofenceOrx)
-    func findElement(code: String) -> GeofenceOrx?
+    func saveGeofence(geofence: RegionModelOrx)
+    func removeGeofence(geofence: RegionModelOrx)
+    func findElement(code: String) -> RegionModelOrx?
 }
 
 struct StorageProximity: StorageProximityInput {
@@ -31,8 +31,8 @@ struct StorageProximity: StorageProximityInput {
     
     // MARK: - Geofences
     
-    func saveGeofence(geofence: GeofenceOrx) {
-        var geofencesOrx = [GeofenceOrx]()
+    func saveGeofence(geofence: RegionModelOrx) {
+        var geofencesOrx = [RegionModelOrx]()
         if let geofences = self.decode() {
             geofencesOrx = geofences
         }
@@ -43,8 +43,8 @@ struct StorageProximity: StorageProximityInput {
         }
     }
     
-    func removeGeofence(geofence: GeofenceOrx) {
-        var geofencesOrx = [GeofenceOrx]()
+    func removeGeofence(geofence: RegionModelOrx) {
+        var geofencesOrx = [RegionModelOrx]()
         if let geofences = self.decode() {
             geofencesOrx = geofences
         }
@@ -54,19 +54,19 @@ struct StorageProximity: StorageProximityInput {
         }
     }
     
-    func encode(geofences: [GeofenceOrx]) {
+    func encode(geofences: [RegionModelOrx]) {
         self.userDefaults.set(try? PropertyListEncoder().encode(geofences), forKey:keyGeofences)
     }
     
-    func decode() -> [GeofenceOrx]? {
+    func decode() -> [RegionModelOrx]? {
         if let data = self.userDefaults.value(forKey:keyGeofences) as? Data {
-            let geofences = try? PropertyListDecoder().decode([GeofenceOrx].self, from: data)
+            let geofences = try? PropertyListDecoder().decode([RegionModelOrx].self, from: data)
             return geofences
         }
         return nil
     }
     
-    func findElement(code: String) -> GeofenceOrx? {
+    func findElement(code: String) -> RegionModelOrx? {
         if let geofences = self.decode() {
             if let i = geofences.index(where: { $0.code == code }) {
                 return geofences[i]
@@ -75,7 +75,7 @@ struct StorageProximity: StorageProximityInput {
         return nil
     }
     
-    func findIndex(geofence: GeofenceOrx, geofencesOrx: [GeofenceOrx]) -> Int? {
+    func findIndex(geofence: RegionModelOrx, geofencesOrx: [RegionModelOrx]) -> Int? {
         if let i = geofencesOrx.index(where: { $0.code == geofence.code }) {
             return i
         }

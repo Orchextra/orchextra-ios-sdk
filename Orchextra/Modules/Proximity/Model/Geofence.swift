@@ -17,7 +17,7 @@ struct Geofence: Region {
     var code: String
     var notifyOnEntry: Bool?
     var notifyOnExit: Bool?
-    var name: String?
+    var name: String
 
     // Attribute Geofences
     
@@ -66,8 +66,14 @@ struct Geofence: Region {
     }
 
     
-    func convertGeofenceOrx() -> GeofenceOrx {
-        return GeofenceOrx(name: self.name, staytime: self.staytime, code: self.code)
+    func convertRegionModelOrx() -> RegionModelOrx {
+        return RegionModelOrx(type: .geofence,
+                              code: self.code,
+                              name: self.name,
+                              staytime: self.staytime,
+                              uuid: nil,
+                              major: nil,
+                              minor: nil)
     }
 }
 
@@ -86,10 +92,4 @@ struct Point {
         self.longitud = lng
         self.latitud = lat
     }
-}
-
-struct GeofenceOrx: Codable {
-    var name: String?
-    var staytime: Int
-    var code: String
 }

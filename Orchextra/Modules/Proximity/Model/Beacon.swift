@@ -18,7 +18,7 @@ class Beacon: Region {
     var code: String
     var notifyOnEntry: Bool?
     var notifyOnExit: Bool?
-    var name: String?
+    var name: String
 
     // Attribute Beacon
     
@@ -43,7 +43,7 @@ class Beacon: Region {
          uuid: UUID,
          major: Int?,
          minor: Int?,
-         name: String?) {
+         name: String) {
      
         self.code = code
         self.notifyOnEntry = notifyOnEntry
@@ -76,6 +76,16 @@ class Beacon: Region {
                         major: config["major"] as? Int,
                         minor: config["minor"] as? Int,
                         name: name)
+    }
+    
+    func convertRegionModelOrx() -> RegionModelOrx {
+        return RegionModelOrx(type: .beacon_region,
+                              code: self.code,
+                              name: self.name,
+                              staytime: nil,
+                              uuid: self.uuid.uuidString,
+                              major: self.major,
+                              minor: self.minor)
     }
     
     func prepareCLRegion() -> CLRegion? {

@@ -80,7 +80,7 @@ class LocationWrapper: NSObject, LocationInput {
     func monitoring(regions: [Region]) {
         for region in regions {
             self.startMonitoring(region: region)
-            LogInfo("start: \(region.name ?? "\(region.code)" )")
+            LogInfo("start: \(region.name)")
         }
     }
     
@@ -181,7 +181,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
                     uuid: beacon.proximityUUID,
                     major: Int(truncating: beacon.major),
                     minor: Int(truncating: beacon.minor),
-                    name: nil)
+                    name: region.identifier)
                 
                 _ = newBeacon.newProximity(proximity: beacon.proximity)
                 self.beaconsRanging.append(newBeacon)
@@ -252,7 +252,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
     
     private func notifyStateBeaconChanged(beacon: Beacon) {
         self.output?.didChangeProximity(beacon: beacon)
-        LogDebug("beacon: \(beacon.name ?? beacon.code)) -> proximity: \(String(describing: beacon.currentProximity?.name())) ")
+        LogDebug("beacon: \(beacon.name)) -> proximity: \(String(describing: beacon.currentProximity?.name())) ")
     }
     
     // MARK: - Helpers

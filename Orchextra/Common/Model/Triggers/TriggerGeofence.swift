@@ -16,9 +16,9 @@ class TriggerGeofence: Trigger {
     var name: String
     var event: String
     var value: String
-    var staytime: Int
+    var staytime: String
     
-    init(name: String, value: String, staytime: Int, event: String) {
+    init(name: String, value: String, staytime: String, event: String) {
         self.name = name
         self.staytime = staytime
         self.event = event
@@ -31,7 +31,7 @@ class TriggerGeofence: Trigger {
             let value = externalValues["value"] as? String,
             let event = externalValues["event"] as? String,
             let name = externalValues["name"] as? String,
-            let stayTime = externalValues["staytime"] as? Int
+            let stayTime = externalValues["staytime"] as? String
             else { return nil }
 
         return TriggerGeofence(name: name, value: value, staytime: stayTime, event: event)

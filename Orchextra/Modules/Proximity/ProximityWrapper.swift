@@ -61,12 +61,9 @@ class ProximityWrapper: ProximityInput {
     
     func register(regions: [Region]) {
         self.regions = regions
-        
         for region in regions {
-            if let geofence = region as? Geofence {
-                let geofencesOrx = geofence.convertGeofenceOrx()
-                self.storage.saveGeofence(geofence: geofencesOrx)
-            }
+            let regionOrx = region.convertRegionModelOrx()
+            self.storage.saveGeofence(geofence: regionOrx)
         }
     }
     
@@ -98,7 +95,8 @@ extension ProximityWrapper: LocationOutput {
     
     func didEnterRegion(code: String, type: RegionType) {
         if let geofence = self.storage.findElement(code: code),
-            geofence.staytime > 0 {
+            let staytime = geofence.staytime,
+            staytime > 0 {
             self.handleStayTime(geofence: geofence)
         }
         
@@ -128,10 +126,10 @@ extension ProximityWrapper: LocationOutput {
         }
     }
     
-    private func handleStayTime(geofence: GeofenceOrx) {
-        
+    private func handleStayTime(geofence: RegionModelOrx) {
         if #available(iOS 10.0, *) {
-         _ = Timer.scheduledTimer(withTimeInterval: Double(geofence.staytime), repeats: false, block: { _ in
+            guard let staytime = geofence.staytime else { return }
+         _ = Timer.scheduledTimer(withTimeInterval: Double(staytime), repeats: false, block: { _ in
                 let outputDic = self.handleOutputRegion(type: RegionType.geofence, code: geofence.code, event: "stay")
                 self.output?.sendTriggerToCoreWithValues(values: outputDic)
             })
@@ -146,23 +144,29 @@ extension ProximityWrapper: LocationOutput {
     func handleOutputRegion(type: RegionType, code: String, event: String) -> [String: Any] {
          var outputDic: [String: Any] = [String: Any]()
         
-        if type == RegionType.geofence {
-            guard let geofence = self.storage.findElement(code: code) else {
-                LogWarn("Geofence is not store in the system")
-                return outputDic
-            }
-            outputDic =
-                ["type": type.rawValue,
-                 "value": code,
-                 "event": event,
-                 "name": geofence.name ?? "",
-                 "staytime": geofence.staytime]
-        } else if type == RegionType.beacon_region {
-            outputDic =
-                ["type": type.rawValue,
-                 "value": code,
-                 "event": event]
+        guard let region = self.storage.findElement(code: code) else {
+            return outputDic
         }
+        
+        outputDic = region.values(event: event)
+
+//        if type == RegionType.geofence {
+//            guard let geofence = self.storage.findElement(code: code) else {
+//                LogWarn("Geofence is not store in the system")
+//                return outputDic
+//            }
+//            outputDic =
+//                ["type": type.rawValue,
+//                 "value": code,
+//                 "event": event,
+//                 "name": geofence.name,
+//                 "staytime": geofence.staytime]
+//        } else if type == RegionType.beacon_region {
+//            outputDic =
+//                ["type": type.rawValue,
+//                 "value": code,
+//                 "event": event]
+//        }
         
         return outputDic
     }
