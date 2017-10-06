@@ -138,8 +138,8 @@ class EddystoneProtocolParser {
         guard let serviceBytes = self.serviceBytes,
             serviceBytes.count >= EddystoneConstants.uidMinimiumSize else { return nil }
         
-        let namespace: String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidNamespaceEndPosition, EddystoneConstants.uidNamespaceInitialPosition)))
-        let instance: String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds:(EddystoneConstants.uidInstanceEndPosition, EddystoneConstants.uidInstanceInitialPosition)))
+        let namespace: String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds: (EddystoneConstants.uidNamespaceEndPosition, EddystoneConstants.uidNamespaceInitialPosition)))
+        let instance: String = parseRangeOfBytes(serviceBytes, range: Range(uncheckedBounds: (EddystoneConstants.uidInstanceEndPosition, EddystoneConstants.uidInstanceInitialPosition)))
         
         let eddystoneUID = EddystoneUID(namespace: namespace, instance: instance)
         
@@ -163,7 +163,7 @@ class EddystoneProtocolParser {
             if urlDecoded.characters.count > 0 {
                 urlString.append(urlDecoded)
             } else {
-                guard let urlDecoded = String(data: Data(bytes:[bytesToBeDecoded], count: 1) as Data,
+                guard let urlDecoded = String(data: Data(bytes: [bytesToBeDecoded], count: 1) as Data,
                                               encoding: String.Encoding.utf8)  else { return URL(string: urlString) }
                 urlString.append(urlDecoded)
             }
@@ -177,7 +177,7 @@ class EddystoneProtocolParser {
         for i in range.upperBound..<range.lowerBound {
             let bytesToBeDecoded: UInt8 = serviceBytes[i]
             let byteDecoded: String = String(bytesToBeDecoded,
-                                            radix:EddystoneConstants.bytesToStringConverterRadix,
+                                            radix: EddystoneConstants.bytesToStringConverterRadix,
                                             uppercase: false)
             
             if byteDecoded.characters.count == 1 {
@@ -193,9 +193,9 @@ class EddystoneProtocolParser {
     // MARK: Private (EID Parsing)
     fileprivate func parseEIDInformation() -> String? {
         guard let serviceBytes = self.serviceBytes else { return nil }
-        let range = Range(uncheckedBounds:(serviceBytes.count, EddystoneConstants.eidInitialPosition))
+        let range = Range(uncheckedBounds: (serviceBytes.count, EddystoneConstants.eidInitialPosition))
         let eid = self.parseRangeOfBytes(serviceBytes,
-                                         range:range)
+                                         range: range)
         
         return eid
     }
@@ -210,7 +210,7 @@ class EddystoneProtocolParser {
     }
     
     fileprivate func parseTelemetryBatteryVoltage(_ serviceData: Data) -> Double {
-        let batteryRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmBatteryInitialPosition, EddystoneConstants.tlmBatteryEndPosition))
+        let batteryRange: Range<Data.Index> = Range(uncheckedBounds: (EddystoneConstants.tlmBatteryInitialPosition, EddystoneConstants.tlmBatteryEndPosition))
         let batterySubdata: Data = serviceData.subdata(in: batteryRange)
         let batteryVoltage = batterySubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt16>) -> UInt16 in
             let result: UInt16 = UInt16(bigEndian: pointer.pointee)
@@ -241,7 +241,7 @@ class EddystoneProtocolParser {
     }
     
     fileprivate func parseTelemetryTemperatureFixed(_ serviceData: Data) -> Float {
-        let temperatureFixedRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTemperatureFixedInitialPosition, EddystoneConstants.tlmTemperatureFixedEndPosition))
+        let temperatureFixedRange: Range<Data.Index> = Range(uncheckedBounds: (EddystoneConstants.tlmTemperatureFixedInitialPosition, EddystoneConstants.tlmTemperatureFixedEndPosition))
         let beaconTemperatureFixedSubdata: Data = serviceData.subdata(in: temperatureFixedRange)
         
         // This is in 8.8 fixed point. Just have to divide by 256 to get the actual number.
@@ -253,7 +253,7 @@ class EddystoneProtocolParser {
     }
     
     fileprivate func parseTelemetryTemperatureFractional(_ serviceData: Data) -> Float {
-        let temperatureFractionalRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTemperatureFractionalInitialPosition, EddystoneConstants.tlmTemperatureFractionalEndPosition))
+        let temperatureFractionalRange: Range<Data.Index> = Range(uncheckedBounds: (EddystoneConstants.tlmTemperatureFractionalInitialPosition, EddystoneConstants.tlmTemperatureFractionalEndPosition))
         let beaconTemperatureFractionalSubdata: Data = serviceData.subdata(in: temperatureFractionalRange)
         
         // This is in 8.8 fixed point. Just have to divide by 256 to get the actual number.
@@ -274,7 +274,7 @@ class EddystoneProtocolParser {
     }
     
     fileprivate func parseTelemetryAdvertisingPDUCount(_ serviceData: Data) -> String {
-        let advertisingPDUCountRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmAdvertisingPDUCountInitialPosition, EddystoneConstants.tlmAdvertisingPDUCountEndPosition))
+        let advertisingPDUCountRange: Range<Data.Index> = Range(uncheckedBounds: (EddystoneConstants.tlmAdvertisingPDUCountInitialPosition, EddystoneConstants.tlmAdvertisingPDUCountEndPosition))
         let advertisingPDUCountSubdata: Data = serviceData.subdata(in: advertisingPDUCountRange)
         
         let advertisingPDUCount = advertisingPDUCountSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
@@ -286,7 +286,7 @@ class EddystoneProtocolParser {
     }
     
     fileprivate func parseTelemetryUptime(_ serviceData: Data) -> TimeInterval {
-        let timeOnSincePowerOnRange: Range<Data.Index> = Range(uncheckedBounds:(EddystoneConstants.tlmTimeOnSincePowerOnInitialPosition, EddystoneConstants.tlmTimeOnSincePowerOnEndPosition))
+        let timeOnSincePowerOnRange: Range<Data.Index> = Range(uncheckedBounds: (EddystoneConstants.tlmTimeOnSincePowerOnInitialPosition, EddystoneConstants.tlmTimeOnSincePowerOnEndPosition))
         let timeOnSincePowerOnSubdata: Data = serviceData.subdata(in: timeOnSincePowerOnRange)
         
         let timeOnSincePowerOn = timeOnSincePowerOnSubdata.withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
@@ -306,6 +306,7 @@ class EddystoneProtocolParser {
             .map(self.updateRangingData)
             .map(self.updateProximity)
             .map(self.updateFrameTypeInformation)
+            .map(self.updateHasBeenSent)
         
         if beaconsDetected.count == 0 {
             if let currentBeacon = self.currentBeacon {
@@ -366,5 +367,11 @@ class EddystoneProtocolParser {
             beacon.eid = currentBeacon?.eid
         }
         return beacon
+    }
+    
+    private func updateHasBeenSent(with beacon: EddystoneBeacon) -> EddystoneBeacon {
+        let beaconUpdated = beacon
+        beaconUpdated.hasBeenSent = self.currentBeacon?.hasBeenSent ?? false
+        return beaconUpdated
     }
 }

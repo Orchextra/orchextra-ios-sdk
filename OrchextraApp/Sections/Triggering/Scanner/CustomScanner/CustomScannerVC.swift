@@ -115,7 +115,7 @@ extension CustomScannerVC: CustomScannerUI {
                            delay: 0.6,
                            options: .curveEaseInOut, animations: {
                             self.viewStatus.alpha = 0
-            }, completion:nil)
+            }, completion: nil)
         }
     }
     

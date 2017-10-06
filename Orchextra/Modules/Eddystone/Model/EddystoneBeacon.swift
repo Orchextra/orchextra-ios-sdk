@@ -45,7 +45,7 @@ class EddystoneBeacon {
     
     var proximity: Proximity {
         let rangingDataUnWrapped = (self.rangingData != nil) ? self.rangingData! : 0
-        return self.convertRSSIToProximity(self.rssi, rangingData:rangingDataUnWrapped)
+        return self.convertRSSIToProximity(self.rssi, rangingData: rangingDataUnWrapped)
     }
     
     // MARK: Public methods
@@ -74,7 +74,8 @@ class EddystoneBeacon {
             self.uid?.instance != nil,
             self.url != nil,
             self.proximity != .unknown,
-            (self.proximityTimer == nil) else { return false }
+            (self.proximityTimer == nil),
+            !(self.hasBeenSent) else { return false }
         self.hasBeenSent = true
         return true
     }

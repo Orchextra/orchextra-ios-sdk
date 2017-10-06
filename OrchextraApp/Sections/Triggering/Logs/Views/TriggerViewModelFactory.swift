@@ -38,33 +38,22 @@ class TriggerViewModelFactory {
         switch trigger.triggerId {
         case "barcode":
            triggerViewModel = barCodeTriggerViewModel(from: triggerFired)
-            break
         case "qr":
             triggerViewModel = qrTriggerViewModel(from: triggerFired)
-            break
         case "beacon":
             triggerViewModel = beaconTriggerViewModel(from: triggerFired)
-            break
         case "beacon_region":
             triggerViewModel = beaconRegionTriggerViewModel(from: triggerFired)
-            break
         case "eddystone":
             triggerViewModel = eddystoneBeaconTriggerViewModel(from: triggerFired)
-            break
         case "eddystone_region":
             triggerViewModel = eddystoneRegionTriggerViewModel(from: triggerFired)
-            break
-            
         case "geofence":
             triggerViewModel = geofenceTriggerViewModel(from: triggerFired)
-            break
-       
         case "vuforia":
             triggerViewModel = imageRecognitionTriggerViewModel(from: triggerFired)
-            break
         default:
             triggerViewModel = nil
-            break
         }
             
         return triggerViewModel

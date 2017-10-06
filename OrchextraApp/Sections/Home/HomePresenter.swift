@@ -58,10 +58,10 @@ extension HomePresenter: HomeInteractorOutput {
         case .error(let error):
             var message = ""
             switch error {
-                case ErrorService.invalidCredentials:
-                message = "Invalid Credentials"
-                default:
-                message = error.localizedDescription
+            case ErrorService.invalidCredentials:
+            message = "Invalid Credentials"
+            default:
+            message = error.localizedDescription
             }
             self.view?.showAlert(message: message)
         }

@@ -56,7 +56,7 @@ class Beacon: Region {
     
     // MARK: -
     
-    static func region(from config: [String : Any]) -> Region? {
+    static func region(from config: [String: Any]) -> Region? {
         
         guard
             let type = config["type"] as? String,
@@ -178,15 +178,11 @@ extension Beacon {
         switch proximity {
         case .immediate:
             self.createTimerProximity(timer: self.immediateTimer, proximity: proximity)
-            break
         case .near:
             self.createTimerProximity(timer: self.nearTimer, proximity: proximity)
-            break
         case .far:
             self.createTimerProximity(timer: self.farTimer, proximity: proximity)
-            break
-        case .unknown:
-            break
+        case .unknown: break
         }
     }
     

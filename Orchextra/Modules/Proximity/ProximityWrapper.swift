@@ -50,7 +50,7 @@ class ProximityWrapper: ProximityInput {
     
     // MARK: - Public
     
-    func paramsCurrentUserLocation(completion: @escaping ([String : Any]) -> Void) {
+    func paramsCurrentUserLocation(completion: @escaping([String: Any]) -> Void) {
         self.locationWrapper.currentUserLocation { location, placemark in
             let geoLocation = GeoLocation(location: location, placemark: placemark)
             let params = geoLocation.paramsGeoLocation()

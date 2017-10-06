@@ -71,7 +71,7 @@ class TriggeringWireframe {
             LogWarn("NavigationController nil")
             return
         }
-        let settingsWireframe = SettingsWireframe(navigationController:navigationController)
+        let settingsWireframe = SettingsWireframe(navigationController: navigationController)
         guard let settingsVC = settingsWireframe.showSettings() else {
             LogWarn("SettingsVC not found")
             return

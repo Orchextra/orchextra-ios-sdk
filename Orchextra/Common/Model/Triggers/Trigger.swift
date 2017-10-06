@@ -37,10 +37,13 @@ extension Trigger {
     static func applicationState() -> String {
         let state = UIApplication.shared.applicationState
         switch state {
-            case .active: return "foreground"
-            case .background: return "background"
-            case .inactive: return "inactive"
-        }
+        case .active:
+            return "foreground"
+        case .background:
+            return "background"
+        case .inactive:
+            return "inactive"
+    }
     }
 }
 

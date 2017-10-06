@@ -25,13 +25,13 @@ struct ModuleOutputWrapper: ModuleOutput {
         self.init(triggerManager: triggerManager, configInteractor: configInteractor)
     }
     
-    func triggerWasFire(with values: [String : Any], module: ModuleInput) {
+    func triggerWasFire(with values: [String: Any], module: ModuleInput) {
         self.triggerManager.triggerWasFire(with: values, module: module)
     }
     
-    func setConfig(config: [String : Any]? = nil, completion: @escaping (([String : Any]) -> Void)) {
+    func setConfig(config: [String: Any]? = nil, completion: @escaping (([String: Any]) -> Void)) {
         
-        var configDefault: [String : Any] = ["geoLocation": ""]
+        var configDefault: [String: Any] = ["geoLocation": ""]
         if let configModule = config {
             configDefault = configModule
         }

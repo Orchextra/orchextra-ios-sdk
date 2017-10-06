@@ -64,7 +64,7 @@ class ProximityModule: ModuleInput {
     
     // MARK: - Private
     
-    private func parseProximity(params: [String : Any]) {
+    private func parseProximity(params: [String: Any]) {
         var regionsInModule = [Region]()
 
         if  let geofences = params["geofences"] as? [[String: Any]] {
