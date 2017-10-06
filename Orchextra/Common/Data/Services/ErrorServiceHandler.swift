@@ -27,7 +27,7 @@ public enum ErrorService: Error {
     case unauthorized                   //(_401_)
     case invalidJSON                    //(_400_)
     case validationError                //(_400_)
-    
+    case actionNotMatched
     case ErrorBinding
     
     case unknown
@@ -53,6 +53,8 @@ class ErrorServiceHandler {
             return ErrorService.invalidJSON
         case 3000:
             return ErrorService.validationError
+        case 4004:
+            return ErrorService.actionNotMatched
         default:
             return ErrorService.unknown
         }

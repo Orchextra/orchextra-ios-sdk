@@ -28,7 +28,7 @@ public protocol Trigger {
         externalValues: [String: Any]) -> Trigger?
     
     func urlParams() -> [String: Any]
-    
+    func logsParams() -> [String: Any]
     static func applicationState() -> String
 }
 
@@ -51,6 +51,8 @@ class TriggerFactory {
             TriggerQR.trigger(from: externalValues),
             TriggerBarcode.trigger(from: externalValues),
             TriggerGeofence.trigger(from: externalValues),
+            TriggerBeaconRegion.trigger(from: externalValues),
+            TriggerBeacon.trigger(from: externalValues),
             TriggerEddystoneRegion.trigger(from: externalValues),
             TriggerEddystoneBeacon.trigger(from: externalValues)
         ]

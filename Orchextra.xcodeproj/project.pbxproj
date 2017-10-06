@@ -21,8 +21,6 @@
 		8F1124021F5FE43C00609B4A /* CustomScannerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1123FF1F5FE43C00609B4A /* CustomScannerWireframe.swift */; };
 		8F13F0E11F5B0AC50028B1FF /* LogsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */; };
 		8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */; };
-		8F1CF3F01F67ECF000439F88 /* TriggerEddystoneRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */; };
-		8F1CF3F21F67ED0900439F88 /* TriggerEddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */; };
 		8F2042421F5E73BE00782D63 /* TriggerFired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042411F5E73BE00782D63 /* TriggerFired.swift */; };
 		8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042441F5E90AF00782D63 /* FilterVC.swift */; };
 		8F2042471F5E90C500782D63 /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */; };
@@ -90,6 +88,18 @@
 		8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
+		A9188AA61F82555100A5F5E2 /* triggering_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = A9188AA51F82555100A5F5E2 /* triggering_configuration.json */; };
+		A94721FB1F82368D001E2DE6 /* ScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FA1F82368D001E2DE6 /* ScannerTests.swift */; };
+		A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */; };
+		A94722011F823987001E2DE6 /* LocationWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94722001F823987001E2DE6 /* LocationWrapperMock.swift */; };
+		A94722031F823C70001E2DE6 /* StorageProximityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94722021F823C70001E2DE6 /* StorageProximityMock.swift */; };
+		A958CCA41F84DA3D007074D5 /* TriggerBeaconRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */; };
+		A958CCA71F84DA65007074D5 /* TriggerEddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */; };
+		A958CCA81F84DA65007074D5 /* TriggerEddystoneRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */; };
+		A958CCAA1F84F9D9007074D5 /* TriggerBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCA91F84F9D9007074D5 /* TriggerBeacon.swift */; };
+		A958CCAC1F85253A007074D5 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCAB1F85253A007074D5 /* String+MD5.swift */; };
+		A958CCB91F8528CB007074D5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A958CCB81F8528CB007074D5 /* Security.framework */; };
+		A958CCCA1F85322E007074D5 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A958CCC91F85322E007074D5 /* NotificationCenter.swift */; };
 		A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EC1F6279ED006EADBB /* GeoLocation.swift */; };
 		A95A60EF1F66A1F0006EADBB /* ModuleOutputWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */; };
 		A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67D91F5D50CD001D8B19 /* TriggerManagerTests.swift */; };
@@ -146,7 +156,6 @@
 		A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */; };
 		A9AC21281F5443E600095EC5 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21271F5443E600095EC5 /* PaddingLabel.swift */; };
 		A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */; };
-		A9AC212F1F5580EC00095EC5 /* ScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB41F41A81600DF2074 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB21F41A81600DF2074 /* Cartfile */; };
@@ -253,8 +262,6 @@
 		8F1123FF1F5FE43C00609B4A /* CustomScannerWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScannerWireframe.swift; sourceTree = "<group>"; };
 		8F13F0E01F5B0AC50028B1FF /* LogsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsVC.swift; sourceTree = "<group>"; };
 		8F13F0E21F5B0AE00028B1FF /* LogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
-		8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEddystoneRegion.swift; sourceTree = "<group>"; };
-		8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEddystoneBeacon.swift; sourceTree = "<group>"; };
 		8F2042411F5E73BE00782D63 /* TriggerFired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerFired.swift; sourceTree = "<group>"; };
 		8F2042441F5E90AF00782D63 /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterVC.swift; path = OrchextraApp/Sections/Triggering/Logs/Filter/FilterVC.swift; sourceTree = SOURCE_ROOT; };
 		8F2042461F5E90C500782D63 /* FilterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
@@ -320,6 +327,18 @@
 		8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_external_browser_notification.json; path = Mocks/Json/action_external_browser_notification.json; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
+		A9188AA51F82555100A5F5E2 /* triggering_configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = triggering_configuration.json; path = Mocks/Json/triggering_configuration.json; sourceTree = "<group>"; };
+		A94721FA1F82368D001E2DE6 /* ScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerTests.swift; sourceTree = "<group>"; };
+		A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceSpec.swift; sourceTree = "<group>"; };
+		A94722001F823987001E2DE6 /* LocationWrapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationWrapperMock.swift; path = Mocks/Modules/ProximityMocks/LocationWrapperMock.swift; sourceTree = "<group>"; };
+		A94722021F823C70001E2DE6 /* StorageProximityMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageProximityMock.swift; path = Mocks/Modules/ProximityMocks/StorageProximityMock.swift; sourceTree = "<group>"; };
+		A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TriggerBeaconRegion.swift; path = Common/Model/Triggers/TriggerBeaconRegion.swift; sourceTree = "<group>"; };
+		A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerEddystoneBeacon.swift; path = Common/Model/Triggers/TriggerEddystoneBeacon.swift; sourceTree = "<group>"; };
+		A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerEddystoneRegion.swift; path = Common/Model/Triggers/TriggerEddystoneRegion.swift; sourceTree = "<group>"; };
+		A958CCA91F84F9D9007074D5 /* TriggerBeacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TriggerBeacon.swift; path = Common/Model/Triggers/TriggerBeacon.swift; sourceTree = "<group>"; };
+		A958CCAB1F85253A007074D5 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Common/Support/String+MD5.swift"; sourceTree = "<group>"; };
+		A958CCB81F8528CB007074D5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A958CCC91F85322E007074D5 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		A95A60EC1F6279ED006EADBB /* GeoLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		A95A60EE1F66A1F0006EADBB /* ModuleOutputWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapper.swift; path = Managers/ModuleOutputWrapper.swift; sourceTree = "<group>"; };
 		A95A60F01F66EAF6006EADBB /* Home.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Home.gpx; path = Geopoints/Home.gpx; sourceTree = "<group>"; };
@@ -377,7 +396,6 @@
 		A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dispatch+Extension.swift"; path = "Common/Support/Dispatch+Extension.swift"; sourceTree = "<group>"; };
 		A9AC21271F5443E600095EC5 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddingLabel.swift; path = Common/Support/PaddingLabel.swift; sourceTree = "<group>"; };
 		A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerTests.swift; path = Common/Modules/ScannerTests.swift; sourceTree = "<group>"; };
 		A9C54D971F41A6F100DF2074 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C54D9A1F41A6F100DF2074 /* Orchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A9C54D9B1F41A6F100DF2074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -424,6 +442,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A958CCB91F8528CB007074D5 /* Security.framework in Frameworks */,
 				A9C54DFB1F4433D300DF2074 /* AdSupport.framework in Frameworks */,
 				A9C54DBB1F41A84300DF2074 /* GIGLibrary.framework in Frameworks */,
 			);
@@ -556,6 +575,7 @@
 			children = (
 				8F20808E1F4EA59600C328DC /* Constants.swift */,
 				A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */,
+				A958CCC91F85322E007074D5 /* NotificationCenter.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -763,6 +783,41 @@
 			name = Manager;
 			sourceTree = "<group>";
 		};
+		A94721F91F82368D001E2DE6 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				A94721FA1F82368D001E2DE6 /* ScannerTests.swift */,
+			);
+			name = Scanner;
+			path = Modules/Scanner;
+			sourceTree = "<group>";
+		};
+		A94721FC1F8236A2001E2DE6 /* Proximity */ = {
+			isa = PBXGroup;
+			children = (
+				A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */,
+			);
+			path = Proximity;
+			sourceTree = "<group>";
+		};
+		A94721FF1F823952001E2DE6 /* ProximityMocks */ = {
+			isa = PBXGroup;
+			children = (
+				A94722001F823987001E2DE6 /* LocationWrapperMock.swift */,
+				A94722021F823C70001E2DE6 /* StorageProximityMock.swift */,
+			);
+			name = ProximityMocks;
+			sourceTree = "<group>";
+		};
+		A94722041F8243B9001E2DE6 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */,
+				A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */,
+			);
+			name = Interfaces;
+			sourceTree = "<group>";
+		};
 		A95E67D81F5D50B3001D8B19 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,10 +993,12 @@
 			children = (
 				A99886031F50450F00EED42E /* Trigger.swift */,
 				A99886071F504AB800EED42E /* TriggerBarcode.swift */,
-				8F1CF3F11F67ED0900439F88 /* TriggerEddystoneBeacon.swift */,
-				8F1CF3EF1F67ECF000439F88 /* TriggerEddystoneRegion.swift */,
 				A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */,
 				A99886051F5045DB00EED42E /* TriggerQR.swift */,
+				A958CCA31F84DA3D007074D5 /* TriggerBeaconRegion.swift */,
+				A958CCA91F84F9D9007074D5 /* TriggerBeacon.swift */,
+				A958CCA51F84DA65007074D5 /* TriggerEddystoneBeacon.swift */,
+				A958CCA61F84DA65007074D5 /* TriggerEddystoneRegion.swift */,
 			);
 			name = Triggers;
 			sourceTree = "<group>";
@@ -969,9 +1026,10 @@
 		A9AC212D1F5580C000095EC5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A94721FC1F8236A2001E2DE6 /* Proximity */,
+				A94721F91F82368D001E2DE6 /* Scanner */,
 				8F299C771F66A9A50023F69D /* Eddystone */,
 				A95E67D81F5D50B3001D8B19 /* Manager */,
-				A9AC212E1F5580EC00095EC5 /* ScannerTests.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1029,6 +1087,7 @@
 		A9C54DB11F41A80500DF2074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A958CCB81F8528CB007074D5 /* Security.framework */,
 				A9C54DB21F41A81600DF2074 /* Cartfile */,
 				A9C54DB31F41A81600DF2074 /* Cartfile.private */,
 				A9C54DFC1F4433DB00DF2074 /* Internal */,
@@ -1058,6 +1117,7 @@
 				A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */,
 				A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */,
 				A9AC21271F5443E600095EC5 /* PaddingLabel.swift */,
+				A958CCAB1F85253A007074D5 /* String+MD5.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -1176,6 +1236,7 @@
 				A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */,
 				A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */,
 				A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */,
+				A9188AA51F82555100A5F5E2 /* triggering_configuration.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -1213,6 +1274,8 @@
 		A9D0FC331F56C1E700596CF3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A94722041F8243B9001E2DE6 /* Interfaces */,
+				A94721FF1F823952001E2DE6 /* ProximityMocks */,
 				A95E67E71F5D72E8001D8B19 /* Notification */,
 				A9D0FC341F56C1FC00596CF3 /* ScannerMocks */,
 			);
@@ -1223,8 +1286,6 @@
 			isa = PBXGroup;
 			children = (
 				A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */,
-				A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */,
-				A95E67E01F5D690C001D8B19 /* ModuleInputMock.swift */,
 			);
 			name = ScannerMocks;
 			sourceTree = "<group>";
@@ -1399,6 +1460,7 @@
 				A95E67ED1F5D850E001D8B19 /* action_scanner_without_notification.json in Resources */,
 				A95E67EB1F5D84D2001D8B19 /* action_scanner_without_schedule.json in Resources */,
 				A95E67F11F5D8FFA001D8B19 /* action_webview_without_notification.json in Resources */,
+				A9188AA61F82555100A5F5E2 /* triggering_configuration.json in Resources */,
 				8FFD3D901F569525000A1056 /* accesstoken_fail_credential.json in Resources */,
 				8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */,
 				8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */,
@@ -1464,7 +1526,6 @@
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
 				A987246F1F793F9500A7017F /* User.swift in Sources */,
 				8F299C5A1F6691060023F69D /* EddystoneRegion.swift in Sources */,
-				8F1CF3F21F67ED0900439F88 /* TriggerEddystoneBeacon.swift in Sources */,
 				A9986B2F1F59767C00F2CC65 /* ActionService.swift in Sources */,
 				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
 				8F299C561F6691060023F69D /* EddystoneModule.swift in Sources */,
@@ -1476,13 +1537,16 @@
 				A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */,
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,
 				A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */,
+				A958CCA71F84DA65007074D5 /* TriggerEddystoneBeacon.swift in Sources */,
 				A9C54DEA1F41AD5000DF2074 /* Session.swift in Sources */,
 				8F299C571F6691060023F69D /* EddystoneBeacon.swift in Sources */,
 				A9C6EB941F46FB24007AE036 /* Device.swift in Sources */,
 				A9AC210A1F542E7C00095EC5 /* ActionScanner.swift in Sources */,
+				A958CCAA1F84F9D9007074D5 /* TriggerBeacon.swift in Sources */,
 				A95A60EF1F66A1F0006EADBB /* ModuleOutputWrapper.swift in Sources */,
 				A99885F21F5010DC00EED42E /* Wireframe.swift in Sources */,
 				A99885FF1F50363C00EED42E /* ActionBrowser.swift in Sources */,
+				A958CCAC1F85253A007074D5 /* String+MD5.swift in Sources */,
 				8F299C591F6691060023F69D /* EddystoneDecoder.swift in Sources */,
 				A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */,
 				A9C54DF21F41B22600DF2074 /* ConfigInteractor.swift in Sources */,
@@ -1497,10 +1561,11 @@
 				A9986B341F5976D200F2CC65 /* Date+Extension.swift in Sources */,
 				8FFD3D931F5698F5000A1056 /* ActionWebView.swift in Sources */,
 				A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */,
+				A958CCA41F84DA3D007074D5 /* TriggerBeaconRegion.swift in Sources */,
 				A9C6EB921F46FB12007AE036 /* Tag.swift in Sources */,
+				A958CCA81F84DA65007074D5 /* TriggerEddystoneRegion.swift in Sources */,
 				A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */,
 				A99885FD1F50353D00EED42E /* Action.swift in Sources */,
-				8F1CF3F01F67ECF000439F88 /* TriggerEddystoneRegion.swift in Sources */,
 				8F299C5F1F6691060023F69D /* CBCentralWrapper.swift in Sources */,
 				A9CF47321F6032F300B918C8 /* TriggerGeofence.swift in Sources */,
 				A9986B321F5976B600F2CC65 /* LocalNotification.swift in Sources */,
@@ -1521,9 +1586,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A94722011F823987001E2DE6 /* LocationWrapperMock.swift in Sources */,
 				8F299C7E1F66A9A50023F69D /* EddystoneDecoderTests.swift in Sources */,
 				A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */,
-				A9AC212F1F5580EC00095EC5 /* ScannerTests.swift in Sources */,
 				A9C54E0A1F446FC000DF2074 /* StubResponse.swift in Sources */,
 				A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */,
 				8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */,
@@ -1531,9 +1596,12 @@
 				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
 				8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */,
 				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
+				A94722031F823C70001E2DE6 /* StorageProximityMock.swift in Sources */,
 				A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */,
 				8F299C7C1F66A9A50023F69D /* CBCentralWrapperMock.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* StartSDKSpec.swift in Sources */,
+				A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */,
+				A94721FB1F82368D001E2DE6 /* ScannerTests.swift in Sources */,
 				A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */,
 				A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */,
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
@@ -1553,6 +1621,7 @@
 				8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */,
 				8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */,
 				8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */,
+				A958CCCA1F85322E007074D5 /* NotificationCenter.swift in Sources */,
 				8F2042491F5EA1AB00782D63 /* Filter.swift in Sources */,
 				8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */,
 				8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */,
@@ -1776,6 +1845,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.Orchextra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CommonCrypto";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -1803,6 +1874,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.Orchextra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CommonCrypto";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

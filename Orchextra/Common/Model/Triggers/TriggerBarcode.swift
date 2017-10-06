@@ -34,4 +34,8 @@ class TriggerBarcode: Trigger {
     func urlParams() -> [String: Any] {
         return self.params
     }
+    
+    func logsParams() -> [String: Any] {
+        return self.params
+    }
 }

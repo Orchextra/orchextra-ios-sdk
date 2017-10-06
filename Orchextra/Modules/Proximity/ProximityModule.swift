@@ -64,45 +64,31 @@ class ProximityModule: ModuleInput {
     
     // MARK: - Private
     
-    private func parseProximity(params: [String : Any]) { 
-        guard
-            let geofences = params["geofences"] as? [[String: Any]],
-            let beacons = params["beaconRegions"] as? [[String: Any]] else {
-            LogWarn("There aren't beacons or geofences to configure in proximity module")
-            return
+    private func parseProximity(params: [String : Any]) {
+        var regionsInModule = [Region]()
+
+        if  let geofences = params["geofences"] as? [[String: Any]] {
+            let geofencesModule = self.parseProximity(regions: geofences)
+            regionsInModule.append(contentsOf: geofencesModule)
+    
         }
         
-        var regionsInModule = [Region]()
-        let geofencesModule = self.parseGeoMarketing(geofences: geofences)
-        let beaconsModule = self.parseBeacons(beacons: beacons)
-
-        regionsInModule.append(contentsOf: geofencesModule)
-        regionsInModule.append(contentsOf: beaconsModule)
-
+        if let beacons = params["beaconRegions"] as? [[String: Any]] {
+            let beaconsModule = self.parseProximity(regions: beacons)
+            regionsInModule.append(contentsOf: beaconsModule)
+        }
         self.proximityWrapper.register(regions: regionsInModule)
         self.proximityWrapper.startMonitoring()
     }
-   
-    private func parseGeoMarketing(geofences: [[String: Any]]) -> [Region] {
-        
+    
+    private func parseProximity(regions: [[String: Any]]) -> [Region] {
         var geofencesInModule = [Region]()
-        for geofence in geofences {
-            if let region = RegionFactory.geofences(from: geofence) {
+        for region in regions {
+            if let region = RegionFactory.region(from: region) {
                 geofencesInModule.append(region)
             }
         }
         return geofencesInModule
-    }
-    
-    private func parseBeacons(beacons: [[String: Any]]) -> [Region] {
-
-        var beaconsInModule = [Region]()
-        for beacon in beacons {
-            if let region = RegionFactory.beacon(from: beacon) {
-                beaconsInModule.append(region)
-            }
-        }
-        return beaconsInModule
     }
 }
 

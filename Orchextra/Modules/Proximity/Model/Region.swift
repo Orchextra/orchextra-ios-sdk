@@ -12,6 +12,7 @@ import CoreLocation
 enum RegionType: String {
     case none
     case beacon_region
+    case beacon
     case geofence
 }
 
@@ -20,6 +21,7 @@ protocol Region {
     var code: String {get set}
     var notifyOnEntry: Bool? {get set}
     var notifyOnExit: Bool? {get set}
+    var name: String? {get set}
     
     static func region(from config: [String: Any]) -> Region?
     func prepareCLRegion() -> CLRegion?
@@ -27,18 +29,13 @@ protocol Region {
 
 class RegionFactory {
     
-    
-    class func geofences(from config: [String: Any]) -> Region? {
-        guard let trigger = Geofence.region(from: config) else {
-            return nil
-        }
-        return trigger
-    }
-    
-    class func beacon(from config: [String: Any]) -> Region? {
-        guard let trigger = Beacon.region(from: config) else {
-            return nil
-        }
-        return trigger
+    class func region(from config: [String: Any]) -> Region? {
+        let regions = [
+            Geofence.region(from: config),
+            Beacon.region(from: config)
+        ]
+        
+        // Returns the last action that is not nil
+        return regions.reduce(nil) { $1 ?? $0 }
     }
 }

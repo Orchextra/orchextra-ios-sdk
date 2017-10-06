@@ -27,7 +27,7 @@ class ActionService: ActionServicesInput {
         
         let request = Request.orchextraRequest(
             method: "POST",
-            baseUrl: Config.coreEndpoint,
+            baseUrl: Config.triggeringEndpoint,
             endpoint: endPoint)
         
         request.fetch { response in

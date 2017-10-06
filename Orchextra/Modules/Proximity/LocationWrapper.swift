@@ -31,6 +31,7 @@ protocol LocationOutput {
     func didChangeAuthorization(status: CLAuthorizationStatus)
     func didEnterRegion(code: String, type: RegionType)
     func didExitRegion(code: String, type: RegionType)
+    func didChangeProximity(beacon: Beacon)
 }
 
 class LocationWrapper: NSObject, LocationInput {
@@ -43,6 +44,7 @@ class LocationWrapper: NSObject, LocationInput {
     fileprivate var authorizationStatus: CLAuthorizationStatus
     fileprivate var isLocationUpdated: Bool
     fileprivate var geocoder: CLGeocoder
+    fileprivate lazy var beaconsRanging = [Beacon]()
     
     override convenience init() {
         let locationManager = CLLocationManager()
@@ -78,7 +80,7 @@ class LocationWrapper: NSObject, LocationInput {
     func monitoring(regions: [Region]) {
         for region in regions {
             self.startMonitoring(region: region)
-            LogDebug("start: \(region.code)")
+            LogInfo("start: \(region.name ?? "\(region.code)" )")
         }
     }
     
@@ -96,7 +98,6 @@ class LocationWrapper: NSObject, LocationInput {
     private func startMonitoring(region: Region) {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             if let clRegion = region.prepareCLRegion() {
-                
                 let monitored = self.locationManager.monitoredRegions.contains(clRegion)
                 let monitoringAvailable = CLLocationManager.isMonitoringAvailable(for: type(of: clRegion))
                 
@@ -115,15 +116,12 @@ class LocationWrapper: NSObject, LocationInput {
     }
     
     func stopAllMonitoredRegions() {
-        
         let monitoredRegions = self.locationManager.monitoredRegions
         for monitoredRegion in monitoredRegions {
             self.locationManager.stopMonitoring(for: monitoredRegion)
             LogDebug("stop: \(monitoredRegion.identifier)")
         }
     }
-    
-    // MARK: - Private 
     
     func showLocationPermissionAlert() {
         let alert = Alert(
@@ -142,6 +140,7 @@ class LocationWrapper: NSObject, LocationInput {
             else {return}
         UIApplication.shared.openURL(settingsURL)
     }
+    
 }
 
 extension LocationWrapper: CLLocationManagerDelegate {
@@ -161,6 +160,35 @@ extension LocationWrapper: CLLocationManagerDelegate {
             type: self.typeRegion(region: region))
         
         LogDebug("for: \(region.identifier)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+
+        for beacon in beacons {
+            let beaconRanged = self.beaconAlreadyRanged(beacon: beacon)
+            
+            if let beaconAlreadyRanged = beaconRanged {
+                let changeProximity = beaconAlreadyRanged.newProximity(proximity: beacon.proximity)
+                if changeProximity {
+                    self.notifyStateBeaconChanged(beacon: beaconAlreadyRanged)
+                }
+                
+            } else {
+                let newBeacon = Beacon(
+                    code: region.identifier,
+                    notifyOnEntry: region.notifyOnEntry,
+                    notifyOnExit: region.notifyOnExit,
+                    uuid: beacon.proximityUUID,
+                    major: Int(truncating: beacon.major),
+                    minor: Int(truncating: beacon.minor),
+                    name: nil)
+                
+                _ = newBeacon.newProximity(proximity: beacon.proximity)
+                self.beaconsRanging.append(newBeacon)
+                self.notifyStateBeaconChanged(beacon: newBeacon)
+            }
+            
+        }
     }
     
     /// Exit Region
@@ -208,6 +236,23 @@ extension LocationWrapper: CLLocationManagerDelegate {
                 }
             })
         }
+    }
+    
+    // MARK: - Private
+
+    private func beaconAlreadyRanged(beacon: CLBeacon) -> Beacon? {
+        
+        for orxbeacon in self.beaconsRanging {
+            if orxbeacon.isEqualtoCLBeacon(clBeacon: beacon) {
+                return orxbeacon
+            }
+        }
+        return nil
+    }
+    
+    private func notifyStateBeaconChanged(beacon: Beacon) {
+        self.output?.didChangeProximity(beacon: beacon)
+        LogDebug("beacon: \(beacon.name ?? beacon.code)) -> proximity: \(String(describing: beacon.currentProximity?.name())) ")
     }
     
     // MARK: - Helpers

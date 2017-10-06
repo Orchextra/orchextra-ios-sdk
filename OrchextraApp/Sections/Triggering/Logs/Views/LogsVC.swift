@@ -26,6 +26,11 @@ class LogsVC: UIViewController {
         self.presenter?.viewWillAppear()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.presenter?.viewDidLoad()
+    }
+    
     // MARK: - IBActions
     @IBAction func filterButtonTapped(_ sender: Any) {
         self.presenter?.userDidTapFilters()
@@ -34,12 +39,19 @@ class LogsVC: UIViewController {
     @IBAction func clearFiltersTapped(_ sender: Any) {
         self.presenter?.userDidTapClearFilters()
     }
+    
+    private func scrollToBottom() {
+        guard let elements = self.presenter?.tableViewElements() else {return}
+        let indexPath = IndexPath(row: elements.count-1, section: 0)
+        self.triggersTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
 }
 
 extension LogsVC: LogsUI {
     func updateTriggerList() {
         self.triggersTableView.reloadData()
         self.presenter?.triggerListHasBeenUpdated()
+        self.scrollToBottom()
     }
     
     func showFilterInformation() {
