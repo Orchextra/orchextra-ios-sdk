@@ -54,7 +54,7 @@ extension HomePresenter: HomeInteractorOutput {
         case .success:
             print("Orchextra has been initialized correctly")
             AppController.shared.appWireframe?.showTriggering()
-            
+            Session.shared.orchextraRunning(running: true)
         case .error(let error):
             var message = ""
             switch error {
@@ -63,6 +63,7 @@ extension HomePresenter: HomeInteractorOutput {
                 default:
                 message = error.localizedDescription
             }
+            Session.shared.orchextraRunning(running: false)
             self.view?.showAlert(message: message)
         }
     }

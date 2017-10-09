@@ -14,7 +14,18 @@ class AppController {
     var appWireframe: AppWireframe?
     
     func appDidLaunch() {
-        self.appWireframe?.showHomeWireframe()
+        if let running = Session.shared.isOrchextraRunning(),
+            running == true {
+            OrchextraWrapper.shared.start(with: Constants.apiKey, secret: Constants.apiSecret, completion: { result in
+                switch result {
+                case .success:
+                    self.appWireframe?.showTriggering()
+                case .error:
+                    self.appWireframe?.showHomeWireframe()
+                }
+            })
+        } else {
+            self.appWireframe?.showHomeWireframe()
+        }
     }
-    
 }

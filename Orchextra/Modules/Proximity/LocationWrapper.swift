@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import GIGLibrary
+import UserNotifications
 
 typealias CompletionCurrentLocation = ((_ location: CLLocation, _ placemark: CLPlacemark?) -> Void)
 
@@ -36,7 +37,6 @@ protocol LocationOutput {
 
 class LocationWrapper: NSObject, LocationInput {
     
-
     var locationManager: CLLocationManager
     var output: LocationOutput?
     

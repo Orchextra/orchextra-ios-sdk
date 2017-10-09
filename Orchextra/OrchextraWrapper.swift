@@ -21,7 +21,7 @@ class OrchextraWrapper {
     private var authInteractor: AuthInteractorInput
     internal var moduleOutputWrapper: ModuleOutputWrapper
     fileprivate var startCompletion: ((Result<Bool, Error>) -> Void)?
-    
+    fileprivate let applicationCenter: ApplicationCenter
     
     internal let wireframe = Wireframe(
         application: Application()
@@ -40,21 +40,25 @@ class OrchextraWrapper {
         let configInteractor = ConfigInteractor()
         let authInteractor = AuthInteractor()
         let moduleOutputWrapper = ModuleOutputWrapper()
+        let applicationCenter = ApplicationCenter()
         
         self.init(session: session,
                   configInteractor: configInteractor,
                   authInteractor: authInteractor,
-                  moduleOutputWrapper: moduleOutputWrapper)
+                  moduleOutputWrapper: moduleOutputWrapper,
+                  applicationCenter: applicationCenter)
     }
     
     init(session: Session,
          configInteractor: ConfigInteractorInput,
          authInteractor: AuthInteractorInput,
-         moduleOutputWrapper: ModuleOutputWrapper) {
+         moduleOutputWrapper: ModuleOutputWrapper,
+         applicationCenter: ApplicationCenter) {
         self.session = session
         self.configInteractor = configInteractor
         self.authInteractor = authInteractor
         self.moduleOutputWrapper = moduleOutputWrapper
+        self.applicationCenter = applicationCenter
     }
     
     func start(with apiKey: String, apiSecret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
@@ -86,6 +90,8 @@ class OrchextraWrapper {
         
         self.openProximity()
 //        self.openEddystone()
+        
+        self.applicationCenter.observeAppDelegateEvents()
     }
     
     // MARK: - Modules

@@ -89,6 +89,8 @@
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
 		A9188AA61F82555100A5F5E2 /* triggering_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = A9188AA51F82555100A5F5E2 /* triggering_configuration.json */; };
+		A92570701F878DD500C1067E /* ApplicationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925706F1F878DD500C1067E /* ApplicationCenter.swift */; };
+		A92570721F87AB2900C1067E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92570711F87AB2800C1067E /* Session.swift */; };
 		A94721FB1F82368D001E2DE6 /* ScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FA1F82368D001E2DE6 /* ScannerTests.swift */; };
 		A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */; };
 		A94722011F823987001E2DE6 /* LocationWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94722001F823987001E2DE6 /* LocationWrapperMock.swift */; };
@@ -328,6 +330,8 @@
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
 		A9188AA51F82555100A5F5E2 /* triggering_configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = triggering_configuration.json; path = Mocks/Json/triggering_configuration.json; sourceTree = "<group>"; };
+		A925706F1F878DD500C1067E /* ApplicationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCenter.swift; sourceTree = "<group>"; };
+		A92570711F87AB2800C1067E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		A94721FA1F82368D001E2DE6 /* ScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerTests.swift; sourceTree = "<group>"; };
 		A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceSpec.swift; sourceTree = "<group>"; };
 		A94722001F823987001E2DE6 /* LocationWrapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationWrapperMock.swift; path = Mocks/Modules/ProximityMocks/LocationWrapperMock.swift; sourceTree = "<group>"; };
@@ -565,6 +569,7 @@
 		8F20808C1F4EA56900C328DC /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				A92570711F87AB2800C1067E /* Session.swift */,
 				8F20808D1F4EA56900C328DC /* Config */,
 			);
 			path = Global;
@@ -1158,6 +1163,7 @@
 			isa = PBXGroup;
 			children = (
 				A9C54DE61F41ACA400DF2074 /* Config */,
+				A925706F1F878DD500C1067E /* ApplicationCenter.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -1517,6 +1523,7 @@
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
 				8F299C5B1F6691060023F69D /* EddystoneRegionManager.swift in Sources */,
+				A92570701F878DD500C1067E /* ApplicationCenter.swift in Sources */,
 				A95E67F61F5D96BB001D8B19 /* ProximityWrapper.swift in Sources */,
 				8F689D1F1F5434C6002046FE /* WebPresenter.swift in Sources */,
 				A99886011F5037E900EED42E /* ActionDoNothing.swift in Sources */,
@@ -1656,6 +1663,7 @@
 				8F1124021F5FE43C00609B4A /* CustomScannerWireframe.swift in Sources */,
 				8F5F7A171F4C60E700E62E57 /* HomePresenter.swift in Sources */,
 				8F2080B01F4EE29000C328DC /* LogsWireframe.swift in Sources */,
+				A92570721F87AB2900C1067E /* Session.swift in Sources */,
 				8F2080B51F4EE2A200C328DC /* ScannerVC.swift in Sources */,
 				8F2042421F5E73BE00782D63 /* TriggerFired.swift in Sources */,
 				8F7F58EE1F4D84BD00271FC7 /* SettingsVC.swift in Sources */,

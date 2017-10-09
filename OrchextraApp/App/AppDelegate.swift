@@ -11,13 +11,13 @@ import UserNotifications
 import GIGLibrary
 import Applivery
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow?
 	let appController = AppController.shared
-	
+    var locationManager: CLLocationManager?
+    
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window?.makeKeyAndVisible()
 		
@@ -79,6 +79,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         OrchextraWrapper.shared.remote(apnsToken: deviceToken)
     }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
@@ -90,6 +94,5 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 	
 	@available(iOS 10.0, *)
 	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-		
 	}
 }

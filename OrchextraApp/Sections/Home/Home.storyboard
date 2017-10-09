@@ -43,7 +43,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orchextra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVe-YK-02J">
-                                                <rect key="frame" x="75" y="197" width="172" height="46"/>
+                                                <rect key="frame" x="74.5" y="197" width="172" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="OVs-LX-DNq"/>
                                                 </constraints>
