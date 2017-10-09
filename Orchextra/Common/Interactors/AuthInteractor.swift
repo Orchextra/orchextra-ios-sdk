@@ -111,10 +111,8 @@ class AuthInteractor: AuthInteractorInput {
                     switch error {
                     case ErrorService.unauthorized:
                         self.handleRefreshAccessToken(request: request, completion: completion)
-                        break
                     default:
                         completion(.error(error))
-                        break
                     }
                 }
             }
@@ -130,11 +128,8 @@ class AuthInteractor: AuthInteractorInput {
             case .success:
                 // TODO: Bind device and user
                 completion(.success(true))
-                break
-                
             case .error(let error):
                 completion(.error(error))
-                break
             }
         }        
     }
@@ -153,10 +148,8 @@ class AuthInteractor: AuthInteractorInput {
             case .success:
                 request.headers = Request.headers(endpoint: request.endpoint)
                 self.sendRequest(request: request, completion: completion)
-                break
             case .error (let error):
                 completion(.error(error))
-                break
             }
         })
     }

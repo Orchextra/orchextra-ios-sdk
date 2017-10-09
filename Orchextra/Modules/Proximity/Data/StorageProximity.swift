@@ -55,11 +55,11 @@ struct StorageProximity: StorageProximityInput {
     }
     
     func encode(regions: [RegionModelOrx]) {
-        self.userDefaults.set(try? PropertyListEncoder().encode(regions), forKey:keyGeofences)
+        self.userDefaults.set(try? PropertyListEncoder().encode(regions), forKey: keyGeofences)
     }
     
     func decode() -> [RegionModelOrx]? {
-        if let data = self.userDefaults.value(forKey:keyGeofences) as? Data {
+        if let data = self.userDefaults.value(forKey: keyGeofences) as? Data {
             let regions = try? PropertyListDecoder().decode([RegionModelOrx].self, from: data)
             return regions
         }

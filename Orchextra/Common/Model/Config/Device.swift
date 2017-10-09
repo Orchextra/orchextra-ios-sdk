@@ -108,7 +108,7 @@ public extension UIDevice {
                 String.init(validatingUTF8: ptr)
             }
         }
-        var modelMap : [ String : Model ] = [
+        var modelMap: [ String: Model ] = [
             "i386": .simulator,
             "x86_64": .simulator,
             "iPod1,1": .iPod1,

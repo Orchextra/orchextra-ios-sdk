@@ -89,7 +89,7 @@ class OrchextraWrapper {
         }
         
         self.openProximity()
-//        self.openEddystone()
+        self.openEddystone()
         
         self.applicationCenter.observeAppDelegateEvents()
     }
