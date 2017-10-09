@@ -73,7 +73,7 @@ class Session {
     }
     
     private func loadCredentials() -> (apiKey: String, apiSecret: String)? {
-        var credentials = self.userDefault.unarchiveObject(forKey: keyCredentials) as? [String : Any]
+        var credentials = self.userDefault.unarchiveObject(forKey: keyCredentials) as? [String: Any]
         
         guard let apiKey = credentials?["apiKey"] as? String,
             let apiSecret = credentials?["apiSecret"] as? String else {

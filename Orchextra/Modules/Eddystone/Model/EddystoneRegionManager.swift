@@ -90,7 +90,7 @@ class EddystoneRegionManager {
     }
     
     private func validateAction(for region: EddystoneRegion, event: String) {
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.main.async {
             let outputRegionValues = self.handleOutputRegion(for: region, event: event)
             self.output?.sendTriggerToCoreWithValues(values: outputRegionValues)
         }

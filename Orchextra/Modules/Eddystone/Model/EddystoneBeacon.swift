@@ -27,6 +27,7 @@ class EddystoneBeacon {
     var telemetry: EddystoneTelemetry?
     var proximityTimer: Timer?
     var requestWaitTime: Int
+    var hasBeenSent: Bool = false
     
     // MARK: Public computed properties
     var rssi: Double {
@@ -44,7 +45,7 @@ class EddystoneBeacon {
     
     var proximity: Proximity {
         let rangingDataUnWrapped = (self.rangingData != nil) ? self.rangingData! : 0
-        return self.convertRSSIToProximity(self.rssi, rangingData:rangingDataUnWrapped)
+        return self.convertRSSIToProximity(self.rssi, rangingData: rangingDataUnWrapped)
     }
     
     // MARK: Public methods
@@ -73,7 +74,9 @@ class EddystoneBeacon {
             self.uid?.instance != nil,
             self.url != nil,
             self.proximity != .unknown,
-            (self.proximityTimer == nil) else { return false }
+            (self.proximityTimer == nil),
+            !(self.hasBeenSent) else { return false }
+        self.hasBeenSent = true
         return true
     }
     
@@ -83,8 +86,10 @@ class EddystoneBeacon {
         } else {
             if currentProximity != .unknown &&
                 (currentProximity != self.proximity || (self.proximityTimer == nil)) {
-                self.resetProximityTimer()
-                self.updateProximityTimer()
+                if self.hasBeenSent {
+                    self.resetProximityTimer()
+                    self.updateProximityTimer()
+                }
             }
         }
         

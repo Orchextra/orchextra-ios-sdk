@@ -67,7 +67,7 @@ class HomeVC: UIViewController {
         guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
         UIView.animate(withDuration: 0.25) {
-            self.scrollView.contentInset = UIEdgeInsets(top: 0, left:0, bottom: keyboardSize.size.height, right: 0)
+            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.size.height, right: 0)
             self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
         }
     }

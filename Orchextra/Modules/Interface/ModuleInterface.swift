@@ -38,14 +38,14 @@ public protocol ModuleOutput {
     /// - Parameters:
     ///   - config: params to get the config from the core
     ///   - completion: the configuration response for the module
-    func setConfig(completion: @escaping (([String : Any]) -> Void))
+    func setConfig(completion: @escaping (([String: Any]) -> Void))
     
     /// Set Config
     ///
     /// - Parameters:
     ///   - config: params to get the config from the core
     ///   - completion: the configuration response for the module
-    func setConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void))
+    func setConfig(config: [String: Any]?, completion: @escaping (([String: Any]) -> Void))
     
     
     
@@ -61,11 +61,11 @@ extension ModuleOutput {
     ///   - config: params to get the config from the core
     ///   - completion: the configuration response for the module
 
-    func setConfig(completion: @escaping (([String : Any]) -> Void)) {
+    func setConfig(completion: @escaping (([String: Any]) -> Void)) {
         self.setConfig(config: nil, completion: completion)
     }
 
-    func setConfig(config: [String : Any]? = nil, completion: @escaping (([String : Any]) -> Void)) { }
+    func setConfig(config: [String: Any]? = nil, completion: @escaping (([String: Any]) -> Void)) { }
     
     func sendRequest(request: URLRequest) {}
 

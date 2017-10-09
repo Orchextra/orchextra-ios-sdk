@@ -41,7 +41,7 @@ class FilterVC: UIViewController {
 extension FilterVC: FilterUI {
     func reloadFilter(at position: Int) {
         let indexPath = IndexPath(row: position, section: 0)
-        self.filterTableView.reloadRows(at: [indexPath], with:.none)
+        self.filterTableView.reloadRows(at: [indexPath], with: .none)
     }
 }
 

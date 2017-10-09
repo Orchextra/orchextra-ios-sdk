@@ -66,7 +66,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     
     // MARK: Public methods
     override init() {
-        let centralManagerQueue = DispatchQueue(label:"centralManagerQueue", qos: .userInitiated)
+        let centralManagerQueue = DispatchQueue(label: "centralManagerQueue", qos: .userInitiated)
         self.centralManagerQueue = centralManagerQueue
         self.scannerStarted = false
         self.beaconList = [EddystoneBeacon]()
@@ -128,7 +128,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
                     self.startScannerBackgroundTask = UIBackgroundTaskInvalid
                 })
                 
-                DispatchQueue.global(qos: .background).async {
+                DispatchQueue.global().async {
                     self.performStartScanner()
                     while secondsToStopScanner < EddystoneConstants.timeToStopScanner {
                         Thread.sleep(forTimeInterval: 1)
@@ -157,7 +157,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
             self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
         })
         
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global().async {
             self.performStopScanner()
             while secondsToStartScanner < timeToStartScanner {
                 Thread.sleep(forTimeInterval: 1)
@@ -186,10 +186,8 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         switch CBCentralWrapper.scanLevel {
         case .always:
             isAvailableStopTool = false
-            break
         case .byIntervals:
             isAvailableStopTool = true
-            break
         }
         return isAvailableStopTool
     }
@@ -207,7 +205,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     }
     
     private func validateAction(beacon: EddystoneBeacon) {
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.main.async {
             guard let outputBeaconValues = self.handleOutputBeacon(for: beacon) else { return }
             self.output?.sendTriggerToCoreWithValues(values: outputBeaconValues)
         }
@@ -249,8 +247,8 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         LogDebug("--- START SCANNER ---")
         self.scannerStarted = true
         let serviceUUID: String = EddystoneConstants.serviceUUID
-        let services: [CBUUID] = [CBUUID (string:serviceUUID)]
-        let options: [String : Any] = [CBCentralManagerScanOptionAllowDuplicatesKey: true]
+        let services: [CBUUID] = [CBUUID (string: serviceUUID)]
+        let options: [String: Any] = [CBCentralManagerScanOptionAllowDuplicatesKey: true]
         
         if self.eddystoneParser == nil {
             self.eddystoneParser = EddystoneProtocolParser(
@@ -298,12 +296,12 @@ extension CBCentralWrapper: CBCentralManagerDelegate {
         }
     }
     
-    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
+    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String: Any]) {
         LogInfo("centralManager willRestoreState: \(dict)")
     }
     
-    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [AnyHashable : Any] else { return }
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {
+        guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? [AnyHashable: Any] else { return }
         
         let serviceUUID: String = EddystoneConstants.serviceUUID
         let serviceCBUUID = CBUUID(string: serviceUUID)

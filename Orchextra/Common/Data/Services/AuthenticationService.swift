@@ -60,8 +60,6 @@ class AuthenticationService: AuthenticationServiceInput {
                 let error = ErrorServiceHandler.parseErrorService(with: response)
                 LogError(response.error)
                 completion(.error(error))
-                break
-                
             }
         }
     }

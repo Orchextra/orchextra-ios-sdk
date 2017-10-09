@@ -30,7 +30,7 @@ class CustomScanner: GIGScannerVC, ModuleInput, GIGScannerOutput {
         self.stopScanning()
     }
     
-    func setConfig(config: [String : Any]) {
+    func setConfig(config: [String: Any]) {
         
     }
     

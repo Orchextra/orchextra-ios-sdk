@@ -10,7 +10,7 @@ import UIKit
 import GIGLibrary
 
 protocol TriggerInput {
-    func triggerWasFire(with values: [String : Any], module: ModuleInput)
+    func triggerWasFire(with values: [String: Any], module: ModuleInput)
 }
 
 class TriggerManager: TriggerInput {
@@ -34,7 +34,7 @@ class TriggerManager: TriggerInput {
     
     // MARK: - ModuleOutput
     
-    func triggerWasFire(with values: [String : Any], module: ModuleInput) {
+    func triggerWasFire(with values: [String: Any], module: ModuleInput) {
         
         guard let trigger = TriggerFactory.trigger(from: values) else {
             LogWarn("We can't match the trigger fired")

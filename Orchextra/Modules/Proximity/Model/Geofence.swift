@@ -35,7 +35,7 @@ struct Geofence: Region {
             let radiusDouble = config["radius"] as? Double,
             let stayTime = config["stayTime"] as? Int,
             let name = config["name"] as? String,
-            let pointDic = config["point"] as? [String : Any],
+            let pointDic = config["point"] as? [String: Any],
             let point = Point(from: pointDic)
         else { return nil }
 
