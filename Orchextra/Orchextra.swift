@@ -120,9 +120,11 @@ open class Orchextra {
     
     /**
      Initializes an Orchextra instance with ApiKey and ApiSecret.
+     
      - parameter apiKey: orchextra ApiKey
      - parameter apiSecret: orchextra ApiSecret
      - parameter completion: returns a callback Result<Bool, Error>
+     
      - Availability: 3.0.0
      */
     @available(*, introduced: 3.0.0, message: "use start: instead", renamed: "start")
@@ -142,28 +144,58 @@ open class Orchextra {
         OrchextraWrapper.shared.openEddystone(with: completionHandler)
     }
     
+    /**
+     Send request with ORX headers.
+     Orx will handle the accesstoken for all submodules.
+     
+     - parameter request: Request
+     - parameter completionHandler: returns a callback Response
+     - Availability: 3.0.0
+     */
+    public func sendOrxRequest(request: Request, completionHandler: @escaping (Response) -> Void) {
+        
+        
+    }
+    
     // MARK: Public trigger methods
     
-    
-    /// Method to set up a custom scanner with ModuleInput interface
-    ///
-    /// - Parameter vc: the scanner has to be a viewcontroller
+    /**
+     Method to set up a custom scanner with ModuleInput interface
+     - vc: the scanner has to be a viewcontroller
+     
+     - Since: 3.0
+     */
     public func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         OrchextraWrapper.shared.setScanner(vc: vc)
     }
     
+    /**
+     Set proximity module, if there is not module setup ORX will used the default one
+     
+     - Since: 3.0
+     */
     public func setProximity(proximityModule: ModuleInput) {
         OrchextraWrapper.shared.proximity = proximityModule
     }
     
+    /**
+     Open scanner module as a trigger from outside ORX.
+     
+     - Since: 1.0
+     */
     public func openScanner() {
         OrchextraWrapper.shared.openScanner()
     }
     
     public func openImageRecognition() {}
     
+    /**
+     Open scanner module as a trigger from outside ORX.
+     
+     - Since: 1.0
+     */
     public func remote(apnsToken: Data) {
-    
+        // TODO: remote apnsToken
     }
     
 //    // MARK: Public CRM methods
