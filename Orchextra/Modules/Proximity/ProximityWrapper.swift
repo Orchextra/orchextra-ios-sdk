@@ -63,7 +63,7 @@ class ProximityWrapper: ProximityInput {
         self.regions = regions
         for region in regions {
             let regionOrx = region.convertRegionModelOrx()
-            self.storage.saveGeofence(geofence: regionOrx)
+            self.storage.saveRegion(region: regionOrx)
         }
     }
     

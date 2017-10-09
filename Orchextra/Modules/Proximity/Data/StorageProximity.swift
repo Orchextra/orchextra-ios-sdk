@@ -9,8 +9,8 @@
 import Foundation
 
 protocol StorageProximityInput {
-    func saveGeofence(geofence: RegionModelOrx)
-    func removeGeofence(geofence: RegionModelOrx)
+    func saveRegion(region: RegionModelOrx)
+    func removeRegion(region: RegionModelOrx)
     func findElement(code: String) -> RegionModelOrx?
 }
 
@@ -31,37 +31,37 @@ struct StorageProximity: StorageProximityInput {
     
     // MARK: - Geofences
     
-    func saveGeofence(geofence: RegionModelOrx) {
-        var geofencesOrx = [RegionModelOrx]()
-        if let geofences = self.decode() {
-            geofencesOrx = geofences
+    func saveRegion(region: RegionModelOrx) {
+        var regionsOrx = [RegionModelOrx]()
+        if let regions = self.decode() {
+            regionsOrx = regions
         }
     
-        if !geofencesOrx.contains(where: { $0.code == geofence.code }) {
-            geofencesOrx.append(geofence)
-            self.encode(geofences: geofencesOrx)
+        if !regionsOrx.contains(where: { $0.code == region.code }) {
+            regionsOrx.append(region)
+            self.encode(regions: regionsOrx)
         }
     }
     
-    func removeGeofence(geofence: RegionModelOrx) {
-        var geofencesOrx = [RegionModelOrx]()
-        if let geofences = self.decode() {
-            geofencesOrx = geofences
+    func removeRegion(region: RegionModelOrx) {
+        var regionsOrx = [RegionModelOrx]()
+        if let regions = self.decode() {
+            regionsOrx = regions
         }
         if let indexGeofence = self.findIndex(
-            geofence: geofence, geofencesOrx: geofencesOrx) {
-            geofencesOrx.remove(at: indexGeofence)
+            region: region, regionsOrx: regionsOrx) {
+            regionsOrx.remove(at: indexGeofence)
         }
     }
     
-    func encode(geofences: [RegionModelOrx]) {
-        self.userDefaults.set(try? PropertyListEncoder().encode(geofences), forKey:keyGeofences)
+    func encode(regions: [RegionModelOrx]) {
+        self.userDefaults.set(try? PropertyListEncoder().encode(regions), forKey:keyGeofences)
     }
     
     func decode() -> [RegionModelOrx]? {
         if let data = self.userDefaults.value(forKey:keyGeofences) as? Data {
-            let geofences = try? PropertyListDecoder().decode([RegionModelOrx].self, from: data)
-            return geofences
+            let regions = try? PropertyListDecoder().decode([RegionModelOrx].self, from: data)
+            return regions
         }
         return nil
     }
@@ -75,8 +75,8 @@ struct StorageProximity: StorageProximityInput {
         return nil
     }
     
-    func findIndex(geofence: RegionModelOrx, geofencesOrx: [RegionModelOrx]) -> Int? {
-        if let i = geofencesOrx.index(where: { $0.code == geofence.code }) {
+    func findIndex(region: RegionModelOrx, regionsOrx: [RegionModelOrx]) -> Int? {
+        if let i = regionsOrx.index(where: { $0.code == region.code }) {
             return i
         }
         return nil

@@ -11,23 +11,22 @@ import UIKit
 
 class StorageProximityMock: StorageProximityInput {
 
-    var spySaveGeofence: (called: Bool, geofence: GeofenceOrx)!
-    var spyRemoveGeofence: (called: Bool, geofence: GeofenceOrx)!
+    var spySaveRegion: (called: Bool, region: RegionModelOrx)!
+    var spyRemoveRegion: (called: Bool, region: RegionModelOrx)!
     var spyFindElement = (called: false, code: "")
-    var geofenceInput: GeofenceOrx?
+    var regionInput: RegionModelOrx?
 
-    func saveGeofence(geofence: GeofenceOrx) {
-        self.spySaveGeofence = (called: true, geofence: geofence)
+    func saveRegion(region: RegionModelOrx) {
+        self.spySaveRegion = (called: true, region: region)
     }
     
-    func removeGeofence(geofence: GeofenceOrx) {
-        self.spyRemoveGeofence = (called: true, geofence: geofence)
+    func removeRegion(region: RegionModelOrx) {
+        self.spyRemoveRegion = (called: true, region: region)
     }
     
-    func findElement(code: String) -> GeofenceOrx? {
+    func findElement(code: String) -> RegionModelOrx? {
         self.spyFindElement.called = true
         self.spyFindElement.code = code
-        
-        return geofenceInput
+        return regionInput
     }
 }

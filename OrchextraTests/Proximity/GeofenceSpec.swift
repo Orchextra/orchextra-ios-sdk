@@ -69,7 +69,7 @@ class GeofenceSpec: QuickSpec {
                     
                     expect(self.locationWrapperMock.spyStopAllMonitoredRegionsCalled).toEventually(equal(true))
                     expect(self.locationWrapperMock.spyMonitoring.called).toEventually(equal(true))
-                    expect(self.storageProximityMock.spySaveGeofence.called).toEventually(equal(true))
+                    expect(self.storageProximityMock.spySaveRegion.called).toEventually(equal(true))
                     expect(self.locationWrapperMock.spyMonitoring.monitoring.count).toEventually(equal(3))
                 }
             })
