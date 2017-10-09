@@ -127,6 +127,7 @@ extension CustomScannerVC: CustomScannerUI {
 }
 
 extension CustomScannerVC: ModuleInput {
+    
     func start() {
         self.presenter?.startModule()
     }

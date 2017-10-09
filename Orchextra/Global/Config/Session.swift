@@ -13,7 +13,8 @@ class Session {
     
     static let shared = Session()
     let userDefault: UserDefaults
-    
+
+    // Attributes core
     private let keyAccessToken = "accesstoken"
     private let keyCredentials = "credentials"
 
@@ -33,7 +34,6 @@ class Session {
     func loadAccesstoken() -> String? {
         return self.userDefault.unarchiveObject(forKey: keyAccessToken) as? String
     }
-    
     
     /// Method to store apikey and apisecret
     ///

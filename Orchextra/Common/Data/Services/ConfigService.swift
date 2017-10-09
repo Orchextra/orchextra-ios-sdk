@@ -11,7 +11,8 @@ import GIGLibrary
 
 protocol ConfigServiceInput {
     func configCore(completion: @escaping (Result<Bool, Error>) -> Void)
-    func configTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
+    func configTriggering(completion: @escaping (Result<JSON, Error>) -> Void)
+    func listTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
 }
 
 class ConfigService: ConfigServiceInput {
@@ -64,7 +65,39 @@ class ConfigService: ConfigServiceInput {
         }
     }
     
-    func configTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
+    func configTriggering(completion: @escaping (Result<JSON, Error>) -> Void) {
+        guard let apiKey = Session.shared.apiKey else {
+            completion(.error(ErrorService.invalidCredentials))
+            return
+        }
+        
+        let endPoint = endpointConfig + "/\(apiKey)"
+        
+        let request = Request(
+            method: "GET",
+            baseUrl: Config.triggeringEndpoint,
+            endpoint: endPoint,
+            verbose: Orchextra.shared.logLevel == .debug)
+        
+        request.fetch { response in
+            switch response.status {
+            case .success:
+                do {
+                    let json = try response.json()
+                    completion(.success(json))
+                } catch {
+                    completion(.error(ErrorService.invalidJSON))
+                    LogError(ErrorService.invalidJSON as NSError)
+                }
+            default:
+                let error = ErrorServiceHandler.parseErrorService(with: response)
+                LogError(response.error)
+                completion(.error(error))
+            }
+        }
+    }
+    
+    func listTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void) {
 
         let request = Request.orchextraRequest(
             method: "POST",

@@ -27,6 +27,8 @@ class Beacon: Region {
     var minor: Int?
     var currentProximity: CLProximity?
     
+    lazy var storage = StorageProximity()
+    
     // Private attributes
     
     fileprivate var canUseImmediate = true
@@ -200,10 +202,14 @@ extension Beacon {
         if let proximityTimer = timer {
             self.invalidateTimer(timer: proximityTimer)
         }
-       
-        let requestWaitTime = 120.0
+        
+        var rwt = 120.0
+        if let requestWaitTime = self.storage.loadRequestWaitTime() {
+            rwt = Double(requestWaitTime)
+        }
+        
         if #available(iOS 10.0, *) {
-            Timer.scheduledTimer(withTimeInterval: requestWaitTime, repeats: false, block: { _ in
+            Timer.scheduledTimer(withTimeInterval: rwt, repeats: false, block: { _ in
                 self.changeProximityState(proximity: proximity)
             })
         } else {

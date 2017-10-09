@@ -10,6 +10,7 @@ import Foundation
 import GIGLibrary
 
 protocol ConfigInteractorInput {
+    func loadTriggeringConfig(completion: @escaping (JSON?) -> Void)
     func loadCoreConfig(completion: @escaping (Result<Bool, Error>) -> Void)
     func loadTriggeringList(geolocation: [String: Any], completion: @escaping (([String: Any]) -> Void))
 }
@@ -46,8 +47,19 @@ class ConfigInteractor: ConfigInteractorInput {
         }
     }
     
+    func loadTriggeringConfig(completion: @escaping (JSON?) -> Void) {
+        self.configService.configTriggering { result in
+            switch result {
+            case .success(let json):
+                completion(json)
+            case .error:
+                completion(nil)
+            }
+        }
+    }
+    
     func loadTriggeringList(geolocation: [String: Any], completion: @escaping (([String: Any]) -> Void)) {
-        self.configService.configTriggering(geoLocation: geolocation) { result in
+        self.configService.listTriggering(geoLocation: geolocation) { result in
             switch result {
             case .success(let json):
                 guard let proximityResult = json.toDictionary() else {

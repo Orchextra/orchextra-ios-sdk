@@ -12,11 +12,15 @@ protocol StorageProximityInput {
     func saveRegion(region: RegionModelOrx)
     func removeRegion(region: RegionModelOrx)
     func findElement(code: String) -> RegionModelOrx?
+    
+    func saveRequestWaitTime(rwt: Int)
+    func loadRequestWaitTime() -> Int?
 }
 
 struct StorageProximity: StorageProximityInput {
     
-    private let keyGeofences = "keyGeofences"
+    private let keyRegions = "keyRegions"
+    private let keyRequestWaitTime = "keyRequestWaitTime"
 
     let userDefaults: UserDefaults
     
@@ -29,7 +33,7 @@ struct StorageProximity: StorageProximityInput {
         self.userDefaults = userDefaults
     }
     
-    // MARK: - Geofences
+    // MARK: - Regions
     
     func saveRegion(region: RegionModelOrx) {
         var regionsOrx = [RegionModelOrx]()
@@ -54,18 +58,6 @@ struct StorageProximity: StorageProximityInput {
         }
     }
     
-    func encode(regions: [RegionModelOrx]) {
-        self.userDefaults.set(try? PropertyListEncoder().encode(regions), forKey: keyGeofences)
-    }
-    
-    func decode() -> [RegionModelOrx]? {
-        if let data = self.userDefaults.value(forKey: keyGeofences) as? Data {
-            let regions = try? PropertyListDecoder().decode([RegionModelOrx].self, from: data)
-            return regions
-        }
-        return nil
-    }
-    
     func findElement(code: String) -> RegionModelOrx? {
         if let geofences = self.decode() {
             if let i = geofences.index(where: { $0.code == code }) {
@@ -75,7 +67,31 @@ struct StorageProximity: StorageProximityInput {
         return nil
     }
     
-    func findIndex(region: RegionModelOrx, regionsOrx: [RegionModelOrx]) -> Int? {
+    // Methods to store and retrieve request wait time
+    
+    func saveRequestWaitTime(rwt: Int) {
+        self.userDefaults.set(rwt, forKey: keyRequestWaitTime)
+    }
+    
+    func loadRequestWaitTime() -> Int? {
+        return self.userDefaults.value(forKey: keyRequestWaitTime) as? Int
+    }
+    
+    // MARK: - Encode & Decode
+    
+    private func encode(regions: [RegionModelOrx]) {
+        self.userDefaults.set(try? PropertyListEncoder().encode(regions), forKey: keyRegions)
+    }
+    
+    private func decode() -> [RegionModelOrx]? {
+        if let data = self.userDefaults.value(forKey: keyRegions) as? Data {
+            let regions = try? PropertyListDecoder().decode([RegionModelOrx].self, from: data)
+            return regions
+        }
+        return nil
+    }
+    
+    private func findIndex(region: RegionModelOrx, regionsOrx: [RegionModelOrx]) -> Int? {
         if let i = regionsOrx.index(where: { $0.code == region.code }) {
             return i
         }

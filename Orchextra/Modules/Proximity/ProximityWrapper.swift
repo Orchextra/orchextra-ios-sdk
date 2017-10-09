@@ -82,7 +82,7 @@ class ProximityWrapper: ProximityInput {
                 self.locationWrapper.monitoring(regions: regions)
             }
             
-            LogInfo("Finish start monitoring")
+            LogInfo("Finish start monitoring: \(self.regions?.count ?? 0) regions")
         }
     }
     

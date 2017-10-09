@@ -85,11 +85,8 @@ class OrchextraWrapper {
                 }
             })
         } else {
-            self.configInteractor.loadCoreConfig(completion: completion)
+            self.coreConfiguration(completion: completion)
         }
-        
-        self.openProximity()
-        self.openEddystone()
         
         self.applicationCenter.observeAppDelegateEvents()
     }
@@ -116,12 +113,13 @@ class OrchextraWrapper {
     
     // MARK: - Proximity
     
-    func openProximity() {
+    func openProximity(config: [String: Any]) {
         if self.proximity == nil {
             self.proximity = ProximityModule()
         }
         self.proximity?.outputModule = self.moduleOutputWrapper
         self.proximity?.start()
+        self.proximity?.setConfig(params: config)
     }
     
     func setProximity(proximityModule: ModuleInput) {
@@ -154,11 +152,36 @@ class OrchextraWrapper {
         let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
         LogDebug("APNS Token:" + token)
     }
+    
+    // MARK: - Configuration Modules
+    
+    public func configuration(module: Modules, json: JSON) -> [String: Any]? {
+        switch module {
+        case .proximity:
+            if let requestWaitTime = json["requestWaitTime"]?.toInt() {
+                return ["requestWaitTime": requestWaitTime]
+            }
+        default:
+            break
+        }
+        return nil
+    }
 }
 
 extension OrchextraWrapper {
     
     func coreConfiguration(completion: @escaping (Result<Bool, Error>) -> Void) {
+        
+        // Core configuration
         self.configInteractor.loadCoreConfig(completion: completion)
+        
+        // Modules configuration
+        self.configInteractor.loadTriggeringConfig { jsonConfig in
+            if  let json = jsonConfig,
+                let proximityConfig = self.configuration(module: .proximity, json: json) {
+                self.openProximity(config: proximityConfig)
+            }
+        }
+        self.openEddystone()
     }
 }

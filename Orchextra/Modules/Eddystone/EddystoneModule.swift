@@ -31,7 +31,8 @@ class EddystoneModule: ModuleInput {
     
     // Start monitoring the regions
     func start() {
-        self.outputModule?.setConfig(completion: { config in
+        LogInfo("Start Eddystone Module")
+        self.outputModule?.fetchModuleConfig(completion: { config in
             self.parseEddystone(params: config)
         })
     }
@@ -42,6 +43,7 @@ class EddystoneModule: ModuleInput {
     ///   - action: which has started the finish flow.
     ///   - completionHandler: let know the integrative app that the services is finished.
     func finish(action: Action?, completionHandler: (() -> Void)?) {
+        LogInfo("Finish Eddystone Module")
         self.eddystoneWrapper.stopEddystoneScanner()
         if let completion = completionHandler {
             completion()

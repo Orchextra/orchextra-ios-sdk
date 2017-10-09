@@ -29,7 +29,7 @@ struct ModuleOutputWrapper: ModuleOutput {
         self.triggerManager.triggerWasFire(with: values, module: module)
     }
     
-    func setConfig(config: [String: Any]? = nil, completion: @escaping (([String: Any]) -> Void)) {
+    func fetchModuleConfig(config: [String: Any]? = nil, completion: @escaping (([String: Any]) -> Void)) {
         
         var configDefault: [String: Any] = ["geoLocation": ""]
         if let configModule = config {

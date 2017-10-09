@@ -14,6 +14,12 @@ public enum Environment {
     case production
 }
 
+enum Modules {
+    case proximity
+    case eddystones
+    case imageRecognition
+}
+
 class Config {
 
     static var SDKVersion: String {

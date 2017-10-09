@@ -135,6 +135,7 @@
 		A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */ = {isa = PBXBuildFile; fileRef = A98B52D21F5E92100082BB2F /* geomarketing.json */; };
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
 		A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */; };
+		A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99516731F8BC75F00C59BA1 /* ImageRecognition.swift */; };
 		A9986B291F59764E00F2CC65 /* ActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B261F59764E00F2CC65 /* ActionManager.swift */; };
 		A9986B2A1F59764E00F2CC65 /* PushOrxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B271F59764E00F2CC65 /* PushOrxManager.swift */; };
 		A9986B2B1F59764E00F2CC65 /* TriggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B281F59764E00F2CC65 /* TriggerManager.swift */; };
@@ -369,6 +370,7 @@
 		A98B52D21F5E92100082BB2F /* geomarketing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geomarketing.json; sourceTree = "<group>"; };
 		A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationWrapper.swift; path = Proximity/LocationWrapper.swift; sourceTree = "<group>"; };
 		A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityModule.swift; path = Proximity/ProximityModule.swift; sourceTree = "<group>"; };
+		A99516731F8BC75F00C59BA1 /* ImageRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognition.swift; sourceTree = "<group>"; };
 		A9986B261F59764E00F2CC65 /* ActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionManager.swift; path = Managers/ActionManager.swift; sourceTree = "<group>"; };
 		A9986B271F59764E00F2CC65 /* PushOrxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushOrxManager.swift; path = Managers/PushOrxManager.swift; sourceTree = "<group>"; };
 		A9986B281F59764E00F2CC65 /* TriggerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerManager.swift; path = Managers/TriggerManager.swift; sourceTree = "<group>"; };
@@ -859,10 +861,9 @@
 		A95E67F41F5D9596001D8B19 /* Proximity */ = {
 			isa = PBXGroup;
 			children = (
+				A99516751F8BCBBC00C59BA1 /* Wrappers */,
 				A96C0E8F1F6987EC00338B1B /* Data */,
 				A95E67F71F5D9E9B001D8B19 /* Model */,
-				A95E67F51F5D96BB001D8B19 /* ProximityWrapper.swift */,
-				A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */,
 				A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */,
 			);
 			name = Proximity;
@@ -970,6 +971,15 @@
 				A978C5DB1F45A43900F5DFFD /* SessionMock.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A99516751F8BCBBC00C59BA1 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				A95E67F51F5D96BB001D8B19 /* ProximityWrapper.swift */,
+				A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */,
+			);
+			name = Wrappers;
 			sourceTree = "<group>";
 		};
 		A9986B301F5976B600F2CC65 /* Notification */ = {
@@ -1173,6 +1183,7 @@
 			children = (
 				A9C54DE71F41ACA400DF2074 /* Config.swift */,
 				A9C54DE91F41AD5000DF2074 /* Session.swift */,
+				A99516731F8BC75F00C59BA1 /* ImageRecognition.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1522,6 +1533,7 @@
 				A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */,
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
+				A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */,
 				8F299C5B1F6691060023F69D /* EddystoneRegionManager.swift in Sources */,
 				A92570701F878DD500C1067E /* ApplicationCenter.swift in Sources */,
 				A95E67F61F5D96BB001D8B19 /* ProximityWrapper.swift in Sources */,
