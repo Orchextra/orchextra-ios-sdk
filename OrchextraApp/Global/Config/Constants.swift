@@ -17,17 +17,16 @@ struct Constants {
 //    static let apiSecret    = "2d5bce79e3e6e9cabf6d7b040d84519197dc22f3"
 //    static let projectName  = "ANDROID SDK"
     
-//    static let apiKey       = "d4a03e91a8d86db81b6981218e5782ef52800a12"
-//    static let apiSecret    = "21fa16e12ef489631c0b69406943c5ec811dd767"
-//    static let projectName  = "SHOW&TELL"
+    static let apiKey       = "d4a03e91a8d86db81b6981218e5782ef52800a12"
+    static let apiSecret    = "21fa16e12ef489631c0b69406943c5ec811dd767"
+    static let projectName  = "SHOW&TELL"
 
-    
 //    static let apiKey       = "key"
 //    static let apiSecret    = "secret"
 //    static let projectName  = "DEMO"
     
 
-    static let apiKey       = "eb58d2654fa8db064c777da03bfe34d0ade89582"
-    static let apiSecret    = "63717acaa17a0ad3abeb0f581e2d9f198b6ec558"
-    static let projectName  = "Prueba"
+//    static let apiKey       = "eb58d2654fa8db064c777da03bfe34d0ade89582"
+//    static let apiSecret    = "63717acaa17a0ad3abeb0f581e2d9f198b6ec558"
+//    static let projectName  = "Prueba"
 }

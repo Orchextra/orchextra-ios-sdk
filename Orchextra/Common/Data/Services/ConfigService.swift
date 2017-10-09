@@ -73,18 +73,5 @@ class ConfigService: ConfigServiceInput {
             bodyParams: geoLocation)
         
         self.authInteractor.sendRequest(request: request, completion: completion)
-        
-//        self.authInteractor.sendRequest(request: request) { response in
-//            switch response {
-//            case .success(let json):
-//                completion(.success(json))
-//
-//            case .error(let error):
-//                let error = ErrorServiceHandler.parseErrorService(with: response)
-//                LogError(response.error)
-//                completion(.error(error))
-//                break
-//            }
-//        }
     }
 }

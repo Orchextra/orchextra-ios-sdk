@@ -77,8 +77,13 @@ class ProximityModule: ModuleInput {
             let beaconsModule = self.parseProximity(regions: beacons)
             regionsInModule.append(contentsOf: beaconsModule)
         }
-        self.proximityWrapper.register(regions: regionsInModule)
-        self.proximityWrapper.startMonitoring()
+        
+        if regionsInModule.count > 0 {
+            self.proximityWrapper.register(regions: regionsInModule)
+            self.proximityWrapper.startMonitoring()
+        } else {
+            LogWarn("There are not beacon_region/geofences to start proximity module")
+        }
     }
     
     private func parseProximity(regions: [[String: Any]]) -> [Region] {

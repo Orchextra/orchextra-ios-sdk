@@ -55,8 +55,9 @@ class ConfigInteractor: ConfigInteractorInput {
                     return
                 }
                 completion(proximityResult)
-            case .error: break
-                // TODO: Handle Error
+            case .error:
+                LogWarn("Triggering list can't be load it.")
+                completion([ : ])
             }
         }
     }

@@ -94,7 +94,13 @@ class OrchextraWrapper {
         self.applicationCenter.observeAppDelegateEvents()
     }
     
-    // MARK: - Modules
+    func sendOrxRequest(request: Request, completionHandler: @escaping (Response) -> Void) {
+//        self.authInteractor.sendRequest(request: request) { response in
+//
+//        }
+    }
+    
+    // MARK: - MODULES
     
     // MARK: - Scan
     
