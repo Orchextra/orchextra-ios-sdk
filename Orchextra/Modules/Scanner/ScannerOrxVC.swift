@@ -34,27 +34,24 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.scannerOutput = self
         self.presenter.vc = self
         self.presenter.outputModule = self.outputModule
-//        self.presenter.startModule()
         self.initializeOrxScanner()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.stopScanner()
+        self.presenter.resetScanner()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let granted = self.isCameraAvailable() else {
-            return
-        }
-        
-        if !granted {
-            self.showCameraPermissionAlert()
-        } else {
-            self.presenter.startModule()
-
+        self.isCameraAvailable { granted in
+            if !granted {
+                self.showCameraPermissionAlert()
+            } else {
+                self.presenter.startModule()
+            }
         }
     }
 
@@ -97,14 +94,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     // MARK: - ScannerUI
     
     func showScanner() {
-        guard let granted = self.isCameraAvailable() else {
-            LogWarn("Camera is not enable")
-            return
-        }
-        
-        if granted {
-            self.startScanning()
-        }
+        self.startScanning()
     }
     
     func stopScanner() {
@@ -152,8 +142,10 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     }
 
     func hideInfo() {
-        UIView.animate(withDuration: 0.1) {
-            self.infoLabel.alpha = 0
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.1) {
+                self.infoLabel.alpha = 0
+            }
         }
     }
     

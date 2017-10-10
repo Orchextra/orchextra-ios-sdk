@@ -125,11 +125,6 @@ extension HomeVC: Instantiable {
     
     // MARK: - Instantiable
     
-    public static func storyboard() -> String {
-        return "Home"
-    }
-    
-    public static func identifier() -> String? {
-        return "HomeVC"
-    }
+    static var storyboard = "Home"
+    static var identifier = "HomeVC"
 }

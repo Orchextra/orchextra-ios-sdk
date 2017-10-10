@@ -10,7 +10,7 @@ import UIKit
 import GIGLibrary
 import Orchextra
 
-class CustomScannerVC: GIGScannerVC {
+class CustomScannerVC: GIGLibrary.GIGScannerVC {
     // MARK: - IBOutlets
     @IBOutlet weak var viewStatus: UIView!
     @IBOutlet weak var infoStatusLabel: UILabel!
@@ -42,7 +42,7 @@ class CustomScannerVC: GIGScannerVC {
     }
 }
 
-extension CustomScannerVC: GIGScannerOutput {
+extension CustomScannerVC: GIGLibrary.GIGScannerOutput {
     func didSuccessfullyScan(_ scannedValue: String, type: String) {
         self.presenter?.scannerDidFinishCapture(value: scannedValue, type: type)
     }
@@ -69,14 +69,7 @@ extension CustomScannerVC: CustomScannerUI {
     }
     
     func showScanner() {
-        guard let granted = self.isCameraAvailable() else {
-            LogWarn("Camera is not enable")
-            return
-        }
-        
-        if granted {
-            self.startScanning()
-        }
+        self.startScanning()
     }
     
     func stopScanner() {
@@ -141,11 +134,7 @@ extension CustomScannerVC: Instantiable {
     
     // MARK: - Instantiable
     
-    public static func storyboard() -> String {
-        return "Scanner"
-    }
-    
-    public static func identifier() -> String? {
-        return "CustomScannerVC"
-    }
+    static var storyboard = "Scanner"
+    static var identifier = "CustomScannerVC"
+
 }

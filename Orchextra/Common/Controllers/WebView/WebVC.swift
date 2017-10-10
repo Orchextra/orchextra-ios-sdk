@@ -123,13 +123,9 @@ class WebVC: UIViewController {
 }
 
 extension WebVC: Instantiable {
-    public static func storyboard() -> String {
-        return "WebView"
-    }
     
-    public static func identifier() -> String? {
-        return "WebVC"
-    }
+    static var storyboard = "WebView"
+    static var identifier = "WebVC"
 }
 
 extension WebVC: WebView {

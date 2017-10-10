@@ -101,11 +101,7 @@ extension LogsVC: Instantiable {
     
     // MARK: - Instantiable
     
-    public static func storyboard() -> String {
-        return "Triggering"
-    }
+    static var storyboard = "Triggering"
+    static var identifier = "LogsVC"
     
-    public static func identifier() -> String? {
-        return "LogsVC"
-    }
 }

@@ -49,8 +49,14 @@ class ScannerPresenter: ScannerInput {
         self.vc?.showScanner()
     }
     
+    func resetScanner() {
+        self.enableTorchScanner = false
+        self.vc?.enableTorch(enable: self.enableTorchScanner)
+    }
+    
     func userDidCloseScanner() {
-        self.vc?.enableTorch(enable: false)
+        self.enableTorchScanner = false
+        self.vc?.enableTorch(enable: self.enableTorchScanner)
         self.vc?.dismissScanner(completion: nil)
     }
     

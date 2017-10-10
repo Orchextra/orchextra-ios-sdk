@@ -43,7 +43,9 @@ class Wireframe {
     ///
     /// - Parameter url:
     func openWebView(url: URL) {
-        guard let webVC = try? Instantiator<WebVC>().viewController() else { return }
+        guard let webVC = try? WebVC.instantiateFromStoryboard() else {
+            LogWarn("WebVC not found")
+            return }
         
         let presenter = WebPresenter(webView: webVC)
         webVC.presenter = presenter

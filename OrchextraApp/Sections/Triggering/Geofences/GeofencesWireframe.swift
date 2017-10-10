@@ -15,7 +15,9 @@ struct GeofencesWireframe {
     ///
     /// - Returns: Geofences View Controller with all dependencies
     func showGeofences() -> GeofencesVC? {
-        guard let viewController = try? Instantiator<GeofencesVC>().viewController() else { return nil }
+        guard let viewController = try? GeofencesVC.instantiateFromStoryboard() else {
+            LogWarn("GeofencesVC not found")
+            return nil }
         let presenter = GeofencesPresenter(
             view: viewController,
             wireframe: self

@@ -22,7 +22,9 @@ class LogsWireframe {
     ///
     /// - Returns: Logs View Controller with all dependencies
     func showLogs() -> LogsVC? {
-        guard let viewController = try? Instantiator<LogsVC>().viewController() else { return nil }
+        guard let viewController = try? LogsVC.instantiateFromStoryboard() else {
+            LogWarn("LogsVC not found")
+            return nil }
         let filterInteractor = FilterInteractor()
         let interactor = LogsInteractor(filterInteractor: filterInteractor)
         let presenter = LogsPresenter(

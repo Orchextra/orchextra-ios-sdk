@@ -61,13 +61,9 @@ extension GeofencesVC: Instantiable {
     
     // MARK: - Instantiable
     
-    public static func storyboard() -> String {
-        return "Triggering"
-    }
+    static var storyboard = "Triggering"
+    static var identifier = "GeofencesVC"
     
-    public static func identifier() -> String? {
-        return "GeofencesVC"
-    }
 }
 
 extension GeofencesVC: MKMapViewDelegate {

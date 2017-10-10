@@ -69,11 +69,7 @@ extension TriggeringVC: Instantiable {
     
     // MARK: - Instantiable
     
-    public static func storyboard() -> String {
-        return "Triggering"
-    }
+    static var storyboard = "Triggering"
+    static var identifier = "TriggeringVC"
     
-    public static func identifier() -> String? {
-        return "TriggeringVC"
-    }
 }
