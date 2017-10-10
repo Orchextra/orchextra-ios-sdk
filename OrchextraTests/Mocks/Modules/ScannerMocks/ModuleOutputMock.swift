@@ -24,7 +24,7 @@ class ModuleOutputMock: ModuleOutput {
         self.spyTriggerWasFireModuleInput = module
     }
     
-    func setConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void)) {
+    func fetchModuleConfig(config: [String : Any]?, completion: @escaping (([String : Any]) -> Void)) {
         self.spySetConfig.called = true
         self.spySetConfig.config = config
         
