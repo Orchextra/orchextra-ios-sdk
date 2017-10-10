@@ -24,7 +24,8 @@ public protocol ModuleInput {
     
     /// Set Configuration for an specific module
     ///
-    /// - Parameter params:
+    /// - Parameters:
+    ///     - params: params 
     func setConfig(params: [String: Any])
 }
 
@@ -63,15 +64,19 @@ public protocol ModuleOutput {
 
 public extension ModuleOutput {
     
-    /// Set Config
+    /// Fetch Config without configuration parameteres
     ///
     /// - Parameters:
-    ///   - config: params to get the config from the core
     ///   - completion: the configuration response for the module
     func fetchModuleConfig(completion: @escaping (([String: Any]) -> Void)) {
         self.fetchModuleConfig(config: nil, completion: completion)
     }
 
+    /// Fetch Config with configuration parameters
+    ///
+    /// - Parameters:
+    ///   - config: params to get the config from the core
+    ///   - completion: the configuration response for the module
     func fetchModuleConfig(config: [String: Any]? = nil, completion: @escaping (([String: Any]) -> Void)) { }
 
 }
