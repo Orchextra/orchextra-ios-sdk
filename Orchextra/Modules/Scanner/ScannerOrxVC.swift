@@ -34,7 +34,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.scannerOutput = self
         self.presenter.vc = self
         self.presenter.outputModule = self.outputModule
-        self.presenter.startModule()
+//        self.presenter.startModule()
         self.initializeOrxScanner()
     }
     
@@ -52,6 +52,9 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         
         if !granted {
             self.showCameraPermissionAlert()
+        } else {
+            self.presenter.startModule()
+
         }
     }
 
