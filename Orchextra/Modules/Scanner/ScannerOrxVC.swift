@@ -25,8 +25,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     
     // Private
     fileprivate var presenter = ScannerPresenter()
-    private var enableTorchScanner: Bool = false
-
+    
     // MARK: -
     
     override func viewDidLoad() {
@@ -37,6 +36,11 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.presenter.outputModule = self.outputModule
         self.presenter.startModule()
         self.initializeOrxScanner()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.stopScanner()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,12 +84,11 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     }
     
     @IBAction func torchTapped(_ sender: Any) {
-        self.enableTorchScanner = !self.enableTorchScanner
-        self.enableTorch(self.enableTorchScanner)
+        self.presenter.userDidTappedTorch()
     }
     
     @IBAction func closeScannerTapped(_ sender: Any) {
-        self.dismissScanner(completion: nil)
+        self.presenter.userDidCloseScanner()
     }
     
     // MARK: - ScannerUI
@@ -104,6 +107,11 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     func stopScanner() {
         self.stopScanning()
     }
+    
+    func enableTorch(enable: Bool) {
+        self.enableTorch(enable)
+    }
+
     
     func dismissScanner(completion: (() -> Void)?) {
         self.dismiss(animated: true) { 

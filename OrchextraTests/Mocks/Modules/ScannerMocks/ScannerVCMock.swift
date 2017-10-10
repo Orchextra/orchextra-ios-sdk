@@ -21,7 +21,8 @@ class ScannerVCMock: ScannerUI, ModuleInput {
     var spyShowCameraPermissionAlertCalled = false
     var spyShow = (called: false, scannedValue: "", message: "")
     var spyShowimage = (called: false, image: "", message: "")
-    
+    var spyEnableTorch = (called: false, enable: false)
+
     // MARK: - Attributes ModuleInput
 
     var outputModule: ModuleOutput?
@@ -51,6 +52,11 @@ class ScannerVCMock: ScannerUI, ModuleInput {
         self.spyShowimage.called = true
         self.spyShowimage.image = image
         self.spyShowimage.message = message
+    }
+    
+    func enableTorch(enable: Bool) {
+        self.spyEnableTorch.called = true
+        self.spyEnableTorch.enable = enable
     }
     
     func hideInfo() {
