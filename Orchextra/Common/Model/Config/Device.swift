@@ -22,7 +22,7 @@ struct Device {
     let buildVersion: String
     let device = UIDevice.current
     var businessUnits: [BusinessUnit]
-    var tags:[Tag]
+    var tags: [Tag]
 
     init() {
         self.advertiserId = ASIdentifierManager.shared().advertisingIdentifier.uuidString

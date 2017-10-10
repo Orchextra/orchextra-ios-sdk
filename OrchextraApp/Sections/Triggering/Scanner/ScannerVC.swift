@@ -53,11 +53,7 @@ extension ScannerVC: Instantiable {
     
     // MARK: - Instantiable
     
-    public static func storyboard() -> String {
-        return "Triggering"
-    }
+    static var storyboard = "Triggering"
+    static var identifier = "ScannerVC"
     
-    public static func identifier() -> String? {
-        return "ScannerVC"
-    }
 }

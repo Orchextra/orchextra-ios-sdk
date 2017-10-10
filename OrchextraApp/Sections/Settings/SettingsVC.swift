@@ -84,11 +84,7 @@ extension SettingsVC: Instantiable {
     
     // MARK: - Instantiable
     
-    public static func storyboard() -> String {
-        return "Settings"
-    }
+    static var storyboard = "Settings"
+    static var identifier = "SettingsVC"
     
-    public static func identifier() -> String? {
-        return "SettingsVC"
-    }
 }

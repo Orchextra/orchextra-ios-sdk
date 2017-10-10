@@ -16,7 +16,9 @@ struct SettingsWireframe {
     ///
     /// - Returns: Settings View Controller with all dependencies
     func showSettings() -> SettingsVC? {
-        guard let viewController = try? Instantiator<SettingsVC>().viewController() else { return nil }
+        guard let viewController = try? SettingsVC.instantiateFromStoryboard() else {
+            LogWarn("SettingsVC not found")
+            return nil }
         
         let presenter = SettingsPresenter(
             view: viewController,

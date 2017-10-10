@@ -16,7 +16,9 @@ struct ScannerWireframe {
     ///
     /// - Returns: Scanner View Controller with all dependencies
     func showScanner() -> ScannerVC? {
-        guard let viewController = try? Instantiator<ScannerVC>().viewController() else { return nil }
+        guard let viewController = try? ScannerVC.instantiateFromStoryboard() else {
+            LogWarn("ScannerVC not found")
+            return nil }
         let interactor = ScannerInteractor()
         let presenter = ScannerPresenter(
             view: viewController,

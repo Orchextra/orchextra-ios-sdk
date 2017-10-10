@@ -17,7 +17,9 @@ class TriggeringWireframe {
     ///
     /// - Returns: Triggering View Controller with all dependencies
     func showTriggering() -> TriggeringVC? {
-        guard let viewController = try? Instantiator<TriggeringVC>().viewController() else { return nil }
+        guard let viewController = try? TriggeringVC.instantiateFromStoryboard() else {
+            LogWarn("TriggeringVC not found")
+            return nil }
         let presenter = TriggeringPresenter(
             view: viewController,
             wireframe: self,

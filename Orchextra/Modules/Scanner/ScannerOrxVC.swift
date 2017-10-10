@@ -25,8 +25,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     
     // Private
     fileprivate var presenter = ScannerPresenter()
-    private var enableTorchScanner: Bool = false
-
+    
     // MARK: -
     
     override func viewDidLoad() {
@@ -35,19 +34,24 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         self.scannerOutput = self
         self.presenter.vc = self
         self.presenter.outputModule = self.outputModule
-        self.presenter.startModule()
         self.initializeOrxScanner()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.stopScanner()
+        self.presenter.resetScanner()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let granted = self.isCameraAvailable() else {
-            return
-        }
-        
-        if !granted {
-            self.showCameraPermissionAlert()
+        self.isCameraAvailable { granted in
+            if !granted {
+                self.showCameraPermissionAlert()
+            } else {
+                self.presenter.startModule()
+            }
         }
     }
 
@@ -80,30 +84,27 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     }
     
     @IBAction func torchTapped(_ sender: Any) {
-        self.enableTorchScanner = !self.enableTorchScanner
-        self.enableTorch(self.enableTorchScanner)
+        self.presenter.userDidTappedTorch()
     }
     
     @IBAction func closeScannerTapped(_ sender: Any) {
-        self.dismissScanner(completion: nil)
+        self.presenter.userDidCloseScanner()
     }
     
     // MARK: - ScannerUI
     
     func showScanner() {
-        guard let granted = self.isCameraAvailable() else {
-            LogWarn("Camera is not enable")
-            return
-        }
-        
-        if granted {
-            self.startScanning()
-        }
+        self.startScanning()
     }
     
     func stopScanner() {
         self.stopScanning()
     }
+    
+    func enableTorch(enable: Bool) {
+        self.enableTorch(enable)
+    }
+
     
     func dismissScanner(completion: (() -> Void)?) {
         self.dismiss(animated: true) { 
@@ -141,8 +142,10 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     }
 
     func hideInfo() {
-        UIView.animate(withDuration: 0.1) {
-            self.infoLabel.alpha = 0
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.1) {
+                self.infoLabel.alpha = 0
+            }
         }
     }
     

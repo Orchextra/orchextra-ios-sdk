@@ -12,6 +12,7 @@ import GIGLibrary
 protocol ScannerUI {
     func showScanner()
     func stopScanner()
+    func enableTorch(enable: Bool)
     func dismissScanner(completion: (() -> Void)?)
     func show(scannedValue: String, message: String)
     func show(image: String, message: String)
@@ -38,6 +39,8 @@ class ScannerPresenter: ScannerInput {
     var outputModule: ModuleOutput?
     
     private var waitingUntilResponseFromOrx: Bool = false
+    private var enableTorchScanner: Bool = false
+
     
     // MARK: - ScannerInput
     
@@ -46,8 +49,20 @@ class ScannerPresenter: ScannerInput {
         self.vc?.showScanner()
     }
     
+    func resetScanner() {
+        self.enableTorchScanner = false
+        self.vc?.enableTorch(enable: self.enableTorchScanner)
+    }
+    
     func userDidCloseScanner() {
+        self.enableTorchScanner = false
+        self.vc?.enableTorch(enable: self.enableTorchScanner)
         self.vc?.dismissScanner(completion: nil)
+    }
+    
+    func userDidTappedTorch() {
+        self.enableTorchScanner = !self.enableTorchScanner
+        self.vc?.enableTorch(enable: self.enableTorchScanner)
     }
     
     func moduleDidFinish(action: Action?, completionHandler: (() -> Void)?) {

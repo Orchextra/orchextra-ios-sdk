@@ -91,11 +91,7 @@ extension FilterVC: Instantiable {
     
     // MARK: - Instantiable
     
-    public static func storyboard() -> String {
-        return "Filter"
-    }
-    
-    public static func identifier() -> String? {
-        return "FilterVC"
-    }
+    static var storyboard = "Filter"
+    static var identifier = "FilterVC"
+
 }

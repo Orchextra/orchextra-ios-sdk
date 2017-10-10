@@ -17,7 +17,9 @@ struct CustomScannerWireframe {
     ///
     /// - Returns: CustomScanner View Controller with all dependencies
     func showCustomScanner() -> CustomScannerVC? {
-        guard let viewController = try? Instantiator<CustomScannerVC>().viewController() else { return nil }
+        guard let viewController = try? CustomScannerVC.instantiateFromStoryboard() else {
+            LogWarn("CustomScannerVC not found")
+            return nil }
         let presenter = CustomScannerPresenter(
             view: viewController,
             wireframe: self,
