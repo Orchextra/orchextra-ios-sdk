@@ -8,7 +8,16 @@
 
 import Foundation
 
-struct BusinessUnit {
-    
+struct BusinessUnit: Codable {
     let name: String
+}
+
+extension BusinessUnit: Equatable {
+    static func == (lhs: BusinessUnit, rhs: BusinessUnit) -> Bool {
+        if lhs.name == rhs.name {
+            return true
+        } else {
+            return false
+        }
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import GIGLibrary
 
-class Tag {
+class Tag: Codable {
 
     var prefix: String?
     var name: String?
@@ -101,6 +101,16 @@ class Tag {
     }
 }
 
+extension Tag: Equatable {
+    static func == (lhs: Tag, rhs: Tag) -> Bool {
+        if lhs.prefix == rhs.prefix,
+            lhs.name == rhs.name {
+            return true
+        } else {
+            return false
+        }
+    }
+}
 
 extension String {
     /// An `NSRange` that represents the full range of the string.
