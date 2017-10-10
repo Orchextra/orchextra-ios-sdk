@@ -17,6 +17,7 @@ class Session {
     // Attributes core
     private let keyAccessToken = "accesstoken"
     private let keyCredentials = "credentials"
+    private let keyUser = "user"
 
     var apiKey: String?
     var apiSecret: String?
@@ -33,6 +34,20 @@ class Session {
     
     func loadAccesstoken() -> String? {
         return self.userDefault.unarchiveObject(forKey: keyAccessToken) as? String
+    }
+    
+    // MARK: - CRM User public methods
+    func bindUser(_ user: User) {
+        self.userDefault.archiveObject(user, forKey: keyUser)
+    }
+    
+    func unbindUser() {
+        let user = User()
+        self.userDefault.archiveObject(user, forKey: keyUser)
+    }
+    
+    func currentUser() -> User? {
+        return self.userDefault.unarchiveObject(forKey: keyUser) as? User
     }
     
     /// Method to store apikey and apisecret

@@ -198,10 +198,16 @@ open class Orchextra {
         // TODO: remote apnsToken
     }
     
-//    // MARK: Public CRM methods
-//    public func bindUser(_ user: ORCUser) {}
-//    public func unbindUser() {}
-//    public func currentUser() -> ORCUser { return ORCUser() }
+    // MARK: Public CRM methods
+    public func bindUser(_ user: User) {
+        OrchextraWrapper.shared.bindUser(user)
+    }
+    public func unbindUser() {
+        OrchextraWrapper.shared.unbindUser()
+    }
+    public func currentUser() -> User? {
+        return OrchextraWrapper.shared.currentUser()
+    }
     
     // MARK: - Public method to handle Notification
     

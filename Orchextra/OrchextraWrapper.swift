@@ -166,6 +166,22 @@ class OrchextraWrapper {
         }
         return nil
     }
+    
+    // MARK: Public CRM methods
+    public func bindUser(_ user: User) {
+        let currentUser = self.currentUser()
+        
+        if user != currentUser {
+            self.session.bindUser(user)
+        }
+    }
+    
+    public func unbindUser() {
+        self.session.unbindUser()
+    }
+    public func currentUser() -> User? {
+        return self.session.currentUser()
+    }
 }
 
 extension OrchextraWrapper {
