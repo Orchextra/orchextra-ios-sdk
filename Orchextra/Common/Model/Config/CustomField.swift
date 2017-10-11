@@ -35,11 +35,43 @@ struct CustomField: Codable {
     let type: CustomFieldType
     let value: ValueCodable
     
+    enum CodingKeys: String, CodingKey {
+        case key
+        case label
+        case type
+        case value
+    }
+    
     init(key: String, label: String, type: CustomFieldType, value: ValueCodable) {
         self.key = key
         self.label = label
         self.type = type
         self.value = value
+    }
+    
+    // MARK: - Encodable Protocol
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.key, forKey: .key)
+        try container.encode(self.label, forKey: .label)
+        try container.encode(self.type, forKey: .type)
+        try container.encode(self.value, forKey: .value)
+    }
+    
+    // MARK: - Decodable Protocol
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let key = try container.decode(String.self, forKey: .key)
+        let label = try container.decode(String.self, forKey: .label)
+        let type = try container.decode(CustomFieldType.self, forKey: .type)
+        let value = try container.decode(ValueCodable.self, forKey: .value)
+        
+        self.init(
+            key: key,
+            label: label,
+            type: type,
+            value: value
+        )
     }
 }
 

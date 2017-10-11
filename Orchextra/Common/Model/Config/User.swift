@@ -24,6 +24,15 @@ public struct User: Codable {
     let tags: [Tag]
     let businessUnits: [BusinessUnit]
     let customFields: [CustomField]
+    
+    enum CodingKeys: String, CodingKey {
+        case crmId
+        case gender
+        case birthday
+        case tags
+        case businessUnits
+        case customFields 
+    }
 
     // MARK: - Initializers
      init() {
@@ -43,11 +52,55 @@ public struct User: Codable {
         self.businessUnits = businessUnits
         self.customFields = customFields
     }
+    
+    // MARK: - Encodable Protocol
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.crmId, forKey: .crmId)
+        try container.encode(self.gender, forKey: .gender)
+        try container.encode(self.birthday, forKey: .birthday)
+        try container.encode(self.tags, forKey: .tags)
+        try container.encode(self.businessUnits, forKey: .businessUnits)
+        try container.encode(self.customFields, forKey: .customFields)
+    }
+    
+    // MARK: - Decodable Protocol
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let crmId = try container.decode(String.self, forKey: .crmId)
+        let gender = try container.decode(Gender.self, forKey: .gender)
+        let birthday = try container.decode(Date.self, forKey: .birthday)
+        let tags = try container.decode([Tag].self, forKey: .tags)
+        let businessUnits = try container.decode([BusinessUnit].self, forKey: .businessUnits)
+        let customFields = try container.decode([CustomField].self, forKey: .customFields)
+        
+        self.init(
+            crmId: crmId,
+            gender: gender,
+            birthday: birthday,
+            tags: tags,
+            businessUnits: businessUnits,
+            customFields: customFields
+        )
+    }
+    
+    // MARK: - Params
+    func userParams() -> [String: Any] {
+        let params =
+            ["crm":
+                ["crmId": self.crmId ?? "",
+                 "gender": self.gender,
+                 "birthday": self.birthday ?? "",
+                 "businessUnits": self.businessUnits,
+                 "tags": self.tags,
+                 "customFields": self.customFields]]
+        
+        return params
+    }
 }
 
 extension User: Equatable {
     public static func == (lhs: User, rhs: User) -> Bool {
-        
         if lhs.crmId == rhs.crmId,
         lhs.gender == rhs.gender,
         lhs.birthday == rhs.birthday,

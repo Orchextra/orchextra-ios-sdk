@@ -38,16 +38,20 @@ class Session {
     
     // MARK: - CRM User public methods
     func bindUser(_ user: User) {
-        self.userDefault.archiveObject(user, forKey: keyUser)
+        self.userDefault.set(try? PropertyListEncoder().encode(user), forKey: keyUser)
     }
     
     func unbindUser() {
         let user = User()
-        self.userDefault.archiveObject(user, forKey: keyUser)
+         self.userDefault.set(try? PropertyListEncoder().encode(user), forKey: keyUser)
     }
     
     func currentUser() -> User? {
-        return self.userDefault.unarchiveObject(forKey: keyUser) as? User
+        if let data = self.userDefault.value(forKey: keyUser) as? Data {
+            let user = try? PropertyListDecoder().decode(User.self, from: data)
+            return user
+        }
+        return nil
     }
     
     /// Method to store apikey and apisecret

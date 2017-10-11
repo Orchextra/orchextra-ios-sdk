@@ -13,6 +13,11 @@ class Tag: Codable {
 
     var prefix: String?
     var name: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case prefix
+        case name
+    }
 
     init(prefix: String) {
         if self.validatePrefix(prefix) {
@@ -28,6 +33,22 @@ class Tag: Codable {
         if self.validateName(name) {
             self.name = name
         }
+    }
+    
+    // MARK: - Encodable Protocol
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.prefix, forKey: .prefix)
+        try container.encode(self.name, forKey: .name)
+    }
+    
+    // MARK: - Decodable Protocol
+    public required convenience init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let prefix = try container.decode(String.self, forKey: .prefix)
+        let name = try container.decode(String.self, forKey: .name)
+        
+        self.init(prefix: prefix, name: name)
     }
     
     /// String with the tag

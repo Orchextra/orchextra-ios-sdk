@@ -62,7 +62,9 @@ struct Device {
                  "vendorId": self.vendorId ?? "",
                  "notificationPush": notificationPush,
                  "clientApp": clientApp,
-                 "device": device]]
+                 "device": device,
+                 "businessUnits": self.businessUnits,
+                 "tags": self.tags]]
         
         return params
     }

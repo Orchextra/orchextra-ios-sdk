@@ -52,7 +52,8 @@ class AuthInteractor: AuthInteractorInput {
                 switch result {
                 case .success(let accesstoken):
                     self.session.save(accessToken: accesstoken)
-                    self.bind(user: nil, completion: { result in
+                    let currentUser = self.session.currentUser()
+                    self.bind(user: currentUser, completion: { result in
                         switch result {
                         case .success:
                             completion(.success(accesstoken))
@@ -80,7 +81,24 @@ class AuthInteractor: AuthInteractorInput {
     
     func bind(user: User?, completion: @escaping (Result<Bool, Error>) -> Void) {
         let device = Device()
-        let params = device.deviceParams()
+        let deviceParams = device.deviceParams()
+        if user == nil {
+            let newUser = User()
+            self.session.bindUser(newUser)
+        }
+        
+        let currentUser = self.session.currentUser()
+        let userParams = currentUser?.userParams()
+       
+        var params = [String: Any]()
+        userParams?.forEach { (key, value) in
+            params[key] = value
+        }
+        
+        deviceParams.forEach { (key, value) in
+            params[key] = value
+        }
+        
         self.service.bind(params: params, completion: completion)
     }
     
