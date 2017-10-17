@@ -26,6 +26,7 @@ import Foundation
     @objc public var telemetry: ORCEddystoneTelemetry?
     public var proximityTimer: Timer?
     public var requestWaitTime: Int
+    var hasBeenSent: Bool = false
     
     // MARK: Public computed properties
     public var rssi:Double {
@@ -79,7 +80,9 @@ import Foundation
             self.uid?.instance != nil,
             self.url != nil,
             self.proximity != .unknown,
-            (self.proximityTimer == nil) else { return false }
+            (self.proximityTimer == nil),
+            !(self.hasBeenSent) else { return false }
+        self.hasBeenSent = true
         return true
     }
     
@@ -89,8 +92,10 @@ import Foundation
         } else {
             if currentProximity != .unknown &&
                 (currentProximity != self.proximity || (self.proximityTimer == nil)) {
-                self.resetProximityTimer()
-                self.updateProximityTimer()
+                if self.hasBeenSent {
+                    self.resetProximityTimer()
+                    self.updateProximityTimer()
+                }
             }
         }
         
