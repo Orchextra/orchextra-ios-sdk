@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BusinessUnit: Codable {
+public struct BusinessUnit: Codable {
     let name: String
     
     enum CodingKeys: String, CodingKey {
@@ -35,7 +35,7 @@ struct BusinessUnit: Codable {
 }
 
 extension BusinessUnit: Equatable {
-    static func == (lhs: BusinessUnit, rhs: BusinessUnit) -> Bool {
+    public static func == (lhs: BusinessUnit, rhs: BusinessUnit) -> Bool {
         if lhs.name == rhs.name {
             return true
         } else {

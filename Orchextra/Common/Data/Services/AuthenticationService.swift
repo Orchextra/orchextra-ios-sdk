@@ -13,7 +13,7 @@ protocol AuthenticationServiceInput {
     func newToken(with apikey: String, apisecret: String,
                   completion: @escaping (Result<String, Error>) -> Void)
     func bind(params: [String: Any],
-              completion: @escaping (Result<Bool, Error>) -> Void)
+              completion: @escaping(Result<Bool, Error>) -> Void)
 }
 
 class AuthenticationService: AuthenticationServiceInput {
@@ -64,7 +64,7 @@ class AuthenticationService: AuthenticationServiceInput {
         }
     }
     
-    func bind(params: [String: Any], completion: @escaping (Result<Bool, Error>) -> Void) {
+    func bind(params: [String: Any], completion:@escaping (Result<Bool, Error>) -> Void) {
         
         let request = Request.orchextraRequest(
             method: "PUT",

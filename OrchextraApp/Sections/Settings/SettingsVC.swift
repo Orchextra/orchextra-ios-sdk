@@ -20,9 +20,10 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var apiSecretLabel: UILabel!
     @IBOutlet weak var apiSecretTextfield: UITextField!
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var userView: UIView!
+    @IBOutlet weak var deviceView: UIView!
     
     // MARK: - Attributtes
-    
     var presenter: SettingsPresenterInput?
     
     // MARK: - View life cycle
@@ -35,12 +36,21 @@ class SettingsVC: UIViewController {
     
     // MARK: - IBActions
     
-    @IBAction func logOutButtonTapped(_sender: Any) {
+    @IBAction func logOutButtonTapped(_ sender: Any) {
         self.presenter?.userDidTapLogOut()
     }
     
-    @IBAction func editButtonTapped(_sender: Any) {
+    @IBAction func editButtonTapped(_ sender: Any) {
         self.presenter?.userDidTapEdit()
+    }
+    
+     // MARK: - Gesture Recognizers
+    @objc func userViewTapped(_ sender: Any) {
+        self.presenter?.userDidTapUserView()
+    }
+    
+    @objc func deviceViewTapped(_ sender: Any) {
+        self.presenter?.userDidTapDeviceView()
     }
 }
 
@@ -61,6 +71,12 @@ extension SettingsVC: SettingsUI {
         
         self.apiKeyTextfield.minimumFontSize = 8.0
         self.apiSecretTextfield.minimumFontSize = 8.0
+        
+        let userViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(userViewTapped))
+        self.userView.addGestureRecognizer(userViewTapGestureRecognizer)
+        
+        let deviceViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(deviceViewTapped))
+        self.deviceView.addGestureRecognizer(deviceViewTapGestureRecognizer)
     }
     
     func updateEditableState(title: String) {

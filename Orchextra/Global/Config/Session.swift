@@ -18,6 +18,8 @@ class Session {
     private let keyAccessToken = "accesstoken"
     private let keyCredentials = "credentials"
     private let keyUser = "user"
+    private let keyDeviceBusinessUnits = "device_business_units"
+    private let keyDeviceTags = "device_tags"
 
     var apiKey: String?
     var apiSecret: String?
@@ -52,6 +54,24 @@ class Session {
             return user
         }
         return nil
+    }
+    
+    func deviceBusinessUnits() -> [BusinessUnit] {
+        guard let data = self.userDefault.value(forKey: keyDeviceBusinessUnits) as? Data else { return [BusinessUnit]() }
+        return (try? PropertyListDecoder().decode([BusinessUnit].self, from: data)) ?? [BusinessUnit]()
+    }
+    
+    func setDeviceBusinessUnits(businessUnits: [BusinessUnit]) {
+        self.userDefault.set(try? PropertyListEncoder().encode(businessUnits), forKey: keyDeviceBusinessUnits)
+    }
+    
+    func deviceTags() -> [Tag] {
+        guard let data = self.userDefault.value(forKey: keyDeviceTags) as? Data else { return [Tag]() }
+        return (try? PropertyListDecoder().decode([Tag].self, from: data)) ?? [Tag]()
+    }
+    
+    func setDeviceTags(tags: [Tag]) {
+        self.userDefault.set(try? PropertyListEncoder().encode(tags), forKey: keyDeviceTags)
     }
     
     /// Method to store apikey and apisecret

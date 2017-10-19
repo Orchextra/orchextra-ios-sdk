@@ -18,12 +18,12 @@ extension Gender: Codable {}
 
 public struct User: Codable {
     // MARK: - Attributes
-    let crmId: String?
+    var crmId: String?
     let gender: Gender
     let birthday: Date?
-    let tags: [Tag]
-    let businessUnits: [BusinessUnit]
-    let customFields: [CustomField]
+    var tags: [Tag]
+    var businessUnits: [BusinessUnit]
+    var customFields: [CustomField]
     
     enum CodingKeys: String, CodingKey {
         case crmId

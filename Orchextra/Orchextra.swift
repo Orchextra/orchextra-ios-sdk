@@ -209,6 +209,51 @@ open class Orchextra {
         return OrchextraWrapper.shared.currentUser()
     }
     
+    public func setUserBusinessUnits(_ businessUnits: [BusinessUnit]) {
+        OrchextraWrapper.shared.setUserBusinessUnits(businessUnits)
+    }
+    
+    public func getUserBusinessUnits() -> [BusinessUnit] {
+        return OrchextraWrapper.shared.getUserBusinessUnits()
+    }
+    
+    public func setUserTags(_ tags: [Tag]) {
+        OrchextraWrapper.shared.setUserTags(tags)
+    }
+    
+    public func getUserTags() -> [Tag] {
+        return Orchextra.shared.getUserTags()
+    }
+    
+    public func setCustomFields(_ customFields: [CustomField]) {
+        Orchextra.shared.setCustomFields(customFields)
+    }
+    
+    public func getCustomFields() -> [CustomField] {
+        return Orchextra.shared.getCustomFields()
+    }
+    
+     // MARK: Public Device methods
+    public func bindDevice() {
+        OrchextraWrapper.shared.bindDevice()
+    }
+    
+    public func setDeviceBusinessUnits(_ businessUnits: [BusinessUnit]) {
+        OrchextraWrapper.shared.setDeviceBusinessUnits(businessUnits)
+    }
+    
+    public func getDeviceBusinessUnits() -> [BusinessUnit] {
+        return OrchextraWrapper.shared.getDeviceBusinessUnits()
+    }
+    
+    public func setDeviceTags(_ tags: [Tag]) {
+        OrchextraWrapper.shared.setDeviceTags(tags)
+    }
+    
+    public func getDeviceTags() -> [Tag] {
+        return OrchextraWrapper.shared.getDeviceTags()
+    }
+    
     // MARK: - Public method to handle Notification
     
     public func handleNotification(userInfo: [String: Any]) {

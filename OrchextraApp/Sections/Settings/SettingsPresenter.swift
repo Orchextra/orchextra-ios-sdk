@@ -12,6 +12,8 @@ protocol SettingsPresenterInput {
     func viewDidLoad()
     func userDidTapLogOut()
     func userDidTapEdit()
+    func userDidTapUserView()
+    func userDidTapDeviceView()
 }
 
 protocol SettingsUI: class {
@@ -70,5 +72,13 @@ extension SettingsPresenter: SettingsPresenterInput {
         } else {
             self.view?.updateNotEditableState(title: "Edit")
         }
+    }
+    
+    func userDidTapUserView() {
+        self.wireframe.showUserVC()
+    }
+    
+    func userDidTapDeviceView() {
+        self.wireframe.showDeviceVC()
     }
 }

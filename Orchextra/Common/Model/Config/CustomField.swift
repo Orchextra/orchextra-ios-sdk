@@ -29,7 +29,7 @@ enum CustomFieldType: String {
     case datetime
 }
 
-struct CustomField: Codable {
+public struct CustomField: Codable {
     let key: String
     let label: String
     let type: CustomFieldType
@@ -76,7 +76,7 @@ struct CustomField: Codable {
 }
 
 extension CustomField: Equatable {
-    static func == (lhs: CustomField, rhs: CustomField) -> Bool {
+    public static func == (lhs: CustomField, rhs: CustomField) -> Bool {
         if lhs.key == rhs.key,
              lhs.label == rhs.label,
              lhs.type == rhs.type,

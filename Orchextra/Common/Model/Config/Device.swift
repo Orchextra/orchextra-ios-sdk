@@ -21,8 +21,25 @@ struct Device {
     let appVersion: String
     let buildVersion: String
     let device = UIDevice.current
-    var businessUnits: [BusinessUnit]
-    var tags: [Tag]
+    let session = Session.shared
+    var businessUnits: [BusinessUnit] {
+        get {
+            return self.session.deviceBusinessUnits()
+        }
+        set {
+          self.session.setDeviceBusinessUnits(businessUnits: businessUnits)
+        }
+    
+    }
+        
+    var tags: [Tag] {
+        get {
+            return self.session.deviceTags()
+        }
+        set {
+            self.session.setDeviceTags(tags: tags)
+        }
+    }
 
     init() {
         self.advertiserId = ASIdentifierManager.shared().advertisingIdentifier.uuidString
@@ -34,8 +51,6 @@ struct Device {
         self.bundleId = Bundle.main.bundleIdentifier
         self.appVersion = Bundle.orxVersion()
         self.buildVersion = Bundle.orxBuildVersion()
-        self.businessUnits = [BusinessUnit]()
-        self.tags = [Tag]()
     }
     
     func deviceParams() -> [String: Any] {

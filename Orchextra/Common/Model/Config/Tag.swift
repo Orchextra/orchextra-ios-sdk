@@ -9,7 +9,7 @@
 import Foundation
 import GIGLibrary
 
-class Tag: Codable {
+public class Tag: Codable {
 
     var prefix: String?
     var name: String?
@@ -123,7 +123,7 @@ class Tag: Codable {
 }
 
 extension Tag: Equatable {
-    static func == (lhs: Tag, rhs: Tag) -> Bool {
+    public static func == (lhs: Tag, rhs: Tag) -> Bool {
         if lhs.prefix == rhs.prefix,
             lhs.name == rhs.name {
             return true

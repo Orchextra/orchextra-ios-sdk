@@ -12,6 +12,7 @@ import GIGLibrary
 protocol AuthInteractorInput {
     func authWithAccessToken(completion: @escaping (Result<String, Error>) -> Void)
     func sendRequest(request: Request, completion: @escaping (Result<JSON, Error>) -> Void)
+    func bind(user: User?, device: Device?, completion: @escaping(Result<Bool, Error>) -> Void)
 }
 
 class AuthInteractor: AuthInteractorInput {
@@ -52,8 +53,11 @@ class AuthInteractor: AuthInteractorInput {
                 switch result {
                 case .success(let accesstoken):
                     self.session.save(accessToken: accesstoken)
-                    let currentUser = self.session.currentUser()
-                    self.bind(user: currentUser, completion: { result in
+                    let currentUser = self.currentOrNewEmptyUser()
+                    let device = Device()
+                    self.bind(user: currentUser,
+                              device: device,
+                              completion: { result in
                         switch result {
                         case .success:
                             completion(.success(accesstoken))
@@ -62,7 +66,6 @@ class AuthInteractor: AuthInteractorInput {
                             completion(.error(error))
                         }
                     })
-                    
                 case .error(let error):
                     switch error {
                     case ErrorService.unauthorized:
@@ -79,23 +82,16 @@ class AuthInteractor: AuthInteractorInput {
         }
     }
     
-    func bind(user: User?, completion: @escaping (Result<Bool, Error>) -> Void) {
-        let device = Device()
-        let deviceParams = device.deviceParams()
-        if user == nil {
-            let newUser = User()
-            self.session.bindUser(newUser)
-        }
-        
-        let currentUser = self.session.currentUser()
-        let userParams = currentUser?.userParams()
+    func bind(user: User?, device: Device?, completion: @escaping(Result<Bool, Error>) -> Void) {
+        let deviceParams = device?.deviceParams()
+        let userParams = user?.userParams()
        
         var params = [String: Any]()
         userParams?.forEach { (key, value) in
             params[key] = value
         }
         
-        deviceParams.forEach { (key, value) in
+        deviceParams?.forEach { (key, value) in
             params[key] = value
         }
         
@@ -144,16 +140,22 @@ class AuthInteractor: AuthInteractorInput {
         self.authWithAccessToken { result in
             switch result {
             case .success:
-                // TODO: Bind device and user
-                completion(.success(true))
+                let currentUser = self.session.currentUser()
+                let device = Device()
+                self.bind(user: currentUser, device: device, completion: completion)
             case .error(let error):
                 completion(.error(error))
             }
         }        
     }
-
-    private func bind(device: Device) {
-        
+    
+    private func currentOrNewEmptyUser() -> User? {
+        let currentUser = self.session.currentUser()
+        if currentUser == nil {
+            let newUser = User()
+            self.session.bindUser(newUser)
+        }
+        return self.session.currentUser()
     }
     
     // MARK: - Authentication Request

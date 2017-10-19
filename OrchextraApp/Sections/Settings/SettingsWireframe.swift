@@ -29,6 +29,30 @@ struct SettingsWireframe {
         return viewController
     }
     
+    /// Method to show the user view section
+    ///
+    /// - Returns: User view controller with all dependencies
+    func showUserVC() {
+        let userWireframe = UserWireframe()
+        guard let userVC = userWireframe.showUserWireframe() else {
+            LogWarn("UserVC not found")
+            return
+        }
+        navigationController.show(userVC, sender: self)
+    }
+    
+    /// Method to show the device view section
+    ///
+    /// - Returns: Device view controller with all dependencies
+    func showDeviceVC() {
+        let deviceWireframe = DeviceWireframe()
+        guard let deviceVC = deviceWireframe.showDeviceWireframe() else {
+            LogWarn("deviceVC not found")
+            return
+        }
+        navigationController.show(deviceVC, sender: self)
+    }
+    
     func dismissSettings() {
         AppController.shared.appWireframe?.showHomeWireframe()
     }

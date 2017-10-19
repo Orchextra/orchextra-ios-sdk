@@ -42,6 +42,12 @@
 		8F2080B51F4EE2A200C328DC /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B21F4EE2A200C328DC /* ScannerVC.swift */; };
 		8F2080B61F4EE2A200C328DC /* ScannerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */; };
 		8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */; };
+		8F22D88D1F961BB600D37F9B /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D88A1F961BB600D37F9B /* UserPresenter.swift */; };
+		8F22D88E1F961BB600D37F9B /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D88B1F961BB600D37F9B /* UserVC.swift */; };
+		8F22D88F1F961BB600D37F9B /* UserWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D88C1F961BB600D37F9B /* UserWireframe.swift */; };
+		8F22D8941F961BFA00D37F9B /* DevicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D8911F961BFA00D37F9B /* DevicePresenter.swift */; };
+		8F22D8951F961BFA00D37F9B /* DeviceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D8921F961BFA00D37F9B /* DeviceVC.swift */; };
+		8F22D8961F961BFA00D37F9B /* DeviceWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D8931F961BFA00D37F9B /* DeviceWireframe.swift */; };
 		8F299C561F6691060023F69D /* EddystoneModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C491F6691060023F69D /* EddystoneModule.swift */; };
 		8F299C571F6691060023F69D /* EddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4B1F6691060023F69D /* EddystoneBeacon.swift */; };
 		8F299C581F6691060023F69D /* EddystoneConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4C1F6691060023F69D /* EddystoneConstants.swift */; };
@@ -78,6 +84,8 @@
 		8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE6FAE1F504CC80098A325 /* MapKit.framework */; };
 		8FCE6FB31F504F070098A325 /* GeofencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE6FB21F504F070098A325 /* GeofencesVC.swift */; };
 		8FCE6FB51F504F480098A325 /* RegionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE6FB41F504F480098A325 /* RegionAnnotation.swift */; };
+		8FD191241F9733DE00043011 /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD191231F9733DE00043011 /* UserInteractor.swift */; };
+		8FD191261F9733FD00043011 /* DeviceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD191251F9733FD00043011 /* DeviceInteractor.swift */; };
 		8FEF95ED1F58BCF9004D1BCF /* pt-sans.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FEF95EC1F58BCF9004D1BCF /* pt-sans.regular.ttf */; };
 		8FFD3D8D1F569525000A1056 /* action_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D881F569525000A1056 /* action_browser_notification.json */; };
 		8FFD3D8E1F569525000A1056 /* action_scanner_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D891F569525000A1056 /* action_scanner_notification.json */; };
@@ -286,6 +294,12 @@
 		8F2080B21F4EE2A200C328DC /* ScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
 		8F2080B31F4EE2A200C328DC /* ScannerWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerWireframe.swift; sourceTree = "<group>"; };
 		8F2080B71F4EFE8000C328DC /* ScannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerInteractor.swift; sourceTree = "<group>"; };
+		8F22D88A1F961BB600D37F9B /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		8F22D88B1F961BB600D37F9B /* UserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
+		8F22D88C1F961BB600D37F9B /* UserWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWireframe.swift; sourceTree = "<group>"; };
+		8F22D8911F961BFA00D37F9B /* DevicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePresenter.swift; sourceTree = "<group>"; };
+		8F22D8921F961BFA00D37F9B /* DeviceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceVC.swift; sourceTree = "<group>"; };
+		8F22D8931F961BFA00D37F9B /* DeviceWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWireframe.swift; sourceTree = "<group>"; };
 		8F299C491F6691060023F69D /* EddystoneModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneModule.swift; sourceTree = "<group>"; };
 		8F299C4B1F6691060023F69D /* EddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneBeacon.swift; sourceTree = "<group>"; };
 		8F299C4C1F6691060023F69D /* EddystoneConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneConstants.swift; sourceTree = "<group>"; };
@@ -320,6 +334,8 @@
 		8FCE6FAE1F504CC80098A325 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8FCE6FB21F504F070098A325 /* GeofencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesVC.swift; sourceTree = "<group>"; };
 		8FCE6FB41F504F480098A325 /* RegionAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionAnnotation.swift; sourceTree = "<group>"; };
+		8FD191231F9733DE00043011 /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
+		8FD191251F9733FD00043011 /* DeviceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInteractor.swift; sourceTree = "<group>"; };
 		8FEF95EC1F58BCF9004D1BCF /* pt-sans.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pt-sans.regular.ttf"; sourceTree = "<group>"; };
 		8FFD3D881F569525000A1056 /* action_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_browser_notification.json; path = Mocks/Json/action_browser_notification.json; sourceTree = "<group>"; };
 		8FFD3D891F569525000A1056 /* action_scanner_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_scanner_notification.json; path = Mocks/Json/action_scanner_notification.json; sourceTree = "<group>"; };
@@ -637,6 +653,28 @@
 			path = Scanner;
 			sourceTree = "<group>";
 		};
+		8F22D8901F961BC300D37F9B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				8F22D88A1F961BB600D37F9B /* UserPresenter.swift */,
+				8F22D88B1F961BB600D37F9B /* UserVC.swift */,
+				8F22D88C1F961BB600D37F9B /* UserWireframe.swift */,
+				8FD191231F9733DE00043011 /* UserInteractor.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		8F22D8971F961C0900D37F9B /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				8F22D8911F961BFA00D37F9B /* DevicePresenter.swift */,
+				8F22D8921F961BFA00D37F9B /* DeviceVC.swift */,
+				8F22D8931F961BFA00D37F9B /* DeviceWireframe.swift */,
+				8FD191251F9733FD00043011 /* DeviceInteractor.swift */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
 		8F299C481F6691060023F69D /* Eddystone */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,6 +773,8 @@
 				8F7F58E91F4D84BD00271FC7 /* SettingsPresenter.swift */,
 				8F7F58EA1F4D84BD00271FC7 /* SettingsVC.swift */,
 				8F7F58EB1F4D84BD00271FC7 /* SettingsWireframe.swift */,
+				8F22D8901F961BC300D37F9B /* User */,
+				8F22D8971F961C0900D37F9B /* Device */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1637,6 +1677,7 @@
 				8F2080951F4EAAAB00C328DC /* TriggeringPresenter.swift in Sources */,
 				8F2080981F4EAAAB00C328DC /* TriggeringInteractor.swift in Sources */,
 				A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */,
+				8F22D8941F961BFA00D37F9B /* DevicePresenter.swift in Sources */,
 				8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */,
 				8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */,
 				8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */,
@@ -1652,11 +1693,13 @@
 				8F7F58EC1F4D84BD00271FC7 /* SettingsInteractor.swift in Sources */,
 				8F20808F1F4EA59600C328DC /* Constants.swift in Sources */,
 				8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */,
+				8FD191261F9733FD00043011 /* DeviceInteractor.swift in Sources */,
 				8F4A27B31F5D2419003B440D /* TriggersManager.swift in Sources */,
 				8F0961391F5C089500FD03F4 /* FilterPresenter.swift in Sources */,
 				8F1124001F5FE43C00609B4A /* CustomScannerPresenter.swift in Sources */,
 				8F13F0E11F5B0AC50028B1FF /* LogsVC.swift in Sources */,
 				8F2080A81F4EE28000C328DC /* GeofencesPresenter.swift in Sources */,
+				8F22D8951F961BFA00D37F9B /* DeviceVC.swift in Sources */,
 				8FCE6FB31F504F070098A325 /* GeofencesVC.swift in Sources */,
 				8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */,
 				8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */,
@@ -1664,21 +1707,26 @@
 				8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */,
 				8F09613C1F5C089500FD03F4 /* FilterInteractor.swift in Sources */,
 				8F2080B61F4EE2A200C328DC /* ScannerWireframe.swift in Sources */,
+				8F22D88E1F961BB600D37F9B /* UserVC.swift in Sources */,
 				8F7F58DE1F4D822000271FC7 /* AppWireframe.swift in Sources */,
 				8F2042471F5E90C500782D63 /* FilterTableViewCell.swift in Sources */,
 				8F0C4B531F57FCC700056910 /* ViewController.swift in Sources */,
 				8F1124011F5FE43C00609B4A /* CustomScannerVC.swift in Sources */,
+				8FD191241F9733DE00043011 /* UserInteractor.swift in Sources */,
 				8F2080AA1F4EE28000C328DC /* GeofencesWireframe.swift in Sources */,
 				8F2080961F4EAAAB00C328DC /* TriggeringVC.swift in Sources */,
 				8F09613B1F5C089500FD03F4 /* FilterWireframe.swift in Sources */,
+				8F22D88D1F961BB600D37F9B /* UserPresenter.swift in Sources */,
 				8F7F58EF1F4D84BD00271FC7 /* SettingsWireframe.swift in Sources */,
 				8F1124021F5FE43C00609B4A /* CustomScannerWireframe.swift in Sources */,
 				8F5F7A171F4C60E700E62E57 /* HomePresenter.swift in Sources */,
 				8F2080B01F4EE29000C328DC /* LogsWireframe.swift in Sources */,
+				8F22D8961F961BFA00D37F9B /* DeviceWireframe.swift in Sources */,
 				A92570721F87AB2900C1067E /* Session.swift in Sources */,
 				8F2080B51F4EE2A200C328DC /* ScannerVC.swift in Sources */,
 				8F2042421F5E73BE00782D63 /* TriggerFired.swift in Sources */,
 				8F7F58EE1F4D84BD00271FC7 /* SettingsVC.swift in Sources */,
+				8F22D88F1F961BB600D37F9B /* UserWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

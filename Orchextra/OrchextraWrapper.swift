@@ -169,18 +169,100 @@ class OrchextraWrapper {
     
     // MARK: Public CRM methods
     public func bindUser(_ user: User) {
-        let currentUser = self.currentUser()
-        
+        let currentUser = self.session.currentUser()
         if user != currentUser {
             self.session.bindUser(user)
+            self.performBindUserOperation()
         }
     }
     
     public func unbindUser() {
         self.session.unbindUser()
+        self.performBindUserOperation()
     }
+    
     public func currentUser() -> User? {
         return self.session.currentUser()
+    }
+    
+    public func setUserBusinessUnits(_ businessUnits: [BusinessUnit]) {
+        guard var currentUser = self.session.currentUser() else { return }
+        currentUser.businessUnits = businessUnits
+        self.bindUser(currentUser)
+    }
+    
+    public func getUserBusinessUnits() -> [BusinessUnit] {
+        guard let currentUser = self.currentUser() else { return [BusinessUnit]() }
+        return currentUser.businessUnits
+    }
+    
+    public func setUserTags(_ tags: [Tag]) {
+        guard var currentUser = self.session.currentUser() else { return }
+        currentUser.tags = tags
+        self.bindUser(currentUser)
+    }
+    
+    public func getUserTags() -> [Tag] {
+        guard let currentUser = self.currentUser() else { return [Tag]() }
+        return currentUser.tags
+    }
+    
+    public func setCustomFields(_ customFields: [CustomField]) {
+        guard var currentUser = self.session.currentUser() else { return }
+        currentUser.customFields = customFields
+        self.bindUser(currentUser)
+    }
+    
+    public func getCustomFields() -> [CustomField] {
+        guard let currentUser = self.currentUser() else { return [CustomField]() }
+        return currentUser.customFields
+    }
+    
+    // MARK: Public Device methods
+    public func bindDevice() {
+        self.performBindDeviceOperation()
+    }
+    
+    public func setDeviceBusinessUnits(_ businessUnits: [BusinessUnit]) {
+        self.session.setDeviceBusinessUnits(businessUnits: businessUnits)
+    }
+    
+    public func getDeviceBusinessUnits() -> [BusinessUnit] {
+        return self.session.deviceBusinessUnits()
+    }
+    
+    public func setDeviceTags(_ tags: [Tag]) {
+        self.session.setDeviceTags(tags: tags)
+    }
+    
+    public func getDeviceTags() -> [Tag] {
+        return self.session.deviceTags()
+    }
+    
+    // MARK: Private CRM methods
+    private func performBindUserOperation() {
+        let user = self.session.currentUser()
+        self.authInteractor.bind(user: user, device: nil) { (result) in
+            switch result {
+            case .success:
+                LogDebug("Bind user has been successful")
+            case .error(let error):
+                LogDebug("Bind user with error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    // MARK: Private Device methods
+    private func performBindDeviceOperation() {
+        let device = Device()
+        self.authInteractor.bind(user: nil, device: device) { (result) in
+            switch result {
+            case .success:
+                LogDebug("Bind device has been successful")
+            case .error(let error):
+                LogDebug("Bind device with error: \(error.localizedDescription)")
+            }
+        }
     }
 }
 
