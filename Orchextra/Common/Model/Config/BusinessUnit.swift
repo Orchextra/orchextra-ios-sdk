@@ -15,7 +15,7 @@ public struct BusinessUnit: Codable {
         case name
     }
     
-    init(name: String) {
+    public init(name: String) {
         self.name = name
     }
     
@@ -24,12 +24,12 @@ public struct BusinessUnit: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.name, forKey: .name)
     }
-    
+
     // MARK: - Decodable Protocol
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let name = try container.decode(String.self, forKey: .name)
-    
+
         self.init(name: name)
     }
 }

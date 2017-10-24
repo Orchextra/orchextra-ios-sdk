@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.setNavBarAppearance()
 		self.setTabBarAppearance()
 		
-		self.setupApplivery()
+        self.setupApplivery()
         UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
 		
 		return true
@@ -43,9 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	// MARK: - Private Helpers
 	
-	fileprivate func prepareAppController() {
-		appController.appWireframe = AppWireframe()
-		appController.appWireframe?.window = self.window
+    fileprivate func prepareAppController() {
+        appController.appWireframe = AppWireframe()
+        appController.appWireframe?.window = self.window
 	}
 	
 	func setTabBarAppearance() {

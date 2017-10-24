@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Gender: String {
+public enum Gender: String {
     case none
     case male
     case female
@@ -18,12 +18,14 @@ extension Gender: Codable {}
 
 public struct User: Codable {
     // MARK: - Attributes
-    var crmId: String?
-    let gender: Gender
-    let birthday: Date?
-    var tags: [Tag]
-    var businessUnits: [BusinessUnit]
-    var customFields: [CustomField]
+    public var crmId: String?
+    public var gender: Gender
+    public var birthday: Date?
+    public var name: String?
+    public var surname: String?
+    public var tags: [Tag]
+    public var businessUnits: [BusinessUnit]
+    public var customFields: [CustomField]
     
     enum CodingKeys: String, CodingKey {
         case crmId
@@ -31,7 +33,7 @@ public struct User: Codable {
         case birthday
         case tags
         case businessUnits
-        case customFields 
+        case customFields
     }
 
     // MARK: - Initializers
@@ -39,6 +41,8 @@ public struct User: Codable {
         self.crmId = nil
         self.gender = .none
         self.birthday = nil
+        self.name = nil
+        self.surname = nil
         self.tags = [Tag]()
         self.businessUnits = [BusinessUnit]()
         self.customFields = [CustomField]()

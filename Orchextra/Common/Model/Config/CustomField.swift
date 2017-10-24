@@ -9,10 +9,10 @@
 import Foundation
 import GIGLibrary
 
-struct ValueCodable: Any, Codable {}
+public struct ValueCodable: Any, Codable {}
 
 extension ValueCodable: Equatable {
-    static func == (lhs: ValueCodable, rhs: ValueCodable) -> Bool {
+    public static func == (lhs: ValueCodable, rhs: ValueCodable) -> Bool {
         if lhs == rhs {
             return true
         } else {
@@ -21,7 +21,7 @@ extension ValueCodable: Equatable {
     }
 }
 
-enum CustomFieldType: String {
+public enum CustomFieldType: String {
     case string
     case boolean
     case integer
@@ -30,10 +30,10 @@ enum CustomFieldType: String {
 }
 
 public struct CustomField: Codable {
-    let key: String
-    let label: String
-    let type: CustomFieldType
-    let value: ValueCodable
+    public let key: String
+    public let label: String
+    public let type: CustomFieldType
+    public let value: ValueCodable
     
     enum CodingKeys: String, CodingKey {
         case key
@@ -42,7 +42,7 @@ public struct CustomField: Codable {
         case value
     }
     
-    init(key: String, label: String, type: CustomFieldType, value: ValueCodable) {
+    public init(key: String, label: String, type: CustomFieldType, value: ValueCodable) {
         self.key = key
         self.label = label
         self.type = type
@@ -57,7 +57,7 @@ public struct CustomField: Codable {
         try container.encode(self.type, forKey: .type)
         try container.encode(self.value, forKey: .value)
     }
-    
+
     // MARK: - Decodable Protocol
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -65,7 +65,7 @@ public struct CustomField: Codable {
         let label = try container.decode(String.self, forKey: .label)
         let type = try container.decode(CustomFieldType.self, forKey: .type)
         let value = try container.decode(ValueCodable.self, forKey: .value)
-        
+
         self.init(
             key: key,
             label: label,

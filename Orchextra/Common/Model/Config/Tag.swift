@@ -19,13 +19,13 @@ public class Tag: Codable {
         case name
     }
 
-    init(prefix: String) {
+    public init(prefix: String) {
         if self.validatePrefix(prefix) {
             self.prefix = prefix
         }
     }
     
-    init(prefix: String, name: String) {
+    public init(prefix: String, name: String) {
         if self.validatePrefix(prefix) {
             self.prefix = prefix
         }

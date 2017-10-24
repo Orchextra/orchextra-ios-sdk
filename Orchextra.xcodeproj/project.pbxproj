@@ -13,7 +13,7 @@
 		8F09613C1F5C089500FD03F4 /* FilterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961381F5C089500FD03F4 /* FilterInteractor.swift */; };
 		8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */; };
 		8F0C4B4F1F57F0A700056910 /* pt-sans.bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F0C4B4E1F57F0A700056910 /* pt-sans.bold.ttf */; };
-		8F0C4B531F57FCC700056910 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C4B521F57FCC700056910 /* ViewController.swift */; };
+		8F0C4B531F57FCC700056910 /* ViewController(keyboard_hidding).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C4B521F57FCC700056910 /* ViewController(keyboard_hidding).swift */; };
 		8F0D4F7E1F558F9C003F3B39 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0D4F7D1F558F9C003F3B39 /* WebKit.framework */; };
 		8F1123FC1F5FE3FF00609B4A /* Scanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1123FB1F5FE3FF00609B4A /* Scanner.storyboard */; };
 		8F1124001F5FE43C00609B4A /* CustomScannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1123FD1F5FE43C00609B4A /* CustomScannerPresenter.swift */; };
@@ -72,6 +72,8 @@
 		8F689D1E1F5434C6002046FE /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F689D1C1F5434C6002046FE /* WebVC.swift */; };
 		8F689D1F1F5434C6002046FE /* WebPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F689D1D1F5434C6002046FE /* WebPresenter.swift */; };
 		8F689D231F544364002046FE /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F689D221F544364002046FE /* WebView.storyboard */; };
+		8F75429B1F9E03EB00C159E3 /* GenderPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F75429A1F9E03EB00C159E3 /* GenderPickerVC.swift */; };
+		8F7BCF821F99ECC400D8DD7E /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */; };
 		8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58DB1F4D81FB00271FC7 /* AppDelegate.swift */; };
 		8F7F58DE1F4D822000271FC7 /* AppWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58DD1F4D822000271FC7 /* AppWireframe.swift */; };
 		8F7F58EC1F4D84BD00271FC7 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58E81F4D84BD00271FC7 /* SettingsInteractor.swift */; };
@@ -265,7 +267,7 @@
 		8F0961381F5C089500FD03F4 /* FilterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterInteractor.swift; sourceTree = "<group>"; };
 		8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerViewModelFactory.swift; sourceTree = "<group>"; };
 		8F0C4B4E1F57F0A700056910 /* pt-sans.bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pt-sans.bold.ttf"; sourceTree = "<group>"; };
-		8F0C4B521F57FCC700056910 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F0C4B521F57FCC700056910 /* ViewController(keyboard_hidding).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController(keyboard_hidding).swift"; sourceTree = "<group>"; };
 		8F0D4F7D1F558F9C003F3B39 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8F1123FB1F5FE3FF00609B4A /* Scanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scanner.storyboard; sourceTree = "<group>"; };
 		8F1123FD1F5FE43C00609B4A /* CustomScannerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScannerPresenter.swift; sourceTree = "<group>"; };
@@ -324,6 +326,8 @@
 		8F689D1C1F5434C6002046FE /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		8F689D1D1F5434C6002046FE /* WebPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPresenter.swift; sourceTree = "<group>"; };
 		8F689D221F544364002046FE /* WebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
+		8F75429A1F9E03EB00C159E3 /* GenderPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPickerVC.swift; sourceTree = "<group>"; };
+		8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		8F7F58DB1F4D81FB00271FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F7F58DD1F4D822000271FC7 /* AppWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWireframe.swift; sourceTree = "<group>"; };
 		8F7F58E81F4D84BD00271FC7 /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
@@ -533,7 +537,8 @@
 			children = (
 				8F2042401F5E73AC00782D63 /* Model */,
 				8F4A27B61F5D25DD003B440D /* Wrappers */,
-				8F0C4B521F57FCC700056910 /* ViewController.swift */,
+				8F0C4B521F57FCC700056910 /* ViewController(keyboard_hidding).swift */,
+				8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -660,6 +665,7 @@
 				8F22D88B1F961BB600D37F9B /* UserVC.swift */,
 				8F22D88C1F961BB600D37F9B /* UserWireframe.swift */,
 				8FD191231F9733DE00043011 /* UserInteractor.swift */,
+				8F75429A1F9E03EB00C159E3 /* GenderPickerVC.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1680,11 +1686,13 @@
 				8F22D8941F961BFA00D37F9B /* DevicePresenter.swift in Sources */,
 				8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */,
 				8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */,
+				8F75429B1F9E03EB00C159E3 /* GenderPickerVC.swift in Sources */,
 				8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */,
 				A958CCCA1F85322E007074D5 /* NotificationCenter.swift in Sources */,
 				8F2042491F5EA1AB00782D63 /* Filter.swift in Sources */,
 				8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */,
 				8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */,
+				8F7BCF821F99ECC400D8DD7E /* BaseVC.swift in Sources */,
 				8F5F7A191F4C60E700E62E57 /* HomeWireframe.swift in Sources */,
 				8F2080971F4EAAAB00C328DC /* TriggeringWireframe.swift in Sources */,
 				8FCE6FB51F504F480098A325 /* RegionAnnotation.swift in Sources */,
@@ -1710,7 +1718,7 @@
 				8F22D88E1F961BB600D37F9B /* UserVC.swift in Sources */,
 				8F7F58DE1F4D822000271FC7 /* AppWireframe.swift in Sources */,
 				8F2042471F5E90C500782D63 /* FilterTableViewCell.swift in Sources */,
-				8F0C4B531F57FCC700056910 /* ViewController.swift in Sources */,
+				8F0C4B531F57FCC700056910 /* ViewController(keyboard_hidding).swift in Sources */,
 				8F1124011F5FE43C00609B4A /* CustomScannerVC.swift in Sources */,
 				8FD191241F9733DE00043011 /* UserInteractor.swift in Sources */,
 				8F2080AA1F4EE28000C328DC /* GeofencesWireframe.swift in Sources */,

@@ -19,10 +19,12 @@ struct DeviceWireframe {
             LogWarn("DeviceVC not found")
             return nil
         }
+        let interactor = DeviceInteractor()
         let wireframe = DeviceWireframe()
         let presenter = DevicePresenter(
             view: viewController,
-            wireframe: wireframe
+            wireframe: wireframe,
+            interactor: interactor
         )
         viewController.presenter = presenter
         return viewController

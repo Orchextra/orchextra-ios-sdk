@@ -9,7 +9,7 @@
 import Foundation
 import GIGLibrary
 
-struct UserWireframe {
+class UserWireframe {
     
     /// Method to show the UserWireframe section
     ///
@@ -19,11 +19,21 @@ struct UserWireframe {
             LogWarn("UserVC not found")
             return nil
         }
-        let wireframe = UserWireframe()
+        let interactor = UserInteractor()
         let presenter = UserPresenter(
             view: viewController,
-            wireframe: wireframe
+            wireframe: self,
+            interactor: interactor
         )
+        viewController.presenter = presenter
+        return viewController
+    }
+    
+    func showGenrePickerVC (with presenter: UserGenderPresenterInput) -> GenderPickerVC? {
+        guard let viewController = try? GenderPickerVC.instantiateFromStoryboard() else {
+            LogWarn("GenderPickerVC not found")
+            return nil
+        }
         viewController.presenter = presenter
         return viewController
     }

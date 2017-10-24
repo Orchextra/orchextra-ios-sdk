@@ -9,7 +9,7 @@
 import UIKit
 import GIGLibrary
 
-class HomeVC: UIViewController {
+class HomeVC: BaseVC {
     
     // MARK: - Attributtes
     
@@ -17,8 +17,7 @@ class HomeVC: UIViewController {
     var activeTextField: UITextField?
     
     // MARK: - IBOutlets
-    
-    @IBOutlet var scrollView: UIScrollView!
+
     @IBOutlet weak var orchextraImageView: UIImageView!
     @IBOutlet weak var orchextraLabel: UILabel!
     @IBOutlet weak var projectTextfield: UITextField!
@@ -39,13 +38,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.addNotificationObserver()
         self.projectTextfield.isUserInteractionEnabled = false
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillHide, object: nil)
     }
     
     // MARK: - Actions
@@ -54,27 +47,6 @@ class HomeVC: UIViewController {
         let apiKey = self.apiKeyTextfield.text
         let apiSecret = self.apiSecretTextfield.text
         self.presenter?.userDidTapStart(with: apiKey, apiSecret: apiSecret)
-    }
-    
-    fileprivate func addNotificationObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: Notification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: Notification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    // MARK: - NotificationCenter methods
-    
-    @objc fileprivate func keyboardWillShow(_ notification: Notification) {
-        guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        
-        UIView.animate(withDuration: 0.25) {
-            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.size.height, right: 0)
-            self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
-        }
-    }
-    
-    @objc fileprivate func keyboardWillHide(_ notification: Notification) {
-        self.scrollView.contentInset = .zero
-        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
     }
 }
 
