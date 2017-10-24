@@ -20,9 +20,7 @@ class UserVC: BaseVC, UserUI {
     @IBOutlet weak var crmIdTextView: UITextView!
     @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var businessUnitTextfield: UITextField!
-    @IBOutlet weak var customFieldTextfield: UITextField!
-    @IBOutlet weak var nameTextfield: UITextField!
-    @IBOutlet weak var surnameTextfield: UITextField!
+    @IBOutlet weak var customFieldsTableView: UITableView!
     
     // MARK: - View life cycle
     
@@ -40,6 +38,23 @@ extension UserVC: Instantiable {
     static var identifier = "UserVC"
 }
 
+extension UserVC: UITableViewDelegate {
+    
+}
+
+extension UserVC: UITableViewDataSource {
+    // TODO: Implement
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell(style: .default, reuseIdentifier: "Identifier")
+    }
+    
+    
+}
+
 extension UserVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == self.tagsTextField {
@@ -49,18 +64,6 @@ extension UserVC: UITextFieldDelegate {
         } else if textField == self.businessUnitTextfield {
             if let businessUnits = textField.text {
                 self.presenter?.userDidSet(businessUnits: businessUnits)
-            }
-        } else if textField == self.customFieldTextfield {
-            if let customFields = textField.text {
-                self.presenter?.userDidSet(customFields: customFields)
-            }
-        } else if textField == self.nameTextfield {
-            if let name = textField.text {
-                self.presenter?.userDidSet(name: name)
-            }
-        } else if textField == self.surnameTextfield {
-            if let surname = textField.text {
-                self.presenter?.userDidSet(surname: surname)
             }
         }
         

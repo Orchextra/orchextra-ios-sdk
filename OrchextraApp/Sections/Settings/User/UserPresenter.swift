@@ -20,8 +20,6 @@ protocol UserPresenterInput {
     func userDidSet(tags: String)
     func userDidSet(businessUnits: String)
     func userDidSet(customFields: String)
-    func userDidSet(name: String)
-    func userDidSet(surname: String)
     func saveButtonTapped()
 }
 
@@ -69,14 +67,6 @@ extension UserPresenter: UserPresenterInput {
     
     func userDidSet(customFields: String) {
         self.interactor.set(customFields: customFields)
-    }
-    
-    func userDidSet(name: String) {
-        self.interactor.set(name: name)
-    }
-    
-    func userDidSet(surname: String) {
-        self.interactor.set(surname: surname)
     }
     
     func saveButtonTapped() {

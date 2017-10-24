@@ -16,8 +16,6 @@ protocol UserInteractorInput {
     func set(tags: String)
     func set(businessUnits: String)
     func set(customFields: String)
-    func set(name: String)
-    func set(surname: String)
     func performBindOrUnbindOperation()
     func bind(user: User)
     func unBindUser()
@@ -113,18 +111,6 @@ extension UserInteractor: UserInteractorInput {
     func set(customFields: String) {
         guard var currentUser = self.orchextra.currentUser() else { return }
         currentUser.customFields = self.process(customFieldsString: customFields)
-        self.bind(user: currentUser)
-    }
-    // TODO: NAME AND SURNAME COULD BE NOT NECESSARY!!
-    func set(name: String) {
-        guard var currentUser = self.orchextra.currentUser() else { return }
-        currentUser.name = name
-        self.bind(user: currentUser)
-    }
-    
-    func set(surname: String) {
-        guard var currentUser = self.orchextra.currentUser() else { return }
-        currentUser.surname = surname
         self.bind(user: currentUser)
     }
     
