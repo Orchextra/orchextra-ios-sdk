@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		237732C31FA1EBE100788B66 /* WrapperLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237732C21FA1EBE100788B66 /* WrapperLog.swift */; };
 		8F1593AF1DA3B18B003257C2 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F660C8C1DA2B8D0007B9551 /* Orchextra.framework */; };
 		8F1593B51DA3B228003257C2 /* ORCGIGURLJSONResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A93378981D7963B4001E1BA0 /* ORCGIGURLJSONResponseTests.m */; };
 		8F1593B61DA3B228003257C2 /* ORCUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A909AFA91C6BA0EC005CEAA2 /* ORCUserTests.m */; };
@@ -519,6 +520,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		237732C21FA1EBE100788B66 /* WrapperLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperLog.swift; sourceTree = "<group>"; };
 		8F1593AA1DA3B18A003257C2 /* OrchextraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrchextraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F15F61B1D13E0DD00B589E0 /* ORCBusinessUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCBusinessUnit.h; sourceTree = "<group>"; };
 		8F15F61C1D13E0DD00B589E0 /* ORCBusinessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBusinessUnit.m; sourceTree = "<group>"; };
@@ -1195,6 +1197,7 @@
 		A90FCE791BF362080042F370 /* Orchextra */ = {
 			isa = PBXGroup;
 			children = (
+				237732C21FA1EBE100788B66 /* WrapperLog.swift */,
 				8F79D5CC1E606ADC00AAB4CA /* Localizables */,
 				A90FCFA41BF362080042F370 /* SDK */,
 				A90FCF9C1BF362080042F370 /* Main */,
@@ -2965,6 +2968,7 @@
 				8F660CC61DA2BBBC007B9551 /* ORCCustomField.m in Sources */,
 				8F4CFAF01E64566900B7603A /* ORCVuforiaPresenter.m in Sources */,
 				8F660CC71DA2BBBC007B9551 /* ORCDevice.m in Sources */,
+				237732C31FA1EBE100788B66 /* WrapperLog.swift in Sources */,
 				8F660CC81DA2BBBC007B9551 /* ORCTag.m in Sources */,
 				8F660CC91DA2BBBC007B9551 /* ORCThemeSdk.m in Sources */,
 				8F660CCA1DA2BBBC007B9551 /* ORCVuforiaConfig.m in Sources */,

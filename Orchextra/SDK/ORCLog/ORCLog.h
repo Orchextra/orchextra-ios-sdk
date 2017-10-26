@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Orchextra-Swift.h"
+
+@class WrapperLog;
 
 
 /**

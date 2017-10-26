@@ -94,7 +94,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
         NSString *output = [[NSString alloc] initWithFormat:format arguments:ap];
         va_end(ap);
         
-        DDLogError(@"%@", output);
+        DDLogVerbose(@"ERROR %@", output);
     }
 }
 
@@ -108,7 +108,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
         va_start(ap, format);
         NSString *output = [[NSString alloc] initWithFormat:format arguments:ap];
         va_end(ap);
-        DDLogWarn(@"%@", output);
+        DDLogVerbose(@"WARN: %@", output);
     }
 }
 
@@ -123,7 +123,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
         NSString *output = [[NSString alloc] initWithFormat:format arguments:ap];
         va_end(ap);
         
-        DDLogDebug(@"%@", output);
+        DDLogVerbose(@"DEBUG: %@", output);
     }
 }
 
@@ -138,7 +138,7 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
         NSString *output = [[NSString alloc] initWithFormat:format arguments:ap];
         va_end(ap);
         
-        DDLogVerbose(@"%@", output);
+        DDLogVerbose(@"VERBOSE: %@", output);
     }
 }
 
