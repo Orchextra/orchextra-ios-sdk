@@ -38,9 +38,11 @@ class ConfigInteractor: ConfigInteractorInput {
     func loadCoreConfig(completion: @escaping (Result<Bool, Error>) -> Void) {
         self.configService.configCore { result in
             switch result {
-            case .success:
+            case .success(let json):
+                let project = Project(from: json)
+                self.session.project = project
                 completion(.success(true))
-                LogDebug("Orx has updated core configuration")
+                LogDebug("Orx has updated core configuration with \(project.projectId ?? "-")")
             case .error(let error):
                 completion(.error(error))
             }

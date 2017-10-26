@@ -98,6 +98,7 @@
 		8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
 		A907558A1F4AC1700053868E /* TriggerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755891F4AC1700053868E /* TriggerInteractor.swift */; };
+		A91142421F9F3E1F00F6DBCB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91142411F9F3E1F00F6DBCB /* Project.swift */; };
 		A9188AA61F82555100A5F5E2 /* triggering_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = A9188AA51F82555100A5F5E2 /* triggering_configuration.json */; };
 		A92570701F878DD500C1067E /* ApplicationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925706F1F878DD500C1067E /* ApplicationCenter.swift */; };
 		A92570721F87AB2900C1067E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92570711F87AB2800C1067E /* Session.swift */; };
@@ -127,6 +128,7 @@
 		A95E67F91F5D9EB3001D8B19 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67F81F5D9EB3001D8B19 /* Region.swift */; };
 		A95E67FB1F5D9FEC001D8B19 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */; };
 		A96C0E8E1F6985EB00338B1B /* StorageProximity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */; };
+		A97461ED1F9F67F00067C48E /* UserPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97461EC1F9F67F00067C48E /* UserPropertyCell.swift */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
 		A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */; };
@@ -171,8 +173,6 @@
 		A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A9C54DB41F41A81600DF2074 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB21F41A81600DF2074 /* Cartfile */; };
-		A9C54DB51F41A81600DF2074 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DB31F41A81600DF2074 /* Cartfile.private */; };
 		A9C54DB81F41A81E00DF2074 /* Orchextra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DB61F41A81E00DF2074 /* Orchextra.swift */; };
 		A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DB71F41A81E00DF2074 /* OrchextraWrapper.swift */; };
 		A9C54DBB1F41A84300DF2074 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; };
@@ -350,6 +350,7 @@
 		8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_external_browser_notification.json; path = Mocks/Json/action_external_browser_notification.json; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
 		A90755891F4AC1700053868E /* TriggerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerInteractor.swift; path = Common/Interactors/TriggerInteractor.swift; sourceTree = "<group>"; };
+		A91142411F9F3E1F00F6DBCB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Common/Model/Config/Project.swift; sourceTree = "<group>"; };
 		A9188AA51F82555100A5F5E2 /* triggering_configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = triggering_configuration.json; path = Mocks/Json/triggering_configuration.json; sourceTree = "<group>"; };
 		A925706F1F878DD500C1067E /* ApplicationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCenter.swift; sourceTree = "<group>"; };
 		A92570711F87AB2800C1067E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -380,6 +381,7 @@
 		A95E67F81F5D9EB3001D8B19 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = Proximity/Model/Region.swift; sourceTree = "<group>"; };
 		A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geofence.swift; path = Proximity/Model/Geofence.swift; sourceTree = "<group>"; };
 		A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageProximity.swift; path = Proximity/Data/StorageProximity.swift; sourceTree = "<group>"; };
+		A97461EC1F9F67F00067C48E /* UserPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPropertyCell.swift; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				8F22D88C1F961BB600D37F9B /* UserWireframe.swift */,
 				8FD191231F9733DE00043011 /* UserInteractor.swift */,
 				8F75429A1F9E03EB00C159E3 /* GenderPickerVC.swift */,
+				A97461EC1F9F67F00067C48E /* UserPropertyCell.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1321,6 +1324,7 @@
 				A9C6EB951F47035D007AE036 /* BusinessUnit.swift */,
 				A9C6EB971F4703A3007AE036 /* CustomField.swift */,
 				A987246E1F793F9500A7017F /* User.swift */,
+				A91142411F9F3E1F00F6DBCB /* Project.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -1506,10 +1510,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FAB227E1F56C2A3005A6A91 /* Assets.xcassets in Resources */,
-				A9C54DB41F41A81600DF2074 /* Cartfile in Resources */,
 				A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */,
 				A9AC21221F543D9600095EC5 /* Localizable.strings in Resources */,
-				A9C54DB51F41A81600DF2074 /* Cartfile.private in Resources */,
 				8F299C761F66A76F0023F69D /* eddystone.json in Resources */,
 				8F689D231F544364002046FE /* WebView.storyboard in Resources */,
 				A99885F81F502E1800EED42E /* ScannerOrx.storyboard in Resources */,
@@ -1578,6 +1580,7 @@
 				A9986B2A1F59764E00F2CC65 /* PushOrxManager.swift in Sources */,
 				A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */,
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
+				A91142421F9F3E1F00F6DBCB /* Project.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
 				A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */,
 				8F299C5B1F6691060023F69D /* EddystoneRegionManager.swift in Sources */,
@@ -1710,6 +1713,7 @@
 				8F22D8951F961BFA00D37F9B /* DeviceVC.swift in Sources */,
 				8FCE6FB31F504F070098A325 /* GeofencesVC.swift in Sources */,
 				8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */,
+				A97461ED1F9F67F00067C48E /* UserPropertyCell.swift in Sources */,
 				8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */,
 				8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */,
 				8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */,
@@ -2011,7 +2015,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bfda7ed5-fc37-40ae-b96f-c23147fe5355";
+				PROVISIONING_PROFILE = "09e1afd5-b41f-4ada-9def-e74f3c7fb0a3";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
