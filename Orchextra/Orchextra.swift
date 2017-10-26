@@ -222,15 +222,19 @@ open class Orchextra {
     }
     
     public func getUserTags() -> [Tag] {
-        return Orchextra.shared.getUserTags()
+        return OrchextraWrapper.shared.getUserTags()
+    }
+    
+    public func getAvailableCustomFields() -> [CustomField] {
+        return OrchextraWrapper.shared.getAvailableCustomFields()
     }
     
     public func setCustomFields(_ customFields: [CustomField]) {
-        Orchextra.shared.setCustomFields(customFields)
+        OrchextraWrapper.shared.setCustomFields(customFields)
     }
     
     public func getCustomFields() -> [CustomField] {
-        return Orchextra.shared.getCustomFields()
+        return OrchextraWrapper.shared.getCustomFields()
     }
     
      // MARK: Public Device methods

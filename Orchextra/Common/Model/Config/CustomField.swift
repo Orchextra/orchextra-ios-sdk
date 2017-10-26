@@ -29,11 +29,11 @@ public enum CustomFieldType: String {
     case datetime
 }
 
-public struct CustomField: Codable {
-    public let key: String
-    public let label: String
-    public let type: CustomFieldType
-    public let value: ValueCodable
+public class CustomField: Codable {
+    public var key: String
+    public var label: String
+    public var value: String?
+    public var type: CustomFieldType
     
     enum CodingKeys: String, CodingKey {
         case key
@@ -42,7 +42,19 @@ public struct CustomField: Codable {
         case value
     }
     
-    public init(key: String, label: String, type: CustomFieldType, value: ValueCodable) {
+    class func customField(key: String, json: [String: Any]) -> CustomField? {
+       
+        guard let type = json["type"] as? String,
+             let label = json["label"] as? String else { return nil }
+        
+        return  CustomField(
+            key: key,
+            label: label,
+            type: self.convertType(value: type),
+            value: nil)
+    }
+    
+    public init(key: String, label: String, type: CustomFieldType, value: String?) {
         self.key = key
         self.label = label
         self.type = type
@@ -59,12 +71,12 @@ public struct CustomField: Codable {
     }
 
     // MARK: - Decodable Protocol
-    public init(from decoder: Decoder) throws {
+    public required convenience init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let key = try container.decode(String.self, forKey: .key)
         let label = try container.decode(String.self, forKey: .label)
         let type = try container.decode(CustomFieldType.self, forKey: .type)
-        let value = try container.decode(ValueCodable.self, forKey: .value)
+        let value = try container.decode(String.self, forKey: .value)
 
         self.init(
             key: key,
@@ -72,6 +84,23 @@ public struct CustomField: Codable {
             type: type,
             value: value
         )
+    }
+    
+    private class func convertType(value: String) -> CustomFieldType {
+        switch value {
+        case "string":
+            return .string
+        case "boolean":
+            return .boolean
+        case "integer":
+            return .integer
+        case "float":
+            return .float
+        case "datetime":
+            return .datetime
+        default:
+            return .string
+        }
     }
 }
 

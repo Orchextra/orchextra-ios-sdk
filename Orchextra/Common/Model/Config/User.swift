@@ -21,8 +21,6 @@ public struct User: Codable {
     public var crmId: String?
     public var gender: Gender
     public var birthday: Date?
-    public var name: String?
-    public var surname: String?
     public var tags: [Tag]
     public var businessUnits: [BusinessUnit]
     public var customFields: [CustomField]
@@ -41,8 +39,6 @@ public struct User: Codable {
         self.crmId = nil
         self.gender = .none
         self.birthday = nil
-        self.name = nil
-        self.surname = nil
         self.tags = [Tag]()
         self.businessUnits = [BusinessUnit]()
         self.customFields = [CustomField]()

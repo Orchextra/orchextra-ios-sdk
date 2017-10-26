@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Orchextra
 
 protocol UserGenderPresenterInput {
      func userDidSet(gender: String)
@@ -20,25 +21,53 @@ protocol UserPresenterInput {
     func userDidSet(tags: String)
     func userDidSet(businessUnits: String)
     func userDidSet(customFields: String)
-    func userDidSet(name: String)
-    func userDidSet(surname: String)
     func saveButtonTapped()
 }
 
 protocol UserUI: class {
+    func updateCell(listItems: [ListItem])
 }
 
-struct  UserPresenter {
+class  UserPresenter {
     
     // MARK: - Public attributes
     
-    weak var view: UserUI?
+    let view: UserUI
     let wireframe: UserWireframe
     let interactor: UserInteractorInput
+    
+    var availableCustomFields = [CustomField]()
+    var listItems = [ListItem]()
+    
+    init(view: UserUI, wireframe: UserWireframe, interactor: UserInteractor) {
+        self.view = view
+        self.wireframe = wireframe
+        self.interactor = interactor
+    }
     
     // MARK: - Input methods
     func viewDidLoad() {
         
+        let orchextra = Orchextra.shared
+        
+        let user = orchextra.currentUser()
+        let crmIDItem = ListItem(key: "CrmId", value: user?.crmId)
+        let birthDayItem = ListItem(key: "Birthday", value: user?.birthday?.description)
+        let genderItem = ListItem(key: "Birthday", value: user?.gender.rawValue)
+
+        self.listItems.append(crmIDItem)
+        self.listItems.append(birthDayItem)
+        self.listItems.append(genderItem)
+
+        let customFields = orchextra.getAvailableCustomFields()
+        self.availableCustomFields = customFields
+
+        for customField in customFields {
+            let item = ListItem(from: customField)
+            self.listItems.append(item)
+        }
+        
+        self.view.updateCell(listItems: self.listItems)
     }
 }
 
@@ -71,14 +100,6 @@ extension UserPresenter: UserPresenterInput {
         self.interactor.set(customFields: customFields)
     }
     
-    func userDidSet(name: String) {
-        self.interactor.set(name: name)
-    }
-    
-    func userDidSet(surname: String) {
-        self.interactor.set(surname: surname)
-    }
-    
     func saveButtonTapped() {
        self.interactor.performBindOrUnbindOperation()
     }
@@ -87,5 +108,20 @@ extension UserPresenter: UserPresenterInput {
 extension UserPresenter: UserGenderPresenterInput {
     func userDidSet(gender: String) {
         self.interactor.set(gender: gender)
+    }
+}
+
+struct ListItem {
+    var key: String
+    var value: String?
+    
+    init(key: String, value: String?) {
+        self.key = key
+        self.value = value
+    }
+    
+    init(from customField: CustomField) {
+        self.key = customField.key
+        self.value = customField.value
     }
 }

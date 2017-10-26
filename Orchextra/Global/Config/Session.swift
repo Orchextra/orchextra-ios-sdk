@@ -12,17 +12,18 @@ import GIGLibrary
 class Session {
     
     static let shared = Session()
+    
     let userDefault: UserDefaults
-
+    var project: Project?
+    var apiKey: String?
+    var apiSecret: String?
+    
     // Attributes core
     private let keyAccessToken = "accesstoken"
     private let keyCredentials = "credentials"
     private let keyUser = "user"
     private let keyDeviceBusinessUnits = "device_business_units"
     private let keyDeviceTags = "device_tags"
-
-    var apiKey: String?
-    var apiSecret: String?
     
     init(userDefault: UserDefaults = UserDefaults()) {
         self.userDefault = userDefault

@@ -10,7 +10,7 @@ import Foundation
 import GIGLibrary
 
 protocol ConfigServiceInput {
-    func configCore(completion: @escaping (Result<Bool, Error>) -> Void)
+    func configCore(completion: @escaping (Result<JSON, Error>) -> Void)
     func configTriggering(completion: @escaping (Result<JSON, Error>) -> Void)
     func listTriggering(geoLocation: [String: Any], completion: @escaping (Result<JSON, Error>) -> Void)
 }
@@ -31,7 +31,7 @@ class ConfigService: ConfigServiceInput {
         self.init(auth: auth)
     }
     
-    func configCore(completion: @escaping (Result<Bool, Error>) -> Void) {
+    func configCore(completion: @escaping (Result<JSON, Error>) -> Void) {
         guard let apiKey = Session.shared.apiKey else {
             completion(.error(ErrorService.invalidCredentials))
             return
@@ -51,7 +51,7 @@ class ConfigService: ConfigServiceInput {
                 do {
                     let json = try response.json()
                     LogDebug(json.description)
-                    completion(.success(true))
+                    completion(.success(json))
                     
                 } catch {
                     completion(.error(ErrorService.invalidJSON))

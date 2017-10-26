@@ -218,6 +218,11 @@ class OrchextraWrapper {
         return currentUser.customFields
     }
     
+    public func getAvailableCustomFields() -> [CustomField] {
+        guard let availableCustomFields = self.session.project?.customFields else { return [CustomField]() }
+        return availableCustomFields
+    }
+    
     // MARK: Public Device methods
     public func bindDevice() {
         self.performBindDeviceOperation()
