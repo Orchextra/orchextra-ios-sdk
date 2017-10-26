@@ -115,6 +115,10 @@
 
 - (void)bindUser:(ORCUser *)user
 {
+    
+    [ORCLog logError:@"Orchextra: Prueba UNO"];
+    [ORCLog logWarning:@"Orchextra: Prueba DOS"];
+    
     [self.interactor bindUser:user];
 }
 

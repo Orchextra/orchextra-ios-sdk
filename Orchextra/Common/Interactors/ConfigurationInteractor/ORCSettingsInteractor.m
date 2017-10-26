@@ -334,6 +334,8 @@ NSInteger const MAX_REGIONS = 20;
                                                           options:NSJSONReadingAllowFragments
                                                             error:&error];
                 [ORCLog logError:[json description]];
+            } else {
+                [ORCLog logError:@"Orchextra: loadConfiguration return Error but no send data"];
             }
         }
     }];
@@ -349,12 +351,18 @@ NSInteger const MAX_REGIONS = 20;
         if ([oldUser crmHasChanged:user])
         {
             [self invalidateTokens];
+        } else {
+            [ORCLog logWarning:@"CrmHasChanged-   oldUser: %@ , user: %@", oldUser, user];
         }
         
         if ([self.settingsPersister loadOrchextraState])
         {
             [self updateConfiguration];
+        } else {
+            [ORCLog logWarning:@"loadOrchextraState-   [self.settingsPersister loadOrchextraState]: %@", [self.settingsPersister loadOrchextraState]];
         }
+    } else {
+        [ORCLog logError:@"[oldUser isSameUser:user] = %@",[oldUser isSameUser:user]];
     }
 }
 
