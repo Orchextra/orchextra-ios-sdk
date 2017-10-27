@@ -69,6 +69,11 @@ NSString * const ORC_CANCELABLE = @"cancelable";
             self = [[ORCActionBrowser alloc] init];
             self.actionWithUserInteraction = YES;
         }
+        else if ([ORCActionCustomSchemeID isEqualToString:type])
+        {
+            self = [[ORCAction alloc] init];
+            self.actionWithUserInteraction = YES;
+        }
         else if ([ORCActionVuforiaID isEqualToString:type])
         {
             if (NSClassFromString(@"ORCActionVuforia"))
