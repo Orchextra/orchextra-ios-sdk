@@ -10,14 +10,15 @@ import Foundation
 import Orchextra
 
 protocol UserInteractorInput {
-    func set(crmId: String)
-    func set(gender: String)
-    func set(birthDate: String)
-    func set(tags: String)
-    func set(businessUnits: String)
-    func set(customFields: String)
+    func set(values: [AnyHashable: Any])
+//    func set(crmId: String)
+//    func set(gender: String)
+//    func set(birthDate: String)
+//    func set(tags: String)
+//    func set(businessUnits: String)
+//    func set(customFields: String)
     func performBindOrUnbindOperation()
-    func bind(user: User)
+    func bind(user: UserOrx)
     func unBindUser()
 }
 
@@ -74,45 +75,65 @@ struct UserInteractor {
         }
         return result
     }
+    
+    func proccess(birthDate: String) -> Date? {
+        return DateFormatter().date(from: birthDate)
+    }
 }
 
 extension UserInteractor: UserInteractorInput {
-    // TODO: Perform bind/unbind only when save button is tapped?????? Do make it sense to have a save button?
-    func set(crmId: String) {
-        guard var currentUser = self.orchextra.currentUser() else { return }
-        currentUser.crmId = crmId
+
+    func set(values: [AnyHashable: Any]) {
+        var user = UserOrx()
+        if let currentUser = self.orchextra.currentUser() {
+            user = currentUser
+        }
+        
+        if let crmID = values["crmID"] as? String {
+            user.crmId = crmID
+        }
+        
+        if let gender = values["gender"] as? String {
+            user.gender = self.process(gender: gender)
+        }
+        
+        if let birthday = values["birthday"] as? String {
+            user.birthday = self.proccess(birthDate: birthday)
+        }
+        
         self.bind(user: currentUser)
     }
     
-    func set(gender: String) {
-        guard var currentUser = self.orchextra.currentUser() else { return }
-        currentUser.gender = self.process(gender: gender)
-        self.bind(user: currentUser)
-    }
-    
-    func set(birthDate: String) {
-        guard var currentUser = self.orchextra.currentUser() else { return }
-        currentUser.birthday = DateFormatter().date(from: birthDate)
-        self.bind(user: currentUser)
-    }
-    
-    func set(tags: String) {
-        guard var currentUser = self.orchextra.currentUser() else { return }
-        currentUser.tags = self.process(tagsString: tags)
-        self.bind(user: currentUser)
-    }
-    
-    func set(businessUnits: String) {
-        guard var currentUser = self.orchextra.currentUser() else { return }
-        currentUser.businessUnits = self.process(businessUnitsString: businessUnits)
-        self.bind(user: currentUser)
-    }
-    
-    func set(customFields: String) {
-        guard var currentUser = self.orchextra.currentUser() else { return }
-        currentUser.customFields = self.process(customFieldsString: customFields)
-        self.bind(user: currentUser)
-    }
+//    // TODO: Perform bind/unbind only when save button is tapped?????? Do make it sense to have a save button?
+//    func set(crmId: String) {
+//        guard var currentUser = self.orchextra.currentUser() else { return }
+//        currentUser.crmId = crmId
+//        self.bind(user: currentUser)
+//    }
+//
+//    func set(gender: String) {
+//        guard var currentUser = self.orchextra.currentUser() else { return }
+//        currentUser.gender = self.process(gender: gender)
+//        self.bind(user: currentUser)
+//    }
+//
+//    func set(tags: String) {
+//        guard var currentUser = self.orchextra.currentUser() else { return }
+//        currentUser.tags = self.process(tagsString: tags)
+//        self.bind(user: currentUser)
+//    }
+//
+//    func set(businessUnits: String) {
+//        guard var currentUser = self.orchextra.currentUser() else { return }
+//        currentUser.businessUnits = self.process(businessUnitsString: businessUnits)
+//        self.bind(user: currentUser)
+//    }
+//
+//    func set(customFields: String) {
+//        guard var currentUser = self.orchextra.currentUser() else { return }
+//        currentUser.customFields = self.process(customFieldsString: customFields)
+//        self.bind(user: currentUser)
+//    }
     
     func performBindOrUnbindOperation() {
         guard let currentUser = self.orchextra.currentUser() else { return }

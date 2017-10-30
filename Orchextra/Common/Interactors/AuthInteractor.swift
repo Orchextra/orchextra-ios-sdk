@@ -12,7 +12,7 @@ import GIGLibrary
 protocol AuthInteractorInput {
     func authWithAccessToken(completion: @escaping (Result<String, Error>) -> Void)
     func sendRequest(request: Request, completion: @escaping (Result<JSON, Error>) -> Void)
-    func bind(user: User?, device: Device?, completion: @escaping(Result<Bool, Error>) -> Void)
+    func bind(user: UserOrx?, device: Device?, completion: @escaping(Result<Bool, Error>) -> Void)
 }
 
 class AuthInteractor: AuthInteractorInput {
@@ -82,7 +82,7 @@ class AuthInteractor: AuthInteractorInput {
         }
     }
     
-    func bind(user: User?, device: Device?, completion: @escaping(Result<Bool, Error>) -> Void) {
+    func bind(user: UserOrx?, device: Device?, completion: @escaping(Result<Bool, Error>) -> Void) {
         let deviceParams = device?.deviceParams()
         let userParams = user?.userParams()
        
@@ -149,10 +149,10 @@ class AuthInteractor: AuthInteractorInput {
         }        
     }
     
-    private func currentOrNewEmptyUser() -> User? {
+    private func currentOrNewEmptyUser() -> UserOrx? {
         let currentUser = self.session.currentUser()
         if currentUser == nil {
-            let newUser = User()
+            let newUser = UserOrx()
             self.session.bindUser(newUser)
         }
         return self.session.currentUser()

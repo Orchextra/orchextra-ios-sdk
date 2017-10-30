@@ -168,7 +168,7 @@ class OrchextraWrapper {
     }
     
     // MARK: Public CRM methods
-    public func bindUser(_ user: User) {
+    public func bindUser(_ user: UserOrx) {
         let currentUser = self.session.currentUser()
         if user != currentUser {
             self.session.bindUser(user)
@@ -181,7 +181,7 @@ class OrchextraWrapper {
         self.performBindUserOperation()
     }
     
-    public func currentUser() -> User? {
+    public func currentUser() -> UserOrx? {
         return self.session.currentUser()
     }
     

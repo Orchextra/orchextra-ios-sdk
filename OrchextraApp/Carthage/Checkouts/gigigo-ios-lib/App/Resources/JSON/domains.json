@@ -1,0 +1,12 @@
+{
+	"domains": [
+		{
+			"name": "Production",
+			"url": "http://prod.gigigo.com"
+		},
+		{
+			"name": "Develop",
+			"url": "http://dev.gigigo.com"
+		}
+	]
+}

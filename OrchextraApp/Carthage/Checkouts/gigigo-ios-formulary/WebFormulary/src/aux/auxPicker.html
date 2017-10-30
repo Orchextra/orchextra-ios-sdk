@@ -1,0 +1,96 @@
+<div class="cellConstructor pickerConstructor" id="createField">
+   <div class="row">
+       <div class="col-md-10">
+           <div class="keyTextField">
+                <p>key*:</p>
+                <input type="text" name="keyTextField" id="keyTextField">
+           </div>
+           <div class="containerTextFieldTop">
+               <div class="titleTextField">
+                   <p>Titulo*:</p>
+                   <input type="text" name="titleTextField" id="titleTextField">                                       
+                </div>                                 
+           </div>
+           <div id="containerErrorMandatoryPicker">
+                <div class="errorTextField errorTextFieldPicker">
+                   <p class="textErrorP">Texto error:</p>
+                   <input type="text" name="errorTextField" id="errorTextField">
+                </div>
+           </div>  
+           
+           <div class="containerAcceptEditing">
+               <div class="acceptButtonTextField">
+                   <p>Titulo aceptar picker:</p>
+                   <input type="text" name="acceptButtonTextField" id="acceptButtonTextField">
+               </div>
+           </div>
+
+
+           <div class="containerOptionalPicker">           
+                <div class="mandatoryTextField optionModel">
+                    <input type="checkbox" name="mandatory" value="mandatory" id="mandatory">
+                    <p>Es obligatorio?</p>
+                </div> 
+
+               <div class="isEditingTextField">
+                   <input type="checkbox" name="isEditingTextField" value="isEditingTextField" id="isEditingTextField">
+                   <p>Es editable?</p>
+               </div>
+
+               <div class="isHiddenTextField">
+                   <input type="checkbox" name="isHiddenTextField" value="isHiddenTextField" id="isHiddenTextField">
+                   <p>Es visible?</p>
+               </div>
+           </div>
+           
+
+           <div id="valuesOptionsSelector"> 
+              <div id="containerPickerFieldAdd">
+                 <p id="addFieldPickerText">Añadir campos del picker:</p> 
+                 <div id="sumatoryPicker">
+                      <p onclick="addContainerPicker()">+</p>
+                </div>
+              </div>
+
+              <div id="pickerFieldsInsert">
+                  <div class="containerPickerField" id="containerPickerField'+idPickerField+'">
+                      <input id="inputKeyPickerField0" type="text" name="element" placeholder="Clave Picker" value="KeyNoSelected"  disabled readonly>
+                      <input id="inputValuePickerField0" type="text" name="element" placeholder="Valor picker por defecto">
+                  </div>
+              </div>
+            </div> 
+
+            <div class="styleField"> 
+              <h4>Estilos de celda:</h4>
+               <div class="sizeZone">
+                  <p>Tamaño titulo:</p>
+                  <input id="sizeTitle" type="text" name="element">
+                  <p>Tamaño texto error:</p>
+                  <input id="sizeError" type="text" name="element">
+               </div>
+               
+                 {{htmlFont}}
+                 {{htmlImage}}
+
+                <div class="colorZone pickerColorZone">
+                    {{colorBasicZone}}
+
+                   <p class="nextColor">Estilos picker selector</p>
+                   <p class="colorOKPicker">Color texto OK:</p>
+                   <input type="color" value="#ffffff" id="aceptColor" class="cellColorCreate"><input id="aceptColorHex" class="inputColorHex" placeholder="#ffffff">
+                   <p class="colorTittleP">Color contenedor OK:</p>
+                   <input type="color" value="#ffffff" id="containerAceptColor" class="cellColorCreate"><input id="containerAceptColorHex" class="inputColorHex" placeholder="#ffffff">
+                   <p class="colorTittleP">Color fondo:</p>
+                   <input type="color" value="#ffffff" id="backgroundPickerColor" class="cellColorCreate"><input id="backgroundPickerColorHex" class="inputColorHex" placeholder="#ffffff">
+               </div>
+            </div>
+            <div class="spaceSeparate"></div>
+       </div>
+       <div class="col-md-2 buttonAdd buttonAddPicker" onclick="addField()">
+           <p>+</p>
+       </div>
+   </div>
+</div> 
+
+
+                   

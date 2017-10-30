@@ -8,8 +8,10 @@
 
 import UIKit
 import GIGLibrary
+import GIGFormulary
+import Orchextra
 
-class UserVC: BaseVC, UserUI {
+class UserVC: UIViewController, UserUI, PFormulary {
     
     // MARK: - Attributtes
     var presenter: UserPresenter?
@@ -17,8 +19,10 @@ class UserVC: BaseVC, UserUI {
     // MARK: - IBOutlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var formView: UIView!
     
-    var listItems: [ListItem]?
+    var listItems: [[AnyHashable: Any]]?
+    let formulary = Formulary()
     
     // MARK: - View life cycle
     
@@ -30,39 +34,29 @@ class UserVC: BaseVC, UserUI {
         self.hideKeyboardWhenTappedAround()
     }
     
-    func updateCell(listItems: [ListItem]) {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.formulary.clearFormulary()
+    }
+    
+    func showForm(listItems: [[AnyHashable: Any]]) {
         self.listItems = listItems
-        self.tableView.reloadData()
-    }
-}
-
-extension UserVC: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.listItems?.count ?? 0
+        let saveButton = UIButton(type: .custom)
+        saveButton.setTitle("Save", for: .normal)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
+        self.formulary.loadBundle(Bundle.main)
+        let viewF = self.formulary.start(saveButton, listItems: listItems)
+        self.formView.addSubviewWithAutolayout(viewF)
+        self.formulary.formularyOutput = self
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserPropertyCell", for: indexPath) as? UserPropertyCell
-        guard let listItems = self.listItems else { return UITableViewCell() }
-        let key = listItems[indexPath.row].key
-        cell?.bind(key: key, listItems: listItems)
-        
-        return cell!
+    // MARK: - PFormulary
+    
+    func recoverFormModel(_ formValues: [AnyHashable: Any]) {
+        self.view.endEditing(true)
+        self.presenter?.userDidTapSend(with: formValues)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 67
-    }
 }
 
 extension UserVC: Instantiable {

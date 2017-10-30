@@ -199,13 +199,13 @@ open class Orchextra {
     }
     
     // MARK: Public CRM methods
-    public func bindUser(_ user: User) {
+    public func bindUser(_ user: UserOrx) {
         OrchextraWrapper.shared.bindUser(user)
     }
     public func unbindUser() {
         OrchextraWrapper.shared.unbindUser()
     }
-    public func currentUser() -> User? {
+    public func currentUser() -> UserOrx? {
         return OrchextraWrapper.shared.currentUser()
     }
     

@@ -14,18 +14,12 @@ protocol UserGenderPresenterInput {
 }
 
 protocol UserPresenterInput {
-    func userDidTapGenderView()
-    func userDidTapBirthdateView()
-    func userDidSet(crmId: String)
-    func userDidSet(birthDate: String)
-    func userDidSet(tags: String)
-    func userDidSet(businessUnits: String)
-    func userDidSet(customFields: String)
+    func userDidTapSend(with formValues: [AnyHashable: Any])
     func saveButtonTapped()
 }
 
 protocol UserUI: class {
-    func updateCell(listItems: [ListItem])
+    func showForm(listItems: [[AnyHashable: Any]])
 }
 
 class  UserPresenter {
@@ -35,9 +29,10 @@ class  UserPresenter {
     let view: UserUI
     let wireframe: UserWireframe
     let interactor: UserInteractorInput
+    let orchextra = Orchextra.shared
     
     var availableCustomFields = [CustomField]()
-    var listItems = [ListItem]()
+    var listItems = [[AnyHashable: Any]]()
     
     init(view: UserUI, wireframe: UserWireframe, interactor: UserInteractor) {
         self.view = view
@@ -48,80 +43,82 @@ class  UserPresenter {
     // MARK: - Input methods
     func viewDidLoad() {
         
-        let orchextra = Orchextra.shared
-        
         let user = orchextra.currentUser()
-        let crmIDItem = ListItem(key: "CrmId", value: user?.crmId)
-        let birthDayItem = ListItem(key: "Birthday", value: user?.birthday?.description)
-        let genderItem = ListItem(key: "Birthday", value: user?.gender.rawValue)
-
-        self.listItems.append(crmIDItem)
-        self.listItems.append(birthDayItem)
-        self.listItems.append(genderItem)
+        self.listItems = self.basicItemUser()
 
         let customFields = orchextra.getAvailableCustomFields()
         self.availableCustomFields = customFields
 
         for customField in customFields {
-            let item = ListItem(from: customField)
+            let item = self.item(customField: customField)
             self.listItems.append(item)
         }
         
-        self.view.updateCell(listItems: self.listItems)
+        self.view.showForm(listItems: self.listItems)
+    }
+    
+    func basicItemUser() -> [[AnyHashable: Any]] {
+        let crmId = ["key": "crmID",
+                     "type": "text",
+                     "label": "Crm Id",
+                     "style": [
+                        "styleCell": "line",
+                        "mandatoryIcon": "mandatory_JR"],
+                     "mandatory": false] as [String: Any]
+        
+        let birthday = ["key": "birthday",
+                        "type": "datePicker",
+                        "label": "Birthday",
+                        "style": [
+                            "styleCell": "line",
+                            "mandatoryIcon": "mandatory_JR"],
+                        "mandatory": false] as [String: Any]
+        
+        let gender = ["key": "gender",
+                      "type": "picker",
+                      "label": "Gender",
+                      "listOptions": [
+                        ["key": "female",
+                         "value": "Female"]
+                        ,
+                        ["key": "male",
+                         "value": "Male"]],
+                      "style": [
+                        "styleCell": "line",
+                        "mandatoryIcon": "mandatory_JR"],
+                      "mandatory": false] as [String: Any]
+        
+        let split = ["key": "split_customfield",
+                     "type": "index",
+                     "label": "Custom Fields",
+                     "style": [
+                        "sizeTitle": 30,
+                        "align": "alignCenter"
+            ]] as [String: Any]
+        return [crmId, birthday, gender, split]
+    }
+    
+    func item(customField: CustomField) -> [AnyHashable: Any] {
+        let item = ["key": "customField_\(customField.key)",
+            "type": "text",
+            "label": customField.label,
+            "value": customField.value ?? "",
+            "style": [
+                "styleCell": "line",
+                "mandatoryIcon": "mandatory_JR"],
+            "mandatory": false] as [String: Any]
+        
+        return item
     }
 }
 
 extension UserPresenter: UserPresenterInput {
-    func userDidTapGenderView() {
-        // TODO: Show Gender picker
-    }
-    
-    func userDidTapBirthdateView() {
-        // TODO: Show Date picker
-    }
-    
-    func userDidSet(crmId: String) {
-        self.interactor.set(crmId: crmId)
-    }
-    
-    func userDidSet(birthDate: String) {
-        self.interactor.set(birthDate: birthDate)
-    }
-    
-    func userDidSet(tags: String) {
-        self.interactor.set(tags: tags)
-    }
-    
-    func userDidSet(businessUnits: String) {
-        self.interactor.set(businessUnits: businessUnits)
-    }
-    
-    func userDidSet(customFields: String) {
-        self.interactor.set(customFields: customFields)
+
+    func userDidTapSend(with formValues: [AnyHashable: Any]) {
+        self.interactor.set(values: formValues)
     }
     
     func saveButtonTapped() {
        self.interactor.performBindOrUnbindOperation()
-    }
-}
-
-extension UserPresenter: UserGenderPresenterInput {
-    func userDidSet(gender: String) {
-        self.interactor.set(gender: gender)
-    }
-}
-
-struct ListItem {
-    var key: String
-    var value: String?
-    
-    init(key: String, value: String?) {
-        self.key = key
-        self.value = value
-    }
-    
-    init(from customField: CustomField) {
-        self.key = customField.key
-        self.value = customField.value
     }
 }

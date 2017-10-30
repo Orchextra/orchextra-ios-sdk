@@ -1,0 +1,14 @@
+{
+    "fields":[
+              {
+              "key": "a1",
+              "type": "text",
+              "label": "asds",
+              "mandatory": true,
+              "textError": "Ten adres e-mail jest juz w uzyciu. Zamaturgi a adres email chaquete y atunes",
+              "textAcceptButton": "acepta",
+              "minAge": 12,
+              "validator": "age"
+              }
+              ]
+}

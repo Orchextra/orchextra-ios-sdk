@@ -1,0 +1,16 @@
+{
+  "name": "webformulary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "clipboard-js": "^0.3.3",
+    "html-loader": "^0.4.5",
+    "webpack": "^2.4.1"
+  }
+}

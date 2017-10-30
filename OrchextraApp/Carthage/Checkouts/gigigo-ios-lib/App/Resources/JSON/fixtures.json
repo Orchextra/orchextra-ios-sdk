@@ -1,0 +1,16 @@
+{
+    "fixtures": [
+		{
+			"name": "Fixture File",
+			"filename": "fixture.json"
+		},
+		{
+			"name": "Fixture Mocks",
+			"mocks": {
+			    "config": "GET_config.json",
+			    "keepalive": "GET_keepalive.json",
+			    "logout": "GET_logout.json"
+			}
+		}
+	]
+}

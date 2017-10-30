@@ -40,21 +40,21 @@ class Session {
     }
     
     // MARK: - CRM User public methods
-    func bindUser(_ user: User) {
+    func bindUser(_ user: UserOrx) {
         self.userDefault.set(try? PropertyListEncoder().encode(user), forKey: keyUser)
     }
     
     func unbindUser() {
-        let user = User()
+        let user = UserOrx()
          self.userDefault.set(try? PropertyListEncoder().encode(user), forKey: keyUser)
     }
     
-    func currentUser() -> User? {
+    func currentUser() -> UserOrx? {
         if let data = self.userDefault.value(forKey: keyUser) as? Data {
-            let user = try? PropertyListDecoder().decode(User.self, from: data)
+            let user = try? PropertyListDecoder().decode(UserOrx.self, from: data)
             return user
         }
-        return nil
+        return UserOrx()
     }
     
     func deviceBusinessUnits() -> [BusinessUnit] {

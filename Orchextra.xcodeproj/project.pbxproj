@@ -128,8 +128,10 @@
 		A95E67F91F5D9EB3001D8B19 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67F81F5D9EB3001D8B19 /* Region.swift */; };
 		A95E67FB1F5D9FEC001D8B19 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */; };
 		A96C0E8E1F6985EB00338B1B /* StorageProximity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */; };
-		A97461ED1F9F67F00067C48E /* UserPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97461EC1F9F67F00067C48E /* UserPropertyCell.swift */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
+		A97743E41FA72C0E006690C3 /* GIGFormulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97743E21FA72C04006690C3 /* GIGFormulary.framework */; };
+		A97743E51FA72C0E006690C3 /* GIGFormulary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A97743E21FA72C04006690C3 /* GIGFormulary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A97743E71FA747BB006690C3 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97743E61FA747BA006690C3 /* FormTextField.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
 		A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */; };
 		A978C5CD1F4577C300F5DFFD /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DFE1F44684A00DF2074 /* Nimble.framework */; };
@@ -143,7 +145,7 @@
 		A978C5D81F457AE200F5DFFD /* StartSDKSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5D71F457AE200F5DFFD /* StartSDKSpec.swift */; };
 		A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DB1F45A43900F5DFFD /* SessionMock.swift */; };
 		A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */; };
-		A987246F1F793F9500A7017F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987246E1F793F9500A7017F /* User.swift */; };
+		A987246F1F793F9500A7017F /* UserOrx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987246E1F793F9500A7017F /* UserOrx.swift */; };
 		A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */ = {isa = PBXBuildFile; fileRef = A98B52D21F5E92100082BB2F /* geomarketing.json */; };
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
 		A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */; };
@@ -253,6 +255,7 @@
 			files = (
 				A9C54DDD1F41A9F600DF2074 /* GIGLibrary.framework in Embed Frameworks */,
 				FA1916221F5EB4CE00F344EC /* Applivery.framework in Embed Frameworks */,
+				A97743E51FA72C0E006690C3 /* GIGFormulary.framework in Embed Frameworks */,
 				A9C54DD81F41A99700DF2074 /* Orchextra.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -381,14 +384,15 @@
 		A95E67F81F5D9EB3001D8B19 /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Region.swift; path = Proximity/Model/Region.swift; sourceTree = "<group>"; };
 		A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geofence.swift; path = Proximity/Model/Geofence.swift; sourceTree = "<group>"; };
 		A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageProximity.swift; path = Proximity/Data/StorageProximity.swift; sourceTree = "<group>"; };
-		A97461EC1F9F67F00067C48E /* UserPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPropertyCell.swift; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
+		A97743E21FA72C04006690C3 /* GIGFormulary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GIGFormulary.framework; path = OrchextraApp/Carthage/Build/iOS/GIGFormulary.framework; sourceTree = "<group>"; };
+		A97743E61FA747BA006690C3 /* FormTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
 		A978C5D71F457AE200F5DFFD /* StartSDKSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSDKSpec.swift; sourceTree = "<group>"; };
 		A978C5DB1F45A43900F5DFFD /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionMock.swift; path = Mocks/Model/SessionMock.swift; sourceTree = "<group>"; };
 		A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
-		A987246E1F793F9500A7017F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Common/Model/Config/User.swift; sourceTree = "<group>"; };
+		A987246E1F793F9500A7017F /* UserOrx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserOrx.swift; path = Common/Model/Config/UserOrx.swift; sourceTree = "<group>"; };
 		A98B52D21F5E92100082BB2F /* geomarketing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geomarketing.json; sourceTree = "<group>"; };
 		A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationWrapper.swift; path = Proximity/LocationWrapper.swift; sourceTree = "<group>"; };
 		A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityModule.swift; path = Proximity/ProximityModule.swift; sourceTree = "<group>"; };
@@ -492,6 +496,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97743E41FA72C0E006690C3 /* GIGFormulary.framework in Frameworks */,
 				FA1916211F5EB4CE00F344EC /* Applivery.framework in Frameworks */,
 				8F0D4F7E1F558F9C003F3B39 /* WebKit.framework in Frameworks */,
 				8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */,
@@ -668,7 +673,6 @@
 				8F22D88C1F961BB600D37F9B /* UserWireframe.swift */,
 				8FD191231F9733DE00043011 /* UserInteractor.swift */,
 				8F75429A1F9E03EB00C159E3 /* GenderPickerVC.swift */,
-				A97461EC1F9F67F00067C48E /* UserPropertyCell.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -777,6 +781,7 @@
 		8F7F58E71F4D84BD00271FC7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				A97743E61FA747BA006690C3 /* FormTextField.swift */,
 				8F20809C1F4EACF300C328DC /* Settings.storyboard */,
 				8F7F58E81F4D84BD00271FC7 /* SettingsInteractor.swift */,
 				8F7F58E91F4D84BD00271FC7 /* SettingsPresenter.swift */,
@@ -1151,6 +1156,7 @@
 		A9C54DB11F41A80500DF2074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A97743E21FA72C04006690C3 /* GIGFormulary.framework */,
 				A958CCB81F8528CB007074D5 /* Security.framework */,
 				A9C54DB21F41A81600DF2074 /* Cartfile */,
 				A9C54DB31F41A81600DF2074 /* Cartfile.private */,
@@ -1323,7 +1329,7 @@
 				A9C6EB911F46FB12007AE036 /* Tag.swift */,
 				A9C6EB951F47035D007AE036 /* BusinessUnit.swift */,
 				A9C6EB971F4703A3007AE036 /* CustomField.swift */,
-				A987246E1F793F9500A7017F /* User.swift */,
+				A987246E1F793F9500A7017F /* UserOrx.swift */,
 				A91142411F9F3E1F00F6DBCB /* Project.swift */,
 			);
 			name = Config;
@@ -1592,7 +1598,7 @@
 				A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */,
 				8F299C5E1F6691060023F69D /* EddystoneProtocolParser.swift in Sources */,
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
-				A987246F1F793F9500A7017F /* User.swift in Sources */,
+				A987246F1F793F9500A7017F /* UserOrx.swift in Sources */,
 				8F299C5A1F6691060023F69D /* EddystoneRegion.swift in Sources */,
 				A9986B2F1F59767C00F2CC65 /* ActionService.swift in Sources */,
 				A99885F91F502E1800EED42E /* ScannerPresenter.swift in Sources */,
@@ -1685,6 +1691,7 @@
 				8F5F7A181F4C60E700E62E57 /* HomeVC.swift in Sources */,
 				8F2080951F4EAAAB00C328DC /* TriggeringPresenter.swift in Sources */,
 				8F2080981F4EAAAB00C328DC /* TriggeringInteractor.swift in Sources */,
+				A97743E71FA747BB006690C3 /* FormTextField.swift in Sources */,
 				A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */,
 				8F22D8941F961BFA00D37F9B /* DevicePresenter.swift in Sources */,
 				8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */,
@@ -1713,7 +1720,6 @@
 				8F22D8951F961BFA00D37F9B /* DeviceVC.swift in Sources */,
 				8FCE6FB31F504F070098A325 /* GeofencesVC.swift in Sources */,
 				8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */,
-				A97461ED1F9F67F00067C48E /* UserPropertyCell.swift in Sources */,
 				8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */,
 				8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */,
 				8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */,
@@ -1917,6 +1923,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Orchextra/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1946,6 +1953,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Orchextra/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2009,6 +2017,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = OrchextraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2033,6 +2042,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = OrchextraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

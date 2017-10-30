@@ -1,0 +1,34 @@
+{
+    "status": "OK",
+    "code": 200,
+    "data": {
+        "iphone_min_version": "1.0.0",
+        "android_min_version": "1.0.0",
+        "iphone_store_url": "http:\/\/www.urldeiosstore.com\/vips",
+        "android_store_url": "http:\/\/www.urldeandroidstore.com\/vips",
+        "home": {
+            "card": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-001.jpg",
+            "payments": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-002.jpg",
+            "campaigns": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-003.jpg",
+            "orders": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-004.jpg",
+            "prepaid": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-005.jpg",
+            "map": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-006.jpg"
+        },
+        "sections": {
+            "club": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-008.jpg",
+            "map": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-006.jpg",
+            "orders": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-004.jpg",
+            "payments": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-002.jpg",
+            "prepaid": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-005.jpg",
+            "favorites": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-010.jpg",
+            "settings": "http:\/\/vips.d.gigigo.com\/static\/images\/home\/{width}x{height}x{quality}\/home-009.jpg"
+        },
+        "prepaid": {
+            "ammounts": [500, 1000, 2500, 5000, 7500, 10000]
+        },
+        "share": {
+            "facebook": "http:\/\/vips.d.gigigo.com\/static\/images\/share\/share_Facebook.png",
+            "twitter": "http:\/\/vips.d.gigigo.com\/static\/images\/share\/share_Facebook.png"
+        }
+    }
+}
