@@ -16,7 +16,7 @@ public enum Gender: String {
 
 extension Gender: Codable {}
 
-public struct UserOrx: Codable {
+public class UserOrx: Codable {
     // MARK: - Attributes
     public var crmId: String?
     public var gender: Gender
@@ -97,18 +97,18 @@ public struct UserOrx: Codable {
     }
 }
 
-//extension UserOrx: Equatable {
-//    public static func == (lhs: UserOrx, rhs: User) -> Bool {
-//        if lhs.crmId == rhs.crmId,
-//        lhs.gender == rhs.gender,
-//        lhs.birthday == rhs.birthday,
-//        lhs.tags == rhs.tags,
-//        lhs.businessUnits == rhs.businessUnits,
-//        lhs.customFields == rhs.customFields {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
-//}
+extension UserOrx: Equatable {
+    public static func == (lhs: UserOrx, rhs: UserOrx) -> Bool {
+        if lhs.crmId == rhs.crmId,
+        lhs.gender == rhs.gender,
+        lhs.birthday == rhs.birthday,
+        lhs.tags == rhs.tags,
+        lhs.businessUnits == rhs.businessUnits,
+        lhs.customFields == rhs.customFields {
+            return true
+        } else {
+            return false
+        }
+    }
+}
 

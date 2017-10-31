@@ -18,7 +18,7 @@ protocol UserInteractorInput {
 //    func set(businessUnits: String)
 //    func set(customFields: String)
     func performBindOrUnbindOperation()
-    func bind(user: UserOrx)
+//    func bind(user: Orchextra)
     func unBindUser()
 }
 
@@ -143,10 +143,10 @@ extension UserInteractor: UserInteractorInput {
             self.bind(user: currentUser)
         }
     }
-    
-    func bind(user: User) {
-        self.bind(user: user)
-    }
+//    
+//    func bind(user: User) {
+//        self.bind(user: user)
+//    }
     
     func unBindUser() {
        self.orchextra.unbindUser()
