@@ -14,7 +14,6 @@ class GenderPickerVC: UIViewController {
     @IBOutlet var pickerView: UIPickerView!
     
     // MARK: Attributes
-    var presenter: UserGenderPresenterInput?
     
     // MARK: - View life cycle
     

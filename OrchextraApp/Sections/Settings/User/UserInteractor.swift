@@ -11,12 +11,6 @@ import Orchextra
 
 protocol UserInteractorInput {
     func set(values: [AnyHashable: Any])
-//    func set(crmId: String)
-//    func set(gender: String)
-//    func set(birthDate: String)
-//    func set(tags: String)
-//    func set(businessUnits: String)
-//    func set(customFields: String)
     func performBindOrUnbindOperation()
 //    func bind(user: Orchextra)
     func unBindUser()
@@ -77,31 +71,37 @@ struct UserInteractor {
     }
     
     func proccess(birthDate: String) -> Date? {
-        return DateFormatter().date(from: birthDate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/mm/yyyy"        
+        return dateFormatter.date(from: birthDate)
     }
 }
 
 extension UserInteractor: UserInteractorInput {
 
     func set(values: [AnyHashable: Any]) {
-        var user = UserOrx()
+        
+        var user: UserOrx
+
         if let currentUser = self.orchextra.currentUser() {
             user = currentUser
+        } else {
+            user = UserOrx()
         }
-        
+
         if let crmID = values["crmID"] as? String {
             user.crmId = crmID
         }
-        
+
         if let gender = values["gender"] as? String {
             user.gender = self.process(gender: gender)
         }
-        
+
         if let birthday = values["birthday"] as? String {
             user.birthday = self.proccess(birthDate: birthday)
         }
-        
-        self.bind(user: currentUser)
+
+        self.bind(user: user)
     }
     
 //    // TODO: Perform bind/unbind only when save button is tapped?????? Do make it sense to have a save button?
@@ -143,10 +143,10 @@ extension UserInteractor: UserInteractorInput {
             self.bind(user: currentUser)
         }
     }
-//    
-//    func bind(user: User) {
-//        self.bind(user: user)
-//    }
+    
+    func bind(user: UserOrx) {
+        self.orchextra.bindUser(user)
+    }
     
     func unBindUser() {
        self.orchextra.unbindUser()

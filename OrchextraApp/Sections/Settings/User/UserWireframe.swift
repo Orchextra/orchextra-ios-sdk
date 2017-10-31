@@ -28,13 +28,4 @@ class UserWireframe {
         viewController.presenter = presenter
         return viewController
     }
-    
-    func showGenrePickerVC (with presenter: UserGenderPresenterInput) -> GenderPickerVC? {
-        guard let viewController = try? GenderPickerVC.instantiateFromStoryboard() else {
-            LogWarn("GenderPickerVC not found")
-            return nil
-        }
-        viewController.presenter = presenter
-        return viewController
-    }
 }

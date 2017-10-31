@@ -9,16 +9,13 @@
 import Foundation
 import Orchextra
 
-protocol UserGenderPresenterInput {
-     func userDidSet(gender: String)
-}
-
 protocol UserPresenterInput {
     func userDidTapSend(with formValues: [AnyHashable: Any])
     func saveButtonTapped()
 }
 
 protocol UserUI: class {
+    func populate(items: [AnyHashable: Any])
     func showForm(listItems: [[AnyHashable: Any]])
 }
 
@@ -43,9 +40,7 @@ class  UserPresenter {
     // MARK: - Input methods
     func viewDidLoad() {
         
-        let user = orchextra.currentUser()
         self.listItems = self.basicItemUser()
-
         let customFields = orchextra.getAvailableCustomFields()
         self.availableCustomFields = customFields
 
@@ -55,6 +50,33 @@ class  UserPresenter {
         }
         
         self.view.showForm(listItems: self.listItems)
+        self.view.populate(items: self.populate()) 
+    }
+    
+    func populate() -> [String: Any] {
+        var populateItems = [String: Any]()
+        let user = orchextra.currentUser()
+        if let crmid = user?.crmId {
+            populateItems["crmID"] = crmid
+        }
+        if let birthday = user?.birthday {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/mm/yyyy"
+            populateItems["birthday"] = formatter.string(from: birthday)
+        }
+        
+        if let gender = user?.gender {
+            switch gender {
+            case .female:
+                populateItems["gender"] = "female"
+            case .male:
+                populateItems["gender"] = "male"
+            case .none:
+                populateItems["gender"] = "male"
+            }
+        }
+        
+        return populateItems
     }
     
     func basicItemUser() -> [[AnyHashable: Any]] {

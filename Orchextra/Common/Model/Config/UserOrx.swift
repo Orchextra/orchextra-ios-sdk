@@ -10,8 +10,8 @@ import Foundation
 
 public enum Gender: String {
     case none
-    case male
-    case female
+    case male = "m"
+    case female = "f"
 }
 
 extension Gender: Codable {}
@@ -35,14 +35,14 @@ public class UserOrx: Codable {
     }
 
     // MARK: - Initializers
-    init() {
+    public init() {
         self.gender = .none
         self.tags = [Tag]()
         self.businessUnits = [BusinessUnit]()
         self.customFields = [CustomField]()
     }
     
-    init(crmId: String, gender: Gender, birthday: Date, tags: [Tag], businessUnits: [BusinessUnit], customFields: [CustomField]) {
+    public init(crmId: String, gender: Gender, birthday: Date, tags: [Tag], businessUnits: [BusinessUnit], customFields: [CustomField]) {
         self.crmId = crmId
         self.gender = gender
         self.birthday = birthday
@@ -84,11 +84,12 @@ public class UserOrx: Codable {
     
     // MARK: - Params
     func userParams() -> [String: Any] {
+        
         let params =
             ["crm":
                 ["crmId": self.crmId ?? "",
-                 "gender": self.gender,
-                 "birthday": self.birthday ?? "",
+                 "gender": self.gender.rawValue,
+                 "birthDate": self.birthday?.description ?? "" ,
                  "businessUnits": self.businessUnits,
                  "tags": self.tags,
                  "customFields": self.customFields]]
@@ -111,4 +112,3 @@ extension UserOrx: Equatable {
         }
     }
 }
-

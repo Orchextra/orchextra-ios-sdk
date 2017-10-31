@@ -186,7 +186,7 @@ class OrchextraWrapper {
     }
     
     public func setUserBusinessUnits(_ businessUnits: [BusinessUnit]) {
-        guard var currentUser = self.session.currentUser() else { return }
+        guard let currentUser = self.session.currentUser() else { return }
         currentUser.businessUnits = businessUnits
         self.bindUser(currentUser)
     }
@@ -197,7 +197,7 @@ class OrchextraWrapper {
     }
     
     public func setUserTags(_ tags: [Tag]) {
-        guard var currentUser = self.session.currentUser() else { return }
+        guard let currentUser = self.session.currentUser() else { return }
         currentUser.tags = tags
         self.bindUser(currentUser)
     }
@@ -208,7 +208,7 @@ class OrchextraWrapper {
     }
     
     public func setCustomFields(_ customFields: [CustomField]) {
-        guard var currentUser = self.session.currentUser() else { return }
+        guard let currentUser = self.session.currentUser() else { return }
         currentUser.customFields = customFields
         self.bindUser(currentUser)
     }

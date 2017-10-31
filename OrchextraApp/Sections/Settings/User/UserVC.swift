@@ -50,13 +50,16 @@ class UserVC: UIViewController, UserUI, PFormulary {
         self.formulary.formularyOutput = self
     }
     
+    func populate(items: [AnyHashable: Any]) {
+        self.formulary.populateData(items)
+    }
+
     // MARK: - PFormulary
     
     func recoverFormModel(_ formValues: [AnyHashable: Any]) {
         self.view.endEditing(true)
         self.presenter?.userDidTapSend(with: formValues)
     }
-    
 }
 
 extension UserVC: Instantiable {

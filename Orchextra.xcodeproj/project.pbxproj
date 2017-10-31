@@ -72,7 +72,6 @@
 		8F689D1E1F5434C6002046FE /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F689D1C1F5434C6002046FE /* WebVC.swift */; };
 		8F689D1F1F5434C6002046FE /* WebPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F689D1D1F5434C6002046FE /* WebPresenter.swift */; };
 		8F689D231F544364002046FE /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F689D221F544364002046FE /* WebView.storyboard */; };
-		8F75429B1F9E03EB00C159E3 /* GenderPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F75429A1F9E03EB00C159E3 /* GenderPickerVC.swift */; };
 		8F7BCF821F99ECC400D8DD7E /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */; };
 		8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58DB1F4D81FB00271FC7 /* AppDelegate.swift */; };
 		8F7F58DE1F4D822000271FC7 /* AppWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58DD1F4D822000271FC7 /* AppWireframe.swift */; };
@@ -329,7 +328,6 @@
 		8F689D1C1F5434C6002046FE /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		8F689D1D1F5434C6002046FE /* WebPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPresenter.swift; sourceTree = "<group>"; };
 		8F689D221F544364002046FE /* WebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
-		8F75429A1F9E03EB00C159E3 /* GenderPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPickerVC.swift; sourceTree = "<group>"; };
 		8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		8F7F58DB1F4D81FB00271FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F7F58DD1F4D822000271FC7 /* AppWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWireframe.swift; sourceTree = "<group>"; };
@@ -672,7 +670,6 @@
 				8F22D88B1F961BB600D37F9B /* UserVC.swift */,
 				8F22D88C1F961BB600D37F9B /* UserWireframe.swift */,
 				8FD191231F9733DE00043011 /* UserInteractor.swift */,
-				8F75429A1F9E03EB00C159E3 /* GenderPickerVC.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1696,7 +1693,6 @@
 				8F22D8941F961BFA00D37F9B /* DevicePresenter.swift in Sources */,
 				8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */,
 				8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */,
-				8F75429B1F9E03EB00C159E3 /* GenderPickerVC.swift in Sources */,
 				8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */,
 				A958CCCA1F85322E007074D5 /* NotificationCenter.swift in Sources */,
 				8F2042491F5EA1AB00782D63 /* Filter.swift in Sources */,
