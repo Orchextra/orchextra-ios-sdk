@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('github.com/pedroamador/jenkins-pipeline-library@v1.4.2') _
+@Library('github.com/red-panda-ci/jenkins-pipeline-library@v1.4.2') _
 
 // Initialize global config
 cfg = jplConfig('sdk', 'ios', '', [hipchat: '', slack: '#integrations', email: 'qa+orchextra@gigigo.com'])
