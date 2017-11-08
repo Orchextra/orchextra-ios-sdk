@@ -147,8 +147,9 @@
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
 		A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */; };
 		A9910E801FB31B2F00ABD866 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; };
-		A9910E811FB31B7200ABD866 /* GIGFormulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97743E21FA72C04006690C3 /* GIGFormulary.framework */; };
-		A9910E821FB31B7200ABD866 /* GIGFormulary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A97743E21FA72C04006690C3 /* GIGFormulary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9910E841FB31DD200ABD866 /* GIGFormulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9910E831FB31DD200ABD866 /* GIGFormulary.framework */; };
+		A9910E851FB31DE100ABD866 /* GIGFormulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9910E831FB31DD200ABD866 /* GIGFormulary.framework */; };
+		A9910E861FB31DE100ABD866 /* GIGFormulary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9910E831FB31DD200ABD866 /* GIGFormulary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99516731F8BC75F00C59BA1 /* ImageRecognition.swift */; };
 		A9986B291F59764E00F2CC65 /* ActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B261F59764E00F2CC65 /* ActionManager.swift */; };
 		A9986B2A1F59764E00F2CC65 /* PushOrxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B271F59764E00F2CC65 /* PushOrxManager.swift */; };
@@ -254,7 +255,7 @@
 			files = (
 				A9C54DDD1F41A9F600DF2074 /* GIGLibrary.framework in Embed Frameworks */,
 				FA1916221F5EB4CE00F344EC /* Applivery.framework in Embed Frameworks */,
-				A9910E821FB31B7200ABD866 /* GIGFormulary.framework in Embed Frameworks */,
+				A9910E861FB31DE100ABD866 /* GIGFormulary.framework in Embed Frameworks */,
 				A9C54DD81F41A99700DF2074 /* Orchextra.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -383,7 +384,6 @@
 		A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geofence.swift; path = Proximity/Model/Geofence.swift; sourceTree = "<group>"; };
 		A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageProximity.swift; path = Proximity/Data/StorageProximity.swift; sourceTree = "<group>"; };
 		A974BE851F4B0DE700A355FD /* ModuleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModuleInterface.swift; path = Interface/ModuleInterface.swift; sourceTree = "<group>"; };
-		A97743E21FA72C04006690C3 /* GIGFormulary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GIGFormulary.framework; path = OrchextraApp/Carthage/Build/iOS/GIGFormulary.framework; sourceTree = "<group>"; };
 		A97743E61FA747BA006690C3 /* FormTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+Extension.swift"; path = "Common/Support/Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "Common/Support/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
@@ -394,6 +394,7 @@
 		A98B52D21F5E92100082BB2F /* geomarketing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geomarketing.json; sourceTree = "<group>"; };
 		A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationWrapper.swift; path = Proximity/LocationWrapper.swift; sourceTree = "<group>"; };
 		A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProximityModule.swift; path = Proximity/ProximityModule.swift; sourceTree = "<group>"; };
+		A9910E831FB31DD200ABD866 /* GIGFormulary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GIGFormulary.framework; path = Carthage/Build/iOS/GIGFormulary.framework; sourceTree = "<group>"; };
 		A99516731F8BC75F00C59BA1 /* ImageRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognition.swift; sourceTree = "<group>"; };
 		A9986B261F59764E00F2CC65 /* ActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionManager.swift; path = Managers/ActionManager.swift; sourceTree = "<group>"; };
 		A9986B271F59764E00F2CC65 /* PushOrxManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushOrxManager.swift; path = Managers/PushOrxManager.swift; sourceTree = "<group>"; };
@@ -474,6 +475,7 @@
 			files = (
 				A958CCB91F8528CB007074D5 /* Security.framework in Frameworks */,
 				A9C54DFB1F4433D300DF2074 /* AdSupport.framework in Frameworks */,
+				A9910E841FB31DD200ABD866 /* GIGFormulary.framework in Frameworks */,
 				A9C54DBB1F41A84300DF2074 /* GIGLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,7 +496,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9910E811FB31B7200ABD866 /* GIGFormulary.framework in Frameworks */,
+				A9910E851FB31DE100ABD866 /* GIGFormulary.framework in Frameworks */,
 				A9910E801FB31B2F00ABD866 /* GIGLibrary.framework in Frameworks */,
 				FA1916211F5EB4CE00F344EC /* Applivery.framework in Frameworks */,
 				8F0D4F7E1F558F9C003F3B39 /* WebKit.framework in Frameworks */,
@@ -1153,7 +1155,6 @@
 		A9C54DB11F41A80500DF2074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A97743E21FA72C04006690C3 /* GIGFormulary.framework */,
 				A958CCB81F8528CB007074D5 /* Security.framework */,
 				A9C54DB21F41A81600DF2074 /* Cartfile */,
 				A9C54DB31F41A81600DF2074 /* Cartfile.private */,
@@ -1276,6 +1277,7 @@
 		A9C54DFC1F4433DB00DF2074 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				A9910E831FB31DD200ABD866 /* GIGFormulary.framework */,
 				A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */,
 			);
 			name = Internal;
@@ -1919,7 +1921,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Orchextra/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -1949,7 +1950,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Orchextra/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2014,7 +2014,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = OrchextraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2040,7 +2039,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = OrchextraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

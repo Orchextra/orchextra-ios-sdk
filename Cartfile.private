@@ -7,3 +7,6 @@ github "AliSoftware/OHHTTPStubs.git"
 
 # Applivery (Demo App)
 github "applivery/applivery-ios-sdk" ~> 2.4
+
+# GIGFormulary
+github "gigigoapps/gigigo-ios-formulary" ~> 3.0
