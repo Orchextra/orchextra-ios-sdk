@@ -26,6 +26,9 @@ DerivedData
 # Carthage
 Carthage/Build/
 Carthage/Checkouts
+OrchextraApp/Carthage/Build/
+OrchextraApp/Carthage/Checkouts
+
 *.bcsymbolmap
 *.framework.dSYM*
 

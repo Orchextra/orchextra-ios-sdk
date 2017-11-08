@@ -1,5 +1,0 @@
-{
-    "config": "GET_config.json",
-    "keepalive": "GET_keepalive.json",
-    "logout": "GET_logout.json"
-}
