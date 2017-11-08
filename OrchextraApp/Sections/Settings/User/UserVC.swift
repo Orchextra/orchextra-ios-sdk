@@ -23,7 +23,7 @@ class UserVC: UIViewController, UserUI, PFormulary {
     
     var listItems: [[AnyHashable: Any]]?
     let formulary = Formulary()
-    let saveButton = UIButton(type: .custom)
+    let saveButton = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 30)) // A frame is needed for iOS10 and lower versions to be displayed
     
     // MARK: - View life cycle
     
