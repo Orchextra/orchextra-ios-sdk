@@ -128,8 +128,6 @@
 		A95E67FB1F5D9FEC001D8B19 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E67FA1F5D9FEC001D8B19 /* Geofence.swift */; };
 		A96C0E8E1F6985EB00338B1B /* StorageProximity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C0E8D1F6985EB00338B1B /* StorageProximity.swift */; };
 		A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A974BE851F4B0DE700A355FD /* ModuleInterface.swift */; };
-		A97743E41FA72C0E006690C3 /* GIGFormulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97743E21FA72C04006690C3 /* GIGFormulary.framework */; };
-		A97743E51FA72C0E006690C3 /* GIGFormulary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A97743E21FA72C04006690C3 /* GIGFormulary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A97743E71FA747BB006690C3 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97743E61FA747BA006690C3 /* FormTextField.swift */; };
 		A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5C71F45727A00F5DFFD /* Dictionary+Extension.swift */; };
 		A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */; };
@@ -148,6 +146,9 @@
 		A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */ = {isa = PBXBuildFile; fileRef = A98B52D21F5E92100082BB2F /* geomarketing.json */; };
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
 		A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */; };
+		A9910E801FB31B2F00ABD866 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; };
+		A9910E811FB31B7200ABD866 /* GIGFormulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97743E21FA72C04006690C3 /* GIGFormulary.framework */; };
+		A9910E821FB31B7200ABD866 /* GIGFormulary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A97743E21FA72C04006690C3 /* GIGFormulary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99516731F8BC75F00C59BA1 /* ImageRecognition.swift */; };
 		A9986B291F59764E00F2CC65 /* ActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B261F59764E00F2CC65 /* ActionManager.swift */; };
 		A9986B2A1F59764E00F2CC65 /* PushOrxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9986B271F59764E00F2CC65 /* PushOrxManager.swift */; };
@@ -181,7 +182,6 @@
 		A9C54DD11F41A8E500DF2074 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DCF1F41A8E500DF2074 /* LaunchScreen.storyboard */; };
 		A9C54DD71F41A99700DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DD81F41A99700DF2074 /* Orchextra.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A9C54DDC1F41A9F500DF2074 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; };
 		A9C54DDD1F41A9F600DF2074 /* GIGLibrary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9C54DE21F41ABE200DF2074 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DE11F41ABE200DF2074 /* Request.swift */; };
 		A9C54DE81F41ACA400DF2074 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DE71F41ACA400DF2074 /* Config.swift */; };
@@ -254,7 +254,7 @@
 			files = (
 				A9C54DDD1F41A9F600DF2074 /* GIGLibrary.framework in Embed Frameworks */,
 				FA1916221F5EB4CE00F344EC /* Applivery.framework in Embed Frameworks */,
-				A97743E51FA72C0E006690C3 /* GIGFormulary.framework in Embed Frameworks */,
+				A9910E821FB31B7200ABD866 /* GIGFormulary.framework in Embed Frameworks */,
 				A9C54DD81F41A99700DF2074 /* Orchextra.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -494,11 +494,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A97743E41FA72C0E006690C3 /* GIGFormulary.framework in Frameworks */,
+				A9910E811FB31B7200ABD866 /* GIGFormulary.framework in Frameworks */,
+				A9910E801FB31B2F00ABD866 /* GIGLibrary.framework in Frameworks */,
 				FA1916211F5EB4CE00F344EC /* Applivery.framework in Frameworks */,
 				8F0D4F7E1F558F9C003F3B39 /* WebKit.framework in Frameworks */,
 				8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */,
-				A9C54DDC1F41A9F500DF2074 /* GIGLibrary.framework in Frameworks */,
 				A9C54DD71F41A99700DF2074 /* Orchextra.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2011,7 +2011,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = OrchextraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2033,7 +2037,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OrchextraApp/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = OrchextraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
