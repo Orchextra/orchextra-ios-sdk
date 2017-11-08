@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GIGLibrary
 
 public enum Gender: String {
     case none
@@ -52,17 +53,25 @@ public class UserOrx: Codable {
     }
     
     // MARK: - Params
-    func userParams() -> [String: Any] {
-        let params =
-            ["crm":
-                ["crmId": self.crmId ?? "",
-                 "gender": self.gender.rawValue,
-                 "birthDate": self.birthday?.description ?? "" ,
-                 "businessUnits": self.businessUnits,
-                 "tags": self.tagsParam(),
-                 "customFields": self.customFieldsParam()]]
+    func userParams() -> [String: Any]? {
         
-        return params
+        guard let crmId = self.crmId else {
+            LogWarn("User does not have CRMID we cannot do a bind user")
+            return nil
+        }
+        
+        var params = [String: Any]()
+        params["crmId"] = crmId
+        
+        if let birthDate = self.birthday?.description {
+            params["birthDate"] = birthDate
+        }
+        params["gender"] = self.gender.rawValue
+        params["businessUnits"] = businessUnits
+        params["tags"] = self.tagsParam()
+        params["customFields"] = self.customFieldsParam()
+        
+        return ["crm": params]
     }
     
     // MARK: - Private
