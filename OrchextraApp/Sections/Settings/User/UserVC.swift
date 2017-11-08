@@ -23,6 +23,7 @@ class UserVC: UIViewController, UserUI, PFormulary {
     
     var listItems: [[AnyHashable: Any]]?
     let formulary = Formulary()
+    let saveButton = UIButton(type: .custom)
     
     // MARK: - View life cycle
     
@@ -41,7 +42,6 @@ class UserVC: UIViewController, UserUI, PFormulary {
     
     func showForm(listItems: [[AnyHashable: Any]]) {
         self.listItems = listItems
-        let saveButton = UIButton(type: .custom)
         saveButton.setTitle("Save", for: .normal)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
         self.formulary.loadBundle(Bundle.main)

@@ -10,9 +10,8 @@ import Foundation
 import Orchextra
 
 protocol UserInteractorInput {
-    func set(values: [AnyHashable: Any])
+    func set(values: [AnyHashable: Any], customFields: [CustomField])
     func performBindOrUnbindOperation()
-//    func bind(user: Orchextra)
     func unBindUser()
 }
 
@@ -79,7 +78,7 @@ struct UserInteractor {
 
 extension UserInteractor: UserInteractorInput {
 
-    func set(values: [AnyHashable: Any]) {
+    func set(values: [AnyHashable: Any], customFields: [CustomField]) {
         
         var user: UserOrx
 
@@ -100,10 +99,39 @@ extension UserInteractor: UserInteractorInput {
         if let birthday = values["birthday"] as? String {
             user.birthday = self.proccess(birthDate: birthday)
         }
-
+        
+        for customField in customFields {
+            if let value = values["customField_\(customField.key)"] as? String {
+                customField.value = value
+            }
+        }
+        user.customFields = customFields
+        
+        var tagsUser = [Tag]()
+        if let tags = values["tags"] as? String {
+            let tagsValues = tags.split(separator: " ")
+            for tagValue in tagsValues {
+                let tag = self.createTag(tag: tagValue)
+                tagsUser.append(tag)
+            }
+        }
+        user.tags = tagsUser
+    
         self.bind(user: user)
     }
     
+    func createTag(tag: Substring) -> Tag {
+        let splitTag = tag.split(separator: ":")
+        
+        if let prefix = splitTag.first?.description,
+            let name = splitTag.last?.description,
+            splitTag.count == 2 {
+            return Tag(prefix: prefix, name: name)
+        } else {
+            return Tag(prefix: tag.description)
+        }
+    }
+ 
 //    // TODO: Perform bind/unbind only when save button is tapped?????? Do make it sense to have a save button?
 //    func set(crmId: String) {
 //        guard var currentUser = self.orchextra.currentUser() else { return }

@@ -160,7 +160,7 @@ class EddystoneProtocolParser {
             let bytesToBeDecoded: UInt8 = serviceBytes[i]
             let urlDecoded: String = EddystoneDecoder.urlDecoded(bytesToBeDecoded)
             
-            if urlDecoded.characters.count > 0 {
+            if urlDecoded.count > 0 {
                 urlString.append(urlDecoded)
             } else {
                 guard let urlDecoded = String(data: Data(bytes: [bytesToBeDecoded], count: 1) as Data,
@@ -180,7 +180,7 @@ class EddystoneProtocolParser {
                                             radix: EddystoneConstants.bytesToStringConverterRadix,
                                             uppercase: false)
             
-            if byteDecoded.characters.count == 1 {
+            if byteDecoded.count == 1 {
                 result.append("0")
             }
             

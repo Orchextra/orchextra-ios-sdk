@@ -51,50 +51,40 @@ public class UserOrx: Codable {
         self.customFields = customFields
     }
     
-//    // MARK: - Encodable Protocol
-//    public func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encode(self.crmId, forKey: .crmId)
-//        try container.encode(self.gender, forKey: .gender)
-//        try container.encode(self.birthday, forKey: .birthday)
-//        try container.encode(self.tags, forKey: .tags)
-//        try container.encode(self.businessUnits, forKey: .businessUnits)
-//        try container.encode(self.customFields, forKey: .customFields)
-//    }
-//    
-//    // MARK: - Decodable Protocol
-//    public init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        let crmId = try container.decode(String.self, forKey: .crmId)
-//        let gender = try container.decode(Gender.self, forKey: .gender)
-//        let birthday = try container.decode(Date.self, forKey: .birthday)
-//        let tags = try container.decode([Tag].self, forKey: .tags)
-//        let businessUnits = try container.decode([BusinessUnit].self, forKey: .businessUnits)
-//        let customFields = try container.decode([CustomField].self, forKey: .customFields)
-//        
-//        self.init(
-//            crmId: crmId,
-//            gender: gender,
-//            birthday: birthday,
-//            tags: tags,
-//            businessUnits: businessUnits,
-//            customFields: customFields
-//        )
-//    }
-    
     // MARK: - Params
     func userParams() -> [String: Any] {
-        
         let params =
             ["crm":
                 ["crmId": self.crmId ?? "",
                  "gender": self.gender.rawValue,
                  "birthDate": self.birthday?.description ?? "" ,
                  "businessUnits": self.businessUnits,
-                 "tags": self.tags,
-                 "customFields": self.customFields]]
+                 "tags": self.tagsParam(),
+                 "customFields": self.customFieldsParam()]]
         
         return params
+    }
+    
+    // MARK: - Private
+    
+    private func tagsParam() -> [String] {
+        var tags = [String]()
+        for tag in self.tags {
+            if let tagString = tag.tag() {
+                tags.append(tagString)
+            }
+        }
+        return tags
+    }
+    
+    
+    private func customFieldsParam() -> [String: Any] {
+        var customFieldsParam = [String: Any]()
+        for customField in self.customFields {
+            customFieldsParam[customField.key] = customField.value
+        }
+        
+        return customFieldsParam
     }
 }
 

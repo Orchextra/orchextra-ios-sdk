@@ -67,7 +67,7 @@ extension HomeVC: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let projectName = projectTextfield.text
-        if let projectCharacters = projectName?.characters.count,
+        if let projectCharacters = projectName?.count,
             projectCharacters > 0 {
             self.presenter?.userDidChangedCredentials()
         }

@@ -35,26 +35,26 @@ public class Tag: Codable {
         }
     }
     
-    // MARK: - Encodable Protocol
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.prefix, forKey: .prefix)
-        try container.encode(self.name, forKey: .name)
-    }
-    
-    // MARK: - Decodable Protocol
-    public required convenience init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let prefix = try container.decode(String.self, forKey: .prefix)
-        let name = try container.decode(String.self, forKey: .name)
-        
-        self.init(prefix: prefix, name: name)
-    }
+//    // MARK: - Encodable Protocol
+//    public func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//        try container.encode(self.prefix, forKey: .prefix)
+//        try container.encode(self.name, forKey: .name)
+//    }
+//    
+//    // MARK: - Decodable Protocol
+//    public required convenience init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        let prefix = try container.decode(String.self, forKey: .prefix)
+//        let name = try container.decode(String.self, forKey: .name)
+//        
+//        self.init(prefix: prefix, name: name)
+//    }
     
     /// String with the tag
     ///
     /// - Returns: tag or nil
-    func tag() -> String? {
+    public func tag() -> String? {
         
         var tag: String? = nil
         
