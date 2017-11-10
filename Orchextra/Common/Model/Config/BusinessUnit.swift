@@ -8,12 +8,21 @@
 
 import Foundation
 
-public struct BusinessUnit: Codable {
+public class BusinessUnit: Codable {
     
     public let name: String
     
     public init(name: String) {
         self.name = name
+    }
+    
+    public class func parse(businessUnitList: [String]?) -> [BusinessUnit] {
+        guard let businessUnits = businessUnitList else {return [BusinessUnit]() }
+        return businessUnits.map(businessUnit)
+    }
+
+    class func businessUnit(string: String) -> BusinessUnit {
+        return BusinessUnit(name: string)
     }
 }
 

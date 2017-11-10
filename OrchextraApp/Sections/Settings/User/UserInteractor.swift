@@ -28,15 +28,14 @@ struct UserInteractor {
     fileprivate func process(businessUnitsString: String) -> [BusinessUnit] {
         let businessUnitLists: [String] = businessUnitsString.trimmingCharacters(in: .whitespacesAndNewlines)
             .components(separatedBy: ",")
-        let businessUnits: [BusinessUnit] = businessUnitLists.map { BusinessUnit(name: $0) }
+        let businessUnits: [BusinessUnit] = BusinessUnit.parse(businessUnitList: businessUnitLists)
         return businessUnits
     }
     
     fileprivate func process(tagsString: String) -> [Tag] {
         let tagsList: [String] = tagsString.trimmingCharacters(in: .whitespacesAndNewlines)
             .components(separatedBy: ",")
-        
-        let tags: [Tag] = tagsList.map({self.createTag(tag: $0)})
+        let tags: [Tag] = Tag.parse(tagsList: tagsList)
         return tags
     }
     
@@ -103,19 +102,6 @@ extension UserInteractor: UserInteractorInput {
     
         self.bind(user: user)
     }
-    
-    private func createTag(tag: String) -> Tag {
-        let splitTag = tag.split(separator: ":")
-        
-        if let prefix = splitTag.first?.description,
-            let name = splitTag.last?.description,
-            splitTag.count == 2 {
-            return Tag(prefix: prefix, name: name)
-        } else {
-            return Tag(prefix: tag.description)
-        }
-    }
-
     
     func performBindOrUnbindOperation() {
         guard let currentUser = self.orchextra.currentUser() else { return }

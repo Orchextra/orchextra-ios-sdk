@@ -25,15 +25,6 @@ public class UserOrx: Codable {
     public var tags: [Tag]
     public var businessUnits: [BusinessUnit]
     public var customFields: [CustomField]
-    
-    enum CodingKeys: String, CodingKey {
-        case crmId
-        case gender
-        case birthday
-        case tags
-        case businessUnits
-        case customFields
-    }
 
     // MARK: - Initializers
     public init() {
@@ -50,6 +41,20 @@ public class UserOrx: Codable {
         self.tags = tags
         self.businessUnits = businessUnits
         self.customFields = customFields
+    }
+    
+    public init(json: JSON) {
+        let crm = json["crm"]?.toDictionary()
+        self.crmId = crm?["crmId"] as? String
+        if let gender = crm?["gender"] as? String {
+            self.gender = gender == "f" ? .female : .male
+        } else {
+            self.gender = .none
+        }
+        self.tags = Tag.parse(tagsList: crm?["tags"] as? [String])
+        self.businessUnits = BusinessUnit.parse(businessUnitList: crm?["businessUnits"] as? [String])
+        self.customFields = CustomField.parse(customFieldsList: crm?["customFields"] as? [String: Any])
+        self.birthday = self.convert(dateString: crm?["birthDate"] as? String)
     }
     
     // MARK: - Params
@@ -97,6 +102,15 @@ public class UserOrx: Codable {
             customFieldsParam[customField.key] = customField.value
         }
         return customFieldsParam
+    }
+    
+    // MARK: Helpers
+    
+    private func convert(dateString: String?) -> Date? {
+        guard let dateToProccess = dateString else { return nil }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return dateFormatter.date(from: dateToProccess)
     }
 }
 

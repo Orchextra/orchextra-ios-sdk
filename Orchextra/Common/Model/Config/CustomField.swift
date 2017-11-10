@@ -30,18 +30,39 @@ public enum CustomFieldType: String {
 }
 
 public class CustomField: Codable {
+    
     public var key: String
     public var label: String
     public var value: String?
-    public var type: CustomFieldType
-//
-//    enum CodingKeys: String, CodingKey {
-//        case key
-//        case label
-//        case type
-//        case value
-//    }
-//
+    public var type: CustomFieldType?
+    
+    public init(key: String, label: String, type: CustomFieldType, value: String?) {
+        self.key = key
+        self.label = label
+        self.type = type
+        self.value = value
+    }
+    
+    class func parse(customFieldsList: [String: Any]?) -> [CustomField] {
+        
+        guard let customFields = customFieldsList else { return [CustomField]() }
+       let result = customFields.keys.flatMap { key in
+            return CustomField.customFieldFromJSON(key: key, json: customFields)
+        }
+        return result
+    }
+    
+    class func customFieldFromJSON(key: String, json: [String: Any]) -> CustomField? {
+        guard let customFieldProject = Session.shared.project?.customFields else {
+            LogDebug("There aren't custom fields setup in the project")
+            return nil}
+        
+        let customField = customFieldProject.filter { return $0.key == key }
+        let customFieldUpdated = customField.first
+        customFieldUpdated?.value = json[key] as? String
+        return customFieldUpdated
+    }
+    
     class func customField(key: String, json: [String: Any]) -> CustomField? {
        
         guard let type = json["type"] as? String,
@@ -53,39 +74,7 @@ public class CustomField: Codable {
             type: self.convertType(value: type),
             value: nil)
     }
-    
-    public init(key: String, label: String, type: CustomFieldType, value: String?) {
-        self.key = key
-        self.label = label
-        self.type = type
-        self.value = value
-    }
-    
-//    // MARK: - Encodable Protocol
-//    public func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encode(self.key, forKey: .key)
-//        try container.encode(self.label, forKey: .label)
-//        try container.encode(self.type, forKey: .type)
-//        try container.encode(self.value, forKey: .value)
-//    }
-//
-//    // MARK: - Decodable Protocol
-//    public required convenience init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        let key = try container.decode(String.self, forKey: .key)
-//        let label = try container.decode(String.self, forKey: .label)
-//        let type = try container.decode(CustomFieldType.self, forKey: .type)
-//        let value = try container.decode(String.self, forKey: .value)
-//
-//        self.init(
-//            key: key,
-//            label: label,
-//            type: type,
-//            value: value
-//        )
-//    }
-//
+
     private class func convertType(value: String) -> CustomFieldType {
         switch value {
         case "string":

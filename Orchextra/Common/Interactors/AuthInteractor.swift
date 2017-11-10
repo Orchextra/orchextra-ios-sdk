@@ -95,7 +95,17 @@ class AuthInteractor: AuthInteractorInput {
             params[key] = value
         }
         
-        self.service.bind(params: params, completion: completion)
+        self.service.bind(params: params) { result in
+            switch result {
+            case .success(let json):
+            // TODO: Parse to UserORx and store it
+                let user = UserOrx(json: json)
+                self.session.bindUser(user)
+                completion(.success(true))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
     }
     
     /// Method to authenticate the request

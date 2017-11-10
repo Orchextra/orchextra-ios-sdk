@@ -74,7 +74,7 @@ class  UserPresenter {
         // BIRTHDAY
         if let birthday = user?.birthday {
             let formatter = DateFormatter()
-            formatter.dateFormat = "dd/mm/yyyy"
+            formatter.dateFormat = "dd/MM/yyyy"
             populateItems["birthday"] = formatter.string(from: birthday)
         }
         

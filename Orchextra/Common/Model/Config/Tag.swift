@@ -30,6 +30,27 @@ public class Tag: Codable {
         }
     }
     
+    public class func parse(tagsList: [String]?) -> [Tag] {
+        guard let tags = tagsList else {return [Tag]() }
+        return tags.map(tag)
+    }
+    
+    /// Create tag
+    ///
+    /// - Parameter string: string with tag format
+    /// - Returns: tag
+    class func tag(string: String) -> Tag {
+        let splitTag = string.split(separator: ":")
+        
+        if let prefix = splitTag.first?.description,
+            let name = splitTag.last?.description,
+            splitTag.count == 2 {
+            return Tag(prefix: prefix, name: name)
+        } else {
+            return Tag(prefix: string.description)
+        }
+    }
+    
     /// String with the tag
     ///
     /// - Returns: tag or nil
