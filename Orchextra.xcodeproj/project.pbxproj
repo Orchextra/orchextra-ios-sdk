@@ -88,6 +88,7 @@
 		8FD191241F9733DE00043011 /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD191231F9733DE00043011 /* UserInteractor.swift */; };
 		8FD191261F9733FD00043011 /* DeviceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD191251F9733FD00043011 /* DeviceInteractor.swift */; };
 		8FEF95ED1F58BCF9004D1BCF /* pt-sans.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FEF95EC1F58BCF9004D1BCF /* pt-sans.regular.ttf */; };
+		8FF0FD7F1FB3579800198101 /* ActionCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF0FD7E1FB3579800198101 /* ActionCustomScheme.swift */; };
 		8FFD3D8D1F569525000A1056 /* action_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D881F569525000A1056 /* action_browser_notification.json */; };
 		8FFD3D8E1F569525000A1056 /* action_scanner_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D891F569525000A1056 /* action_scanner_notification.json */; };
 		8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D8A1F569525000A1056 /* action_webview_notification.json */; };
@@ -343,6 +344,7 @@
 		8FD191231F9733DE00043011 /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
 		8FD191251F9733FD00043011 /* DeviceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInteractor.swift; sourceTree = "<group>"; };
 		8FEF95EC1F58BCF9004D1BCF /* pt-sans.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pt-sans.regular.ttf"; sourceTree = "<group>"; };
+		8FF0FD7E1FB3579800198101 /* ActionCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActionCustomScheme.swift; path = Common/Model/Actions/ActionCustomScheme.swift; sourceTree = "<group>"; };
 		8FFD3D881F569525000A1056 /* action_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_browser_notification.json; path = Mocks/Json/action_browser_notification.json; sourceTree = "<group>"; };
 		8FFD3D891F569525000A1056 /* action_scanner_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_scanner_notification.json; path = Mocks/Json/action_scanner_notification.json; sourceTree = "<group>"; };
 		8FFD3D8A1F569525000A1056 /* action_webview_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_webview_notification.json; path = Mocks/Json/action_webview_notification.json; sourceTree = "<group>"; };
@@ -1047,8 +1049,9 @@
 			isa = PBXGroup;
 			children = (
 				A99885FC1F50353D00EED42E /* Action.swift */,
-				A9986B2C1F59766600F2CC65 /* ActionBrowserExternal.swift */,
 				A99885FE1F50363C00EED42E /* ActionBrowser.swift */,
+				A9986B2C1F59766600F2CC65 /* ActionBrowserExternal.swift */,
+				8FF0FD7E1FB3579800198101 /* ActionCustomScheme.swift */,
 				A99886001F5037E900EED42E /* ActionDoNothing.swift */,
 				A9AC21091F542E7C00095EC5 /* ActionScanner.swift */,
 				8FFD3D921F5698F5000A1056 /* ActionWebView.swift */,
@@ -1606,6 +1609,7 @@
 				A974BE861F4B0DE700A355FD /* ModuleInterface.swift in Sources */,
 				A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */,
 				A9E8D7A71F68237A005A8DDC /* Beacon.swift in Sources */,
+				8FF0FD7F1FB3579800198101 /* ActionCustomScheme.swift in Sources */,
 				A9C54DE21F41ABE200DF2074 /* Request.swift in Sources */,
 				A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */,
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,

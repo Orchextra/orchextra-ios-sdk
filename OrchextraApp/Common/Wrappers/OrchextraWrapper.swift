@@ -65,7 +65,7 @@ class OrchextraWrapper {
 
 extension OrchextraWrapper: ORXDelegate {
     func customScheme(_ scheme: String) {
-        // TODO: Implement custom scheme logic
+        Log("Custom scheme: - \(scheme) received")
     }
     
     func triggerFired(_ trigger: Trigger) {

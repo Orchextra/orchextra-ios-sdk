@@ -68,7 +68,8 @@ class ActionFactory {
             ActionBrowser.action(from: json),
             ActionWebView.action(from: json),
             ActionScanner.action(from: json),
-            ActionBrowserExternal.action(from: json)
+            ActionBrowserExternal.action(from: json),
+            ActionCustomScheme.action(from: json)
         ]
         
         // Returns the last action that is not nil, or custom scheme is there is no actions
