@@ -54,27 +54,32 @@ public class UserOrx: Codable {
     
     // MARK: - Params
     func userParams() -> [String: Any]? {
-        
         guard let crmId = self.crmId else {
-            LogWarn("User does not have CRMID we cannot do a bind user")
+            LogDebug("User does not have CRMID we cannot do a bind user")
             return nil
         }
         
         var params = [String: Any]()
         params["crmId"] = crmId
-        
         if let birthDate = self.birthday?.description {
             params["birthDate"] = birthDate
         }
         params["gender"] = self.gender.rawValue
-        params["businessUnits"] = businessUnits
+        params["businessUnits"] = self.businessParam()
         params["tags"] = self.tagsParam()
         params["customFields"] = self.customFieldsParam()
-        
         return ["crm": params]
     }
     
     // MARK: - Private
+    
+    private func businessParam() -> [String] {
+        var business = [String]()
+        for businessUnit in self.businessUnits {
+            business.append(businessUnit.name)
+        }
+        return business
+    }
     
     private func tagsParam() -> [String] {
         var tags = [String]()
@@ -86,13 +91,11 @@ public class UserOrx: Codable {
         return tags
     }
     
-    
     private func customFieldsParam() -> [String: Any] {
         var customFieldsParam = [String: Any]()
         for customField in self.customFields {
             customFieldsParam[customField.key] = customField.value
         }
-        
         return customFieldsParam
     }
 }

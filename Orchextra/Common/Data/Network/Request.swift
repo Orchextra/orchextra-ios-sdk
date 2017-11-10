@@ -30,7 +30,7 @@ extension Request {
     }
     
     private class func userAgent() -> String {
-        let versioniOS = UIDevice.version()
+        let versioniOS = UIDevice.current.systemVersion
         let bundleId = Bundle.main.bundleIdentifier ?? "com.orchextra.none"
         return "iOS_\(versioniOS)_\(bundleId)"
     }

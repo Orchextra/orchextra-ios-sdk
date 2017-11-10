@@ -23,7 +23,6 @@ class DeviceVC: UIViewController, DeviceUI {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
-        
         self.title = "Device"
     }
 }

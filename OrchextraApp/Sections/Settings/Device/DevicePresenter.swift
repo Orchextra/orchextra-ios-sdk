@@ -14,7 +14,6 @@ protocol DevicePresenterInput {
 }
 
 protocol DeviceUI: class {
-    
 }
 
 struct DevicePresenter {
@@ -26,9 +25,7 @@ struct DevicePresenter {
     let interactor: DeviceInteractorInput
     
     // MARK: - Input methods
-    
     func viewDidLoad() {
-        
     }
 }
 

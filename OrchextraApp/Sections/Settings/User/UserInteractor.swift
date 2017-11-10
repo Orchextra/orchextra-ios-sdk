@@ -28,9 +28,7 @@ struct UserInteractor {
     fileprivate func process(businessUnitsString: String) -> [BusinessUnit] {
         let businessUnitLists: [String] = businessUnitsString.trimmingCharacters(in: .whitespacesAndNewlines)
             .components(separatedBy: ",")
-        
         let businessUnits: [BusinessUnit] = businessUnitLists.map { BusinessUnit(name: $0) }
-        
         return businessUnits
     }
     
@@ -38,22 +36,8 @@ struct UserInteractor {
         let tagsList: [String] = tagsString.trimmingCharacters(in: .whitespacesAndNewlines)
             .components(separatedBy: ",")
         
-        let tags: [Tag] = tagsList.map { Tag(prefix: $0) }
-        
+        let tags: [Tag] = tagsList.map({self.createTag(tag: $0)})
         return tags
-    }
-    
-    fileprivate func process(customFieldsString: String) -> [CustomField] {
-        // To update a custom field value is neccessary to know its key and that key must be a valid one.
-//        let customFieldsList: [String] = customFieldsString.trimmingCharacters(in: .whitespacesAndNewlines)
-//            .components(separatedBy: ",")
-//        // TODO: Modify this method according to set custom fields selection
-//        let customFields: [CustomField] = customFieldsList.map {
-//            let parameter = $0
-//            CustomField(key: "", label: "", type: .string, value: ValueCodable()) }
-//
-//        return customFields
-        return [CustomField]()
     }
     
     fileprivate func process(gender: String) -> Gender {
@@ -107,20 +91,20 @@ extension UserInteractor: UserInteractorInput {
         }
         user.customFields = customFields
         
-        var tagsUser = [Tag]()
         if let tags = values["tags"] as? String {
-            let tagsValues = tags.split(separator: " ")
-            for tagValue in tagsValues {
-                let tag = self.createTag(tag: tagValue)
-                tagsUser.append(tag)
-            }
+            let tagsItems = self.process(tagsString: tags)
+            user.tags = tagsItems
         }
-        user.tags = tagsUser
+        
+        if let businessUnits = values["businessUnits"] as? String {
+            let businessUnitsItems = self.process(businessUnitsString: businessUnits)
+            user.businessUnits = businessUnitsItems
+        }
     
         self.bind(user: user)
     }
     
-    func createTag(tag: Substring) -> Tag {
+    private func createTag(tag: String) -> Tag {
         let splitTag = tag.split(separator: ":")
         
         if let prefix = splitTag.first?.description,
@@ -131,37 +115,7 @@ extension UserInteractor: UserInteractorInput {
             return Tag(prefix: tag.description)
         }
     }
- 
-//    // TODO: Perform bind/unbind only when save button is tapped?????? Do make it sense to have a save button?
-//    func set(crmId: String) {
-//        guard var currentUser = self.orchextra.currentUser() else { return }
-//        currentUser.crmId = crmId
-//        self.bind(user: currentUser)
-//    }
-//
-//    func set(gender: String) {
-//        guard var currentUser = self.orchextra.currentUser() else { return }
-//        currentUser.gender = self.process(gender: gender)
-//        self.bind(user: currentUser)
-//    }
-//
-//    func set(tags: String) {
-//        guard var currentUser = self.orchextra.currentUser() else { return }
-//        currentUser.tags = self.process(tagsString: tags)
-//        self.bind(user: currentUser)
-//    }
-//
-//    func set(businessUnits: String) {
-//        guard var currentUser = self.orchextra.currentUser() else { return }
-//        currentUser.businessUnits = self.process(businessUnitsString: businessUnits)
-//        self.bind(user: currentUser)
-//    }
-//
-//    func set(customFields: String) {
-//        guard var currentUser = self.orchextra.currentUser() else { return }
-//        currentUser.customFields = self.process(customFieldsString: customFields)
-//        self.bind(user: currentUser)
-//    }
+
     
     func performBindOrUnbindOperation() {
         guard let currentUser = self.orchextra.currentUser() else { return }
