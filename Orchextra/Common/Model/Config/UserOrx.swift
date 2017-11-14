@@ -34,7 +34,10 @@ public class UserOrx: Codable {
         self.customFields = [CustomField]()
     }
     
-    public init(crmId: String, gender: Gender, birthday: Date, tags: [Tag], businessUnits: [BusinessUnit], customFields: [CustomField]) {
+    public init(crmId: String, gender: Gender,
+                birthday: Date, tags: [Tag],
+                businessUnits: [BusinessUnit],
+                customFields: [CustomField]) {
         self.crmId = crmId
         self.gender = gender
         self.birthday = birthday

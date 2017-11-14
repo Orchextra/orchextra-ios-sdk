@@ -8,8 +8,9 @@
 
 import Foundation
 import AdSupport
+import GIGLibrary
 
-struct Device {
+class Device {
     
     let vendorId: String?
     let bundleId: String?
@@ -53,8 +54,15 @@ struct Device {
         self.buildVersion = Bundle.orxBuildVersion()
     }
     
+    func parse(json: JSON) {
+        let crm = json["device"]?.toDictionary()
+        let tags = Tag.parse(tagsList: crm?["tags"] as? [String])
+        let businessUnits = BusinessUnit.parse(businessUnitList: crm?["businessUnits"] as? [String])
+        self.session.setDeviceTags(tags: tags)
+        self.session.setDeviceBusinessUnits(businessUnits: businessUnits)
+    }
+
     func deviceParams() -> [String: Any] {
-        
         let clientApp =
             ["bundleId": self.bundleId,
                  "buildVersion": self.buildVersion,
@@ -66,7 +74,7 @@ struct Device {
              "languaje": self.language,
              "handset": self.handset,
              "type": "IOS",
-             "timeZone": "TODO"]
+             "timeZone": Calendar.current.timeZone.identifier]
         
         let notificationPush =
             ["token": "<NOTIFICATION TOKEN>"]
@@ -78,10 +86,28 @@ struct Device {
                  "notificationPush": notificationPush,
                  "clientApp": clientApp,
                  "device": device,
-                 "businessUnits": self.businessUnits,
-                 "tags": self.tags]]
+                 "businessUnits": self.businessParam(),
+                 "tags": self.tagsParam()]]
         
         return params
+    }
+    
+    private func businessParam() -> [String] {
+        var business = [String]()
+        for businessUnit in self.businessUnits {
+            business.append(businessUnit.name)
+        }
+        return business
+    }
+    
+    private func tagsParam() -> [String] {
+        var tags = [String]()
+        for tag in self.tags {
+            if let tagString = tag.tag() {
+                tags.append(tagString)
+            }
+        }
+        return tags
     }
 }
 

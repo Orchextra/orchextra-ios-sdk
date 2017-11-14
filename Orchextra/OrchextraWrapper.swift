@@ -258,7 +258,8 @@ class OrchextraWrapper {
     // MARK: Private Device methods
     private func performBindDeviceOperation() {
         let device = Device()
-        self.authInteractor.bind(user: nil, device: device) { (result) in
+        let user = self.session.currentUser()
+        self.authInteractor.bind(user: user, device: device) { (result) in
             switch result {
             case .success:
                 LogDebug("Bind device has been successful")
