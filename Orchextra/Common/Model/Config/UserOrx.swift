@@ -25,15 +25,6 @@ public class UserOrx: Codable {
     public var tags: [Tag]
     public var businessUnits: [BusinessUnit]
     public var customFields: [CustomField]
-    
-    enum CodingKeys: String, CodingKey {
-        case crmId
-        case gender
-        case birthday
-        case tags
-        case businessUnits
-        case customFields
-    }
 
     // MARK: - Initializers
     public init() {
@@ -43,7 +34,10 @@ public class UserOrx: Codable {
         self.customFields = [CustomField]()
     }
     
-    public init(crmId: String, gender: Gender, birthday: Date, tags: [Tag], businessUnits: [BusinessUnit], customFields: [CustomField]) {
+    public init(crmId: String, gender: Gender,
+                birthday: Date, tags: [Tag],
+                businessUnits: [BusinessUnit],
+                customFields: [CustomField]) {
         self.crmId = crmId
         self.gender = gender
         self.birthday = birthday
@@ -52,29 +46,48 @@ public class UserOrx: Codable {
         self.customFields = customFields
     }
     
+    public init(json: JSON) {
+        let crm = json["crm"]?.toDictionary()
+        self.crmId = crm?["crmId"] as? String
+        if let gender = crm?["gender"] as? String {
+            self.gender = gender == "f" ? .female : .male
+        } else {
+            self.gender = .none
+        }
+        self.tags = Tag.parse(tagsList: crm?["tags"] as? [String])
+        self.businessUnits = BusinessUnit.parse(businessUnitList: crm?["businessUnits"] as? [String])
+        self.customFields = CustomField.parse(customFieldsList: crm?["customFields"] as? [String: Any])
+        self.birthday = self.convert(dateString: crm?["birthDate"] as? String)
+    }
+    
     // MARK: - Params
     func userParams() -> [String: Any]? {
-        
         guard let crmId = self.crmId else {
-            LogWarn("User does not have CRMID we cannot do a bind user")
+            LogDebug("User does not have CRMID we cannot do a bind user")
             return nil
         }
         
         var params = [String: Any]()
         params["crmId"] = crmId
-        
         if let birthDate = self.birthday?.description {
             params["birthDate"] = birthDate
         }
         params["gender"] = self.gender.rawValue
-        params["businessUnits"] = businessUnits
+        params["businessUnits"] = self.businessParam()
         params["tags"] = self.tagsParam()
         params["customFields"] = self.customFieldsParam()
-        
         return ["crm": params]
     }
     
     // MARK: - Private
+    
+    private func businessParam() -> [String] {
+        var business = [String]()
+        for businessUnit in self.businessUnits {
+            business.append(businessUnit.name)
+        }
+        return business
+    }
     
     private func tagsParam() -> [String] {
         var tags = [String]()
@@ -86,14 +99,21 @@ public class UserOrx: Codable {
         return tags
     }
     
-    
     private func customFieldsParam() -> [String: Any] {
         var customFieldsParam = [String: Any]()
         for customField in self.customFields {
             customFieldsParam[customField.key] = customField.value
         }
-        
         return customFieldsParam
+    }
+    
+    // MARK: Helpers
+    
+    private func convert(dateString: String?) -> Date? {
+        guard let dateToProccess = dateString else { return nil }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return dateFormatter.date(from: dateToProccess)
     }
 }
 

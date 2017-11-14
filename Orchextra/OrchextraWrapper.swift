@@ -171,14 +171,13 @@ class OrchextraWrapper {
     public func bindUser(_ user: UserOrx) {
         let currentUser = self.session.currentUser()
         if user != currentUser {
-            self.session.bindUser(user)
-            self.performBindUserOperation()
+            self.performBindUserOperation(user: user)
         }
     }
     
     public func unbindUser() {
         self.session.unbindUser()
-        self.performBindUserOperation()
+        self.performBindUserOperation(user: nil)
     }
     
     public func currentUser() -> UserOrx? {
@@ -245,8 +244,7 @@ class OrchextraWrapper {
     }
     
     // MARK: Private CRM methods
-    private func performBindUserOperation() {
-        let user = self.session.currentUser()
+    private func performBindUserOperation(user: UserOrx?) {
         self.authInteractor.bind(user: user, device: nil) { (result) in
             switch result {
             case .success:
@@ -260,7 +258,8 @@ class OrchextraWrapper {
     // MARK: Private Device methods
     private func performBindDeviceOperation() {
         let device = Device()
-        self.authInteractor.bind(user: nil, device: device) { (result) in
+        let user = self.session.currentUser()
+        self.authInteractor.bind(user: user, device: device) { (result) in
             switch result {
             case .success:
                 LogDebug("Bind device has been successful")

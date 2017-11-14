@@ -8,29 +8,21 @@
 
 import Foundation
 
-public struct BusinessUnit: Codable {
-    let name: String
+public class BusinessUnit: Codable {
     
-    enum CodingKeys: String, CodingKey {
-        case name
-    }
+    public let name: String
     
     public init(name: String) {
         self.name = name
     }
     
-    // MARK: - Encodable Protocol
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.name, forKey: .name)
+    public class func parse(businessUnitList: [String]?) -> [BusinessUnit] {
+        guard let businessUnits = businessUnitList else {return [BusinessUnit]() }
+        return businessUnits.map(businessUnit)
     }
 
-    // MARK: - Decodable Protocol
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let name = try container.decode(String.self, forKey: .name)
-
-        self.init(name: name)
+    class func businessUnit(string: String) -> BusinessUnit {
+        return BusinessUnit(name: string)
     }
 }
 

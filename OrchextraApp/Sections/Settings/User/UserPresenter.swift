@@ -30,6 +30,7 @@ class  UserPresenter {
     
     var availableCustomFields = [CustomField]()
     var userTags = [Tag]()
+    var userBusinessUnit = [BusinessUnit]()
     var listItems = [[AnyHashable: Any]]()
     
     init(view: UserUI, wireframe: UserWireframe, interactor: UserInteractor) {
@@ -44,17 +45,23 @@ class  UserPresenter {
         self.listItems = self.crmItemUser()
         let customFields = orchextra.getAvailableCustomFields()
         self.availableCustomFields = customFields
-        
+
+        // Custom Fields
+        let split = self.splitCustomFieldsItems()
+        self.listItems.append(split)
         for customField in customFields {
             let item = self.item(customField: customField)
             self.listItems.append(item)
         }
        
+        
         self.view.showForm(listItems: self.listItems)
         self.view.populate(items: self.populate()) 
     }
     
-    func populate() -> [String: Any] {
+    
+    // MARK: Private methods
+    private func populate() -> [String: Any] {
         
         var populateItems = [String: Any]()
         let user = orchextra.currentUser()
@@ -67,7 +74,7 @@ class  UserPresenter {
         // BIRTHDAY
         if let birthday = user?.birthday {
             let formatter = DateFormatter()
-            formatter.dateFormat = "dd/mm/yyyy"
+            formatter.dateFormat = "dd/MM/yyyy"
             populateItems["birthday"] = formatter.string(from: birthday)
         }
         
@@ -91,30 +98,43 @@ class  UserPresenter {
         
         // TAGS
         self.userTags = orchextra.getUserTags()
-        
         var tagsField = ""
         for tagField in self.userTags {
             if let item = tagField.tag() {
-                tagsField += "\(item) "
+                tagsField = self.concatenate(text: tagsField, item: item)
             }
         }
         populateItems["tags"] = tagsField
-        
+
+        // BUSINESS UNITS
+        self.userBusinessUnit = orchextra.getUserBusinessUnits()
+        var businessUnitsField = ""
+        for businessUnitField in self.userBusinessUnit {
+                businessUnitsField = self.concatenate(text: businessUnitsField, item: businessUnitField.name)
+        }
+        populateItems["businessUnits"] = businessUnitsField
+
         return populateItems
     }
     
-    func crmItemUser() -> [[AnyHashable: Any]] {
+    func concatenate(text: String, item: String) -> String {
+        var result = text
+        result = text.isEmpty ? "\(item)" : "\(text), \(item)"
+        return result
+    }
+    
+    private func crmItemUser() -> [[AnyHashable: Any]] {
         let crmId = ["key": "crmID",
                      "type": "text",
                      "label": "Crm Id",
                      "placeHolder": "crm Id",
-                     "style": ["styleCell": "line", "mandatoryIcon": "mandatory_JR"],
+                     "style": ["styleCell": "line"],
                      "mandatory": false] as [String: Any]
         
         let birthday = ["key": "birthday",
                         "type": "datePicker",
                         "label": "Birthday",
-                        "style": ["styleCell": "line", "mandatoryIcon": "mandatory_JR"],
+                        "style": ["styleCell": "line"],
                         "mandatory": false] as [String: Any]
         
         let gender = ["key": "gender",
@@ -123,37 +143,40 @@ class  UserPresenter {
                       "listOptions": [
                         ["key": "female", "value": "Female"],
                         ["key": "male", "value": "Male"]],
-                      "style": ["styleCell": "line", "mandatoryIcon": "mandatory_JR"],
+                      "style": ["styleCell": "line"],
                       "mandatory": false] as [String: Any]
         
-        let tags = ["key": "tags",
-                    "type": "text",
-                    "label": "Tags",
-                    "placeHolder": "tags",
-                    "style": ["styleCell": "line", "mandatoryIcon": "mandatory_JR"],
-                    "mandatory": false] as [String: Any]
+        let tags = self.tagsItems()
+        let businessUnits = self.businessUnitItems()
         
-        let split = ["key": "split_customfield",
-                     "type": "index",
-                     "label": "Custom Fields",
-                     "style": ["sizeTitle": 30, "align": "alignCenter"
-            ]] as [String: Any]
-        return [crmId, birthday, gender, tags, split]
+        return [crmId, birthday, gender, tags, businessUnits]
     }
     
-    func tagsItems() -> [AnyHashable: Any] {
+    private func tagsItems() -> [AnyHashable: Any] {
         
         let tags = ["key": "tags",
                     "type": "text",
                     "label": "Tags",
                     "placeHolder": "tags",
-                    "style": ["styleCell": "line", "mandatoryIcon": "mandatory_JR"],
+                    "style": ["styleCell": "line"],
                     "mandatory": false] as [String: Any]
         
         return tags
     }
     
-    func customFieldsItems() -> [AnyHashable: Any] {
+    private func businessUnitItems() -> [AnyHashable: Any] {
+        
+        let businessUnit = ["key": "businessUnits",
+                    "type": "text",
+                    "label": "Business units",
+                    "placeHolder": "business units",
+                    "style": ["styleCell": "line"],
+                    "mandatory": false] as [String: Any]
+        
+        return businessUnit
+    }
+    
+    private func splitCustomFieldsItems() -> [AnyHashable: Any] {
         let split = ["key": "split_customfield",
                      "type": "index",
                      "label": "Custom Fields",
@@ -163,7 +186,7 @@ class  UserPresenter {
         return split
     }
     
-    func item(customField: CustomField) -> [AnyHashable: Any] {
+    private func item(customField: CustomField) -> [AnyHashable: Any] {
         let item = ["key": "customField_\(customField.key)",
             "type": "text",
             "placeHolder": customField.label,

@@ -38,7 +38,6 @@ struct DeviceInteractor {
     fileprivate func process(tagsString: String) -> [Tag] {
         let tagsList: [String] = tagsString.trimmingCharacters(in: .whitespacesAndNewlines)
             .components(separatedBy: ",")
-        
         let tags: [Tag] = tagsList.map { Tag(prefix: $0) }
         
         return tags
