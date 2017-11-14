@@ -101,7 +101,8 @@
 		A9188AA61F82555100A5F5E2 /* triggering_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = A9188AA51F82555100A5F5E2 /* triggering_configuration.json */; };
 		A92570701F878DD500C1067E /* ApplicationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925706F1F878DD500C1067E /* ApplicationCenter.swift */; };
 		A92570721F87AB2900C1067E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92570711F87AB2800C1067E /* Session.swift */; };
-		A93F0D511FBA027A009B11F3 /* UserOrx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F0D501FBA027A009B11F3 /* UserOrx.swift */; };
+		A93F0D511FBA027A009B11F3 /* UserOrxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F0D501FBA027A009B11F3 /* UserOrxTests.swift */; };
+		A93F0D531FBAE35B009B11F3 /* bind_user_response.json in Resources */ = {isa = PBXBuildFile; fileRef = A93F0D521FBAE35B009B11F3 /* bind_user_response.json */; };
 		A94721FB1F82368D001E2DE6 /* ScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FA1F82368D001E2DE6 /* ScannerTests.swift */; };
 		A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */; };
 		A94722011F823987001E2DE6 /* LocationWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94722001F823987001E2DE6 /* LocationWrapperMock.swift */; };
@@ -357,7 +358,8 @@
 		A9188AA51F82555100A5F5E2 /* triggering_configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = triggering_configuration.json; path = Mocks/Json/triggering_configuration.json; sourceTree = "<group>"; };
 		A925706F1F878DD500C1067E /* ApplicationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCenter.swift; sourceTree = "<group>"; };
 		A92570711F87AB2800C1067E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		A93F0D501FBA027A009B11F3 /* UserOrx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserOrx.swift; path = OrchextraTests/Common/Model/Config/UserOrx.swift; sourceTree = SOURCE_ROOT; };
+		A93F0D501FBA027A009B11F3 /* UserOrxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserOrxTests.swift; path = OrchextraTests/Common/Model/Config/UserOrxTests.swift; sourceTree = SOURCE_ROOT; };
+		A93F0D521FBAE35B009B11F3 /* bind_user_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = bind_user_response.json; path = Mocks/Json/bind_user_response.json; sourceTree = "<group>"; };
 		A94721FA1F82368D001E2DE6 /* ScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerTests.swift; sourceTree = "<group>"; };
 		A94721FD1F8236D3001E2DE6 /* GeofenceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceSpec.swift; sourceTree = "<group>"; };
 		A94722001F823987001E2DE6 /* LocationWrapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationWrapperMock.swift; path = Mocks/Modules/ProximityMocks/LocationWrapperMock.swift; sourceTree = "<group>"; };
@@ -837,7 +839,7 @@
 		A93F0D4D1FBA021F009B11F3 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				A93F0D501FBA027A009B11F3 /* UserOrx.swift */,
+				A93F0D501FBA027A009B11F3 /* UserOrxTests.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1318,6 +1320,7 @@
 				A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */,
 				A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */,
 				A9188AA51F82555100A5F5E2 /* triggering_configuration.json */,
+				A93F0D521FBAE35B009B11F3 /* bind_user_response.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -1546,6 +1549,7 @@
 				8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */,
 				8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */,
 				A95E67F31F5D912C001D8B19 /* action_browser_without_notification.json in Resources */,
+				A93F0D531FBAE35B009B11F3 /* bind_user_response.json in Resources */,
 				8FFD3D8E1F569525000A1056 /* action_scanner_notification.json in Resources */,
 				8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */,
 				8FFD3D8D1F569525000A1056 /* action_browser_notification.json in Resources */,
@@ -1690,7 +1694,7 @@
 				A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */,
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
 				A95E67E61F5D71BE001D8B19 /* ActionServicesMock.swift in Sources */,
-				A93F0D511FBA027A009B11F3 /* UserOrx.swift in Sources */,
+				A93F0D511FBA027A009B11F3 /* UserOrxTests.swift in Sources */,
 				A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
