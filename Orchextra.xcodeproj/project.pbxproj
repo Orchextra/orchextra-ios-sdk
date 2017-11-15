@@ -150,7 +150,6 @@
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
 		A98B52D91F5EF9A50082BB2F /* ProximityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D81F5EF9A50082BB2F /* ProximityModule.swift */; };
 		A9910E801FB31B2F00ABD866 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; };
-		A9910E841FB31DD200ABD866 /* GIGFormulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9910E831FB31DD200ABD866 /* GIGFormulary.framework */; };
 		A9910E851FB31DE100ABD866 /* GIGFormulary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9910E831FB31DD200ABD866 /* GIGFormulary.framework */; };
 		A9910E861FB31DE100ABD866 /* GIGFormulary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9910E831FB31DD200ABD866 /* GIGFormulary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99516731F8BC75F00C59BA1 /* ImageRecognition.swift */; };
@@ -481,7 +480,6 @@
 			files = (
 				A958CCB91F8528CB007074D5 /* Security.framework in Frameworks */,
 				A9C54DFB1F4433D300DF2074 /* AdSupport.framework in Frameworks */,
-				A9910E841FB31DD200ABD866 /* GIGFormulary.framework in Frameworks */,
 				A9C54DBB1F41A84300DF2074 /* GIGLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
