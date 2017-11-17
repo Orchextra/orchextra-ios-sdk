@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import GIGLibrary
 
 protocol ScannerInteractorInput {
     func openOrchextraScanner()
-    func openImageRecognition()
+    func orxRequest()
 }
 
 struct ScannerInteractor {
@@ -27,8 +28,35 @@ extension ScannerInteractor: ScannerInteractorInput {
         self.orchextraWrapper.openOrchextraScanner()
     }
     
-    func openImageRecognition() {
-        self.orchextraWrapper.openImageRecognition()
+    func orxRequest() {
+        let request = Request (
+            method: "GET",
+            baseUrl: "https://cm.s.orchextra.io",
+            endpoint: "/menus",
+            headers: self.headers())
+        
+        self.orchextraWrapper.sendOCMRequest(request: request) { response in
+            switch response.status {
+            case .success:
+                guard let json = try? response.json() else {
+                    print("Error")
+                    return
+                }
+                print("Result: \(json)")
+            default:
+                let error = response.error
+                print("Error: \(String(describing: error))")
+            }
+        }
+    }
+    
+    private func headers() -> [String: String] {
+        let acceptLanguage: String = Locale.currentLanguage()
+        
+        return [
+            "Accept-Language": acceptLanguage,
+            "X-ocm-version": "IOS_1.0.1"
+        ]
     }
 
 }

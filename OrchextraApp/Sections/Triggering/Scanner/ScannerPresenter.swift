@@ -11,7 +11,7 @@ import Foundation
 protocol ScannerPresenterInput {
     func userDidTapOrchextraScanner()
     func userDidTapCustomScanner()
-    func userDidTapImageRecognition()
+    func userDidTapRequestWithORX()
 }
 
 protocol ScannerUI: class {
@@ -38,7 +38,7 @@ extension ScannerPresenter: ScannerPresenterInput {
         self.wireframe.openCustomScanner()
     }
     
-    func userDidTapImageRecognition() {
-        self.interactor.openImageRecognition()
+    func userDidTapRequestWithORX() {
+        self.interactor.orxRequest()
     }
 }

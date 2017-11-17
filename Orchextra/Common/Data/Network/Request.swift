@@ -50,11 +50,25 @@ extension Request {
         return authHeader
     }
     
-    private class func authHeader() -> [String: String]? {
+    class func authHeader() -> [String: String]? {
         guard let accesstoken: String = Session.shared.loadAccesstoken() else {
             return nil
         }
         return ["Authorization": "JWT \(accesstoken)"]
     }
+    
+    /// Add JWL Authentication to a request
+    ///
+    /// - Returns: the same request with (JWL + ORX Accesstoken)
+    func addORXHeader() -> Request {
+        if let headers = self.headers,
+            let auth = Request.authHeader() {
+            let authHeaders = auth + headers
+            self.headers = authHeaders
+        }
+        return self
+    }
+    
+    
     
 }

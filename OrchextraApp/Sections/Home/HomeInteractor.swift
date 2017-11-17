@@ -23,7 +23,6 @@ protocol HomeInteractorOutput {
 
 class HomeInteractor {
      // MARK: - Attributes
-    
     var output: HomeInteractorOutput?
     let orchextraWrapper = OrchextraWrapper.shared
 }
@@ -35,13 +34,11 @@ extension HomeInteractor: HomeInteractorInput {
             let error = StartError.credentialsNil
             let result = Result<Bool, Error>.error(error)
             self.output?.startDidFinish(with: result)
-            
             return
         }
         
         self.orchextraWrapper.start(with: key, secret: secret) { result in
             self.output?.startDidFinish(with: result)
         }
-        
     }
 }

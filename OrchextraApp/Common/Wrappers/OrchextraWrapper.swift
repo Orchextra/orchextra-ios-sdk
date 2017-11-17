@@ -33,6 +33,12 @@ class OrchextraWrapper {
         self.orchextra.stop()
     }
     
+    // MARK: - Handle Request ORX
+    
+    func sendOCMRequest(request: Request, completionHandler: @escaping (Response) -> Void) {
+        self.orchextra.sendOrxRequest(request: request, completionHandler: completionHandler)
+    }
+    
     // MARK: - Notifications
     
     func remote(apnsToken: Data) {

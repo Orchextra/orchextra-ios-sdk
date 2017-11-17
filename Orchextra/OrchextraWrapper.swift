@@ -92,9 +92,7 @@ class OrchextraWrapper {
     }
     
     func sendOrxRequest(request: Request, completionHandler: @escaping (Response) -> Void) {
-//        self.authInteractor.sendRequest(request: request) { response in
-//
-//        }
+        self.authInteractor.sendRequestOrx(request: request, completionHandler: completionHandler)
     }
     
     // MARK: - MODULES

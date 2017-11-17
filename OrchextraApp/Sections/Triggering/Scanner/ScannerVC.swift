@@ -44,8 +44,8 @@ class ScannerVC: UIViewController, ScannerUI {
         self.presenter?.userDidTapCustomScanner()
     }
     
-    @IBAction func imageRecognitionTapped(_sender: Any) {
-        self.presenter?.userDidTapImageRecognition()
+    @IBAction func userTappedORXRequest(_sender: Any) {
+        self.presenter?.userDidTapRequestWithORX()
     }
 }
 

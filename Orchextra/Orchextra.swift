@@ -150,11 +150,10 @@ open class Orchextra {
      
      - parameter request: Request
      - parameter completionHandler: returns a callback Response
-     - Availability: 3.0.0
+     - Availability: 3.0
      */
     public func sendOrxRequest(request: Request, completionHandler: @escaping (Response) -> Void) {
-        
-        
+        OrchextraWrapper.shared.sendOrxRequest(request: request, completionHandler: completionHandler)
     }
     
     // MARK: Public trigger methods

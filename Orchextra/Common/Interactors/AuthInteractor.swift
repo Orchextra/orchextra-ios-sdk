@@ -13,6 +13,7 @@ protocol AuthInteractorInput {
     func authWithAccessToken(completion: @escaping (Result<String, Error>) -> Void)
     func sendRequest(request: Request, completion: @escaping (Result<JSON, Error>) -> Void)
     func bind(user: UserOrx?, device: Device?, completion: @escaping(Result<Bool, Error>) -> Void)
+    func sendRequestOrx(request: Request, completionHandler: @escaping (Response) -> Void)
 }
 
 class AuthInteractor: AuthInteractorInput {
@@ -119,7 +120,6 @@ class AuthInteractor: AuthInteractorInput {
             self.handleRefreshAccessToken(request: request, completion: completion)
         } else {
             request.fetch { response in
-                
                 switch response.status {
                 case .success:
                     do {
@@ -139,6 +139,39 @@ class AuthInteractor: AuthInteractorInput {
                     default:
                         completion(.error(error))
                     }
+                }
+            }
+        }
+    }
+    
+    func sendRequestOrx(request: Request, completionHandler: @escaping (Response) -> Void) {
+        
+        var orxRequest = request
+        
+        // Add headers
+        if request.headers?["Authorization"] == nil {
+            orxRequest = request.addORXHeader()
+        }
+        
+        orxRequest.fetch { response in
+            switch response.status {
+            case .success:
+                completionHandler(response)
+            default:
+                let error = ErrorServiceHandler.parseErrorService(with: response)
+                switch error {
+                case ErrorService.unauthorized:
+                    self.refreshAcessToken(completion: { result in
+                        switch result {
+                        case .success:
+                            self.sendRequestOrx(request: request, completionHandler: completionHandler)
+                        case .error:
+                            completionHandler(response)
+                        }
+                    })
+                    
+                default:
+                    completionHandler(response)
                 }
             }
         }
@@ -184,5 +217,16 @@ class AuthInteractor: AuthInteractorInput {
             }
         })
     }
-
+    
+    private func refreshAcessToken(completion: @escaping (Result<Bool, Error>) -> Void) {
+        let authInteractor = AuthInteractor()
+        authInteractor.refreshAccessToken { result in
+            switch result {
+            case .success:
+                completion(.success(true))
+            case .error(let error):
+                completion(.error(error))
+            }
+        }
+    }
 }
