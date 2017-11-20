@@ -109,10 +109,18 @@ open class Orchextra {
     
     public var environment: Environment
     
+    /**
+     Push Manager input Singleton instance
+     
+     - Since: 3.0
+     */
+    public var pushManager: PushOrxInput
+    
     init() {
         self.logLevel = .debug
         self.logStyle = .funny
         self.environment = .production
+        self.pushManager = PushOrxManager.shared
         LogManager.shared.appName = "ORCHEXTRA"
     }
     
@@ -189,12 +197,12 @@ open class Orchextra {
     public func openImageRecognition() {}
     
     /**
-     Open scanner module as a trigger from outside ORX.
+     Save remote notifications token.
      
      - Since: 1.0
      */
     public func remote(apnsToken: Data) {
-        OrchextraWrapper.shared.remote(apnsToken: apnsToken)
+       OrchextraWrapper.shared.remote(apnsToken: apnsToken)
     }
     
     // MARK: Authorization
@@ -266,9 +274,26 @@ open class Orchextra {
         return OrchextraWrapper.shared.getDeviceTags()
     }
     
-    // MARK: - Public method to handle Notification
+    // MARK: - Public method to handle local Notification
     
-    public func handleNotification(userInfo: [String: Any]) {
-        PushOrxManager.shared.handleNotification(userInfo: userInfo)
+    public func handleLocalNotification(userInfo: [AnyHashable: Any]) {
+       self.pushManager.handleLocalNotification(userInfo: userInfo)
+    }
+    
+    // MARK: - Public method to handle remote Notification
+    
+    public func handleRemoteNotification(userInfo: [AnyHashable: Any]) {
+        let notificationJson = JSON(from: userInfo)
+        guard let notification = PushNototificationORX.parse(from: notificationJson) else {
+            LogWarn("Notification is invalid")
+            return
+        }
+        
+        guard let data = userInfo["data"] as? [AnyHashable: Any] else {
+            LogWarn("Invalid data node")
+            return
+        }
+        
+        self.pushManager.handleRemoteNotification(notification, data: data)
     }
 }

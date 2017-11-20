@@ -45,8 +45,12 @@ class OrchextraWrapper {
         self.orchextra.remote(apnsToken: apnsToken)
     }
     
-    func handleNotification(userInfo: [String: Any]) {
-        self.orchextra.handleNotification(userInfo: userInfo)
+    func handleLocalNotification(userInfo: [AnyHashable: Any]) {
+        self.orchextra.handleLocalNotification(userInfo: userInfo)
+    }
+    
+    func handleRemoteNotification(userInfo: [AnyHashable: Any]) {
+        self.orchextra.handleRemoteNotification(userInfo: userInfo)
     }
     
     // MARK: - Scanner

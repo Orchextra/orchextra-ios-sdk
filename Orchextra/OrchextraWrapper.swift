@@ -148,6 +148,7 @@ class OrchextraWrapper {
     
     public func remote(apnsToken: Data) {
         let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
+        self.session.setPushNotification(token: apnsToken)
         LogDebug("APNS Token:" + token)
     }
     

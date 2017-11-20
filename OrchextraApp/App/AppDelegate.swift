@@ -32,14 +32,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
 	}
 	
-	// MARK: - Handler notification
+	// MARK: - Handler local notification
 	
 	func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-		guard let userInfo = notification.userInfo as? [String: Any] else {
+		guard let userInfo = notification.userInfo else {
 			LogWarn("Notification does not have userinfo")
 			return }
-		OrchextraWrapper.shared.handleNotification(userInfo: userInfo)
+		OrchextraWrapper.shared.handleLocalNotification(userInfo: userInfo)
 	}
+    
+    // MARK: - Handler remote notification
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        OrchextraWrapper.shared.handleRemoteNotification(userInfo: userInfo)
+    }
 	
 	// MARK: - Private Helpers
 	
