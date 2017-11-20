@@ -1,0 +1,22 @@
+{
+    "test": "this is a test body",
+    "data": {
+        "action": {
+            "id": "59db293a14fb5f79218b469d",
+            "type": "custom_scheme",
+            "url": "custom://grettings",
+            "notification": null,
+            "schedule": null,
+            "trackId": "5a12b3a414fb5fe0798b47ee"
+        }
+    },
+    "aps": {
+        "alert": {
+            "title": "Orchextra notification title",
+            "subtitle": "Orchextra notification subtitle",
+            "body": "This is a notification message"
+        },
+        "badge": 2,
+        "sound": "default"
+    }
+}

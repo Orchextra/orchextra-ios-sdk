@@ -10,10 +10,12 @@ import Foundation
 import UserNotifications
 import GIGLibrary
 
-protocol PushOrxInput {
+public protocol PushOrxInput {
     func configure()
     func dispatchNotification(with action: Action)
-    func handleNotification(userInfo: [String: Any])
+    func handleLocalNotification(userInfo: [AnyHashable: Any])
+    func dispatch(_ action: Action)
+    func handleRemoteNotification(_ notification: PushNototificationORX, data: [AnyHashable: Any])
 }
 
 class PushOrxManager: NSObject, PushOrxInput {
@@ -31,14 +33,28 @@ class PushOrxManager: NSObject, PushOrxInput {
         self.requestForNotifications()
     }
     
-    func handleNotification(userInfo: [String: Any]) {
+    func handleLocalNotification(userInfo: [AnyHashable: Any]) {
+        self.handleAction(from: userInfo)
+    }
+    
+     func handleRemoteNotification(_ notification: PushNototificationORX, data: [AnyHashable: Any]) {
+        UIApplication.shared.applicationIconBadgeNumber = notification.badge
+        self.showAlertView(title: notification.title ?? "", body: notification.body ?? "", completion: nil)
+        self.handleAction(from: data)
+    }
+    
+    func handleAction(from userInfo: [AnyHashable: Any]) {
         let jsonNotification = JSON(from: userInfo)
-
+        
         guard let action = ActionFactory.action(from: jsonNotification) else {
             LogWarn("Action can't be created")
             return
         }
         
+       self.dispatch(action)
+    }
+    
+    func dispatch(_ action: Action) {
         let actionManager = ActionManager()
         actionManager.handler(action: action)
     }
@@ -94,6 +110,19 @@ class PushOrxManager: NSObject, PushOrxInput {
         payload["notification"] = notification
 
         return payload
+    }
+    
+    private func showAlertView(title: String, body: String, completion:(() -> Void)?) {
+        let alert = Alert(title: title, message: body)
+        alert.addCancelButton(kLocaleOrcGlobalCancelButton, usingAction: nil)
+        alert.addDefaultButton(kLocaleOrcGlobalOkUppercasedButton) { _ in
+            guard let completionNotNil = completion else {
+                LogWarn("Completion is nil")
+                return
+            }
+            completionNotNil()
+        }
+        alert.show()
     }
 }
 

@@ -72,6 +72,9 @@
 		8F689D1E1F5434C6002046FE /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F689D1C1F5434C6002046FE /* WebVC.swift */; };
 		8F689D1F1F5434C6002046FE /* WebPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F689D1D1F5434C6002046FE /* WebPresenter.swift */; };
 		8F689D231F544364002046FE /* WebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F689D221F544364002046FE /* WebView.storyboard */; };
+		8F77D18D1FBEE4B2008CC17D /* core_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F77D18C1FBEE4B2008CC17D /* core_configuration.json */; };
+		8F77D18F1FBEFB8F008CC17D /* push_notification_payload_without_action.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F77D18E1FBEFB8F008CC17D /* push_notification_payload_without_action.json */; };
+		8F77D1921FBF01BA008CC17D /* PushNotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77D1911FBF01BA008CC17D /* PushNotificationsTests.swift */; };
 		8F7BCF821F99ECC400D8DD7E /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */; };
 		8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58DB1F4D81FB00271FC7 /* AppDelegate.swift */; };
 		8F7F58DE1F4D822000271FC7 /* AppWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58DD1F4D822000271FC7 /* AppWireframe.swift */; };
@@ -80,6 +83,11 @@
 		8F7F58EE1F4D84BD00271FC7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58EA1F4D84BD00271FC7 /* SettingsVC.swift */; };
 		8F7F58EF1F4D84BD00271FC7 /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58EB1F4D84BD00271FC7 /* SettingsWireframe.swift */; };
 		8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58F01F4D87D800271FC7 /* AppController.swift */; };
+		8FA14CF91FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CF81FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json */; };
+		8FA14CFB1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CFA1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json */; };
+		8FA14CFD1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CFC1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json */; };
+		8FA14D001FC312A400CD726C /* push_notification_payload_with_action_webview_with_orchextra_identifier_false.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CFE1FC312A300CD726C /* push_notification_payload_with_action_webview_with_orchextra_identifier_false.json */; };
+		8FA14D011FC312A400CD726C /* push_notification_payload_with_action_webview_without_orchextra_identifier.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CFF1FC312A400CD726C /* push_notification_payload_with_action_webview_without_orchextra_identifier.json */; };
 		8FAB227D1F56C22A005A6A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DCD1F41A8E500DF2074 /* Assets.xcassets */; };
 		8FAB227E1F56C2A3005A6A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9AC21121F543D9600095EC5 /* Assets.xcassets */; };
 		8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCE6FAE1F504CC80098A325 /* MapKit.framework */; };
@@ -87,6 +95,7 @@
 		8FCE6FB51F504F480098A325 /* RegionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FCE6FB41F504F480098A325 /* RegionAnnotation.swift */; };
 		8FD191241F9733DE00043011 /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD191231F9733DE00043011 /* UserInteractor.swift */; };
 		8FD191261F9733FD00043011 /* DeviceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD191251F9733FD00043011 /* DeviceInteractor.swift */; };
+		8FD89B6D1FB5DC220063838D /* PushNotificationOrx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD89B6C1FB5DC220063838D /* PushNotificationOrx.swift */; };
 		8FEF95ED1F58BCF9004D1BCF /* pt-sans.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FEF95EC1F58BCF9004D1BCF /* pt-sans.regular.ttf */; };
 		8FF0FD7F1FB3579800198101 /* ActionCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF0FD7E1FB3579800198101 /* ActionCustomScheme.swift */; };
 		8FFD3D8D1F569525000A1056 /* action_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D881F569525000A1056 /* action_browser_notification.json */; };
@@ -331,6 +340,9 @@
 		8F689D1C1F5434C6002046FE /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		8F689D1D1F5434C6002046FE /* WebPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebPresenter.swift; sourceTree = "<group>"; };
 		8F689D221F544364002046FE /* WebView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WebView.storyboard; sourceTree = "<group>"; };
+		8F77D18C1FBEE4B2008CC17D /* core_configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = core_configuration.json; sourceTree = "<group>"; };
+		8F77D18E1FBEFB8F008CC17D /* push_notification_payload_without_action.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = push_notification_payload_without_action.json; path = Mocks/Json/push_notification_payload_without_action.json; sourceTree = "<group>"; };
+		8F77D1911FBF01BA008CC17D /* PushNotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsTests.swift; sourceTree = "<group>"; };
 		8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		8F7F58DB1F4D81FB00271FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F7F58DD1F4D822000271FC7 /* AppWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWireframe.swift; sourceTree = "<group>"; };
@@ -339,11 +351,17 @@
 		8F7F58EA1F4D84BD00271FC7 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		8F7F58EB1F4D84BD00271FC7 /* SettingsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWireframe.swift; sourceTree = "<group>"; };
 		8F7F58F01F4D87D800271FC7 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		8FA14CF81FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = push_notification_without_orchextra_identifier.json; path = Mocks/Json/push_notification_without_orchextra_identifier.json; sourceTree = "<group>"; };
+		8FA14CFA1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = push_notification_with_otchextra_identifier_false.json; sourceTree = "<group>"; };
+		8FA14CFC1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = push_notification_payload_with_action_webview.json; path = Mocks/Json/push_notification_payload_with_action_webview.json; sourceTree = "<group>"; };
+		8FA14CFE1FC312A300CD726C /* push_notification_payload_with_action_webview_with_orchextra_identifier_false.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = push_notification_payload_with_action_webview_with_orchextra_identifier_false.json; path = Mocks/Json/push_notification_payload_with_action_webview_with_orchextra_identifier_false.json; sourceTree = "<group>"; };
+		8FA14CFF1FC312A400CD726C /* push_notification_payload_with_action_webview_without_orchextra_identifier.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = push_notification_payload_with_action_webview_without_orchextra_identifier.json; path = Mocks/Json/push_notification_payload_with_action_webview_without_orchextra_identifier.json; sourceTree = "<group>"; };
 		8FCE6FAE1F504CC80098A325 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8FCE6FB21F504F070098A325 /* GeofencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofencesVC.swift; sourceTree = "<group>"; };
 		8FCE6FB41F504F480098A325 /* RegionAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionAnnotation.swift; sourceTree = "<group>"; };
 		8FD191231F9733DE00043011 /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
 		8FD191251F9733FD00043011 /* DeviceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInteractor.swift; sourceTree = "<group>"; };
+		8FD89B6C1FB5DC220063838D /* PushNotificationOrx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PushNotificationOrx.swift; path = Common/Model/Config/PushNotificationOrx.swift; sourceTree = "<group>"; };
 		8FEF95EC1F58BCF9004D1BCF /* pt-sans.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pt-sans.regular.ttf"; sourceTree = "<group>"; };
 		8FF0FD7E1FB3579800198101 /* ActionCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActionCustomScheme.swift; path = Common/Model/Actions/ActionCustomScheme.swift; sourceTree = "<group>"; };
 		8FFD3D881F569525000A1056 /* action_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_browser_notification.json; path = Mocks/Json/action_browser_notification.json; sourceTree = "<group>"; };
@@ -769,6 +787,14 @@
 				8F689D221F544364002046FE /* WebView.storyboard */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		8F77D1901FBF0111008CC17D /* PushNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				8F77D1911FBF01BA008CC17D /* PushNotificationsTests.swift */,
+			);
+			path = PushNotifications;
 			sourceTree = "<group>";
 		};
 		8F7F58DA1F4D81FB00271FC7 /* App */ = {
@@ -1311,18 +1337,25 @@
 		A9C54E051F446E1B00DF2074 /* Json */ = {
 			isa = PBXGroup;
 			children = (
-				8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */,
-				8FFD3D881F569525000A1056 /* action_browser_notification.json */,
-				8FFD3D891F569525000A1056 /* action_scanner_notification.json */,
-				8FFD3D8A1F569525000A1056 /* action_webview_notification.json */,
 				8FFD3D8B1F569525000A1056 /* accesstoken_fail_credential.json */,
 				8FFD3D8C1F569525000A1056 /* accesstoken_ok.json */,
-				A95E67EA1F5D84D2001D8B19 /* action_scanner_without_schedule.json */,
-				A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */,
-				A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */,
+				8FFD3D881F569525000A1056 /* action_browser_notification.json */,
 				A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */,
-				A9188AA51F82555100A5F5E2 /* triggering_configuration.json */,
+				8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */,
+				8FFD3D891F569525000A1056 /* action_scanner_notification.json */,
+				A95E67EC1F5D850E001D8B19 /* action_scanner_without_notification.json */,
+				A95E67EA1F5D84D2001D8B19 /* action_scanner_without_schedule.json */,
+				8FFD3D8A1F569525000A1056 /* action_webview_notification.json */,
+				A95E67F01F5D8FFA001D8B19 /* action_webview_without_notification.json */,
 				A93F0D521FBAE35B009B11F3 /* bind_user_response.json */,
+				8F77D18C1FBEE4B2008CC17D /* core_configuration.json */,
+				8FA14CFE1FC312A300CD726C /* push_notification_payload_with_action_webview_with_orchextra_identifier_false.json */,
+				8FA14CFF1FC312A400CD726C /* push_notification_payload_with_action_webview_without_orchextra_identifier.json */,
+				8FA14CFC1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json */,
+				8F77D18E1FBEFB8F008CC17D /* push_notification_payload_without_action.json */,
+				8FA14CFA1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json */,
+				8FA14CF81FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json */,
+				A9188AA51F82555100A5F5E2 /* triggering_configuration.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -1339,12 +1372,13 @@
 		A9C6EB901F46FAF3007AE036 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				A9C6EB931F46FB24007AE036 /* Device.swift */,
-				A9C6EB911F46FB12007AE036 /* Tag.swift */,
 				A9C6EB951F47035D007AE036 /* BusinessUnit.swift */,
 				A9C6EB971F4703A3007AE036 /* CustomField.swift */,
-				A987246E1F793F9500A7017F /* UserOrx.swift */,
+				A9C6EB931F46FB24007AE036 /* Device.swift */,
 				A91142411F9F3E1F00F6DBCB /* Project.swift */,
+				8FD89B6C1FB5DC220063838D /* PushNotificationOrx.swift */,
+				A9C6EB911F46FB12007AE036 /* Tag.swift */,
+				A987246E1F793F9500A7017F /* UserOrx.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -1380,6 +1414,7 @@
 		A9D0FC391F57EFBE00596CF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8F77D1901FBF0111008CC17D /* PushNotifications */,
 				A93F0D541FBAF342009B11F3 /* Config */,
 				A95E67DD1F5D5AFA001D8B19 /* Trigger */,
 				A9D0FC3A1F57EFD100596CF3 /* Actions */,
@@ -1552,8 +1587,15 @@
 				8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */,
 				A95E67F31F5D912C001D8B19 /* action_browser_without_notification.json in Resources */,
 				A93F0D531FBAE35B009B11F3 /* bind_user_response.json in Resources */,
+				8FA14CFD1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json in Resources */,
 				8FFD3D8E1F569525000A1056 /* action_scanner_notification.json in Resources */,
 				8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */,
+				8FA14CF91FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json in Resources */,
+				8FA14CFB1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json in Resources */,
+				8FA14D011FC312A400CD726C /* push_notification_payload_with_action_webview_without_orchextra_identifier.json in Resources */,
+				8F77D18D1FBEE4B2008CC17D /* core_configuration.json in Resources */,
+				8FA14D001FC312A400CD726C /* push_notification_payload_with_action_webview_with_orchextra_identifier_false.json in Resources */,
+				8F77D18F1FBEFB8F008CC17D /* push_notification_payload_without_action.json in Resources */,
 				8FFD3D8D1F569525000A1056 /* action_browser_notification.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1669,6 +1711,7 @@
 				8F689D1E1F5434C6002046FE /* WebVC.swift in Sources */,
 				A9986B2B1F59764E00F2CC65 /* TriggerManager.swift in Sources */,
 				8F299C581F6691060023F69D /* EddystoneConstants.swift in Sources */,
+				8FD89B6D1FB5DC220063838D /* PushNotificationOrx.swift in Sources */,
 				A978C5C81F45727A00F5DFFD /* Dictionary+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1686,6 +1729,7 @@
 				8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */,
 				A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */,
 				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
+				8F77D1921FBF01BA008CC17D /* PushNotificationsTests.swift in Sources */,
 				8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */,
 				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
 				A94722031F823C70001E2DE6 /* StorageProximityMock.swift in Sources */,
@@ -2037,10 +2081,10 @@
 				INFOPLIST_FILE = OrchextraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.orchextra.ocm.quality;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "09e1afd5-b41f-4ada-9def-e74f3c7fb0a3";
-				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
+				PROVISIONING_PROFILE = "88758165-ed7f-4e35-a129-a751e3425be5";
+				PROVISIONING_PROFILE_SPECIFIER = "OCMDemo Quality";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -2062,7 +2106,7 @@
 				INFOPLIST_FILE = OrchextraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.orchextra.ocm.quality;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1f6ea78e-ce60-40d4-9811-c19e70f0ea11";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Universal;

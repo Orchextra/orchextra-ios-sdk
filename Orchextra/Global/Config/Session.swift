@@ -24,6 +24,7 @@ class Session {
     private let keyUser = "user"
     private let keyDeviceBusinessUnits = "device_business_units"
     private let keyDeviceTags = "device_tags"
+    private let keyPushNotificationsToken = "push_notifications_token"
     
     init(userDefault: UserDefaults = UserDefaults()) {
         self.userDefault = userDefault
@@ -73,6 +74,20 @@ class Session {
     
     func setDeviceTags(tags: [Tag]) {
         self.userDefault.set(try? PropertyListEncoder().encode(tags), forKey: keyDeviceTags)
+    }
+    
+    // MARK: - Push notifications public methods
+    func pushNotificationToken() -> Data? {
+        guard let data = self.userDefault.value(forKey: keyPushNotificationsToken) as? Data else {
+            LogWarn("Push notification token not set yet")
+            return nil
+            
+        }
+        return (try? PropertyListDecoder().decode(Data.self, from: data)) ?? nil
+    }
+    
+    func setPushNotification(token: Data) {
+        self.userDefault.set(try? PropertyListEncoder().encode(token), forKey: keyPushNotificationsToken)
     }
     
     /// Method to store apikey and apisecret
