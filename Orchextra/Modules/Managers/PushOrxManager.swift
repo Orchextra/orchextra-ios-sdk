@@ -61,11 +61,11 @@ class PushOrxManager: NSObject, PushOrxInput {
     
     internal func requestForNotifications() {
         if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().delegate = self
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: { _, _ in
+                    LogDebug("App has granted User Notifications")
                     // Granted to use remote notification
             })
         } else {
