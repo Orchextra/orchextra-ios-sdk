@@ -60,17 +60,17 @@ class UserOrxTests: XCTestCase {
         let user = UserOrx(json: json)
         
         // ASSERT
-        expect(user.crmId).to(equal("Judith.medina"))
-        expect(user.gender).to(equal(Gender.male))
+        expect(user.crmId).toEventually(equal("Judith.medina"))
+        expect(user.gender).toEventually(equal(Gender.male))
         
         let businessUnit = BusinessUnit(name: "it")
-        expect(user.businessUnits).to(equal([businessUnit]))
+        expect(user.businessUnits).toEventually(equal([businessUnit]))
         
         let tag = Tag(prefix: "ios")
         expect(user.tags).to(equal([tag]))
 
-        expect(user.customFields[0].value).to(equal("Medina"))
-        expect(user.customFields[1].value).to(equal("Judith"))
+        expect(user.customFields[0].value).toEventually(equal("Medina"))
+        expect(user.customFields[1].value).toEventually(equal("Judith"))
     }
     
     func test_userParams_whenCRMIdIsNil_returnNil() {
@@ -85,7 +85,7 @@ class UserOrxTests: XCTestCase {
         let userParams = user.userParams()
         
         // ASSERT
-        expect(userParams).to(beNil())
+        expect(userParams).toEventually(beNil())
     }
     
     func test_userParams_returnParams () {
@@ -100,7 +100,7 @@ class UserOrxTests: XCTestCase {
         let crm = userParams?["crm"] as! [String: Any]
         
         // ASSERT
-        expect(crm["gender"] as? String).to(equal("m"))
+        expect(crm["gender"] as? String).toEventually(equal("m"))
     }
     
     

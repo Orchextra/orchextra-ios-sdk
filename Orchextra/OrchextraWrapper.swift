@@ -151,6 +151,10 @@ class OrchextraWrapper {
         LogDebug("APNS Token:" + token)
     }
     
+    public func accesstoken() -> String? {
+        return self.session.loadAccesstoken()
+    }
+    
     // MARK: - Configuration Modules
     
     public func configuration(module: Modules, json: JSON) -> [String: Any]? {

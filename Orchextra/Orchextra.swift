@@ -194,7 +194,16 @@ open class Orchextra {
      - Since: 1.0
      */
     public func remote(apnsToken: Data) {
-        // TODO: remote apnsToken
+        OrchextraWrapper.shared.remote(apnsToken: apnsToken)
+    }
+    
+    // MARK: Authorization
+    
+    /// Return Accesstoken from ORX
+    ///
+    /// - Returns: accesstoken
+    public func accesstoken() -> String? {
+        return OrchextraWrapper.shared.accesstoken()
     }
     
     // MARK: Public CRM methods
