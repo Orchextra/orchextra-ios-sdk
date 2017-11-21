@@ -12,6 +12,20 @@ import Foundation
 
 class SessionMock: Session {
     
+    var currentUserInput: UserOrx?
+    var spyBindUser: (called: Bool, user: UserOrx?) = (called: false, user: nil)
+    var spyCurrentUserCalled = false
+    
+    override func bindUser(_ user: UserOrx) {
+        self.spyBindUser.called = true
+        self.spyBindUser.user = user
+    }
+    
+    override func currentUser() -> UserOrx? {
+        self.spyCurrentUserCalled = true
+        return self.currentUserInput
+    }
+    
     override func loadAccesstoken() -> String? {
         return nil
     }

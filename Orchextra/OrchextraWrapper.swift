@@ -19,7 +19,7 @@ class OrchextraWrapper {
     private var session: Session
     private var configInteractor: ConfigInteractorInput
     private var authInteractor: AuthInteractorInput
-    internal var moduleOutputWrapper: ModuleOutputWrapper
+    internal var moduleOutputWrapper: ModuleOutput
     fileprivate var startCompletion: ((Result<Bool, Error>) -> Void)?
     fileprivate let applicationCenter: ApplicationCenter
     
@@ -52,7 +52,7 @@ class OrchextraWrapper {
     init(session: Session,
          configInteractor: ConfigInteractorInput,
          authInteractor: AuthInteractorInput,
-         moduleOutputWrapper: ModuleOutputWrapper,
+         moduleOutputWrapper: ModuleOutput,
          applicationCenter: ApplicationCenter) {
         self.session = session
         self.configInteractor = configInteractor

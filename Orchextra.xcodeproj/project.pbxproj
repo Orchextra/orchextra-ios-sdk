@@ -154,6 +154,9 @@
 		A978C5D81F457AE200F5DFFD /* StartSDKSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5D71F457AE200F5DFFD /* StartSDKSpec.swift */; };
 		A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DB1F45A43900F5DFFD /* SessionMock.swift */; };
 		A978C5DE1F45AF0700F5DFFD /* ConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */; };
+		A97F8F2A1FC326AB000C0B92 /* OrchextraWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F8F291FC326AB000C0B92 /* OrchextraWrapperTests.swift */; };
+		A97F8F2D1FC329CC000C0B92 /* AuthInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F8F2C1FC329CC000C0B92 /* AuthInteractorTests.swift */; };
+		A97F8F301FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F8F2F1FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift */; };
 		A987246F1F793F9500A7017F /* UserOrx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987246E1F793F9500A7017F /* UserOrx.swift */; };
 		A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */ = {isa = PBXBuildFile; fileRef = A98B52D21F5E92100082BB2F /* geomarketing.json */; };
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
@@ -413,6 +416,9 @@
 		A978C5D71F457AE200F5DFFD /* StartSDKSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartSDKSpec.swift; sourceTree = "<group>"; };
 		A978C5DB1F45A43900F5DFFD /* SessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SessionMock.swift; path = Mocks/Model/SessionMock.swift; sourceTree = "<group>"; };
 		A978C5DD1F45AF0700F5DFFD /* ConfigService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigService.swift; sourceTree = "<group>"; };
+		A97F8F291FC326AB000C0B92 /* OrchextraWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrchextraWrapperTests.swift; path = Modules/OrchextraWrapperTests.swift; sourceTree = "<group>"; };
+		A97F8F2C1FC329CC000C0B92 /* AuthInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractorTests.swift; sourceTree = "<group>"; };
+		A97F8F2F1FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapperMock.swift; path = Mocks/Modules/Manager/ModuleOutputWrapperMock.swift; sourceTree = "<group>"; };
 		A987246E1F793F9500A7017F /* UserOrx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserOrx.swift; path = Common/Model/Config/UserOrx.swift; sourceTree = "<group>"; };
 		A98B52D21F5E92100082BB2F /* geomarketing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geomarketing.json; sourceTree = "<group>"; };
 		A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationWrapper.swift; path = Proximity/LocationWrapper.swift; sourceTree = "<group>"; };
@@ -1023,6 +1029,7 @@
 		A978C5C91F4572F300F5DFFD /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A97F8F2B1FC329A9000C0B92 /* Services */,
 				A9D0FC391F57EFBE00596CF3 /* Model */,
 				A978C5D61F457AD400F5DFFD /* Interactor */,
 				A978C5CA1F4572FF00F5DFFD /* Support */,
@@ -1041,6 +1048,7 @@
 		A978C5D61F457AD400F5DFFD /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				A97F8F2C1FC329CC000C0B92 /* AuthInteractorTests.swift */,
 			);
 			name = Interactor;
 			path = Common/Interactor;
@@ -1063,6 +1071,21 @@
 				A978C5DB1F45A43900F5DFFD /* SessionMock.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A97F8F2B1FC329A9000C0B92 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		A97F8F2E1FC33D4D000C0B92 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A97F8F2F1FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift */,
+			);
+			name = Manager;
 			sourceTree = "<group>";
 		};
 		A99516751F8BCBBC00C59BA1 /* Wrappers */ = {
@@ -1138,6 +1161,7 @@
 				A94721F91F82368D001E2DE6 /* Scanner */,
 				8F299C771F66A9A50023F69D /* Eddystone */,
 				A95E67D81F5D50B3001D8B19 /* Manager */,
+				A97F8F291FC326AB000C0B92 /* OrchextraWrapperTests.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1395,6 +1419,7 @@
 		A9D0FC331F56C1E700596CF3 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A97F8F2E1FC33D4D000C0B92 /* Manager */,
 				A94722041F8243B9001E2DE6 /* Interfaces */,
 				A94721FF1F823952001E2DE6 /* ProximityMocks */,
 				A95E67E71F5D72E8001D8B19 /* Notification */,
@@ -1729,15 +1754,18 @@
 				8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */,
 				A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */,
 				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
+				A97F8F2D1FC329CC000C0B92 /* AuthInteractorTests.swift in Sources */,
 				8F77D1921FBF01BA008CC17D /* PushNotificationsTests.swift in Sources */,
 				8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */,
 				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
 				A94722031F823C70001E2DE6 /* StorageProximityMock.swift in Sources */,
 				A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */,
 				8F299C7C1F66A9A50023F69D /* CBCentralWrapperMock.swift in Sources */,
+				A97F8F301FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* StartSDKSpec.swift in Sources */,
 				A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */,
 				A94721FB1F82368D001E2DE6 /* ScannerTests.swift in Sources */,
+				A97F8F2A1FC326AB000C0B92 /* OrchextraWrapperTests.swift in Sources */,
 				A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */,
 				A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */,
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
