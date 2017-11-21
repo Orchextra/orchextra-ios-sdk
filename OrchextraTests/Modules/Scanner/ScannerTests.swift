@@ -124,16 +124,16 @@ class ScannerTests: XCTestCase {
         self.presenter.scannerDidFinishCapture(value: "Hi world", type: "org.iso.QRCode")
         
         // ASSERT
-        expect(self.scannerViewMock.spyShow.called).toEventually(equal(true))
-        expect(self.scannerViewMock.spyShow.message).toEventually(equal(kLocaleOrcScanningMessage))
-        expect(self.scannerViewMock.spyShow.scannedValue).toEventually(equal("Hi world"))
-        expect(self.moduleOutputMock.spyTriggerWasFire.called).toEventually(equal(true))
+        expect(self.scannerViewMock.spyShow.called).toEventually(equal(true), timeout: 6)
+        expect(self.scannerViewMock.spyShow.message).toEventually(equal(kLocaleOrcScanningMessage), timeout: 6)
+        expect(self.scannerViewMock.spyShow.scannedValue).toEventually(equal("Hi world"), timeout: 6)
+        expect(self.moduleOutputMock.spyTriggerWasFire.called).toEventually(equal(true), timeout: 6)
         
         // Values send it to the Orx
         let type = self.moduleOutputMock.spyTriggerWasFire.values["type"] as? String
-        expect(type).toEventually(equal("qr"))
+        expect(type).toEventually(equal("qr"), timeout: 6)
         
         let value = self.moduleOutputMock.spyTriggerWasFire.values["value"] as? String
-        expect(value).toEventually(equal("Hi world"))
+        expect(value).toEventually(equal("Hi world"), timeout: 6)
     }
 }
