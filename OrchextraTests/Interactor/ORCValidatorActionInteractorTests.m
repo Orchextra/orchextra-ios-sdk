@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <Foundation/Foundation.h>
+
+#import "OrchextraTests-Swift.h"
 
 #import <OCMockitoIOS/OCMockitoIOS.h>
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
@@ -17,7 +20,7 @@
 #import "ORCRegion.h"
 #import "ORCBeacon.h"
 #import "ORCGeofence.h"
-
+#import "ORCProximityFormatter.h"
 
 @interface ORCValidatorActionInteractorTests : XCTestCase
 
@@ -49,11 +52,11 @@
 {
     NSDictionary *valitateValues = @{@"type" : ORCTypeBarcode, @"value" : @"12345"};
     [self.validatorInterator validateScanType:ORCTypeBarcode scannedValue:@"12345" completion:nil];
-
+    
     MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
     [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
     NSDictionary *formattedValues = [captorAction value];
-
+    
     XCTAssert([valitateValues[@"type"] isEqualToString:formattedValues[@"type"]]);
     XCTAssert([valitateValues[@"value"] isEqualToString:formattedValues[@"value"]]);
 }
@@ -103,7 +106,7 @@
     XCTAssert([formattedValues[@"value"] isEqualToString:@"808d1108c9913b284f045059fb6e77d7"]);
     XCTAssert([formattedValues[@"event"] isEqualToString:@"enter"]);
     XCTAssertNil(formattedValues[@"distance"]);
-
+    
 }
 
 - (void)test_validateProximityWithRegion_returnTypeBeaconRegionAndValueCode_whereIsBeaconRegion
@@ -123,7 +126,7 @@
     XCTAssert([formattedValues[@"value"] isEqualToString:@"808d1108c9913b284f045059fb6e77d7"]);
     XCTAssert([formattedValues[@"event"] isEqualToString:@"enter"]);
     XCTAssertNil(formattedValues[@"distance"]);
-
+    
 }
 
 - (void)test_validate_beacon_with_md5
@@ -211,6 +214,231 @@
     XCTAssert([formattedValues[@"distance"] isEqualToString:@"immediate"]);
 }
 
+- (void)testValidateProximityWithEddystoneRegion_whereEventIsEnter
+{
+    ORCEddystoneUID *uid = [[ORCEddystoneUID alloc] initWithNamespace:@"636f6b65634063656575"instance:nil];
+    
+    ORCEddystoneRegion *region = [[ORCEddystoneRegion alloc] initWithUid:uid
+                                                                    code:@"59631d973570a131308b4570"
+                                                           notifyOnEntry:YES
+                                                            notifyOnExit: NO];
+    region.regionEvent = regionEventEnter;
+    
+    [self.validatorInterator validateProximityWithEddystoneRegion: region
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    NSString *eventToString = formattedValues[@"event"];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneRegion]);
+    XCTAssertTrue([eventToString isEqualToString:@"enter"]);
+    XCTAssertFalse([eventToString isEqualToString:@"exit"]);
+    XCTAssertFalse([eventToString isEqualToString:@"stay"]);
+    XCTAssertFalse([eventToString isEqualToString:@"undetected"]);
+}
+
+- (void)testValidateProximityWithEddystoneRegion_whereEventIsExit
+{
+    ORCEddystoneUID *uid = [[ORCEddystoneUID alloc] initWithNamespace:@"636f6b65634063656575"instance:nil];
+    
+    ORCEddystoneRegion *region = [[ORCEddystoneRegion alloc] initWithUid:uid
+                                                                    code:@"59631d973570a131308b4570"
+                                                           notifyOnEntry:NO
+                                                            notifyOnExit: YES];
+    region.regionEvent = regionEventExit;
+    
+    [self.validatorInterator validateProximityWithEddystoneRegion: region
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    NSString *eventToString = formattedValues[@"event"];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneRegion]);
+    XCTAssertTrue([eventToString isEqualToString:@"exit"]);
+    XCTAssertFalse([eventToString isEqualToString:@"enter"]);
+    XCTAssertFalse([eventToString isEqualToString:@"stay"]);
+    XCTAssertFalse([eventToString isEqualToString:@"undetected"]);
+}
+
+- (void)testValidateProximityWithEddystoneRegion_whereEventIsStay
+{
+    ORCEddystoneUID *uid = [[ORCEddystoneUID alloc] initWithNamespace:@"636f6b65634063656575"instance:nil];
+    
+    ORCEddystoneRegion *region = [[ORCEddystoneRegion alloc] initWithUid:uid
+                                                                    code:@"59631d973570a131308b4570"
+                                                           notifyOnEntry:NO
+                                                            notifyOnExit: YES];
+    region.regionEvent = regionEventStay;
+    
+    [self.validatorInterator validateProximityWithEddystoneRegion: region
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    NSString *eventToString = formattedValues[@"event"];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneRegion]);
+    XCTAssertTrue([eventToString isEqualToString:@"stay"]);
+    XCTAssertFalse([eventToString isEqualToString:@"enter"]);
+    XCTAssertFalse([eventToString isEqualToString:@"exit"]);
+    XCTAssertFalse([eventToString isEqualToString:@"undetected"]);
+}
+
+- (void)testValidateProximityWithEddystoneRegion_whereEventIsUndetected
+{
+    ORCEddystoneUID *uid = [[ORCEddystoneUID alloc] initWithNamespace:@"636f6b65634063656575"instance:nil];
+    
+    ORCEddystoneRegion *region = [[ORCEddystoneRegion alloc] initWithUid:uid
+                                                                    code:@"59631d973570a131308b4570"
+                                                           notifyOnEntry:NO
+                                                            notifyOnExit: YES];
+    region.regionEvent = regionEventUndetected;
+    
+    [self.validatorInterator validateProximityWithEddystoneRegion: region
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    NSString *eventToString = formattedValues[@"event"];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneRegion]);
+    XCTAssertTrue([eventToString isEqualToString:@"undetected"]);
+    XCTAssertFalse([eventToString isEqualToString:@"enter"]);
+    XCTAssertFalse([eventToString isEqualToString:@"exit"]);
+    XCTAssertFalse([eventToString isEqualToString:@"stay"]);
+}
+
+- (void)testValidateProximityWithEddystoneRegion_withoutRegionEvent
+{
+    ORCEddystoneUID *uid = [[ORCEddystoneUID alloc] initWithNamespace:@"636f6b65634063656575"instance:nil];
+    
+    ORCEddystoneRegion *region = [[ORCEddystoneRegion alloc] initWithUid:uid
+                                                                    code:@"59631d973570a131308b4570"
+                                                           notifyOnEntry:NO
+                                                            notifyOnExit: YES];
+    
+    [self.validatorInterator validateProximityWithEddystoneRegion: region
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    NSString *eventToString = formattedValues[@"event"];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneRegion]);
+    XCTAssertTrue([eventToString isEqualToString:@"undetected"]);
+    XCTAssertFalse([eventToString isEqualToString:@"enter"]);
+    XCTAssertFalse([eventToString isEqualToString:@"exit"]);
+    XCTAssertFalse([eventToString isEqualToString:@"stay"]);
+}
+
+- (void)testValidateProximityWithEddystoneBeacon_withInmediateEvent
+{
+    ORCEddystoneBeacon *beacon = [self eddystoneBeacon];
+    [beacon updateRssiBufferWithRssi:-41];
+    
+    [self.validatorInterator validateProximityWithEddystoneBeacon:beacon
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneBeacon]);
+    XCTAssertTrue([formattedValues[@"distance"] isEqualToString:@"immediate"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"near"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"far"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"unknown"]);
+    XCTAssertTrue([formattedValues[@"namespace"] isEqualToString:@"636f6b65634063656575"]);
+    XCTAssertTrue([formattedValues[@"instance"] isEqualToString:@"100000303976"]);
+    XCTAssertTrue([formattedValues[@"phoneStatus"] isEqualToString:@"foreground"]);
+    XCTAssertTrue([formattedValues[@"temperature"] isEqualToNumber:[NSNumber numberWithDouble:28.1875]]);
+    XCTAssertTrue([formattedValues[@"url"] isEqualToString:@"www.gigigo.com"]);
+    XCTAssertTrue([formattedValues[@"value"] isEqualToString:@"636f6b65634063656575100000303976"]);
+}
+
+- (void)testValidateProximityWithEddystoneBeacon_withNearEvent
+{
+    ORCEddystoneBeacon *beacon = [self eddystoneBeacon];
+    [beacon updateRssiBufferWithRssi:-75];
+    
+    [self.validatorInterator validateProximityWithEddystoneBeacon:beacon
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneBeacon]);
+    XCTAssertTrue([formattedValues[@"distance"] isEqualToString:@"near"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"immdieate"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"far"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"unknown"]);
+    XCTAssertTrue([formattedValues[@"namespace"] isEqualToString:@"636f6b65634063656575"]);
+    XCTAssertTrue([formattedValues[@"instance"] isEqualToString:@"100000303976"]);
+    XCTAssertTrue([formattedValues[@"phoneStatus"] isEqualToString:@"foreground"]);
+    XCTAssertTrue([formattedValues[@"temperature"] isEqualToNumber:[NSNumber numberWithDouble:28.1875]]);
+    XCTAssertTrue([formattedValues[@"url"] isEqualToString:@"www.gigigo.com"]);
+    XCTAssertTrue([formattedValues[@"value"] isEqualToString:@"636f6b65634063656575100000303976"]);
+    
+}
+
+- (void)testValidateProximityWithEddystoneBeacon_withFarEvent
+{
+    ORCEddystoneBeacon *beacon = [self eddystoneBeacon];
+    [beacon updateRssiBufferWithRssi:-88];
+
+    [self.validatorInterator validateProximityWithEddystoneBeacon:beacon
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneBeacon]);
+    XCTAssertTrue([formattedValues[@"distance"] isEqualToString:@"far"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"immediate"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"near"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"unknown"]);
+    XCTAssertTrue([formattedValues[@"namespace"] isEqualToString:@"636f6b65634063656575"]);
+    XCTAssertTrue([formattedValues[@"instance"] isEqualToString:@"100000303976"]);
+    XCTAssertTrue([formattedValues[@"phoneStatus"] isEqualToString:@"foreground"]);
+    XCTAssertTrue([formattedValues[@"temperature"] isEqualToNumber:[NSNumber numberWithDouble:28.1875]]);
+    XCTAssertTrue([formattedValues[@"url"] isEqualToString:@"www.gigigo.com"]);
+    XCTAssertTrue([formattedValues[@"value"] isEqualToString:@"636f6b65634063656575100000303976"]);
+}
+
+- (void)testValidateProximityWithEddystoneBeacon_withoutProximityEvent
+{
+    ORCEddystoneBeacon *beacon = [self eddystoneBeacon];
+    
+    [self.validatorInterator validateProximityWithEddystoneBeacon:beacon
+                                                       completion:nil];
+    
+    MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
+    [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
+    NSDictionary *formattedValues = [captorAction value];
+    
+    XCTAssertTrue([formattedValues[@"type"] isEqualToString:ORCTypeEddystoneBeacon]);
+    XCTAssertTrue([formattedValues[@"distance"] isEqualToString:@"unknown"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"immediate"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"near"]);
+    XCTAssertFalse([formattedValues[@"distance"] isEqualToString:@"far"]);
+    XCTAssertTrue([formattedValues[@"namespace"] isEqualToString:@"636f6b65634063656575"]);
+    XCTAssertTrue([formattedValues[@"instance"] isEqualToString:@"100000303976"]);
+    XCTAssertTrue([formattedValues[@"phoneStatus"] isEqualToString:@"foreground"]);
+    XCTAssertTrue([formattedValues[@"temperature"] isEqualToNumber:[NSNumber numberWithDouble:28.1875]]);
+    XCTAssertTrue([formattedValues[@"url"] isEqualToString:@"www.gigigo.com"]);
+    XCTAssertTrue([formattedValues[@"value"] isEqualToString:@"636f6b65634063656575100000303976"]);
+}
+
+
 - (void)test_validate_geofences
 {
     NSDictionary *valitateValues = @{@"type" : ORCTypeGeofence, @"value" : @"GeofenceGigigo"};
@@ -236,7 +464,7 @@
     ORCGeofence *geofence = [[ORCGeofence alloc] init];
     
     [self.validatorInterator validateProximityWithGeofence:geofence completion:nil];
-
+    
     MKTArgumentCaptor *captorAction = [[MKTArgumentCaptor alloc] init];
     [MKTVerify(self.communicatorMock) loadActionWithTriggerValues:[captorAction capture] completion:HC_notNilValue()];
     NSDictionary *formattedValues = [captorAction value];
@@ -264,7 +492,6 @@
 
 - (void)test_validateResponse_withActionAndErrorNil_andRequetParams
 {
-    
     ORCURLActionResponse *response = [[ORCURLActionResponse alloc] init];
     response.action = nil;
     response.error = nil;
@@ -286,7 +513,6 @@
 
 - (void)test_validateResponse_withNilResponse_withRequetParams
 {
-    
     ORCURLActionResponse *response = nil;
     XCTestExpectation *expectation = [self expectationWithDescription:@"validateResponse"];
     [self.validatorInterator validateResponse:response requestParams:@{} completion:^(ORCAction *action, NSError *error) {
@@ -306,10 +532,9 @@
 
 - (void)test_validateResponse_withAction_andNilRequetParams
 {
-    
     NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"GET_action_vuforia_without_schedule_data" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-
+    
     ORCURLActionResponse *response = [[ORCURLActionResponse alloc] initWithData:data];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"validateResponse"];
@@ -330,7 +555,6 @@
 
 - (void)test_validateResponse_withNilAction_andNilRequetParams
 {
-    
     NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"GET_action_datanil" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     
@@ -352,6 +576,29 @@
     }];
 }
 
+#pragma mark - Utilities
 
+- (ORCEddystoneBeacon *)eddystoneBeacon
+{
+    ORCEddystoneUID *uid = [[ORCEddystoneUID alloc] initWithNamespace:@"636f6b65634063656575"
+                                                             instance:@"100000303976"];
+    NSUUID *peripheralId = [[NSUUID alloc] initWithUUIDString:@"4B9F9513-2877-77B1-5B9F-A198CCF814DF"];
+    NSURL *url = [NSURL URLWithString:@"www.gigigo.com"];
+    
+    ORCEddystoneTelemetry *telemetry = [[ORCEddystoneTelemetry alloc] initWithTlmVersion:@"0"
+                                                                          batteryVoltage:3632
+                                                                       batteryPercentage:100
+                                                                             temperature:28.1875
+                                                                     advertisingPDUcount: @"175795000"
+                                                                                  uptime:123456];
+    
+    ORCEddystoneBeacon *beacon = [[ORCEddystoneBeacon alloc] initWithPeripheralId:peripheralId
+                                                                  requestWaitTime:120];
+    beacon.uid = uid;
+    beacon.url = url;
+    beacon.telemetry = telemetry;
+    
+    return beacon;
+}
 
 @end

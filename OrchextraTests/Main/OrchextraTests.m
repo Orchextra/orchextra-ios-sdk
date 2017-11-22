@@ -13,6 +13,8 @@
 #import <OCHamcrestIOS/OCHamcrestIOS.h>
 
 #import "Orchextra.h"
+#import "OrchextraTests-Swift.h"
+
 #import "ORCActionManager.h"
 #import "ORCSettingsInteractor.h"
 #import "ORCAction.h"
@@ -258,4 +260,63 @@
     XCTAssertTrue(response.deviceTags.count == 2, @"Number of device tags: %lu", (unsigned long)response.deviceTags.count);
 }
 
+- (void)test_configuration_response_with_eddystoneRegions
+{
+    NSString *path = [self.testBundle pathForResource:@"POST_configuration_with_eddystone_regions" ofType:@"json"];
+    XCTAssertNotNil(path);
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    XCTAssertNotNil(data);
+    
+    ORCAppConfigResponse *response = [[ORCAppConfigResponse alloc] initWithData:data];
+    
+    ORCEddystoneUID *uid1 = [[ORCEddystoneUID alloc] initWithNamespace:@"a904bf9dd8e13190483c"instance:nil];
+    
+    ORCEddystoneRegion *region1 = [[ORCEddystoneRegion alloc] initWithUid:uid1
+                                                                    code:@"595f79713570a181468b456e"
+                                                           notifyOnEntry:YES
+                                                            notifyOnExit: YES];
+    
+    ORCEddystoneUID *uid2 = [[ORCEddystoneUID alloc] initWithNamespace:@"636f6b65634063656575"instance:nil];
+    
+    ORCEddystoneRegion *region2 = [[ORCEddystoneRegion alloc] initWithUid:uid2
+                                                                     code:@"59631d973570a131308b4570"
+                                                            notifyOnEntry:YES
+                                                             notifyOnExit: YES];
+    
+    ORCEddystoneUID *uid3 = [[ORCEddystoneUID alloc] initWithNamespace:@"11111111111111111111"instance:nil];
+    
+    ORCEddystoneRegion *region3 = [[ORCEddystoneRegion alloc] initWithUid:uid3
+                                                                     code:@"596640c83570a145248b4592"
+                                                            notifyOnEntry:YES
+                                                             notifyOnExit: YES];
+
+    
+    ORCEddystoneRegion *regionRetrieved1 = [response.eddystoneRegions objectAtIndex:0];
+    ORCEddystoneRegion *regionRetrieved2 = [response.eddystoneRegions objectAtIndex:1];
+    ORCEddystoneRegion *regionRetrieved3 = [response.eddystoneRegions objectAtIndex:2];
+    
+    XCTAssertTrue(response.success);
+    XCTAssertNil(response.error);
+    XCTAssertTrue(response.eddystoneRegions.count == 3, @"Number of eddystone regions: %lu", (unsigned long)response.eddystoneRegions.count);
+    
+    XCTAssertTrue([regionRetrieved1 isEqual:region1]);
+    XCTAssertTrue([regionRetrieved2 isEqual:region2]);
+    XCTAssertTrue([regionRetrieved3 isEqual:region3]);
+}
+
+- (void)test_configuration_response_without_eddystoneRegions
+{
+    NSString *path = [self.testBundle pathForResource:@"POST_configuration_without_eddystone_regions" ofType:@"json"];
+    XCTAssertNotNil(path);
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    XCTAssertNotNil(data);
+    
+    ORCAppConfigResponse *response = [[ORCAppConfigResponse alloc] initWithData:data];
+    
+    XCTAssertTrue(response.success);
+    XCTAssertNil(response.error);
+    XCTAssertTrue(response.eddystoneRegions.count == 0, @"Number of eddystone regions: %lu", (unsigned long)response.eddystoneRegions.count);
+}
 @end

@@ -78,12 +78,12 @@ NSString * const NOTIFICATION_TYPE = @"type";
 - (void)registerPushNotification
 {
     UIApplication *application = [UIApplication sharedApplication];
-
+    
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
     {
         UIUserNotificationType types =  UIUserNotificationTypeBadge |
-                                        UIUserNotificationTypeSound |
-                                        UIUserNotificationTypeAlert;
+        UIUserNotificationTypeSound |
+        UIUserNotificationTypeAlert;
         
         UIUserNotificationSettings *settings = [UIUserNotificationSettings
                                                 settingsForTypes:types
@@ -149,8 +149,8 @@ NSString * const NOTIFICATION_TYPE = @"type";
 
 #pragma mark - HANDLE PUSH NOTIFICATION
 
-+ (void)handlePush:(id)userInfo {
-
++ (void)handlePush:(id)userInfo
+{
     ORCPushNotification *push = nil;
     
     Orchextra *orchextra = [Orchextra sharedInstance];
@@ -171,7 +171,17 @@ NSString * const NOTIFICATION_TYPE = @"type";
             push = [[ORCPushNotification alloc] initWithRemoteNotification:userInfo];
         }
         
-        if (![push.type isEqualToString:ORCTypeGeofence])
+        if ([push.type isEqualToString:ORCTypeGeofence])
+        {
+            ORCGeofence *geofence = [[ORCGeofence alloc] init];
+            geofence.type = ORCTypeGeofence;
+            geofence.code = push.code;
+            geofence.currentEvent = ORCtypeEventStay;
+            geofence.currentDistance = @([push.distance doubleValue]);
+            
+            [[ORCActionManager sharedInstance] findActionFromGeofence:geofence];
+        }
+        else
         {
             ORCAction *action = [[ORCAction alloc] initWithType:push.type];
             action.urlString = push.url;
@@ -182,16 +192,6 @@ NSString * const NOTIFICATION_TYPE = @"type";
             
             [[ORCActionManager sharedInstance] actionFromPushNotification:action];
         }
-        else
-        {
-            ORCGeofence *geofence = [[ORCGeofence alloc] init];
-            geofence.type = ORCTypeGeofence;
-            geofence.code = push.code;
-            geofence.currentEvent = ORCtypeEventStay;
-            geofence.currentDistance = @([push.distance doubleValue]);
-            
-            [[ORCActionManager sharedInstance] findActionFromGeofence:geofence];
-        }
         
         UIApplication *application = [UIApplication sharedApplication];
         
@@ -200,7 +200,6 @@ NSString * const NOTIFICATION_TYPE = @"type";
             NSInteger number = [push.badge integerValue];
             [application setApplicationIconBadgeNumber:number];
         }
-
     }
 }
 

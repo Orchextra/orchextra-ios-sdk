@@ -15,6 +15,7 @@ NSString * const ORCLastKnownPlacemark = @"ORCLastKnownPlacemark";
 NSString * const ORCLastKnownLocation = @"ORCLastKnownLocation";
 NSString * const ORCAuthorizationStatus = @"ORCAuthorizationStatus";
 NSString * const ORCListRegions = @"ORCListRegions";
+NSString * const ORCListEddystoneRegions = @"ORCListEddystoneRegions";
 NSString * const ORCLocationAlertRequiredShowed = @"ORCLocationAlertRequiredShowed";
 
 @interface ORCUserLocationPersister ()
@@ -109,4 +110,15 @@ NSString * const ORCLocationAlertRequiredShowed = @"ORCLocationAlertRequiredShow
     return [self.userdefaults unarchiveObjectForKey:ORCListRegions];
 }
 
+#pragma mark - Eddystone Regions
+
+- (NSArray<ORCEddystoneRegion *> *)loadEddystoneRegions
+{
+    return [self.userdefaults unarchiveObjectForKey:ORCListEddystoneRegions];
+}
+- (void)storeEddystoneRegions:(NSArray<ORCEddystoneRegion *> *)regions
+{
+    [self.userdefaults archiveObject:regions forKey:ORCListEddystoneRegions];
+    [self.userdefaults synchronize];
+}
 @end

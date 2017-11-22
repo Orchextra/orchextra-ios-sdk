@@ -15,6 +15,8 @@
 
 extern NSString * const ORCTypeBeacon;
 extern NSString * const ORCTypeRegion;
+extern NSString * const ORCTypeEddystoneRegion;
+extern NSString * const ORCTypeEddystoneBeacon;
 extern NSString * const ORCTypeGeofence;
 extern NSString * const ORCTypeQR;
 extern NSString * const ORCTypeBarcode;
@@ -35,6 +37,11 @@ extern NSString * const ORCActionCustomSchemeID;
 
 extern NSString * const ORCSchemeScanner;
 extern NSString * const ORCSchemeImageRecognition;
+
+#pragma mark - Core Bluetooth
+
+extern NSString * const ORCCoreBluetoothStart;
+extern NSString * const ORCCoreBluetoothStop;
 
 #pragma mark - SDK
 

@@ -1,0 +1,178 @@
+{
+    "status": true,
+    "data": {
+        "requestWaitTime": 120,
+        "proximity": [{
+                      "code": "595f79713570a181468b4567",
+                      "uuid": "60140DCE-7F05-40B6-8938-F96BC37CD9B2",
+                      "minor": null,
+                      "major": 65002,
+                      "notifyOnEntry": true,
+                      "notifyOnExit": true
+                      }, {
+                      "code": "595f79713570a181468b456c",
+                      "uuid": "60140DCE-7F05-40B6-8938-F96BC37CD9B2",
+                      "minor": null,
+                      "major": 65003,
+                      "notifyOnEntry": true,
+                      "notifyOnExit": true
+                      }, {
+                      "code": "595f79713570a181468b4570",
+                      "uuid": "60140DCE-7F05-40B6-8938-F96BC37CD9B2",
+                      "minor": null,
+                      "major": 65001,
+                      "notifyOnEntry": true,
+                      "notifyOnExit": true
+                      }, {
+                      "code": "595f79713570a181468b4572",
+                      "uuid": "60140DCE-7F05-40B6-8938-F96BC37CD9B2",
+                      "minor": null,
+                      "major": 65000,
+                      "notifyOnEntry": true,
+                      "notifyOnExit": true
+                      }, {
+                      "code": "595f79713570a181468b4574",
+                      "uuid": "60140DCE-7F05-40B6-8938-F96BC37CD9B2",
+                      "minor": null,
+                      "major": 65004,
+                      "notifyOnEntry": true,
+                      "notifyOnExit": true
+                      }],
+        "eddystoneRegions": [{
+                             "code": "595f79713570a181468b456e",
+                             "namespace": "a904bf9dd8e13190483c",
+                             "notifyOnEntry": true,
+                             "notifyOnExit": true
+                             }, {
+                             "code": "59631d973570a131308b4570",
+                             "namespace": "636f6b65634063656575",
+                             "notifyOnEntry": true,
+                             "notifyOnExit": true
+                             }, {
+                             "code": "596640c83570a145248b4592",
+                             "namespace": "11111111111111111111",
+                             "notifyOnEntry": true,
+                             "notifyOnExit": true
+                             }],
+        "theme": {
+            "primaryColor": "#330000",
+            "secondaryColor": "#331111"
+        },
+        "geoMarketing": [{
+                         "code": "59511db314fb5f5c188b45c9",
+                         "point": {
+                         "lat": 40.463667,
+                         "lng": -3.74922
+                         },
+                         "radius": 67170,
+                         "notifyOnEntry": true,
+                         "notifyOnExit": true,
+                         "stayTime": 0
+                         }],
+        "availableCustomFields": {
+            "name": {
+                "type": "string",
+                "label": "name"
+            },
+            "surname": {
+                "type": "string",
+                "label": "surname"
+            },
+            "email": {
+                "type": "string",
+                "label": "email"
+            },
+            "displayName": {
+                "type": "string",
+                "label": "displayName"
+            },
+            "givenName": {
+                "type": "string",
+                "label": "givenName"
+            },
+            "familyName": {
+                "type": "string",
+                "label": "familyName"
+            },
+            "mobileNumber": {
+                "type": "string",
+                "label": "mobileNumber"
+            },
+            "mobileNumberCountryCode": {
+                "type": "string",
+                "label": "mobileNumberCountryCode"
+            },
+            "residencyCountry": {
+                "type": "string",
+                "label": "residencyCountry"
+            },
+            "mailingStreetName1": {
+                "type": "string",
+                "label": "mailingStreetName1"
+            },
+            "mailingStreetName2": {
+                "type": "string",
+                "label": "mailingStreetName2"
+            },
+            "mailingSubAdministrativeArea": {
+                "type": "string",
+                "label": "mailingSubAdministrativeArea"
+            },
+            "mailingMunicipality": {
+                "type": "string",
+                "label": "mailingMunicipality"
+            },
+            "mailingPostalCode": {
+                "type": "string",
+                "label": "mailingPostalCode"
+            },
+            "mailingAdministrativeArea": {
+                "type": "string",
+                "label": "mailingAdministrativeArea"
+            },
+            "mailingCountry": {
+                "type": "string",
+                "label": "mailingCountry"
+            },
+            "shippingStreetName1": {
+                "type": "string",
+                "label": "shippingStreetName1"
+            },
+            "shippingStreetName2": {
+                "type": "string",
+                "label": "shippingStreetName2"
+            },
+            "shippingSubAdministrativeArea": {
+                "type": "string",
+                "label": "shippingSubAdministrativeArea"
+            },
+            "shippingMunicipality": {
+                "type": "string",
+                "label": "shippingMunicipality"
+            },
+            "shippingPostalCode": {
+                "type": "string",
+                "label": "shippingPostalCode"
+            },
+            "shippingAdministrativeArea": {
+                "type": "string",
+                "label": "shippingAdministrativeArea"
+            },
+            "shippingCountry": {
+                "type": "string",
+                "label": "shippingCountry"
+            }
+        },
+        "crm": {
+            "gender": null,
+            "birthDate": "",
+            "tags": [],
+            "businessUnits": [],
+            "customFields": null
+        },
+        "device": {
+            "tags": [],
+            "businessUnits": []
+        }
+    }
+}

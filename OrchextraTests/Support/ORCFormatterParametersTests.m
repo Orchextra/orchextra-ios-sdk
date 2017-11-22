@@ -89,7 +89,7 @@
     XCTAssertTrue([device[@"advertiserId"] isEqualToString:@"advertisingID"]);
     XCTAssertTrue([device[@"osVersion"] isEqualToString:@"9.0.0"]);
     XCTAssertTrue([device[@"handset"] isEqualToString:@"Iphone"]);
-    XCTAssertTrue([device[@"languaje"] isEqualToString:@"en_EN"]);
+    XCTAssertTrue([device[@"language"] isEqualToString:@"en_EN"]);
     XCTAssertTrue([device[@"os"] isEqualToString:@"iOS"]);
     XCTAssertTrue([device[@"timeZone"] isEqualToString:@"Madrid/Europe"]);
     XCTAssertTrue([device[@"vendorId"] isEqualToString:@"vendorID"]);

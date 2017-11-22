@@ -12,6 +12,8 @@
 
 NSString * const ORCTypeBeacon = @"beacon";
 NSString * const ORCTypeRegion = @"beacon_region";
+NSString * const ORCTypeEddystoneRegion = @"eddystone_region";
+NSString * const ORCTypeEddystoneBeacon = @"eddystone";
 NSString * const ORCTypeGeofence = @"geofence";
 NSString * const ORCTypeQR = @"qr";
 NSString * const ORCTypeBarcode = @"barcode";
@@ -31,9 +33,15 @@ NSString * const ORCActionVuforiaID = @"scan_vuforia";
 NSString * const ORCSchemeScanner = @"Orchextra://scanner";
 NSString * const ORCSchemeImageRecognition = @"Orchextra://imageRecognition";
 
+#pragma mark - Core Bluetooth
+
+NSString * const ORCCoreBluetoothStart = @"core_bluetooth_start";
+NSString * const ORCCoreBluetoothStop = @"core_bluetooth_stop";
+
+
 #pragma mark - SDK
     
-NSString * const ORCSDKVersion = @"2.1.7";
+NSString * const ORCSDKVersion = @"2.1.8";
 
 #pragma mark - Network
 
@@ -49,7 +57,3 @@ NSString * const ORCNetworkHost = @"https://sdk.orchextra.io";
 NSInteger const DEFAULT_BACKGROUND_TIME = 10;
 NSInteger const MAX_BACKGROUND_TIME = 180;
 NSString * const ORCHEXTRA_TO_LOADURL = @"Orchextra://loadURL:";
-
-
-
-

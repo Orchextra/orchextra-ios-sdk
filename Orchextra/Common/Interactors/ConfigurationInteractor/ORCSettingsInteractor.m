@@ -151,6 +151,16 @@ NSInteger const MAX_REGIONS = 20;
     [self.userLocationPersister storeRegions:regions];
 }
 
+- (NSArray<ORCEddystoneRegion *> *)loadEddystoneRegions
+{
+    return [self.userLocationPersister loadEddystoneRegions];
+}
+
+- (void)saveEddystoneRegions:(NSArray<ORCEddystoneRegion *> *)regions
+{
+    [self.userLocationPersister storeEddystoneRegions:regions];
+}
+
 - (void)saveOrchextraRunning:(BOOL)orchextraRunning
 {
     return [self.settingsPersister storeOrchextraState:orchextraRunning];
@@ -230,10 +240,29 @@ NSInteger const MAX_REGIONS = 20;
     return [self.settingsPersister updateCustomFieldValue:value withKey:key];
 }
 
-- (void)commitConfiguration
+- (void)commitConfigurationWithBackgroundCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSDictionary *newValues = [self.formatter formatterParameteresDevice];
-    [self handleLoadConfigurationWithValues:newValues completionCallBack:nil];
+    CompletionProjectSettings completionCallBack;
+    if (completionHandler != nil)
+    {
+        completionCallBack = ^ (BOOL success, NSError *error) {
+            if (success == true)
+            {
+                completionHandler(UIBackgroundFetchResultNewData);
+            }
+            else
+            {
+                completionHandler(UIBackgroundFetchResultNoData);
+            }
+        };
+    }
+    [self handleLoadConfigurationWithValues:newValues completionCallBack:completionCallBack];
+}
+
+- (void)commitConfiguration
+{
+    [self commitConfigurationWithBackgroundCompletionHandler:nil];
 }
 
 #pragma mark - PUBLIC (User tags)
@@ -378,6 +407,7 @@ NSInteger const MAX_REGIONS = 20;
 - (void)updateConfigurationResponse:(ORCAppConfigResponse *)response
 {
     NSArray *regions = [self gatherRegionsWithResponse:response];
+    NSArray <ORCEddystoneRegion *> *eddystoneRegions = response.eddystoneRegions;
     NSArray <ORCCustomField *> *availableCustomFields = response.availableCustomFields;
     NSArray <ORCCustomField *> *userCustomFields = response.userCustomFields;
     NSArray <ORCBusinessUnit *> *userBusinessUnits = response.userBusinessUnits;
@@ -386,6 +416,7 @@ NSInteger const MAX_REGIONS = 20;
     NSArray <ORCBusinessUnit *> *deviceBusinessUnits = response.deviceBusinessUnits;
     
     [self.userLocationPersister storeRegions:regions];
+    [self.userLocationPersister storeEddystoneRegions: eddystoneRegions];
     
     [self.settingsPersister storeThemeSdk:response.themeSDK];
     [self.settingsPersister storeRequestWaitTime:response.requestWaitTime];

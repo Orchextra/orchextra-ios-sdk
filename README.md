@@ -1,6 +1,7 @@
 # Orchextra SDK for iOS
 ![Language](https://img.shields.io/badge/Language-Objective--C-orange.svg)
-![Version](https://img.shields.io/badge/version-2.1.7-blue.svg)
+![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
+![Version](https://img.shields.io/badge/version-2.1.8-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov.io](https://codecov.io/github/Orchextra/orchextra-ios-sdk/coverage.svg?branch=develop)](https://codecov.io/github/Orchextra/orchextra-ios-sdk?branch=master)
@@ -104,6 +105,26 @@ NSLog(@"ORCHEXTRA ERROR: %@", error.localizedDescription);
 return YES;
 }
 ```
+
+It is required to add this **background modes** to integrative application *info.plist*
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>fetch</string>
+	<string>bluetooth-central</string>
+	<string>location</string>
+	<string>remote-notification</string>
+</array>
+</plist>
+
+```
+- **fetch** (To allow background fetching)
+- **bluetooth-central** (To allow using *CoreBluetooth* scanner when application is in background state)
+- **location** (To allow using *CoreLocation* scanner when application is in background state)
+- **remote-notification** (To allow receiving remote notifications when application is in background state)
 
 
 ##  Local & Remote Push Notification

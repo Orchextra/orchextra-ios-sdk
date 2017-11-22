@@ -27,6 +27,21 @@
     }
 }
 
++ (NSString *)eddystoneRegionEventToString:(regionEvent)typeEvent
+{
+    switch (typeEvent)
+    {
+        case regionEventUndetected:
+            return @"undetected";
+        case regionEventEnter:
+            return @"enter";
+        case regionEventExit:
+            return @"exit";
+        case regionEventStay:
+            return @"stay";
+    }
+}
+
 + (NSString *)applicationStateString
 {
     UIApplicationState appState = [UIApplication sharedApplication].applicationState;
@@ -58,5 +73,24 @@
             break;
     }
 }
+
++ (NSString *)eddystoneProximityDistanceToString:(proximity)proximity
+{
+    switch (proximity) {
+        case proximityUnknown:
+            return @"unknown";
+            break;
+        case proximityInmediate:
+            return @"immediate";
+            break;
+        case proximityNear:
+            return @"near";
+            break;
+        case proximityFar:
+            return @"far";
+            break;
+    }
+}
+
 
 @end

@@ -13,6 +13,8 @@
 #import "ORCWireframe.h"
 #import "ORCAction.h"
 #import "ORCGIGLogManager.h"
+#import "ORCUserLocationPersister.h"
+#import "ORCSettingsPersister.h"
 #import "ORCStatisticsInteractor.h"
 #import "ORCValidatorActionInterator.h"
 
@@ -24,9 +26,9 @@
 @property (strong, nonatomic) ORCPushManager *pushManager;
 @property (strong, nonatomic) ORCStatisticsInteractor *statisticsInteractor;
 @property (strong, nonatomic) ORCValidatorActionInterator *validatorInteractor;
+@property (strong, nonatomic) ORCCBCentralWrapper *centralWrapper;
 
 @end
-
 
 @implementation ORCActionManager
 
@@ -44,17 +46,23 @@
 
 - (instancetype)init
 {
+    ORCSettingsPersister *settingsPersister = [[ORCSettingsPersister alloc] init];
+    NSInteger requestWaitTime = [settingsPersister loadRequestWaitTime];
     ORCProximityManager *proximityManager = [[ORCProximityManager alloc] initWithActionInterface:self];
+    ORCValidatorActionInterator *validatorInteractor = [[ORCValidatorActionInterator alloc] init];
+    ORCCBCentralWrapper *centralWrapper = [[ORCCBCentralWrapper alloc] initWithActionInterface:self
+                                                                     validatorActionInteractor:validatorInteractor
+                                                                               requestWaitTime:requestWaitTime];
     ORCPushManager *notificationManager = [ORCPushManager sharedPushManager];
     ORCStatisticsInteractor *statisticsInteractor = [[ORCStatisticsInteractor alloc] init];
     ORCWireframe *wireframe = [[ORCWireframe alloc] init];
-    ORCValidatorActionInterator *validatorInteractor = [[ORCValidatorActionInterator alloc] init];
     
     return [self initWithProximity:proximityManager
                notificationManager:notificationManager
               statisticsInteractor:statisticsInteractor
                validatorInteractor:validatorInteractor
-                         wireframe:wireframe];
+                         wireframe:wireframe
+                    centralWrapper:centralWrapper];
 }
 
 - (instancetype)initWithProximity:(ORCProximityManager *)proximityManager
@@ -63,11 +71,19 @@
                         wireframe:(ORCWireframe *)wireframe
 {
     ORCValidatorActionInterator *validatorInteractor = [[ORCValidatorActionInterator alloc] init];
+    ORCSettingsPersister *settingsPersister = [[ORCSettingsPersister alloc] init];
+    NSInteger requestWaitTime = [settingsPersister loadRequestWaitTime];
+
+    ORCCBCentralWrapper *centralWrapper = [[ORCCBCentralWrapper alloc] initWithActionInterface:self
+                                                                     validatorActionInteractor:validatorInteractor
+                                                                               requestWaitTime:requestWaitTime];
+    
     return [self initWithProximity:proximityManager
                notificationManager:notificationManager
               statisticsInteractor:statisticsInteractor
                validatorInteractor:validatorInteractor
-                         wireframe:wireframe];
+                         wireframe:wireframe
+                    centralWrapper:centralWrapper];
 }
 
 - (instancetype)initWithProximity:(ORCProximityManager *)proximityManager
@@ -75,6 +91,7 @@
              statisticsInteractor:(ORCStatisticsInteractor *)statisticsInteractor
               validatorInteractor:(ORCValidatorActionInterator *)validatorInteractor
                         wireframe:(ORCWireframe *)wireframe
+                   centralWrapper:(ORCCBCentralWrapper *)centralWrapper
 {
     self = [super init];
     
@@ -85,6 +102,7 @@
         _validatorInteractor = validatorInteractor;
         _statisticsInteractor = statisticsInteractor;
         _wireframe = wireframe;
+        _centralWrapper = centralWrapper;
     }
     
     return self;
@@ -96,6 +114,7 @@
 {
     [self performUpdateUserLocation];
     [self updateMonitoringAndRangingOfRegions];
+    [self startEddystoneBeaconsScanner];
 }
 
 - (void)performUpdateUserLocation
@@ -142,6 +161,18 @@
     }];
 }
 
+- (void)startEddystoneBeaconsScanner
+{
+    ORCUserLocationPersister *userLocationPersister = [[ORCUserLocationPersister alloc] init];
+    NSArray<ORCEddystoneRegion *> *availableEddystoneRegions = [userLocationPersister loadEddystoneRegions];
+    [self.centralWrapper setAvailableRegions: availableEddystoneRegions];
+    [self.centralWrapper startScanner];
+}
+
+- (void)stopEddystoneBeaconsScanner
+{
+    [self.centralWrapper stopScanner];
+}
 
 #pragma mark - PRIVATE
 

@@ -14,5 +14,6 @@
 @property (assign, nonatomic) BOOL outStoreLastPlacemark;
 @property (assign, nonatomic) BOOL outStoreRegions;
 @property (assign, nonatomic) BOOL outStoreLocationPersmissions;
+@property (assign, nonatomic) BOOL outStoreEddystoneRegions;
 
 @end

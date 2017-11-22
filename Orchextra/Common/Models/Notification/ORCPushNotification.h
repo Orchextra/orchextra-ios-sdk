@@ -26,7 +26,6 @@
 @property (strong, nonatomic) NSString *distance;
 @property (strong, nonatomic) NSString *event;
 
-
 - (instancetype)initWithLocalNotification:(UILocalNotification *)notification;
 - (instancetype)initWithRemoteNotification:(NSDictionary *)notification;
 - (instancetype)initWithNotification:(UNNotification *)notification;

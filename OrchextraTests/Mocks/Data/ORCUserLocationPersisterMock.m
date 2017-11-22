@@ -30,4 +30,9 @@
     self.outStoreLocationPersmissions = YES;
 }
 
+- (void)storeEddystoneRegions:(NSArray<ORCEddystoneRegion *> *)regions
+{
+    self.outStoreEddystoneRegions = YES;
+}
+
 @end

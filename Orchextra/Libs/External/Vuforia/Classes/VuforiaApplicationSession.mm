@@ -163,33 +163,48 @@ namespace {
             }
             else {
                 NSError * error;
+                NSString *message;
                 switch(initSuccess) {
                     case QCAR::INIT_LICENSE_ERROR_NO_NETWORK_TRANSIENT:
-                        error = [self NSErrorWithCode:NSLocalizedString(@"INIT_LICENSE_ERROR_NO_NETWORK_TRANSIENT", nil) code:initSuccess];
+                        message = [NSBundle localize:@"INIT_LICENSE_ERROR_NO_NETWORK_TRANSIENT"
+                                                       comment:@""];
+                        error = [self NSErrorWithCode:message code:initSuccess];
                         break;
                         
                     case QCAR::INIT_LICENSE_ERROR_NO_NETWORK_PERMANENT:
-                        error = [self NSErrorWithCode:NSLocalizedString(@"INIT_LICENSE_ERROR_NO_NETWORK_PERMANENT", nil) code:initSuccess];
+                        message = [NSBundle localize:@"INIT_LICENSE_ERROR_NO_NETWORK_PERMANENT"
+                                                       comment:@""];
+                        error = [self NSErrorWithCode:message code:initSuccess];
                         break;
                         
                     case QCAR::INIT_LICENSE_ERROR_INVALID_KEY:
-                        error = [self NSErrorWithCode:NSLocalizedString(@"INIT_LICENSE_ERROR_INVALID_KEY", nil) code:initSuccess];
+                        message = [NSBundle localize:@"INIT_LICENSE_ERROR_INVALID_KEY"
+                                             comment:@""];
+                        error = [self NSErrorWithCode:message code:initSuccess];
                         break;
                         
                     case QCAR::INIT_LICENSE_ERROR_CANCELED_KEY:
-                        error = [self NSErrorWithCode:NSLocalizedString(@"INIT_LICENSE_ERROR_CANCELED_KEY", nil) code:initSuccess];
+                        message = [NSBundle localize:@"INIT_LICENSE_ERROR_CANCELED_KEY"
+                                             comment:@""];
+                        error = [self NSErrorWithCode:message code:initSuccess];
                         break;
                         
                     case QCAR::INIT_LICENSE_ERROR_MISSING_KEY:
-                        error = [self NSErrorWithCode:NSLocalizedString(@"INIT_LICENSE_ERROR_MISSING_KEY", nil) code:initSuccess];
+                        message = [NSBundle localize:@"INIT_LICENSE_ERROR_MISSING_KEY"
+                                             comment:@""];
+                        error = [self NSErrorWithCode:message code:initSuccess];
                         break;
                         
                     case QCAR::INIT_LICENSE_ERROR_PRODUCT_TYPE_MISMATCH:
-                        error = [self NSErrorWithCode:NSLocalizedString(@"INIT_LICENSE_ERROR_PRODUCT_TYPE_MISMATCH", nil) code:initSuccess];
+                        message = [NSBundle localize:@"INIT_LICENSE_ERROR_PRODUCT_TYPE_MISMATCH"
+                                             comment:@""];
+                        error = [self NSErrorWithCode:message code:initSuccess];
                         break;
                         
                     default:
-                        error = [self NSErrorWithCode:NSLocalizedString(@"INIT_default", nil) code:initSuccess];
+                        message = [NSBundle localize:@"INIT_default"
+                                             comment:@""];
+                        error = [self NSErrorWithCode:message code:initSuccess];
                         break;
                         
                 }
