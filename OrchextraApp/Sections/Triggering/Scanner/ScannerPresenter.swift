@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Orchextra
 
 protocol ScannerPresenterInput {
     func userDidTapOrchextraScanner()
@@ -35,6 +36,7 @@ extension ScannerPresenter: ScannerPresenterInput {
     }
     
     func userDidTapCustomScanner() {
+        self.interactor.invalidatePreviousScanner()
         self.wireframe.openCustomScanner()
     }
     

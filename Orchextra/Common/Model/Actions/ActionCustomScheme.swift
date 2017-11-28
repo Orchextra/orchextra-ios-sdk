@@ -60,7 +60,13 @@ class ActionCustomScheme: Action {
             LogWarn("Custom scheme invalid url set")
             return
         }
-        // Inform the integrative app about the trigger
-        Orchextra.shared.delegate?.customScheme(url)
+        
+        guard let orxCustomScheme = CustomSchemeFactory.customScheme(from: url) else {
+            LogInfo("Custom scheme not managed by Orchextra")
+            // Inform the integrative app about the trigger
+            Orchextra.shared.delegate?.customScheme(url)
+            return
+        }
+        orxCustomScheme.execute()
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 import GIGLibrary
 
 protocol ScannerInteractorInput {
+    func invalidatePreviousScanner()
     func openOrchextraScanner()
     func orxRequest()
 }
@@ -24,7 +25,12 @@ struct ScannerInteractor {
 
 extension ScannerInteractor: ScannerInteractorInput {
     
+    func invalidatePreviousScanner() {
+        self.orchextraWrapper.invalidatePreviousScanner()
+    }
+    
     func openOrchextraScanner() {
+        self.orchextraWrapper.invalidatePreviousScanner()
         self.orchextraWrapper.openOrchextraScanner()
     }
     

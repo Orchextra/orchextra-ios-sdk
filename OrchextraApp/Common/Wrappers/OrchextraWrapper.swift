@@ -59,6 +59,10 @@ class OrchextraWrapper {
         self.orchextra.openScanner()
     }
     
+    func invalidatePreviousScanner() {
+        self.orchextra.invalidatePreviousScanner()
+    }
+    
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         self.orchextra.setScanner(vc: vc)
     }

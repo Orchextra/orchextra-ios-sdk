@@ -10,7 +10,7 @@ import XCTest
 import Foundation
 @testable import Orchextra
 
-class ScannerVCMock: ScannerUI, ModuleInput {
+class ScannerVCMock: UIViewController, ScannerUI, ModuleInput {
   
     // MARK: - Attributes
     var expectation: XCTestExpectation?
@@ -70,7 +70,7 @@ class ScannerVCMock: ScannerUI, ModuleInput {
     // MARK: - ModuleInput
 
     func start() {
-        self.start()
+        self.showScanner()
     }
     
     func finish(action: Action?, completionHandler: (() -> Void)?) {
