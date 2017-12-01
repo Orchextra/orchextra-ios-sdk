@@ -40,6 +40,36 @@
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8FC4CBAF1FD010B20090A183"
+               BuildableName = "OrchextraAppCucumberTests.xctest"
+               BlueprintName = "OrchextraAppCucumberTests"
+               ReferencedContainer = "container:Orchextra.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8FC4CBCE1FD010C00090A183"
+               BuildableName = "OrchextraAppPageObjectTests.xctest"
+               BlueprintName = "OrchextraAppPageObjectTests"
+               ReferencedContainer = "container:Orchextra.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8FC4CC131FD031430090A183"
+               BuildableName = "OrchextraAppUITests.xctest"
+               BlueprintName = "OrchextraAppUITests"
+               ReferencedContainer = "container:Orchextra.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

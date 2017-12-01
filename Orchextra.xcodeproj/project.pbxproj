@@ -14,7 +14,6 @@
 		8F0961401F5C613200FD03F4 /* TriggerViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */; };
 		8F0C4B4F1F57F0A700056910 /* pt-sans.bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F0C4B4E1F57F0A700056910 /* pt-sans.bold.ttf */; };
 		8F0C4B531F57FCC700056910 /* ViewController(keyboard_hidding).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C4B521F57FCC700056910 /* ViewController(keyboard_hidding).swift */; };
-		8F0D4F7E1F558F9C003F3B39 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F0D4F7D1F558F9C003F3B39 /* WebKit.framework */; };
 		8F1123FC1F5FE3FF00609B4A /* Scanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1123FB1F5FE3FF00609B4A /* Scanner.storyboard */; };
 		8F1124001F5FE43C00609B4A /* CustomScannerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1123FD1F5FE43C00609B4A /* CustomScannerPresenter.swift */; };
 		8F1124011F5FE43C00609B4A /* CustomScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1123FE1F5FE43C00609B4A /* CustomScannerVC.swift */; };
@@ -63,6 +62,25 @@
 		8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C791F66A9A50023F69D /* EddystoneBeaconTests.swift */; };
 		8F299C7E1F66A9A50023F69D /* EddystoneDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C7A1F66A9A50023F69D /* EddystoneDecoderTests.swift */; };
 		8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C7B1F66A9A50023F69D /* EddystoneProtocolParserTests.swift */; };
+		8F434C431FD15EB800DD7200 /* OrchextraAppCucumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C421FD15EB800DD7200 /* OrchextraAppCucumberTests.swift */; };
+		8F434C461FD15EB800DD7200 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C451FD15EB800DD7200 /* HomeScreen.swift */; };
+		8F434C491FD15EB800DD7200 /* HomeScreenSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C481FD15EB800DD7200 /* HomeScreenSteps.swift */; };
+		8F434C4C1FD15EB800DD7200 /* CommonStepDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C4B1FD15EB800DD7200 /* CommonStepDefinitions.swift */; };
+		8F434C511FD15EB800DD7200 /* OrchextraAppCucumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C501FD15EB800DD7200 /* OrchextraAppCucumberTests.m */; };
+		8F434C621FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C611FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift */; };
+		8F434C651FD15EF300DD7200 /* HomeScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C641FD15EF300DD7200 /* HomeScreenTest.swift */; };
+		8F434C681FD15EF300DD7200 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C671FD15EF300DD7200 /* Extensions.swift */; };
+		8F434C6B1FD15EF300DD7200 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C6A1FD15EF300DD7200 /* HomeScreen.swift */; };
+		8F434C6D1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C6C1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift */; };
+		8F434C741FD15F2000DD7200 /* XCFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A521FCF0B7500F72F62 /* XCFit.framework */; };
+		8F434C751FD15F2000DD7200 /* Cucumberish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */; };
+		8F434C761FD15F2900DD7200 /* XCFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A521FCF0B7500F72F62 /* XCFit.framework */; };
+		8F434C771FD15F2900DD7200 /* Cucumberish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */; };
+		8F434C7D1FD161F400DD7200 /* XCFit.framework in Embedded frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A521FCF0B7500F72F62 /* XCFit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F434C7E1FD161F400DD7200 /* Cucumberish.framework in Embedded frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F434C821FD1623300DD7200 /* XCFit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FE98A521FCF0B7500F72F62 /* XCFit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F434C831FD1623600DD7200 /* Cucumberish.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8F434C871FD169CC00DD7200 /* Features in Resources */ = {isa = PBXBuildFile; fileRef = 8F434C841FD163D100DD7200 /* Features */; };
 		8F4A27B31F5D2419003B440D /* TriggersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B21F5D2419003B440D /* TriggersManager.swift */; };
 		8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */; };
 		8F5F7A171F4C60E700E62E57 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */; };
@@ -223,6 +241,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8F434C531FD15EB800DD7200 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9C54DC31F41A8E500DF2074;
+			remoteInfo = OrchextraApp;
+		};
+		8F434C6F1FD15EF300DD7200 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9C54DC31F41A8E500DF2074;
+			remoteInfo = OrchextraApp;
+		};
+		8F434C781FD161B500DD7200 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9C54D961F41A6F100DF2074;
+			remoteInfo = Orchextra;
+		};
+		8F434C7A1FD161B900DD7200 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9C54D961F41A6F100DF2074;
+			remoteInfo = Orchextra;
+		};
 		A95E67E21F5D6DF2001D8B19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
@@ -247,6 +293,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8F434C7C1FD161E900DD7200 /* Embedded frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8F434C7D1FD161F400DD7200 /* XCFit.framework in Embedded frameworks */,
+				8F434C7E1FD161F400DD7200 /* Cucumberish.framework in Embedded frameworks */,
+			);
+			name = "Embedded frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F434C811FD1622D00DD7200 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8F434C821FD1623300DD7200 /* XCFit.framework in CopyFiles */,
+				8F434C831FD1623600DD7200 /* Cucumberish.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A978C5CF1F4577FF00F5DFFD /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,7 +354,6 @@
 		8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerViewModelFactory.swift; sourceTree = "<group>"; };
 		8F0C4B4E1F57F0A700056910 /* pt-sans.bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pt-sans.bold.ttf"; sourceTree = "<group>"; };
 		8F0C4B521F57FCC700056910 /* ViewController(keyboard_hidding).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController(keyboard_hidding).swift"; sourceTree = "<group>"; };
-		8F0D4F7D1F558F9C003F3B39 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8F1123FB1F5FE3FF00609B4A /* Scanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Scanner.storyboard; sourceTree = "<group>"; };
 		8F1123FD1F5FE43C00609B4A /* CustomScannerPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScannerPresenter.swift; sourceTree = "<group>"; };
 		8F1123FE1F5FE43C00609B4A /* CustomScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScannerVC.swift; sourceTree = "<group>"; };
@@ -334,6 +402,23 @@
 		8F299C791F66A9A50023F69D /* EddystoneBeaconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneBeaconTests.swift; sourceTree = "<group>"; };
 		8F299C7A1F66A9A50023F69D /* EddystoneDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneDecoderTests.swift; sourceTree = "<group>"; };
 		8F299C7B1F66A9A50023F69D /* EddystoneProtocolParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneProtocolParserTests.swift; sourceTree = "<group>"; };
+		8F434C401FD15EB800DD7200 /* OrchextraAppCucumberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrchextraAppCucumberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F434C421FD15EB800DD7200 /* OrchextraAppCucumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchextraAppCucumberTests.swift; sourceTree = "<group>"; };
+		8F434C451FD15EB800DD7200 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		8F434C481FD15EB800DD7200 /* HomeScreenSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenSteps.swift; sourceTree = "<group>"; };
+		8F434C4B1FD15EB800DD7200 /* CommonStepDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStepDefinitions.swift; sourceTree = "<group>"; };
+		8F434C4E1FD15EB800DD7200 /* OrchextraAppCucumberTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrchextraAppCucumberTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		8F434C4F1FD15EB800DD7200 /* OrchextraAppCucumberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrchextraAppCucumberTests.h; sourceTree = "<group>"; };
+		8F434C501FD15EB800DD7200 /* OrchextraAppCucumberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrchextraAppCucumberTests.m; sourceTree = "<group>"; };
+		8F434C521FD15EB800DD7200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F434C5F1FD15EF300DD7200 /* OrchextraAppPageObjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrchextraAppPageObjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F434C611FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchextraAppPageObjectTests.swift; sourceTree = "<group>"; };
+		8F434C641FD15EF300DD7200 /* HomeScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTest.swift; sourceTree = "<group>"; };
+		8F434C671FD15EF300DD7200 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8F434C6A1FD15EF300DD7200 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		8F434C6C1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchextraAppPageObjectTestsTestBase.swift; sourceTree = "<group>"; };
+		8F434C6E1FD15EF300DD7200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F434C841FD163D100DD7200 /* Features */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Features; sourceTree = "<group>"; };
 		8F4A27B21F5D2419003B440D /* TriggersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggersManager.swift; sourceTree = "<group>"; };
 		8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchextraWrapper.swift; sourceTree = "<group>"; };
 		8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -365,6 +450,8 @@
 		8FD191231F9733DE00043011 /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
 		8FD191251F9733FD00043011 /* DeviceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInteractor.swift; sourceTree = "<group>"; };
 		8FD89B6C1FB5DC220063838D /* PushNotificationOrx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PushNotificationOrx.swift; path = Common/Model/Config/PushNotificationOrx.swift; sourceTree = "<group>"; };
+		8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cucumberish.framework; path = Carthage/Build/iOS/Cucumberish.framework; sourceTree = "<group>"; };
+		8FE98A521FCF0B7500F72F62 /* XCFit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCFit.framework; path = Carthage/Build/iOS/XCFit.framework; sourceTree = "<group>"; };
 		8FEF95EC1F58BCF9004D1BCF /* pt-sans.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "pt-sans.regular.ttf"; sourceTree = "<group>"; };
 		8FF0FD7E1FB3579800198101 /* ActionCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActionCustomScheme.swift; path = Common/Model/Actions/ActionCustomScheme.swift; sourceTree = "<group>"; };
 		8FFD3D881F569525000A1056 /* action_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_browser_notification.json; path = Mocks/Json/action_browser_notification.json; sourceTree = "<group>"; };
@@ -498,6 +585,24 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8F434C3D1FD15EB800DD7200 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F434C741FD15F2000DD7200 /* XCFit.framework in Frameworks */,
+				8F434C751FD15F2000DD7200 /* Cucumberish.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F434C5C1FD15EF300DD7200 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F434C761FD15F2900DD7200 /* XCFit.framework in Frameworks */,
+				8F434C771FD15F2900DD7200 /* Cucumberish.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9C54D931F41A6F100DF2074 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -527,7 +632,6 @@
 				A9910E851FB31DE100ABD866 /* GIGFormulary.framework in Frameworks */,
 				A9910E801FB31B2F00ABD866 /* GIGLibrary.framework in Frameworks */,
 				FA1916211F5EB4CE00F344EC /* Applivery.framework in Frameworks */,
-				8F0D4F7E1F558F9C003F3B39 /* WebKit.framework in Frameworks */,
 				8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */,
 				A9C54DD71F41A99700DF2074 /* Orchextra.framework in Frameworks */,
 			);
@@ -597,14 +701,6 @@
 				8F09613F1F5C613200FD03F4 /* TriggerViewModelFactory.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		8F1542241F6BEE6F006E3F7A /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				8F0D4F7D1F558F9C003F3B39 /* WebKit.framework */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		8F2042401F5E73AC00782D63 /* Model */ = {
@@ -766,6 +862,91 @@
 			);
 			name = Eddystone;
 			path = Modules/Eddystone;
+			sourceTree = "<group>";
+		};
+		8F434C411FD15EB800DD7200 /* OrchextraAppCucumberTests */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C841FD163D100DD7200 /* Features */,
+				8F434C421FD15EB800DD7200 /* OrchextraAppCucumberTests.swift */,
+				8F434C521FD15EB800DD7200 /* Info.plist */,
+				8F434C441FD15EB800DD7200 /* Screens */,
+				8F434C471FD15EB800DD7200 /* Step Definitions */,
+				8F434C4A1FD15EB800DD7200 /* Common */,
+				8F434C4D1FD15EB800DD7200 /* Supporting Files */,
+			);
+			path = OrchextraAppCucumberTests;
+			sourceTree = "<group>";
+		};
+		8F434C441FD15EB800DD7200 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C451FD15EB800DD7200 /* HomeScreen.swift */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		8F434C471FD15EB800DD7200 /* Step Definitions */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C481FD15EB800DD7200 /* HomeScreenSteps.swift */,
+			);
+			name = "Step Definitions";
+			sourceTree = "<group>";
+		};
+		8F434C4A1FD15EB800DD7200 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C4B1FD15EB800DD7200 /* CommonStepDefinitions.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		8F434C4D1FD15EB800DD7200 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C4E1FD15EB800DD7200 /* OrchextraAppCucumberTests-Bridging-Header.h */,
+				8F434C4F1FD15EB800DD7200 /* OrchextraAppCucumberTests.h */,
+				8F434C501FD15EB800DD7200 /* OrchextraAppCucumberTests.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8F434C601FD15EF300DD7200 /* OrchextraAppPageObjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C611FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift */,
+				8F434C6E1FD15EF300DD7200 /* Info.plist */,
+				8F434C631FD15EF300DD7200 /* Tests */,
+				8F434C661FD15EF300DD7200 /* TestBase */,
+				8F434C691FD15EF300DD7200 /* Screens */,
+			);
+			path = OrchextraAppPageObjectTests;
+			sourceTree = "<group>";
+		};
+		8F434C631FD15EF300DD7200 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C641FD15EF300DD7200 /* HomeScreenTest.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		8F434C661FD15EF300DD7200 /* TestBase */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C671FD15EF300DD7200 /* Extensions.swift */,
+				8F434C6C1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift */,
+			);
+			name = TestBase;
+			sourceTree = "<group>";
+		};
+		8F434C691FD15EF300DD7200 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				8F434C6A1FD15EF300DD7200 /* HomeScreen.swift */,
+			);
+			name = Screens;
 			sourceTree = "<group>";
 		};
 		8F4A27B61F5D25DD003B440D /* Wrappers */ = {
@@ -1172,9 +1353,10 @@
 				A9C54D991F41A6F100DF2074 /* Orchextra */,
 				A9C54DA41F41A6F100DF2074 /* OrchextraTests */,
 				A9C54DC51F41A8E500DF2074 /* OrchextraApp */,
+				8F434C411FD15EB800DD7200 /* OrchextraAppCucumberTests */,
+				8F434C601FD15EF300DD7200 /* OrchextraAppPageObjectTests */,
 				A9C54D981F41A6F100DF2074 /* Products */,
 				A9C54DB11F41A80500DF2074 /* Frameworks */,
-				8F1542241F6BEE6F006E3F7A /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1184,6 +1366,8 @@
 				A9C54D971F41A6F100DF2074 /* Orchextra.framework */,
 				A9C54DA01F41A6F100DF2074 /* OrchextraTests.xctest */,
 				A9C54DC41F41A8E500DF2074 /* OrchextraApp.app */,
+				8F434C401FD15EB800DD7200 /* OrchextraAppCucumberTests.xctest */,
+				8F434C5F1FD15EF300DD7200 /* OrchextraAppPageObjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1219,6 +1403,8 @@
 		A9C54DB11F41A80500DF2074 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FE98A521FCF0B7500F72F62 /* XCFit.framework */,
+				8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */,
 				A958CCB81F8528CB007074D5 /* Security.framework */,
 				A9C54DB21F41A81600DF2074 /* Cartfile */,
 				A9C54DB31F41A81600DF2074 /* Cartfile.private */,
@@ -1469,6 +1655,45 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		8F434C3F1FD15EB800DD7200 /* OrchextraAppCucumberTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F434C551FD15EB800DD7200 /* Build configuration list for PBXNativeTarget "OrchextraAppCucumberTests" */;
+			buildPhases = (
+				8F434C391FD15EB800DD7200 /* Sources */,
+				8F434C3D1FD15EB800DD7200 /* Frameworks */,
+				8F434C811FD1622D00DD7200 /* CopyFiles */,
+				8F434C861FD169C300DD7200 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F434C791FD161B500DD7200 /* PBXTargetDependency */,
+				8F434C541FD15EB800DD7200 /* PBXTargetDependency */,
+			);
+			name = OrchextraAppCucumberTests;
+			productName = OrchextraAppCucumberTests;
+			productReference = 8F434C401FD15EB800DD7200 /* OrchextraAppCucumberTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		8F434C5E1FD15EF300DD7200 /* OrchextraAppPageObjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F434C711FD15EF300DD7200 /* Build configuration list for PBXNativeTarget "OrchextraAppPageObjectTests" */;
+			buildPhases = (
+				8F434C581FD15EF300DD7200 /* Sources */,
+				8F434C5C1FD15EF300DD7200 /* Frameworks */,
+				8F434C7C1FD161E900DD7200 /* Embedded frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F434C7B1FD161B900DD7200 /* PBXTargetDependency */,
+				8F434C701FD15EF300DD7200 /* PBXTargetDependency */,
+			);
+			name = OrchextraAppPageObjectTests;
+			productName = OrchextraAppPageObjectTests;
+			productReference = 8F434C5F1FD15EF300DD7200 /* OrchextraAppPageObjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		A9C54D961F41A6F100DF2074 /* Orchextra */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9C54DAB1F41A6F100DF2074 /* Build configuration list for PBXNativeTarget "Orchextra" */;
@@ -1533,10 +1758,22 @@
 		A9C54D8E1F41A6F100DF2074 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Gigigo Mobile Services S.L.";
 				TargetAttributes = {
+					8F434C3F1FD15EB800DD7200 = {
+						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = SU5BA5HAQK;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9C54DC31F41A8E500DF2074;
+					};
+					8F434C5E1FD15EF300DD7200 = {
+						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = SU5BA5HAQK;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A9C54DC31F41A8E500DF2074;
+					};
 					A9C54D961F41A6F100DF2074 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = SU5BA5HAQK;
@@ -1581,11 +1818,21 @@
 				A9C54D961F41A6F100DF2074 /* Orchextra */,
 				A9C54D9F1F41A6F100DF2074 /* OrchextraTests */,
 				A9C54DC31F41A8E500DF2074 /* OrchextraApp */,
+				8F434C3F1FD15EB800DD7200 /* OrchextraAppCucumberTests */,
+				8F434C5E1FD15EF300DD7200 /* OrchextraAppPageObjectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8F434C861FD169C300DD7200 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F434C871FD169CC00DD7200 /* Features in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9C54D951F41A6F100DF2074 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1661,6 +1908,30 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8F434C391FD15EB800DD7200 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F434C461FD15EB800DD7200 /* HomeScreen.swift in Sources */,
+				8F434C431FD15EB800DD7200 /* OrchextraAppCucumberTests.swift in Sources */,
+				8F434C491FD15EB800DD7200 /* HomeScreenSteps.swift in Sources */,
+				8F434C4C1FD15EB800DD7200 /* CommonStepDefinitions.swift in Sources */,
+				8F434C511FD15EB800DD7200 /* OrchextraAppCucumberTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F434C581FD15EF300DD7200 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F434C6B1FD15EF300DD7200 /* HomeScreen.swift in Sources */,
+				8F434C651FD15EF300DD7200 /* HomeScreenTest.swift in Sources */,
+				8F434C681FD15EF300DD7200 /* Extensions.swift in Sources */,
+				8F434C6D1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift in Sources */,
+				8F434C621FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A9C54D921F41A6F100DF2074 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1840,6 +2111,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8F434C541FD15EB800DD7200 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9C54DC31F41A8E500DF2074 /* OrchextraApp */;
+			targetProxy = 8F434C531FD15EB800DD7200 /* PBXContainerItemProxy */;
+		};
+		8F434C701FD15EF300DD7200 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9C54DC31F41A8E500DF2074 /* OrchextraApp */;
+			targetProxy = 8F434C6F1FD15EF300DD7200 /* PBXContainerItemProxy */;
+		};
+		8F434C791FD161B500DD7200 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9C54D961F41A6F100DF2074 /* Orchextra */;
+			targetProxy = 8F434C781FD161B500DD7200 /* PBXContainerItemProxy */;
+		};
+		8F434C7B1FD161B900DD7200 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9C54D961F41A6F100DF2074 /* Orchextra */;
+			targetProxy = 8F434C7A1FD161B900DD7200 /* PBXContainerItemProxy */;
+		};
 		A95E67E31F5D6DF2001D8B19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9C54DC31F41A8E500DF2074 /* OrchextraApp */;
@@ -1884,6 +2175,120 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8F434C561FD15EB800DD7200 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SU5BA5HAQK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"SRC_ROOT=@\\\"$(SRCROOT)\\\"",
+				);
+				INFOPLIST_FILE = OrchextraAppCucumberTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.orchextra.OrchextraAppCucumberTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1f6ea78e-ce60-40d4-9811-c19e70f0ea11";
+				SRC_ROOT = "@\\\"$(SRCROOT)\\\"";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/${TARGET_NAME}/${TARGET_NAME}-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OrchextraApp;
+			};
+			name = Debug;
+		};
+		8F434C571FD15EB800DD7200 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SU5BA5HAQK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"SRC_ROOT=@\\\"$(SRCROOT)\\\"",
+				);
+				INFOPLIST_FILE = OrchextraAppCucumberTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.orchextra.OrchextraAppCucumberTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1f6ea78e-ce60-40d4-9811-c19e70f0ea11";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/${TARGET_NAME}/${TARGET_NAME}-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OrchextraApp;
+			};
+			name = Release;
+		};
+		8F434C721FD15EF300DD7200 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SU5BA5HAQK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OrchextraAppPageObjectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.orchextra.OrchextraAppPageObjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1f6ea78e-ce60-40d4-9811-c19e70f0ea11";
+				SRC_ROOT = "@\\\"$(SRCROOT)\\\"";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OrchextraApp;
+			};
+			name = Debug;
+		};
+		8F434C731FD15EF300DD7200 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SU5BA5HAQK;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = OrchextraAppPageObjectTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.orchextra.OrchextraAppPageObjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1f6ea78e-ce60-40d4-9811-c19e70f0ea11";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OrchextraApp;
+			};
+			name = Release;
+		};
 		A9C54DA91F41A6F100DF2074 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2146,6 +2551,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8F434C551FD15EB800DD7200 /* Build configuration list for PBXNativeTarget "OrchextraAppCucumberTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F434C561FD15EB800DD7200 /* Debug */,
+				8F434C571FD15EB800DD7200 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F434C711FD15EF300DD7200 /* Build configuration list for PBXNativeTarget "OrchextraAppPageObjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F434C721FD15EF300DD7200 /* Debug */,
+				8F434C731FD15EF300DD7200 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A9C54D911F41A6F100DF2074 /* Build configuration list for PBXProject "Orchextra" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

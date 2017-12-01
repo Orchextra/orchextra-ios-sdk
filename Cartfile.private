@@ -10,3 +10,9 @@ github "applivery/applivery-ios-sdk" ~> 2.4
 
 # GIGFormulary
 github "gigigoapps/gigigo-ios-formulary" ~> 3.0
+
+# XCFit
+github "Shashikant86/XCFit" ~> 7.0
+
+#Cucumberish
+github "Ahmed-Ali/Cucumberish" ~> 1.0
