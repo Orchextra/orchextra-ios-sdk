@@ -55,7 +55,7 @@ class Session {
             let user = try? PropertyListDecoder().decode(UserOrx.self, from: data)
             return user
         }
-        return UserOrx()
+        return nil
     }
     
     func deviceBusinessUnits() -> [BusinessUnit] {
@@ -81,7 +81,6 @@ class Session {
         guard let data = self.userDefault.value(forKey: keyPushNotificationsToken) as? Data else {
             LogWarn("Push notification token not set yet")
             return nil
-            
         }
         return (try? PropertyListDecoder().decode(Data.self, from: data)) ?? nil
     }

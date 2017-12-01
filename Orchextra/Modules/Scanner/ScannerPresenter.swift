@@ -110,7 +110,7 @@ class ScannerPresenter: ScannerInput {
                 self.outputModule?.triggerWasFire(with: ["value": value,
                                                          "type": typeValue.rawValue],
                                                   module: moduleInput)
-                LogDebug("Module Scan - has trigger: \(value) - \(type)")
+                LogInfo("Module Scan - has trigger: \(value) - \(type)")
             })
             
         }
