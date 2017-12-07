@@ -43,7 +43,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orchextra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVe-YK-02J">
-                                                <rect key="frame" x="75" y="197" width="172" height="46"/>
+                                                <rect key="frame" x="74.5" y="197" width="172" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="OVs-LX-DNq"/>
                                                 </constraints>
@@ -62,6 +62,7 @@
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Api key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="72c-0z-q5o">
                                                 <rect key="frame" x="36" y="346" width="268" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="apiKey"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -71,6 +72,7 @@
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Api Secret" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-gp-J4j">
                                                 <rect key="frame" x="36" y="391" width="268" height="30"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="apiSecret"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="PTSans-Regular" family="PT Sans" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -81,6 +83,7 @@
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="030-QD-nr7">
                                                 <rect key="frame" x="71" y="481" width="178" height="50"/>
                                                 <color key="backgroundColor" red="0.93333333330000001" green="0.32156862749999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="start"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="k5f-OG-Dct"/>
                                                 </constraints>
@@ -126,6 +129,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" identifier="LoginView"/>
                         <constraints>
                             <constraint firstItem="5AS-uV-zpz" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="27o-JC-0Tz"/>
                             <constraint firstItem="5AS-uV-zpz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9DA-6f-yfo"/>

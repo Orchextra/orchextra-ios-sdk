@@ -1,0 +1,3 @@
+[submodule "OrchextraAppCucumberTests/Features"]
+	path = OrchextraAppCucumberTests/Features
+	url = git@bitbucket.org:gigigo/gigigo-orchextra-sdk-features-gherkin.git

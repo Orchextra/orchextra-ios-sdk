@@ -15,10 +15,14 @@ import XCTest
 import Cucumberish
 
 class CommonStepDefinitions: NSObject {
+    var application : XCUIApplication
+    
+    init(application : XCUIApplication) {
+        self.application = application
+        super.init()
+    }
 
-    fileprivate var application : XCUIApplication!
-
-    fileprivate func elementByLabel(_ label : String, type: String) -> XCUIElement
+    func elementByLabel(_ label : String, type: String) -> XCUIElement
     {
         var elementQurey : XCUIElementQuery!
         switch(type){
@@ -155,11 +159,9 @@ class CommonStepDefinitions: NSObject {
             }
 
         }
-
     }
-
     class func setup(_ application: XCUIApplication)
     {
-        CommonStepDefinitions().setup(application)
+        CommonStepDefinitions(application: application).setup(application)
     }
 }
