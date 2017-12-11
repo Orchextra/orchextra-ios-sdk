@@ -97,7 +97,7 @@ class ProximityModule: ModuleInput {
             self.proximityWrapper.register(regions: regionsInModule)
             self.proximityWrapper.startMonitoring()
         } else {
-            LogWarn("There are not beacon_region/geofences to start proximity module")
+            LogInfo("There are not beacon_region/geofences to start proximity module")
         }
     }
     

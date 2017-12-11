@@ -149,25 +149,6 @@ extension ProximityWrapper: LocationOutput {
         }
         
         outputDic = region.values(event: event)
-
-//        if type == RegionType.geofence {
-//            guard let geofence = self.storage.findElement(code: code) else {
-//                LogWarn("Geofence is not store in the system")
-//                return outputDic
-//            }
-//            outputDic =
-//                ["type": type.rawValue,
-//                 "value": code,
-//                 "event": event,
-//                 "name": geofence.name,
-//                 "staytime": geofence.staytime]
-//        } else if type == RegionType.beacon_region {
-//            outputDic =
-//                ["type": type.rawValue,
-//                 "value": code,
-//                 "event": event]
-//        }
-        
         return outputDic
     }
 }
