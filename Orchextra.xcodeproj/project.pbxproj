@@ -94,6 +94,7 @@
 		8F77D18D1FBEE4B2008CC17D /* core_configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F77D18C1FBEE4B2008CC17D /* core_configuration.json */; };
 		8F77D18F1FBEFB8F008CC17D /* push_notification_payload_without_action.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F77D18E1FBEFB8F008CC17D /* push_notification_payload_without_action.json */; };
 		8F77D1921FBF01BA008CC17D /* PushNotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77D1911FBF01BA008CC17D /* PushNotificationsTests.swift */; };
+		8F77D1931FDE7DD7002B77AB /* CommonRegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77D1921FDE7DD7002B77AB /* CommonRegularExpression.swift */; };
 		8F7BCF821F99ECC400D8DD7E /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */; };
 		8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58DB1F4D81FB00271FC7 /* AppDelegate.swift */; };
 		8F7F58DE1F4D822000271FC7 /* AppWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58DD1F4D822000271FC7 /* AppWireframe.swift */; };
@@ -102,6 +103,7 @@
 		8F7F58EE1F4D84BD00271FC7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58EA1F4D84BD00271FC7 /* SettingsVC.swift */; };
 		8F7F58EF1F4D84BD00271FC7 /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58EB1F4D84BD00271FC7 /* SettingsWireframe.swift */; };
 		8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F58F01F4D87D800271FC7 /* AppController.swift */; };
+		8F84F5201FD980B800D5F84A /* XCUIElementExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84F51F1FD980B800D5F84A /* XCUIElementExtension.swift */; };
 		8FA14CF91FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CF81FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json */; };
 		8FA14CFB1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CFA1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json */; };
 		8FA14CFD1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CFC1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json */; };
@@ -433,6 +435,7 @@
 		8F77D18C1FBEE4B2008CC17D /* core_configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = core_configuration.json; sourceTree = "<group>"; };
 		8F77D18E1FBEFB8F008CC17D /* push_notification_payload_without_action.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = push_notification_payload_without_action.json; path = Mocks/Json/push_notification_payload_without_action.json; sourceTree = "<group>"; };
 		8F77D1911FBF01BA008CC17D /* PushNotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsTests.swift; sourceTree = "<group>"; };
+		8F77D1921FDE7DD7002B77AB /* CommonRegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRegularExpression.swift; sourceTree = "<group>"; };
 		8F7BCF811F99ECC400D8DD7E /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		8F7F58DB1F4D81FB00271FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F7F58DD1F4D822000271FC7 /* AppWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWireframe.swift; sourceTree = "<group>"; };
@@ -441,6 +444,7 @@
 		8F7F58EA1F4D84BD00271FC7 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		8F7F58EB1F4D84BD00271FC7 /* SettingsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsWireframe.swift; sourceTree = "<group>"; };
 		8F7F58F01F4D87D800271FC7 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		8F84F51F1FD980B800D5F84A /* XCUIElementExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElementExtension.swift; sourceTree = "<group>"; };
 		8FA14CF81FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = push_notification_without_orchextra_identifier.json; path = Mocks/Json/push_notification_without_orchextra_identifier.json; sourceTree = "<group>"; };
 		8FA14CFA1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = push_notification_with_otchextra_identifier_false.json; sourceTree = "<group>"; };
 		8FA14CFC1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = push_notification_payload_with_action_webview.json; path = Mocks/Json/push_notification_payload_with_action_webview.json; sourceTree = "<group>"; };
@@ -930,7 +934,9 @@
 		8F434C961FD17FB900DD7200 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8F77D1921FDE7DD7002B77AB /* CommonRegularExpression.swift */,
 				8F434C971FD17FB900DD7200 /* CommonStepDefinitions.swift */,
+				8F84F51F1FD980B800D5F84A /* XCUIElementExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1918,7 +1924,9 @@
 				8F434C9E1FD17FB900DD7200 /* HomeScreenSteps.swift in Sources */,
 				8F434C9F1FD17FB900DD7200 /* HomeScreen.swift in Sources */,
 				8F434C9D1FD17FB900DD7200 /* CommonStepDefinitions.swift in Sources */,
+				8F77D1931FDE7DD7002B77AB /* CommonRegularExpression.swift in Sources */,
 				8F2A5EBC1FD709D500A626A8 /* LoginScreenSteps.swift in Sources */,
+				8F84F5201FD980B800D5F84A /* XCUIElementExtension.swift in Sources */,
 				8F434C431FD15EB800DD7200 /* OrchextraAppCucumberTests.swift in Sources */,
 				8F434C511FD15EB800DD7200 /* OrchextraAppCucumberTests.m in Sources */,
 			);

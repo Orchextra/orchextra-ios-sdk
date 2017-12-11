@@ -79,6 +79,7 @@ extension HomeVC: HomeUI {
     func showAlert(message: String) {
         let alert = Alert(title: "OrchextraApp", message: message)
         alert.addDefaultButton("OK", usingAction: nil)
+//        alert.identifier = "error_alert"
         alert.show()
     }
     

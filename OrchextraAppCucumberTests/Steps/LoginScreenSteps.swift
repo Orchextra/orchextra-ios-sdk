@@ -14,70 +14,68 @@ import Cucumberish
 
 class LoginScreenSteps: XCTestCase {
     
-    var commonStepDefinitions: CommonStepDefinitions = CommonStepDefinitions(application: XCUIApplication())
+    var commonStepDefinitions: CommonStepDefinitions!
     
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        XCUIApplication().launch()
-        self.loginScreenSteps()
+        let application = XCUIApplication()
+        application.launch()
+        self.commonStepDefinitions = CommonStepDefinitions(application: application)
     }
     
     override func tearDown() {
         super.tearDown()
     }
-    
+    //TODO: Create RegularExpression class with common regular expression used (such a anyString, anyNumber....)
     func givenALoginView() {
-        Given("I have a view with ([^\\\"]*)") { (args, userInfo) -> Void in
+        Given("I have a login view") { (args, userInfo) -> Void in
         }
     }
     
     func whenIinputAnApiKeyToTextfield() {
-        When("I input into apikey ([^\\\"]*) textfield ([^\\\"]*)") { (args, userInfo) -> Void in
-            guard let identifier = args?[0],
-                let apiKey = args?[1] else {
-                    assertionFailure("Invalid apiKey textfield")
+        When("I input apiKey \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
+            guard let apiKey = args?[0] else {
+                    assertionFailure("Invalid apiKey textfield value")
                     return
             }
             
-            let textfield = self.commonStepDefinitions.elementByLabel(identifier, type: "text field")
-            textfield.accessibilityElementDidBecomeFocused()
-            textfield.typeText(apiKey)
+            let textfield = self.commonStepDefinitions.elementByLabel("apiKey", type: "text field")
+            textfield.clearAndEnterText(text: apiKey)
         }
     }
     
     func whenIinputAnApiSecretToTextfield() {
-        When("I input into apisecret ([^\\\"]*) textfield ([^\\\"]*)") { (args, userInfo) -> Void in
-            guard let identifier = args?[0],
-                let apiSecret = args?[1] else {
-                    assertionFailure("Invalid apiSecret textfield")
+        When("I input apiSecret \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
+            guard let apiSecret = args?[0] else {
+                    assertionFailure("Invalid apiSecret textfield value")
                     return
             }
             
-            let textfield = self.commonStepDefinitions.elementByLabel(identifier, type: "text field")
-            textfield.accessibilityElementDidBecomeFocused()
-            textfield.typeText(apiSecret)
+            let textfield = self.commonStepDefinitions.elementByLabel("apiSecret", type: "text field")
+            textfield.clearAndEnterText(text: apiSecret)
         }
     }
     
     func whenIPressStartButton() {
-        When("I press start ([^\\\"]*) button") { (args, userInfo) -> Void in
-            guard let identifier = args?[0] else {
-                assertionFailure("Invalid start button")
-                return
-            }
-            let button = self.commonStepDefinitions.elementByLabel(identifier, type: "button")
+        When("I press start button") { (args, userInfo) -> Void in
+            let button = self.commonStepDefinitions.elementByLabel("start", type: "button")
             button.tap()
         }
     }
     
     func thenIshouldSeeAuthError() {
         Then("I should see auth error") { (args, userInfo) -> Void in
-            //             CCISAssert(1 == 1, "IMPOSSIBLE")
+         let alert = self.commonStepDefinitions.elementByLabel("error_alert", type: "alert")
+         let exists = NSPredicate(format: "exists == 1")
+            self.expectation(for: exists, evaluatedWith: alert) {
+                return true
+            }
         }
     }
     
-    func loginScreenSteps() {
+    func testLoginScreenWithInvalidCredentials() {
+        self.setUp()
         self.givenALoginView()
         self.whenIinputAnApiKeyToTextfield()
         self.whenIinputAnApiSecretToTextfield()

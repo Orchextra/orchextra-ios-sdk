@@ -20,17 +20,21 @@ import Cucumberish
 @objc class OrchextraAppCucumberTests: NSObject {
     @objc class func CucumberishSwiftInit()
     {
-//         let application : XCUIApplication = XCUIApplication()
+        let application : XCUIApplication = XCUIApplication()
         //A closure that will be executed just before executing any of your features
         beforeStart { () -> Void in
             HomeScreenSteps().HomeScreenSteps()
         }
-//        //A Given step definition
-//        Given("the app is running") { (args, userInfo) -> Void in
-//            application.launch()
-//
-//        }
-        LoginScreenSteps().loginScreenSteps()
+        
+        before{ (_ )  -> Void in
+             LoginScreenSteps().testLoginScreenWithInvalidCredentials()
+        }
+        
+        //A Given step definition
+        Given("the app is running") { (args, userInfo) -> Void in
+            application.launch()
+
+        }
         let bundle = Bundle(for: OrchextraAppCucumberTests.self)
 
         Cucumberish.executeFeatures(inDirectory: "Features", from: bundle, includeTags: nil, excludeTags: nil)

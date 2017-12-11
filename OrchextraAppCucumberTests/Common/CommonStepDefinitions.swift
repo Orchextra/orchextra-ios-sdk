@@ -38,6 +38,8 @@ class CommonStepDefinitions: NSObject {
             elementQurey = application.textViews
         case "view":
             elementQurey = application.otherElements
+        case "alert":
+            elementQurey = application.alerts
         default: elementQurey = application.otherElements
         }
         return elementQurey[label]
