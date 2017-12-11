@@ -65,17 +65,8 @@
 		8F2A5EBC1FD709D500A626A8 /* LoginScreenSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434CA11FD1819500DD7200 /* LoginScreenSteps.swift */; };
 		8F434C431FD15EB800DD7200 /* OrchextraAppCucumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C421FD15EB800DD7200 /* OrchextraAppCucumberTests.swift */; };
 		8F434C511FD15EB800DD7200 /* OrchextraAppCucumberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C501FD15EB800DD7200 /* OrchextraAppCucumberTests.m */; };
-		8F434C621FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C611FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift */; };
-		8F434C651FD15EF300DD7200 /* HomeScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C641FD15EF300DD7200 /* HomeScreenTest.swift */; };
-		8F434C681FD15EF300DD7200 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C671FD15EF300DD7200 /* Extensions.swift */; };
-		8F434C6B1FD15EF300DD7200 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C6A1FD15EF300DD7200 /* HomeScreen.swift */; };
-		8F434C6D1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F434C6C1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift */; };
 		8F434C741FD15F2000DD7200 /* XCFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A521FCF0B7500F72F62 /* XCFit.framework */; };
 		8F434C751FD15F2000DD7200 /* Cucumberish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */; };
-		8F434C761FD15F2900DD7200 /* XCFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A521FCF0B7500F72F62 /* XCFit.framework */; };
-		8F434C771FD15F2900DD7200 /* Cucumberish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */; };
-		8F434C7D1FD161F400DD7200 /* XCFit.framework in Embedded frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A521FCF0B7500F72F62 /* XCFit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8F434C7E1FD161F400DD7200 /* Cucumberish.framework in Embedded frameworks */ = {isa = PBXBuildFile; fileRef = 8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F434C821FD1623300DD7200 /* XCFit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FE98A521FCF0B7500F72F62 /* XCFit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F434C831FD1623600DD7200 /* Cucumberish.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FE98A4E1FCF043600F72F62 /* Cucumberish.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F434C951FD17FA600DD7200 /* Features in Resources */ = {isa = PBXBuildFile; fileRef = 8F434C941FD17FA600DD7200 /* Features */; };
@@ -251,21 +242,7 @@
 			remoteGlobalIDString = A9C54DC31F41A8E500DF2074;
 			remoteInfo = OrchextraApp;
 		};
-		8F434C6F1FD15EF300DD7200 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9C54DC31F41A8E500DF2074;
-			remoteInfo = OrchextraApp;
-		};
 		8F434C781FD161B500DD7200 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9C54D961F41A6F100DF2074;
-			remoteInfo = Orchextra;
-		};
-		8F434C7A1FD161B900DD7200 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9C54D8E1F41A6F100DF2074 /* Project object */;
 			proxyType = 1;
@@ -296,18 +273,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8F434C7C1FD161E900DD7200 /* Embedded frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8F434C7D1FD161F400DD7200 /* XCFit.framework in Embedded frameworks */,
-				8F434C7E1FD161F400DD7200 /* Cucumberish.framework in Embedded frameworks */,
-			);
-			name = "Embedded frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8F434C811FD1622D00DD7200 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,13 +376,6 @@
 		8F434C4F1FD15EB800DD7200 /* OrchextraAppCucumberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrchextraAppCucumberTests.h; sourceTree = "<group>"; };
 		8F434C501FD15EB800DD7200 /* OrchextraAppCucumberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrchextraAppCucumberTests.m; sourceTree = "<group>"; };
 		8F434C521FD15EB800DD7200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8F434C5F1FD15EF300DD7200 /* OrchextraAppPageObjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrchextraAppPageObjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F434C611FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchextraAppPageObjectTests.swift; sourceTree = "<group>"; };
-		8F434C641FD15EF300DD7200 /* HomeScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTest.swift; sourceTree = "<group>"; };
-		8F434C671FD15EF300DD7200 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		8F434C6A1FD15EF300DD7200 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		8F434C6C1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchextraAppPageObjectTestsTestBase.swift; sourceTree = "<group>"; };
-		8F434C6E1FD15EF300DD7200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F434C941FD17FA600DD7200 /* Features */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Features; sourceTree = "<group>"; };
 		8F434C971FD17FB900DD7200 /* CommonStepDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonStepDefinitions.swift; sourceTree = "<group>"; };
 		8F434C991FD17FB900DD7200 /* HomeScreenSteps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenSteps.swift; sourceTree = "<group>"; };
@@ -597,15 +555,6 @@
 			files = (
 				8F434C741FD15F2000DD7200 /* XCFit.framework in Frameworks */,
 				8F434C751FD15F2000DD7200 /* Cucumberish.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F434C5C1FD15EF300DD7200 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F434C761FD15F2900DD7200 /* XCFit.framework in Frameworks */,
-				8F434C771FD15F2900DD7200 /* Cucumberish.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,43 +841,6 @@
 				8F434C501FD15EB800DD7200 /* OrchextraAppCucumberTests.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8F434C601FD15EF300DD7200 /* OrchextraAppPageObjectTests */ = {
-			isa = PBXGroup;
-			children = (
-				8F434C611FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift */,
-				8F434C6E1FD15EF300DD7200 /* Info.plist */,
-				8F434C631FD15EF300DD7200 /* Tests */,
-				8F434C661FD15EF300DD7200 /* TestBase */,
-				8F434C691FD15EF300DD7200 /* Screens */,
-			);
-			path = OrchextraAppPageObjectTests;
-			sourceTree = "<group>";
-		};
-		8F434C631FD15EF300DD7200 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				8F434C641FD15EF300DD7200 /* HomeScreenTest.swift */,
-			);
-			name = Tests;
-			sourceTree = "<group>";
-		};
-		8F434C661FD15EF300DD7200 /* TestBase */ = {
-			isa = PBXGroup;
-			children = (
-				8F434C671FD15EF300DD7200 /* Extensions.swift */,
-				8F434C6C1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift */,
-			);
-			name = TestBase;
-			sourceTree = "<group>";
-		};
-		8F434C691FD15EF300DD7200 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				8F434C6A1FD15EF300DD7200 /* HomeScreen.swift */,
-			);
-			name = Screens;
 			sourceTree = "<group>";
 		};
 		8F434C961FD17FB900DD7200 /* Common */ = {
@@ -1363,7 +1275,6 @@
 				A9C54DA41F41A6F100DF2074 /* OrchextraTests */,
 				A9C54DC51F41A8E500DF2074 /* OrchextraApp */,
 				8F434C411FD15EB800DD7200 /* OrchextraAppCucumberTests */,
-				8F434C601FD15EF300DD7200 /* OrchextraAppPageObjectTests */,
 				A9C54D981F41A6F100DF2074 /* Products */,
 				A9C54DB11F41A80500DF2074 /* Frameworks */,
 			);
@@ -1376,7 +1287,6 @@
 				A9C54DA01F41A6F100DF2074 /* OrchextraTests.xctest */,
 				A9C54DC41F41A8E500DF2074 /* OrchextraApp.app */,
 				8F434C401FD15EB800DD7200 /* OrchextraAppCucumberTests.xctest */,
-				8F434C5F1FD15EF300DD7200 /* OrchextraAppPageObjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1684,25 +1594,6 @@
 			productReference = 8F434C401FD15EB800DD7200 /* OrchextraAppCucumberTests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		8F434C5E1FD15EF300DD7200 /* OrchextraAppPageObjectTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8F434C711FD15EF300DD7200 /* Build configuration list for PBXNativeTarget "OrchextraAppPageObjectTests" */;
-			buildPhases = (
-				8F434C581FD15EF300DD7200 /* Sources */,
-				8F434C5C1FD15EF300DD7200 /* Frameworks */,
-				8F434C7C1FD161E900DD7200 /* Embedded frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8F434C7B1FD161B900DD7200 /* PBXTargetDependency */,
-				8F434C701FD15EF300DD7200 /* PBXTargetDependency */,
-			);
-			name = OrchextraAppPageObjectTests;
-			productName = OrchextraAppPageObjectTests;
-			productReference = 8F434C5F1FD15EF300DD7200 /* OrchextraAppPageObjectTests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		A9C54D961F41A6F100DF2074 /* Orchextra */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9C54DAB1F41A6F100DF2074 /* Build configuration list for PBXNativeTarget "Orchextra" */;
@@ -1777,12 +1668,6 @@
 						ProvisioningStyle = Manual;
 						TestTargetID = A9C54DC31F41A8E500DF2074;
 					};
-					8F434C5E1FD15EF300DD7200 = {
-						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = SU5BA5HAQK;
-						ProvisioningStyle = Manual;
-						TestTargetID = A9C54DC31F41A8E500DF2074;
-					};
 					A9C54D961F41A6F100DF2074 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = SU5BA5HAQK;
@@ -1828,7 +1713,6 @@
 				A9C54D9F1F41A6F100DF2074 /* OrchextraTests */,
 				A9C54DC31F41A8E500DF2074 /* OrchextraApp */,
 				8F434C3F1FD15EB800DD7200 /* OrchextraAppCucumberTests */,
-				8F434C5E1FD15EF300DD7200 /* OrchextraAppPageObjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1929,18 +1813,6 @@
 				8F84F5201FD980B800D5F84A /* XCUIElementExtension.swift in Sources */,
 				8F434C431FD15EB800DD7200 /* OrchextraAppCucumberTests.swift in Sources */,
 				8F434C511FD15EB800DD7200 /* OrchextraAppCucumberTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F434C581FD15EF300DD7200 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F434C6B1FD15EF300DD7200 /* HomeScreen.swift in Sources */,
-				8F434C651FD15EF300DD7200 /* HomeScreenTest.swift in Sources */,
-				8F434C681FD15EF300DD7200 /* Extensions.swift in Sources */,
-				8F434C6D1FD15EF300DD7200 /* OrchextraAppPageObjectTestsTestBase.swift in Sources */,
-				8F434C621FD15EF300DD7200 /* OrchextraAppPageObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2128,20 +2000,10 @@
 			target = A9C54DC31F41A8E500DF2074 /* OrchextraApp */;
 			targetProxy = 8F434C531FD15EB800DD7200 /* PBXContainerItemProxy */;
 		};
-		8F434C701FD15EF300DD7200 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A9C54DC31F41A8E500DF2074 /* OrchextraApp */;
-			targetProxy = 8F434C6F1FD15EF300DD7200 /* PBXContainerItemProxy */;
-		};
 		8F434C791FD161B500DD7200 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A9C54D961F41A6F100DF2074 /* Orchextra */;
 			targetProxy = 8F434C781FD161B500DD7200 /* PBXContainerItemProxy */;
-		};
-		8F434C7B1FD161B900DD7200 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A9C54D961F41A6F100DF2074 /* Orchextra */;
-			targetProxy = 8F434C7A1FD161B900DD7200 /* PBXContainerItemProxy */;
 		};
 		A95E67E31F5D6DF2001D8B19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2246,59 +2108,6 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/${TARGET_NAME}/${TARGET_NAME}-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OrchextraApp;
-			};
-			name = Release;
-		};
-		8F434C721FD15EF300DD7200 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = SU5BA5HAQK;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = OrchextraAppPageObjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.orchextra.OrchextraAppPageObjectTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f6841f4f-c7c8-44a9-91f3-3d32bcd4eefc";
-				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
-				SRC_ROOT = "@\\\"$(SRCROOT)\\\"";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OrchextraApp;
-			};
-			name = Debug;
-		};
-		8F434C731FD15EF300DD7200 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = OrchextraAppPageObjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.orchextra.OrchextraAppPageObjectTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = OrchextraApp;
@@ -2577,15 +2386,6 @@
 			buildConfigurations = (
 				8F434C561FD15EB800DD7200 /* Debug */,
 				8F434C571FD15EB800DD7200 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8F434C711FD15EF300DD7200 /* Build configuration list for PBXNativeTarget "OrchextraAppPageObjectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8F434C721FD15EF300DD7200 /* Debug */,
-				8F434C731FD15EF300DD7200 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

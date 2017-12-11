@@ -27,7 +27,7 @@ class LoginScreenSteps: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    //TODO: Create RegularExpression class with common regular expression used (such a anyString, anyNumber....)
+    
     func givenALoginView() {
         Given("I have a login view") { (args, userInfo) -> Void in
         }
