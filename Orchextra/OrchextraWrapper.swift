@@ -154,7 +154,7 @@ class OrchextraWrapper {
     public func remote(apnsToken: Data) {
         let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
         self.session.setPushNotification(token: apnsToken)
-        LogDebug("APNS Token:" + token)
+        LogInfo("Save APNS Token:" + token)
     }
     
     public func accesstoken() -> String? {
@@ -256,9 +256,9 @@ class OrchextraWrapper {
         self.authInteractor.bind(user: user, device: nil) { (result) in
             switch result {
             case .success:
-                LogDebug("Bind user has been successful")
+                LogInfo("Bind user has been successful")
             case .error(let error):
-                LogDebug("Bind user with error: \(error.localizedDescription)")
+                LogInfo("Bind user with error: \(error.localizedDescription)")
             }
         }
     }
@@ -270,9 +270,9 @@ class OrchextraWrapper {
         self.authInteractor.bind(user: user, device: device) { (result) in
             switch result {
             case .success:
-                LogDebug("Bind device has been successful")
+                LogInfo("Bind device has been successful")
             case .error(let error):
-                LogDebug("Bind device with error: \(error.localizedDescription)")
+                LogInfo("Bind device with error: \(error.localizedDescription)")
             }
         }
     }

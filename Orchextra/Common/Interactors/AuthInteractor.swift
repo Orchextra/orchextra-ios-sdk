@@ -196,8 +196,7 @@ class AuthInteractor: AuthInteractorInput {
     private func currentOrNewEmptyUser() -> UserOrx? {
         let currentUser = self.session.currentUser()
         if currentUser == nil {
-            let newUser = UserOrx()
-            self.session.bindUser(newUser)
+            return nil
         }
         return self.session.currentUser()
     }

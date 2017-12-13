@@ -76,8 +76,6 @@ class Device {
              "type": "IOS",
              "timeZone": Calendar.current.timeZone.identifier]
         
-        
-       
         var params =
             ["device":
                 ["advertiserId": self.advertiserId,
@@ -88,10 +86,12 @@ class Device {
                  "tags": self.tagsParam()]]
         
         if let pushNotificationToken = self.session.pushNotificationToken() {
-            let pushNotificationToken = ["token": pushNotificationToken]
-            params["notificationPush"] = pushNotificationToken
+            let token = String(data: pushNotificationToken, encoding: String.Encoding.utf8)
+            if let tokenParam = ["token": token] as? [String: String] {
+                params["notificationPush"] = tokenParam
+            }
         }
-        
+
         return params
     }
     
