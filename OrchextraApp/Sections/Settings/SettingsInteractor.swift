@@ -28,7 +28,7 @@ struct SettingsInteractor {
 
 extension SettingsInteractor: SettingsInteractorInput {
     func stopOrchextra() {
-        OrchextraWrapper.shared.stop()
+        OrchextraWrapperApp.shared.stop()
     }
     
     func loadProjectName() -> String? {

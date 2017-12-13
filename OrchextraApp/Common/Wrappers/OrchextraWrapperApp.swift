@@ -1,5 +1,5 @@
 //
-//  OrchextraWrapper.swift
+//  OrchextraWrapperApp.swift
 //  Orchextra
 //
 //  Created by Carlos Vicente on 4/9/17.
@@ -10,9 +10,9 @@ import Foundation
 import GIGLibrary
 import Orchextra
 
-class OrchextraWrapper {
+class OrchextraWrapperApp {
     let orchextra: Orchextra = Orchextra.shared
-    public static let shared: OrchextraWrapper = OrchextraWrapper()
+    public static let shared: OrchextraWrapperApp = OrchextraWrapperApp()
     
     init() {
         self.orchextra.delegate = self
@@ -77,7 +77,7 @@ class OrchextraWrapper {
     }
 }
 
-extension OrchextraWrapper: ORXDelegate {
+extension OrchextraWrapperApp: ORXDelegate {
     func customScheme(_ scheme: String) {
         Log("Custom scheme: - \(scheme) received")
     }

@@ -38,12 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		guard let userInfo = notification.userInfo else {
 			LogWarn("Notification does not have userinfo")
 			return }
-		OrchextraWrapper.shared.handleLocalNotification(userInfo: userInfo)
+		OrchextraWrapperApp.shared.handleLocalNotification(userInfo: userInfo)
 	}
     
     // MARK: - Handler remote notification
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        OrchextraWrapper.shared.handleRemoteNotification(userInfo: userInfo)
+        OrchextraWrapperApp.shared.handleRemoteNotification(userInfo: userInfo)
     }
 	
 	// MARK: - Private Helpers
@@ -78,11 +78,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        OrchextraWrapper.shared.openEddystone(with: completionHandler)
+        OrchextraWrapperApp.shared.openEddystone(with: completionHandler)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        OrchextraWrapper.shared.remote(apnsToken: deviceToken)
+        OrchextraWrapperApp.shared.remote(apnsToken: deviceToken)
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {

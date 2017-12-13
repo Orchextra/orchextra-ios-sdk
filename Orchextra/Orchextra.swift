@@ -177,15 +177,6 @@ open class Orchextra {
     }
     
     /**
-     Method to invalidate previous scanner.
-     
-     - Since: 3.0
-     */
-    public func invalidatePreviousScanner() {
-      OrchextraWrapper.shared.invalidatePreviousScanner()
-    }
-    
-    /**
      Set proximity module, if there is not module setup ORX will used the default one
      
      - Since: 3.0

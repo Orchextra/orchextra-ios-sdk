@@ -64,7 +64,7 @@
 		8F299C7E1F66A9A50023F69D /* EddystoneDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C7A1F66A9A50023F69D /* EddystoneDecoderTests.swift */; };
 		8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C7B1F66A9A50023F69D /* EddystoneProtocolParserTests.swift */; };
 		8F4A27B31F5D2419003B440D /* TriggersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B21F5D2419003B440D /* TriggersManager.swift */; };
-		8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */; };
+		8F4A27B81F5D25DD003B440D /* OrchextraWrapperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A27B71F5D25DD003B440D /* OrchextraWrapperApp.swift */; };
 		8F5F7A171F4C60E700E62E57 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */; };
 		8F5F7A181F4C60E700E62E57 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A141F4C60E700E62E57 /* HomeVC.swift */; };
 		8F5F7A191F4C60E700E62E57 /* HomeWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5F7A151F4C60E700E62E57 /* HomeWireframe.swift */; };
@@ -87,6 +87,8 @@
 		8F88E5501FC597DE002D297D /* ScannerCustomScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E54F1FC597DE002D297D /* ScannerCustomScheme.swift */; };
 		8F88E5531FC5B7C8002D297D /* CustomSchemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E5521FC5B7C8002D297D /* CustomSchemeTests.swift */; };
 		8F88E5581FC5BF30002D297D /* ORXDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F88E5571FC5BF30002D297D /* ORXDelegateMock.swift */; };
+		8F97498D1FE10FE800A5F699 /* OrchextraScannerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F97498C1FE10FE800A5F699 /* OrchextraScannerExtension.swift */; };
+		8F9749911FE1174800A5F699 /* OrchextraWrapperScannnerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9749901FE1174800A5F699 /* OrchextraWrapperScannnerExtension.swift */; };
 		8FA14CF91FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CF81FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json */; };
 		8FA14CFB1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CFA1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json */; };
 		8FA14CFD1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FA14CFC1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json */; };
@@ -339,7 +341,7 @@
 		8F299C7A1F66A9A50023F69D /* EddystoneDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneDecoderTests.swift; sourceTree = "<group>"; };
 		8F299C7B1F66A9A50023F69D /* EddystoneProtocolParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneProtocolParserTests.swift; sourceTree = "<group>"; };
 		8F4A27B21F5D2419003B440D /* TriggersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggersManager.swift; sourceTree = "<group>"; };
-		8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchextraWrapper.swift; sourceTree = "<group>"; };
+		8F4A27B71F5D25DD003B440D /* OrchextraWrapperApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchextraWrapperApp.swift; sourceTree = "<group>"; };
 		8F5F7A131F4C60E700E62E57 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		8F5F7A141F4C60E700E62E57 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		8F5F7A151F4C60E700E62E57 /* HomeWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
@@ -362,6 +364,8 @@
 		8F88E54F1FC597DE002D297D /* ScannerCustomScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScannerCustomScheme.swift; path = Common/Model/Config/ScannerCustomScheme.swift; sourceTree = "<group>"; };
 		8F88E5521FC5B7C8002D297D /* CustomSchemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSchemeTests.swift; sourceTree = "<group>"; };
 		8F88E5571FC5BF30002D297D /* ORXDelegateMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORXDelegateMock.swift; sourceTree = "<group>"; };
+		8F97498C1FE10FE800A5F699 /* OrchextraScannerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchextraScannerExtension.swift; sourceTree = "<group>"; };
+		8F9749901FE1174800A5F699 /* OrchextraWrapperScannnerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchextraWrapperScannnerExtension.swift; sourceTree = "<group>"; };
 		8FA14CF81FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = push_notification_without_orchextra_identifier.json; path = Mocks/Json/push_notification_without_orchextra_identifier.json; sourceTree = "<group>"; };
 		8FA14CFA1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = push_notification_with_otchextra_identifier_false.json; sourceTree = "<group>"; };
 		8FA14CFC1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = push_notification_payload_with_action_webview.json; path = Mocks/Json/push_notification_payload_with_action_webview.json; sourceTree = "<group>"; };
@@ -779,7 +783,9 @@
 		8F4A27B61F5D25DD003B440D /* Wrappers */ = {
 			isa = PBXGroup;
 			children = (
-				8F4A27B71F5D25DD003B440D /* OrchextraWrapper.swift */,
+				8F4A27B71F5D25DD003B440D /* OrchextraWrapperApp.swift */,
+				8F97498C1FE10FE800A5F699 /* OrchextraScannerExtension.swift */,
+				8F9749901FE1174800A5F699 /* OrchextraWrapperScannnerExtension.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -1813,6 +1819,7 @@
 			files = (
 				8F5F7A181F4C60E700E62E57 /* HomeVC.swift in Sources */,
 				8F2080951F4EAAAB00C328DC /* TriggeringPresenter.swift in Sources */,
+				8F9749911FE1174800A5F699 /* OrchextraWrapperScannnerExtension.swift in Sources */,
 				8F2080981F4EAAAB00C328DC /* TriggeringInteractor.swift in Sources */,
 				A97743E71FA747BB006690C3 /* FormTextField.swift in Sources */,
 				A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */,
@@ -1822,7 +1829,7 @@
 				8F2042451F5E90AF00782D63 /* FilterVC.swift in Sources */,
 				A958CCCA1F85322E007074D5 /* NotificationCenter.swift in Sources */,
 				8F2042491F5EA1AB00782D63 /* Filter.swift in Sources */,
-				8F4A27B81F5D25DD003B440D /* OrchextraWrapper.swift in Sources */,
+				8F4A27B81F5D25DD003B440D /* OrchextraWrapperApp.swift in Sources */,
 				8F2080B41F4EE2A200C328DC /* ScannerPresenter.swift in Sources */,
 				8F7BCF821F99ECC400D8DD7E /* BaseVC.swift in Sources */,
 				8F5F7A191F4C60E700E62E57 /* HomeWireframe.swift in Sources */,
@@ -1842,6 +1849,7 @@
 				8F22D8951F961BFA00D37F9B /* DeviceVC.swift in Sources */,
 				8FCE6FB31F504F070098A325 /* GeofencesVC.swift in Sources */,
 				8F2080AE1F4EE29000C328DC /* LogsPresenter.swift in Sources */,
+				8F97498D1FE10FE800A5F699 /* OrchextraScannerExtension.swift in Sources */,
 				8F7F58F11F4D87D800271FC7 /* AppController.swift in Sources */,
 				8F13F0E31F5B0AE00028B1FF /* LogTableViewCell.swift in Sources */,
 				8F7F58DC1F4D81FB00271FC7 /* AppDelegate.swift in Sources */,

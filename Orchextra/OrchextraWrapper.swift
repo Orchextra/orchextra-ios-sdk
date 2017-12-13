@@ -109,11 +109,6 @@ class OrchextraWrapper {
         self.scanner?.outputModule = self.moduleOutputWrapper
     }
     
-    func invalidatePreviousScanner() {
-        self.scanner?.outputModule = nil
-        self.scanner = nil
-    }
-    
     // MARK: - Proximity
     
     func openProximity(config: [String: Any]) {
