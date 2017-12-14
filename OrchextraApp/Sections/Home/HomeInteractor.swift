@@ -24,7 +24,7 @@ protocol HomeInteractorOutput {
 class HomeInteractor {
      // MARK: - Attributes
     var output: HomeInteractorOutput?
-    let orchextraWrapper = OrchextraWrapper.shared
+    let orchextraWrapper = OrchextraWrapperApp.shared
 }
 
 extension HomeInteractor: HomeInteractorInput {

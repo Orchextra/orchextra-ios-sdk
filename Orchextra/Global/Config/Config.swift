@@ -53,6 +53,11 @@ class Config {
             return "https://tr.orchextra.io"
         }
     }
+    
+    /// Custom scheme to launch scanner module
+    static var scannerCustomScheme: String {
+        return "Orchextra://scanner"
+    }
 }
 
 func localize(_ key: String, comment: String) -> String {

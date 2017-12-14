@@ -16,7 +16,7 @@ class AppController {
     func appDidLaunch() {
         if let running = Session.shared.isOrchextraRunning(),
             running == true {
-            OrchextraWrapper.shared.start(with: Constants.apiKey, secret: Constants.apiSecret, completion: { result in
+            OrchextraWrapperApp.shared.start(with: Constants.apiKey, secret: Constants.apiSecret, completion: { result in
                 switch result {
                 case .success:
                     self.appWireframe?.showTriggering()

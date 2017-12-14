@@ -33,7 +33,7 @@ struct ScannerWireframe {
         let customScannerWireframe = CustomScannerWireframe(navigationController: self.navigationController)
         guard let customScanerVC = customScannerWireframe.showCustomScanner() else { return }
         
-        OrchextraWrapper.shared.setScanner(vc: customScanerVC)
+        OrchextraWrapperApp.shared.setScanner(vc: customScanerVC)
         let navigationController = UINavigationController(rootViewController: customScanerVC)
         self.navigationController.present(navigationController, animated: true, completion: nil)
     }

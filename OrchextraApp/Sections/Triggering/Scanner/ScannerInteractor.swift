@@ -19,17 +19,17 @@ struct ScannerInteractor {
     // MARK: - Attributes
     
     var output: TriggeringInteractorOutput?
-    let orchextraWrapper = OrchextraWrapper.shared
+    let orchextraWrapper = OrchextraWrapperApp.shared
 }
 
 extension ScannerInteractor: ScannerInteractorInput {
     
     func invalidatePreviousScanner() {
-//        self.orchextraWrapper.invalidatePreviousScanner()
+        self.orchextraWrapper.invalidatePreviousScanner()
     }
     
     func openOrchextraScanner() {
-//        self.orchextraWrapper.invalidatePreviousScanner()
+        self.orchextraWrapper.invalidatePreviousScanner()
         self.orchextraWrapper.openOrchextraScanner()
     }
 }

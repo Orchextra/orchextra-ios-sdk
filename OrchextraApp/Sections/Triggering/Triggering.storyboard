@@ -200,7 +200,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gly-By-WcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="-357"/>
+            <point key="canvasLocation" x="1324" y="-357"/>
         </scene>
         <!--Geofences-->
         <scene sceneID="5Ky-A5-dxg">

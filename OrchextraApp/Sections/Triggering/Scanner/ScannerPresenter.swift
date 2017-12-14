@@ -44,7 +44,7 @@ extension ScannerPresenter: ScannerPresenterInput {
         let scannerModuleMock = ModuleMock()
         let type = qr ? "qr" : "barcode"
         
-        OrchextraWrapper.shared.setScanner(vc: scannerModuleMock)
+        OrchextraWrapperApp.shared.setScanner(vc: scannerModuleMock)
         scannerModuleMock.outputModule?.triggerWasFire(with: ["value": value,
                                                  "type": type],
                                           module: scannerModuleMock)
