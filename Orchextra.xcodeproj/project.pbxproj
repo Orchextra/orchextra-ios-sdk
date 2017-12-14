@@ -169,6 +169,7 @@
 		A97F8F2A1FC326AB000C0B92 /* OrchextraWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F8F291FC326AB000C0B92 /* OrchextraWrapperTests.swift */; };
 		A97F8F2D1FC329CC000C0B92 /* AuthInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F8F2C1FC329CC000C0B92 /* AuthInteractorTests.swift */; };
 		A97F8F301FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F8F2F1FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift */; };
+		A985A4211FE297E700439056 /* ModuleMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A985A4201FE297E700439056 /* ModuleMock.swift */; };
 		A987246F1F793F9500A7017F /* UserOrx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987246E1F793F9500A7017F /* UserOrx.swift */; };
 		A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */ = {isa = PBXBuildFile; fileRef = A98B52D21F5E92100082BB2F /* geomarketing.json */; };
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
@@ -470,6 +471,7 @@
 		A97F8F291FC326AB000C0B92 /* OrchextraWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrchextraWrapperTests.swift; path = Modules/OrchextraWrapperTests.swift; sourceTree = "<group>"; };
 		A97F8F2C1FC329CC000C0B92 /* AuthInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractorTests.swift; sourceTree = "<group>"; };
 		A97F8F2F1FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapperMock.swift; path = Mocks/Modules/Manager/ModuleOutputWrapperMock.swift; sourceTree = "<group>"; };
+		A985A4201FE297E700439056 /* ModuleMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleMock.swift; sourceTree = "<group>"; };
 		A987246E1F793F9500A7017F /* UserOrx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserOrx.swift; path = Common/Model/Config/UserOrx.swift; sourceTree = "<group>"; };
 		A98B52D21F5E92100082BB2F /* geomarketing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geomarketing.json; sourceTree = "<group>"; };
 		A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationWrapper.swift; path = Proximity/LocationWrapper.swift; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 		8F0C4B511F57FCB800056910 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A985A41F1FE297E700439056 /* MockModules */,
 				8F2042401F5E73AC00782D63 /* Model */,
 				8F4A27B61F5D25DD003B440D /* Wrappers */,
 				8F0C4B521F57FCC700056910 /* ViewController(keyboard_hidding).swift */,
@@ -1188,6 +1191,14 @@
 				A97F8F2F1FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift */,
 			);
 			name = Manager;
+			sourceTree = "<group>";
+		};
+		A985A41F1FE297E700439056 /* MockModules */ = {
+			isa = PBXGroup;
+			children = (
+				A985A4201FE297E700439056 /* ModuleMock.swift */,
+			);
+			path = MockModules;
 			sourceTree = "<group>";
 		};
 		A99516751F8BCBBC00C59BA1 /* Wrappers */ = {
@@ -1955,6 +1966,7 @@
 				8F7F58EC1F4D84BD00271FC7 /* SettingsInteractor.swift in Sources */,
 				8F20808F1F4EA59600C328DC /* Constants.swift in Sources */,
 				8F2080B81F4EFE8000C328DC /* ScannerInteractor.swift in Sources */,
+				A985A4211FE297E700439056 /* ModuleMock.swift in Sources */,
 				8FD191261F9733FD00043011 /* DeviceInteractor.swift in Sources */,
 				8F4A27B31F5D2419003B440D /* TriggersManager.swift in Sources */,
 				8F0961391F5C089500FD03F4 /* FilterPresenter.swift in Sources */,

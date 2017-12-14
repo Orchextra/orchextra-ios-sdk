@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ScannerPresenterInput {
     func userDidTapOrchextraScanner()
     func userDidTapCustomScanner()
-    func userDidTapRequestWithORX()
+    func userTappedScannedValue(value: String, qr: Bool)
 }
 
 protocol ScannerUI: class {
@@ -35,10 +36,17 @@ extension ScannerPresenter: ScannerPresenterInput {
     }
     
     func userDidTapCustomScanner() {
+        self.interactor.invalidatePreviousScanner()
         self.wireframe.openCustomScanner()
     }
     
-    func userDidTapRequestWithORX() {
-        self.interactor.orxRequest()
+    func userTappedScannedValue(value: String, qr: Bool) {
+        let scannerModuleMock = ModuleMock()
+        let type = qr ? "qr" : "barcode"
+        
+        OrchextraWrapper.shared.setScanner(vc: scannerModuleMock)
+        scannerModuleMock.outputModule?.triggerWasFire(with: ["value": value,
+                                                 "type": type],
+                                          module: scannerModuleMock)
     }
 }

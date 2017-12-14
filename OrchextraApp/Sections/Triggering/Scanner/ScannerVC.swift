@@ -13,7 +13,9 @@ class ScannerVC: UIViewController, ScannerUI {
     // MARK: - IBOutlets
     @IBOutlet weak var orchextraScannerButton: UIButton!
     @IBOutlet weak var customScannerButton: UIButton!
-    @IBOutlet weak var imageRecognitionButton: UIButton!
+    @IBOutlet weak var scanValueButton: UIButton!
+    @IBOutlet weak var scannedValueTextField: UITextField!
+    @IBOutlet weak var switchQR: UISwitch!
     
     // MARK: - Attributtes    
     var presenter: ScannerPresenterInput?
@@ -31,7 +33,7 @@ class ScannerVC: UIViewController, ScannerUI {
     private func initializeSubViews() {
         self.orchextraScannerButton.layer.cornerRadius = 6.0
         self.customScannerButton.layer.cornerRadius = 6.0
-        self.imageRecognitionButton.layer.cornerRadius = 6.0
+        self.scanValueButton.layer.cornerRadius = 6.0
     }
     
     // MARK: - Actions
@@ -44,8 +46,9 @@ class ScannerVC: UIViewController, ScannerUI {
         self.presenter?.userDidTapCustomScanner()
     }
     
-    @IBAction func userTappedORXRequest(_sender: Any) {
-        self.presenter?.userDidTapRequestWithORX()
+    @IBAction func userTappedScannedValue(_sender: Any) {
+        guard let scannedValue = self.scannedValueTextField.text else { return }
+        self.presenter?.userTappedScannedValue(value: scannedValue, qr: switchQR.isOn)
     }
 }
 
