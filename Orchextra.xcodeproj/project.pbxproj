@@ -175,6 +175,8 @@
 		A97F8F2D1FC329CC000C0B92 /* AuthInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F8F2C1FC329CC000C0B92 /* AuthInteractorTests.swift */; };
 		A97F8F301FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97F8F2F1FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift */; };
 		A985A4211FE297E700439056 /* ModuleMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A985A4201FE297E700439056 /* ModuleMock.swift */; };
+		A985A4231FE29F0A00439056 /* XCUIElementExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A985A4221FE29F0A00439056 /* XCUIElementExtension.swift */; };
+		A985A4251FE2A0C800439056 /* ScannerScreenSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A985A4241FE2A0C800439056 /* ScannerScreenSteps.swift */; };
 		A987246F1F793F9500A7017F /* UserOrx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A987246E1F793F9500A7017F /* UserOrx.swift */; };
 		A98B52D31F5E92100082BB2F /* geomarketing.json in Resources */ = {isa = PBXBuildFile; fileRef = A98B52D21F5E92100082BB2F /* geomarketing.json */; };
 		A98B52D51F5EA8AE0082BB2F /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */; };
@@ -482,6 +484,8 @@
 		A97F8F2C1FC329CC000C0B92 /* AuthInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInteractorTests.swift; sourceTree = "<group>"; };
 		A97F8F2F1FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModuleOutputWrapperMock.swift; path = Mocks/Modules/Manager/ModuleOutputWrapperMock.swift; sourceTree = "<group>"; };
 		A985A4201FE297E700439056 /* ModuleMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleMock.swift; sourceTree = "<group>"; };
+		A985A4221FE29F0A00439056 /* XCUIElementExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUIElementExtension.swift; sourceTree = "<group>"; };
+		A985A4241FE2A0C800439056 /* ScannerScreenSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerScreenSteps.swift; sourceTree = "<group>"; };
 		A987246E1F793F9500A7017F /* UserOrx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserOrx.swift; path = Common/Model/Config/UserOrx.swift; sourceTree = "<group>"; };
 		A98B52D21F5E92100082BB2F /* geomarketing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geomarketing.json; sourceTree = "<group>"; };
 		A98B52D41F5EA8AE0082BB2F /* LocationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationWrapper.swift; path = Proximity/LocationWrapper.swift; sourceTree = "<group>"; };
@@ -859,9 +863,9 @@
 		8F434C961FD17FB900DD7200 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A985A4221FE29F0A00439056 /* XCUIElementExtension.swift */,
 				8F77D1921FDE7DD7002B77AB /* CommonRegularExpression.swift */,
 				8F434C971FD17FB900DD7200 /* CommonStepDefinitions.swift */,
-				8F84F51F1FD980B800D5F84A /* XCUIElementExtension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -871,6 +875,7 @@
 			children = (
 				8F434C991FD17FB900DD7200 /* HomeScreenSteps.swift */,
 				8F434CA11FD1819500DD7200 /* LoginScreenSteps.swift */,
+				A985A4241FE2A0C800439056 /* ScannerScreenSteps.swift */,
 			);
 			path = Steps;
 			sourceTree = "<group>";
@@ -1854,7 +1859,8 @@
 				8F434C9D1FD17FB900DD7200 /* CommonStepDefinitions.swift in Sources */,
 				8F77D1931FDE7DD7002B77AB /* CommonRegularExpression.swift in Sources */,
 				8F2A5EBC1FD709D500A626A8 /* LoginScreenSteps.swift in Sources */,
-				8F84F5201FD980B800D5F84A /* XCUIElementExtension.swift in Sources */,
+				A985A4231FE29F0A00439056 /* XCUIElementExtension.swift in Sources */,
+				A985A4251FE2A0C800439056 /* ScannerScreenSteps.swift in Sources */,
 				8F434C431FD15EB800DD7200 /* OrchextraAppCucumberTests.swift in Sources */,
 				8F434C511FD15EB800DD7200 /* OrchextraAppCucumberTests.m in Sources */,
 			);

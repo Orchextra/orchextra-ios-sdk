@@ -24,10 +24,12 @@ import Cucumberish
         //A closure that will be executed just before executing any of your features
         beforeStart { () -> Void in
             HomeScreenSteps().HomeScreenSteps()
+            ScannerScreenSteps().testLoginScreenWithInvalidCredentials()
+
         }
         
         before{ (_ )  -> Void in
-             LoginScreenSteps().testLoginScreenWithInvalidCredentials()
+            LoginScreenSteps().testLoginScreenWithInvalidCredentials()
         }
         
         //A Given step definition
