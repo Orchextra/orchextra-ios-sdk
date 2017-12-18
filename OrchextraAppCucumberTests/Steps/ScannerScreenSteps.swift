@@ -26,7 +26,7 @@ class ScannerScreenSteps: XCTestCase {
         super.tearDown()
     }
 
-    func testgivenIinputAnApiKeyToTextfield() {
+    func givenIinputAnApiKeyToTextfield() {
         
         Given("I have logged") { (args, userInfo) -> Void in
             
@@ -35,11 +35,12 @@ class ScannerScreenSteps: XCTestCase {
             let elementsQuery = scrollViewsQuery.otherElements
             
             
-            if !elementsQuery.textFields["apiKey"].isHittable {
-                let app = XCUIApplication()
-                app.navigationBars["Camera"].buttons["config"].tap()
-                app.buttons["Log out"].tap()
-            }
+//            if !elementsQuery.textFields["apiKey"].isHittable {
+//                let app = XCUIApplication()
+//                app.navigationBars["Camera"].buttons["config"].tap()
+//                app.buttons["Log out"].tap()
+//            }
+            self.resetCredentials()
             
             let apikeyTextField = elementsQuery/*@START_MENU_TOKEN@*/.textFields["apiKey"]/*[[".textFields[\"Api key\"]",".textFields[\"apiKey\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
             apikeyTextField.tap()
@@ -56,8 +57,22 @@ class ScannerScreenSteps: XCTestCase {
         }
         
     }
+    
+    func resetCredentials() {
+        let triggeringView = self.commonStepDefinitions.elementByLabel("TriggeringVC", type: "view")
         
-    func testScannedBarcode() {
+        XCTAssert(triggeringView.exists == true)
+        let settingsButton = self.commonStepDefinitions.elementByLabel("settingsButton", type: "navigationBarButton")
+        settingsButton.tap()
+        
+        let settingsView = self.commonStepDefinitions.elementByLabel("SettingsVC", type: "view")
+        XCTAssert(settingsView.exists == true)
+        
+        let logOutButton = self.commonStepDefinitions.elementByLabel("logOutButton", type: "button")
+        logOutButton.tap()
+    }
+        
+    func scannedBarcode() {
         MatchAll("I scanned barcode with value 981234567890") { (args, userInfo) -> Void in
             
             let app = XCUIApplication()
@@ -72,10 +87,23 @@ class ScannerScreenSteps: XCTestCase {
         }
     }
 
-    func testLoginScreenWithInvalidCredentials() {
+    func loginScreenWithInvalidCredentials() {
         self.setUp()
-        self.testgivenIinputAnApiKeyToTextfield()
-        self.testScannedBarcode()
+        self.givenIinputAnApiKeyToTextfield()
+        self.scannedBarcode()
+        self.thenISeeAWebViewIsOpenWithURl()
+
+    }
+    
+    func thenISeeAWebViewIsOpenWithURl() {
+        Then("I see a webview is open with \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
+//            let triggeringView = self.commonStepDefinitions.elementByLabel("TriggeringVC", type: "view")
+//            let exists = NSPredicate(format: "exists == 1")
+//            self.expectation(for: exists, evaluatedWith: triggeringView) {
+//                return true
+//            }
+            // TODO: check webVC identifier and webVC url
+        }
 
     }
     

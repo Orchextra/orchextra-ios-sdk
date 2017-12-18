@@ -31,6 +31,7 @@ class SettingsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter?.viewDidLoad()
+        self.view.accessibilityIdentifier = "SettingsVC"
         self.hideKeyboardWhenTappedAround()
     }
     

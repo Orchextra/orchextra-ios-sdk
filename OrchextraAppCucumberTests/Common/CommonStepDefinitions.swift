@@ -40,6 +40,9 @@ class CommonStepDefinitions: NSObject {
             elementQurey = application.otherElements
         case "alert":
             elementQurey = application.alerts
+        case "navigationBarButton":
+            elementQurey = application.navigationBars.buttons
+
         default: elementQurey = application.otherElements
         }
         return elementQurey[label]

@@ -24,6 +24,8 @@ class TriggeringVC: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
          self.initializeSubviews()
+        self.view.accessibilityIdentifier = "TriggeringVC"
+        self.settingsButton.accessibilityIdentifier = "settingsButton"
     }
     
     override func viewDidLoad() {
