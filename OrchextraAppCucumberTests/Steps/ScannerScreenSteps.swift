@@ -9,17 +9,19 @@
 import Foundation
 import XCTest
 import Cucumberish
+import XCFit
 
 class ScannerScreenSteps: XCTestCase {
     
     var commonStepDefinitions: CommonStepDefinitions!
-    
+    let app = XCUIApplication()
+    let xcfit = XCFit()
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        let application = XCUIApplication()
-        application.launch()
-        self.commonStepDefinitions = CommonStepDefinitions(application: application)        
+        app.launch()
+        self.commonStepDefinitions = CommonStepDefinitions(application: app)
     }
     
     override func tearDown() {
@@ -28,18 +30,11 @@ class ScannerScreenSteps: XCTestCase {
 
     func givenIinputAnApiKeyToTextfield() {
         
-        Given("I have logged") { (args, userInfo) -> Void in
+        Given("The app logged") { (args, userInfo) -> Void in
             
-            let app = XCUIApplication()
-            let scrollViewsQuery = app/*@START_MENU_TOKEN@*/.scrollViews/*[[".otherElements[\"LoginView\"].scrollViews",".scrollViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+            let scrollViewsQuery = self.app/*@START_MENU_TOKEN@*/.scrollViews/*[[".otherElements[\"LoginView\"].scrollViews",".scrollViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
             let elementsQuery = scrollViewsQuery.otherElements
-            
-            
-//            if !elementsQuery.textFields["apiKey"].isHittable {
-//                let app = XCUIApplication()
-//                app.navigationBars["Camera"].buttons["config"].tap()
-//                app.buttons["Log out"].tap()
-//            }
+
             self.resetCredentials()
             
             let apikeyTextField = elementsQuery/*@START_MENU_TOKEN@*/.textFields["apiKey"]/*[[".textFields[\"Api key\"]",".textFields[\"apiKey\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
@@ -73,38 +68,57 @@ class ScannerScreenSteps: XCTestCase {
     }
         
     func scannedBarcode() {
-        MatchAll("I scanned barcode with value 981234567890") { (args, userInfo) -> Void in
+        MatchAll("I scanned barcode with value \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
+           
+            guard let value = args?[0] else {
+                assertionFailure("Invalid apiSecret textfield value")
+                return
+            }
             
-            let app = XCUIApplication()
-            let scannedValueTextField = app.textFields["scanned value"]
+            let scannedValueTextField = self.app.textFields["scanned value"]
             scannedValueTextField.tap()
-            scannedValueTextField.typeText("value")
+            scannedValueTextField.typeText(value)
             
-            let switch2 = app.switches["1"]
+            let switch2 = self.app.switches["1"]
             switch2.swipeLeft()
-            app.buttons["Send scan value"].tap()
+            self.app.buttons["Send scan value"].tap()
             
         }
     }
+    
+    func thenISeeANotification() {
+        MatchAll("I should see notification with title: \(CommonRegularExpression.anyString) and body: Go to Orchextra site?") { (args, userInfo) -> Void in
+            
+            guard let title = args?[0] else {
+                assertionFailure("Title empty")
+                return
+            }
+            let alert = self.app.alerts[title]
+            self.xcfit.waitUntilElementActive(element: alert)
+            alert.buttons["OK"].tap()
+        }
+    }
+    
+    func thenIShouldSeeAWebView() {
+        MatchAll("I should see webview") { (args, userInfo) -> Void in
+        let webview = self.app.descendants(matching: .webView)
+        XCTAssertNotNil(webview)
+        }
+    }
+    
+    func thenIShouldSeeABrowser() {
+        MatchAll("I should see browser") { (args, userInfo) -> Void in
+            let browser = self.app.descendants(matching: .browser)
+            XCTAssertNotNil(browser)
+        }
+    }
 
-    func loginScreenWithInvalidCredentials() {
+    func scannerScreenSteps() {
         self.setUp()
         self.givenIinputAnApiKeyToTextfield()
         self.scannedBarcode()
-        self.thenISeeAWebViewIsOpenWithURl()
-
+        self.thenISeeANotification()
+        self.thenIShouldSeeAWebView()
+        self.thenIShouldSeeABrowser()
     }
-    
-    func thenISeeAWebViewIsOpenWithURl() {
-        Then("I see a webview is open with \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
-//            let triggeringView = self.commonStepDefinitions.elementByLabel("TriggeringVC", type: "view")
-//            let exists = NSPredicate(format: "exists == 1")
-//            self.expectation(for: exists, evaluatedWith: triggeringView) {
-//                return true
-//            }
-            // TODO: check webVC identifier and webVC url
-        }
-
-    }
-    
 }

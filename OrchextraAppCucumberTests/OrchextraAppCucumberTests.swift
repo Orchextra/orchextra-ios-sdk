@@ -24,7 +24,7 @@ import Cucumberish
         //A closure that will be executed just before executing any of your features
         beforeStart { () -> Void in
             HomeScreenSteps().HomeScreenSteps()
-            ScannerScreenSteps().loginScreenWithInvalidCredentials()
+            ScannerScreenSteps().scannerScreenSteps()
 
         }
         
