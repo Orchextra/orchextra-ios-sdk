@@ -67,11 +67,11 @@ class ScannerScreenSteps: XCTestCase {
         logOutButton.tap()
     }
         
-    func scannedBarcode() {
+    func thenScannedBarcode() {
         MatchAll("I scanned barcode with value \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
            
             guard let value = args?[0] else {
-                assertionFailure("Invalid apiSecret textfield value")
+                assertionFailure("Barcode value invalid")
                 return
             }
             
@@ -86,8 +86,24 @@ class ScannerScreenSteps: XCTestCase {
         }
     }
     
+    func thenScannedQR() {
+        MatchAll("I scanned qr with value \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
+            
+            guard let value = args?[0] else {
+                assertionFailure("QR value invalid")
+                return
+            }
+            
+            let scannedValueTextField = self.app.textFields["scanned value"]
+            scannedValueTextField.tap()
+            scannedValueTextField.typeText(value)
+            self.app.buttons["Send scan value"].tap()
+            
+        }
+    }
+    
     func thenISeeANotification() {
-        MatchAll("I should see notification with title: \(CommonRegularExpression.anyString) and body: Go to Orchextra site?") { (args, userInfo) -> Void in
+        MatchAll("I should see notification with title: \(CommonRegularExpression.anyString) and body: \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
             
             guard let title = args?[0] else {
                 assertionFailure("Title empty")
@@ -116,7 +132,8 @@ class ScannerScreenSteps: XCTestCase {
     func scannerScreenSteps() {
         self.setUp()
         self.givenIinputAnApiKeyToTextfield()
-        self.scannedBarcode()
+        self.thenScannedBarcode()
+        self.thenScannedQR()
         self.thenISeeANotification()
         self.thenIShouldSeeAWebView()
         self.thenIShouldSeeABrowser()
