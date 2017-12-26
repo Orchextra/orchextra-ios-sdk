@@ -46,4 +46,5 @@ class ApplicationCenter {
     @objc func applicationDidEnterBackground() {
 
     }
+    
 }

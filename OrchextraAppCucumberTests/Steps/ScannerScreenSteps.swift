@@ -27,9 +27,17 @@ class ScannerScreenSteps: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-
-    func givenIinputAnApiKeyToTextfield() {
+    
+    func interactSystemAlert() {
+        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) -> Bool in
+            alert.buttons["Always Allow"].tap()
+            return true
+        }
         
+        app.tap()
+    }
+    
+    func givenIinputAnApiKeyToTextfield() {
         Given("The app logged") { (args, userInfo) -> Void in
             
             let scrollViewsQuery = self.app/*@START_MENU_TOKEN@*/.scrollViews/*[[".otherElements[\"LoginView\"].scrollViews",".scrollViews"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
@@ -68,7 +76,7 @@ class ScannerScreenSteps: XCTestCase {
     }
         
     func thenScannedBarcode() {
-        MatchAll("I scanned barcode with value \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
+        MatchAll("I scanned barcode with value \(CommonRegularExpression.anyString)") { args, userInfo in
            
             guard let value = args?[0] else {
                 assertionFailure("Barcode value invalid")
@@ -87,7 +95,7 @@ class ScannerScreenSteps: XCTestCase {
     }
     
     func thenScannedQR() {
-        MatchAll("I scanned qr with value \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
+        MatchAll("I scanned qr with value \(CommonRegularExpression.anyString)") { args, userInfo in
             
             guard let value = args?[0] else {
                 assertionFailure("QR value invalid")
@@ -103,7 +111,7 @@ class ScannerScreenSteps: XCTestCase {
     }
     
     func thenISeeANotification() {
-        MatchAll("I should see notification with title: \(CommonRegularExpression.anyString) and body: \(CommonRegularExpression.anyString)") { (args, userInfo) -> Void in
+        MatchAll("I should see notification with title: \(CommonRegularExpression.anyString) and body: \(CommonRegularExpression.anyString)") { args, userInfo in
             
             guard let title = args?[0] else {
                 assertionFailure("Title empty")
@@ -116,16 +124,34 @@ class ScannerScreenSteps: XCTestCase {
     }
     
     func thenIShouldSeeAWebView() {
-        MatchAll("I should see webview") { (args, userInfo) -> Void in
+        MatchAll("I should see webview") { args, userInfo in
         let webview = self.app.descendants(matching: .webView)
         XCTAssertNotNil(webview)
         }
     }
     
     func thenIShouldSeeABrowser() {
-        MatchAll("I should see browser") { (args, userInfo) -> Void in
+        MatchAll("I should see browser") { args, userInfo in
             let browser = self.app.descendants(matching: .browser)
             XCTAssertNotNil(browser)
+        }
+    }
+    
+    func thenIShouldSeeAScannerView() {
+        Then("Open scanner view") { args, userInfo in
+            
+        }
+    }
+    
+    func thenDeepLinkIsCalled() {
+        Then("Open deep link \(CommonRegularExpression.anyString)") { args, userInfo in
+            guard let customScheme = args?[0] else {
+                assertionFailure("customScheme empty")
+                return
+            }
+            let alert = self.app.alerts[customScheme]
+            self.xcfit.waitUntilElementActive(element: alert)
+            alert.buttons["OK"].tap()
         }
     }
 
@@ -137,5 +163,7 @@ class ScannerScreenSteps: XCTestCase {
         self.thenISeeANotification()
         self.thenIShouldSeeAWebView()
         self.thenIShouldSeeABrowser()
+        self.thenIShouldSeeAScannerView()
+        self.thenDeepLinkIsCalled()
     }
 }

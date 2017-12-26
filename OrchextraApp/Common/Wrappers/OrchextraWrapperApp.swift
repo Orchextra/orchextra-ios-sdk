@@ -79,6 +79,9 @@ class OrchextraWrapperApp {
 
 extension OrchextraWrapperApp: ORXDelegate {
     func customScheme(_ scheme: String) {
+        let alert = Alert(title: scheme, message: "")
+        alert.addDefaultButton("OK", usingAction: nil)
+        alert.show()
         Log("Custom scheme: - \(scheme) received")
     }
     

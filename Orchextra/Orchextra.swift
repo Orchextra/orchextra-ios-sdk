@@ -139,13 +139,17 @@ open class Orchextra {
     public func start(with apiKey: String, apiSecret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         OrchextraWrapper.shared.start(with: apiKey, apiSecret: apiSecret, completion: completion)
     }
+
     
-    public func status() {}
-    public func stop() {}
-    public func geolocation() {}
+    /// Stop services with Orchextra
+    public func stop() {
+        OrchextraWrapper.shared.stop()
+    }
     
     // MARK: Public submit SDK methods
-    public func commitConfiguration() {}
+    public func commitConfiguration() {
+        
+    }
     
      // MARK: Public fetch new eddystone information
     public func openEddystone(with completionHandler: (UIBackgroundFetchResult) -> Void) {
@@ -218,37 +222,84 @@ open class Orchextra {
     public func bindUser(_ user: UserOrx) {
         OrchextraWrapper.shared.bindUser(user)
     }
+    
+    /**
+     Unbind user
+     
+     - Since: 1.0
+     */
     public func unbindUser() {
         OrchextraWrapper.shared.unbindUser()
     }
+    
+    /**
+     Return the current user
+     
+     - Since: 1.0
+     */
     public func currentUser() -> UserOrx? {
         return OrchextraWrapper.shared.currentUser()
     }
     
+    /**
+     Set BusinessUnit to the current user
+     
+     - Since: 1.0
+     */
     public func setUserBusinessUnits(_ businessUnits: [BusinessUnit]) {
         OrchextraWrapper.shared.setUserBusinessUnits(businessUnits)
     }
     
+    /**
+     Get BusinessUnit from the current user
+     
+     - Since: 1.0
+     */
     public func getUserBusinessUnits() -> [BusinessUnit] {
         return OrchextraWrapper.shared.getUserBusinessUnits()
     }
     
+    /**
+     Set Tags to the current user
+     
+     - Since: 1.0
+     */
     public func setUserTags(_ tags: [Tag]) {
         OrchextraWrapper.shared.setUserTags(tags)
     }
     
+    /**
+     Get Tags from the current user
+     
+     - Since: 1.0
+     */
     public func getUserTags() -> [Tag] {
         return OrchextraWrapper.shared.getUserTags()
     }
     
+    /**
+     Get available custom fields
+     
+     - Since: 1.0
+     */
     public func getAvailableCustomFields() -> [CustomField] {
         return OrchextraWrapper.shared.getAvailableCustomFields()
     }
     
+    /**
+     Set custom fields for an specific project
+     
+     - Since: 1.0
+     */
     public func setCustomFields(_ customFields: [CustomField]) {
         OrchextraWrapper.shared.setCustomFields(customFields)
     }
     
+    /**
+     Get custom fields for an specific project
+     
+     - Since: 1.0
+     */
     public func getCustomFields() -> [CustomField] {
         return OrchextraWrapper.shared.getCustomFields()
     }
@@ -258,18 +309,38 @@ open class Orchextra {
         OrchextraWrapper.shared.bindDevice()
     }
     
+    /**
+     Set BusinessUnits to the device
+     
+     - Since: 1.0
+     */
     public func setDeviceBusinessUnits(_ businessUnits: [BusinessUnit]) {
         OrchextraWrapper.shared.setDeviceBusinessUnits(businessUnits)
     }
     
+    /**
+     Get BusinessUnits from the device
+     
+     - Since: 1.0
+     */
     public func getDeviceBusinessUnits() -> [BusinessUnit] {
         return OrchextraWrapper.shared.getDeviceBusinessUnits()
     }
     
+    /**
+     Set tags to a device
+     
+     - Since: 1.0
+     */
     public func setDeviceTags(_ tags: [Tag]) {
         OrchextraWrapper.shared.setDeviceTags(tags)
     }
     
+    /**
+     Get tags from the device
+     
+     - Since: 1.0
+     */
     public func getDeviceTags() -> [Tag] {
         return OrchextraWrapper.shared.getDeviceTags()
     }

@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oPM-Y1-4oU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oPM-Y1-4oU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Scanner OrxVC-->
         <scene sceneID="des-cf-lVI">
             <objects>
                 <viewController storyboardIdentifier="ScannerOrxVC" id="oPM-Y1-4oU" customClass="ScannerOrxVC" customModule="Orchextra" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VMa-Ix-r2z"/>
-                        <viewControllerLayoutGuide type="bottom" id="Fzf-UZ-LV6"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1Sz-AL-36Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,18 +97,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qoQ-QT-yhT" firstAttribute="leading" secondItem="1Sz-AL-36Z" secondAttribute="leading" id="2RQ-qa-xNe"/>
-                            <constraint firstItem="qoQ-QT-yhT" firstAttribute="top" secondItem="1Sz-AL-36Z" secondAttribute="top" constant="20" id="6xw-g0-xRR"/>
-                            <constraint firstItem="fFs-nd-a4a" firstAttribute="centerX" secondItem="1Sz-AL-36Z" secondAttribute="centerX" id="Poa-Uy-5vo"/>
+                            <constraint firstItem="qoQ-QT-yhT" firstAttribute="leading" secondItem="Ova-Gn-h9D" secondAttribute="leading" id="2RQ-qa-xNe"/>
+                            <constraint firstItem="qoQ-QT-yhT" firstAttribute="top" secondItem="Ova-Gn-h9D" secondAttribute="top" id="6xw-g0-xRR"/>
+                            <constraint firstItem="fFs-nd-a4a" firstAttribute="centerX" secondItem="Ova-Gn-h9D" secondAttribute="centerX" id="Poa-Uy-5vo"/>
                             <constraint firstItem="dlr-M8-NVM" firstAttribute="top" secondItem="fFs-nd-a4a" secondAttribute="bottom" constant="40" id="RQ5-Cs-m7g"/>
-                            <constraint firstItem="OGd-Og-OA5" firstAttribute="centerX" secondItem="1Sz-AL-36Z" secondAttribute="centerX" id="Yjz-5v-Kke"/>
+                            <constraint firstItem="OGd-Og-OA5" firstAttribute="centerX" secondItem="Ova-Gn-h9D" secondAttribute="centerX" id="Yjz-5v-Kke"/>
                             <constraint firstItem="2np-Jm-uO3" firstAttribute="top" secondItem="dlr-M8-NVM" secondAttribute="bottom" constant="8" id="cFp-bG-5sn"/>
                             <constraint firstItem="2np-Jm-uO3" firstAttribute="trailing" secondItem="dlr-M8-NVM" secondAttribute="trailing" id="fVG-Vo-mNM"/>
                             <constraint firstItem="dlr-M8-NVM" firstAttribute="centerY" secondItem="1Sz-AL-36Z" secondAttribute="centerY" id="ksP-R5-Lw8"/>
                             <constraint firstItem="OGd-Og-OA5" firstAttribute="centerY" secondItem="1Sz-AL-36Z" secondAttribute="centerY" id="mB9-1w-LeS"/>
-                            <constraint firstAttribute="trailing" secondItem="qoQ-QT-yhT" secondAttribute="trailing" id="nUf-F2-oua"/>
-                            <constraint firstItem="dlr-M8-NVM" firstAttribute="centerX" secondItem="1Sz-AL-36Z" secondAttribute="centerX" id="tYv-LF-1Dc"/>
+                            <constraint firstItem="Ova-Gn-h9D" firstAttribute="trailing" secondItem="qoQ-QT-yhT" secondAttribute="trailing" id="nUf-F2-oua"/>
+                            <constraint firstItem="dlr-M8-NVM" firstAttribute="centerX" secondItem="Ova-Gn-h9D" secondAttribute="centerX" id="tYv-LF-1Dc"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ova-Gn-h9D"/>
                     </view>
                     <navigationItem key="navigationItem" id="17m-I1-WuC">
                         <barButtonItem key="rightBarButtonItem" image="torch" id="QMW-7V-qi3"/>

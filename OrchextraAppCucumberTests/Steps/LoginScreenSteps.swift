@@ -13,13 +13,23 @@ import Cucumberish
 class LoginScreenSteps: XCTestCase {
     
     var commonStepDefinitions: CommonStepDefinitions!
-    
+    let app = XCUIApplication()
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        let application = XCUIApplication()
-        application.launch()
-        self.commonStepDefinitions = CommonStepDefinitions(application: application)
+        self.app.launch()
+
+        self.commonStepDefinitions = CommonStepDefinitions(application: self.app)
+    }
+    
+    func interactSystemAlert() {
+        addUIInterruptionMonitor(withDescription: "Location Dialog") { (alert) -> Bool in
+            alert.buttons["Allow"].tap()
+            return true
+        }
+        
+        self.app.tap()
     }
     
     override func tearDown() {

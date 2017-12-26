@@ -41,6 +41,7 @@ class Session {
     }
     
     // MARK: - CRM User public methods
+    
     func bindUser(_ user: UserOrx) {
         self.userDefault.set(try? PropertyListEncoder().encode(user), forKey: keyUser)
     }
@@ -77,6 +78,7 @@ class Session {
     }
     
     // MARK: - Push notifications public methods
+    
     func pushNotificationToken() -> Data? {
         guard let data = self.userDefault.value(forKey: keyPushNotificationsToken) as? Data else {
             LogWarn("Push notification token not set yet")
@@ -138,5 +140,9 @@ class Session {
         self.apiSecret = apiSecret
         
         return (apiKey, apiSecret)
+    }
+    
+    private func statusORX(status: Bool) {
+        
     }
 }

@@ -170,6 +170,12 @@ class OrchextraWrapper {
         return nil
     }
     
+    func stop() {
+        self.applicationCenter.removeAppDelegateEvents()
+        self.proximity?.finish(action: nil, completionHandler: nil)
+        self.eddystone?.finish(action: nil, completionHandler: nil)
+    }
+    
     // MARK: Public CRM methods
     public func bindUser(_ user: UserOrx) {
         let currentUser = self.session.currentUser()
