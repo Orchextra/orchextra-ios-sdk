@@ -21,9 +21,12 @@ class OrchextraWrapperApp {
     // MARK: - Initialization
 
     func start(with key: String, secret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        self.orchextra.logLevel = .debug
+        self.orchextra.logLevel = .info
         self.orchextra.logStyle = .funny
         self.orchextra.environment = .staging
+        
+        self.orchextra.enableProximity(enable: true)
+        self.orchextra.enableEddystones(enable: true)
         
         // TODO: get data from SDK and if it is nil set default project credentials
         self.orchextra.start(with: key, apiSecret: secret, completion: completion)
@@ -65,10 +68,6 @@ class OrchextraWrapperApp {
     
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         self.orchextra.setScanner(vc: vc)
-    }
-    
-    func openImageRecognition() {
-        self.orchextra.openImageRecognition()
     }
     
      // MARK: - Eddystone

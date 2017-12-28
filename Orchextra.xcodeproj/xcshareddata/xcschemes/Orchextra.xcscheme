@@ -44,7 +44,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8FC4CBAF1FD010B20090A183"
+               BlueprintIdentifier = "8F434C3F1FD15EB800DD7200"
                BuildableName = "OrchextraAppCucumberTests.xctest"
                BlueprintName = "OrchextraAppCucumberTests"
                ReferencedContainer = "container:Orchextra.xcodeproj">
@@ -74,9 +74,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9C54D961F41A6F100DF2074"
-            BuildableName = "Orchextra.framework"
-            BlueprintName = "Orchextra"
+            BlueprintIdentifier = "A9C54DC31F41A8E500DF2074"
+            BuildableName = "OrchextraApp.app"
+            BlueprintName = "OrchextraApp"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -94,16 +94,22 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9C54D961F41A6F100DF2074"
-            BuildableName = "Orchextra.framework"
-            BlueprintName = "Orchextra"
-            ReferencedContainer = "container:Orchextra.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
+         <AdditionalOption
+            key = "MallocStackLogging"
+            value = ""
+            isEnabled = "YES">
+         </AdditionalOption>
+         <AdditionalOption
+            key = "PrefersMallocStackLoggingLite"
+            value = ""
+            isEnabled = "YES">
+         </AdditionalOption>
+         <AdditionalOption
+            key = "MallocScribble"
+            value = ""
+            isEnabled = "YES">
+         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction

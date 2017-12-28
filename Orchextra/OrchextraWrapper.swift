@@ -32,6 +32,9 @@ class OrchextraWrapper {
     var scanner: ModuleInput?
     var proximity: ModuleInput?
     var eddystone: ModuleInput?
+    var enableProximity: Bool = false
+    var enableEddystone: Bool = false
+
     
     // MARK: - Methods Wrapper
     
@@ -80,12 +83,14 @@ class OrchextraWrapper {
                 switch result {
                 case .success:
                     self.coreConfiguration(completion: completion)
+                    self.triggerConfiguration()
                 case .error(let error):
                     completion(.error(error))
                 }
             })
         } else {
             self.coreConfiguration(completion: completion)
+            self.triggerConfiguration()
         }
         
         self.applicationCenter.observeAppDelegateEvents()
@@ -110,6 +115,15 @@ class OrchextraWrapper {
     }
     
     // MARK: - Proximity
+    
+    public func enableProximity(enable: Bool) {
+      self.enableProximity = enable
+    }
+    
+    public func enableEddystone(enable: Bool) {
+        self.enableEddystone = enable
+        
+    }
     
     func openProximity(config: [String: Any]) {
         if self.proximity == nil {
@@ -227,7 +241,10 @@ class OrchextraWrapper {
     }
     
     public func getAvailableCustomFields() -> [CustomField] {
-        guard let availableCustomFields = self.session.project?.customFields else { return [CustomField]() }
+        guard let availableCustomFields = self.session.project?.customFields else {
+            return [CustomField]()
+            
+        }
         return availableCustomFields
     }
     
@@ -282,17 +299,24 @@ class OrchextraWrapper {
 extension OrchextraWrapper {
     
     func coreConfiguration(completion: @escaping (Result<Bool, Error>) -> Void) {
-        
         // Core configuration
         self.configInteractor.loadCoreConfig(completion: completion)
+    }
+    
+    func triggerConfiguration() {
         
-        // Modules configuration
-        self.configInteractor.loadTriggeringConfig { jsonConfig in
-            if  let json = jsonConfig,
-                let proximityConfig = self.configuration(module: .proximity, json: json) {
-                self.openProximity(config: proximityConfig)
+        if self.enableProximity {
+            // Gets list of triggers to configure proximity module
+            self.configInteractor.loadTriggeringConfig { jsonConfig in
+                if  let json = jsonConfig,
+                    let proximityConfig = self.configuration(module: .proximity, json: json) {
+                    self.openProximity(config: proximityConfig)
+                }
             }
         }
-        self.openEddystone()
+        
+        if self.enableEddystone {
+            self.openEddystone()
+        }
     }
 }

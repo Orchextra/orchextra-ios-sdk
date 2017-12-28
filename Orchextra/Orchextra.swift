@@ -198,7 +198,25 @@ open class Orchextra {
         OrchextraWrapper.shared.openScanner()
     }
     
-    public func openImageRecognition() {}
+    /**
+     Enable proximity module
+     By default the proximity module will be disable to improve the performance
+     and only will be used in case needed.
+     
+     - Since: 3.0
+     */
+    public func enableProximity(enable: Bool) {
+        OrchextraWrapper.shared.enableProximity(enable: enable)
+    }
+    
+    /**
+     Enable eddystone module
+     
+     - Since: 3.0
+     */
+    public func enableEddystones(enable: Bool) {
+        OrchextraWrapper.shared.enableEddystone(enable: enable)
+    }
     
     /**
      Save remote notifications token.
