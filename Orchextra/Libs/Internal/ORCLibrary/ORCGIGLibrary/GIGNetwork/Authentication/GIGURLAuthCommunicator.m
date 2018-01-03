@@ -363,16 +363,24 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
 {
     for (NSDictionary *queueRequest in requests)
     {
-        ORCURLRequest *request = queueRequest[@"request"];
-        request.headers = [self bearerHeader];
-        
-        ORCGIGURLRequestCompletion completion = queueRequest[@"completion"];
-        
-        __weak typeof(self) this = self;
-        [self sendRequest:request completion:^(id response) {
-            [this.queueRequests removeObject:queueRequest];
-            completion(response);
-        }];
+        if ([queueRequest objectForKey:@"request"]) {
+            ORCURLRequest *request = queueRequest[@"request"];
+            request.headers = [self bearerHeader];
+            
+            ORCGIGURLRequestCompletion completion = queueRequest[@"completion"];
+            
+            __weak typeof(self) this = self;
+            [self sendRequest:request completion:^(id response) {
+                if ([this.queueRequests respondsToSelector:@selector(removeObject:)]) {
+                    [this.queueRequests removeObject:queueRequest];
+                }
+                completion(response);
+            }];
+        }
+        else
+        {
+            [ORCLog logDebug:@"---- queueRequest with key request is NIL"];
+        }
     }
 }
 
