@@ -234,7 +234,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     NSString *type = [requestParams stringForKey:TYPE_KEY];
     NSString *value = [requestParams stringForKey:VALUE_KEY];
     
-    if (!response.action)
+    if ([response isKindOfClass:[ORCURLActionResponse class]] && !response.action)
     {
         if (requestParams && type && value)
         {
