@@ -132,7 +132,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
         __weak typeof(self) this = self;
         [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
             if ([this respondsToSelector:@selector(validateResponse:requestParams:completion:)]) {
-                 [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
+                [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
             }
         }];
     }
@@ -241,13 +241,9 @@ int ERROR_ACTION_NOT_FOUND = 5001;
             [ORCLog logDebug:@"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
              type, value];
         }
-        if (completion && response.error)
+        if (completion)
         {
             completion(nil, response.error);
-        }
-        else
-        {
-            completion(nil, [[NSError alloc] initWithDomain:@"domain" code:0 userInfo: nil]);
         }
     }
     else
