@@ -254,7 +254,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     {
         if (type && value)
         {
-            if (response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime != nil) {
+            if (response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime) {
                 [ORCLog logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
                  type, value, response.action.type, response.action.urlString, response.action.scheduleTime];
             }
