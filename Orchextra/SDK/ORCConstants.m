@@ -41,7 +41,7 @@ NSString * const ORCCoreBluetoothStop = @"core_bluetooth_stop";
 
 #pragma mark - SDK
     
-NSString * const ORCSDKVersion = @"2.1.8";
+NSString * const ORCSDKVersion = @"2.1.9";
 
 #pragma mark - Network
 

@@ -257,10 +257,12 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         [self send:request completion:completion];
         self.numConnection++;
     }
-    else
+    else if (response.error == nil || response.success)
     {
         completion(response);
-        //[self cancelQueueRequest:request completion:completion response:response];
+    } else
+    {
+        [self cancelQueueRequest:request completion:completion response:response];
     }
 }
 
