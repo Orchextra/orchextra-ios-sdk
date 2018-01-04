@@ -211,59 +211,59 @@
     if (code == QCAR::TargetFinder::UPDATE_ERROR_NO_NETWORK_CONNECTION)
     {
         title = [NSBundle localize:@"orc_vuforia_update_error_no_network_connection_title"
-                           comment:""];
+                           comment:@""];
         message = [NSBundle localize:@"orc_vuforia_update_error_no_network_connection_desc"
-                             comment:""];
+                             comment:@""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_REQUEST_TIMEOUT)
     {
         title = [NSBundle localize:@"orc_vuforia_update_error_request_timeout_title"
-                           comment:""];
+                           comment:@""];
         
         message = [NSBundle localize:@"orc_vuforia_update_error_request_timeout_desc"
-                             comment:""];
+                             comment:@""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_SERVICE_NOT_AVAILABLE)
     {
         title = [NSBundle localize:@"orc_vuforia_update_error_service_not_available_title"
-                           comment:""];
+                           comment:@""];
         message = [NSBundle localize:@"orc_vuforia_update_error_service_not_available_desc"
-                             comment:""];
+                             comment:@""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_UPDATE_SDK)
     {
         title = [NSBundle localize:@"orc_vuforia_update_error_update_sdk_title"
-                           comment:""];
+                           comment:@""];
         message = [NSBundle localize:@"orc_vuforia_update_error_update_sdk_desc"
-                             comment:""];
+                             comment:@""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_TIMESTAMP_OUT_OF_RANGE)
     {
         title = [NSBundle localize:@"orc_vuforia_update_error_timestamp_out_of_range_title"
-                           comment:""];
+                           comment:@""];
         message = [NSBundle localize:@"orc_vuforia_update_error_timestamp_out_of_range_desc"
-                             comment:""];
+                             comment:@""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_AUTHORIZATION_FAILED)
     {
         title = [NSBundle localize:@"orc_vuforia_update_error_authorization_failed_title"
-                           comment:""];
+                           comment:@""];
         message = [NSBundle localize:@"orc_vuforia_update_error_authorization_failed_desc"
-                             comment:""];
+                             comment:@""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_PROJECT_SUSPENDED)
     {
         title = [NSBundle localize:@"orc_vuforia_update_error_project_suspended_desc"
-                           comment:""];
+                           comment:@""];
         message = [NSBundle localize:@"orc_vuforia_update_error_project_suspended_desc"
-                             comment:""];
+                             comment:@""];
     }
     else if (code == QCAR::TargetFinder::UPDATE_ERROR_BAD_FRAME_QUALITY)
     {
         title = [NSBundle localize:@"orc_vuforia_update_error_bad_frame_quality_title"
-                           comment:""];
+                           comment:@""];
         message = [NSBundle localize:@"orc_vuforia_update_error_bad_frame_quality_desc"
-                             comment:""];
+                             comment:@""];
     }
     else
     {

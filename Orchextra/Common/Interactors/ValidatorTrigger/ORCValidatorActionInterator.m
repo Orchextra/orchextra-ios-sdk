@@ -114,18 +114,28 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     
     ORCRegion *regionToValidate = [[ORCRegion alloc] initWithRegion:region];
     
-    NSDictionary *dictionary = @{ TYPE_KEY : regionToValidate.type,
-                                  VALUE_KEY : regionToValidate.code,
-                                  EVENT_KEY : [ORCProximityFormatter proximityEventToString:regionToValidate.currentEvent],
-                                  PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString]};
-    
-    [self printValidatingLogMessageWithValues:dictionary];
-    
-    __weak typeof(self) this = self;
-    [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
+    if (
+        !regionToValidate.type || [regionToValidate.type isKindOfClass:[NSNull class]] || regionToValidate.type == 0 ||
+        !regionToValidate.code || [regionToValidate.code isKindOfClass:[NSNull class]] || regionToValidate.code == 0
+        )
+    {
+        [ORCLog logError:@"Response or Request Params are nil"];
+        completionAction(nil, [[NSError alloc] initWithDomain:@"domain" code:-1 userInfo: nil]);
+    } else {
+        NSDictionary *dictionary = @{ TYPE_KEY : regionToValidate.type,
+                                      VALUE_KEY : regionToValidate.code,
+                                      EVENT_KEY : [ORCProximityFormatter proximityEventToString:regionToValidate.currentEvent],
+                                      PHONE_STATUS_KEY : [ORCProximityFormatter applicationStateString]};
         
-        [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
-    }];
+        [self printValidatingLogMessageWithValues:dictionary];
+        
+        __weak typeof(self) this = self;
+        [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
+            if ([this respondsToSelector:@selector(validateResponse:requestParams:completion:)]) {
+                 [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
+            }
+        }];
+    }
 }
 
 - (void)validateProximityWithEddystoneRegion:(ORCEddystoneRegion *)region completion:(CompletionActionValidated)completionAction
@@ -224,23 +234,43 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     NSString *type = [requestParams stringForKey:TYPE_KEY];
     NSString *value = [requestParams stringForKey:VALUE_KEY];
     
-    if (!response.action)
+    if ([response isKindOfClass:[ORCURLActionResponse class]] && !response.action)
     {
         if (requestParams && type && value)
         {
             [ORCLog logDebug:@"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
              type, value];
         }
-        if (completion) completion(nil, response.error);
+        if (completion && response.error)
+        {
+            completion(nil, response.error);
+        }
+        else
+        {
+            completion(nil, [[NSError alloc] initWithDomain:@"domain" code:0 userInfo: nil]);
+        }
     }
     else
     {
         if (type && value)
         {
-            [ORCLog logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
-             type, value, response.action.type, response.action.urlString, response.action.scheduleTime];
+            if (response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime != nil) {
+                [ORCLog logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
+                 type, value, response.action.type, response.action.urlString, response.action.scheduleTime];
+            }
+            else
+            {
+                [ORCLog logDebug:@"---- FOUND ACTION ---- \n ----- but ERROR when search response.action or response.action.type or response.action.urlString or response.action.scheduleTime"];
+            }
         }
-        if (completion) completion(response.action, nil);
+        if (completion) {
+            if (response.action) {
+                completion(response.action, nil);
+            }
+            else {
+                [ORCLog logDebug:@"---- ERROR, response.action is NIL"];
+            }
+        }
     }
 }
 
