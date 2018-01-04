@@ -20,7 +20,7 @@ and other countries. Trademarks of QUALCOMM Incorporated are used with permissio
 #import <QCAR/Renderer.h>
 #import <QCAR/VideoBackgroundConfig.h>
 #import <QCAR/TrackableResult.h>
-#import <QCAR/TargetSearchResult.H>
+#import <QCAR/TargetSearchResult.h>
 #import <QCAR/ImageTargetResult.h>
 #import <QCAR/TrackerManager.h>
 #import <QCAR/TargetFinder.h>

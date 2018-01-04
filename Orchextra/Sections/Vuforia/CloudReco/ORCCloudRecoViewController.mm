@@ -141,7 +141,8 @@
     
     self.showingMenu = NO;
     
-    self.title = [Bundle localize("Vuforia", comment: "")];
+    self.title = [NSBundle localize:@"Vuforia"
+                            comment:@""];
     
     // Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:YES animated:NO];
