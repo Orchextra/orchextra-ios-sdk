@@ -27,7 +27,8 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = ""
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -40,22 +41,12 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8F434C3F1FD15EB800DD7200"
                BuildableName = "OrchextraAppCucumberTests.xctest"
                BlueprintName = "OrchextraAppCucumberTests"
-               ReferencedContainer = "container:Orchextra.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8F434C5E1FD15EF300DD7200"
-               BuildableName = "OrchextraAppPageObjectTests.xctest"
-               BlueprintName = "OrchextraAppPageObjectTests"
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>
          </TestableReference>

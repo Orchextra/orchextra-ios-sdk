@@ -45,7 +45,7 @@ class ErrorServiceHandler {
             return ErrorService.noDatabase
         case 2000:
             return ErrorService.projectNotFound
-        case 2001:
+        case 2001, 403:
             return ErrorService.invalidCredentials
         case 2002, 4001, 401:
             return ErrorService.unauthorized

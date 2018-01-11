@@ -30,6 +30,71 @@ class AuthInteractorTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         self.authInteractor = nil
+        OHHTTPStubs.removeAllStubs()
+    }
+    
+    func test_authWithAccessToken_withoutApikeyAndApisecret_returnError() {
+        
+        // Arrange
+        self.sessionMock.apiKey = nil
+        self.sessionMock.apiSecret = nil
+        
+        // Act
+        var errorCalled: Bool?
+        self.authInteractor.authWithAccessToken { result in
+            switch result {
+            case .error:
+                errorCalled = true
+            default:
+                errorCalled = false
+            }
+        }
+        // Assert
+        expect(errorCalled).toEventually(equal(true))
+    }
+    
+    func test_authWithAccessToken_withApikeyAndApisecret_noAccesstokenStored_returnNewAccesstoken() {
+        
+        // Arrange
+        StubResponse.mockResponse(for: "/token", with: "accesstoken_core_success.json")
+        StubResponse.mockResponse(for: "/token/data", with: "bind_user_response.json")
+        self.sessionMock.apiKey = "b65b045b56858d745e8a8c35339bd57604fadca5"
+        self.sessionMock.apiSecret = "662f9a05f5e05d2cbad756c715c9f9cf0f5fe6a0"
+        
+        // Act
+        var accesstoken: String?
+        self.authInteractor.authWithAccessToken { result in
+            switch result {
+            case .success(let token):
+                accesstoken = token
+            default:
+                accesstoken = ""
+            }
+        }
+    
+        // Assert
+        expect(accesstoken).toEventually(equal("tokenTest"))
+    }
+    
+    func test_authWithAccessToken_withApikeyAndApisecret_accesstokenStored_returnAccessTokenStored() {
+        // Arrange
+        self.sessionMock.apiKey = "b65b045b56858d745e8a8c35339bd57604fadca5"
+        self.sessionMock.apiSecret = "662f9a05f5e05d2cbad756c715c9f9cf0f5fe6a0"
+        self.sessionMock.inputAccesstoken = "tokenTest"
+        
+        // Act
+        var accesstoken: String?
+        self.authInteractor.authWithAccessToken { result in
+            switch result {
+            case .success(let token):
+                accesstoken = token
+            default:
+                accesstoken = ""
+            }
+        }
+        
+        // Assert
+        expect(accesstoken).toEventually(equal("tokenTest"))
     }
     
     func test_bindUser() {
@@ -47,6 +112,10 @@ class AuthInteractorTests: XCTestCase {
         expect(self.sessionMock.spyBindUser.called).toEventually(beTrue())
 
         self.waitForExpectations(timeout: 1) { _ in }
+    }
+    
+    func test_sendRequest_withAuthentication() {
+        
     }
     
 }

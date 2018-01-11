@@ -64,6 +64,12 @@ class AuthenticationService: AuthenticationServiceInput {
         }
     }
     
+    
+    /// Method to bind the user
+    ///
+    /// - Parameters:
+    ///   - params:
+    ///   - completion:
     func bind(params: [String: Any], completion:@escaping (Result<JSON, Error>) -> Void) {
         
         let request = Request.orchextraRequest(

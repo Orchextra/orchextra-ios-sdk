@@ -13,6 +13,7 @@ import Foundation
 class SessionMock: Session {
     
     var currentUserInput: UserOrx?
+    var inputAccesstoken: String?
     var spyBindUser: (called: Bool, user: UserOrx?) = (called: false, user: nil)
     var spyCurrentUserCalled = false
     
@@ -27,7 +28,7 @@ class SessionMock: Session {
     }
     
     override func loadAccesstoken() -> String? {
-        return nil
+        return self.inputAccesstoken
     }
 
 }

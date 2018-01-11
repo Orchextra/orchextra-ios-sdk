@@ -119,7 +119,7 @@
 		8FFD3D8E1F569525000A1056 /* action_scanner_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D891F569525000A1056 /* action_scanner_notification.json */; };
 		8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D8A1F569525000A1056 /* action_webview_notification.json */; };
 		8FFD3D901F569525000A1056 /* accesstoken_fail_credential.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D8B1F569525000A1056 /* accesstoken_fail_credential.json */; };
-		8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D8C1F569525000A1056 /* accesstoken_ok.json */; };
+		8FFD3D911F569525000A1056 /* accesstoken_fail_unexpected.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D8C1F569525000A1056 /* accesstoken_fail_unexpected.json */; };
 		8FFD3D931F5698F5000A1056 /* ActionWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFD3D921F5698F5000A1056 /* ActionWebView.swift */; };
 		8FFD3D991F569E77000A1056 /* action_external_browser_notification.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */; };
 		A90755881F4ABEDF0053868E /* TriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90755871F4ABEDF0053868E /* TriggerService.swift */; };
@@ -208,6 +208,8 @@
 		A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */; };
 		A9AC21281F5443E600095EC5 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC21271F5443E600095EC5 /* PaddingLabel.swift */; };
 		A9AC212C1F554C5200095EC5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */; };
+		A9BB50352005120D0021496A /* accesstoken_core_success.json in Resources */ = {isa = PBXBuildFile; fileRef = A9BB50342005120D0021496A /* accesstoken_core_success.json */; };
+		A9BB503720077CEA0021496A /* AuthenticationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BB503620077CEA0021496A /* AuthenticationServiceTests.swift */; };
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB81F41A81E00DF2074 /* Orchextra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DB61F41A81E00DF2074 /* Orchextra.swift */; };
@@ -232,6 +234,7 @@
 		A9C6EB941F46FB24007AE036 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB931F46FB24007AE036 /* Device.swift */; };
 		A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB951F47035D007AE036 /* BusinessUnit.swift */; };
 		A9C6EB981F4703A3007AE036 /* CustomField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6EB971F4703A3007AE036 /* CustomField.swift */; };
+		A9C72DBA2007C6E600E47A1B /* accesstoken_fail_jsonError.json in Resources */ = {isa = PBXBuildFile; fileRef = A9C72DB92007C6E600E47A1B /* accesstoken_fail_jsonError.json */; };
 		A9CF47321F6032F300B918C8 /* TriggerGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */; };
 		A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */; };
 		A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D0FC371F56D1F100596CF3 /* ModuleOutputMock.swift */; };
@@ -435,7 +438,7 @@
 		8FFD3D891F569525000A1056 /* action_scanner_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_scanner_notification.json; path = Mocks/Json/action_scanner_notification.json; sourceTree = "<group>"; };
 		8FFD3D8A1F569525000A1056 /* action_webview_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_webview_notification.json; path = Mocks/Json/action_webview_notification.json; sourceTree = "<group>"; };
 		8FFD3D8B1F569525000A1056 /* accesstoken_fail_credential.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_fail_credential.json; path = Mocks/Json/accesstoken_fail_credential.json; sourceTree = "<group>"; };
-		8FFD3D8C1F569525000A1056 /* accesstoken_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_ok.json; path = Mocks/Json/accesstoken_ok.json; sourceTree = "<group>"; };
+		8FFD3D8C1F569525000A1056 /* accesstoken_fail_unexpected.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = accesstoken_fail_unexpected.json; path = Mocks/Json/accesstoken_fail_unexpected.json; sourceTree = "<group>"; };
 		8FFD3D921F5698F5000A1056 /* ActionWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionWebView.swift; path = Common/Model/Actions/ActionWebView.swift; sourceTree = "<group>"; };
 		8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = action_external_browser_notification.json; path = Mocks/Json/action_external_browser_notification.json; sourceTree = "<group>"; };
 		A90755871F4ABEDF0053868E /* TriggerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerService.swift; sourceTree = "<group>"; };
@@ -523,6 +526,8 @@
 		A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dispatch+Extension.swift"; path = "Common/Support/Dispatch+Extension.swift"; sourceTree = "<group>"; };
 		A9AC21271F5443E600095EC5 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaddingLabel.swift; path = Common/Support/PaddingLabel.swift; sourceTree = "<group>"; };
 		A9AC212B1F554C5200095EC5 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		A9BB50342005120D0021496A /* accesstoken_core_success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = accesstoken_core_success.json; path = Mocks/Json/accesstoken_core_success.json; sourceTree = "<group>"; };
+		A9BB503620077CEA0021496A /* AuthenticationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationServiceTests.swift; path = Common/Services/AuthenticationServiceTests.swift; sourceTree = "<group>"; };
 		A9C54D971F41A6F100DF2074 /* Orchextra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Orchextra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C54D9A1F41A6F100DF2074 /* Orchextra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Orchextra.h; sourceTree = "<group>"; };
 		A9C54D9B1F41A6F100DF2074 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -554,6 +559,7 @@
 		A9C6EB931F46FB24007AE036 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Common/Model/Config/Device.swift; sourceTree = "<group>"; };
 		A9C6EB951F47035D007AE036 /* BusinessUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusinessUnit.swift; path = Common/Model/Config/BusinessUnit.swift; sourceTree = "<group>"; };
 		A9C6EB971F4703A3007AE036 /* CustomField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomField.swift; path = Common/Model/Config/CustomField.swift; sourceTree = "<group>"; };
+		A9C72DB92007C6E600E47A1B /* accesstoken_fail_jsonError.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = accesstoken_fail_jsonError.json; path = Mocks/Json/accesstoken_fail_jsonError.json; sourceTree = "<group>"; };
 		A9CF47301F60209400B918C8 /* Gigigo_Office.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Gigigo_Office.gpx; path = Geopoints/Gigigo_Office.gpx; sourceTree = "<group>"; };
 		A9CF47311F6032F300B918C8 /* TriggerGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TriggerGeofence.swift; path = Common/Model/Triggers/TriggerGeofence.swift; sourceTree = "<group>"; };
 		A9D0FC351F56C29900596CF3 /* ScannerVCMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerVCMock.swift; path = Mocks/Modules/ScannerMocks/ScannerVCMock.swift; sourceTree = "<group>"; };
@@ -1216,6 +1222,7 @@
 		A97F8F2B1FC329A9000C0B92 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A9BB503620077CEA0021496A /* AuthenticationServiceTests.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1513,7 +1520,7 @@
 			isa = PBXGroup;
 			children = (
 				8FFD3D8B1F569525000A1056 /* accesstoken_fail_credential.json */,
-				8FFD3D8C1F569525000A1056 /* accesstoken_ok.json */,
+				8FFD3D8C1F569525000A1056 /* accesstoken_fail_unexpected.json */,
 				8FFD3D881F569525000A1056 /* action_browser_notification.json */,
 				A95E67F21F5D912C001D8B19 /* action_browser_without_notification.json */,
 				8FFD3D981F569E77000A1056 /* action_external_browser_notification.json */,
@@ -1531,6 +1538,8 @@
 				8FA14CFA1FC2F17400CD726C /* push_notification_with_otchextra_identifier_false.json */,
 				8FA14CF81FC2E4FD00CD726C /* push_notification_without_orchextra_identifier.json */,
 				A9188AA51F82555100A5F5E2 /* triggering_configuration.json */,
+				A9BB50342005120D0021496A /* accesstoken_core_success.json */,
+				A9C72DB92007C6E600E47A1B /* accesstoken_fail_jsonError.json */,
 			);
 			name = Json;
 			sourceTree = "<group>";
@@ -1796,9 +1805,11 @@
 				A95E67EB1F5D84D2001D8B19 /* action_scanner_without_schedule.json in Resources */,
 				A95E67F11F5D8FFA001D8B19 /* action_webview_without_notification.json in Resources */,
 				A9188AA61F82555100A5F5E2 /* triggering_configuration.json in Resources */,
+				A9BB50352005120D0021496A /* accesstoken_core_success.json in Resources */,
 				8FFD3D901F569525000A1056 /* accesstoken_fail_credential.json in Resources */,
 				8FFD3D8F1F569525000A1056 /* action_webview_notification.json in Resources */,
-				8FFD3D911F569525000A1056 /* accesstoken_ok.json in Resources */,
+				8FFD3D911F569525000A1056 /* accesstoken_fail_unexpected.json in Resources */,
+				A9C72DBA2007C6E600E47A1B /* accesstoken_fail_jsonError.json in Resources */,
 				A95E67F31F5D912C001D8B19 /* action_browser_without_notification.json in Resources */,
 				A93F0D531FBAE35B009B11F3 /* bind_user_response.json in Resources */,
 				8FA14CFD1FC2F7EB00CD726C /* push_notification_payload_with_action_webview.json in Resources */,
@@ -1980,6 +1991,7 @@
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
 				A95E67E61F5D71BE001D8B19 /* ActionServicesMock.swift in Sources */,
 				A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */,
+				A9BB503720077CEA0021496A /* AuthenticationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

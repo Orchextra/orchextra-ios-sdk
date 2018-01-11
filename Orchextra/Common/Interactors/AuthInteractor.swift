@@ -37,10 +37,18 @@ class AuthInteractor: AuthInteractorInput {
     
     // MARK: - PUBLIC
     
+    
+    /// Method to return an accesstoken to authenticate
+    /// the app with a specific project from Orchextra.
+    ///
+    /// - Parameter completion: return accesstoken, the sdk will return
+    ///     the accesstoken that we have stored in the system otherwise
+    ///     will connect with the server to
     func authWithAccessToken(completion: @escaping (Result<String, Error>) -> Void) {
         
         guard let apikey = self.session.apiKey,
             let apisecret = self.session.apiSecret else {
+                completion(.error(ErrorService.invalidCredentials))
                 LogWarn("Can't get accesstoken - Apikey/Apisecret are nil")
                 return
         }
@@ -83,6 +91,14 @@ class AuthInteractor: AuthInteractorInput {
         }
     }
     
+    
+    /// Method to bind device and user
+    ///
+    /// - Parameters:
+    ///   - user: user object to bind
+    ///   - device: device object to bind
+    ///   - completion: response from server after binding user, device or both.
+    ///     <bool> true if the binding process has been successfully completed and false if there has occurred an error.
     func bind(user: UserOrx?, device: Device?, completion: @escaping(Result<Bool, Error>) -> Void) {
         let deviceParams = device?.deviceParams()
         let userParams = user?.userParams()
@@ -179,6 +195,10 @@ class AuthInteractor: AuthInteractorInput {
     
     // MARK: - PRIVATE
     
+    
+    /// Method to refresh token
+    ///
+    /// - Parameter completion: <#completion description#>
     private func refreshAccessToken(completion: @escaping (Result<Bool, Error>) -> Void) {
         self.session.save(accessToken: nil)
         self.authWithAccessToken { result in
