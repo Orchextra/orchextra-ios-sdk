@@ -128,9 +128,9 @@
     return [self.interactor currentUser];
 }
 
-- (void)commitConfiguration
+- (void)commitConfiguration:(void (^)(BOOL success, NSError *error))completion
 {
-    [self.interactor commitConfigurationWithBackgroundCompletionHandler:nil];
+    [self.interactor commitConfiguration:completion];
 }
 
 - (BOOL)orchextraRunning
@@ -306,7 +306,7 @@
 
 - (void)commitConfigurationWithBackgroundCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-   [self.interactor commitConfigurationWithBackgroundCompletionHandler:nil];
+   [self.interactor commitConfigurationWithBackgroundCompletionHandler:completionHandler];
 }
 
 @end

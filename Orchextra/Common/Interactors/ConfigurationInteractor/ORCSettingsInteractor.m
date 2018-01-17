@@ -260,9 +260,10 @@ NSInteger const MAX_REGIONS = 20;
     [self handleLoadConfigurationWithValues:newValues completionCallBack:completionCallBack];
 }
 
-- (void)commitConfiguration
+- (void)commitConfiguration:(void (^)(BOOL success, NSError *error))completion
 {
-    [self commitConfigurationWithBackgroundCompletionHandler:nil];
+    NSDictionary *newValues = [self.formatter formatterParameteresDevice];
+    [self handleLoadConfigurationWithValues:newValues completionCallBack:completion];
 }
 
 #pragma mark - PUBLIC (User tags)
