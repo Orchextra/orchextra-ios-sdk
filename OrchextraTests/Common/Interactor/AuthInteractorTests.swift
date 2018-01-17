@@ -116,6 +116,29 @@ class AuthInteractorTests: XCTestCase {
     
     func test_sendRequest_withAuthentication() {
         
+        // Arrange
+        StubResponse.mockResponse(for: "/action", with: "action_browser_notification.json")
+        let values: [String: Any] = [ : ]
+        
+        let request = Request.orchextraRequest(
+            method: "POST",
+            baseUrl: Config.triggeringEndpoint,
+            endpoint: "/action",
+            bodyParams: values)
+        
+        // Act
+        var resultJson: JSON?
+        self.authInteractor.sendRequest(request: request) { result in
+            switch result {
+            case .success(let json):
+                resultJson = json
+            default:
+                resultJson = nil
+            }
+        }
+        
+        // Assert
+        expect(resultJson).toEventually(beAKindOf(JSON.self))
     }
     
 }

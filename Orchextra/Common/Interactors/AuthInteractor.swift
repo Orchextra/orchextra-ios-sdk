@@ -161,7 +161,6 @@ class AuthInteractor: AuthInteractorInput {
     }
     
     func sendRequestOrx(request: Request, completionHandler: @escaping (Response) -> Void) {
-        
         var orxRequest = request
         
         // Add headers
@@ -198,7 +197,7 @@ class AuthInteractor: AuthInteractorInput {
     
     /// Method to refresh token
     ///
-    /// - Parameter completion: <#completion description#>
+    /// - Parameter completion:
     private func refreshAccessToken(completion: @escaping (Result<Bool, Error>) -> Void) {
         self.session.save(accessToken: nil)
         self.authWithAccessToken { result in
@@ -225,8 +224,7 @@ class AuthInteractor: AuthInteractorInput {
     
     private func handleRefreshAccessToken(request: Request,
                                           completion: @escaping (Result<JSON, Error>) -> Void) {
-        let authInteractor = AuthInteractor()
-        authInteractor.refreshAccessToken(completion: { result in
+        self.refreshAccessToken(completion: { result in
             switch result {
             case .success:
                 request.headers = Request.headers(endpoint: request.endpoint)
@@ -238,8 +236,7 @@ class AuthInteractor: AuthInteractorInput {
     }
     
     private func refreshAcessToken(completion: @escaping (Result<Bool, Error>) -> Void) {
-        let authInteractor = AuthInteractor()
-        authInteractor.refreshAccessToken { result in
+        self.refreshAccessToken { result in
             switch result {
             case .success:
                 completion(.success(true))
