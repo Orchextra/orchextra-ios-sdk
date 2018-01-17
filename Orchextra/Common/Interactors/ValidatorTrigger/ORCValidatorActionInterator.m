@@ -132,7 +132,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
         __weak typeof(self) this = self;
         [self.communicator loadActionWithTriggerValues:dictionary completion:^(ORCURLActionResponse *responseAction) {
             if ([this respondsToSelector:@selector(validateResponse:requestParams:completion:)]) {
-                 [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
+                [this validateResponse:responseAction requestParams:dictionary completion:completionAction];
             }
         }];
     }
@@ -234,27 +234,23 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     NSString *type = [requestParams stringForKey:TYPE_KEY];
     NSString *value = [requestParams stringForKey:VALUE_KEY];
     
-    if (!response.action)
+    if ([response isKindOfClass:[ORCURLActionResponse class]] && !response.action)
     {
         if (requestParams && type && value)
         {
             [ORCLog logDebug:@"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
              type, value];
         }
-        if (completion && response.error)
+        if (completion)
         {
             completion(nil, response.error);
-        }
-        else
-        {
-            completion(nil, [[NSError alloc] initWithDomain:@"domain" code:0 userInfo: nil]);
         }
     }
     else
     {
         if (type && value)
         {
-            if (response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime != nil) {
+            if (response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime) {
                 [ORCLog logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
                  type, value, response.action.type, response.action.urlString, response.action.scheduleTime];
             }
