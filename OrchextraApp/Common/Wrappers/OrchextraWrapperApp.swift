@@ -94,4 +94,11 @@ extension OrchextraWrapperApp: ORXDelegate {
         let triggerFired = TriggerFired(trigger: trigger, date: dateFormatedString)
         TriggersManager.shared.add(trigger: triggerFired)
     }
+    
+    func bindDidCompleted(bindValues: [AnyHashable: Any]) {
+        let alert = Alert(title: "Orchextra informs", message: "Bind has been made")
+        alert.addDefaultButton("OK", usingAction: nil)
+        alert.show()
+        Log("bindDidCompleted with values: - \(bindValues) ")
+    }
 }

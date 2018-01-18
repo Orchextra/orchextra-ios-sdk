@@ -119,12 +119,22 @@ class AuthInteractor: AuthInteractorInput {
                 let device = Device()
                 device.parse(json: json)
                 self.session.bindUser(user)
+                self.newBindHasBeenCompleted(json: json)
                 completion(.success(true))
             case .error(let error):
                 completion(.error(error))
             }
         }
     }
+    
+    func newBindHasBeenCompleted(json: JSON) {
+        guard let jsonDic = json.toDictionary() else {
+            LogWarn("json from bind is not well formatted")
+            return }
+        LogInfo("A new bind has been made")
+        Orchextra.shared.delegate?.bindDidCompleted(bindValues: jsonDic)
+    }
+ 
     
     /// Method to authenticate the request
     ///

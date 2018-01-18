@@ -58,6 +58,15 @@ public protocol ORXDelegate {
      - Since: 3.0
      */
     func triggerFired(_ trigger: Trigger)
+    
+    /**
+     This method will inform anytime that user or device have been modified.
+     
+     - parameter trigger:
+     - Since: 3.0
+     */
+    
+    func bindDidCompleted(bindValues: [AnyHashable: Any])
 
 }
 
