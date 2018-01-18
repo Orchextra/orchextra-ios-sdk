@@ -499,7 +499,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"validateResponse"];
     [self.validatorInterator validateResponse:response requestParams:@{} completion:^(ORCAction *action, NSError *error) {
         XCTAssertNil(action);
-        XCTAssertNotNil(error);
+        XCTAssertNil(error);
         [expectation fulfill];
     }];
     

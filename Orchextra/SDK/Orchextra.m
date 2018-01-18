@@ -128,6 +128,11 @@
     return [self.interactor currentUser];
 }
 
+- (void)commitConfiguration
+{
+    [self.interactor commitConfigurationWithBackgroundCompletionHandler:nil];
+}
+
 - (void)commitConfiguration:(void (^)(BOOL success, NSError *error))completion
 {
     [self.interactor commitConfiguration:completion];
