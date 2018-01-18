@@ -12,6 +12,7 @@ import Orchextra
 class ORXDelegateMock: ORXDelegate {
     var spyCustomSchemeCalled: (called: Bool, scheme: String?) = (called: false, scheme: nil)
     var spyTriggerFiredCalled: (called: Bool, triggerFired: Trigger?) = (called: false, triggerFired: nil)
+    var spyBindDidCompletedCalled: (called: Bool, bindValues: [AnyHashable : Any]?) = (called: false, bindValues: nil)
 
     func customScheme(_ scheme: String) {
         self.spyCustomSchemeCalled = (called: true, scheme: scheme)
@@ -19,5 +20,9 @@ class ORXDelegateMock: ORXDelegate {
     
     func triggerFired(_ trigger: Trigger) {
         self.spyTriggerFiredCalled = (called: true, triggerFired: trigger)
+    }
+    
+    func bindDidCompleted(bindValues: [AnyHashable : Any]) {
+        self.spyBindDidCompletedCalled = (called: true, bindValues: bindValues)
     }
 }
