@@ -66,8 +66,7 @@ public protocol ORXDelegate {
      - Since: 3.0
      */
     
-    func bindDidCompleted(bindValues: [AnyHashable: Any])
-
+    func bindDidCompleted(result: Result<[AnyHashable: Any], Error>)
 }
 
 open class Orchextra {
@@ -153,11 +152,6 @@ open class Orchextra {
     /// Stop services with Orchextra
     public func stop() {
         OrchextraWrapper.shared.stop()
-    }
-    
-    // MARK: Public submit SDK methods
-    public func commitConfiguration() {
-        
     }
     
      // MARK: Public fetch new eddystone information

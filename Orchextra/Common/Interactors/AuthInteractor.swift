@@ -122,6 +122,7 @@ class AuthInteractor: AuthInteractorInput {
                 self.newBindHasBeenCompleted(json: json)
                 completion(.success(true))
             case .error(let error):
+                self.errorBindHasBeenCompleted(error: error)
                 completion(.error(error))
             }
         }
@@ -129,10 +130,15 @@ class AuthInteractor: AuthInteractorInput {
     
     func newBindHasBeenCompleted(json: JSON) {
         guard let jsonDic = json.toDictionary() else {
+            Orchextra.shared.delegate?.bindDidCompleted(result: Result.error(BindingError.invalidJson))
             LogWarn("json from bind is not well formatted")
             return }
         LogInfo("A new bind has been made")
-        Orchextra.shared.delegate?.bindDidCompleted(bindValues: jsonDic)
+        Orchextra.shared.delegate?.bindDidCompleted(result: Result.success(jsonDic)) 
+    }
+    
+    func errorBindHasBeenCompleted(error: Error) {
+        Orchextra.shared.delegate?.bindDidCompleted(result: Result.error(error))
     }
  
     

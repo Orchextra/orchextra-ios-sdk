@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		236F00392029F81000647D4F /* BindingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F00382029F81000647D4F /* BindingError.swift */; };
 		8F0961331F5BFFA900FD03F4 /* LogsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961321F5BFFA900FD03F4 /* LogsInteractor.swift */; };
 		8F0961391F5C089500FD03F4 /* FilterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961351F5C089500FD03F4 /* FilterPresenter.swift */; };
 		8F09613B1F5C089500FD03F4 /* FilterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0961371F5C089500FD03F4 /* FilterWireframe.swift */; };
@@ -326,6 +327,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		236F00382029F81000647D4F /* BindingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BindingError.swift; path = Common/Model/Error/BindingError.swift; sourceTree = "<group>"; };
 		8F0961321F5BFFA900FD03F4 /* LogsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsInteractor.swift; sourceTree = "<group>"; };
 		8F0961351F5C089500FD03F4 /* FilterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPresenter.swift; sourceTree = "<group>"; };
 		8F0961371F5C089500FD03F4 /* FilterWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterWireframe.swift; sourceTree = "<group>"; };
@@ -617,6 +619,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		236F00372029F7F000647D4F /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				236F00382029F81000647D4F /* BindingError.swift */,
+			);
+			name = Error;
+			sourceTree = "<group>";
+		};
 		8F0961341F5C083C00FD03F4 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1489,6 +1499,7 @@
 		A9C54DF71F44318E00DF2074 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				236F00372029F7F000647D4F /* Error */,
 				A99886021F5044F300EED42E /* Triggers */,
 				A99885FB1F50352200EED42E /* Actions */,
 				A9C6EB901F46FAF3007AE036 /* Config */,
@@ -1887,6 +1898,7 @@
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
 				A91142421F9F3E1F00F6DBCB /* Project.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
+				236F00392029F81000647D4F /* BindingError.swift in Sources */,
 				A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */,
 				8F299C5B1F6691060023F69D /* EddystoneRegionManager.swift in Sources */,
 				A92570701F878DD500C1067E /* ApplicationCenter.swift in Sources */,

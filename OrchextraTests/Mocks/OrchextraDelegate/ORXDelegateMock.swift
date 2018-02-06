@@ -8,8 +8,14 @@
 
 import Foundation
 import Orchextra
+@testable import Orchextra
+import GIGLibrary
 
 class ORXDelegateMock: ORXDelegate {
+    func bindDidCompleted(result: Result<[AnyHashable: Any], Error>) {
+        
+    }
+    
     var spyCustomSchemeCalled: (called: Bool, scheme: String?) = (called: false, scheme: nil)
     var spyTriggerFiredCalled: (called: Bool, triggerFired: Trigger?) = (called: false, triggerFired: nil)
     var spyBindDidCompletedCalled: (called: Bool, bindValues: [AnyHashable : Any]?) = (called: false, bindValues: nil)
@@ -22,7 +28,7 @@ class ORXDelegateMock: ORXDelegate {
         self.spyTriggerFiredCalled = (called: true, triggerFired: trigger)
     }
     
-    func bindDidCompleted(bindValues: [AnyHashable : Any]) {
+    func bindDidCompleted(bindValues: [AnyHashable :Any]) {
         self.spyBindDidCompletedCalled = (called: true, bindValues: bindValues)
     }
 }
