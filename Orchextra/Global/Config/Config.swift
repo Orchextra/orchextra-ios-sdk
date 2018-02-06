@@ -36,9 +36,9 @@ class Config {
         case .staging:
             return "https://core.s.orchextra.io"
         case .quality:
-            return "https://sdk.q.orchextra.io/v1"
+            return "https://core.q.orchextra.io"
         case .production:
-            return "https://sdk.orchextra.io/v1"
+            return "https://core.orchextra.io"
         }
     }
     
