@@ -1,5 +1,5 @@
 //
-//  OrchextraWrapper.swift
+//  OrchextraController.swift
 //  Orchextra
 //
 //  Created by Judith Medina on 14/08/2017.
@@ -9,11 +9,11 @@
 import Foundation
 import GIGLibrary
 
-class OrchextraWrapper {
+class OrchextraController {
     
     // Attributtes
 
-    static let shared = OrchextraWrapper()
+    static let shared = OrchextraController()
     
     // Private Attributes
     private var session: Session
@@ -301,7 +301,7 @@ class OrchextraWrapper {
     }
 }
 
-extension OrchextraWrapper {
+extension OrchextraController {
     
     func coreConfiguration(completion: @escaping (Result<Bool, Error>) -> Void) {
         // Core configuration

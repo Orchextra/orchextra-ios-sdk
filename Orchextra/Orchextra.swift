@@ -145,18 +145,18 @@ open class Orchextra {
      */
     @available(*, introduced: 3.0.0, message: "use start: instead", renamed: "start")
     public func start(with apiKey: String, apiSecret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        OrchextraWrapper.shared.start(with: apiKey, apiSecret: apiSecret, completion: completion)
+        OrchextraController.shared.start(with: apiKey, apiSecret: apiSecret, completion: completion)
     }
 
     
     /// Stop services with Orchextra
     public func stop() {
-        OrchextraWrapper.shared.stop()
+        OrchextraController.shared.stop()
     }
     
      // MARK: Public fetch new eddystone information
     public func openEddystone(with completionHandler: (UIBackgroundFetchResult) -> Void) {
-        OrchextraWrapper.shared.openEddystone(with: completionHandler)
+        OrchextraController.shared.openEddystone(with: completionHandler)
     }
     
     /**
@@ -168,7 +168,7 @@ open class Orchextra {
      - Availability: 3.0
      */
     public func sendOrxRequest(request: Request, completionHandler: @escaping (Response) -> Void) {
-        OrchextraWrapper.shared.sendOrxRequest(request: request, completionHandler: completionHandler)
+        OrchextraController.shared.sendOrxRequest(request: request, completionHandler: completionHandler)
     }
     
     // MARK: Public trigger methods
@@ -180,7 +180,7 @@ open class Orchextra {
      - Since: 3.0
      */
     public func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
-        OrchextraWrapper.shared.setScanner(vc: vc)
+        OrchextraController.shared.setScanner(vc: vc)
     }
     
     /**
@@ -189,7 +189,7 @@ open class Orchextra {
      - Since: 3.0
      */
     public func setProximity(proximityModule: ModuleInput) {
-        OrchextraWrapper.shared.proximity = proximityModule
+        OrchextraController.shared.proximity = proximityModule
     }
     
     /**
@@ -197,18 +197,29 @@ open class Orchextra {
      
      - Since: 1.0
      */
-    public func openScanner() {
-        OrchextraWrapper.shared.openScanner()
-    }
+    // TODO: Remove this method and update README
+//    public func openScanner() {
+//        OrchextraController.shared.openScanner()
+//    }
     
+    /**
+     Open scanner from outside ORX.
+     
+     When a completion handler is provided, it will be executed with the scan result.
+     When a completion handler is not provided, ORX will attemp to use scan result to trigger an action.
+     
+     - parameter completion: Completion handler for scan result.
+     
+     - Availability: 3.0
+     */
     public func openScanner(completion: ((String) -> Void)?) {
         // !!! TODO
         if let completion = completion {
             // !!! Plain scanner returning scanned code
-            OrchextraWrapper.shared.openScanner(completion: completion)
+            OrchextraController.shared.openScanner(completion: completion)
         } else {
             // !!! Scanner with executable action
-            OrchextraWrapper.shared.openScanner()
+            OrchextraController.shared.openScanner()
         }
     }
     
@@ -220,7 +231,7 @@ open class Orchextra {
      - Since: 3.0
      */
     public func enableProximity(enable: Bool) {
-        OrchextraWrapper.shared.enableProximity(enable: enable)
+        OrchextraController.shared.enableProximity(enable: enable)
     }
     
     /**
@@ -229,7 +240,7 @@ open class Orchextra {
      - Since: 3.0
      */
     public func enableEddystones(enable: Bool) {
-        OrchextraWrapper.shared.enableEddystone(enable: enable)
+        OrchextraController.shared.enableEddystone(enable: enable)
     }
     
     /**
@@ -238,7 +249,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func remote(apnsToken: Data) {
-       OrchextraWrapper.shared.remote(apnsToken: apnsToken)
+       OrchextraController.shared.remote(apnsToken: apnsToken)
     }
     
     // MARK: Authorization
@@ -247,12 +258,12 @@ open class Orchextra {
     ///
     /// - Returns: accesstoken
     public func accesstoken() -> String? {
-        return OrchextraWrapper.shared.accesstoken()
+        return OrchextraController.shared.accesstoken()
     }
     
     // MARK: Public CRM methods
     public func bindUser(_ user: UserOrx) {
-        OrchextraWrapper.shared.bindUser(user)
+        OrchextraController.shared.bindUser(user)
     }
     
     /**
@@ -261,7 +272,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func unbindUser() {
-        OrchextraWrapper.shared.unbindUser()
+        OrchextraController.shared.unbindUser()
     }
     
     /**
@@ -270,7 +281,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func currentUser() -> UserOrx? {
-        return OrchextraWrapper.shared.currentUser()
+        return OrchextraController.shared.currentUser()
     }
     
     /**
@@ -279,7 +290,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func setUserBusinessUnits(_ businessUnits: [BusinessUnit]) {
-        OrchextraWrapper.shared.setUserBusinessUnits(businessUnits)
+        OrchextraController.shared.setUserBusinessUnits(businessUnits)
     }
     
     /**
@@ -288,7 +299,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func getUserBusinessUnits() -> [BusinessUnit] {
-        return OrchextraWrapper.shared.getUserBusinessUnits()
+        return OrchextraController.shared.getUserBusinessUnits()
     }
     
     /**
@@ -297,7 +308,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func setUserTags(_ tags: [Tag]) {
-        OrchextraWrapper.shared.setUserTags(tags)
+        OrchextraController.shared.setUserTags(tags)
     }
     
     /**
@@ -306,7 +317,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func getUserTags() -> [Tag] {
-        return OrchextraWrapper.shared.getUserTags()
+        return OrchextraController.shared.getUserTags()
     }
     
     /**
@@ -315,7 +326,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func getAvailableCustomFields() -> [CustomField] {
-        return OrchextraWrapper.shared.getAvailableCustomFields()
+        return OrchextraController.shared.getAvailableCustomFields()
     }
     
     /**
@@ -324,7 +335,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func setCustomFields(_ customFields: [CustomField]) {
-        OrchextraWrapper.shared.setCustomFields(customFields)
+        OrchextraController.shared.setCustomFields(customFields)
     }
     
     /**
@@ -333,12 +344,12 @@ open class Orchextra {
      - Since: 1.0
      */
     public func getCustomFields() -> [CustomField] {
-        return OrchextraWrapper.shared.getCustomFields()
+        return OrchextraController.shared.getCustomFields()
     }
     
      // MARK: Public Device methods
     public func bindDevice() {
-        OrchextraWrapper.shared.bindDevice()
+        OrchextraController.shared.bindDevice()
     }
     
     /**
@@ -347,7 +358,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func setDeviceBusinessUnits(_ businessUnits: [BusinessUnit]) {
-        OrchextraWrapper.shared.setDeviceBusinessUnits(businessUnits)
+        OrchextraController.shared.setDeviceBusinessUnits(businessUnits)
     }
     
     /**
@@ -356,7 +367,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func getDeviceBusinessUnits() -> [BusinessUnit] {
-        return OrchextraWrapper.shared.getDeviceBusinessUnits()
+        return OrchextraController.shared.getDeviceBusinessUnits()
     }
     
     /**
@@ -365,7 +376,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func setDeviceTags(_ tags: [Tag]) {
-        OrchextraWrapper.shared.setDeviceTags(tags)
+        OrchextraController.shared.setDeviceTags(tags)
     }
     
     /**
@@ -374,7 +385,7 @@ open class Orchextra {
      - Since: 1.0
      */
     public func getDeviceTags() -> [Tag] {
-        return OrchextraWrapper.shared.getDeviceTags()
+        return OrchextraController.shared.getDeviceTags()
     }
     
     // MARK: - Public method to handle local Notification

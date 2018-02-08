@@ -18,6 +18,6 @@ struct ScannerCustomScheme: CustomScheme {
     }
     
     func execute() {
-        OrchextraWrapper.shared.openScanner()
+        OrchextraController.shared.openScanner()
     }
 }

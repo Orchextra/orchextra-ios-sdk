@@ -214,7 +214,7 @@
 		A9C54DA11F41A6F100DF2074 /* Orchextra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54D971F41A6F100DF2074 /* Orchextra.framework */; };
 		A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */ = {isa = PBXBuildFile; fileRef = A9C54D9A1F41A6F100DF2074 /* Orchextra.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9C54DB81F41A81E00DF2074 /* Orchextra.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DB61F41A81E00DF2074 /* Orchextra.swift */; };
-		A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DB71F41A81E00DF2074 /* OrchextraWrapper.swift */; };
+		A9C54DB91F41A81E00DF2074 /* OrchextraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DB71F41A81E00DF2074 /* OrchextraController.swift */; };
 		A9C54DBB1F41A84300DF2074 /* GIGLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */; };
 		A9C54DBF1F41A8B400DF2074 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C54DBE1F41A8B400DF2074 /* Bundle+Extension.swift */; };
 		A9C54DD11F41A8E500DF2074 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C54DCF1F41A8E500DF2074 /* LaunchScreen.storyboard */; };
@@ -538,7 +538,7 @@
 		A9C54DB21F41A81600DF2074 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		A9C54DB31F41A81600DF2074 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		A9C54DB61F41A81E00DF2074 /* Orchextra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Orchextra.swift; sourceTree = "<group>"; };
-		A9C54DB71F41A81E00DF2074 /* OrchextraWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchextraWrapper.swift; sourceTree = "<group>"; };
+		A9C54DB71F41A81E00DF2074 /* OrchextraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchextraController.swift; sourceTree = "<group>"; };
 		A9C54DBA1F41A84300DF2074 /* GIGLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GIGLibrary.framework; path = Carthage/Build/iOS/GIGLibrary.framework; sourceTree = "<group>"; };
 		A9C54DBE1F41A8B400DF2074 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Bundle+Extension.swift"; path = "Common/Support/Bundle+Extension.swift"; sourceTree = "<group>"; };
 		A9C54DC41F41A8E500DF2074 /* OrchextraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrchextraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1359,7 +1359,7 @@
 			children = (
 				A9C54D9A1F41A6F100DF2074 /* Orchextra.h */,
 				A9C54DB61F41A81E00DF2074 /* Orchextra.swift */,
-				A9C54DB71F41A81E00DF2074 /* OrchextraWrapper.swift */,
+				A9C54DB71F41A81E00DF2074 /* OrchextraController.swift */,
 				A9C54DE51F41ACA400DF2074 /* Global */,
 				A9C54DBC1F41A89700DF2074 /* Common */,
 				A974BE7A1F4B080100A355FD /* Modules */,
@@ -1897,7 +1897,7 @@
 				A9C54DF61F44284200DF2074 /* ErrorServiceHandler.swift in Sources */,
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
 				A91142421F9F3E1F00F6DBCB /* Project.swift in Sources */,
-				A9C54DB91F41A81E00DF2074 /* OrchextraWrapper.swift in Sources */,
+				A9C54DB91F41A81E00DF2074 /* OrchextraController.swift in Sources */,
 				236F00392029F81000647D4F /* BindingError.swift in Sources */,
 				A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */,
 				8F299C5B1F6691060023F69D /* EddystoneRegionManager.swift in Sources */,

@@ -58,7 +58,7 @@ class ActionWebView: Action {
                 return
         }
         DispatchQueue.global().sync {
-            OrchextraWrapper.shared.wireframe.openWebView(url: url)
+            OrchextraController.shared.wireframe.openWebView(url: url)
         }
     }
 }

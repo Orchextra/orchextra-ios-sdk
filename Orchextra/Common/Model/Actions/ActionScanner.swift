@@ -57,13 +57,13 @@ class ActionScanner: Action {
     }
     
     func executable() {        
-        var scanner = OrchextraWrapper.shared.scanner
-        let wireframe = OrchextraWrapper.shared.wireframe
-        let moduleOutputWrapper = OrchextraWrapper.shared.moduleOutputWrapper
+        var scanner = OrchextraController.shared.scanner
+        let wireframe = OrchextraController.shared.wireframe
+        let moduleOutputWrapper = OrchextraController.shared.moduleOutputWrapper
 
         if scanner == nil {
             scanner = wireframe.scannerOrx()
-            OrchextraWrapper.shared.scanner = scanner
+            OrchextraController.shared.scanner = scanner
         }
         guard let scannerVC = scanner as? UIViewController else {
             return

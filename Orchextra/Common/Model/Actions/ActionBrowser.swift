@@ -59,7 +59,7 @@ class ActionBrowser: Action {
             return
         }
         DispatchQueue.global().sync {
-            OrchextraWrapper.shared.wireframe.openBrowser(url: url)
+            OrchextraController.shared.wireframe.openBrowser(url: url)
         }
     }
 }
