@@ -107,7 +107,7 @@ class ScannerPresenter: ScannerInput {
                 return
             }
             DispatchQueue.background(delay: 0.8, completion: {
-                self.outputModule?.triggerWasFire(with: ["value": value,
+                self.outputModule?.triggerWasFired(with: ["value": value,
                                                          "type": typeValue.rawValue],
                                                   module: moduleInput)
                 LogInfo("Module Scan - has trigger: \(value) - \(type)")
