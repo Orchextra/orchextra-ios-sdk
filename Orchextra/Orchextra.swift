@@ -201,6 +201,17 @@ open class Orchextra {
         OrchextraWrapper.shared.openScanner()
     }
     
+    public func openScanner(completion: ((String) -> Void)?) {
+        // !!! TODO
+        if let completion = completion {
+            // !!! Plain scanner returning scanned code
+            OrchextraWrapper.shared.openScanner(completion: completion)
+        } else {
+            // !!! Scanner with executable action
+            OrchextraWrapper.shared.openScanner()
+        }
+    }
+    
     /**
      Enable proximity module
      By default the proximity module will be disable to improve the performance

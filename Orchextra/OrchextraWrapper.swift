@@ -109,6 +109,11 @@ class OrchextraWrapper {
         action.executable()
     }
     
+    func openScanner(completion: @escaping(String) -> Void) {
+        //!!!
+    }
+
+    
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         self.scanner = vc
         self.scanner?.outputModule = self.moduleOutputWrapper
