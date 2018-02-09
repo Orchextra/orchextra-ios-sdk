@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Orchextra.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8F434C3F1FD15EB800DD7200"
+               BuildableName = "OrchextraAppCucumberTests.xctest"
+               BlueprintName = "OrchextraAppCucumberTests"
+               ReferencedContainer = "container:Orchextra.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -41,17 +55,7 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8F434C3F1FD15EB800DD7200"
-               BuildableName = "OrchextraAppCucumberTests.xctest"
-               BlueprintName = "OrchextraAppCucumberTests"
-               ReferencedContainer = "container:Orchextra.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8FC4CBCE1FD010C00090A183"
@@ -61,7 +65,7 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8FC4CC131FD031430090A183"
@@ -74,9 +78,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A9C54DC31F41A8E500DF2074"
-            BuildableName = "OrchextraApp.app"
-            BlueprintName = "OrchextraApp"
+            BlueprintIdentifier = "A9C54D961F41A6F100DF2074"
+            BuildableName = "Orchextra.framework"
+            BlueprintName = "Orchextra"
             ReferencedContainer = "container:Orchextra.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
