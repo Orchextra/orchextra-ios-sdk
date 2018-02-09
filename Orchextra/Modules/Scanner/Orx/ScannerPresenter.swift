@@ -10,8 +10,8 @@ import UIKit
 import GIGLibrary
 
 public struct ScannerResult {
-    var value: String
-    var type: ScannerType
+    public var value: String
+    public var type: ScannerType
 }
 
 public enum ScannerType: String {
