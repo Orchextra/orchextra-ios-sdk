@@ -28,6 +28,16 @@ class Wireframe {
         return scannerOrxVC
     }
     
+    // !!! 666
+    func defaultScanner() -> DefaultScannerModuleInput? {
+        let storyboard = UIStoryboard.init(name: "DefaultScanner", bundle: Bundle.orxBundle())
+        guard let scannerVC = storyboard.instantiateViewController(withIdentifier: "DefaultScannerVC") as? DefaultScannerModuleInput
+            else {
+                LogWarn("Couldn't instantiate DefaultScannerVC")
+                return nil
+        }
+        return scannerVC
+    }
     
     // MARK: - Actions
     
@@ -74,6 +84,7 @@ class Wireframe {
             UIApplication.shared.openURL(url)
         }
     }
+
 }
 
 extension UIApplication {

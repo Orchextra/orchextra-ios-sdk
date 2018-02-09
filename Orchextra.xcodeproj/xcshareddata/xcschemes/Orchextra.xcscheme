@@ -94,6 +94,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A9C54D961F41A6F100DF2074"
+            BuildableName = "Orchextra.framework"
+            BlueprintName = "Orchextra"
+            ReferencedContainer = "container:Orchextra.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
          <AdditionalOption
             key = "MallocStackLogging"

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oPM-Y1-4oU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Default ScannerVC-->
+        <scene sceneID="des-cf-lVI">
+            <objects>
+                <viewController storyboardIdentifier="ScannerOrxVC" id="oPM-Y1-4oU" customClass="DefaultScannerVC" customModule="Orchextra" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Sz-AL-36Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame-scan" translatesAutoresizingMaskIntoConstraints="NO" id="dlr-M8-NVM">
+                                <rect key="frame" x="34.5" y="180.5" width="306" height="306"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scanning-by" translatesAutoresizingMaskIntoConstraints="NO" id="2np-Jm-uO3">
+                                <rect key="frame" x="288.5" y="494.5" width="52" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5Qj-iX-HkY"/>
+                                    <constraint firstAttribute="width" constant="52" id="Udb-cF-pSX"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qoQ-QT-yhT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <items>
+                                    <navigationItem title="&lt;Scanner&gt;" id="FBD-B7-5jg">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;Cancel&gt;" id="wAi-k0-xJb">
+                                            <connections>
+                                                <action selector="closeScannerTapped:" destination="oPM-Y1-4oU" id="lz8-4S-E8u"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="torch" id="7Zl-Cp-pzI">
+                                            <connections>
+                                                <action selector="torchTapped:" destination="oPM-Y1-4oU" id="nzB-UD-ViP"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="oPM-Y1-4oU" id="DwL-Ri-qyX"/>
+                                </connections>
+                            </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Scanning&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-nd-a4a" customClass="PaddingLabel" customModule="Orchextra" customModuleProvider="target">
+                                <rect key="frame" x="112.5" y="110.5" width="150" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" placeholder="YES" id="dm2-lo-Al9"/>
+                                    <constraint firstAttribute="height" constant="30" placeholder="YES" id="wnO-s3-8VP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view clipsSubviews="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OGd-Og-OA5" userLabel="ViewStatus">
+                                <rect key="frame" x="137" y="291" width="101" height="85"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fail_cross" translatesAutoresizingMaskIntoConstraints="NO" id="9Zz-y2-LKp">
+                                        <rect key="frame" x="32.5" y="15" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="9EH-QD-i1G"/>
+                                            <constraint firstAttribute="width" constant="37" id="fwo-Uf-LF2"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Not match&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5q-ww-hQV">
+                                        <rect key="frame" x="8" y="58" width="85" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" placeholder="YES" id="0k3-gV-Gq5"/>
+                                    <constraint firstAttribute="bottom" secondItem="d5q-ww-hQV" secondAttribute="bottom" constant="6" id="2zt-rn-dox"/>
+                                    <constraint firstAttribute="trailing" secondItem="d5q-ww-hQV" secondAttribute="trailing" constant="8" id="BBN-sh-tdM"/>
+                                    <constraint firstItem="d5q-ww-hQV" firstAttribute="leading" secondItem="OGd-Og-OA5" secondAttribute="leading" constant="8" id="BxV-cM-wju"/>
+                                    <constraint firstItem="9Zz-y2-LKp" firstAttribute="top" secondItem="OGd-Og-OA5" secondAttribute="top" constant="15" id="KKH-8b-4Rs"/>
+                                    <constraint firstItem="9Zz-y2-LKp" firstAttribute="centerX" secondItem="OGd-Og-OA5" secondAttribute="centerX" id="Mrc-Jp-LH3"/>
+                                    <constraint firstAttribute="width" constant="101" placeholder="YES" id="V0d-g6-0ht"/>
+                                    <constraint firstItem="d5q-ww-hQV" firstAttribute="top" secondItem="9Zz-y2-LKp" secondAttribute="bottom" constant="6" id="qtt-Ht-aJg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qoQ-QT-yhT" firstAttribute="leading" secondItem="Ova-Gn-h9D" secondAttribute="leading" id="2RQ-qa-xNe"/>
+                            <constraint firstItem="qoQ-QT-yhT" firstAttribute="top" secondItem="Ova-Gn-h9D" secondAttribute="top" id="6xw-g0-xRR"/>
+                            <constraint firstItem="fFs-nd-a4a" firstAttribute="centerX" secondItem="Ova-Gn-h9D" secondAttribute="centerX" id="Poa-Uy-5vo"/>
+                            <constraint firstItem="dlr-M8-NVM" firstAttribute="top" secondItem="fFs-nd-a4a" secondAttribute="bottom" constant="40" id="RQ5-Cs-m7g"/>
+                            <constraint firstItem="OGd-Og-OA5" firstAttribute="centerX" secondItem="Ova-Gn-h9D" secondAttribute="centerX" id="Yjz-5v-Kke"/>
+                            <constraint firstItem="2np-Jm-uO3" firstAttribute="top" secondItem="dlr-M8-NVM" secondAttribute="bottom" constant="8" id="cFp-bG-5sn"/>
+                            <constraint firstItem="2np-Jm-uO3" firstAttribute="trailing" secondItem="dlr-M8-NVM" secondAttribute="trailing" id="fVG-Vo-mNM"/>
+                            <constraint firstItem="dlr-M8-NVM" firstAttribute="centerY" secondItem="1Sz-AL-36Z" secondAttribute="centerY" id="ksP-R5-Lw8"/>
+                            <constraint firstItem="OGd-Og-OA5" firstAttribute="centerY" secondItem="1Sz-AL-36Z" secondAttribute="centerY" id="mB9-1w-LeS"/>
+                            <constraint firstItem="Ova-Gn-h9D" firstAttribute="trailing" secondItem="qoQ-QT-yhT" secondAttribute="trailing" id="nUf-F2-oua"/>
+                            <constraint firstItem="dlr-M8-NVM" firstAttribute="centerX" secondItem="Ova-Gn-h9D" secondAttribute="centerX" id="tYv-LF-1Dc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ova-Gn-h9D"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="17m-I1-WuC">
+                        <barButtonItem key="rightBarButtonItem" image="torch" id="QMW-7V-qi3"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelBarButton" destination="wAi-k0-xJb" id="Yu9-PC-zpS"/>
+                        <outlet property="frameScan" destination="dlr-M8-NVM" id="1ZT-Qq-86x"/>
+                        <outlet property="infoLabel" destination="fFs-nd-a4a" id="HdY-7t-DIR"/>
+                        <outlet property="infoStatusLabel" destination="d5q-ww-hQV" id="TbE-cB-y8X"/>
+                        <outlet property="navBarOrx" destination="qoQ-QT-yhT" id="uRL-w7-D56"/>
+                        <outlet property="scanningBy" destination="2np-Jm-uO3" id="qeY-De-Qq2"/>
+                        <outlet property="titleNav" destination="FBD-B7-5jg" id="lRh-eE-TPB"/>
+                        <outlet property="viewStatus" destination="OGd-Og-OA5" id="nu2-kE-XDb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="diw-VC-34w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="88.605697151424295"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Fail_cross" width="37" height="37"/>
+        <image name="frame-scan" width="306" height="306"/>
+        <image name="scanning-by" width="52" height="20"/>
+        <image name="torch" width="28" height="28"/>
+    </resources>
+</document>

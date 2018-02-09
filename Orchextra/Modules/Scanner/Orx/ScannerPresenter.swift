@@ -9,6 +9,21 @@
 import UIKit
 import GIGLibrary
 
+public struct ScannerResult {
+    var value: String
+    var type: ScannerType
+}
+
+public enum ScannerType: String {
+    case Barcode = "barcode"
+    case QR = "qr"
+}
+
+public enum ScannerError: Error {
+    case cancelledScan
+    case unknown
+}
+
 protocol ScannerUI {
     func showScanner()
     func stopScanner()
@@ -28,11 +43,6 @@ protocol ScannerInput {
     func moduleDidFinish(action: Action?, completionHandler: (() -> Void)?)
 }
 
-enum ScannerType: String {
-    case Barcode = "barcode"
-    case QR = "qr"
-}
-
 class ScannerPresenter: ScannerInput {
     
     var vc: (ScannerUI & ModuleInput)?
@@ -40,7 +50,6 @@ class ScannerPresenter: ScannerInput {
     
     private var waitingUntilResponseFromOrx: Bool = false
     private var enableTorchScanner: Bool = false
-
     
     // MARK: - ScannerInput
     

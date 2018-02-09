@@ -109,10 +109,11 @@ class OrchextraController {
         action.executable()
     }
     
-    func openScanner(completion: @escaping(String) -> Void) {
-        //!!!
+    func scan(completion: @escaping(Result<ScannerResult, ScannerError>) -> Void) {
+        // !!!
+        let defaultScannerModule =  DefaultScannerModule(completion: completion)
+        defaultScannerModule.start()
     }
-
     
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
         self.scanner = vc

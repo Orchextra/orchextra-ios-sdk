@@ -197,30 +197,20 @@ open class Orchextra {
      
      - Since: 1.0
      */
-    // TODO: Remove this method and update README
-//    public func openScanner() {
-//        OrchextraController.shared.openScanner()
-//    }
+    public func openScanner() {
+        OrchextraController.shared.openScanner()
+    }
     
     /**
-     Open scanner from outside ORX.
+     Open scanner from outside ORX and return scan result on completion handler.
      
-     When a completion handler is provided, it will be executed with the scan result.
-     When a completion handler is not provided, ORX will attemp to use scan result to trigger an action.
+     - parameter completion: Completion handler for scan result, will return a `ScannerResult` with the code ans it's
+     type in case of success, or an `Error` otherwise.
      
-     - parameter completion: Completion handler for scan result.
-     
-     - Availability: 3.0
+     - Since: 3.0
      */
-    public func openScanner(completion: ((String) -> Void)?) {
-        // !!! TODO
-        if let completion = completion {
-            // !!! Plain scanner returning scanned code
-            OrchextraController.shared.openScanner(completion: completion)
-        } else {
-            // !!! Scanner with executable action
-            OrchextraController.shared.openScanner()
-        }
+    public func scan(completion: @escaping (Result<ScannerResult, ScannerError>) -> Void) {
+        OrchextraController.shared.scan(completion: completion)
     }
     
     /**
