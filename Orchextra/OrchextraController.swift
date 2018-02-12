@@ -1,5 +1,5 @@
 //
-//  OrchextraWrapper.swift
+//  OrchextraController.swift
 //  Orchextra
 //
 //  Created by Judith Medina on 14/08/2017.
@@ -9,11 +9,11 @@
 import Foundation
 import GIGLibrary
 
-class OrchextraWrapper {
+class OrchextraController {
     
     // Attributtes
 
-    static let shared = OrchextraWrapper()
+    static let shared = OrchextraController()
     
     // Private Attributes
     private var session: Session
@@ -107,6 +107,12 @@ class OrchextraWrapper {
     func openScanner() {
         let action = ActionScanner()
         action.executable()
+    }
+    
+    func scan(completion: @escaping(Result<ScannerResult, ScannerError>) -> Void) {
+        // !!!
+        let defaultScannerModule =  DefaultScannerModule(completion: completion)
+        defaultScannerModule.start()
     }
     
     func setScanner<T: UIViewController>(vc: T) where T: ModuleInput {
@@ -296,7 +302,7 @@ class OrchextraWrapper {
     }
 }
 
-extension OrchextraWrapper {
+extension OrchextraController {
     
     func coreConfiguration(completion: @escaping (Result<Bool, Error>) -> Void) {
         // Core configuration

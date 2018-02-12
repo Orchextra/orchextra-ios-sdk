@@ -73,6 +73,6 @@ class EddystoneModule: ModuleInput {
 
 extension EddystoneModule: EddystoneOutput {
     func sendTriggerToCoreWithValues(values: [String: Any]) {
-        self.outputModule?.triggerWasFire(with: values, module: self)
+        self.outputModule?.triggerWasFired(with: values, module: self)
     }
 }

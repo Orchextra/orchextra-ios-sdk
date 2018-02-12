@@ -25,7 +25,7 @@ struct ModuleOutputWrapper: ModuleOutput {
         self.init(triggerManager: triggerManager, configInteractor: configInteractor)
     }
     
-    func triggerWasFire(with values: [String: Any], module: ModuleInput) {
+    func triggerWasFired(with values: [String: Any], module: ModuleInput) {
         self.triggerManager.triggerWasFire(with: values, module: module)
     }
     

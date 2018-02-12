@@ -9,7 +9,9 @@
 import UIKit
 import GIGLibrary
 
-class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
+class ScannerOrxVC: GIGScannerVC, ModuleInput, ScannerUI, GIGScannerOutput {
+    
+    // IBActions
     
     @IBOutlet weak var viewStatus: UIView!
     @IBOutlet weak var infoStatusLabel: UILabel!
@@ -19,14 +21,24 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     @IBOutlet weak var infoLabel: PaddingLabel!
     @IBOutlet weak var titleNav: UINavigationItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
-
-    // Protocol
-    var outputModule: ModuleOutput?
     
     // Private
+    
     fileprivate var presenter = ScannerPresenter()
     
-    // MARK: -
+    // MARK: - ModuleInput
+    
+    var outputModule: ModuleOutput?
+    
+    func start() {
+        self.presenter.startModule()
+    }
+        
+    func finish(action: Action?, completionHandler: (() -> Void)?) {
+        self.presenter.moduleDidFinish(action: action, completionHandler: completionHandler)
+    }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         
@@ -99,6 +111,7 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
     
     func stopScanner() {
         self.stopScanning()
+        // !!! Scanning cancelled, if dummy scanner, return completion with error
     }
     
     func enableTorch(enable: Bool) {
@@ -173,19 +186,6 @@ class ScannerOrxVC: GIGScannerVC, ScannerUI, GIGScannerOutput {
         guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
             else {return}
         UIApplication.shared.openURL(settingsURL)
-    }
-}
-
-// MARK: - ModuleInput
-
-extension ScannerOrxVC: ModuleInput {
-    
-    func start() {
-        self.presenter.startModule()
-    }
-    
-    func finish(action: Action?, completionHandler: (() -> Void)?) {
-        self.presenter.moduleDidFinish(action: action, completionHandler: completionHandler)
     }
 }
 

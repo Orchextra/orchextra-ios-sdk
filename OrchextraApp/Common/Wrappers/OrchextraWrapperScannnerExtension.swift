@@ -9,7 +9,7 @@
 import Foundation
 @testable import Orchextra
 
-extension OrchextraWrapper {
+extension OrchextraController {
     func invalidatePreviousScanner() {
         self.scanner?.outputModule = nil
         self.scanner = nil

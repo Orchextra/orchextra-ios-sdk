@@ -16,6 +16,6 @@ extension Orchextra {
      - Since: 3.0
      */
     func invalidatePreviousScanner() {
-        OrchextraWrapper.shared.invalidatePreviousScanner()
+        OrchextraController.shared.invalidatePreviousScanner()
     }
 }

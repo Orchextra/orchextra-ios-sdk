@@ -114,6 +114,6 @@ class ProximityModule: ModuleInput {
 
 extension ProximityModule: ProximityOutput {
     func sendTriggerToCoreWithValues(values: [String: Any]) {
-        self.outputModule?.triggerWasFire(with: values, module: self)
+        self.outputModule?.triggerWasFired(with: values, module: self)
     }
 }

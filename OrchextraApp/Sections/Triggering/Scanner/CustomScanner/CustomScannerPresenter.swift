@@ -80,7 +80,7 @@ extension CustomScannerPresenter: CustomScannerPresenterInput {
                 return
             }
             DispatchQueue.global(qos: .background).async {
-                self.outputModule?.triggerWasFire(with: ["value": value,
+                self.outputModule?.triggerWasFired(with: ["value": value,
                                                          "type": typeValue.rawValue],
                                                   module: moduleInput)
                 LogDebug("Module Scan - has trigger: \(value) - \(type)")

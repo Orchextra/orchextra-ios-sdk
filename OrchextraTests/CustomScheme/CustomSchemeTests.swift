@@ -23,7 +23,7 @@ class CustomSchemeTests: QuickSpec {
             self.orxDelegate = ORXDelegateMock()
             self.orchextra.delegate = self.orxDelegate
             self.scannerMock = ScannerVCMock()
-            OrchextraWrapper.shared.setScanner(vc: self.scannerMock)
+            OrchextraController.shared.setScanner(vc: self.scannerMock)
         }
         
         afterEach {

@@ -45,7 +45,7 @@ public protocol ModuleOutput {
     /// - Parameters:
     ///   - values: values to start the trigger against orx
     ///   - module: the own module
-    func triggerWasFire(with values: [String: Any], module: ModuleInput)
+    func triggerWasFired(with values: [String: Any], module: ModuleInput)
     
     /// Fetch Module Configuration without params
     ///

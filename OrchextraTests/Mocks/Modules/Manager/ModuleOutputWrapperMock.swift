@@ -11,7 +11,7 @@ import Foundation
 
 class ModuleOutputWrapperMock: ModuleOutput {
     
-    func triggerWasFire(with values: [String: Any], module: ModuleInput) {
+    func triggerWasFired(with values: [String: Any], module: ModuleInput) {
     }
     
     func fetchModuleConfig(config: [String: Any]? = nil, completion: @escaping (([String: Any]) -> Void)) {

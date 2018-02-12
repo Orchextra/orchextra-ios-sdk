@@ -18,7 +18,7 @@ class ModuleOutputMock: ModuleOutput {
     var spyTriggerWasFireModuleInput: ModuleInput?
     var spySetConfig: (called: Bool, config: [String : Any]?) = (called: false, config: nil)
     
-    func triggerWasFire(with values: [String: Any], module: ModuleInput) {
+    func triggerWasFired(with values: [String: Any], module: ModuleInput) {
         self.spyTriggerWasFire.called = true
         self.spyTriggerWasFire.values = values
         self.spyTriggerWasFireModuleInput = module

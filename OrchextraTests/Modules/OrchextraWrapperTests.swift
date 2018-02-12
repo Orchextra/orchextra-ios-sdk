@@ -11,9 +11,9 @@ import Nimble
 import OHHTTPStubs
 @testable import Orchextra
 
-class OrchextraWrapperTests: XCTestCase {
+class OrchextraControllerTests: XCTestCase {
     
-    var orchextraWrapper: OrchextraWrapper!
+    var orchextraController: OrchextraController!
     var sessionMock: SessionMock!
     var configInteractor: ConfigInteractor!
     var authInteractor: AuthInteractor!
@@ -28,7 +28,7 @@ class OrchextraWrapperTests: XCTestCase {
                                                  service: ConfigService(auth: self.authInteractor))
         self.moduleOutputMock = ModuleOutputMock()
         self.applicationCenter = ApplicationCenter()
-        self.orchextraWrapper = OrchextraWrapper(session: self.sessionMock,
+        self.orchextraController = OrchextraController(session: self.sessionMock,
                                                  configInteractor: self.configInteractor,
                                                  authInteractor: self.authInteractor,
                                                  moduleOutputWrapper: ModuleOutputWrapper(),
@@ -37,7 +37,7 @@ class OrchextraWrapperTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
-        self.orchextraWrapper = nil
+        self.orchextraController = nil
         self.sessionMock = nil
         self.configInteractor = nil
         self.authInteractor = nil
@@ -48,13 +48,13 @@ class OrchextraWrapperTests: XCTestCase {
     func test_remotePushNotification() {
         let input = "c9d4c07c fbbc26d6 ef87a44d 53e16983 1096a5d5 fd825475 56659ddd f715defc"
         let data = input.data(using: .utf8)!
-        self.orchextraWrapper.remote(apnsToken: data)
+        self.orchextraController.remote(apnsToken: data)
     }
     
     func test_bindUser() {
         StubResponse.mockResponse(for: "/token/data", with: "bind_user_response.json")
         let user = UserOrx(crmId: "judith.medina", gender: .female, birthday: Date(), tags: [], businessUnits: [], customFields: [])
-        self.orchextraWrapper.bindUser(user)
+        self.orchextraController.bindUser(user)
         
         expect(self.sessionMock.spyCurrentUserCalled).toEventually(beTrue())
     }
