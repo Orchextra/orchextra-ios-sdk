@@ -78,7 +78,15 @@ class OrchextraWrapperApp {
 
 extension OrchextraWrapperApp: ORXDelegate {
     func bindDidCompleted(result: Result<[AnyHashable: Any], Error>) {
-        
+        switch result {
+        case .success(let bindValues):
+            let alert = Alert(title: "Orchextra informs", message: "Bind has been made")
+            alert.addDefaultButton("OK", usingAction: nil)
+            alert.show()
+            Log("bindDidCompleted with values: - \(bindValues) ")
+        case .error(let error):
+            LogWarn(error.localizedDescription)
+        }
     }
     
     func customScheme(_ scheme: String) {
@@ -100,9 +108,5 @@ extension OrchextraWrapperApp: ORXDelegate {
     }
     
     func bindDidCompleted(bindValues: [AnyHashable: Any]) {
-        let alert = Alert(title: "Orchextra informs", message: "Bind has been made")
-        alert.addDefaultButton("OK", usingAction: nil)
-        alert.show()
-        Log("bindDidCompleted with values: - \(bindValues) ")
     }
 }

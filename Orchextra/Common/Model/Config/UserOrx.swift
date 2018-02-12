@@ -72,7 +72,9 @@ public class UserOrx: Codable {
         if let birthDate = self.birthday?.description {
             params["birthDate"] = birthDate
         }
-        params["gender"] = self.gender.rawValue
+        if self.gender != .none {
+            params["gender"] = self.gender.rawValue
+        }
         params["businessUnits"] = self.businessParam()
         params["tags"] = self.tagsParam()
         params["customFields"] = self.customFieldsParam()
