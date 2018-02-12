@@ -38,22 +38,14 @@ class DefaultScannerPresenter: DefaultScannerInput {
     func userDidCloseScanner() {
         self.enableTorchScanner = false
         self.vc?.enableTorch(enable: self.enableTorchScanner)
-        self.vc?.dismissScanner(completion: nil)
+        self.vc?.dismissScanner(completion: {
+            self.output?.scannerDidFinish(result: nil, error: ScannerError.cancelledScan)
+        })
     }
     
     func userDidTappedTorch() {
         self.enableTorchScanner = !self.enableTorchScanner
         self.vc?.enableTorch(enable: self.enableTorchScanner)
-    }
-    
-    func moduleDidFinish(action: Action?, completionHandler: (() -> Void)?) {
-        self.vc?.stopScanner()
-        self.vc?.dismissScanner {
-            if let completion = completionHandler {
-                completion()
-                self.output?.scannerDidFinish(result: nil, error: ScannerError.cancelledScan)
-            }
-        }
     }
 
     func resetValueScanned() {

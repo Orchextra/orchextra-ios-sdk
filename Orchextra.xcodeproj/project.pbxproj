@@ -648,10 +648,10 @@
 		6126C647202DAAFA0009A20A /* Default */ = {
 			isa = PBXGroup;
 			children = (
-				6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */,
+				6126C650202DC5730009A20A /* DefaultScannerModule.swift */,
 				6126C64A202DAB9A0009A20A /* DefaultScannerPresenter.swift */,
 				6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */,
-				6126C650202DC5730009A20A /* DefaultScannerModule.swift */,
+				6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */,
 			);
 			path = Default;
 			sourceTree = "<group>";
