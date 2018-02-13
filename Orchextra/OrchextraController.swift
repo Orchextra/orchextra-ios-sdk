@@ -279,9 +279,11 @@ class OrchextraController {
     private func performBindUserOperation(user: UserOrx?) {
         self.authInteractor.bind(user: user, device: nil) { (result) in
             switch result {
-            case .success:
+            case .success(let json):
+                Orchextra.shared.delegate?.userBindDidComplete(result: .success(json.toDictionary() ?? [:]))
                 LogInfo("Bind user has been successful")
             case .error(let error):
+                Orchextra.shared.delegate?.userBindDidComplete(result: .error(error))
                 LogInfo("Bind user with error: \(error.localizedDescription)")
             }
         }
@@ -291,11 +293,13 @@ class OrchextraController {
     private func performBindDeviceOperation() {
         let device = Device()
         let user = self.session.currentUser()
-        self.authInteractor.bind(user: user, device: device) { (result) in
+        self.authInteractor.bind(user: user, device: device) { result in
             switch result {
-            case .success:
+            case .success(let json):
+                Orchextra.shared.delegate?.deviceBindDidComplete(result: .success(json.toDictionary() ?? [:]))
                 LogInfo("Bind device has been successful")
             case .error(let error):
+                Orchextra.shared.delegate?.deviceBindDidComplete(result: .error(error))
                 LogInfo("Bind device with error: \(error.localizedDescription)")
             }
         }

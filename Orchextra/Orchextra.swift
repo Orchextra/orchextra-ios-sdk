@@ -60,13 +60,20 @@ public protocol ORXDelegate {
     func triggerFired(_ trigger: Trigger)
     
     /**
-     This method will inform anytime that user or device have been modified.
+     This method will inform anytime that device have been modified.
      
      - parameter trigger:
      - Since: 3.0
      */
+    func deviceBindDidComplete(result: Result<[AnyHashable: Any], Error>)
     
-    func bindDidCompleted(result: Result<[AnyHashable: Any], Error>)
+    /**
+     This method will inform anytime that user have been modified.
+     
+     - parameter trigger:
+     - Since: 3.0
+     */
+    func userBindDidComplete(result: Result<[AnyHashable: Any], Error>)
 }
 
 open class Orchextra {

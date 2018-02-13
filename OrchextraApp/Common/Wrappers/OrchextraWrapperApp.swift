@@ -77,7 +77,20 @@ class OrchextraWrapperApp {
 }
 
 extension OrchextraWrapperApp: ORXDelegate {
-    func bindDidCompleted(result: Result<[AnyHashable: Any], Error>) {
+    
+    func deviceBindDidComplete(result: Result<[AnyHashable: Any], Error>) {
+        switch result {
+        case .success(let bindValues):
+            let alert = Alert(title: "Orchextra informs", message: "Bind has been made")
+            alert.addDefaultButton("OK", usingAction: nil)
+            alert.show()
+            Log("bindDidCompleted with values: - \(bindValues) ")
+        case .error(let error):
+            LogWarn(error.localizedDescription)
+        }
+    }
+    
+    func userBindDidComplete(result: Result<[AnyHashable: Any], Error>) {
         switch result {
         case .success(let bindValues):
             let alert = Alert(title: "Orchextra informs", message: "Bind has been made")
@@ -105,8 +118,5 @@ extension OrchextraWrapperApp: ORXDelegate {
         let dateFormatedString = dateFormatter.string(from: dateFormatted)
         let triggerFired = TriggerFired(trigger: trigger, date: dateFormatedString)
         TriggersManager.shared.add(trigger: triggerFired)
-    }
-    
-    func bindDidCompleted(bindValues: [AnyHashable: Any]) {
     }
 }
