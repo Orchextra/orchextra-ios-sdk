@@ -60,7 +60,7 @@ class DefaultScannerPresenter: DefaultScannerInput {
         self.vc?.show(scannedValue: value, message: kLocaleOrcScanningMessage)
         
         // Finish after a couple of seconds
-        DispatchQueue.background(delay: 1.5, completion: {
+        DispatchQueue.background(delay: 1.0, completion: {
             // Stop scanner and return result
             self.vc?.stopScanner()
             self.vc?.dismissScanner(completion: {
