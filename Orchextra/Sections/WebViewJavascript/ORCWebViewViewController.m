@@ -160,7 +160,7 @@ NSString * const OBSERVER_JAVASCRIPT = @"OrchextraJSNativeiOS";
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {
     [self.presenter urlHasBeenLoadedSuccessfully:NO];
-    [[ORCLog sharedInstance] logError:@"Error loading: %@", error.localizedDescription];
+    [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Error loading: %@", error.localizedDescription]];
 }
 
 

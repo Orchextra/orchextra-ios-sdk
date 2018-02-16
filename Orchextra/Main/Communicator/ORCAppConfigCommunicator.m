@@ -26,7 +26,8 @@ NSString * const CONFIGURATION_ENDPOINT = @"configuration";
                  sections:(NSArray *)sections
                completion:(CompletionOrchestraConfigResponse)completion
 {
-    [[ORCLog sharedInstance] logVerbose:@" - Configuration Body: %@", [self printJsonFormat:configuration]];
+    [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat: @" - Configuration Body: %@", [self printJsonFormat:configuration]]];
+
     
     [self useFixtures:ORCUseFixtures];
     self.logLevel = GIGLogLevelBasic;

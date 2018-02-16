@@ -50,17 +50,10 @@ typedef NS_ENUM(NSUInteger, ORCLogLevel){
 
 // LOG LEVELS
 
-- (void)logError:(NSString *)format, ...;
-- (void)logError:(NSString *)format args:(va_list)args;
-
-- (void)logWarning:(NSString *)format, ...;
-- (void)logWarning:(NSString *)format args:(va_list)args;
-
-- (void)logDebug:(NSString *)format, ...;
-- (void)logDebug:(NSString *)format args:(va_list)args;
-
-- (void)logVerbose:(NSString *)format, ...;
-- (void)logVerbose:(NSString *)format args:(va_list)args;
+- (void)logError:(NSString *)format;
+- (void)logWarning:(NSString *)format;
+- (void)logDebug:(NSString *)format;
+- (void)logVerbose:(NSString *)format;
 
 
 @end

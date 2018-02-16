@@ -170,11 +170,11 @@ NSString *const ORCBeaconMinor = @"beaconMinor";
             [locationManager startMonitoringForRegion:beaconRegion];
             [locationManager startRangingBeaconsInRegion:beaconRegion];
             
-            [[ORCLog sharedInstance] logDebug:@"Monitoring Beacon: %@_%@_%@ -> Remaining: %lu",
-             beaconRegion.proximityUUID.UUIDString,
-             beaconRegion.major,
-             beaconRegion.minor,
-             (20 - locationManager.monitoredRegions.count)];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"Monitoring Beacon: %@_%@_%@ -> Remaining: %lu",
+                                               beaconRegion.proximityUUID.UUIDString,
+                                               beaconRegion.major,
+                                               beaconRegion.minor,
+                                               (20 - locationManager.monitoredRegions.count)]];
         }
     }
 }

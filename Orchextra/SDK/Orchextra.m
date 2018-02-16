@@ -82,14 +82,14 @@
         
         if (success)
         {
-            [[ORCLog sharedInstance] logDebug: @" ---  ORCHEXTRA INFO --- "];
-            [[ORCLog sharedInstance] logDebug: @" ---  SDK Version: %@", ORCSDKVersion];
-            [[ORCLog sharedInstance] logDebug: @" ---  Endpoint SDK: %@", [ORCURLProvider domain]];
+            [[ORCLog sharedInstance] logDebug:@" ---  ORCHEXTRA INFO --- "];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat:@" ---  SDK Version: %@", ORCSDKVersion]];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat:@" ---  Endpoint SDK: %@", [ORCURLProvider domain]]];
             
 
             [[ORCLog sharedInstance] logDebug: @"LOADED PROJECT WITH: "];
-            [[ORCLog sharedInstance] logDebug: @"- APIKEY: %@", apiKey];
-            [[ORCLog sharedInstance] logDebug: @"- API SECRET: %@", apiSecret];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"- APIKEY: %@", apiKey]];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"- API SECRET: %@", apiSecret]];
 
             [this.applicationCenter startObservingAppDelegateEvents];
             [this.actionManager startWithAppConfiguration];

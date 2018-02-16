@@ -172,7 +172,7 @@
 {
     if (extended)
     {
-        [[ORCLog sharedInstance] logDebug:@"New background time setup to %lu", seconds];
+        [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"New background time setup to %lu", seconds]];
     }
     else
     {

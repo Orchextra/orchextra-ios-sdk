@@ -46,76 +46,31 @@
     self.internalLog = level;
 }
 
-- (void)logError:(NSString *)format, ...
-{
-    [ORCLog sharedInstance];
-    
-    if (format)
-    {
-        if (self.internalLog > ORCLogLevelOff) {
-            [self logError:format];
-        }
-    }
-}
-
-- (void)logError:(NSString *)format args:(va_list)args
+- (void)logError:(NSString *)format
 {
     if (self.internalLog > ORCLogLevelOff) {
         NSLog(@"ERROR: %@",format);
     }
 }
 
-- (void)logWarning:(NSString *)format, ...
+- (void)logWarning:(NSString *)format
 {
-    if (format)
-    {
-        if (self.internalLog > ORCLogLevelError) {
-            NSLog(@"WARNING: %@",format);
-        }
-    }
-}
-
-- (void)logWarning:(NSString *)format args:(va_list)args
-{
-    NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
     if (self.internalLog > ORCLogLevelError) {
-        NSLog(@"WARNING: %@",output);
+        NSLog(@"WARNING: %@",format);
     }
 }
 
-- (void)logDebug:(NSString *)format, ...
+- (void)logDebug:(NSString *)format
 {
-    if (format)
-    {
-        if (self.internalLog > ORCLogLevelWarning) {
-            NSLog(@"DEBUG: %@",format);
-        }
-    }
-}
-
-- (void)logDebug:(NSString *)format args:(va_list)args
-{
-    NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
     if (self.internalLog > ORCLogLevelWarning) {
-        NSLog(@"DEBUG: %@",output);
+        NSLog(@"DEBUG: %@",format);
     }
 }
 
-- (void)logVerbose:(NSString *)format, ...
+- (void)logVerbose:(NSString *)format
 {
-    if (format)
-    {
-        if (self.internalLog > ORCLogLevelWarning) {
-            NSLog(@"VERBOSE: %@",format);
-        }
-    }
-}
-
-- (void)logVerbose:(NSString *)format args:(va_list)args
-{
-    NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
     if (self.internalLog > ORCLogLevelWarning) {
-        NSLog(@"VERBOSE: %@",output);
+        NSLog(@"VERBOSE: %@",format);
     }
 }
 

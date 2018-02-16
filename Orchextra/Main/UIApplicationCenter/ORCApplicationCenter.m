@@ -111,7 +111,7 @@
         return;
     }
     
-    [[ORCLog sharedInstance] logVerbose:@"Attempting to extend background running time: %d", _limitBackgroundRangingTime];
+    [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat: @"Attempting to extend background running time: %ld", (long)_limitBackgroundRangingTime]];
     
     __block Boolean self_terminate = YES;
     _secondsRunningInBackground = 0;

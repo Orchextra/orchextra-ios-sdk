@@ -191,23 +191,24 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
 
 - (void)notifyEnterRegion:(CLRegion *)region
 {
-    [[ORCLog sharedInstance] logDebug:@"Did enter region: [%@]", region.identifier];
+    [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"Did enter region: [%@]", region.identifier]];
     [self.delegateLocation didRegionHasBeenFired:region event:ORCTypeEventEnter];
 }
 
 - (void)notifyExitRegion:(CLRegion *)region
 {
-    [[ORCLog sharedInstance] logDebug:@"Did exit region: [%@]", region.identifier];
+    [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"Did exit region: [%@]", region.identifier]];
     [self.delegateLocation didRegionHasBeenFired:region event:ORCTypeEventExit];
 }
 
 - (void)notifyStateRegion:(ORCBeacon *)region
 {
-    [[ORCLog sharedInstance] logDebug:@"Did change state: [%@ _ %@ _ %@] to %@",
-     region.uuid.UUIDString,
-     region.major,
-     region.minor,
-     [self nameForProximity:region.currentProximity]];
+    [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"Did change state: [%@ _ %@ _ %@] to %@",
+                                       region.uuid.UUIDString,
+                                       region.major,
+                                       region.minor,
+                                       [self nameForProximity:region.currentProximity]]];
+    
     [self.delegateLocation didBeaconHasBeenFired:region];
 }
 
@@ -373,7 +374,7 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    [[ORCLog sharedInstance] logError:@"ERROR: Location manager didFailWithError: %@", error];
+    [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"ERROR: Location manager didFailWithError: %@", error]];
 }
 
 
@@ -418,25 +419,25 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
     switch (errorCode)
     {
         case kCLErrorLocationUnknown: //0
-            [[ORCLog sharedInstance] logError:@"Location Error: %lu kCLErrorLocationUnknown: %@ --",(unsigned long)errorCode, region.identifier];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error: %lu kCLErrorLocationUnknown: %@ --",(unsigned long)errorCode, region.identifier]];
             break;
         case kCLErrorDenied: //1
-            [[ORCLog sharedInstance] logError:@"Location Error: %lu kCLErrorDenied: %@ --",(unsigned long)errorCode, region.identifier];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error: %lu kCLErrorDenied: %@ --",(unsigned long)errorCode, region.identifier]];
             break;
         case kCLErrorNetwork: //2
-            [[ORCLog sharedInstance] logError:@"Location Error:: %lu kCLErrorNetwork: %@ --",(unsigned long)errorCode, region.identifier];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error:: %lu kCLErrorNetwork: %@ --",(unsigned long)errorCode, region.identifier]];
             break;
         case kCLErrorRegionMonitoringDenied: //4
-            [[ORCLog sharedInstance] logError:@"Location Error:: %lu kCLErrorRegionMonitoringDenied: %@ --",(unsigned long)errorCode, region.identifier];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error:: %lu kCLErrorRegionMonitoringDenied: %@ --",(unsigned long)errorCode, region.identifier]];
             break;
         case kCLErrorRegionMonitoringFailure: //5
-            [[ORCLog sharedInstance] logError:@"Location Error:: %lu kCLErrorRegionMonitoringFailure: %@ --",(unsigned long)errorCode, region.identifier];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error:: %lu kCLErrorRegionMonitoringFailure: %@ --",(unsigned long)errorCode, region.identifier]];
             break;
         case kCLErrorRangingUnavailable: //16
-            [[ORCLog sharedInstance] logError:@"Location Error:: %lu kCLErrorRangingUnavailable: Bluetooth might be off",(unsigned long)errorCode, region.identifier];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error:: %lu kCLErrorRangingUnavailable: Bluetooth might be off",(unsigned long)errorCode, region.identifier]];
             break;
         default:
-            [[ORCLog sharedInstance] logError:@"Location Error: %lu: %@ --, ",(unsigned long)errorCode, region.identifier];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat:@"Location Error: %lu: %@ --, ",(unsigned long)errorCode, region.identifier]];
             break;
     }
 }

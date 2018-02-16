@@ -133,7 +133,7 @@
             {
                 //Not match ...
                 [this performSelector:@selector(notFoundAction) withObject:nil afterDelay:1.0];
-                [[ORCLog sharedInstance] logError:@"%@", error.localizedDescription];
+                [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"%@", error.localizedDescription]];
             }
         }];
     }
