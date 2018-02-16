@@ -154,13 +154,13 @@ NSString * const OBSERVER_JAVASCRIPT = @"OrchextraJSNativeiOS";
 
     }];
     
-    [ORCLog logDebug:@"Finished loading"];
+    [[ORCLog sharedInstance] logDebug:@"Finished loading"];
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {
     [self.presenter urlHasBeenLoadedSuccessfully:NO];
-    [ORCLog logError:@"Error loading: %@", error.localizedDescription];
+    [[ORCLog sharedInstance] logError:@"Error loading: %@", error.localizedDescription];
 }
 
 

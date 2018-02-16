@@ -79,7 +79,7 @@
     }
     else
     {
-        [ORCLog logError:@"Authorization denied we can't get start location services."];
+        [[ORCLog sharedInstance] logError:@"Authorization denied we can't get start location services."];
     }
 }
 
@@ -171,7 +171,7 @@
     }
     else
     {
-        [ORCLog logDebug:@"There are not regions to register."];
+        [[ORCLog sharedInstance] logDebug:@"There are not regions to register."];
     }
 }
 

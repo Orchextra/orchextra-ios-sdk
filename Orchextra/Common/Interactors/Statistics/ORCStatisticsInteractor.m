@@ -46,7 +46,7 @@
 {
     if (action.trackId && action.trackId.length > 0)
     {
-        [ORCLog logDebug:@"CONFIRM ACTION id:%@ , type: %@",  action.trackId, action.type];
+        [[ORCLog sharedInstance] logDebug:@"CONFIRM ACTION id:%@ , type: %@",  action.trackId, action.type];
         [self.communicator trackActionLaunched:action completion:^(ORCURLActionConfirmationResponse *responseActionConfirmation) {
             
         }];
@@ -57,7 +57,7 @@
 {
     if (action.trackId && action.trackId.length > 0)
     {
-        [ORCLog logDebug:@"CONFIRM ACTION id:%@ , type: %@",  action.trackId, action.type];
+        [[ORCLog sharedInstance] logDebug:@"CONFIRM ACTION id:%@ , type: %@",  action.trackId, action.type];
 
         NSDictionary *values = @{@"type": type, @"value": value};
         [self.communicator trackInteractionWithAction:action values:values completion:^(ORCURLActionConfirmationResponse *responseActionConfirmation) {

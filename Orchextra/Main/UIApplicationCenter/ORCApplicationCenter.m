@@ -111,7 +111,7 @@
         return;
     }
     
-    [ORCLog logVerbose:@"Attempting to extend background running time: %d", _limitBackgroundRangingTime];
+    [[ORCLog sharedInstance] logVerbose:@"Attempting to extend background running time: %d", _limitBackgroundRangingTime];
     
     __block Boolean self_terminate = YES;
     _secondsRunningInBackground = 0;
@@ -126,7 +126,7 @@
                        }];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [ORCLog logVerbose:@"Background task started"];
+        [[ORCLog sharedInstance] logVerbose:@"Background task started"];
         
         while (_secondsRunningInBackground < _limitBackgroundRangingTime) {
             
@@ -146,36 +146,36 @@
 
 - (void)applicationWillEnterForeground:(NSNotification *)object
 {
-    [ORCLog logVerbose:@"applicationWillEnterForeground"];
+    [[ORCLog sharedInstance] logVerbose:@"applicationWillEnterForeground"];
     [self updateConfiguration];
 }
 
 - (void)applicationDidEnterForeground:(NSNotification *)object
 {
-    [ORCLog logVerbose:@"applicationDidEnterForeground"];
+    [[ORCLog sharedInstance] logVerbose:@"applicationDidEnterForeground"];
     [self haveToExtendBackgroundTime];
     _inBackground = YES;
 }
 
 - (void)applicationWillResignActive:(NSNotification *)object
 {
-    [ORCLog logVerbose:@"applicationWillResignActive"];
+    [[ORCLog sharedInstance] logVerbose:@"applicationWillResignActive"];
 }
 
 - (void)applicationDidBecomeActive:(NSNotification *)object
 {
-    [ORCLog logVerbose:@"applicationDidBecomeActive"];
+    [[ORCLog sharedInstance] logVerbose:@"applicationDidBecomeActive"];
     _inBackground = NO;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)object
 {
-    [ORCLog logVerbose:@"applicationWillTerminate"];
+    [[ORCLog sharedInstance] logVerbose:@"applicationWillTerminate"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)object
 {
-    [ORCLog logVerbose:@"applicationDidFinishLaunching"];
+    [[ORCLog sharedInstance] logVerbose:@"applicationDidFinishLaunching"];
     
     _backgroundTask = UIBackgroundTaskInvalid;
     _inBackground = YES;
@@ -224,7 +224,7 @@
 
 - (void)endExtendBackgroundTask
 {
-    [ORCLog logVerbose:@"Background task expired"];
+    [[ORCLog sharedInstance] logVerbose:@"Background task expired"];
     [[UIApplication sharedApplication] endBackgroundTask:_backgroundTask];
     _backgroundTask = UIBackgroundTaskInvalid;
 }

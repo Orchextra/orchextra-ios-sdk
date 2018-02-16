@@ -109,7 +109,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
     UIApplication *app = [UIApplication sharedApplication];
     
     NSArray *localNotifications = [app scheduledLocalNotifications];
-    [ORCLog logDebug:@"Local Notifications: %d", localNotifications.count];
+    [[ORCLog sharedInstance] logDebug:@"Local Notifications: %d", localNotifications.count];
     
     for (UILocalNotification *localNotification in localNotifications) {
         
@@ -121,7 +121,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
             if (cancelable)
             {
                 [app cancelLocalNotification:localNotification];
-                [ORCLog logDebug:@"Removed localNotification with id: %@", idNotification];
+                [[ORCLog sharedInstance] logDebug:@"Removed localNotification with id: %@", idNotification];
             }
             
             break;
@@ -210,7 +210,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
     NSDictionary *values = [action toDictionary];
     NSDate *fireDate = [[NSDate date] dateByAddingTimeInterval:action.scheduleTime];
 
-    [ORCLog logDebug:@"--SCHEDULE LOCAL PUSH NOTIFICATION: \n%@ ", values];
+    [[ORCLog sharedInstance] logDebug:@"--SCHEDULE LOCAL PUSH NOTIFICATION: \n%@ ", values];
     UILocalNotification *notification = [self prepareLocalNotificationWithUserInfo:values];
     notification.fireDate = fireDate;
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
@@ -220,7 +220,7 @@ NSString * const NOTIFICATION_TYPE = @"type";
 {
     NSDictionary *values = [geofence toDictionary];
     NSDate *fireDate = [[NSDate date] dateByAddingTimeInterval:geofence.timer];
-    [ORCLog logDebug:@"--SCHEDULE LOCAL PUSH NOTIFICATION WITH GEOFENCE: \n%@", values];
+    [[ORCLog sharedInstance] logDebug:@"--SCHEDULE LOCAL PUSH NOTIFICATION WITH GEOFENCE: \n%@", values];
     UILocalNotification *notification = [self prepareLocalNotificationWithUserInfo:values];
     notification.fireDate = fireDate;
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];

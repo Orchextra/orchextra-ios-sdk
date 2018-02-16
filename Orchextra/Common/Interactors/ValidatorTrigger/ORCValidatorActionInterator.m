@@ -119,7 +119,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
         !regionToValidate.code || [regionToValidate.code isKindOfClass:[NSNull class]] || regionToValidate.code == 0
         )
     {
-        [ORCLog logError:@"Response or Request Params are nil"];
+        [[ORCLog sharedInstance] logError:@"Response or Request Params are nil"];
         completionAction(nil, [[NSError alloc] initWithDomain:@"domain" code:-1 userInfo: nil]);
     } else {
         NSDictionary *dictionary = @{ TYPE_KEY : regionToValidate.type,
@@ -226,7 +226,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     
     if (!response || !requestParams)
     {
-        [ORCLog logError:@"Response or Request Params are nil"];
+        [[ORCLog sharedInstance] logError:@"Response or Request Params are nil"];
         completion(nil, nil);
         return;
     }
@@ -238,7 +238,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     {
         if (requestParams && type && value)
         {
-            [ORCLog logDebug:@"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
+            [[ORCLog sharedInstance] logDebug:@"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
              type, value];
         }
         if (completion)
@@ -251,12 +251,12 @@ int ERROR_ACTION_NOT_FOUND = 5001;
         if (type && value)
         {
             if (response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime) {
-                [ORCLog logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
+                [[ORCLog sharedInstance] logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
                  type, value, response.action.type, response.action.urlString, response.action.scheduleTime];
             }
             else
             {
-                [ORCLog logDebug:@"---- FOUND ACTION ---- \n ----- but ERROR when search response.action or response.action.type or response.action.urlString or response.action.scheduleTime"];
+                [[ORCLog sharedInstance] logDebug:@"---- FOUND ACTION ---- \n ----- but ERROR when search response.action or response.action.type or response.action.urlString or response.action.scheduleTime"];
             }
         }
         if (completion) {
@@ -264,7 +264,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
                 completion(response.action, nil);
             }
             else {
-                [ORCLog logDebug:@"---- ERROR, response.action is NIL"];
+                [[ORCLog sharedInstance] logDebug:@"---- ERROR, response.action is NIL"];
             }
         }
     }
@@ -280,7 +280,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
         message = [message stringByAppendingString:[NSString stringWithFormat:@" ------>   %@: %@\n", key, obj]];
     }];
     
-    [ORCLog logDebug:message];
+    [[ORCLog sharedInstance] logDebug:message];
 }
 
 - (NSString *)encodingString:(NSString *)clearString

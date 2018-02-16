@@ -7,10 +7,14 @@
 //
 
 #import "ORCLog.h"
-#import "CocoaLumberjack.h"
 #import "ORCFormatterLog.h"
 
-static DDLogLevel ddLogLevel = DDLogLevelDebug;
+//static DDLogLevel ddLogLevel = DDLogLevelDebug;
+
+@interface ORCLog ()
+    @property (assign, nonatomic) ORCLogLevel internalLog;
+@end
+
 
 @implementation ORCLog
 
@@ -32,135 +36,87 @@ static DDLogLevel ddLogLevel = DDLogLevelDebug;
     
     if (self)
     {
-        [DDLog addLogger:[DDASLLogger sharedInstance]];
-        [DDLog addLogger:[DDTTYLogger sharedInstance]];
-        [DDTTYLogger sharedInstance].logFormatter = [[ORCFormatterLog alloc] init];
-        ddLogLevel = DDLogLevelError;
     }
     
     return self;
 }
 
-+ (void)logLevel:(ORCLogLevel)level
+- (void)logLevel:(ORCLogLevel)level
 {
-    [ORCLog sharedInstance];
-    
-    switch (level) {
-        case ORCLogLevelOff:
-            ddLogLevel = DDLogLevelOff;
-            break;
-            
-        case ORCLogLevelError:
-            ddLogLevel = DDLogLevelError;
-            break;
-            
-        case ORCLogLevelWarning:
-            ddLogLevel = DDLogLevelWarning;
-            break;
-            
-        case ORCLogLevelDebug:
-            ddLogLevel = DDLogLevelDebug;
-            break;
-        case ORCLogLevelAll:
-            ddLogLevel = DDLogLevelAll;
-            break;
-        default:
-            break;
-    }
+    self.internalLog = level;
 }
 
-+ (void)addLogsToFile
-{
-    [ORCLog sharedInstance];
-
-    // Initialize File Logger
-    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
-    
-    // Configure File Logger
-    [fileLogger setMaximumFileSize:(1024 * 1024)];
-    [fileLogger setRollingFrequency:(60*60*24)];
-    [[fileLogger logFileManager] setMaximumNumberOfLogFiles:7];
-    [DDLog addLogger:fileLogger];
-}
-
-+ (void)logError:(NSString *)format, ...
+- (void)logError:(NSString *)format, ...
 {
     [ORCLog sharedInstance];
     
     if (format)
     {
-        va_list ap;
-        va_start(ap, format);
-        [ORCLog logError:format args:ap];
+        if (self.internalLog > ORCLogLevelOff) {
+            [self logError:format];
+        }
     }
 }
 
-+ (void)logError:(NSString *)format args:(va_list)args
+- (void)logError:(NSString *)format args:(va_list)args
 {
-    NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
-    va_end(args);
-    
-    DDLogError(@"%@", output);
-
+    if (self.internalLog > ORCLogLevelOff) {
+        NSLog(@"ERROR: %@",format);
+    }
 }
 
-+ (void)logWarning:(NSString *)format, ...
+- (void)logWarning:(NSString *)format, ...
 {
-    [ORCLog sharedInstance];
-    
     if (format)
     {
-        va_list ap;
-        va_start(ap, format);
-        [ORCLog logWarning:format args: ap];
+        if (self.internalLog > ORCLogLevelError) {
+            NSLog(@"WARNING: %@",format);
+        }
     }
 }
 
-+ (void)logWarning:(NSString *)format args:(va_list)args
+- (void)logWarning:(NSString *)format args:(va_list)args
 {
     NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
-    va_end(args);
-    DDLogWarn(@"%@", output);
+    if (self.internalLog > ORCLogLevelError) {
+        NSLog(@"WARNING: %@",output);
+    }
 }
 
-+ (void)logDebug:(NSString *)format, ...
+- (void)logDebug:(NSString *)format, ...
 {
-    [ORCLog sharedInstance];
-    
     if (format)
     {
-        va_list ap;
-        va_start(ap, format);
-        [ORCLog logDebug:format args:ap];
+        if (self.internalLog > ORCLogLevelWarning) {
+            NSLog(@"DEBUG: %@",format);
+        }
     }
 }
 
-+ (void)logDebug:(NSString *)format args:(va_list)args
+- (void)logDebug:(NSString *)format args:(va_list)args
 {
     NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
-    va_end(args);
-    
-    DDLogDebug(@"%@", output);
+    if (self.internalLog > ORCLogLevelWarning) {
+        NSLog(@"DEBUG: %@",output);
+    }
 }
 
-+ (void)logVerbose:(NSString *)format, ...
+- (void)logVerbose:(NSString *)format, ...
 {
-    [ORCLog sharedInstance];
-    
     if (format)
     {
-        va_list ap;
-        va_start(ap, format);
-        [ORCLog logVerbose:format args:ap];
+        if (self.internalLog > ORCLogLevelWarning) {
+            NSLog(@"VERBOSE: %@",format);
+        }
     }
 }
 
-+ (void)logVerbose:(NSString *)format args:(va_list)args
+- (void)logVerbose:(NSString *)format args:(va_list)args
 {
     NSString *output = [[NSString alloc] initWithFormat:format arguments:args];
-    va_end(args);
-    
-    DDLogVerbose(@"%@", output);
+    if (self.internalLog > ORCLogLevelWarning) {
+        NSLog(@"VERBOSE: %@",output);
+    }
 }
 
 @end

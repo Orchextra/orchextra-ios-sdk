@@ -114,14 +114,14 @@ NSString * const ORC_DISTANCE = @"distance";
     {
         if(![CLLocationManager isMonitoringAvailableForClass:[region class]])
         {
-            [ORCLog logError:@"Region monitoring is not available."];
+            [[ORCLog sharedInstance] logError:@"Region monitoring is not available."];
         }
         else
         {
             region.notifyOnEntry = self.notifyOnEntry;
             region.notifyOnExit = self.notifyOnExit;
             [locationManager startMonitoringForRegion:region];
-            [ORCLog logDebug:@"Monitoring Geofence: %@  -> Remaining: %lu",
+            [[ORCLog sharedInstance] logDebug:@"Monitoring Geofence: %@  -> Remaining: %lu",
              self.code,
              (20 - locationManager.monitoredRegions.count)];
         }
@@ -173,10 +173,10 @@ NSString * const ORC_DISTANCE = @"distance";
 
 - (void)validateValues
 {
-    if (!self.type) [ORCLog logError:@"Geofence - type: Null"];
-    if (!self.code) [ORCLog logError:@"Geofence - code: Null"];
-    if (!self.currentDistance) [ORCLog logError:@"Geofence - currentDistance: Null"];
-    if (!self.currentEvent) [ORCLog logError:@"Geofence - currentEvent: Null"];
+    if (!self.type) [[ORCLog sharedInstance] logError:@"Geofence - type: Null"];
+    if (!self.code) [[ORCLog sharedInstance] logError:@"Geofence - code: Null"];
+    if (!self.currentDistance) [[ORCLog sharedInstance] logError:@"Geofence - currentDistance: Null"];
+    if (!self.currentEvent) [[ORCLog sharedInstance] logError:@"Geofence - currentEvent: Null"];
 }
 
 

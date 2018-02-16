@@ -200,16 +200,6 @@
 		8FA9F54E1DA2E3F0009A6E87 /* NSRegularExpression+ORCGIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF941BF362080042F370 /* NSRegularExpression+ORCGIGRegexp.m */; };
 		8FA9F54F1DA2E3F0009A6E87 /* NSString+ORCGIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF961BF362080042F370 /* NSString+ORCGIGRegexp.m */; };
 		8FA9F5501DA2E3F0009A6E87 /* NSUserDefaults+ORCGIGArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCF9A1BF362080042F370 /* NSUserDefaults+ORCGIGArchive.m */; };
-		8FA9F5511DA2E4BC009A6E87 /* CLIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A941850A1C74BDAD0089385A /* CLIColor.m */; };
-		8FA9F5521DA2E4BC009A6E87 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A941850E1C74BDAD0089385A /* DDAbstractDatabaseLogger.m */; };
-		8FA9F5531DA2E4BC009A6E87 /* DDASLLogCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185101C74BDAD0089385A /* DDASLLogCapture.m */; };
-		8FA9F5541DA2E4BC009A6E87 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185121C74BDAD0089385A /* DDASLLogger.m */; };
-		8FA9F5551DA2E4BC009A6E87 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185151C74BDAD0089385A /* DDFileLogger.m */; };
-		8FA9F5561DA2E4BC009A6E87 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185191C74BDAD0089385A /* DDLog.m */; };
-		8FA9F5571DA2E4BC009A6E87 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A941851C1C74BDAD0089385A /* DDTTYLogger.m */; };
-		8FA9F5581DA2E4BC009A6E87 /* DDContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A941851F1C74BDAD0089385A /* DDContextFilterLogFormatter.m */; };
-		8FA9F5591DA2E4BC009A6E87 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185211C74BDAD0089385A /* DDDispatchQueueLogFormatter.m */; };
-		8FA9F55A1DA2E4BC009A6E87 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A94185231C74BDAD0089385A /* DDMultiFormatter.m */; };
 		8FA9F55B1DA2E4BC009A6E87 /* ORCMBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A90FCECA1BF362080042F370 /* ORCMBProgressHUD.m */; };
 		8FA9F55C1DA2E56B009A6E87 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2884641D23D68D00BA5230 /* SafariServices.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8FA9F55D1DA2E572009A6E87 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93950451D0016A70063A27A /* PassKit.framework */; };
@@ -280,21 +270,6 @@
 		8FA9F6711DA2F257009A6E87 /* ORCProximityFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A9AD5BA71C5FAC7A009C02D3 /* ORCProximityFormatter.h */; };
 		8FA9F6721DA2F257009A6E87 /* ORCBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEBC1BF362080042F370 /* ORCBarButtonItem.h */; };
 		8FA9F6731DA2F257009A6E87 /* ORCWireframe.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEBF1BF362080042F370 /* ORCWireframe.h */; };
-		8FA9F6741DA2F2FA009A6E87 /* CLIColor.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185091C74BDAD0089385A /* CLIColor.h */; };
-		8FA9F6751DA2F2FA009A6E87 /* CocoaLumberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = A941850B1C74BDAD0089385A /* CocoaLumberjack.h */; };
-		8FA9F6761DA2F2FA009A6E87 /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A941850D1C74BDAD0089385A /* DDAbstractDatabaseLogger.h */; };
-		8FA9F6771DA2F2FA009A6E87 /* DDASLLogCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = A941850F1C74BDAD0089385A /* DDASLLogCapture.h */; };
-		8FA9F6781DA2F2FA009A6E87 /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185111C74BDAD0089385A /* DDASLLogger.h */; };
-		8FA9F6791DA2F2FA009A6E87 /* DDAssertMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185131C74BDAD0089385A /* DDAssertMacros.h */; };
-		8FA9F67A1DA2F2FA009A6E87 /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185141C74BDAD0089385A /* DDFileLogger.h */; };
-		8FA9F67B1DA2F2FA009A6E87 /* DDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185161C74BDAD0089385A /* DDLegacyMacros.h */; };
-		8FA9F67C1DA2F2FA009A6E87 /* DDLog+LOGV.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185171C74BDAD0089385A /* DDLog+LOGV.h */; };
-		8FA9F67D1DA2F2FA009A6E87 /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185181C74BDAD0089385A /* DDLog.h */; };
-		8FA9F67E1DA2F2FA009A6E87 /* DDLogMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = A941851A1C74BDAD0089385A /* DDLogMacros.h */; };
-		8FA9F67F1DA2F2FA009A6E87 /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A941851B1C74BDAD0089385A /* DDTTYLogger.h */; };
-		8FA9F6801DA2F2FA009A6E87 /* DDContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A941851E1C74BDAD0089385A /* DDContextFilterLogFormatter.h */; };
-		8FA9F6811DA2F2FA009A6E87 /* DDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185201C74BDAD0089385A /* DDDispatchQueueLogFormatter.h */; };
-		8FA9F6821DA2F2FA009A6E87 /* DDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = A94185221C74BDAD0089385A /* DDMultiFormatter.h */; };
 		8FA9F6831DA2F2FA009A6E87 /* ORCMBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCEC91BF362080042F370 /* ORCMBProgressHUD.h */; };
 		8FA9F6841DA2F350009A6E87 /* GIGScannerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF241BF362080042F370 /* GIGScannerViewController.h */; };
 		8FA9F6851DA2F350009A6E87 /* ORCGIGGeolocation.h in Headers */ = {isa = PBXBuildFile; fileRef = A90FCF2C1BF362080042F370 /* ORCGIGGeolocation.h */; };
@@ -910,31 +885,6 @@
 		A93950451D0016A70063A27A /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		A94052191C0F0CB000E092BE /* ORCSettingsInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCSettingsInteractorTests.m; sourceTree = "<group>"; };
 		A940521A1C0F0CB000E092BE /* ORCValidatorActionInteractorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCValidatorActionInteractorTests.m; sourceTree = "<group>"; };
-		A94185091C74BDAD0089385A /* CLIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLIColor.h; sourceTree = "<group>"; };
-		A941850A1C74BDAD0089385A /* CLIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLIColor.m; sourceTree = "<group>"; };
-		A941850B1C74BDAD0089385A /* CocoaLumberjack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaLumberjack.h; sourceTree = "<group>"; };
-		A941850D1C74BDAD0089385A /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		A941850E1C74BDAD0089385A /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		A941850F1C74BDAD0089385A /* DDASLLogCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogCapture.h; sourceTree = "<group>"; };
-		A94185101C74BDAD0089385A /* DDASLLogCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogCapture.m; sourceTree = "<group>"; };
-		A94185111C74BDAD0089385A /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		A94185121C74BDAD0089385A /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		A94185131C74BDAD0089385A /* DDAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAssertMacros.h; sourceTree = "<group>"; };
-		A94185141C74BDAD0089385A /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		A94185151C74BDAD0089385A /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
-		A94185161C74BDAD0089385A /* DDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLegacyMacros.h; sourceTree = "<group>"; };
-		A94185171C74BDAD0089385A /* DDLog+LOGV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDLog+LOGV.h"; sourceTree = "<group>"; };
-		A94185181C74BDAD0089385A /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		A94185191C74BDAD0089385A /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		A941851A1C74BDAD0089385A /* DDLogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLogMacros.h; sourceTree = "<group>"; };
-		A941851B1C74BDAD0089385A /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		A941851C1C74BDAD0089385A /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		A941851E1C74BDAD0089385A /* DDContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		A941851F1C74BDAD0089385A /* DDContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		A94185201C74BDAD0089385A /* DDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		A94185211C74BDAD0089385A /* DDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
-		A94185221C74BDAD0089385A /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
-		A94185231C74BDAD0089385A /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
 		A94185481C74DEF80089385A /* Orchextra_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orchextra_Prefix.pch; sourceTree = "<group>"; };
 		A94801191C6C77F3000573BD /* ORCGeofenceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCGeofenceTests.m; sourceTree = "<group>"; };
 		A948011B1C6C85C4000573BD /* ORCLocationManagerWrapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCLocationManagerWrapperTests.m; sourceTree = "<group>"; };
@@ -1525,7 +1475,6 @@
 		A90FCEC51BF362080042F370 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				A94185071C74BDAD0089385A /* CocoaLumberjack */,
 				A90FCEC81BF362080042F370 /* ORCMBProgressHUD */,
 				A90FCECB1BF362080042F370 /* Vuforia */,
 			);
@@ -2233,54 +2182,6 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		A94185071C74BDAD0089385A /* CocoaLumberjack */ = {
-			isa = PBXGroup;
-			children = (
-				A94185081C74BDAD0089385A /* CLI */,
-				A941850B1C74BDAD0089385A /* CocoaLumberjack.h */,
-				A941850D1C74BDAD0089385A /* DDAbstractDatabaseLogger.h */,
-				A941850E1C74BDAD0089385A /* DDAbstractDatabaseLogger.m */,
-				A941850F1C74BDAD0089385A /* DDASLLogCapture.h */,
-				A94185101C74BDAD0089385A /* DDASLLogCapture.m */,
-				A94185111C74BDAD0089385A /* DDASLLogger.h */,
-				A94185121C74BDAD0089385A /* DDASLLogger.m */,
-				A94185131C74BDAD0089385A /* DDAssertMacros.h */,
-				A94185141C74BDAD0089385A /* DDFileLogger.h */,
-				A94185151C74BDAD0089385A /* DDFileLogger.m */,
-				A94185161C74BDAD0089385A /* DDLegacyMacros.h */,
-				A94185171C74BDAD0089385A /* DDLog+LOGV.h */,
-				A94185181C74BDAD0089385A /* DDLog.h */,
-				A94185191C74BDAD0089385A /* DDLog.m */,
-				A941851A1C74BDAD0089385A /* DDLogMacros.h */,
-				A941851B1C74BDAD0089385A /* DDTTYLogger.h */,
-				A941851C1C74BDAD0089385A /* DDTTYLogger.m */,
-				A941851D1C74BDAD0089385A /* Extensions */,
-			);
-			path = CocoaLumberjack;
-			sourceTree = "<group>";
-		};
-		A94185081C74BDAD0089385A /* CLI */ = {
-			isa = PBXGroup;
-			children = (
-				A94185091C74BDAD0089385A /* CLIColor.h */,
-				A941850A1C74BDAD0089385A /* CLIColor.m */,
-			);
-			path = CLI;
-			sourceTree = "<group>";
-		};
-		A941851D1C74BDAD0089385A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A941851E1C74BDAD0089385A /* DDContextFilterLogFormatter.h */,
-				A941851F1C74BDAD0089385A /* DDContextFilterLogFormatter.m */,
-				A94185201C74BDAD0089385A /* DDDispatchQueueLogFormatter.h */,
-				A94185211C74BDAD0089385A /* DDDispatchQueueLogFormatter.m */,
-				A94185221C74BDAD0089385A /* DDMultiFormatter.h */,
-				A94185231C74BDAD0089385A /* DDMultiFormatter.m */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		A948011D1C6C92BE000573BD /* Section */ = {
 			isa = PBXGroup;
 			children = (
@@ -2542,21 +2443,6 @@
 				8FA9F69C1DA2F350009A6E87 /* ORCGIGURLFile.h in Headers */,
 				8FA9F69D1DA2F350009A6E87 /* ORCGIGURLManager.h in Headers */,
 				8FA9F69E1DA2F350009A6E87 /* ORCGIGURLRequest.h in Headers */,
-				8FA9F6741DA2F2FA009A6E87 /* CLIColor.h in Headers */,
-				8FA9F6751DA2F2FA009A6E87 /* CocoaLumberjack.h in Headers */,
-				8FA9F6761DA2F2FA009A6E87 /* DDAbstractDatabaseLogger.h in Headers */,
-				8FA9F6771DA2F2FA009A6E87 /* DDASLLogCapture.h in Headers */,
-				8FA9F6781DA2F2FA009A6E87 /* DDASLLogger.h in Headers */,
-				8FA9F6791DA2F2FA009A6E87 /* DDAssertMacros.h in Headers */,
-				8FA9F67A1DA2F2FA009A6E87 /* DDFileLogger.h in Headers */,
-				8FA9F67B1DA2F2FA009A6E87 /* DDLegacyMacros.h in Headers */,
-				8FA9F67C1DA2F2FA009A6E87 /* DDLog+LOGV.h in Headers */,
-				8FA9F67D1DA2F2FA009A6E87 /* DDLog.h in Headers */,
-				8FA9F67E1DA2F2FA009A6E87 /* DDLogMacros.h in Headers */,
-				8FA9F67F1DA2F2FA009A6E87 /* DDTTYLogger.h in Headers */,
-				8FA9F6801DA2F2FA009A6E87 /* DDContextFilterLogFormatter.h in Headers */,
-				8FA9F6811DA2F2FA009A6E87 /* DDDispatchQueueLogFormatter.h in Headers */,
-				8FA9F6821DA2F2FA009A6E87 /* DDMultiFormatter.h in Headers */,
 				8FA9F6831DA2F2FA009A6E87 /* ORCMBProgressHUD.h in Headers */,
 				8FA9F64A1DA2F213009A6E87 /* Orchextra_Prefix.pch in Headers */,
 				8FA9F64B1DA2F257009A6E87 /* ORCFormatterLog.h in Headers */,
@@ -2972,18 +2858,8 @@
 				8FA9F6D91DA2FA54009A6E87 /* ORCGIGLayoutGridHorizontal.m in Sources */,
 				8FFE59D41EE06A2600E76AC0 /* ORCLog.swift in Sources */,
 				8FA9F6DA1DA2FA54009A6E87 /* ORCGIGLayoutGridVertical.m in Sources */,
-				8FA9F5511DA2E4BC009A6E87 /* CLIColor.m in Sources */,
-				8FA9F5521DA2E4BC009A6E87 /* DDAbstractDatabaseLogger.m in Sources */,
-				8FA9F5531DA2E4BC009A6E87 /* DDASLLogCapture.m in Sources */,
 				8F4CFAF11E64567500B7603A /* VFConfigurationInteractor.m in Sources */,
-				8FA9F5541DA2E4BC009A6E87 /* DDASLLogger.m in Sources */,
-				8FA9F5551DA2E4BC009A6E87 /* DDFileLogger.m in Sources */,
 				8F7BF5D51DAB674300D608F0 /* ORCEddystoneConstants.swift in Sources */,
-				8FA9F5561DA2E4BC009A6E87 /* DDLog.m in Sources */,
-				8FA9F5571DA2E4BC009A6E87 /* DDTTYLogger.m in Sources */,
-				8FA9F5581DA2E4BC009A6E87 /* DDContextFilterLogFormatter.m in Sources */,
-				8FA9F5591DA2E4BC009A6E87 /* DDDispatchQueueLogFormatter.m in Sources */,
-				8FA9F55A1DA2E4BC009A6E87 /* DDMultiFormatter.m in Sources */,
 				8FA9F55B1DA2E4BC009A6E87 /* ORCMBProgressHUD.m in Sources */,
 				8FA9F52A1DA2E3F0009A6E87 /* GIGScannerViewController.m in Sources */,
 				8FA9F52C1DA2E3F0009A6E87 /* ORCGIGGeolocation.m in Sources */,

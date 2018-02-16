@@ -42,24 +42,25 @@ typedef NS_ENUM(NSUInteger, ORCLogLevel){
 
 @interface ORCLog : NSObject
 
++ (instancetype)sharedInstance;
+
 // SET UP
 
-+ (void)logLevel:(ORCLogLevel)level;
-+ (void)addLogsToFile;
+- (void)logLevel:(ORCLogLevel)level;
 
 // LOG LEVELS
 
-+ (void)logError:(NSString *)format, ...;
-+ (void)logError:(NSString *)format args:(va_list)args;
+- (void)logError:(NSString *)format, ...;
+- (void)logError:(NSString *)format args:(va_list)args;
 
-+ (void)logWarning:(NSString *)format, ...;
-+ (void)logWarning:(NSString *)format args:(va_list)args;
+- (void)logWarning:(NSString *)format, ...;
+- (void)logWarning:(NSString *)format args:(va_list)args;
 
-+ (void)logDebug:(NSString *)format, ...;
-+ (void)logDebug:(NSString *)format args:(va_list)args;
+- (void)logDebug:(NSString *)format, ...;
+- (void)logDebug:(NSString *)format args:(va_list)args;
 
-+ (void)logVerbose:(NSString *)format, ...;
-+ (void)logVerbose:(NSString *)format args:(va_list)args;
+- (void)logVerbose:(NSString *)format, ...;
+- (void)logVerbose:(NSString *)format args:(va_list)args;
 
 
 @end

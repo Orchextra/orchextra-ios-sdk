@@ -126,7 +126,7 @@ NSString * const ORCTagName = @"ORCTagName";
     
     if (matches > 0)
     {
-        [ORCLog logWarning:@"Name does not comply with the rules: %@", name];
+        [[ORCLog sharedInstance] logWarning:@"Name does not comply with the rules: %@", name];
         return FALSE;
     }
     return YES;
@@ -151,7 +151,7 @@ Prefix: (::|/|^_(?!(s$|b$))|^[^_].{0}$)
     
     if (matches > 0)
     {
-        [ORCLog logWarning:@"Prefix does not comply with the rules: %@", prefix];
+        [[ORCLog sharedInstance] logWarning:@"Prefix does not comply with the rules: %@", prefix];
         return NO;
     }
     return YES;

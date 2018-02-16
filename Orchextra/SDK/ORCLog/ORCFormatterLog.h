@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CocoaLumberjack.h"
+//#import "CocoaLumberjack.h"
 
-@interface ORCFormatterLog : NSObject <DDLogFormatter>
+@interface ORCFormatterLog : NSObject //<DDLogFormatter>
 {
     int loggerCount;
     NSDateFormatter *threadUnsafeDateFormatter;

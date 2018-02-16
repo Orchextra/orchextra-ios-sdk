@@ -163,14 +163,14 @@ NSString *const ORCBeaconMinor = @"beaconMinor";
         
         if(![CLLocationManager isRangingAvailable])
         {
-            [ORCLog logError:@"-- ERROR: Ranging beacons is not available.--"];
+            [[ORCLog sharedInstance] logError:@"-- ERROR: Ranging beacons is not available.--"];
         }
         else
         {
             [locationManager startMonitoringForRegion:beaconRegion];
             [locationManager startRangingBeaconsInRegion:beaconRegion];
             
-            [ORCLog logDebug:@"Monitoring Beacon: %@_%@_%@ -> Remaining: %lu",
+            [[ORCLog sharedInstance] logDebug:@"Monitoring Beacon: %@_%@_%@ -> Remaining: %lu",
              beaconRegion.proximityUUID.UUIDString,
              beaconRegion.major,
              beaconRegion.minor,

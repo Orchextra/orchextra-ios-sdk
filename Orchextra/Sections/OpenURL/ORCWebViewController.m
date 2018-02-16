@@ -162,7 +162,7 @@ CGFloat const HEIGHT_TOOLBAR = 44;
             NSError *error;
             PKPass *pass = [[PKPass alloc] initWithData:data error:&error];
             if (error) {
-                [ORCLog logError:@"Error: %@", error];
+                [[ORCLog sharedInstance] logError:@"Error: %@", error];
             } else {
                 PKAddPassesViewController *apvc = [[PKAddPassesViewController alloc] initWithPass:pass];
                 [self presentViewController:apvc animated:YES completion:nil];

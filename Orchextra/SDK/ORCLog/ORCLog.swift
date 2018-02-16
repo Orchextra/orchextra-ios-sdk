@@ -27,27 +27,27 @@ protocol LogVerbose {
 // Log Error
 extension ORCLog: LogError {
     static func logError(format: String, _ args: CVarArg...) {
-        ORCLog.logError(format, args: getVaList(args))
+        ORCLog.sharedInstance().logError(format, args: getVaList(args))
     }
 }
 
 // Log Warning
 extension ORCLog: LogWarning {
     static func logWarning(format: String, _ args: CVarArg...) {
-        ORCLog.logWarning(format, args: getVaList(args))
+        ORCLog.sharedInstance().logWarning(format, args: getVaList(args))
     }
 }
 
 // Log Debug
 extension ORCLog: LogDebug {
     static func logDebug(format: String, _ args: CVarArg...) {
-        ORCLog.logDebug(format, args: getVaList(args))
+        ORCLog.sharedInstance().logDebug(format, args: getVaList(args))
     }
 }
 
 // Log Verbose
 extension ORCLog: LogVerbose {
     static func logVerbose(format: String, _ args: CVarArg...) {
-        ORCLog.logVerbose(format, args: getVaList(args))
+        ORCLog.sharedInstance().logVerbose(format, args: getVaList(args))
     }
 }

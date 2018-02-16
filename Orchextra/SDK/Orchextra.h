@@ -151,7 +151,6 @@ typedef NS_ENUM(NSUInteger, CoreBluetoothScanLevel)
 // DEBUG
 
 + (void)logLevel:(ORCLogLevel)logLevel;
-+ (void)saveLogsToAFile;
 + (void)setCoreBluetoothScannerLevel:(CoreBluetoothScanLevel)scanLevel;
 
 // BACKGROUND FETCH
