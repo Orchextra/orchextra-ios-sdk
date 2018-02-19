@@ -434,7 +434,7 @@ typedef void(^ORCCompletionPlacemark)(CLPlacemark *placemark, NSError *error);
             [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error:: %lu kCLErrorRegionMonitoringFailure: %@ --",(unsigned long)errorCode, region.identifier]];
             break;
         case kCLErrorRangingUnavailable: //16
-            [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error:: %lu kCLErrorRangingUnavailable: Bluetooth might be off",(unsigned long)errorCode, region.identifier]];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"Location Error:: %lu kCLErrorRangingUnavailable: Bluetooth might be off, region: %@",(unsigned long)errorCode, region.identifier]];
             break;
         default:
             [[ORCLog sharedInstance] logError:[NSString stringWithFormat:@"Location Error: %lu: %@ --, ",(unsigned long)errorCode, region.identifier]];

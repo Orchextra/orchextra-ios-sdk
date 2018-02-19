@@ -121,9 +121,9 @@ NSString * const ORC_DISTANCE = @"distance";
             region.notifyOnEntry = self.notifyOnEntry;
             region.notifyOnExit = self.notifyOnExit;
             [locationManager startMonitoringForRegion:region];
-            [[ORCLog sharedInstance] logDebug:@"Monitoring Geofence: %@  -> Remaining: %lu",
-             self.code,
-             (20 - locationManager.monitoredRegions.count)];
+            [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"Monitoring Geofence: %@  -> Remaining: %lu",
+                                                self.code,
+                                                (20 - locationManager.monitoredRegions.count)]];
         }
     }
 }

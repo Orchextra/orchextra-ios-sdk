@@ -348,8 +348,8 @@ NSInteger const MAX_REGIONS = 20;
     [self.communicator loadConfiguration:values sections:nil completion:^(ORCAppConfigResponse *response) {
         
         if (response.success)
-        {
-            [[ORCLog sharedInstance] logVerbose:@" - Configuration Response: %@", response.json];
+        {            
+            [[ORCLog sharedInstance] logVerbose: [NSString stringWithFormat: @" - Configuration Response: %@", response.json]];
             [this updateConfigurationResponse:response];
             if(completionCallBack) completionCallBack(YES, nil);
         }
@@ -491,8 +491,8 @@ NSInteger const MAX_REGIONS = 20;
     
     NSInteger geofencesStored = (response.geoRegions.count > remainingRegions) ? remainingRegions : response.geoRegions.count;
     
-    [[ORCLog sharedInstance] logDebug:@"Beacon_Region to register: %lu", response.beaconRegions.count];
-    [[ORCLog sharedInstance] logDebug:@"Geofences to register: %lu", geofencesStored];
+    [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"Beacon_Region to register: %lu", response.beaconRegions.count]];
+    [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"Geofences to register: %lu", geofencesStored]];
     
     return regions;
 }

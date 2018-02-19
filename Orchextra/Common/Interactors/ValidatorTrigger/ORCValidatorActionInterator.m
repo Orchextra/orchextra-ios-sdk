@@ -238,8 +238,8 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     {
         if (requestParams && type && value)
         {
-            [[ORCLog sharedInstance] logDebug:@"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
-             type, value];
+            [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"---- ACTION NOT FOUND---- \n ------> Trigger: %@, Value: %@\n",
+                                                type, value]];
         }
         if (completion)
         {
@@ -251,12 +251,12 @@ int ERROR_ACTION_NOT_FOUND = 5001;
         if (type && value)
         {
             if (response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime) {
-                [[ORCLog sharedInstance] logDebug:@"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
-                 type, value, response.action.type, response.action.urlString, response.action.scheduleTime];
+                [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %d\n",
+                                                    type, value, response.action.type, response.action.urlString, response.action.scheduleTime]];
             }
             else
             {
-                [[ORCLog sharedInstance] logDebug:@"---- FOUND ACTION ---- \n ----- but ERROR when search response.action or response.action.type or response.action.urlString or response.action.scheduleTime"];
+                [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"---- FOUND ACTION ---- \n ----- but ERROR when search response.action or response.action.type or response.action.urlString or response.action.scheduleTime"]];
             }
         }
         if (completion) {
