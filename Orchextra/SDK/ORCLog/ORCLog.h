@@ -55,5 +55,9 @@ typedef NS_ENUM(NSUInteger, ORCLogLevel){
 - (void)logDebug:(NSString *)format;
 - (void)logVerbose:(NSString *)format;
 
+- (bool)isLogError;
+- (bool)isLogWarning;
+- (bool)isLogDebug;
+- (bool)isLogVerbose;
 
 @end

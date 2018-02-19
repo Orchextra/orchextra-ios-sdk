@@ -27,27 +27,43 @@ protocol LogVerbose {
 // Log Error
 extension ORCLog: LogError {
     static func logError(format: String) {
-        ORCLog.sharedInstance().logError(format)
+        if ORCLog.sharedInstance().isLogError() {
+            print("ERROR: \(format)")
+        }
+       // ORCLog.sharedInstance().logError(format)
     }
 }
 
 // Log Warning
 extension ORCLog: LogWarning {
     static func logWarning(format: String) {
-        ORCLog.sharedInstance().logWarning(format)
+        if ORCLog.sharedInstance().isLogWarning() {
+            print("WARNING: \(format)")
+        }
+        
+       // ORCLog.sharedInstance().logWarning(format)
     }
 }
 
 // Log Debug
 extension ORCLog: LogDebug {
     static func logDebug(format: String) {
-        ORCLog.sharedInstance().logDebug(format)
+        if ORCLog.sharedInstance().isLogDebug() {
+            print("DEBUG: \(format)")
+        }
+        
+       // ORCLog.sharedInstance().logDebug(format)
     }
 }
 
 // Log Verbose
 extension ORCLog: LogVerbose {
     static func logVerbose(format: String) {
-        ORCLog.sharedInstance().logVerbose(format)
+        if ORCLog.sharedInstance().isLogVerbose() {
+            print("VERBOSE: \(format)")
+        }
+        
+       // ORCLog.sharedInstance().logVerbose(format)
     }
 }
+
