@@ -491,8 +491,8 @@ NSInteger const MAX_REGIONS = 20;
     
     NSInteger geofencesStored = (response.geoRegions.count > remainingRegions) ? remainingRegions : response.geoRegions.count;
     
-    [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"Beacon_Region to register: %lu", response.beaconRegions.count]];
-    [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"Geofences to register: %lu", geofencesStored]];
+    [[ORCLog sharedInstance] logVerbose: [NSString stringWithFormat: @"Beacon_Region to register: %lu", response.beaconRegions.count]];
+    [[ORCLog sharedInstance] logVerbose: [NSString stringWithFormat: @"Geofences to register: %lu", geofencesStored]];
     
     return regions;
 }
