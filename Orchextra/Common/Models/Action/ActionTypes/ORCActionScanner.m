@@ -50,7 +50,7 @@
     }
     else
     {
-        [ORCLog logError:@"Orchextra has been stopped - start orchextra before continuing."];
+        [[ORCLog sharedInstance] logError:@"Orchextra has been stopped - start orchextra before continuing."];
     }
 }
 

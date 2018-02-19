@@ -98,7 +98,7 @@ class ORCEddystoneRegionManager {
             self.validatorInteractor.validateProximity(with: region, completion: { (action, error) in
                 guard let actionNotNil = action else { return }
                 
-                ORCLog.logVerbose(format: event, region.uid.namespace)
+                ORCLog.logVerbose(format: "\(event) \(region.uid.namespace)")
                 actionNotNil.launchedByTriggerCode = region.code
                 self.actionInterface.didFireTrigger(with: actionNotNil)
             })

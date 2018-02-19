@@ -18,17 +18,19 @@
     {
         case GIGLogLevelVerbose:
         {
-            [ORCLog logVerbose:@"-- REQUEST: %@ --", self.tag ?: @""];
-            [ORCLog logVerbose:@"URL: %@", request.URL.absoluteString];
-            [ORCLog logVerbose:@"Method: %@", request.HTTPMethod];
-            [ORCLog logVerbose:@"Headers: %@", request.allHTTPHeaderFields];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"-- REQUEST: %@ --", self.tag ?: @""]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"URL: %@", request.URL.absoluteString]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"Method: %@", request.HTTPMethod]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"Headers: %@", request.allHTTPHeaderFields]];
+
             [self logBody:request.HTTPBody stringEncoding:stringEncoding];
             break;
         }
         case GIGLogLevelBasic:
         {
-            [ORCLog logVerbose:@"-- REQUEST: %@ --", self.tag ?: @""];
-            [ORCLog logVerbose:@"URL: %@", request.URL.absoluteString];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"-- REQUEST: %@ --", self.tag ?: @""]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"URL: %@", request.URL.absoluteString]];
+            
             [self logBody:request.HTTPBody stringEncoding:stringEncoding];
             break;
         }
@@ -45,27 +47,27 @@
     {
         case GIGLogLevelVerbose:
         {
-            [ORCLog logVerbose:@"-- RESPONSE: %@ --", self.tag ?: @""];
-            [ORCLog logVerbose:@"URL: %@", response.URL.absoluteString];
-            [ORCLog logVerbose:@"Status Code: %d", (int)response.statusCode];
-            [ORCLog logVerbose:@"Headers: %@", response.allHeaderFields];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"-- RESPONSE: %@ --", self.tag ?: @""]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"URL: %@", response.URL.absoluteString]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"Status Code: %d", (int)response.statusCode]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"Headers: %@", response.allHeaderFields]];
             [self logBody:data stringEncoding:stringEncoding];
             [self logError:error];
             break;
         }
         case GIGLogLevelBasic:
         {
-            [ORCLog logVerbose:@"-- RESPONSE: %@ --", self.tag ?: @""];
-            [ORCLog logVerbose:@"URL: %@", response.URL.absoluteString];
-            [ORCLog logVerbose:@"Status Code: %d", (int)response.statusCode];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"-- RESPONSE: %@ --", self.tag ?: @""]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"URL: %@", response.URL.absoluteString]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"Status Code: %d", (int)response.statusCode]];
             [self logBody:data stringEncoding:stringEncoding];
             break;
         }
         case GIGLogLevelError:
         {
-            [ORCLog logVerbose:@"-- RESPONSE: %@ --", self.tag ?: @""];
-            [ORCLog logVerbose:@"URL: %@", response.URL.absoluteString];
-            [ORCLog logVerbose:@"Status Code: %d", (int)response.statusCode];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"-- RESPONSE: %@ --", self.tag ?: @""]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"URL: %@", response.URL.absoluteString]];
+            [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"Status Code: %d", (int)response.statusCode]];
             [self logError:error];
             break;
         }
@@ -80,17 +82,17 @@
 - (void)logBody:(NSData *)body stringEncoding:(NSStringEncoding)stringEncoding
 {
     NSString *dataString = [[NSString alloc] initWithData:body encoding:stringEncoding];
-    [ORCLog logVerbose:@"Body (%d): %@", (int)body.length, dataString ?: @""];
+    [[ORCLog sharedInstance] logVerbose:[NSString stringWithFormat:@"Body (%d): %@", (int)body.length, dataString ?: @""]];
 }
 
 - (void)logError:(NSError *)error
 {
     if (error != nil)
     {
-        [ORCLog logError:@"Error (%d): %@", (int)error.code, error.localizedDescription];
+        [[ORCLog sharedInstance] logError:[NSString stringWithFormat:@"Error (%d): %@", (int)error.code, error.localizedDescription]];
         if (error.userInfo)
         {
-            [ORCLog logError:@"%@", error.userInfo];
+            [[ORCLog sharedInstance] logError:[NSString stringWithFormat:@"%@", error.userInfo]];
         }
     }
 }

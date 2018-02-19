@@ -68,7 +68,6 @@
 
         // Set up to error level by default.
         [Orchextra logLevel:ORCLogLevelError];
-        [Orchextra saveLogsToAFile];
     }
     
     return self;
@@ -83,13 +82,14 @@
         
         if (success)
         {
-            [ORCLog logDebug:@" ---  ORCHEXTRA INFO --- "];
-            [ORCLog logDebug:@" ---  SDK Version: %@", ORCSDKVersion];
-            [ORCLog logDebug:@" ---  Endpoint SDK: %@", [ORCURLProvider domain]];
+            [[ORCLog sharedInstance] logDebug:@" ---  ORCHEXTRA INFO --- "];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat:@" ---  SDK Version: %@", ORCSDKVersion]];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat:@" ---  Endpoint SDK: %@", [ORCURLProvider domain]]];
+            
 
-            [ORCLog logDebug:@"LOADED PROJECT WITH: "];
-            [ORCLog logDebug:@"- APIKEY: %@", apiKey];
-            [ORCLog logDebug:@"- API SECRET: %@", apiSecret];
+            [[ORCLog sharedInstance] logDebug: @"LOADED PROJECT WITH: "];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"- APIKEY: %@", apiKey]];
+            [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"- API SECRET: %@", apiSecret]];
 
             [this.applicationCenter startObservingAppDelegateEvents];
             [this.actionManager startWithAppConfiguration];
@@ -98,7 +98,7 @@
         }
         else
         {
-            [ORCLog logError:error.debugDescription];
+            [[ORCLog sharedInstance] logError:error.debugDescription];
 
             // If an error has occurred then we stop orchextra services.
             [this.interactor saveOrchextraRunning:NO];
@@ -158,7 +158,7 @@
     [self.actionManager stopMonitoringAndRanging];
 
     [self.interactor saveOrchextraRunning:NO];
-    [ORCLog logDebug:@"Stoping Orchextra Services"];
+    [[ORCLog sharedInstance] logDebug:@"Stoping Orchextra Services"];
 }
 
 - (ORCWebViewViewController *)getOrchextraWebViewWithURLWithString:(NSString *)urlString
@@ -281,12 +281,7 @@
 
 + (void)logLevel:(ORCLogLevel)logLevel
 {    
-    [ORCLog logLevel:logLevel];
-}
-
-+ (void)saveLogsToAFile
-{
-    [ORCLog addLogsToFile];
+    [[ORCLog sharedInstance] logLevel:logLevel];
 }
 
 + (void)setCoreBluetoothScannerLevel:(CoreBluetoothScanLevel)scanLevel

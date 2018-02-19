@@ -172,11 +172,11 @@
 {
     if (extended)
     {
-        [ORCLog logDebug:@"New background time setup to %lu", seconds];
+        [[ORCLog sharedInstance] logDebug:[NSString stringWithFormat: @"New background time setup to %lu", seconds]];
     }
     else
     {
-        [ORCLog logError:@"You have exceeded the maximum backgroundTime, MAX_BACKGROUND_TIME 180."];
+        [[ORCLog sharedInstance] logError:@"You have exceeded the maximum backgroundTime, MAX_BACKGROUND_TIME 180."];
     }
 }
 

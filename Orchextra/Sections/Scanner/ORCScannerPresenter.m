@@ -80,7 +80,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.scannedValue = @"";
         self.waitingResponseScannedValue = NO;
-        [ORCLog logVerbose:@"Reset scanned value"];
+        [[ORCLog sharedInstance] logVerbose:@"Reset scanned value"];
     });
 }
 
@@ -133,7 +133,7 @@
             {
                 //Not match ...
                 [this performSelector:@selector(notFoundAction) withObject:nil afterDelay:1.0];
-                [ORCLog logError:@"%@", error.localizedDescription];
+                [[ORCLog sharedInstance] logError:[NSString stringWithFormat: @"%@", error.localizedDescription]];
             }
         }];
     }

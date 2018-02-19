@@ -17,7 +17,7 @@
     }
     return self;
 }
-
+/*
 - (NSString *)formatLogMessage:(DDLogMessage *)logMessage {
     NSString *logLevel;
     switch (logMessage->_flag) {
@@ -42,6 +42,6 @@
 - (void)willRemoveFromLogger:(id <DDLogger>)logger {
     loggerCount--;
 }
-
+*/
 
 @end

@@ -105,7 +105,7 @@ NSInteger const MAX_REGIONS = 20;
     }
     else
     {
-        [ORCLog logError:@"Cannot save user empty"];
+        [[ORCLog sharedInstance] logError:@"Cannot save user empty"];
     }
 }
 
@@ -231,7 +231,7 @@ NSInteger const MAX_REGIONS = 20;
         
     } else
     {
-        [ORCLog logError:@"crmID required to set user custom fields"];
+        [[ORCLog sharedInstance] logError:@"crmID required to set user custom fields"];
     }
 }
 
@@ -283,7 +283,7 @@ NSInteger const MAX_REGIONS = 20;
         
     } else
     {
-        [ORCLog logError:@"crmID required to set user tags"];
+        [[ORCLog sharedInstance] logError:@"crmID required to set user tags"];
     }
 }
 
@@ -316,7 +316,7 @@ NSInteger const MAX_REGIONS = 20;
         
     } else
     {
-        [ORCLog logError:@"crmID required to set user business units"];
+        [[ORCLog sharedInstance] logError:@"crmID required to set user business units"];
     }
 }
 
@@ -348,8 +348,8 @@ NSInteger const MAX_REGIONS = 20;
     [self.communicator loadConfiguration:values sections:nil completion:^(ORCAppConfigResponse *response) {
         
         if (response.success)
-        {
-            [ORCLog logVerbose:@" - Configuration Response: %@", response.json];
+        {            
+            [[ORCLog sharedInstance] logVerbose: [NSString stringWithFormat: @" - Configuration Response: %@", response.json]];
             [this updateConfigurationResponse:response];
             if(completionCallBack) completionCallBack(YES, nil);
         }
@@ -363,7 +363,7 @@ NSInteger const MAX_REGIONS = 20;
                 id json = [NSJSONSerialization JSONObjectWithData:response.data
                                                           options:NSJSONReadingAllowFragments
                                                             error:&error];
-                [ORCLog logError:[json description]];
+                [[ORCLog sharedInstance] logError:[json description]];
             }
         }
     }];
@@ -491,8 +491,8 @@ NSInteger const MAX_REGIONS = 20;
     
     NSInteger geofencesStored = (response.geoRegions.count > remainingRegions) ? remainingRegions : response.geoRegions.count;
     
-    [ORCLog logDebug:@"Beacon_Region to register: %lu", response.beaconRegions.count];
-    [ORCLog logDebug:@"Geofences to register: %lu", geofencesStored];
+    [[ORCLog sharedInstance] logVerbose: [NSString stringWithFormat: @"Beacon_Region to register: %lu", response.beaconRegions.count]];
+    [[ORCLog sharedInstance] logVerbose: [NSString stringWithFormat: @"Geofences to register: %lu", geofencesStored]];
     
     return regions;
 }
