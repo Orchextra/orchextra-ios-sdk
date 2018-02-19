@@ -76,22 +76,22 @@
 
 - (bool)isLogError
 {
-    return self.internalLog > ORCLogLevelOff
+    return self.internalLog > ORCLogLevelOff;
 }
 
 - (bool)isLogWarning
 {
-    return self.internalLog > ORCLogLevelError
+    return self.internalLog > ORCLogLevelError;
 }
 
 - (bool)isLogDebug
 {
-    return self.internalLog > ORCLogLevelWarning
+    return self.internalLog > ORCLogLevelWarning;
 }
 
 - (bool)isLogVerbose
 {
-    return self.internalLog > ORCLogLevelWarning
+    return self.internalLog > ORCLogLevelWarning;
 }
 
 @end
