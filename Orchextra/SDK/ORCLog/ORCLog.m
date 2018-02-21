@@ -12,7 +12,7 @@
 //static DDLogLevel ddLogLevel = DDLogLevelDebug;
 
 @interface ORCLog ()
-    @property (assign, nonatomic) ORCLogLevel internalLog;
+    @property (assign, nonatomic) NSUInteger internalLog;
 @end
 
 
@@ -48,29 +48,29 @@
 
 - (void)logError:(NSString *)format
 {
-    if (self.internalLog > ORCLogLevelOff) {
-        NSLog(@"ERROR: %@",format);
+    if (self.internalLog > 0) {
+        NSLog(@"(Orchextra) - ERROR: %@",format);
     }
 }
 
 - (void)logWarning:(NSString *)format
 {
-    if (self.internalLog > ORCLogLevelError) {
-        NSLog(@"WARNING: %@",format);
+    if (self.internalLog > 1) {
+        NSLog(@"(Orchextra) - WARNING: %@",format);
     }
 }
 
 - (void)logDebug:(NSString *)format
 {
-    if (self.internalLog > ORCLogLevelWarning) {
-        NSLog(@"DEBUG: %@",format);
+    if (self.internalLog > 2) {
+        NSLog(@"(Orchextra) - DEBUG: %@",format);
     }
 }
 
 - (void)logVerbose:(NSString *)format
 {
-    if (self.internalLog > ORCLogLevelWarning) {
-        NSLog(@"VERBOSE: %@",format);
+    if (self.internalLog > 3) {
+        NSLog(@"(Orchextra) - VERBOSE: %@",format);
     }
 }
 
