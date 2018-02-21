@@ -19,12 +19,12 @@ class Session {
     var apiSecret: String?
     
     // Attributes core
-    private let keyAccessToken = "accesstoken"
-    private let keyCredentials = "credentials"
-    private let keyUser = "user"
-    private let keyDeviceBusinessUnits = "device_business_units"
-    private let keyDeviceTags = "device_tags"
-    private let keyPushNotificationsToken = "push_notifications_token"
+    private let keyAccessToken = "orx_accesstoken"
+    private let keyCredentials = "orx_credentials"
+    private let keyUser = "orx_user"
+    private let keyDeviceBusinessUnits = "orx_device_business_units"
+    private let keyDeviceTags = "orx_device_tags"
+    private let keyPushNotificationsToken = "orx_push_notifications_token"
     
     init(userDefault: UserDefaults = UserDefaults()) {
         self.userDefault = userDefault
