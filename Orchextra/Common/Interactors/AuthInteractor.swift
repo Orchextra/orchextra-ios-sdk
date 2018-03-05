@@ -111,6 +111,10 @@ class AuthInteractor: AuthInteractorInput {
             params[key] = value
         }
         
+        if params.count == 0 {
+            params["crm"] = NSNull()
+        }
+        
         self.service.bind(params: params) { result in
             switch result {
             case .success(let json):
