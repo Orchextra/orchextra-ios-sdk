@@ -58,7 +58,7 @@ typedef void(^CompletionProjectSettings)(BOOL success, NSError *error);
 - (void)saveDeviceBusinessUnits:(NSArray <ORCBusinessUnit *> *)deviceBusinessUnits;
 - (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key;
 - (void)commitConfigurationWithBackgroundCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
-- (void)commitConfiguration;
+- (void)commitConfiguration:(void (^)(BOOL success, NSError *error))completion;
 
 // TOKENS
 - (void)invalidateTokens;

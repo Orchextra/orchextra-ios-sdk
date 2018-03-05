@@ -75,7 +75,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     }
     else
     {
-        [ORCLog logError:@"Orchextra has not api key either api secret - start orchextra before continuing."];
+        [[ORCLog sharedInstance] logError:@"Orchextra has not api key either api secret - start orchextra before continuing."];
     }
     
 }
@@ -141,7 +141,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     }
     else
     {
-        [ORCLog logError:@"Orchextra has not api key either api secret - start orchextra before continuing."];
+        [[ORCLog sharedInstance] logError:@"Orchextra has not api key either api secret - start orchextra before continuing."];
     }
 }
 
@@ -175,7 +175,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
     request.json = parametersJSON;
     request.logLevel = GIGLogLevelBasic;
     request.requestTag = @"accessToken";
-    [ORCLog logVerbose:[self printToJSONFormat:parametersJSON]];
+    [[ORCLog sharedInstance] logVerbose:[self printToJSONFormat:parametersJSON]];
     
     [self sendRequest:request completion:^(ORCGIGURLJSONResponse *response) {
         completion(response);
@@ -381,7 +381,7 @@ NSInteger ERROR_AUTHENTICATION_ACCESSTOKEN = 401;
         }
         else
         {
-            [ORCLog logDebug:@"---- queueRequest with key request is NIL"];
+            [[ORCLog sharedInstance] logDebug:@"---- queueRequest with key request is NIL"];
         }
     }
 }

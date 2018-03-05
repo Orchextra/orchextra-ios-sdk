@@ -48,7 +48,7 @@
     }
     else
     {
-        [ORCLog logError:@"Orchextra has been stopped - start orchextra before continuing."];
+        [[ORCLog sharedInstance] logError:@"Orchextra has been stopped - start orchextra before continuing."];
     }
 
 }
@@ -70,7 +70,7 @@
     {
         NSString *message = [NSBundle localize:@"orc_vuforia_error_missing_vuforia_credentials"
                                        comment:@""];
-        [ORCLog logError:message];
+        [[ORCLog sharedInstance] logError:message];
     }
 }
 
