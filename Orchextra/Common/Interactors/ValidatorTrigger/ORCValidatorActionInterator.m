@@ -234,7 +234,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     NSString *type = [requestParams stringForKey:TYPE_KEY];
     NSString *value = [requestParams stringForKey:VALUE_KEY];
     
-    if ([response isKindOfClass:[ORCURLActionResponse class]] && !response.action)
+    if ([response isKindOfClass: [ORCURLActionResponse class]] && !response.action)
     {
         if (requestParams && type && value)
         {
@@ -250,7 +250,7 @@ int ERROR_ACTION_NOT_FOUND = 5001;
     {
         if (type && value)
         {
-            if (response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime) {
+            if ([response isKindOfClass: [ORCURLActionResponse class]] && response.action != nil && response.action.type != nil && response.action.urlString != nil && response.action.scheduleTime) {
                 [[ORCLog sharedInstance] logDebug: [NSString stringWithFormat: @"---- FOUND ACTION ---- \n ------> Trigger: %@, Value: %@\n ------> Action: %@, url: %@, Schedule: %ld\n",
                                                     type, value, response.action.type, response.action.urlString, (long)response.action.scheduleTime]];
             }
@@ -260,11 +260,12 @@ int ERROR_ACTION_NOT_FOUND = 5001;
             }
         }
         if (completion) {
-            if (response.action) {
+            if ([response isKindOfClass: [ORCURLActionResponse class]] && response.action) {
                 completion(response.action, nil);
             }
             else {
                 [[ORCLog sharedInstance] logDebug:@"---- ERROR, response.action is NIL"];
+                completion(nil, nil);
             }
         }
     }
