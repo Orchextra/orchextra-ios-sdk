@@ -208,7 +208,7 @@ class AuthInteractor: AuthInteractorInput {
             case .success:
                 let currentUser = self.session.currentUser()
                 let device = Device()
-                self.bind(user: currentUser, device: device) { result in
+                self.bind(user: currentUser, device: device) { _ in
                     // Notify that token did change
                 }
             case .error(let error):
