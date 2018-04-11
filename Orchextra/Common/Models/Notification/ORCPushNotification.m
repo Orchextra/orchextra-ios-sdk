@@ -58,8 +58,8 @@
         else
         {
             _trackerId = [notificionDic stringForKey:@"trackId"];
-            _title = notification.request.content.title;
-            _body = notification.request.content.body;
+            _title = [notification.request.content.title isEqualToString: @""] ? [notificionDic stringForKey:@"title"] : notification.request.content.title;
+            _body = [notification.request.content.body isEqualToString: @""] ? [notificionDic stringForKey:@"body"] : notification.request.content.body;
             _url = [notificionDic stringForKey:@"url"];
             _launchedBy = [notificionDic stringForKey:@"launchedById"];
         }
@@ -72,7 +72,7 @@
 {
     self = [super init];
     
-    if (self)
+    if (self)   
     {
         NSDictionary *aps = [notification dictionaryForKey:@"aps"];
         id alert = aps[@"alert"];
