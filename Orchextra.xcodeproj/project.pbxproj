@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0229A3AB207F7C49001EBE5F /* OldDataMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229A3AA207F7C49001EBE5F /* OldDataMigrationManager.swift */; };
 		236F00392029F81000647D4F /* BindingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F00382029F81000647D4F /* BindingError.swift */; };
 		6126C64B202DAB9A0009A20A /* DefaultScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */; };
 		6126C64C202DAB9A0009A20A /* DefaultScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */; };
@@ -331,6 +332,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0229A3AA207F7C49001EBE5F /* OldDataMigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldDataMigrationManager.swift; sourceTree = "<group>"; };
 		236F00382029F81000647D4F /* BindingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BindingError.swift; path = Common/Model/Error/BindingError.swift; sourceTree = "<group>"; };
 		6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultScannerVC.swift; sourceTree = "<group>"; };
 		6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DefaultScanner.storyboard; sourceTree = "<group>"; };
@@ -1446,6 +1448,7 @@
 				A9AC21251F54416E00095EC5 /* Dispatch+Extension.swift */,
 				A9AC21271F5443E600095EC5 /* PaddingLabel.swift */,
 				A958CCAB1F85253A007074D5 /* String+MD5.swift */,
+				0229A3AA207F7C49001EBE5F /* OldDataMigrationManager.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -1927,6 +1930,7 @@
 				A9986B2D1F59766600F2CC65 /* ActionBrowserExternal.swift in Sources */,
 				A91142421F9F3E1F00F6DBCB /* Project.swift in Sources */,
 				A9C54DB91F41A81E00DF2074 /* OrchextraController.swift in Sources */,
+				0229A3AB207F7C49001EBE5F /* OldDataMigrationManager.swift in Sources */,
 				236F00392029F81000647D4F /* BindingError.swift in Sources */,
 				A99516741F8BC75F00C59BA1 /* ImageRecognition.swift in Sources */,
 				8F299C5B1F6691060023F69D /* EddystoneRegionManager.swift in Sources */,
@@ -2394,6 +2398,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CommonCrypto";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

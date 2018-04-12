@@ -137,6 +137,7 @@ open class Orchextra {
         self.environment = .production
         self.pushManager = PushOrxManager.shared
         LogManager.shared.appName = "ORCHEXTRA"
+        OldDataMigrationManager().migrateData()
     }
     
     // MARK: PUBLIC SDK METHODS
