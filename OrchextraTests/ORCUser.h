@@ -31,19 +31,16 @@ typedef NS_ENUM(NSUInteger, ORCUserGender)
 
 /**
  Method to update one custom field
- @param: value, key of ORCCustomField
  */
 - (BOOL)updateCustomFieldValue:(id)value withKey:(NSString *)key;
 
 /**
     Method to check if the CRMID has changed
-    @param: user,check new user.
 */
 - (BOOL)crmHasChanged:(ORCUser *)user;
 
 /**
     Method to check if both user are the same.
-    @param: user,check new user.
  */
 - (BOOL)isSameUser:(ORCUser *)user;
 

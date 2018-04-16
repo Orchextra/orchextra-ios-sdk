@@ -46,7 +46,7 @@ public class CustomField: Codable {
     class func parse(customFieldsList: [String: Any]?) -> [CustomField] {
         
         guard let customFields = customFieldsList else { return [CustomField]() }
-       let result = customFields.keys.flatMap { key in
+        let result = customFields.keys.compactMap { key in
             return CustomField.customFieldFromJSON(key: key, json: customFields)
         }
         return result
