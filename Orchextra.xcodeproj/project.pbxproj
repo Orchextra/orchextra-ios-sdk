@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0229A3AB207F7C49001EBE5F /* OldDataMigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0229A3AA207F7C49001EBE5F /* OldDataMigrationManager.swift */; };
+		02318DEF208480F100E85D89 /* OldDataMigrationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02318DEE208480F100E85D89 /* OldDataMigrationManagerTests.swift */; };
+		02318DFA2084853C00E85D89 /* ORCTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318DF22084853B00E85D89 /* ORCTag.m */; };
+		02318DFB2084853C00E85D89 /* ORCBusinessUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318DF42084853C00E85D89 /* ORCBusinessUnit.m */; };
+		02318DFC2084853C00E85D89 /* ORCCustomField.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318DF72084853C00E85D89 /* ORCCustomField.m */; };
+		02318E002084862200E85D89 /* NSString+ORCGIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318DFE2084862100E85D89 /* NSString+ORCGIGRegexp.m */; };
+		02318E032084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E022084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m */; };
+		02318E0A208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E08208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m */; };
+		02318E0D2084870300E85D89 /* ORCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E0B2084870300E85D89 /* ORCUser.m */; };
 		236F00392029F81000647D4F /* BindingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F00382029F81000647D4F /* BindingError.swift */; };
 		6126C64B202DAB9A0009A20A /* DefaultScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */; };
 		6126C64C202DAB9A0009A20A /* DefaultScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */; };
@@ -333,6 +341,23 @@
 
 /* Begin PBXFileReference section */
 		0229A3AA207F7C49001EBE5F /* OldDataMigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldDataMigrationManager.swift; sourceTree = "<group>"; };
+		02318DEE208480F100E85D89 /* OldDataMigrationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldDataMigrationManagerTests.swift; sourceTree = "<group>"; };
+		02318DF02084853A00E85D89 /* OrchextraTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrchextraTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		02318DF22084853B00E85D89 /* ORCTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCTag.m; sourceTree = "<group>"; };
+		02318DF32084853C00E85D89 /* ORCCustomField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCCustomField.h; sourceTree = "<group>"; };
+		02318DF42084853C00E85D89 /* ORCBusinessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCBusinessUnit.m; sourceTree = "<group>"; };
+		02318DF52084853C00E85D89 /* ORCTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCTag.h; sourceTree = "<group>"; };
+		02318DF72084853C00E85D89 /* ORCCustomField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCCustomField.m; sourceTree = "<group>"; };
+		02318DF82084853C00E85D89 /* ORCBusinessUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCBusinessUnit.h; sourceTree = "<group>"; };
+		02318DFD2084862100E85D89 /* NSString+ORCGIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ORCGIGRegexp.h"; sourceTree = "<group>"; };
+		02318DFE2084862100E85D89 /* NSString+ORCGIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ORCGIGRegexp.m"; sourceTree = "<group>"; };
+		02318DFF2084862200E85D89 /* ORCGIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCGIGRegexp.h; sourceTree = "<group>"; };
+		02318E012084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+ORCGIGRegexp.h"; sourceTree = "<group>"; };
+		02318E022084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+ORCGIGRegexp.m"; sourceTree = "<group>"; };
+		02318E08208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ORCGIGJSON.m"; sourceTree = "<group>"; };
+		02318E09208486EF00E85D89 /* NSDictionary+ORCGIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ORCGIGJSON.h"; sourceTree = "<group>"; };
+		02318E0B2084870300E85D89 /* ORCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCUser.m; sourceTree = "<group>"; };
+		02318E0C2084870300E85D89 /* ORCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCUser.h; sourceTree = "<group>"; };
 		236F00382029F81000647D4F /* BindingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BindingError.swift; path = Common/Model/Error/BindingError.swift; sourceTree = "<group>"; };
 		6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultScannerVC.swift; sourceTree = "<group>"; };
 		6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DefaultScanner.storyboard; sourceTree = "<group>"; };
@@ -629,6 +654,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02318E042084864300E85D89 /* Objective C Classes */ = {
+			isa = PBXGroup;
+			children = (
+				02318E0C2084870300E85D89 /* ORCUser.h */,
+				02318E0B2084870300E85D89 /* ORCUser.m */,
+				02318E09208486EF00E85D89 /* NSDictionary+ORCGIGJSON.h */,
+				02318E08208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m */,
+				02318E012084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.h */,
+				02318E022084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m */,
+				02318DFD2084862100E85D89 /* NSString+ORCGIGRegexp.h */,
+				02318DFE2084862100E85D89 /* NSString+ORCGIGRegexp.m */,
+				02318DFF2084862200E85D89 /* ORCGIGRegexp.h */,
+				02318DF82084853C00E85D89 /* ORCBusinessUnit.h */,
+				02318DF42084853C00E85D89 /* ORCBusinessUnit.m */,
+				02318DF32084853C00E85D89 /* ORCCustomField.h */,
+				02318DF72084853C00E85D89 /* ORCCustomField.m */,
+				02318DF52084853C00E85D89 /* ORCTag.h */,
+				02318DF22084853B00E85D89 /* ORCTag.m */,
+			);
+			name = "Objective C Classes";
+			sourceTree = "<group>";
+		};
 		236F00372029F7F000647D4F /* Error */ = {
 			isa = PBXGroup;
 			children = (
@@ -1226,6 +1273,7 @@
 			isa = PBXGroup;
 			children = (
 				A978C5CB1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift */,
+				02318DEE208480F100E85D89 /* OldDataMigrationManagerTests.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -1589,8 +1637,10 @@
 		A9C54E081F446FAC00DF2074 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				02318E042084864300E85D89 /* Objective C Classes */,
 				A9C54E091F446FC000DF2074 /* StubResponse.swift */,
 				A9D0FC3D1F57F09200596CF3 /* JSONHandler.swift */,
+				02318DF02084853A00E85D89 /* OrchextraTests-Bridging-Header.h */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1777,7 +1827,7 @@
 					A9C54D9F1F41A6F100DF2074 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = SU5BA5HAQK;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Manual;
 						TestTargetID = A9C54DC31F41A8E500DF2074;
 					};
@@ -2013,6 +2063,8 @@
 			files = (
 				A94722011F823987001E2DE6 /* LocationWrapperMock.swift in Sources */,
 				8F299C7E1F66A9A50023F69D /* EddystoneDecoderTests.swift in Sources */,
+				02318DEF208480F100E85D89 /* OldDataMigrationManagerTests.swift in Sources */,
+				02318DFA2084853C00E85D89 /* ORCTag.m in Sources */,
 				A93F0D561FBAF342009B11F3 /* UserOrxTests.swift in Sources */,
 				8F88E5531FC5B7C8002D297D /* CustomSchemeTests.swift in Sources */,
 				A978C5CC1F45732B00F5DFFD /* Dictionary+ExtensionTests.swift in Sources */,
@@ -2020,25 +2072,31 @@
 				A978C5DC1F45A43900F5DFFD /* SessionMock.swift in Sources */,
 				8F299C7F1F66A9A50023F69D /* EddystoneProtocolParserTests.swift in Sources */,
 				A9D0FC3E1F57F09200596CF3 /* JSONHandler.swift in Sources */,
+				02318E032084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m in Sources */,
 				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
 				A97F8F2D1FC329CC000C0B92 /* AuthInteractorTests.swift in Sources */,
 				8F77D1921FBF01BA008CC17D /* PushNotificationsTests.swift in Sources */,
 				8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */,
 				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
 				A94722031F823C70001E2DE6 /* StorageProximityMock.swift in Sources */,
+				02318E0D2084870300E85D89 /* ORCUser.m in Sources */,
 				8F88E5581FC5BF30002D297D /* ORXDelegateMock.swift in Sources */,
 				A95E67E91F5D730D001D8B19 /* PushOrxManagerMock.swift in Sources */,
 				8F299C7C1F66A9A50023F69D /* CBCentralWrapperMock.swift in Sources */,
 				A97F8F301FC33D6C000C0B92 /* ModuleOutputWrapperMock.swift in Sources */,
 				A978C5D81F457AE200F5DFFD /* StartSDKSpec.swift in Sources */,
+				02318E0A208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m in Sources */,
 				A94721FE1F8236D3001E2DE6 /* GeofenceSpec.swift in Sources */,
 				A94721FB1F82368D001E2DE6 /* ScannerTests.swift in Sources */,
 				A97F8F2A1FC326AB000C0B92 /* OrchextraWrapperTests.swift in Sources */,
+				02318E002084862200E85D89 /* NSString+ORCGIGRegexp.m in Sources */,
 				A95E67E11F5D690C001D8B19 /* ModuleInputMock.swift in Sources */,
 				A95E67DA1F5D50CD001D8B19 /* TriggerManagerTests.swift in Sources */,
 				A9D0FC381F56D1F100596CF3 /* ModuleOutputMock.swift in Sources */,
 				A95E67E61F5D71BE001D8B19 /* ActionServicesMock.swift in Sources */,
+				02318DFB2084853C00E85D89 /* ORCBusinessUnit.m in Sources */,
 				A9D0FC361F56C29900596CF3 /* ScannerVCMock.swift in Sources */,
+				02318DFC2084853C00E85D89 /* ORCCustomField.m in Sources */,
 				A9BB503720077CEA0021496A /* AuthenticationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2408,6 +2466,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SU5BA5HAQK;
@@ -2420,6 +2479,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OrchextraTests/OrchextraTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchextraApp.app/OrchextraApp";
@@ -2430,6 +2491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SU5BA5HAQK;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2441,6 +2503,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gigigo.OrchextraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OrchextraTests/OrchextraTests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchextraApp.app/OrchextraApp";

@@ -16,13 +16,16 @@ enum OldOrchextraKeys: String {
     case birthdate = "ORCBirthday"
     case gender = "ORCGender"
     case tags = "ORCTags"
-    case deviceToken = "ORCDeviceToken"
     case customFields = "ORCCustomFields"
     case deviceTags = "ORCDeviceTags"
     case deviceBusinessUnits = "ORCDeviceBusinessUnits"
     case tagPrefix = "ORCTagPrefix"
     case tagName = "ORCTagName"
     case businessUnitName = "ORCBusinessUnitName"
+    case key
+    case label
+    case value
+    case type
 }
 
 class OldDataMigrationManager {
@@ -46,24 +49,25 @@ class OldDataMigrationManager {
     
     func migrateData() {
         self.configure()
-        guard let userData = self.userDefaults.object(forKey: OldOrchextraKeys.user.rawValue) as? Data else { return }
-        print("===== STARTING ORX2.0 MIGRATION PROCESS ====")
-        if let oldUser = NSKeyedUnarchiver.unarchiveObject(with: userData) as? OldUser, let newUser = oldUser.toUser() {
-            print("Migrating user")
-            self.session.bindUser(newUser)
+        if shouldMigrateData() {
+            print("===== STARTING ORX2.0 MIGRATION PROCESS ====")
+            if let userData = self.userDefaults.object(forKey: OldOrchextraKeys.user.rawValue) as? Data, let oldUser = NSKeyedUnarchiver.unarchiveObject(with: userData) as? OldUser, let newUser = oldUser.toUser() {
+                print("Migrating user")
+                self.session.bindUser(newUser)
+            }
+            if let deviceTags = self.userDefaults.array(forKey: OldOrchextraKeys.deviceTags.rawValue) as? [Data], deviceTags.count > 0 {
+                let tags = deviceTags.compactMap({ NSKeyedUnarchiver.unarchiveObject(with: $0) as? OldTag }).map({ $0.toTag() })
+                print("Migrating device tags: \(tags)")
+                self.session.setDeviceTags(tags: tags)
+            }
+            if let deviceBusinessUnits = self.userDefaults.array(forKey: OldOrchextraKeys.deviceBusinessUnits.rawValue) as? [Data], deviceBusinessUnits.count > 0 {
+                let businessUnits = deviceBusinessUnits.compactMap({ NSKeyedUnarchiver.unarchiveObject(with: $0) as? OldBusinessUnit }).map({ $0.toBusinessUnit() })
+                print("Migrating device businessUnits: \(businessUnits.map({ $0.name }))")
+                self.session.setDeviceBusinessUnits(businessUnits: businessUnits)
+            }
+            self.deleteOldData()
+            print("===== MIGRATION PROCESS FINISHED ====")
         }
-        if let deviceTags = self.userDefaults.array(forKey: OldOrchextraKeys.deviceTags.rawValue) as? [Data], deviceTags.count > 0 {
-            let tags = deviceTags.compactMap({ NSKeyedUnarchiver.unarchiveObject(with: $0) as? OldTag }).map({ $0.toTag() })
-            print("Migrating device tags: \(tags)")
-            self.session.setDeviceTags(tags: tags)
-        }
-        if let deviceBusinessUnits = self.userDefaults.array(forKey: OldOrchextraKeys.deviceBusinessUnits.rawValue) as? [Data], deviceBusinessUnits.count > 0 {
-            let businessUnits = deviceBusinessUnits.compactMap({ NSKeyedUnarchiver.unarchiveObject(with: $0) as? OldBusinessUnit }).map({ $0.toBusinessUnit() })
-            print("Migrating device businessUnits: \(businessUnits.map({ $0.name }))")
-            self.session.setDeviceBusinessUnits(businessUnits: businessUnits)
-        }
-        self.deleteOldData()
-        print("===== MIGRATION PROCESS FINISHED ====")
     }
     
     // MARK: - Private methods
@@ -72,12 +76,19 @@ class OldDataMigrationManager {
         NSKeyedUnarchiver.setClass(OldUser.classForKeyedUnarchiver(), forClassName: "ORCUser")
         NSKeyedUnarchiver.setClass(OldBusinessUnit.classForKeyedUnarchiver(), forClassName: "ORCBusinessUnit")
         NSKeyedUnarchiver.setClass(OldTag.classForKeyedUnarchiver(), forClassName: "ORCTag")
+        NSKeyedUnarchiver.setClass(OldCustomField.classForKeyedUnarchiver(), forClassName: "ORCCustomField")
+    }
+    
+    private func shouldMigrateData() -> Bool {
+        return
+            self.userDefaults.object(forKey: OldOrchextraKeys.user.rawValue) != nil ||
+            self.userDefaults.object(forKey: OldOrchextraKeys.deviceBusinessUnits.rawValue) != nil ||
+            self.userDefaults.object(forKey: OldOrchextraKeys.deviceTags.rawValue) != nil
     }
     
     private func deleteOldData() {
         self.userDefaults.removeObject(forKey: OldOrchextraKeys.user.rawValue)
         self.userDefaults.removeObject(forKey: OldOrchextraKeys.deviceTags.rawValue)
-        self.userDefaults.removeObject(forKey: OldOrchextraKeys.deviceToken.rawValue)
         self.userDefaults.removeObject(forKey: OldOrchextraKeys.deviceBusinessUnits.rawValue)
     }
 }
@@ -89,8 +100,8 @@ private class OldUser: NSObject, NSCoding {
     let birthdate: Date?
     let gender: Gender
     let tags: [Tag]
+    let customFields: [CustomField]
     let businessUnits: [BusinessUnit]
-    let deviceToken: String?
     
     // MARK: - NSCoding
     
@@ -102,6 +113,7 @@ private class OldUser: NSObject, NSCoding {
         self.crmId = aDecoder.decodeObject(forKey: OldOrchextraKeys.crmId.rawValue) as? String
         self.birthdate = aDecoder.decodeObject(forKey: OldOrchextraKeys.birthdate.rawValue) as? Date
         self.tags = (aDecoder.decodeObject(forKey: OldOrchextraKeys.tags.rawValue) as? [OldTag] ?? []).map({ $0.toTag() })
+        self.customFields = (aDecoder.decodeObject(forKey: OldOrchextraKeys.customFields.rawValue) as? [OldCustomField] ?? []).map({ $0.toCustomField() })
         self.gender = (aDecoder.decodeObject(forKey: OldOrchextraKeys.gender.rawValue) as? Int).map({
             if $0 == 0 {
                 return Gender.none
@@ -111,7 +123,6 @@ private class OldUser: NSObject, NSCoding {
             return Gender.male
         }) ?? .none
         self.businessUnits = (aDecoder.decodeObject(forKey: OldOrchextraKeys.businessUnit.rawValue) as? [OldBusinessUnit] ?? []).map({ $0.toBusinessUnit() })
-        self.deviceToken = aDecoder.decodeObject(forKey: OldOrchextraKeys.deviceToken.rawValue) as? String
     }
     
     // MARK: - Public methods
@@ -122,7 +133,7 @@ private class OldUser: NSObject, NSCoding {
         else {
             return nil
         }
-        return UserOrx(crmId: crmId, gender: self.gender, birthday: self.birthdate, tags: self.tags, businessUnits: self.businessUnits, customFields: [])
+        return UserOrx(crmId: crmId, gender: self.gender, birthday: self.birthdate, tags: self.tags, businessUnits: self.businessUnits, customFields: self.customFields)
     }
 }
 
@@ -172,5 +183,59 @@ private class OldTag: NSObject, NSCoding {
             return Tag(prefix: prefix)
         }
         return Tag(prefix: prefix, name: name)
+    }
+}
+
+@objc(ORCCustomField)
+private class OldCustomField: NSObject, NSCoding {
+    
+    let key: String
+    let label: String
+    let value: String?
+    let type: CustomFieldType
+    
+    // MARK: - NSCoding
+    
+    func encode(with aCoder: NSCoder) {
+        // Nothing to do here
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.key = aDecoder.decodeObject(forKey: OldOrchextraKeys.key.rawValue) as? String ?? ""
+        self.label = aDecoder.decodeObject(forKey: OldOrchextraKeys.label.rawValue) as? String ?? ""
+        self.value = aDecoder.decodeObject(forKey: OldOrchextraKeys.value.rawValue).map {
+            if let string = $0 as? String {
+                return string
+            } else if let integer = $0 as? Int {
+                return "\(integer)"
+            } else if let float = $0 as? Float {
+                return "\(float)"
+            } else if let boolean = $0 as? Bool {
+                return "\(boolean)"
+            } else if let dateTime = $0 as? Date {
+                return "\(dateTime.timeIntervalSince1970)"
+            }
+            return ""
+        }
+        self.type = (aDecoder.decodeObject(forKey: OldOrchextraKeys.type.rawValue) as? Int).map {
+            if $0 == 1 {
+                return CustomFieldType.string
+            } else if $0 == 2 {
+                return CustomFieldType.boolean
+            } else if $0 == 3 {
+                return CustomFieldType.integer
+            } else if $0 == 4 {
+                return CustomFieldType.float
+            } else if $0 == 5 {
+                return CustomFieldType.datetime
+            }
+            return CustomFieldType.string
+        } ?? CustomFieldType.string
+    }
+
+    // Public methods
+    
+    func toCustomField() -> CustomField {
+        return CustomField(key: self.key, label: self.label, type: self.type, value: self.value)
     }
 }
