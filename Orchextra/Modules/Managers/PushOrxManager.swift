@@ -11,7 +11,6 @@ import UserNotifications
 import GIGLibrary
 
 public protocol PushOrxInput {
-    func configure()
     func dispatchNotification(with action: Action)
     func handleLocalNotification(userInfo: [AnyHashable: Any])
     func dispatch(_ action: Action)
@@ -28,10 +27,6 @@ class PushOrxManager: NSObject, PushOrxInput {
     let application = UIApplication.shared
     
     // MARK: - Public
-    
-    func configure() {
-        self.requestForNotifications()
-    }
     
     func handleLocalNotification(userInfo: [AnyHashable: Any]) {
         self.handleAction(from: userInfo)
@@ -71,27 +66,6 @@ class PushOrxManager: NSObject, PushOrxInput {
                                                     body: action.notification?.body ?? "",
                                                     userInfo: payload,
                                                     at: date)
-    }
-    
-    // MARK: - Internal
-    
-    internal func requestForNotifications() {
-        if #available(iOS 10.0, *) {
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: { _, _ in
-                    LogDebug("App has granted User Notifications")
-                    // Granted to use remote notification
-            })
-        } else {
-            let settings: UIUserNotificationSettings = UIUserNotificationSettings(
-                types: [.alert, .badge, .sound],
-                categories: nil)
-            self.application.registerUserNotificationSettings(settings)
-        }
-        
-        self.application.registerForRemoteNotifications()
     }
     
     // MARK: - Private
