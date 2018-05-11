@@ -120,6 +120,10 @@ class OrchextraController {
         self.scanner?.outputModule = self.moduleOutputWrapper
     }
     
+    func setAnonymous() {
+        self.session.setAnonymous()
+    }
+    
     // MARK: - Proximity
     
     public func enableProximity(enable: Bool) {
@@ -166,10 +170,14 @@ class OrchextraController {
     
     // MARK: - Device & User
     
-    public func remote(apnsToken: Data) {
-        let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
-        self.session.setPushNotification(token: apnsToken)
-        LogInfo("Save APNS Token:" + token)
+    public func remote(apnsToken: Data?) {
+        if let apnsToken = apnsToken {
+            let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
+            self.session.setPushNotification(token: apnsToken)
+            LogInfo("Save APNS Token:" + token)
+        } else {
+            self.session.setPushNotification(token: nil)
+        }
     }
     
     public func accesstoken() -> String? {

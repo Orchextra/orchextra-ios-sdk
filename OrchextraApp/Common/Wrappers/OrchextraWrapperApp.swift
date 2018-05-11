@@ -21,7 +21,7 @@ class OrchextraWrapperApp {
     // MARK: - Initialization
 
     func start(with key: String, secret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        self.orchextra.logLevel = .info
+        self.orchextra.logLevel = .debug
         self.orchextra.logStyle = .funny
         self.orchextra.environment = .staging
         
@@ -45,7 +45,7 @@ class OrchextraWrapperApp {
     // MARK: - Notifications
     
     func remote(apnsToken: Data) {
-        self.orchextra.remote(apnsToken: apnsToken)
+        self.orchextra.registerForRemoteNotifications(with: apnsToken)
     }
     
     func handleLocalNotification(userInfo: [AnyHashable: Any]) {

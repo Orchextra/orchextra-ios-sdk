@@ -112,6 +112,31 @@ class Device {
         }
         return tags
     }
+    
+    private func getAdvertiserId() -> String {
+        return IdentifierManager().sdkIdentifier()
+    }
+    
+    private func getVendorId() -> String? {
+        if self.session.isAnonymousUser {
+            return "Anonymous"
+        }
+        return self.device.identifierForVendor?.uuidString
+    }
+    
+    private func getOsVersion() -> String {
+        if self.session.isAnonymousUser {
+            return "Anonymous"
+        }
+        return self.device.systemVersion
+    }
+    
+    private func getHandset() -> String {
+        if self.session.isAnonymousUser {
+            return "Anonymous"
+        }
+        return self.device.type.rawValue
+    }
 }
 
 public enum Model: String {

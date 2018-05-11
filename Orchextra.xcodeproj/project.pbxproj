@@ -16,6 +16,7 @@
 		02318E032084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E022084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m */; };
 		02318E0A208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E08208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m */; };
 		02318E0D2084870300E85D89 /* ORCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E0B2084870300E85D89 /* ORCUser.m */; };
+		02A5E2E920A594230057A55D /* IdentifierManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5E2E820A594230057A55D /* IdentifierManager.swift */; };
 		236F00392029F81000647D4F /* BindingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F00382029F81000647D4F /* BindingError.swift */; };
 		6126C64B202DAB9A0009A20A /* DefaultScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */; };
 		6126C64C202DAB9A0009A20A /* DefaultScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */; };
@@ -358,6 +359,7 @@
 		02318E09208486EF00E85D89 /* NSDictionary+ORCGIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ORCGIGJSON.h"; sourceTree = "<group>"; };
 		02318E0B2084870300E85D89 /* ORCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCUser.m; sourceTree = "<group>"; };
 		02318E0C2084870300E85D89 /* ORCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCUser.h; sourceTree = "<group>"; };
+		02A5E2E820A594230057A55D /* IdentifierManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierManager.swift; sourceTree = "<group>"; };
 		236F00382029F81000647D4F /* BindingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BindingError.swift; path = Common/Model/Error/BindingError.swift; sourceTree = "<group>"; };
 		6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultScannerVC.swift; sourceTree = "<group>"; };
 		6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DefaultScanner.storyboard; sourceTree = "<group>"; };
@@ -1497,6 +1499,7 @@
 				A9AC21271F5443E600095EC5 /* PaddingLabel.swift */,
 				A958CCAB1F85253A007074D5 /* String+MD5.swift */,
 				0229A3AA207F7C49001EBE5F /* OldDataMigrationManager.swift */,
+				02A5E2E820A594230057A55D /* IdentifierManager.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -1991,6 +1994,7 @@
 				A99886011F5037E900EED42E /* ActionDoNothing.swift in Sources */,
 				A95E67F91F5D9EB3001D8B19 /* Region.swift in Sources */,
 				A9AC21261F54416E00095EC5 /* Dispatch+Extension.swift in Sources */,
+				02A5E2E920A594230057A55D /* IdentifierManager.swift in Sources */,
 				6126C64B202DAB9A0009A20A /* DefaultScannerVC.swift in Sources */,
 				8F299C5E1F6691060023F69D /* EddystoneProtocolParser.swift in Sources */,
 				A99886041F50450F00EED42E /* Trigger.swift in Sources */,
