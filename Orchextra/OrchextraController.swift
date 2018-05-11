@@ -122,6 +122,9 @@ class OrchextraController {
     
     func setAnonymous() {
         self.session.setAnonymous()
+        if self.session.apiKey != nil && self.session.apiSecret != nil {
+            self.bindDevice()
+        }
     }
     
     // MARK: - Proximity
