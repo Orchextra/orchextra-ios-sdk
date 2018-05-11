@@ -43,11 +43,11 @@ class Device {
     }
 
     init() {
-        self.advertiserId = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-        self.vendorId = device.identifierForVendor?.uuidString
-        self.versionIOS = device.systemVersion
+        self.advertiserId = IdentifierManager().sdkIdentifier()
+        self.vendorId = self.session.isAnonymousUser ? "Anonymous" : self.device.identifierForVendor?.uuidString
+        self.versionIOS = self.session.isAnonymousUser ? "Anonymous" : self.device.systemVersion
         self.deviceOS = device.systemName
-        self.handset = device.type.rawValue
+        self.handset = self.session.isAnonymousUser ? "Anonymous" : self.device.type.rawValue
         self.language = Locale.current.identifier
         self.bundleId = Bundle.main.bundleIdentifier
         self.appVersion = Bundle.orxVersion()
@@ -111,31 +111,6 @@ class Device {
             }
         }
         return tags
-    }
-    
-    private func getAdvertiserId() -> String {
-        return IdentifierManager().sdkIdentifier()
-    }
-    
-    private func getVendorId() -> String? {
-        if self.session.isAnonymousUser {
-            return "Anonymous"
-        }
-        return self.device.identifierForVendor?.uuidString
-    }
-    
-    private func getOsVersion() -> String {
-        if self.session.isAnonymousUser {
-            return "Anonymous"
-        }
-        return self.device.systemVersion
-    }
-    
-    private func getHandset() -> String {
-        if self.session.isAnonymousUser {
-            return "Anonymous"
-        }
-        return self.device.type.rawValue
     }
 }
 
