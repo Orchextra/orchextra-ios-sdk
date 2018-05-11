@@ -177,6 +177,7 @@ class OrchextraController {
             LogInfo("Save APNS Token:" + token)
         } else {
             self.session.setPushNotification(token: nil)
+            self.bindDevice()
         }
     }
     
