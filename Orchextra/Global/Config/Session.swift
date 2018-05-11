@@ -117,8 +117,8 @@ class Session {
         return false
     }
     
-    func setAnonymous() {
-        self.isAnonymousUser = true
+    func setAnonymous(_ anonymous: Bool) {
+        self.isAnonymousUser = anonymous
     }
     
     // MARK: - Private

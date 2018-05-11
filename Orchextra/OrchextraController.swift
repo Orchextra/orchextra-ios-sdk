@@ -120,8 +120,8 @@ class OrchextraController {
         self.scanner?.outputModule = self.moduleOutputWrapper
     }
     
-    func setAnonymous() {
-        self.session.setAnonymous()
+    func setAnonymous(_ anonymous: Bool) {
+        self.session.setAnonymous(anonymous)
         if self.session.apiKey != nil && self.session.apiSecret != nil {
             self.bindDevice()
         }

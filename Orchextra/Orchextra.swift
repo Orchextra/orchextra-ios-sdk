@@ -242,8 +242,11 @@ open class Orchextra {
     }
     
     /// Use this method for anonymizing the user
-    public func anonymize() {
-        OrchextraController.shared.setAnonymous()
+    ///
+    /// - Parameter enabled: If the anonymization is enabled
+    /// - Since: 3.0.0
+    public func anonymize(enabled: Bool) {
+        OrchextraController.shared.setAnonymous(enabled)
     }
     
     /// Register for remote notifications
