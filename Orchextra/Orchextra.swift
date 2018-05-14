@@ -137,6 +137,7 @@ open class Orchextra {
         self.environment = .production
         self.pushManager = PushOrxManager.shared
         LogManager.shared.appName = "ORCHEXTRA"
+        OldDataMigrationManager().migrateData()
     }
     
     // MARK: PUBLIC SDK METHODS
@@ -240,13 +241,27 @@ open class Orchextra {
         OrchextraController.shared.enableEddystone(enable: enable)
     }
     
-    /**
-     Save remote notifications token.
-     
-     - Since: 1.0
-     */
-    public func remote(apnsToken: Data) {
-       OrchextraController.shared.remote(apnsToken: apnsToken)
+    /// Use this method for anonymizing the user
+    ///
+    /// - Parameter enabled: If the anonymization is enabled
+    /// - Since: 3.0.0
+    public func anonymize(enabled: Bool) {
+        OrchextraController.shared.setAnonymous(enabled)
+    }
+    
+    /// Register for remote notifications
+    ///
+    /// - Parameter apnsToken: The push notification token
+    /// - Since: 3.0
+    public func registerForRemoteNotifications(with apnsToken: Data) {
+        OrchextraController.shared.remote(apnsToken: apnsToken)
+    }
+    
+    
+    /// Unregister for remote notifications
+    /// - Since: 3.0
+    public func unregisterForRemoteNotifications() {
+        OrchextraController.shared.remote(apnsToken: nil)
     }
     
     // MARK: Authorization

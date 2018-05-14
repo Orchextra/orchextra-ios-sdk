@@ -41,8 +41,6 @@ class ErrorServiceHandler {
             return ErrorService.internalError
         case 1002:
             return ErrorService.routeNotFound
-        case 1100:
-            return ErrorService.noDatabase
         case 2000:
             return ErrorService.projectNotFound
         case 2001, 403:

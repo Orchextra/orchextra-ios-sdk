@@ -23,7 +23,6 @@ class ActionManager {
     init(service: ActionServicesInput, pushManager: PushOrxInput) {
         self.service = service
         self.pushManager = pushManager
-        self.pushManager.configure()
     }
     
     func handler(action: Action) {

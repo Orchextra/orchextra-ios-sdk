@@ -17,6 +17,7 @@ class Session {
     var project: Project?
     var apiKey: String?
     var apiSecret: String?
+    var isAnonymousUser: Bool = false
     
     // Attributes core
     private let keyAccessToken = "orx_accesstoken"
@@ -87,7 +88,7 @@ class Session {
         return (try? PropertyListDecoder().decode(Data.self, from: data)) ?? nil
     }
     
-    func setPushNotification(token: Data) {
+    func setPushNotification(token: Data?) {
         self.userDefault.set(try? PropertyListEncoder().encode(token), forKey: keyPushNotificationsToken)
     }
     
@@ -114,6 +115,10 @@ class Session {
             return true
         }
         return false
+    }
+    
+    func setAnonymous(_ anonymous: Bool) {
+        self.isAnonymousUser = anonymous
     }
     
     // MARK: - Private

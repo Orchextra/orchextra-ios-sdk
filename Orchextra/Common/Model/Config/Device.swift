@@ -43,11 +43,11 @@ class Device {
     }
 
     init() {
-        self.advertiserId = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-        self.vendorId = device.identifierForVendor?.uuidString
-        self.versionIOS = device.systemVersion
+        self.advertiserId = IdentifierManager().sdkIdentifier()
+        self.vendorId = self.session.isAnonymousUser ? "Anonymous" : self.device.identifierForVendor?.uuidString
+        self.versionIOS = self.session.isAnonymousUser ? "Anonymous" : self.device.systemVersion
         self.deviceOS = device.systemName
-        self.handset = device.type.rawValue
+        self.handset = self.session.isAnonymousUser ? "Anonymous" : self.device.type.rawValue
         self.language = Locale.current.identifier
         self.bundleId = Bundle.main.bundleIdentifier
         self.appVersion = Bundle.orxVersion()
