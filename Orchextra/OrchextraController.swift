@@ -123,6 +123,9 @@ class OrchextraController {
     func setAnonymous(_ anonymous: Bool) {
         self.session.setAnonymous(anonymous)
         if self.session.apiKey != nil && self.session.apiSecret != nil {
+            if anonymous {
+                self.session.unbindUser()
+            }
             self.bindDevice()
         }
     }
@@ -135,7 +138,6 @@ class OrchextraController {
     
     public func enableEddystone(enable: Bool) {
         self.enableEddystone = enable
-        
     }
     
     func openProximity(config: [String: Any]) {
