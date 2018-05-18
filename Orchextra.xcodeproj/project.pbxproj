@@ -17,6 +17,14 @@
 		02318E0A208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E08208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m */; };
 		02318E0D2084870300E85D89 /* ORCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E0B2084870300E85D89 /* ORCUser.m */; };
 		02A5E2E920A594230057A55D /* IdentifierManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5E2E820A594230057A55D /* IdentifierManager.swift */; };
+		02C90BB220AEC6C000C1AA72 /* CommonSymmetricKeywrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C90BAA20AEC6C000C1AA72 /* CommonSymmetricKeywrap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02C90BB320AEC6C000C1AA72 /* CommonRandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C90BAB20AEC6C000C1AA72 /* CommonRandom.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02C90BB420AEC6C000C1AA72 /* CommonCryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C90BAC20AEC6C000C1AA72 /* CommonCryptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02C90BB520AEC6C000C1AA72 /* CommonHMAC.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C90BAD20AEC6C000C1AA72 /* CommonHMAC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02C90BB620AEC6C000C1AA72 /* CommonDigest.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C90BAE20AEC6C000C1AA72 /* CommonDigest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02C90BB720AEC6C000C1AA72 /* CommonCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C90BAF20AEC6C000C1AA72 /* CommonCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02C90BB820AEC6C000C1AA72 /* CommonKeyDerivation.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C90BB020AEC6C000C1AA72 /* CommonKeyDerivation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02C90BB920AEC6C000C1AA72 /* CommonCryptoError.h in Headers */ = {isa = PBXBuildFile; fileRef = 02C90BB120AEC6C000C1AA72 /* CommonCryptoError.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		236F00392029F81000647D4F /* BindingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F00382029F81000647D4F /* BindingError.swift */; };
 		6126C64B202DAB9A0009A20A /* DefaultScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */; };
 		6126C64C202DAB9A0009A20A /* DefaultScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */; };
@@ -360,6 +368,14 @@
 		02318E0B2084870300E85D89 /* ORCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCUser.m; sourceTree = "<group>"; };
 		02318E0C2084870300E85D89 /* ORCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCUser.h; sourceTree = "<group>"; };
 		02A5E2E820A594230057A55D /* IdentifierManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierManager.swift; sourceTree = "<group>"; };
+		02C90BAA20AEC6C000C1AA72 /* CommonSymmetricKeywrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonSymmetricKeywrap.h; sourceTree = "<group>"; };
+		02C90BAB20AEC6C000C1AA72 /* CommonRandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonRandom.h; sourceTree = "<group>"; };
+		02C90BAC20AEC6C000C1AA72 /* CommonCryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCryptor.h; sourceTree = "<group>"; };
+		02C90BAD20AEC6C000C1AA72 /* CommonHMAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHMAC.h; sourceTree = "<group>"; };
+		02C90BAE20AEC6C000C1AA72 /* CommonDigest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDigest.h; sourceTree = "<group>"; };
+		02C90BAF20AEC6C000C1AA72 /* CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCrypto.h; sourceTree = "<group>"; };
+		02C90BB020AEC6C000C1AA72 /* CommonKeyDerivation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonKeyDerivation.h; sourceTree = "<group>"; };
+		02C90BB120AEC6C000C1AA72 /* CommonCryptoError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCryptoError.h; sourceTree = "<group>"; };
 		236F00382029F81000647D4F /* BindingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BindingError.swift; path = Common/Model/Error/BindingError.swift; sourceTree = "<group>"; };
 		6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultScannerVC.swift; sourceTree = "<group>"; };
 		6126C649202DAB9A0009A20A /* DefaultScanner.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DefaultScanner.storyboard; sourceTree = "<group>"; };
@@ -677,6 +693,22 @@
 			);
 			name = "Objective C Classes";
 			sourceTree = "<group>";
+		};
+		02C90BA920AEC6C000C1AA72 /* CommonCrypto */ = {
+			isa = PBXGroup;
+			children = (
+				02C90BAA20AEC6C000C1AA72 /* CommonSymmetricKeywrap.h */,
+				02C90BAB20AEC6C000C1AA72 /* CommonRandom.h */,
+				02C90BAC20AEC6C000C1AA72 /* CommonCryptor.h */,
+				02C90BAD20AEC6C000C1AA72 /* CommonHMAC.h */,
+				02C90BAE20AEC6C000C1AA72 /* CommonDigest.h */,
+				02C90BAF20AEC6C000C1AA72 /* CommonCrypto.h */,
+				02C90BB020AEC6C000C1AA72 /* CommonKeyDerivation.h */,
+				02C90BB120AEC6C000C1AA72 /* CommonCryptoError.h */,
+			);
+			name = CommonCrypto;
+			path = CommonCrypto/CommonCrypto;
+			sourceTree = SOURCE_ROOT;
 		};
 		236F00372029F7F000647D4F /* Error */ = {
 			isa = PBXGroup;
@@ -1382,6 +1414,7 @@
 		A9AC21111F543D9600095EC5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				02C90BA920AEC6C000C1AA72 /* CommonCrypto */,
 				A9AC21121F543D9600095EC5 /* Assets.xcassets */,
 				A9AC21131F543D9600095EC5 /* Localizables */,
 				A98B52D21F5E92100082BB2F /* geomarketing.json */,
@@ -1721,6 +1754,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9C54DA81F41A6F100DF2074 /* Orchextra.h in Headers */,
+				02C90BB620AEC6C000C1AA72 /* CommonDigest.h in Headers */,
+				02C90BB820AEC6C000C1AA72 /* CommonKeyDerivation.h in Headers */,
+				02C90BB420AEC6C000C1AA72 /* CommonCryptor.h in Headers */,
+				02C90BB520AEC6C000C1AA72 /* CommonHMAC.h in Headers */,
+				02C90BB920AEC6C000C1AA72 /* CommonCryptoError.h in Headers */,
+				02C90BB320AEC6C000C1AA72 /* CommonRandom.h in Headers */,
+				02C90BB220AEC6C000C1AA72 /* CommonSymmetricKeywrap.h in Headers */,
+				02C90BB720AEC6C000C1AA72 /* CommonCrypto.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
