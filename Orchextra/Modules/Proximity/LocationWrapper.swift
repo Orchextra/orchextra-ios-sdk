@@ -69,7 +69,6 @@ class LocationWrapper: NSObject, LocationInput {
         case .authorizedAlways:
             return true
         case .authorizedWhenInUse, .denied, .restricted:
-            self.showLocationPermissionAlert()
             return false
         case .notDetermined:
             self.locationManager.requestAlwaysAuthorization()
