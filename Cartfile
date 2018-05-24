@@ -4,3 +4,6 @@
 
 # GIGLibrary
 github "gigigoapps/gigigo-ios-lib" ~> 3.0
+
+# CryptoSwift
+github "krzyzanowskim/CryptoSwift" ~> 0.9

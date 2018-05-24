@@ -16,6 +16,9 @@
 		02318E032084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E022084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m */; };
 		02318E0A208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E08208486EF00E85D89 /* NSDictionary+ORCGIGJSON.m */; };
 		02318E0D2084870300E85D89 /* ORCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 02318E0B2084870300E85D89 /* ORCUser.m */; };
+		0240D14420B6BBB4003CF386 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0240D14320B6BBB4003CF386 /* CryptoSwift.framework */; };
+		0240D14520B6BBDE003CF386 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0240D14320B6BBB4003CF386 /* CryptoSwift.framework */; };
+		0240D14620B6BBDE003CF386 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0240D14320B6BBB4003CF386 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02A5E2E920A594230057A55D /* IdentifierManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A5E2E820A594230057A55D /* IdentifierManager.swift */; };
 		236F00392029F81000647D4F /* BindingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F00382029F81000647D4F /* BindingError.swift */; };
 		6126C64B202DAB9A0009A20A /* DefaultScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */; };
@@ -333,6 +336,7 @@
 				A9C54DDD1F41A9F600DF2074 /* GIGLibrary.framework in Embed Frameworks */,
 				FA1916221F5EB4CE00F344EC /* Applivery.framework in Embed Frameworks */,
 				A9910E861FB31DE100ABD866 /* GIGFormulary.framework in Embed Frameworks */,
+				0240D14620B6BBDE003CF386 /* CryptoSwift.framework in Embed Frameworks */,
 				A9C54DD81F41A99700DF2074 /* Orchextra.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -359,6 +363,7 @@
 		02318E09208486EF00E85D89 /* NSDictionary+ORCGIGJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ORCGIGJSON.h"; sourceTree = "<group>"; };
 		02318E0B2084870300E85D89 /* ORCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORCUser.m; sourceTree = "<group>"; };
 		02318E0C2084870300E85D89 /* ORCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORCUser.h; sourceTree = "<group>"; };
+		0240D14320B6BBB4003CF386 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		02A5E2E820A594230057A55D /* IdentifierManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierManager.swift; sourceTree = "<group>"; };
 		236F00382029F81000647D4F /* BindingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BindingError.swift; path = Common/Model/Error/BindingError.swift; sourceTree = "<group>"; };
 		6126C648202DAB9A0009A20A /* DefaultScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultScannerVC.swift; sourceTree = "<group>"; };
@@ -626,6 +631,7 @@
 				A958CCB91F8528CB007074D5 /* Security.framework in Frameworks */,
 				A9C54DFB1F4433D300DF2074 /* AdSupport.framework in Frameworks */,
 				A9C54DBB1F41A84300DF2074 /* GIGLibrary.framework in Frameworks */,
+				0240D14420B6BBB4003CF386 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +654,7 @@
 				A9910E851FB31DE100ABD866 /* GIGFormulary.framework in Frameworks */,
 				A9910E801FB31B2F00ABD866 /* GIGLibrary.framework in Frameworks */,
 				FA1916211F5EB4CE00F344EC /* Applivery.framework in Frameworks */,
+				0240D14520B6BBDE003CF386 /* CryptoSwift.framework in Frameworks */,
 				8FCE6FAF1F504CC80098A325 /* MapKit.framework in Frameworks */,
 				A9C54DD71F41A99700DF2074 /* Orchextra.framework in Frameworks */,
 			);
@@ -1601,6 +1608,7 @@
 		A9C54DFD1F4433E500DF2074 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				0240D14320B6BBB4003CF386 /* CryptoSwift.framework */,
 				FA1916201F5EB4CE00F344EC /* Applivery.framework */,
 				A9C54E031F446B0400DF2074 /* OHHTTPStubs.framework */,
 				A9C54DFE1F44684A00DF2074 /* Nimble.framework */,
@@ -2430,8 +2438,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "";
-				"SWIFT_INCLUDE_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/CommonCrypto/iphoneos";
-				"SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]" = "$(PROJECT_DIR)/CommonCrypto/iphonesimulator";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -2461,8 +2467,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INCLUDE_PATHS = "";
-				"SWIFT_INCLUDE_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/CommonCrypto/iphoneos";
-				"SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]" = "$(PROJECT_DIR)/CommonCrypto/iphonesimulator";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
