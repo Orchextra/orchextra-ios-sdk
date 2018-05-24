@@ -1,17 +1,19 @@
 # Folder config
 .DS_Store
 
-# Personal settings
+#build file
+build/
+
+
+#personal settings
+xcuserdata
 *.pbxuser
 !default.pbxuser
 *.mode1v3
 !default.mode1v3
 *.mode2v3
 !default.mode2v3
-xcuserdata
- 
- 
-# XCode state
+#xcode state
 *.perspectivev3
 !default.perspectivev3
 *.xcworkspace
@@ -20,16 +22,19 @@ xcuserdata
 DerivedData
 .idea/
 *.orig
-  
+
 # Carthage
 Carthage/Build/
 Carthage/Checkouts
+OrchextraApp/Carthage/Build/
+OrchextraApp/Carthage/Checkouts
+
 *.bcsymbolmap
 *.framework.dSYM*
 
 # Fastlane
-fastlane/report.xml
+fastlane/test_output
+report.xml
 
-# Localio
-Locfile
-.localio.yml
+# Jenkins
+ci-scripts/

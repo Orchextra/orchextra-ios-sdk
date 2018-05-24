@@ -1,0 +1,13 @@
+{
+    "geoMarketing": [{
+                 "code": "5756e9ebbbafcdbd6e8b4597",
+                 "point": {
+                 "lat": 40.446561303262,
+                 "lng": -3.6278459079346
+                 },
+                 "radius": 131,
+                 "notifyOnEntry": true,
+                 "notifyOnExit": true,
+                 "stayTime": 10
+                 }]
+}

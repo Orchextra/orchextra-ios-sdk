@@ -1,0 +1,62 @@
+{
+    "status" : true,
+    "data" : {
+        "crm" : {
+            "businessUnits" : [
+                               "it"
+                               ],
+            "tags" : [
+                      "ios"
+                      ],
+            "gender" : "m",
+            "birthDate" : "1995-01-06T00:00:00.000Z",
+            "customFields" : {
+                "surname" : "Medina",
+                "name" : "Judith"
+            },
+            "crmId" : "Judith.medina"
+        },
+        "device" : {
+            "device" : {
+                "handset" : "simulator\/sandbox",
+                "osVersion" : "11.1",
+                "timeZone" : "Europe\/Madrid",
+                "type" : "IOS"
+            },
+            "clientApp" : {
+                "buildVersion" : "215",
+                "appVersion" : "3.0.0",
+                "sdkVersion" : "3.0.0",
+                "bundleId" : "com.gigigo.OrchextraApp"
+            },
+            "advertiserId" : "FB4C61E6-AC64-44D4-B4C2-039A5F7631AA",
+            "vendorId" : "ADF73345-14EC-448A-8A36-0681387DF404",
+            "businessUnits" : [
+                               "it"
+                               ],
+            "universalId" : "ADF73345-14EC-448A-8A36-0681387DF404",
+            "id" : "5a06161e02de3e68651e843f",
+            "notificationPush" : {
+                "token" : "<NOTIFICATION TOKEN>"
+            },
+            "tags" : [
+                      "spain"
+                      ],
+            "geoLocation" : {
+                "countryCode" : "IT",
+                "locality" : "Rome",
+                "country" : "Italy",
+                "street" : "Piazza della Repubblica",
+                "zip" : "00185",
+                "point" : {
+                    "lng" : 12.496055999999999,
+                    "lat" : 41.902926999999998
+                }
+            }
+        },
+        "project" : {
+            "id" : "56fe2ce4bbafcdf35f8b4575",
+            "name" : "Show&Tell"
+        }
+    }
+}

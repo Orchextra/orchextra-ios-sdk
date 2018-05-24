@@ -1,0 +1,15 @@
+{
+    "test": "this is a test body",
+    "data": {
+        "isOrchextra": true
+    },
+    "aps": {
+        "alert": {
+            "title": "Orchextra notification title",
+            "subtitle": "Orchextra notification subtitle",
+            "body": "This is a notification message"
+        },
+        "badge": 2,
+        "sound": "default"
+    }
+}

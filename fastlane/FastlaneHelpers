@@ -1,0 +1,61 @@
+
+private_lane :deploy_to_applivery do |options|
+  ensure_git_status_clean
+  update_build_number
+
+  applivery_api_key = ENV["APPLIVERY_API_KEY"]
+
+  if applivery_api_key.nil?
+    ENV["APPLIVERY_API_KEY"] = prompt(
+        text: "Applivery API Key not set. To not be asked more, set the environment variable with 'export APPLIVERY_API_KEY=YOUR_API_KEY' or add it to your ~/.bashrc",
+        ci_input: "NOT_SET"
+      )
+    applivery_api_key = ENV["APPLIVERY_API_KEY"]
+  end
+  
+  scheme = "OrchextraApp"
+  app_name = "OrchextraApp"
+  build_number = get_build_number
+  version_number = get_version_number
+  shield = "v#{version_number}-#{build_number}-blue"
+  commit_hash = "#{get_build_number_repository}"
+  applivery_app_id = options[:app_id]
+
+  set_info_plist_value(
+    path: "./OrchextraApp/Info.plist",
+    key: "APPLIVERY_API_KEY",
+    value: applivery_api_key
+  )
+  set_info_plist_value(
+    path: "./OrchextraApp/Info.plist",
+    key: "APPLIVERY_APP_ID",
+    value: applivery_app_id
+  )
+  gym(
+    scheme: scheme,
+    export_method: 'enterprise'
+  )
+  applivery(
+    app_id: applivery_app_id,
+    name: app_name,
+    notify: false,
+    autoremove: true
+  )
+  puts "Submitted #{scheme} v#{version_number}-#{build_number}"
+  clean_workspace
+end
+
+error do |lane, exception|
+  if lane_context[SharedValues::GIT_REPO_WAS_CLEAN_ON_START] == true  
+    clean_workspace
+  end
+end
+
+private_lane :clean_workspace do
+  clean_build_artifacts
+  reset_git_repo(force: true)
+end
+
+private_lane :update_build_number do
+  increment_build_number(build_number: number_of_commits)
+end
