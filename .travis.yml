@@ -1,7 +1,22 @@
+osx_image: xcode9.1
 language: objective-c
-osx_image: xcode9
-script: ./script.sh
+env:
+  global:
+    - FRAMEWORK_NAME=Orchextra
+    - PROJECT=Orchextra
+    - SCHEME=Orchextra
+    - OS=11.1
+    - DEVICE="iPhone 7"
+cache:
+  directories:
+  - Carthage
+before_script:
+  - open -b com.apple.iphonesimulator
+  - carthage version
+  - carthage bootstrap --cache-builds --platform iOS
+script:
+  - set -o pipefail && xcodebuild -project $PROJECT.xcodeproj -scheme $SCHEME -sdk iphonesimulator -destination "platform=iOS Simulator,OS=$OS,name=$DEVICE" test | xcpretty
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 notifications:
   slack: orchextra:edTGY2Fgw81QDHRDS3pfEixE#ci
-after_success:
-- bash <(curl -s https://codecov.io/bash)

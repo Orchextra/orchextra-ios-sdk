@@ -1,0 +1,96 @@
+/*
+Localizable.strings
+
+GENERATED - DO NOT MODIFY - use the localio gem instead.
+
+Created by localio.
+*/
+
+
+
+// Global
+
+"orc_global_cancel_button" = "Cancel";
+"orc_global_ok_button" = "Ok";
+"orc_global_ok_uppercased_button" = "OK";
+"orc_global_settings_button" = "Settings";
+
+// Location
+
+"orc_location_service_off_alert_title" = "Location services are off";
+"orc_background_location_off_alert_title" = "Background location is not enabled";
+"orc_background_location_alert_message" = "The application needs the location in background to provide personalized content based in your position. Please visit your device settings to enable location permissions 'Always'";
+
+// Notification
+
+"orc_default_local_notification_title" = "Check it out!";
+"orc_default_local_notification_message" = "Enter and discover the news.";
+
+// Scanner
+
+"orc_scanner_title" = "Scanner";
+"orc_scanning_message" = "Scanning...";
+"orc_match_not_found_message" = "Match not found";
+"orc_match_found_message" = "Match found";
+"orc_camera_permission_off_title" = "Camera use not allowed";
+"orc_camera_permission_off_message" = "You have not permission to use device camera. You must to enable it from 'Settings'";
+
+// Browser
+
+"orc_browser_title" = "Browser";
+
+// Error
+
+"orc_unexpected_error" = "Unexpected error";
+
+// Vuforia
+
+"orc_vuforia_title" = "Image Recognition";
+"orc_vuforia_button_start" = "Start";
+"orc_vuforia_activities_list_title" = "Vuforia Samples";
+"orc_vuforia_activities_list_empty" = "No activities";
+"orc_vuforia_button_ok" = "OK";
+"orc_vuforia_content_desc_camera_button" = "Camera Button";
+"orc_vuforia_overlay_build_target_help" = "Hold the device parallel to the target";
+"orc_vuforia_target_quality_error_title" = "Low Quality Image";
+"orc_vuforia_target_quality_error_desc" = "he image has very little detail; please try another.";
+"orc_vuforia_menu_back" = "Vuforia Samples";
+"orc_vuforia_menu_extended_tracking" = "Extended Tracking";
+"orc_vuforia_menu_character_mode" = "Character Mode";
+"orc_vuforia_menu_flash" = "Flash";
+"orc_vuforia_menu_flash_error_on" = "Unable to turn on flash";
+"orc_vuforia_menu_flash_error_off" = "Unable to turn off flash";
+"orc_vuforia_menu_contautofocus" = "Autofocus";
+"orc_vuforia_menu_contautofocus_error_on" = "Unable to activate Continuous Auto-Focus";
+"orc_vuforia_menu_contautofocus_error_off" = "Unable to deactivate Continuous Auto-Focus";
+"orc_vuforia_menu_datasets" = "DATASETS";
+"orc_vuforia_menu_camera" = "CAMERA";
+"orc_vuforia_menu_camera_front" = "Front";
+"orc_vuforia_menu_camera_back" = "Rear";
+"orc_vuforia_menu_button_red" = "Red";
+"orc_vuforia_menu_button_blue" = "Blue";
+"orc_vuforia_menu_button_yellow" = "Yellow";
+"orc_vuforia_menu_button_green" = "Green";
+"orc_vuforia_splash_screen_description" = "Vuforia Splash";
+
+// Vuforia Errors
+
+"orc_vuforia_error_missing_vuforia_credentials" = "❌❌ERROR: Vuforia credentials are not set for this project, please add them in 'Orchextra Dashboard'->'Project'->'Settings'->'Providers'";
+"orc_vuforia_update_error_authorization_failed_title" = "Authorization Error";
+"orc_vuforia_update_error_project_suspended_title" = "Authorization Error";
+"orc_vuforia_update_error_no_network_connection_title" = "Network Unavailable";
+"orc_vuforia_update_error_service_not_available_title" = "Service Unavailable";
+"orc_vuforia_update_error_update_sdk_title" = "Unsupported Version";
+"orc_vuforia_update_error_timestamp_out_of_range_title" = "Clock Sync Error";
+"orc_vuforia_update_error_request_timeout_title" = "Request Timeout";
+"orc_vuforia_update_error_bad_frame_quality_title" = "Poor Camera Image";
+"orc_vuforia_update_error_unknown_title" = "Service Unavailable";
+"orc_vuforia_update_error_authorization_failed_desc" = "The cloud recognition service access keys are incorrect or have expired.";
+"orc_vuforia_update_error_project_suspended_desc" = "The cloud recognition service has been suspended.";
+"orc_vuforia_update_error_no_network_connection_desc" = "Please check your internet connection and try again.";
+"orc_vuforia_update_error_service_not_available_desc" = "The service is unavailable; please try again later.";
+"orc_vuforia_update_error_update_sdk_desc" = "The application is using an unsupported version of Vuforia.";
+"orc_vuforia_update_error_timestamp_out_of_range_desc" = "Please update the date and time and try again.";
+"orc_vuforia_update_error_request_timeout_desc" = "The network request has timed out; please check your internet connection and try again.";
+"orc_vuforia_update_error_bad_frame_quality_desc" = "The camera does not have enough detail; please try again later.";
+"orc_vuforia_update_error_unknown_desc" = "The service is unavaiable; please try again later.";

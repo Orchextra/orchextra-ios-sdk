@@ -1,0 +1,16 @@
+{
+    "status" : true,
+    "data" : {
+        "customFields" : {
+            "name" : {
+                "type" : "string",
+                "label" : "name"
+            },
+            "surname" : {
+                "type" : "string",
+                "label" : "surname"
+            }
+        },
+        "projectId" : "56fe2ce4bbafcdf35f8b4575"
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "status" : true,
+    "data" : {
+        "geofences" : [
+                       {
+                       "stayTime" : 120,
+                       "updatedAt" : "2017-09-13T14:45:27.000Z",
+                       "businessUnits" : [
+                       
+                       ],
+                       "radius" : 475,
+                       "notifyOnExit" : true,
+                       "active" : true,
+                       "id" : "59b94377548adcc9448b4876",
+                       "tags" : [
+                       
+                       ],
+                       "_id" : "59b94377548adcc9448b4876",
+                       "type" : "geofence",
+                       "code" : "59b94377548adcc9448b4875",
+                       "projectId" : "56fe2ce4bbafcdf35f8b4575",
+                       "point" : {
+                       "lng" : -3.6281029999999999,
+                       "lat" : 40.445843000000004
+                       },
+                       "notifyOnEntry" : true,
+                       "createdAt" : "2017-09-13T14:40:55.000Z",
+                       "name" : "Gigigo Office",
+                       "deletedAt" : null
+                       },
+                       {
+                       "id" : "575130f5bbafcdd3628b458b",
+                       "updatedAt" : "2016-06-03T07:25:40.000Z",
+                       "businessUnits" : [
+                       
+                       ],
+                       "radius" : 380,
+                       "notifyOnExit" : true,
+                       "active" : true,
+                       "tags" : [
+                       
+                       ],
+                       "_id" : "575130f5bbafcdd3628b458b",
+                       "type" : "geofence",
+                       "code" : "575130f4bbafcdd3628b458a",
+                       "projectId" : "56fe2ce4bbafcdf35f8b4575",
+                       "point" : {
+                       "lng" : -3.6126090361749341,
+                       "lat" : 40.457594399729807
+                       },
+                       "notifyOnEntry" : true,
+                       "createdAt" : "2016-06-03T07:25:40.000Z",
+                       "name" : "Autopista Eje-Aeropuerto",
+                       "stayTime" : 0
+                       }
+                       ],
+        "beaconRegions" : [
+                           {
+                           "uuid" : "B02D9B98-613D-4E22-ACAB-C962C91B05D2",
+                           "updatedAt" : "2017-09-14T09:03:48.000Z",
+                           "major" : 1,
+                           "businessUnits" : [
+                           
+                           ],
+                           "notifyOnExit" : true,
+                           "active" : true,
+                           "id" : "5721fbd8bbafcd6e038b457d",
+                           "tags" : [
+                           
+                           ],
+                           "_id" : "5721fbd8bbafcd6e038b457d",
+                           "type" : "beacon_region",
+                           "code" : "5721fbd8bbafcd6e038b457c",
+                           "projectId" : "56fe2ce4bbafcdf35f8b4575",
+                           "notifyOnEntry" : true,
+                           "point" : null,
+                           "createdAt" : "2016-04-28T12:02:32.000Z",
+                           "name" : "Judith Region"
+                           }
+                           ],
+        "eddystoneRegions" : [
+        
+        ]
+    }
+}
