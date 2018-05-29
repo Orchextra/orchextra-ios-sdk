@@ -120,16 +120,6 @@ class OrchextraController {
         self.scanner?.outputModule = self.moduleOutputWrapper
     }
     
-    func setAnonymous(_ anonymous: Bool) {
-        self.session.setAnonymous(anonymous)
-        if self.session.apiKey != nil && self.session.apiSecret != nil {
-            if anonymous {
-                self.session.unbindUser()
-            }
-            self.bindDevice()
-        }
-    }
-    
     // MARK: - Proximity
     
     public func enableProximity(enable: Bool) {
@@ -190,6 +180,13 @@ class OrchextraController {
         return self.session.loadAccesstoken()
     }
     
+    func setAnonymous(_ anonymous: Bool) {
+        self.session.setAnonymous(anonymous)
+        if self.session.apiKey != nil && self.session.apiSecret != nil {
+            self.bindAnonymousUser(anonymous: anonymous)
+        }
+    }
+    
     // MARK: - Configuration Modules
     
     public func configuration(module: Modules, json: JSON) -> [String: Any]? {
@@ -211,6 +208,7 @@ class OrchextraController {
     }
     
     // MARK: Public CRM methods
+    
     public func bindUser(_ user: UserOrx) {
         let currentUser = self.session.currentUser()
         if user != currentUser {
@@ -221,6 +219,15 @@ class OrchextraController {
     public func unbindUser() {
         self.session.unbindUser()
         self.performBindUserOperation(user: nil)
+    }
+    
+    public func bindAnonymousUser(anonymous: Bool) {
+        if let currentUser = self.session.currentUser() {
+            currentUser.customFields = [CustomField.analyticsConsent(withValue: !anonymous)]
+            self.performBindAnonymousUserOperation(user: currentUser)
+        } else {
+            self.performBindDeviceOperation()
+        }
     }
     
     public func currentUser() -> UserOrx? {
@@ -290,6 +297,7 @@ class OrchextraController {
     }
     
     // MARK: Private CRM methods
+    
     private func performBindUserOperation(user: UserOrx?) {
         self.authInteractor.bind(user: user, device: nil) { (result) in
             switch result {
@@ -303,7 +311,22 @@ class OrchextraController {
         }
     }
     
+    private func performBindAnonymousUserOperation(user: UserOrx?)  {
+        let device = Device()
+        self.authInteractor.bind(user: user, device: device) { result in
+            switch result {
+            case .success(let json):
+                Orchextra.shared.delegate?.deviceBindDidComplete(result: .success(json.toDictionary() ?? [:]))
+                LogInfo("Bind device has been successful")
+            case .error(let error):
+                Orchextra.shared.delegate?.deviceBindDidComplete(result: .error(error))
+                LogInfo("Bind device with error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     // MARK: Private Device methods
+    
     private func performBindDeviceOperation() {
         let device = Device()
         let user = self.session.currentUser()

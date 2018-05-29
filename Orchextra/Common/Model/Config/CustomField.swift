@@ -107,3 +107,15 @@ extension CustomField: Equatable {
 }
 
 extension CustomFieldType: Codable {}
+
+extension CustomField {
+    
+    static func analyticsConsent(withValue value: Bool) -> CustomField {
+        return CustomField(
+            key: "consent_analytics",
+            label: "consent_analytics",
+            type: .boolean,
+            value: "\(value)"
+        )
+    }
+}

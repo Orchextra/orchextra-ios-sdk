@@ -118,10 +118,10 @@ class AuthInteractor: AuthInteractorInput {
         self.service.bind(params: params) { result in
             switch result {
             case .success(let json):
-                let user = UserOrx(json: json)
+                let resultUser = UserOrx(json: json)
                 let device = Device()
                 device.parse(json: json)
-                self.session.bindUser(user)
+                self.session.bindUser(resultUser)
                 completion(.success(json))
             case .error(let error):
                 completion(.error(error))
