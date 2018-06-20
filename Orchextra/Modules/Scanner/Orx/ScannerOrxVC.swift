@@ -111,7 +111,6 @@ class ScannerOrxVC: GIGScannerVC, ModuleInput, ScannerUI, GIGScannerOutput {
     
     func stopScanner() {
         self.stopScanning()
-        // !!! Scanning cancelled, if dummy scanner, return completion with error
     }
     
     func enableTorch(enable: Bool) {

@@ -18,79 +18,12 @@ Created by localio.
 // HELYMEGHATÁROZÁS
 
 "orc_location_service_off_alert_title" = "Helymeghatározás kikapcsolva";
-"orc_background_location_off_alert_title" = "A helymeghatározás a háttérben funkció nincs engedélyezve";
 "orc_background_location_alert_message" = "Az alkalmazásnak szüksége van a helymeghatározás a háttérben funkcióra ahhoz, hogy a tartózkodási hely alapján személyre szabott tartalmat tudjon biztosítani. A helymeghatározás „mindig” engedélyezéséhez kérjük, lépj be a készülék Beállítások menüpontjába";
-
-// Értesítés
-
-"orc_default_local_notification_title" = "Próbáld ki!";
-"orc_default_local_notification_message" = "Lépj be, és fedezd fel az újdonságokat.";
 
 // Szkenner
 
 "orc_scanner_title" = "Szkenner";
 "orc_scanning_message" = "Leolvasás...";
 "orc_match_not_found_message" = "Nincs egyezés";
-"orc_match_found_message" = "Találtunk egyezést";
 "orc_camera_permission_off_title" = "A kamera használata nincs engedélyezve";
 "orc_camera_permission_off_message" = "Az eszköz kamerájának használata nincs engedélyezve Engedélyezd a „Beállítások” menüpontban";
-
-// Böngésző
-
-"orc_browser_title" = "Böngésző";
-
-// Hiba
-
-"orc_unexpected_error" = "Váratlan hiba";
-
-// Vuforia
-
-"orc_vuforia_title" = "Képfelismerés";
-"orc_vuforia_button_start" = "Mehet";
-"orc_vuforia_activities_list_title" = "Vuforia minták";
-"orc_vuforia_activities_list_empty" = "Nincs tevékenység";
-"orc_vuforia_button_ok" = "OK";
-"orc_vuforia_content_desc_camera_button" = "Kamera gomb";
-"orc_vuforia_overlay_build_target_help" = "Tartsd az eszközt a céltárggyal párhuzamosan";
-"orc_vuforia_target_quality_error_title" = "Rossz minőségű kép";
-"orc_vuforia_target_quality_error_desc" = "A kép nem elég részletes. Próbálj ki egy másikat.";
-"orc_vuforia_menu_back" = "Vuforia minták";
-"orc_vuforia_menu_extended_tracking" = "Kiterjesztett nyomon követés";
-"orc_vuforia_menu_character_mode" = "Karaktermód";
-"orc_vuforia_menu_flash" = "Vaku";
-"orc_vuforia_menu_flash_error_on" = "A vaku bekapcsolása sikertelen";
-"orc_vuforia_menu_flash_error_off" = "A vaku kikapcsolása sikertelen";
-"orc_vuforia_menu_contautofocus" = "Automata fókusz";
-"orc_vuforia_menu_contautofocus_error_on" = "A folyamatos automata fókusz bekapcsolása sikertelen";
-"orc_vuforia_menu_contautofocus_error_off" = "A folyamatos automata fókusz kikapcsolása sikertelen";
-"orc_vuforia_menu_datasets" = "ADATKÉSZLETEK";
-"orc_vuforia_menu_camera" = "KAMERA";
-"orc_vuforia_menu_camera_front" = "Elülső";
-"orc_vuforia_menu_camera_back" = "Hátsó";
-"orc_vuforia_menu_button_red" = "Piros";
-"orc_vuforia_menu_button_blue" = "Kék";
-"orc_vuforia_menu_button_yellow" = "Sárga";
-"orc_vuforia_menu_button_green" = "Zöld";
-"orc_vuforia_splash_screen_description" = "Vuforia Splash";
-
-// Vuforia hibák
-
-"orc_vuforia_error_missing_vuforia_credentials" = "❌❌HIBA: A Vuforia hitelesítési adatai nincsenek megadva ehhez a projekthez. Add őket hozzá az „Orchextra Irányítópult”->„Projekt”->„Beállítások”->„Szolgáltatók” menüpontban";
-"orc_vuforia_update_error_authorization_failed_title" = "Engedélyezési hiba";
-"orc_vuforia_update_error_project_suspended_title" = "Engedélyezési hiba";
-"orc_vuforia_update_error_no_network_connection_title" = "Hálózat nem elérhető";
-"orc_vuforia_update_error_service_not_available_title" = "Szolgáltatás nem elérhető";
-"orc_vuforia_update_error_update_sdk_title" = "Nem támogatott verzió";
-"orc_vuforia_update_error_timestamp_out_of_range_title" = "Szinkronizálási hiba ideje";
-"orc_vuforia_update_error_request_timeout_title" = "Kérés lejárt";
-"orc_vuforia_update_error_bad_frame_quality_title" = "Kamerakép rossz minőségű";
-"orc_vuforia_update_error_unknown_title" = "Szolgáltatás nem elérhető";
-"orc_vuforia_update_error_authorization_failed_desc" = "A felhőfelismerési szolgáltatás hozzáférési kulcsa helytelen vagy lejárt.";
-"orc_vuforia_update_error_project_suspended_desc" = "A felhőfelismerési szolgáltatást felfüggesztettük.";
-"orc_vuforia_update_error_no_network_connection_desc" = "Kérjük, ellenőrizd az internetkapcsolatot, majd próbáld újra később.";
-"orc_vuforia_update_error_service_not_available_desc" = "A szolgáltatás jelenleg nem elérhető. Próbáld újra később.";
-"orc_vuforia_update_error_update_sdk_desc" = "Az alkalmazás a Vuforia nem támogatott verzióját használja.";
-"orc_vuforia_update_error_timestamp_out_of_range_desc" = "Frissítsd a dátum- és időbeállítást, majd próbáld újra később.";
-"orc_vuforia_update_error_request_timeout_desc" = "A hálózati kérés lejárt. Ellenőrizd az internetkapcsolatot, majd próbáld újra később.";
-"orc_vuforia_update_error_bad_frame_quality_desc" = "A kamera képe nem elég részletes. Próbáld újra később.";
-"orc_vuforia_update_error_unknown_desc" = "A szolgáltatás nem elérhető. Próbáld újra később.";

@@ -110,7 +110,6 @@ class OrchextraController {
     }
     
     func scan(completion: @escaping(Result<ScannerResult, ScannerError>) -> Void) {
-        // !!!
         let defaultScannerModule =  DefaultScannerModule(completion: completion)
         defaultScannerModule.start()
     }
