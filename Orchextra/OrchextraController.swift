@@ -16,7 +16,7 @@ class OrchextraController {
     
     // Public attributtes
 
-    var strings: Strings
+    var translations: Translations
 
     // Private attributes
     
@@ -65,7 +65,7 @@ class OrchextraController {
         self.authInteractor = authInteractor
         self.moduleOutputWrapper = moduleOutputWrapper
         self.applicationCenter = applicationCenter
-        self.strings = Strings()
+        self.translations = Translations()
     }
     
     func start(with apiKey: String, apiSecret: String, completion: @escaping (Result<Bool, Error>) -> Void) {

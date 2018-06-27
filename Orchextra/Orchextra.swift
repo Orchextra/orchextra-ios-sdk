@@ -96,12 +96,12 @@ open class Orchextra {
     public var delegate: ORXDelegate?
     
     /**
-     // !!! 666
+     Texts displayed in ORX views. Use it to localize all displayed texts.
      */
-    public var strings: Strings? {
+    public var translations: Translations? {
         didSet {
-            if let strings = self.strings {
-                OrchextraController.shared.strings = strings
+            if let translations = self.translations {
+                OrchextraController.shared.translations = translations
             }
         }
     }

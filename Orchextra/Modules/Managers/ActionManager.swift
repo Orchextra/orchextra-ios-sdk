@@ -71,8 +71,8 @@ class ActionManager {
     
     private func showAlertView(title: String, body: String, action: Action) {
         let alert = Alert(title: title, message: body)
-        alert.addCancelButton(OrchextraController.shared.strings.orxCancelButtonTitle, usingAction: nil)
-        alert.addDefaultButton(OrchextraController.shared.strings.orxAcceptButtonTitle.uppercased()) { _ in
+        alert.addCancelButton(OrchextraController.shared.translations.cancelButtonTitle, usingAction: nil)
+        alert.addDefaultButton(OrchextraController.shared.translations.acceptButtonTitle.uppercased()) { _ in
             self.executeAndConfirm(action: action)
         }
         alert.show()
