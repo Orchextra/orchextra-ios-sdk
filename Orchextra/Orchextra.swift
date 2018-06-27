@@ -95,6 +95,16 @@ open class Orchextra {
      */
     public var delegate: ORXDelegate?
     
+    /**
+     // !!! 666
+     */
+    public var strings: Strings? {
+        didSet {
+            if let strings = self.strings {
+                OrchextraController.shared.strings = strings
+            }
+        }
+    }
     
     /**
      Type of Orchextra logs you want displayed in the debug console

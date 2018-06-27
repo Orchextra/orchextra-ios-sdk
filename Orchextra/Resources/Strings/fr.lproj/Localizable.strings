@@ -11,7 +11,6 @@ Created by localio.
 // Global
 
 "orc_global_cancel_button" = "Annuler";
-"orc_global_ok_button" = "Confirmer";
 "orc_global_ok_uppercased_button" = "Confirmer";
 "orc_global_settings_button" = "Paramètres";
 

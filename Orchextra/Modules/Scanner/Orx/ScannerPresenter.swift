@@ -110,7 +110,7 @@ class ScannerPresenter: ScannerInput {
             // Track activity statistics
             
             // Show in the view the scanned value
-            self.vc?.show(scannedValue: value, message: kLocaleOrcScanningMessage)
+            self.vc?.show(scannedValue: value, message: OrchextraController.shared.strings.orxScannerMessage)
             guard let moduleInput = self.vc else {
                 LogWarn("Scanner ")
                 return

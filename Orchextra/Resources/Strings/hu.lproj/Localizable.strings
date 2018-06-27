@@ -11,7 +11,6 @@ Created by localio.
 // Globális
 
 "orc_global_cancel_button" = "Mégse";
-"orc_global_ok_button" = "Ok";
 "orc_global_ok_uppercased_button" = "OK";
 "orc_global_settings_button" = "Beállítások";
 

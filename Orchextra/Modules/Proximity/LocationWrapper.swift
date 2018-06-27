@@ -125,10 +125,10 @@ class LocationWrapper: NSObject, LocationInput {
     func showLocationPermissionAlert() {
         let alert = Alert(
             title: kLocaleOrcLocationServiceOffAlertTitle,
-            message: kLocaleOrcBackgroundLocationAlertMessage)
+            message: OrchextraController.shared.strings.orxBackgroundLocationAlertMessage)
         
-        alert.addCancelButton(kLocaleOrcGlobalCancelButton, usingAction: nil)
-        alert.addDefaultButton(kLocaleOrcGlobalSettingsButton) { _ in
+        alert.addCancelButton(OrchextraController.shared.strings.orxCancelButtonTitle, usingAction: nil)
+        alert.addDefaultButton(OrchextraController.shared.strings.orxSettingsButtonTitle) { _ in
             self.settingTapped()
         }
         alert.show()

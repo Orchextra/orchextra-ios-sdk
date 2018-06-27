@@ -85,8 +85,8 @@ class DefaultScannerVC: GIGScannerVC, DefaultScannerModuleInput {
     
     private func initializeScanner() {
         
-        self.titleNav.title = kLocaleOrcScannerTitle
-        self.cancelBarButton.title = kLocaleOrcGlobalCancelButton
+        self.titleNav.title = OrchextraController.shared.strings.orxScannerTitle
+        self.cancelBarButton.title = OrchextraController.shared.strings.orxCancelButtonTitle
         
         self.infoLabel.layer.cornerRadius = 5
         self.infoLabel.contentInset = UIEdgeInsets(top: 5, left: 12, bottom: 5, right: 12)
@@ -105,11 +105,11 @@ class DefaultScannerVC: GIGScannerVC, DefaultScannerModuleInput {
     
     internal func showCameraPermissionAlert() {
         let alert = Alert(
-            title: kLocaleOrcCameraPermissionOffTitle,
-            message: kLocaleOrcCameraPermissionOffMessage)
-        
-        alert.addCancelButton(kLocaleOrcGlobalCancelButton, usingAction: nil)
-        alert.addDefaultButton(kLocaleOrcGlobalSettingsButton) { _ in
+            title: OrchextraController.shared.strings.orxCameraPermissionDeniedTitle,
+            message: OrchextraController.shared.strings.orxCameraPermissionDeniedMessage
+        )
+        alert.addCancelButton(OrchextraController.shared.strings.orxCancelButtonTitle, usingAction: nil)
+        alert.addDefaultButton(OrchextraController.shared.strings.orxSettingsButtonTitle) { _ in
             self.settingTapped()
         }
         alert.show()
