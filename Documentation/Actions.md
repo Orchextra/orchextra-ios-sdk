@@ -57,14 +57,14 @@ Secondly, we have to handle the notifications sent by Orchextra dashboard (or tr
 ```swift
 extension AppDelegate {
 
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        Orchextra.shared.handleRemoteNotification(userInfo)
-    }
+	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+		Orchextra.shared.handleRemoteNotification(userInfo)
+ 	}
     
 	func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
 		if let userInfo = notification.userInfo {
-	    	Orchextra.shared.handleRemoteNotification(userInfo)
-	   }
+			Orchextra.shared.handleRemoteNotification(userInfo)
+		}
 	}
 }
 
@@ -88,4 +88,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler()
     }
 }
+```
+
+### Unregister
+
+if you want to unregister Orchextra for receiving push notifications, just call:
+
+```swift
+Orchextra.shared.unregisterForRemoteNotifications()
 ```

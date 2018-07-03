@@ -82,10 +82,10 @@ Orchextra SDK is composed by the sections of functionality.
 - Custom Schemes
 - Triggers
 - Push Notifications
-      * Register / unregister
-      * Handle notifications
-          - Local
-          - Remote
+	* Register / unregister
+   * Handle notifications
+       - Local
+       - Remote
 
 
 [dashboard]: https://dashboard.orchextra.io
