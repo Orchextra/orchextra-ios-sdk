@@ -310,7 +310,7 @@ class OrchextraController {
         }
     }
     
-    private func performBindAnonymousUserOperation(user: UserOrx?)  {
+    private func performBindAnonymousUserOperation(user: UserOrx?) {
         let device = Device()
         self.authInteractor.bind(user: user, device: device) { result in
             switch result {

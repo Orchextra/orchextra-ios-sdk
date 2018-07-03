@@ -70,7 +70,8 @@ class OrchextraWrapperApp {
         self.orchextra.setScanner(vc: vc)
     }
     
-     // MARK: - Eddystoneu
+     // MARK: - Eddystone
+    
     func openEddystone(with completionHandler: (UIBackgroundFetchResult) -> Void) {
         self.orchextra.openEddystone(with: completionHandler)
     }

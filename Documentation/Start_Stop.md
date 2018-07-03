@@ -1,3 +1,5 @@
+# Start / Stop
+
 ## Integration
 Once the project has been created in [Orchextra dashboard][dashboard],
 it is required to **start** the SDK using the project credentials (**Api Key** and **Api Secret**)
