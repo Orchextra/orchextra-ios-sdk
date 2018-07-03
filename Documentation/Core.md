@@ -10,11 +10,6 @@ You can retrieve the access token of Orchextra in order to use it as your own au
 ```swift
 Orchextra.shared.accesstoken()
 ```
-
-## Modules configuration
-
-TBD
-
 ## Bind
 
 **UserOrx** class is a local representation of a user persisted to the Orchextra Database to help to create a good user segmentation. This object is optional and could be set up at any time by calling:
@@ -33,9 +28,17 @@ Finally, if you want to delete the user information:
 ```swift
 Orchextra.shared.unbindUser()
 ```
+This method must be called every time you change one of the following user information (**Business Units, Tags, or Custom Fields**).
+
 ## Bind device
 
-TBD
+**Device** class is a local representation of a device characteristics (such as platform, operative system version, vendor identifier...), many application information (bundle identifier, application version...) to help to create a good segmentation for people without a logged user (User with crmId). Could be set up at any time by calling:
+
+```swift
+Orchextra.shared.bindDevice()
+```
+
+This method must be called every time you change one of the following user information (**Business Units or Tags**).
 
 ## Anonymize (GDPR)
 As you may have heard, the General Data Protection Regulation (GDPR) went into effect on May 25th, 2018. Orchextra SDK provides a method for anonymizing devices into Orchextra dashboard in order to be comply with GDPR if user want to be opt-out.
@@ -55,7 +58,7 @@ Orchextra SDK allows to create segmentation using tags, business units or custom
 
 #### Usage
 
-**Businees Unit** is an entity that represents... (TBD)
+**Businees Unit** is an entity that represents a kind of segmentation for users and devices. Commonly used to segment content or actions.
 
 ```swift
 let itBusinessUnit = BusinessUnit(name: "it")
@@ -65,7 +68,7 @@ Orchextra.shared.setDeviceBusinessUnits([itBusinessUnit]) // Set to device
 
 ### Tags
 
-**Tag** is an entity that represents... (TBD)
+**Tag** is an entity that represents a kind of segmentation for users and devices. Commonly used to segment content or actions.
 
 #### Available
 
@@ -82,7 +85,7 @@ Orchextra.shared.setDeviceTags([manTag])
 
 ### Custom fields
 
-**CustomField** is an entity that represents... (TBD)
+**CustomField** is an entity that represents a kind of segmentation only for users. Commonly used to segment Push notifications.
 
 #### Available
 

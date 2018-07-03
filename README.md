@@ -62,7 +62,6 @@ Orchextra SDK is composed by the sections of functionality.
   
 #### **[Orchextra Core](Documentation/Core.md)**
 - Authentication
-- Modules configuration
 - Bind/Unbind user
 - Bind device
      * Anonimize (GDPR)
