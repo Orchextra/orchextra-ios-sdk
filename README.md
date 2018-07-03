@@ -8,10 +8,53 @@
 A library that gives you access to Orchextra platform from your iOS app.
 
 ## Getting started
-Start by creating a project in [Orchextra dashboard][dashboard], if you haven't done it yet. Go to "Setting" > "SDK Configuration" to get the **api key** and **api secret**, you will need these values to start Orchextra SDK.
+
+Start by creating a project in [Orchextra Dashboard][dashboard], if you haven't done it yet. You'll need to get your project `APIKEY` and `APISECRET`  to configure and integrate OCM SDK, you can look them up in  [Orchextra dashboard][dashboard] by going to "Settings" -> "SDK Configuration".
+
+### Requirements
+
+* iOS 8.0+
+* Xcode 8.3+
+* Swift 3.1+
+
+## Installation
+
+### Manually
+
+To use *Orchextra Core*, head on over to the [releases](https://github.com/Orchextra/orchextra-ios-sdk/releases) page, and download the latest build "Orchextra.zip". Drag and drop **Orchextra.framework**. 
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage/blob/master/README.md) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](https://brew.sh) using the following command:
+
+```
+$ brew update
+$ brew install carthage
+```
+
+If you want you can add **Orchextra.framework** using Carthage, you have to add in your Cartfile file: 
+
+ ```
+github "Orchextra/orchextra-ios-sdk" ~> 3.0
+ ``` 
+ 
+Run `carthage update` to build the framework and drag the built Orchextra.framework into your Xcode project.
+ 
+## Set up
+
+### Geolocation - Configure Info.plist
+You have to provide (it is required) a description of "why the app wants to use location services" in the info.plist
+by using the following keys and providing an string with the reason.
+
+* NSLocationAlwaysUsageDescription
+* NSLocationWhenInUseUsageDescription
 
 ## Overview
+
 Orchextra SDK is composed by the sections of functionality.
+
 #### **[Start / Stop](Documentation/Start_Stop.md)**
 - Start
 - Stop
@@ -42,3 +85,6 @@ Orchextra SDK is composed by the sections of functionality.
       * Handle notifications
           - Local
           - Remote
+
+
+[dashboard]: https://dashboard.orchextra.io
