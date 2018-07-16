@@ -106,7 +106,6 @@ class ScannerTests: XCTestCase {
         
         // ASSERT
         expect(self.scannerViewMock.spyShow.called).toEventually(equal(true))
-        expect(self.scannerViewMock.spyShow.message).toEventually(equal(kLocaleOrcScanningMessage))
         expect(self.scannerViewMock.spyShow.scannedValue).toEventually(equal("97870980"))
         expect(self.moduleOutputMock.spyTriggerWasFire.called).toEventually(equal(true))
         
@@ -125,7 +124,6 @@ class ScannerTests: XCTestCase {
         
         // ASSERT
         expect(self.scannerViewMock.spyShow.called).toEventually(equal(true), timeout: 6)
-        expect(self.scannerViewMock.spyShow.message).toEventually(equal(kLocaleOrcScanningMessage), timeout: 6)
         expect(self.scannerViewMock.spyShow.scannedValue).toEventually(equal("Hi world"), timeout: 6)
         expect(self.moduleOutputMock.spyTriggerWasFire.called).toEventually(equal(true), timeout: 6)
         
