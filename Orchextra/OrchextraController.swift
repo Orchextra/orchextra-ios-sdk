@@ -11,11 +11,15 @@ import GIGLibrary
 
 class OrchextraController {
     
-    // Attributtes
-
+    // Singleton
     static let shared = OrchextraController()
     
-    // Private Attributes
+    // Public attributtes
+
+    var translations: Translations
+
+    // Private attributes
+    
     private var session: Session
     private var configInteractor: ConfigInteractorInput
     private var authInteractor: AuthInteractorInput
@@ -44,7 +48,6 @@ class OrchextraController {
         let authInteractor = AuthInteractor()
         let moduleOutputWrapper = ModuleOutputWrapper()
         let applicationCenter = ApplicationCenter()
-        
         self.init(session: session,
                   configInteractor: configInteractor,
                   authInteractor: authInteractor,
@@ -62,6 +65,7 @@ class OrchextraController {
         self.authInteractor = authInteractor
         self.moduleOutputWrapper = moduleOutputWrapper
         self.applicationCenter = applicationCenter
+        self.translations = Translations()
     }
     
     func start(with apiKey: String, apiSecret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
@@ -144,6 +148,7 @@ class OrchextraController {
     }
     
     // MARK: - Eddystone
+    
     public func openEddystone() {
         if self.eddystone == nil {
             self.eddystone = EddystoneModule()
@@ -275,6 +280,7 @@ class OrchextraController {
     }
     
     // MARK: Public Device methods
+    
     public func bindDevice() {
         self.performBindDeviceOperation()
     }
@@ -340,6 +346,7 @@ class OrchextraController {
             }
         }
     }
+    
 }
 
 extension OrchextraController {

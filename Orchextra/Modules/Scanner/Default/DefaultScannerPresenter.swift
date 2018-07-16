@@ -57,7 +57,7 @@ class DefaultScannerPresenter: DefaultScannerInput {
         let typeValue = (type == "org.iso.QRCode") ? ScannerType.QR : ScannerType.Barcode
 
         // Show scanned value in the view
-        self.vc?.show(scannedValue: value, message: kLocaleOrcScanningMessage)
+        self.vc?.show(scannedValue: value, message: OrchextraController.shared.translations.scannerMessage)
         
         // Finish after a couple of seconds
         DispatchQueue.background(delay: 1.0, completion: {

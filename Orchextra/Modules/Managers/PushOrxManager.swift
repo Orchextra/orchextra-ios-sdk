@@ -88,8 +88,8 @@ class PushOrxManager: NSObject, PushOrxInput {
     
     private func showAlertView(title: String, body: String, completion:(() -> Void)?) {
         let alert = Alert(title: title, message: body)
-        alert.addCancelButton(kLocaleOrcGlobalCancelButton, usingAction: nil)
-        alert.addDefaultButton(kLocaleOrcGlobalOkUppercasedButton) { _ in
+        alert.addCancelButton(OrchextraController.shared.translations.cancelButtonTitle, usingAction: nil)
+        alert.addDefaultButton(OrchextraController.shared.translations.acceptButtonTitle.uppercased()) { _ in
             guard let completionNotNil = completion else {
                 LogWarn("Completion is nil")
                 return

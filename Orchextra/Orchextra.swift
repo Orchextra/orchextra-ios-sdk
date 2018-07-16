@@ -95,6 +95,16 @@ open class Orchextra {
      */
     public var delegate: ORXDelegate?
     
+    /**
+     Texts displayed in ORX views. Use it to localize all displayed texts.
+     */
+    public var translations: Translations? {
+        didSet {
+            if let translations = self.translations {
+                OrchextraController.shared.translations = translations
+            }
+        }
+    }
     
     /**
      Type of Orchextra logs you want displayed in the debug console

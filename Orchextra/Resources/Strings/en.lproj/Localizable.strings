@@ -11,7 +11,6 @@ Created by localio.
 // Global
 
 "orc_global_cancel_button" = "Cancel";
-"orc_global_ok_button" = "Ok";
 "orc_global_ok_uppercased_button" = "OK";
 "orc_global_settings_button" = "Settings";
 
@@ -26,5 +25,4 @@ Created by localio.
 "orc_scanning_message" = "Scanning...";
 "orc_match_not_found_message" = "Match not found";
 "orc_camera_permission_off_title" = "Camera use not allowed";
-"orc_camera_permission_off_message" = "Yo have not permission to use device camera. You must to enable it from 'Settings'";
-
+"orc_camera_permission_off_message" = "You have not permission to use device camera. You must to enable it from 'Settings'";
