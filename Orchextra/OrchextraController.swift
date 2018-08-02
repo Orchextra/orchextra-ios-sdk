@@ -126,11 +126,13 @@ class OrchextraController {
     // MARK: - Proximity
     
     public func enableProximity(enable: Bool) {
-      self.enableProximity = enable
+        self.enableProximity = enable
+        self.configureModules()
     }
     
     public func enableEddystone(enable: Bool) {
         self.enableEddystone = enable
+        self.configureModules()
     }
     
     func openProximity(config: [String: Any]) {
@@ -149,7 +151,7 @@ class OrchextraController {
     
     // MARK: - Eddystone
     
-    public func openEddystone() {
+    func openEddystone() {
         if self.eddystone == nil {
             self.eddystone = EddystoneModule()
         }
@@ -169,7 +171,7 @@ class OrchextraController {
     
     // MARK: - Device & User
     
-    public func remote(apnsToken: Data?) {
+    func remote(apnsToken: Data?) {
         if let apnsToken = apnsToken {
             let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
             self.session.setPushNotification(token: apnsToken)
@@ -180,7 +182,7 @@ class OrchextraController {
         }
     }
     
-    public func accesstoken() -> String? {
+    func accesstoken() -> String? {
         return self.session.loadAccesstoken()
     }
     
@@ -193,7 +195,7 @@ class OrchextraController {
     
     // MARK: - Configuration Modules
     
-    public func configuration(module: Modules, json: JSON) -> [String: Any]? {
+    func configuration(module: Modules, json: JSON) -> [String: Any]? {
         switch module {
         case .proximity:
             if let requestWaitTime = json["requestWaitTime"]?.toInt() {
@@ -211,21 +213,34 @@ class OrchextraController {
         self.eddystone?.finish(action: nil, completionHandler: nil)
     }
     
+    private func configureModules() {
+        guard self.session.apiKey != nil, self.session.apiSecret != nil else { return }
+        if !self.enableProximity {
+            self.proximity?.finish(action: nil, completionHandler: nil)
+        }
+        if !self.enableEddystone {
+            self.eddystone?.finish(action: nil, completionHandler: nil)
+        }
+        if self.enableEddystone || self.enableProximity {
+            self.triggerConfiguration()
+        }
+    }
+    
     // MARK: Public CRM methods
     
-    public func bindUser(_ user: UserOrx) {
+    func bindUser(_ user: UserOrx) {
         let currentUser = self.session.currentUser()
         if user != currentUser {
             self.performBindUserOperation(user: user)
         }
     }
     
-    public func unbindUser() {
+    func unbindUser() {
         self.session.unbindUser()
         self.performBindUserOperation(user: nil)
     }
     
-    public func bindAnonymousUser(anonymous: Bool) {
+    func bindAnonymousUser(anonymous: Bool) {
         if let currentUser = self.session.currentUser() {
             currentUser.customFields = [CustomField.analyticsConsent(withValue: !anonymous)]
             self.performBindAnonymousUserOperation(user: currentUser)
@@ -234,44 +249,44 @@ class OrchextraController {
         }
     }
     
-    public func currentUser() -> UserOrx? {
+    func currentUser() -> UserOrx? {
         return self.session.currentUser()
     }
     
-    public func setUserBusinessUnits(_ businessUnits: [BusinessUnit]) {
+    func setUserBusinessUnits(_ businessUnits: [BusinessUnit]) {
         guard let currentUser = self.session.currentUser() else { return }
         currentUser.businessUnits = businessUnits
         self.bindUser(currentUser)
     }
     
-    public func getUserBusinessUnits() -> [BusinessUnit] {
+    func getUserBusinessUnits() -> [BusinessUnit] {
         guard let currentUser = self.currentUser() else { return [BusinessUnit]() }
         return currentUser.businessUnits
     }
     
-    public func setUserTags(_ tags: [Tag]) {
+    func setUserTags(_ tags: [Tag]) {
         guard let currentUser = self.session.currentUser() else { return }
         currentUser.tags = tags
         self.bindUser(currentUser)
     }
     
-    public func getUserTags() -> [Tag] {
+    func getUserTags() -> [Tag] {
         guard let currentUser = self.currentUser() else { return [Tag]() }
         return currentUser.tags
     }
     
-    public func setCustomFields(_ customFields: [CustomField]) {
+    func setCustomFields(_ customFields: [CustomField]) {
         guard let currentUser = self.session.currentUser() else { return }
         currentUser.customFields = customFields
         self.bindUser(currentUser)
     }
     
-    public func getCustomFields() -> [CustomField] {
+    func getCustomFields() -> [CustomField] {
         guard let currentUser = self.currentUser() else { return [CustomField]() }
         return currentUser.customFields
     }
     
-    public func getAvailableCustomFields() -> [CustomField] {
+    func getAvailableCustomFields() -> [CustomField] {
         guard let availableCustomFields = self.session.project?.customFields else {
             return [CustomField]()
             
@@ -281,23 +296,23 @@ class OrchextraController {
     
     // MARK: Public Device methods
     
-    public func bindDevice() {
+    func bindDevice() {
         self.performBindDeviceOperation()
     }
     
-    public func setDeviceBusinessUnits(_ businessUnits: [BusinessUnit]) {
+    func setDeviceBusinessUnits(_ businessUnits: [BusinessUnit]) {
         self.session.setDeviceBusinessUnits(businessUnits: businessUnits)
     }
     
-    public func getDeviceBusinessUnits() -> [BusinessUnit] {
+    func getDeviceBusinessUnits() -> [BusinessUnit] {
         return self.session.deviceBusinessUnits()
     }
     
-    public func setDeviceTags(_ tags: [Tag]) {
+    func setDeviceTags(_ tags: [Tag]) {
         self.session.setDeviceTags(tags: tags)
     }
     
-    public func getDeviceTags() -> [Tag] {
+    func getDeviceTags() -> [Tag] {
         return self.session.deviceTags()
     }
     
