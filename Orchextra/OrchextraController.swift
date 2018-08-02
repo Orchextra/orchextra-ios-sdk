@@ -213,16 +213,21 @@ class OrchextraController {
         self.eddystone?.finish(action: nil, completionHandler: nil)
     }
     
+    /// Start / stop the modules if Orchextra is already started
     private func configureModules() {
-        guard self.session.apiKey != nil, self.session.apiSecret != nil else { return }
-        if !self.enableProximity {
-            self.proximity?.finish(action: nil, completionHandler: nil)
-        }
-        if !self.enableEddystone {
-            self.eddystone?.finish(action: nil, completionHandler: nil)
-        }
-        if self.enableEddystone || self.enableProximity {
-            self.triggerConfiguration()
+        if self.session.apiKey != nil && self.session.apiSecret != nil {
+            // disable proximity if it is disabled
+            if !self.enableProximity {
+                self.proximity?.finish(action: nil, completionHandler: nil)
+            }
+            // disable eddystones if it is disabled
+            if !self.enableEddystone {
+                self.eddystone?.finish(action: nil, completionHandler: nil)
+            }
+            // trigger configuration if any module is enable
+            if self.enableEddystone || self.enableProximity {
+                self.triggerConfiguration()
+            }
         }
     }
     
