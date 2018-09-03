@@ -4,6 +4,7 @@
 ![Version](https://img.shields.io/badge/version-3.0.5-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![CocoaPods](https://img.shields.io/cocoapods/v/Orchextra.svg)
 [![codecov.io](https://codecov.io/github/Orchextra/orchextra-ios-sdk/coverage.svg?branch=develop)](https://codecov.io/github/Orchextra/orchextra-ios-sdk?branch=master)
 
 A library that gives you access to Orchextra platform from your iOS app.
