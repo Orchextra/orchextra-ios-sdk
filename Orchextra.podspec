@@ -8,9 +8,10 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Orchextra'
-  s.version          = '3.0.4'
+  s.version          = '3.0.5'
   s.summary          = 'A library that gives you access to Orchextra platform from your iOS app.'
-  
+  s.swift_version    = '4.1.0'
+
   s.description      = <<-DESC
 Orchextra SDK is composed by the sections of functionality.
 
