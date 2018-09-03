@@ -1,7 +1,7 @@
 # Orchextra SDK for iOS
 
 ![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
-![Version](https://img.shields.io/badge/version-3.0.1-blue.svg)
+![Version](https://img.shields.io/badge/version-3.0.5-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov.io](https://codecov.io/github/Orchextra/orchextra-ios-sdk/coverage.svg?branch=develop)](https://codecov.io/github/Orchextra/orchextra-ios-sdk?branch=master)
@@ -42,6 +42,16 @@ github "Orchextra/orchextra-ios-sdk" ~> 3.0
  ``` 
  
 Run `carthage update` to build the framework and drag the built Orchextra.framework into your Xcode project.
+ 
+### Cocoapods (beta)
+
+[Cocoapods](https://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. It has over 51 thousand libraries and is used in over 3 million apps. CocoaPods can help you scale your projects elegantly.
+
+Simply add to your `Podfile`the following line:
+
+```
+pod 'Orchextra', '~> 3.0'
+```
  
 ## Set up
 
