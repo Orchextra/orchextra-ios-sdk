@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Orchextra'
-  s.version          = '3.0.5'
+  s.version          = '3.0.6'
   s.summary          = 'A library that gives you access to Orchextra platform from your iOS app.'
   s.swift_version    = '4.1.0'
 
@@ -59,9 +59,7 @@ Orchextra SDK is composed by the sections of functionality.
 
   s.source_files = 'Orchextra/**/*.swift'
   
-  s.resource_bundles = {
-    'Orchextra' => ['Orchextra/**/*.xcassets']
-  }
+  s.resources = 'Orchextra/**/*.{xcassets,storyboard}'
 
   s.dependency 'GIGLibrary', '~> 3.0'
   s.dependency 'CryptoSwift', '~> 0.9'
