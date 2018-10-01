@@ -91,16 +91,16 @@ class DefaultScannerVC: GIGScannerVC, DefaultScannerModuleInput {
         self.infoLabel.layer.cornerRadius = 5
         self.infoLabel.contentInset = UIEdgeInsets(top: 5, left: 12, bottom: 5, right: 12)
         
-        self.view.bringSubview(toFront: self.frameScan)
-        self.view.bringSubview(toFront: self.scanningBy)
-        self.view.bringSubview(toFront: self.navBarOrx)
+        self.view.bringSubviewToFront(self.frameScan)
+        self.view.bringSubviewToFront(self.scanningBy)
+        self.view.bringSubviewToFront(self.navBarOrx)
         
         self.infoLabel.alpha = 0
-        self.view.bringSubview(toFront: self.infoLabel)
+        self.view.bringSubviewToFront(self.infoLabel)
         
         self.viewStatus.alpha = 0
         self.viewStatus.layer.cornerRadius = 5
-        self.view.bringSubview(toFront: self.viewStatus)
+        self.view.bringSubviewToFront(self.viewStatus)
     }
     
     internal func showCameraPermissionAlert() {
@@ -116,7 +116,7 @@ class DefaultScannerVC: GIGScannerVC, DefaultScannerModuleInput {
     }
     
     private func settingTapped() {
-        guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
             else {return}
         UIApplication.shared.openURL(settingsURL)
     }

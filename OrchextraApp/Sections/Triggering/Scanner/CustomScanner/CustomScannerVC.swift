@@ -31,7 +31,7 @@ class CustomScannerVC: GIGLibrary.GIGScannerVC {
     }
     
     fileprivate func settingTapped() {
-        guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
             else {return}
         UIApplication.shared.openURL(settingsURL)
     }
@@ -51,16 +51,16 @@ extension CustomScannerVC: GIGLibrary.GIGScannerOutput {
 extension CustomScannerVC: CustomScannerUI {
     func initializeSubviews() {
         self.title = "Custom scanner"
-        self.view.bringSubview(toFront: self.scannerFrameImageView)
-        self.view.bringSubview(toFront: self.scannedByImageView)
+        self.view.bringSubviewToFront(self.scannerFrameImageView)
+        self.view.bringSubviewToFront(self.scannedByImageView)
         
         self.infoLabel.layer.cornerRadius = 5
         self.infoLabel.alpha = 0
-        self.view.bringSubview(toFront: self.infoLabel)
+        self.view.bringSubviewToFront(self.infoLabel)
         
         self.viewStatus.alpha = 0
         self.viewStatus.layer.cornerRadius = 5
-        self.view.bringSubview(toFront: self.viewStatus)
+        self.view.bringSubviewToFront(self.viewStatus)
         
         guard let outputModule = self.outputModule else { return }
         self.scannerOutput = self

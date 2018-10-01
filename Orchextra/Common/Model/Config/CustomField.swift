@@ -11,16 +11,6 @@ import GIGLibrary
 
 public struct ValueCodable: Any, Codable {}
 
-extension ValueCodable: Equatable {
-    public static func == (lhs: ValueCodable, rhs: ValueCodable) -> Bool {
-        if lhs == rhs {
-            return true
-        } else {
-            return false
-        }
-    }
-}
-
 public enum CustomFieldType: String {
     case string
     case boolean

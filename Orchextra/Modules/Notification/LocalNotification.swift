@@ -25,7 +25,7 @@ class LocalNotification: NSObject {
                 content.userInfo = info
             }
             
-            content.sound = UNNotificationSound.default()
+            content.sound = UNNotificationSound.default
             
             var trigger: UNNotificationTrigger?
             if let deliveryDate = date {

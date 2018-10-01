@@ -46,8 +46,8 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     var requestWaitTime: Int
     var scannerStarted: Bool
     
-    var startScannerBackgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
-    var stopScannerBackgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    var startScannerBackgroundTask: UIBackgroundTaskIdentifier = .invalid
+    var stopScannerBackgroundTask: UIBackgroundTaskIdentifier = .invalid
     
     // MARK: - EddystoneInput protocol methods
     func register(regions: [EddystoneRegion], with requestWaitTime: Int) {
@@ -116,16 +116,16 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     @objc func startScanner() {
         var secondsToStopScanner: Int = 0
         if self.isAvailableScanner() {
-            if self.startScannerBackgroundTask != UIBackgroundTaskInvalid {
+            if self.startScannerBackgroundTask != .invalid {
                 UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
-                self.startScannerBackgroundTask = UIBackgroundTaskInvalid
+                self.startScannerBackgroundTask = .invalid
             }
             
             UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
-            self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
+            self.stopScannerBackgroundTask = .invalid
                 self.startScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_start_scanner, expirationHandler: {
                     UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
-                    self.startScannerBackgroundTask = UIBackgroundTaskInvalid
+                    self.startScannerBackgroundTask = .invalid
                 })
                 
                 DispatchQueue.global().async {
@@ -143,18 +143,18 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     
     @objc func stopScanner() {
         UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
-        self.startScannerBackgroundTask = UIBackgroundTaskInvalid
+        self.startScannerBackgroundTask = .invalid
         
-        if self.stopScannerBackgroundTask != UIBackgroundTaskInvalid {
+        if self.stopScannerBackgroundTask != .invalid {
             UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
-            self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
+            self.stopScannerBackgroundTask = .invalid
         }
         var secondsToStartScanner: Int = 0
         let timeToStartScanner = self.timeToStartScanner()
         self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_stop_scanner, expirationHandler: {
             LogDebug("---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
             UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
-            self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
+            self.stopScannerBackgroundTask = .invalid
         })
         
         DispatchQueue.global().async {
@@ -271,7 +271,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         LogInfo("Number of beacons detected before stopping \(self.beaconList.count)")
         if self.isAvailableStopTool() {
             UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
-            self.startScannerBackgroundTask = UIBackgroundTaskInvalid
+            self.startScannerBackgroundTask = .invalid
             self.stopScanner()
         }
     }
@@ -279,7 +279,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     private func endStopScannerTask() {
         LogInfo("Number of beacons detected before starting \(self.beaconList.count)")
         UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
-        self.stopScannerBackgroundTask = UIBackgroundTaskInvalid
+        self.stopScannerBackgroundTask = .invalid
         self.startScanner()
     }
 }
