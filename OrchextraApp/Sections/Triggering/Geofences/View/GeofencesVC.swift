@@ -42,7 +42,7 @@ class GeofencesVC: UIViewController, GeofencesUI {
             center: region.center,
             radius: region.radius
         )
-        self.mapView.add(circle)
+        self.mapView.addOverlay(circle)
     }
 
     private func drawOnMap(geofences: [CLCircularRegion]) {

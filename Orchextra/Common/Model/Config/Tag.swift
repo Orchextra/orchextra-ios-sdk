@@ -56,7 +56,7 @@ public class Tag: Codable {
     /// - Returns: tag or nil
     public func tag() -> String? {
         
-        var tag: String? = nil
+        var tag: String?
         
         if let prefix = self.prefix,
             let name = self.name {

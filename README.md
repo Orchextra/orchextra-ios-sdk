@@ -1,7 +1,7 @@
 # Orchextra SDK for iOS
 
 ![Language](https://img.shields.io/badge/Language-Swift-orange.svg)
-![Version](https://img.shields.io/badge/version-3.0.5-blue.svg)
+![Version](https://img.shields.io/badge/version-4.0.0-blue.svg)
 [![Build Status](https://travis-ci.org/Orchextra/orchextra-ios-sdk.svg?branch=master)](https://travis-ci.org/Orchextra/orchextra-ios-sdk)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![CocoaPods](https://img.shields.io/cocoapods/v/Orchextra.svg)
@@ -15,9 +15,14 @@ Start by creating a project in [Orchextra Dashboard][dashboard], if you haven't 
 
 ### Requirements
 
-* iOS 8.0+
-* Xcode 8.3+
-* Swift 3.1+
+* iOS 9.0+
+
+### Swift & Xcode version support
+
+| ORX Version | Swift Version | Xcode Version|
+| :---: |:---:| :---:|
+| **v3.x** | 3.x, 4.0, 4.1 | 9.x |
+| **v4.x** | 4.2 | 10.x |
 
 ## Installation
 

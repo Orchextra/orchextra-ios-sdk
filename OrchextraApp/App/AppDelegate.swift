@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	let appController = AppController.shared
     var locationManager: CLLocationManager?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window?.makeKeyAndVisible()
 		
 		prepareAppController()
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func setTabBarAppearance() {
 		let selectedColor = UIColor.ORXApp.coral
-		UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: selectedColor as Any], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor: selectedColor as Any], for: .selected)
 	}
 	
 	func setNavBarAppearance() {
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		navigationBarAppearace.isTranslucent = false
 		navigationBarAppearace.tintColor = UIColor.white
 		navigationBarAppearace.barTintColor = UIColor.ORXApp.coral
-		navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationBarAppearace.titleTextAttributes = [.foregroundColor: UIColor.white]
 	}
 	
 	private func setupApplivery() {

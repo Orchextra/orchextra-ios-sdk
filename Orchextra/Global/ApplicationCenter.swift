@@ -26,16 +26,16 @@ class ApplicationCenter {
     func observeAppDelegateEvents() {
         
         self.notificationCenter.addObserver(self, selector: #selector(self.applicationdidFinishLaunchingWithOptions),
-                                            name: NSNotification.Name.UIApplicationDidFinishLaunching, object: UIApplication.shared)
+                                            name: UIApplication.didFinishLaunchingNotification, object: UIApplication.shared)
         
         
         self.notificationCenter.addObserver(self, selector: #selector(self.applicationDidEnterBackground),
-                                            name: NSNotification.Name.UIApplicationDidEnterBackground, object: UIApplication.shared)
+                                            name: UIApplication.didEnterBackgroundNotification, object: UIApplication.shared)
     }
     
     func removeAppDelegateEvents() {
-        self.notificationCenter.removeObserver(self, name: NSNotification.Name.UIApplicationDidFinishLaunching, object: nil)
-        self.notificationCenter.removeObserver(self, name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        self.notificationCenter.removeObserver(self, name: UIApplication.didFinishLaunchingNotification, object: nil)
+        self.notificationCenter.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
 

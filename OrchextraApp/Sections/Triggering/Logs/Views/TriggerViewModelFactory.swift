@@ -32,7 +32,7 @@ class TriggerViewModelFactory {
     
     static func triggerViewModel(from triggerFired: TriggerFired) ->
         TriggerViewModel? {
-        var triggerViewModel: TriggerViewModel? = nil
+        var triggerViewModel: TriggerViewModel?
         let trigger = triggerFired.trigger
             
         switch trigger.triggerId {
@@ -61,7 +61,7 @@ class TriggerViewModelFactory {
     
     static func barCodeTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
         let image = #imageLiteral(resourceName: "barCode")
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         let trigger = triggerFired.trigger
         let value = trigger.logsParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
@@ -87,7 +87,7 @@ class TriggerViewModelFactory {
     
     static func qrTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
         let image = #imageLiteral(resourceName: "QR")
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         let trigger = triggerFired.trigger
         let value = trigger.logsParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
@@ -113,7 +113,7 @@ class TriggerViewModelFactory {
     
     static func beaconTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
         let image = #imageLiteral(resourceName: "iBeacon")
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         let trigger = triggerFired.trigger
         let params = trigger.logsParams()
         let value = params["value"] as? String
@@ -144,7 +144,7 @@ class TriggerViewModelFactory {
     
     static func beaconRegionTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
         let image = #imageLiteral(resourceName: "iBeacon_region")
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"
@@ -171,7 +171,7 @@ class TriggerViewModelFactory {
     
     static func eddystoneBeaconTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
         let image = #imageLiteral(resourceName: "eddystone_beacon")
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         let trigger = triggerFired.trigger
         let timestamp = "\(triggerFired.date)"
         let params = trigger.logsParams()
@@ -202,7 +202,7 @@ class TriggerViewModelFactory {
     
     static func eddystoneRegionTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
         let image = #imageLiteral(resourceName: "eddystone_region")
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         let trigger = triggerFired.trigger
         let params = trigger.logsParams()
         let value = params["value"] as? String
@@ -231,7 +231,7 @@ class TriggerViewModelFactory {
     
     static func geofenceTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
         let image = #imageLiteral(resourceName: "geofences_trigger")
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         let trigger = triggerFired.trigger
         let params = trigger.logsParams()
         let value = params["value"] as? String
@@ -259,7 +259,7 @@ class TriggerViewModelFactory {
     
     static func imageRecognitionTriggerViewModel(from triggerFired: TriggerFired) -> TriggerViewModel {
         let image = #imageLiteral(resourceName: "image_recognition")
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         let trigger = triggerFired.trigger
         let value = trigger.urlParams()["value"] as? String
         let timestamp = "\(triggerFired.date)"

@@ -135,7 +135,7 @@ class LocationWrapper: NSObject, LocationInput {
     }
 
     func settingTapped() {
-        guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString)
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
             else {return}
         UIApplication.shared.openURL(settingsURL)
     }
