@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	let appController = AppController.shared
     var locationManager: CLLocationManager?
     
-    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window?.makeKeyAndVisible()
 		
 		prepareAppController()
