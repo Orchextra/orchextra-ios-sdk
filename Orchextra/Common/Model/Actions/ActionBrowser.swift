@@ -55,7 +55,7 @@ class ActionBrowser: Action {
     func executable() {
         guard let urlString = self.urlString,
             let url = URL(string: urlString) else {
-            LogWarn("Url malformatted, we can't create action webview.")
+            logWarn("Url malformatted, we can't create action webview.")
             return
         }
         DispatchQueue.global().sync {

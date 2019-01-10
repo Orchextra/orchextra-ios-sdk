@@ -17,7 +17,7 @@ struct SettingsWireframe {
     /// - Returns: Settings View Controller with all dependencies
     func showSettings() -> SettingsVC? {
         guard let viewController = try? SettingsVC.instantiateFromStoryboard() else {
-            LogWarn("SettingsVC not found")
+            logWarn("SettingsVC not found")
             return nil }
         
         let presenter = SettingsPresenter(
@@ -35,7 +35,7 @@ struct SettingsWireframe {
     func showUserVC() {
         let userWireframe = UserWireframe()
         guard let userVC = userWireframe.showUserWireframe() else {
-            LogWarn("UserVC not found")
+            logWarn("UserVC not found")
             return
         }
         navigationController.show(userVC, sender: self)
@@ -47,7 +47,7 @@ struct SettingsWireframe {
     func showDeviceVC() {
         let deviceWireframe = DeviceWireframe()
         guard let deviceVC = deviceWireframe.showDeviceWireframe() else {
-            LogWarn("deviceVC not found")
+            logWarn("deviceVC not found")
             return
         }
         navigationController.show(deviceVC, sender: self)

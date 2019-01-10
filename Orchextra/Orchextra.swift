@@ -116,7 +116,7 @@ open class Orchextra {
      */
     public var logLevel: LogLevel {
         didSet {
-            LogManager.shared.logLevel = self.logLevel
+            OrchextraLogger.logLevel = self.logLevel
         }
     }
     
@@ -128,7 +128,7 @@ open class Orchextra {
      */
     public var logStyle: LogStyle {
         didSet {
-            LogManager.shared.logStyle = self.logStyle
+           OrchextraLogger.logStyle = self.logStyle
         }
     }
     
@@ -421,12 +421,12 @@ open class Orchextra {
     public func handleRemoteNotification(userInfo: [AnyHashable: Any]) {
         let notificationJson = JSON(from: userInfo)
         guard let notification = PushNototificationORX.parse(from: notificationJson) else {
-            LogWarn("Notification is invalid")
+            logWarn("Notification is invalid")
             return
         }
         
         guard let data = userInfo["data"] as? [AnyHashable: Any] else {
-            LogWarn("Invalid data node")
+            logWarn("Invalid data node")
             return
         }
         

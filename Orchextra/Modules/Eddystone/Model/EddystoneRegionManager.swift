@@ -98,7 +98,7 @@ class EddystoneRegionManager {
     
     // MARK: - Method to generate region output
     private func handleOutputRegion(for region: EddystoneRegion, event: String) -> [String: Any] {
-        LogDebug("\(event) \(region.uid.namespace)")
+        logDebug("\(event) \(region.uid.namespace)")
         let outputDic = ["type": "eddystone_region",
                          "value": region.code,
                          "namespace": region.uid.namespace,

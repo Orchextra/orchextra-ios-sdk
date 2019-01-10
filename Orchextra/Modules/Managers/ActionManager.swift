@@ -26,7 +26,7 @@ class ActionManager {
     }
     
     func handler(action: Action) {
-        LogDebug("Handler action: \(String(describing: action.type))")
+        logDebug("Handler action: \(String(describing: action.type))")
         if action.notification != nil {
             self.prepareNotificationFor(action: action)
         } else {
@@ -60,7 +60,7 @@ class ActionManager {
     }
     
     private func delayDeliveryNotification(action: Action) {
-        LogDebug("action has been delay")
+        logDebug("action has been delay")
         self.pushManager.dispatchNotification(with: action)
     }
     

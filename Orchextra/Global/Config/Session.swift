@@ -82,7 +82,7 @@ class Session {
     
     func pushNotificationToken() -> Data? {
         guard let data = self.userDefault.value(forKey: keyPushNotificationsToken) as? Data else {
-            LogWarn("Push notification token not set yet")
+            logWarn("Push notification token not set yet")
             return nil
         }
         return (try? PropertyListDecoder().decode(Data.self, from: data)) ?? nil

@@ -44,7 +44,7 @@ public class CustomField: Codable {
     
     class func customFieldFromJSON(key: String, json: [String: Any]) -> CustomField? {
         guard let customFieldProject = Session.shared.project?.customFields else {
-            LogDebug("There aren't custom fields setup in the project")
+            logDebug("There aren't custom fields setup in the project")
             return nil}
         
         let customField = customFieldProject.filter { return $0.key == key }

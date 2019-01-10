@@ -24,7 +24,7 @@ class FilterWireframe {
     /// - Returns: Filter View Controller with all dependencies
     func showFilter(with interactor: FilterInteractor) -> FilterVC? {
         guard let viewController = try? FilterVC.instantiateFromStoryboard() else {
-            LogWarn("FilterVC not found")
+            logWarn("FilterVC not found")
             return nil }
         
         let presenter = FilterPresenter(

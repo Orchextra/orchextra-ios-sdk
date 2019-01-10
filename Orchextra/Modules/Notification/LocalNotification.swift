@@ -52,7 +52,7 @@ class LocalNotification: NSObject {
             UIApplication.shared.scheduleLocalNotification(notification)
         }
         
-        LogDebug("Will dispatch notification at \(String(describing: date))")
+        logDebug("Will dispatch notification at \(String(describing: date))")
     }
     
     func removeLocalNotification(id: String) {

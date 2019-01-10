@@ -22,7 +22,7 @@ class Wireframe {
         let storyboard = UIStoryboard.init(name: "ScannerOrx", bundle: Bundle.orxBundle())
         guard let scannerOrxVC = storyboard.instantiateViewController(withIdentifier: "ScannerOrxVC") as? ModuleInput
             else {
-                LogWarn("Couldn't instantiate ScannerOrxVC")
+                logWarn("Couldn't instantiate ScannerOrxVC")
                 return nil
         }
         return scannerOrxVC
@@ -32,7 +32,7 @@ class Wireframe {
         let storyboard = UIStoryboard.init(name: "DefaultScanner", bundle: Bundle.orxBundle())
         guard let scannerVC = storyboard.instantiateViewController(withIdentifier: "DefaultScannerVC") as? DefaultScannerModuleInput
             else {
-                LogWarn("Couldn't instantiate DefaultScannerVC")
+                logWarn("Couldn't instantiate DefaultScannerVC")
                 return nil
         }
         return scannerVC
@@ -53,7 +53,7 @@ class Wireframe {
     /// - Parameter url:
     func openWebView(url: URL) {
         guard let webVC = try? WebVC.instantiateFromStoryboard() else {
-            LogWarn("WebVC not found")
+            logWarn("WebVC not found")
             return }
         
         let presenter = WebPresenter(webView: webVC)

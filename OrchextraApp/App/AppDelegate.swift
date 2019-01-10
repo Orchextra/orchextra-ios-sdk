@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.setTabBarAppearance()
 		
         self.setupApplivery()
+        self.initLogger()
         UIApplication.shared.setMinimumBackgroundFetchInterval(1.0)
 		
 		return true
@@ -36,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
 		guard let userInfo = notification.userInfo else {
-			LogWarn("Notification does not have userinfo")
+			logWarn("Notification does not have userinfo")
 			return }
 		OrchextraWrapperApp.shared.handleLocalNotification(userInfo: userInfo)
 	}
@@ -87,6 +88,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         
+    }
+    
+    private func initLogger() {
+        OrchextraAppLogger.logLevel = .debug
+        OrchextraAppLogger.logStyle = .funny
     }
 }
 

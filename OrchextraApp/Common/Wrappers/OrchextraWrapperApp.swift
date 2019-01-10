@@ -87,7 +87,7 @@ extension OrchextraWrapperApp: ORXDelegate {
             alert.show()
             Log("bindDidCompleted with values: - \(bindValues) ")
         case .error(let error):
-            LogWarn(error.localizedDescription)
+            logWarn(error.localizedDescription)
         }
     }
     
@@ -99,7 +99,7 @@ extension OrchextraWrapperApp: ORXDelegate {
             alert.show()
             Log("bindDidCompleted with values: - \(bindValues) ")
         case .error(let error):
-            LogWarn(error.localizedDescription)
+            logWarn(error.localizedDescription)
         }
     }
     

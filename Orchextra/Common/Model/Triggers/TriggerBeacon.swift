@@ -46,7 +46,7 @@ class TriggerBeacon: Trigger {
         
         let plainCodeBeacon = "\(self.uuid)_\(self.major)_\(self.minor)"
         guard let md5code = plainCodeBeacon.md5 else {
-            LogWarn("Error creating md5 code: \(plainCodeBeacon)")
+            logWarn("Error creating md5 code: \(plainCodeBeacon)")
             return [:]
         }
         

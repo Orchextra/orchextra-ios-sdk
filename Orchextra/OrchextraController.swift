@@ -69,10 +69,10 @@ class OrchextraController {
     }
     
     func start(with apiKey: String, apiSecret: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        LogInfo(" ---  ORCHEXTRA --- ")
-        LogInfo(" ---  LOADED PROJECT WITH: ---")
-        LogInfo(" ---  Apikey: \(apiKey)")
-        LogInfo(" ---  Apisecret: \(apiSecret)")
+        logInfo(" ---  ORCHEXTRA --- ")
+        logInfo(" ---  LOADED PROJECT WITH: ---")
+        logInfo(" ---  Apikey: \(apiKey)")
+        logInfo(" ---  Apisecret: \(apiSecret)")
         self.startCompletion = completion
         
         if apiKey.isEmpty || apiSecret.isEmpty {
@@ -175,7 +175,7 @@ class OrchextraController {
         if let apnsToken = apnsToken {
             let token = apnsToken.reduce("", {$0 + String(format: "%02X", $1)})
             self.session.setPushNotification(token: apnsToken)
-            LogInfo("Save APNS Token:" + token)
+            logInfo("Save APNS Token:" + token)
         } else {
             self.session.setPushNotification(token: nil)
             self.bindDevice()
@@ -328,10 +328,10 @@ class OrchextraController {
             switch result {
             case .success(let json):
                 Orchextra.shared.delegate?.userBindDidComplete(result: .success(json.toDictionary() ?? [:]))
-                LogInfo("Bind user has been successful")
+                logInfo("Bind user has been successful")
             case .error(let error):
                 Orchextra.shared.delegate?.userBindDidComplete(result: .error(error))
-                LogInfo("Bind user with error: \(error.localizedDescription)")
+                logInfo("Bind user with error: \(error.localizedDescription)")
             }
         }
     }
@@ -342,10 +342,10 @@ class OrchextraController {
             switch result {
             case .success(let json):
                 Orchextra.shared.delegate?.deviceBindDidComplete(result: .success(json.toDictionary() ?? [:]))
-                LogInfo("Bind device has been successful")
+                logInfo("Bind device has been successful")
             case .error(let error):
                 Orchextra.shared.delegate?.deviceBindDidComplete(result: .error(error))
-                LogInfo("Bind device with error: \(error.localizedDescription)")
+                logInfo("Bind device with error: \(error.localizedDescription)")
             }
         }
     }
@@ -359,10 +359,10 @@ class OrchextraController {
             switch result {
             case .success(let json):
                 Orchextra.shared.delegate?.deviceBindDidComplete(result: .success(json.toDictionary() ?? [:]))
-                LogInfo("Bind device has been successful")
+                logInfo("Bind device has been successful")
             case .error(let error):
                 Orchextra.shared.delegate?.deviceBindDidComplete(result: .error(error))
-                LogInfo("Bind device with error: \(error.localizedDescription)")
+                logInfo("Bind device with error: \(error.localizedDescription)")
             }
         }
     }

@@ -18,7 +18,7 @@ class AppWireframe {
     func showHomeWireframe() {
         let homeWireframe = HomeWireframe()
         guard let homeVC = homeWireframe.showHome() else {
-            LogWarn("HomeVC not found")
+            logWarn("HomeVC not found")
             return
         }
         
@@ -29,7 +29,7 @@ class AppWireframe {
     func showTriggering() {
         let triggeringWireframe = TriggeringWireframe()
         guard let triggeringVC = triggeringWireframe.showTriggering() else {
-            LogWarn("TriggeringVC not found")
+            logWarn("TriggeringVC not found")
             return
         }
         let navigationController = UINavigationController(rootViewController: triggeringVC)

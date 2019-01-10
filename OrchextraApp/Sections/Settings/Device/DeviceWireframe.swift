@@ -16,7 +16,7 @@ struct DeviceWireframe {
     /// - Returns: DeviceWireframe View Controller with all dependencies
     func showDeviceWireframe() -> DeviceVC? {
         guard let viewController = try? DeviceVC.instantiateFromStoryboard() else {
-            LogWarn("DeviceVC not found")
+            logWarn("DeviceVC not found")
             return nil
         }
         let interactor = DeviceInteractor()

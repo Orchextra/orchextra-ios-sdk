@@ -52,6 +52,6 @@ class ActionDoNothing: Action {
     
     func executable() {
         // DO NOTHING
-        LogDebug("Do nothing action")
+        logDebug("Do nothing action")
     }
 }

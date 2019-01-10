@@ -86,7 +86,7 @@ struct Point {
         
         guard let lng = json["lng"] as? Double,
             let lat = json["lat"] as? Double else {
-                LogWarn("Point not well formatted")
+                logWarn("Point not well formatted")
                 return nil
         }
         self.longitud = lng

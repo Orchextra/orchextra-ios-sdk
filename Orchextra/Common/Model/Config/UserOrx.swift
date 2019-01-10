@@ -63,7 +63,7 @@ public class UserOrx: Codable {
     // MARK: - Params
     func userParams() -> [String: Any]? {
         guard let crmId = self.crmId else {
-            LogDebug("User does not have CRMID we cannot do a bind user")
+            logDebug("User does not have CRMID we cannot do a bind user")
             return nil
         }
         
