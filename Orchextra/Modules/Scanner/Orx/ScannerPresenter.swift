@@ -112,14 +112,14 @@ class ScannerPresenter: ScannerInput {
             // Show in the view the scanned value
             self.vc?.show(scannedValue: value, message: OrchextraController.shared.translations.scannerMessage)
             guard let moduleInput = self.vc else {
-                LogWarn("Scanner ")
+                logWarn("Scanner ")
                 return
             }
             DispatchQueue.background(delay: 0.8, completion: {
                 self.outputModule?.triggerWasFired(with: ["value": value,
                                                          "type": typeValue.rawValue],
                                                   module: moduleInput)
-                LogInfo("Module Scan - has trigger: \(value) - \(type)")
+                logInfo("Module Scan - has trigger: \(value) - \(type)")
             })
             
         }

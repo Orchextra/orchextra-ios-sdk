@@ -42,7 +42,7 @@ class ConfigInteractor: ConfigInteractorInput {
                 let project = Project(from: json)
                 self.session.project = project
                 completion(.success(true))
-                LogDebug("Orx has updated core configuration with \(project.projectId ?? "-")")
+                logDebug("Orx has updated core configuration with \(project.projectId ?? "-")")
             case .error(let error):
                 completion(.error(error))
             }
@@ -70,7 +70,7 @@ class ConfigInteractor: ConfigInteractorInput {
                 }
                 completion(proximityResult)
             case .error:
-                LogWarn("Triggering list can't be load it.")
+                logWarn("Triggering list can't be load it.")
                 completion([ : ])
             }
         }

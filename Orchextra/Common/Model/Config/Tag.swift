@@ -84,7 +84,7 @@ public class Tag: Codable {
         let matches = self.matchestTex(text: name, regexString: regexString)
         
         if matches > 0 {
-            LogWarn("Name does not comply with the rules: \(name)")
+            logWarn("Name does not comply with the rules: \(name)")
             return false
         }
         return true
@@ -105,7 +105,7 @@ public class Tag: Codable {
         let matches = self.matchestTex(text: prefix, regexString: regexString)
         
         if matches > 0 {
-            LogWarn("Prefix does not comply with the rules: \(prefix)")
+            logWarn("Prefix does not comply with the rules: \(prefix)")
             return false
         }
         return true

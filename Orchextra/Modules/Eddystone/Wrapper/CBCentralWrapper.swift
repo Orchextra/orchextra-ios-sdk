@@ -133,7 +133,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
                     while secondsToStopScanner < EddystoneConstants.timeToStopScanner {
                         Thread.sleep(forTimeInterval: 1)
                         secondsToStopScanner+=1
-//                        LogDebug("Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+//                        logDebug("Seconds to stop scanner: \(secondsToStopScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
                     }
                     
                     self.endStartScannerTask()
@@ -152,7 +152,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
         var secondsToStartScanner: Int = 0
         let timeToStartScanner = self.timeToStartScanner()
         self.stopScannerBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: EddystoneConstants.backgrond_task_stop_scanner, expirationHandler: {
-            LogDebug("---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
+            logDebug("---------------------------------------- TASK EXPIRED (SYSTEM) ----------------------------------")
             UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
             self.stopScannerBackgroundTask = .invalid
         })
@@ -162,7 +162,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
             while secondsToStartScanner < timeToStartScanner {
                 Thread.sleep(forTimeInterval: 1)
                 secondsToStartScanner+=1
-//                LogDebug("Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
+//                logDebug("Seconds to start scanner: \(secondsToStartScanner) - Remaining time: \(UIApplication.shared.backgroundTimeRemaining)")
             }
             
             self.endStopScannerTask()
@@ -217,7 +217,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
             let instance = uid.instance,
             let url = beacon.url else { return nil }
         
-        LogDebug("\(String(describing: beacon.uid?.uidCompossed)) \(beacon.proximity.rawValue)")
+        logDebug("\(String(describing: beacon.uid?.uidCompossed)) \(beacon.proximity.rawValue)")
         var outputDic: [String: Any] = ["type": "eddystone",
                                         "value": uid.uidCompossed,
                                         "namespace": uid.namespace,
@@ -244,7 +244,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     
     // MARK: Private scan methods
     private func performStartScanner() {
-        LogDebug("--- START SCANNER ---")
+        logDebug("--- START SCANNER ---")
         self.scannerStarted = true
         let serviceUUID: String = EddystoneConstants.serviceUUID
         let services: [CBUUID] = [CBUUID (string: serviceUUID)]
@@ -260,7 +260,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     }
     
     private func performStopScanner() {
-        LogDebug("--- STOP SCANNER ---")
+        logDebug("--- STOP SCANNER ---")
         self.scannerStarted = false
         self.centralManager?.stopScan()
         self.eddystoneParser?.cleanDetectedBeaconList()
@@ -268,7 +268,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     
     // MARK: Private finish task methods
     private func endStartScannerTask() {
-        LogInfo("Number of beacons detected before stopping \(self.beaconList.count)")
+        logInfo("Number of beacons detected before stopping \(self.beaconList.count)")
         if self.isAvailableStopTool() {
             UIApplication.shared.endBackgroundTask(self.startScannerBackgroundTask)
             self.startScannerBackgroundTask = .invalid
@@ -277,7 +277,7 @@ class CBCentralWrapper: NSObject, EddystoneInput {
     }
     
     private func endStopScannerTask() {
-        LogInfo("Number of beacons detected before starting \(self.beaconList.count)")
+        logInfo("Number of beacons detected before starting \(self.beaconList.count)")
         UIApplication.shared.endBackgroundTask(self.stopScannerBackgroundTask)
         self.stopScannerBackgroundTask = .invalid
         self.startScanner()
@@ -297,7 +297,7 @@ extension CBCentralWrapper: CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String: Any]) {
-        LogInfo("centralManager willRestoreState: \(dict)")
+        logInfo("centralManager willRestoreState: \(dict)")
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String: Any], rssi RSSI: NSNumber) {

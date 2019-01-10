@@ -50,16 +50,16 @@ class ConfigService: ConfigServiceInput {
             case .success:
                 do {
                     let json = try response.json()
-                    LogDebug(json.description)
+                    logDebug(json.description)
                     completion(.success(json))
                     
                 } catch {
                     completion(.error(ErrorService.invalidJSON))
-                    LogError(ErrorService.invalidJSON as NSError)
+                    logError(ErrorService.invalidJSON as NSError)
                 }
             default:
                 let error = ErrorServiceHandler.parseErrorService(with: response)
-                LogError(response.error)
+                logError(response.error)
                 completion(.error(error))
             }
         }
@@ -87,11 +87,11 @@ class ConfigService: ConfigServiceInput {
                     completion(.success(json))
                 } catch {
                     completion(.error(ErrorService.invalidJSON))
-                    LogError(ErrorService.invalidJSON as NSError)
+                    logError(ErrorService.invalidJSON as NSError)
                 }
             default:
                 let error = ErrorServiceHandler.parseErrorService(with: response)
-                LogError(response.error)
+                logError(response.error)
                 completion(.error(error))
             }
         }

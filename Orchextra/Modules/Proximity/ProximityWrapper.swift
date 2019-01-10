@@ -55,7 +55,7 @@ class ProximityWrapper: ProximityInput {
             let geoLocation = GeoLocation(location: location, placemark: placemark)
             let params = geoLocation.paramsGeoLocation()
             completion(params)
-            LogDebug("\(params)")
+            logDebug("\(params)")
         }
     }
     
@@ -72,17 +72,17 @@ class ProximityWrapper: ProximityInput {
         DispatchQueue.background(delay: 0, background: {
             self.stopMonitoringAllRegions()
         }) {
-            LogInfo("Finish Stop monitoring")
+            logInfo("Finish Stop monitoring")
 
             guard let regions = self.regions else {
-                LogWarn("No regions to monitoring")
+                logWarn("No regions to monitoring")
                 return }
             
             if self.locationWrapper.enableLocationServices() {
                 self.locationWrapper.monitoring(regions: regions)
             }
             
-            LogInfo("Finish start monitoring: \(self.regions?.count ?? 0) regions")
+            logInfo("Finish start monitoring: \(self.regions?.count ?? 0) regions")
         }
     }
     

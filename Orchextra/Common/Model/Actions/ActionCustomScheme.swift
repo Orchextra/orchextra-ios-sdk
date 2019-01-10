@@ -57,12 +57,12 @@ class ActionCustomScheme: Action {
     
     func executable() {
         guard let url = self.urlString else {
-            LogWarn("Custom scheme invalid url set")
+            logWarn("Custom scheme invalid url set")
             return
         }
         
         guard let orxCustomScheme = CustomSchemeFactory.customScheme(from: url) else {
-            LogInfo("Custom scheme not managed by Orchextra")
+            logInfo("Custom scheme not managed by Orchextra")
             // Inform the integrative app about the trigger
             Orchextra.shared.delegate?.customScheme(url)
             return

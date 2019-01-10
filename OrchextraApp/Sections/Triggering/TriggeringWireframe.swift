@@ -18,7 +18,7 @@ class TriggeringWireframe {
     /// - Returns: Triggering View Controller with all dependencies
     func showTriggering() -> TriggeringVC? {
         guard let viewController = try? TriggeringVC.instantiateFromStoryboard() else {
-            LogWarn("TriggeringVC not found")
+            logWarn("TriggeringVC not found")
             return nil }
         let presenter = TriggeringPresenter(
             view: viewController,
@@ -70,12 +70,12 @@ class TriggeringWireframe {
     /// - Returns: Settings View Controller with all dependencies
     func showSettings() {
         guard let navigationController = self.navigationController else {
-            LogWarn("NavigationController nil")
+            logWarn("NavigationController nil")
             return
         }
         let settingsWireframe = SettingsWireframe(navigationController: navigationController)
         guard let settingsVC = settingsWireframe.showSettings() else {
-            LogWarn("SettingsVC not found")
+            logWarn("SettingsVC not found")
             return
         }
         navigationController.show(settingsVC, sender: self)

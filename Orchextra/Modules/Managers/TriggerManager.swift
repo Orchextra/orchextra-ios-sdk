@@ -37,7 +37,7 @@ class TriggerManager: TriggerInput {
     func triggerWasFire(with values: [String: Any], module: ModuleInput) {
         
         guard let trigger = TriggerFactory.trigger(from: values) else {
-            LogWarn("We can't match the trigger fired")
+            logWarn("We can't match the trigger fired")
             return
         }
         
@@ -47,7 +47,7 @@ class TriggerManager: TriggerInput {
         // Inform the integrative app about the trigger
         Orchextra.shared.delegate?.triggerFired(trigger)
 
-        LogDebug("Params: \(trigger.urlParams())")
+        logDebug("Params: \(trigger.urlParams())")
     }
 
 }
@@ -59,7 +59,7 @@ extension TriggerManager: TriggerInteractorOutput {
     func triggerDidFinishSuccessfully(with actionJSON: JSON, triggerId: String) {
         
         guard let action = ActionFactory.action(from: actionJSON) else {
-            LogWarn("Action can't be created")
+            logWarn("Action can't be created")
             return
         }
         

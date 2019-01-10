@@ -16,7 +16,7 @@ struct HomeWireframe {
     /// - Returns: Home View Controller with all dependencies
     func showHome() -> HomeVC? {
         guard let viewController = try? HomeVC.instantiateFromStoryboard() else {
-            LogWarn("HomeVC not found")
+            logWarn("HomeVC not found")
             return nil }
 
         let interactor = HomeInteractor()

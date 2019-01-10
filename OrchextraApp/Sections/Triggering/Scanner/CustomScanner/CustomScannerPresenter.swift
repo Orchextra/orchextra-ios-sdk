@@ -76,14 +76,14 @@ extension CustomScannerPresenter: CustomScannerPresenterInput {
             
             self.view?.show(scannedValue: value, message: "Scanning...")
             guard let moduleInput = self.inputModule else {
-                LogWarn("Custom Scanner ")
+                logWarn("Custom Scanner ")
                 return
             }
             DispatchQueue.global(qos: .background).async {
                 self.outputModule?.triggerWasFired(with: ["value": value,
                                                          "type": typeValue.rawValue],
                                                   module: moduleInput)
-                LogDebug("Module Scan - has trigger: \(value) - \(type)")
+                logDebug("Module Scan - has trigger: \(value) - \(type)")
             }
         }
         

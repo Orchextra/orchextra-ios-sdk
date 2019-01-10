@@ -49,7 +49,7 @@ class AuthInteractor: AuthInteractorInput {
         guard let apikey = self.session.apiKey,
             let apisecret = self.session.apiSecret else {
                 completion(.error(ErrorService.invalidCredentials))
-                LogWarn("Can't get accesstoken - Apikey/Apisecret are nil")
+                logWarn("Can't get accesstoken - Apikey/Apisecret are nil")
                 return
         }
         
@@ -146,7 +146,7 @@ class AuthInteractor: AuthInteractorInput {
                         completion(.success(json))
                     } catch {
                         let error = ErrorService.unknown
-                        LogWarn("There is not data with the response for request: \(request.endpoint)")
+                        logWarn("There is not data with the response for request: \(request.endpoint)")
                         completion(.error(error))
                     }
                     

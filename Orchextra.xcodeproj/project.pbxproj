@@ -66,6 +66,9 @@
 		8F22D8941F961BFA00D37F9B /* DevicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D8911F961BFA00D37F9B /* DevicePresenter.swift */; };
 		8F22D8951F961BFA00D37F9B /* DeviceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D8921F961BFA00D37F9B /* DeviceVC.swift */; };
 		8F22D8961F961BFA00D37F9B /* DeviceWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F22D8931F961BFA00D37F9B /* DeviceWireframe.swift */; };
+		8F29413221E79493001906BC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F29413121E79493001906BC /* Log.swift */; };
+		8F29413521E7A195001906BC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F29413421E7A195001906BC /* Log.swift */; };
+		8F29413621E7A39F001906BC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F29413121E79493001906BC /* Log.swift */; };
 		8F299C561F6691060023F69D /* EddystoneModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C491F6691060023F69D /* EddystoneModule.swift */; };
 		8F299C571F6691060023F69D /* EddystoneBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4B1F6691060023F69D /* EddystoneBeacon.swift */; };
 		8F299C581F6691060023F69D /* EddystoneConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F299C4C1F6691060023F69D /* EddystoneConstants.swift */; };
@@ -412,6 +415,8 @@
 		8F22D8911F961BFA00D37F9B /* DevicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePresenter.swift; sourceTree = "<group>"; };
 		8F22D8921F961BFA00D37F9B /* DeviceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceVC.swift; sourceTree = "<group>"; };
 		8F22D8931F961BFA00D37F9B /* DeviceWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWireframe.swift; sourceTree = "<group>"; };
+		8F29413121E79493001906BC /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		8F29413421E7A195001906BC /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		8F299C491F6691060023F69D /* EddystoneModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneModule.swift; sourceTree = "<group>"; };
 		8F299C4B1F6691060023F69D /* EddystoneBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneBeacon.swift; sourceTree = "<group>"; };
 		8F299C4C1F6691060023F69D /* EddystoneConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EddystoneConstants.swift; sourceTree = "<group>"; };
@@ -750,6 +755,7 @@
 		8F0C4B511F57FCB800056910 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8F29413321E7A17F001906BC /* Log */,
 				A985A41F1FE297E700439056 /* MockModules */,
 				8F2042401F5E73AC00782D63 /* Model */,
 				8F4A27B61F5D25DD003B440D /* Wrappers */,
@@ -886,6 +892,22 @@
 				8FD191251F9733FD00043011 /* DeviceInteractor.swift */,
 			);
 			path = Device;
+			sourceTree = "<group>";
+		};
+		8F29413021E79452001906BC /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				8F29413121E79493001906BC /* Log.swift */,
+			);
+			name = Log;
+			sourceTree = "<group>";
+		};
+		8F29413321E7A17F001906BC /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				8F29413421E7A195001906BC /* Log.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		8F299C481F6691060023F69D /* Eddystone */ = {
@@ -1491,8 +1513,9 @@
 			isa = PBXGroup;
 			children = (
 				8F689D1A1F54348D002046FE /* Controllers */,
-				A9C54DF01F41B1F800DF2074 /* Interactors */,
 				A9C54DDE1F41ABAB00DF2074 /* Data */,
+				A9C54DF01F41B1F800DF2074 /* Interactors */,
+				8F29413021E79452001906BC /* Log */,
 				A9C54DF71F44318E00DF2074 /* Model */,
 				A9C54DBD1F41A89B00DF2074 /* Support */,
 			);
@@ -2023,6 +2046,7 @@
 				61AF032420E27BEA00E3EF46 /* Translations.swift in Sources */,
 				A99886061F5045DB00EED42E /* TriggerQR.swift in Sources */,
 				A9C6EB961F47035D007AE036 /* BusinessUnit.swift in Sources */,
+				8F29413221E79493001906BC /* Log.swift in Sources */,
 				A95A60ED1F6279ED006EADBB /* GeoLocation.swift in Sources */,
 				A958CCA71F84DA65007074D5 /* TriggerEddystoneBeacon.swift in Sources */,
 				A9C54DEA1F41AD5000DF2074 /* Session.swift in Sources */,
@@ -2091,6 +2115,7 @@
 				02318E032084863900E85D89 /* NSRegularExpression+ORCGIGRegexp.m in Sources */,
 				A9D0FC3C1F57F00400596CF3 /* ActionFactoryTest.swift in Sources */,
 				A97F8F2D1FC329CC000C0B92 /* AuthInteractorTests.swift in Sources */,
+				8F29413621E7A39F001906BC /* Log.swift in Sources */,
 				8F77D1921FBF01BA008CC17D /* PushNotificationsTests.swift in Sources */,
 				8F299C7D1F66A9A50023F69D /* EddystoneBeaconTests.swift in Sources */,
 				A95E67DF1F5D5AFA001D8B19 /* TriggerFactoryTests.swift in Sources */,
@@ -2123,6 +2148,7 @@
 			files = (
 				8F5F7A181F4C60E700E62E57 /* HomeVC.swift in Sources */,
 				8F2080951F4EAAAB00C328DC /* TriggeringPresenter.swift in Sources */,
+				8F29413521E7A195001906BC /* Log.swift in Sources */,
 				8F9749911FE1174800A5F699 /* OrchextraWrapperScannnerExtension.swift in Sources */,
 				8F2080981F4EAAAB00C328DC /* TriggeringInteractor.swift in Sources */,
 				A97743E71FA747BB006690C3 /* FormTextField.swift in Sources */,
