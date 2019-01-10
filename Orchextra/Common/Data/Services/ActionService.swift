@@ -19,7 +19,7 @@ class ActionService: ActionServicesInput {
     
     func confirmAction(action: Action, completion: @escaping (Result<Bool, Error>) -> Void) {
         guard let trackId = action.trackId else {
-            LogWarn("Can't confirm action there is not id associated")
+            logWarn("Can't confirm action there is not id associated")
             return
         }
         
@@ -37,7 +37,7 @@ class ActionService: ActionServicesInput {
             default:
                 let error = ErrorServiceHandler.parseErrorService(with: response)
                 completion(.error(error))
-                LogError(response.error)
+                logError(response.error)
             }
         }
     }

@@ -42,7 +42,7 @@ class PushOrxManager: NSObject, PushOrxInput {
         let jsonNotification = JSON(from: userInfo)
         
         guard let action = ActionFactory.action(from: jsonNotification) else {
-            LogWarn("Action can't be created")
+            logWarn("Action can't be created")
             return
         }
         
@@ -91,7 +91,7 @@ class PushOrxManager: NSObject, PushOrxInput {
         alert.addCancelButton(OrchextraController.shared.translations.cancelButtonTitle, usingAction: nil)
         alert.addDefaultButton(OrchextraController.shared.translations.acceptButtonTitle.uppercased()) { _ in
             guard let completionNotNil = completion else {
-                LogWarn("Completion is nil")
+                logWarn("Completion is nil")
                 return
             }
             completionNotNil()

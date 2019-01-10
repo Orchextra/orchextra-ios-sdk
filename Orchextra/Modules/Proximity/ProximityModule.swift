@@ -42,7 +42,7 @@ class ProximityModule: ModuleInput {
      If your app supports iOS 10 and earlier, the NSLocationAlwaysUsageDescription key is also required
      */
     func start() {
-        LogInfo("Start Proximity Module")
+        logInfo("Start Proximity Module")
         self.proximityWrapper.paramsCurrentUserLocation { params in
             self.outputModule?.fetchModuleConfig(config: params, completion: { config in
                 self.parseProximity(params: config)
@@ -56,7 +56,7 @@ class ProximityModule: ModuleInput {
     ///   - action: which has started the finish flow.
     ///   - completionHandler: let know the integrative app that the services is finished.
     func finish(action: Action?, completionHandler: (() -> Void)?) {
-        LogInfo("Finish Proximity Module")
+        logInfo("Finish Proximity Module")
         self.proximityWrapper.stopMonitoringAllRegions()
         if let completion = completionHandler {
             completion()
@@ -97,7 +97,7 @@ class ProximityModule: ModuleInput {
             self.proximityWrapper.register(regions: regionsInModule)
             self.proximityWrapper.startMonitoring()
         } else {
-            LogInfo("There are not beacon_region/geofences to start proximity module")
+            logInfo("There are not beacon_region/geofences to start proximity module")
         }
     }
     

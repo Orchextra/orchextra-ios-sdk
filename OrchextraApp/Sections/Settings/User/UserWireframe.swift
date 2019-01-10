@@ -16,7 +16,7 @@ class UserWireframe {
     /// - Returns: UserWireframe View Controller with all dependencies
     func showUserWireframe() -> UserVC? {
         guard let viewController = try? UserVC.instantiateFromStoryboard() else {
-            LogWarn("UserVC not found")
+            logWarn("UserVC not found")
             return nil
         }
         let interactor = UserInteractor()

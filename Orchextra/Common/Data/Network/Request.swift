@@ -42,7 +42,7 @@ extension Request {
             "Accept-Language": acceptLanguage,
             "user-agent": Request.userAgent()]
         guard let authorization = self.authHeader() else {
-            LogWarn("Header without Bearer token \(endpoint))")
+            logWarn("Header without Bearer token \(endpoint))")
             return headers
         }
         

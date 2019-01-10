@@ -47,18 +47,18 @@ class AuthenticationService: AuthenticationServiceInput {
                     guard let accesstoken = json["token"]?.toString() else {
                         let error = ErrorService.invalidJSON
                         completion(.error(error))
-                        LogWarn("AccessToken is nil")
+                        logWarn("AccessToken is nil")
                         return }
                     completion(.success(accesstoken))
                     
                 } catch {
                     let error = ErrorService.unknown
-                    LogError(error as NSError)
+                    logError(error as NSError)
                     completion(.error(error))
                 }
             default:
                 let error = ErrorServiceHandler.parseErrorService(with: response)
-                LogError(response.error)
+                logError(response.error)
                 completion(.error(error))
             }
         }
@@ -90,7 +90,7 @@ class AuthenticationService: AuthenticationServiceInput {
             default:
                 var error = ErrorServiceHandler.parseErrorService(with: response)
                 if (error as? ErrorService) == ErrorService.unknown { error = ErrorService.ErrorBinding}
-                LogError(response.error)
+                logError(response.error)
                 completion(.error(error))
             }
         }

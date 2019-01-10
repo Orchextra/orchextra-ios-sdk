@@ -17,7 +17,7 @@ public struct PushNototificationORX {
     
     static func parse(from json: JSON) -> PushNototificationORX? {
         guard let dataDict = json["data"]?.toDictionary() else {
-             LogWarn("data node is nil")
+             logWarn("data node is nil")
             return nil
         }
         
@@ -25,19 +25,19 @@ public struct PushNototificationORX {
         
         guard let jsonOrchextraNotification = data["isOrchextra"]?.toBool(),
             jsonOrchextraNotification == true else {
-                LogWarn("Push notification not handled by Orchextra")
+                logWarn("Push notification not handled by Orchextra")
                 return nil
         }
        
         guard let apsDictionary = json["aps"]?.toDictionary() else {
-            LogWarn("aps node is nil")
+            logWarn("aps node is nil")
             return nil
         }
         
         let apsJson: JSON = JSON(from: apsDictionary)
         
         guard let alert = apsJson["alert"]?.toDictionary() else {
-            LogWarn("alert node is nil")
+            logWarn("alert node is nil")
             return nil
         }
         

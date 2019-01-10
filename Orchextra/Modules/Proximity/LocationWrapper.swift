@@ -79,7 +79,7 @@ class LocationWrapper: NSObject, LocationInput {
     func monitoring(regions: [Region]) {
         for region in regions {
             self.startMonitoring(region: region)
-            LogInfo("start: \(region.name)")
+            logInfo("start: \(region.name)")
         }
     }
     
@@ -118,7 +118,7 @@ class LocationWrapper: NSObject, LocationInput {
         let monitoredRegions = self.locationManager.monitoredRegions
         for monitoredRegion in monitoredRegions {
             self.locationManager.stopMonitoring(for: monitoredRegion)
-            LogDebug("stop: \(monitoredRegion.identifier)")
+            logDebug("stop: \(monitoredRegion.identifier)")
         }
     }
     
@@ -147,7 +147,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
     /// Start monitoring
     
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
-        LogDebug("for : \(region.identifier)")
+        logDebug("for : \(region.identifier)")
     }
     
     /// Enter Region
@@ -158,7 +158,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
             code: region.identifier,
             type: self.typeRegion(region: region))
         
-        LogDebug("for: \(region.identifier)")
+        logDebug("for: \(region.identifier)")
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
@@ -198,16 +198,16 @@ extension LocationWrapper: CLLocationManagerDelegate {
             code: region.identifier,
             type: self.typeRegion(region: region))
         
-        LogDebug("for : \(region.identifier)")
+        logDebug("for : \(region.identifier)")
     }
     
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        LogError(error as NSError)
+        logError(error as NSError)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         self.completionCurrentLocation?(CLLocation(latitude: 0, longitude: 0), nil)
-        LogError(error as NSError)
+        logError(error as NSError)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -225,7 +225,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
             self.locationManager.stopUpdatingLocation()
             
             guard let location = locations.last else {
-                LogDebug("User can't update location")
+                logDebug("User can't update location")
                 return
             }
             
@@ -251,7 +251,7 @@ extension LocationWrapper: CLLocationManagerDelegate {
     
     private func notifyStateBeaconChanged(beacon: Beacon) {
         self.output?.didChangeProximity(beacon: beacon)
-        LogDebug("beacon: \(beacon.name)) -> proximity: \(String(describing: beacon.currentProximity?.name())) ")
+        logDebug("beacon: \(beacon.name)) -> proximity: \(String(describing: beacon.currentProximity?.name())) ")
     }
     
     // MARK: - Helpers

@@ -42,7 +42,7 @@ extension Action {
         guard let schedule = json["schedule"]?.toDictionary(),
             let seconds = schedule["seconds"] as? Int,
             let cancelable = schedule["cancelable"] as? Bool else {
-                LogDebug("Action doesn't have delay")
+                logDebug("Action doesn't have delay")
                 return nil
         }
         return ActionSchedule(seconds: seconds, cancelable: cancelable)
@@ -52,7 +52,7 @@ extension Action {
         guard let notification = json["notification"]?.toDictionary(),
             let title = notification["title"] as? String,
             let body = notification["body"] as? String else {
-                LogDebug("Action doesn't have notification")
+                logDebug("Action doesn't have notification")
                 return nil
         }
         return ActionNotification(title: title, body: body)
