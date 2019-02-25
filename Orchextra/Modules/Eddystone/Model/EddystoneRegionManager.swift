@@ -62,7 +62,7 @@ class EddystoneRegionManager {
             }
             
             if self.regionsExited.contains(region) {
-                guard let index = self.regionsExited.index(of: region) else { return }
+                guard let index = self.regionsExited.firstIndex(of: region) else { return }
                 self.regionsExited.remove(at: index)
             }
         }
@@ -76,7 +76,7 @@ class EddystoneRegionManager {
             self.regionsExited.append(region)
             region.regionEvent = .exit
             if self.regionsEntered.contains(region) {
-                guard let index = self.regionsEntered.index(of: region) else { return }
+                guard let index = self.regionsEntered.firstIndex(of: region) else { return }
                 self.regionsEntered.remove(at: index)
             }
             

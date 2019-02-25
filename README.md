@@ -23,6 +23,7 @@ Start by creating a project in [Orchextra Dashboard][dashboard], if you haven't 
 | :---: |:---:| :---:|
 | **v3.x** | 3.x, 4.0, 4.1 | 9.x |
 | **v4.x** | 4.2 | 10.x |
+| **v5.x** | 5.0 | > 10.2.x |
 
 ## Installation
 

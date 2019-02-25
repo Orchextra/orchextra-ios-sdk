@@ -170,6 +170,8 @@ extension Beacon {
             return self.canUseFar
         case .unknown:
             return false
+        @unknown default:
+            return false
         }
     }
     
@@ -183,6 +185,8 @@ extension Beacon {
             self.canUseFar = !self.canUseFar
         case .unknown:
             break
+        @unknown default:
+            break
         }
     }
     
@@ -195,6 +199,8 @@ extension Beacon {
         case .far:
             self.createTimerProximity(timer: self.farTimer, proximity: proximity)
         case .unknown: break
+        @unknown default:
+            break
         }
     }
     
@@ -230,6 +236,7 @@ extension CLProximity {
         case .near:      return "near"
         case .far:       return "far"
         case .unknown:   return "unknown"
+        @unknown default: return "unknown"
         }
     }
 }
