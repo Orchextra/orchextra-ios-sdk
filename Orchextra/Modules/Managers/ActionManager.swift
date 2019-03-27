@@ -56,6 +56,8 @@ class ActionManager {
             }
         case .background:
             self.delayDeliveryNotification(action: action)
+        @unknown default:
+            break
         }
     }
     

@@ -71,8 +71,14 @@ class UserOrxTests: XCTestCase {
         let tag = Tag(prefix: "ios")
         expect(user.tags).to(equal([tag]))
         
-        expect(user.customFields[0].value).to(equal("Medina"))
-        expect(user.customFields[1].value).to(equal("Judith"))
+        let surname = user.customFields.first(where: { $0.key ==  "surname" })
+        let name = user.customFields.first(where: { $0.key ==  "name" })
+        
+        
+        expect(name!.value).to(equal("Judith"))
+        expect(surname).notTo(beNil())
+        expect(surname!.value).to(equal("Medina"))
+        expect(name).notTo(beNil())
     }
     
     func test_userParams_whenCRMIdIsNil_returnNil() {

@@ -43,6 +43,8 @@ extension Trigger {
             return "background"
         case .inactive:
             return "inactive"
+        @unknown default:
+            return "unknown state"
     }
     }
 }
