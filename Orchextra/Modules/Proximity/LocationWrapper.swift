@@ -73,6 +73,8 @@ class LocationWrapper: NSObject, LocationInput {
         case .notDetermined:
             self.locationManager.requestAlwaysAuthorization()
             return false
+        @unknown default:
+            return false
         }
     }
     

@@ -1878,7 +1878,7 @@
 			};
 			buildConfigurationList = A9C54D911F41A6F100DF2074 /* Build configuration list for PBXProject "Orchextra" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -2293,7 +2293,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
 				SRC_ROOT = "@\\\"$(SRCROOT)\\\"";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/${TARGET_NAME}/${TARGET_NAME}-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = OrchextraApp;
 			};
@@ -2325,7 +2325,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/${TARGET_NAME}/${TARGET_NAME}-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = OrchextraApp;
 			};
@@ -2476,7 +2476,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2506,7 +2506,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2530,7 +2530,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "OrchextraTests/OrchextraTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchextraApp.app/OrchextraApp";
 			};
 			name = Debug;
@@ -2553,7 +2553,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "OrchextraTests/OrchextraTests-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrchextraApp.app/OrchextraApp";
 			};
 			name = Release;
@@ -2578,7 +2578,7 @@
 				PROVISIONING_PROFILE = "f6841f4f-c7c8-44a9-91f3-3d32bcd4eefc";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Development;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2603,7 +2603,7 @@
 				PROVISIONING_PROFILE = "1f6ea78e-ce60-40d4-9811-c19e70f0ea11";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard_Universal;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

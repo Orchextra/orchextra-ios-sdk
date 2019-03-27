@@ -60,7 +60,7 @@ struct StorageProximity: StorageProximityInput {
     
     func findElement(code: String) -> RegionModelOrx? {
         if let geofences = self.decode() {
-            if let i = geofences.index(where: { $0.code == code }) {
+            if let i = geofences.firstIndex(where: { $0.code == code }) {
                 return geofences[i]
             }
         }
@@ -92,7 +92,7 @@ struct StorageProximity: StorageProximityInput {
     }
     
     private func findIndex(region: RegionModelOrx, regionsOrx: [RegionModelOrx]) -> Int? {
-        if let i = regionsOrx.index(where: { $0.code == region.code }) {
+        if let i = regionsOrx.firstIndex(where: { $0.code == region.code }) {
             return i
         }
         return nil
